@@ -158,6 +158,7 @@
     <Compile Include="Api\VoucherEntryCodeApi.cs" />
     <Compile Include="Api\WarehouseApi.cs" />
     <Compile Include="Api\WorkClassCompensationCodeApi.cs" />
+    <Compile Include="EndpointHelper.cs" />
     <Compile Include="Model\AcceptInvitationEvent.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountByPeriodInquiry.cs" />

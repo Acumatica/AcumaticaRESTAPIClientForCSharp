@@ -13,11 +13,9 @@ namespace Acumatica_REST_API_Console_Application
 {
 	class Program
 	{
-		const string SiteURL = "...";
-		const string EndpointName = "Default";
-		const string EndpointVersion = "18.200.001";
+		const string SiteURL = "http://example.com/";
 		const string Username = "admin";
-		const string Password = "...";
+		const string Password = "123";
 		const string Tenant = null;
 
 		static void Main(string[] args)
@@ -27,13 +25,13 @@ namespace Acumatica_REST_API_Console_Application
 			authApi.Configuration.ApiClient.RestClient.CookieContainer = cookieContainer;
 			try
 			{
-				authApi.AuthLogin(new Credentials(Username, Password, Tenant));
-				Console.WriteLine("Logged In...");
-				Configuration.Default = authApi.Configuration;
-				Configuration.Default.BasePath = SiteURL + "entity/" + EndpointName + "/" + EndpointVersion + "/";
+				LogIn(authApi); 
+
 				var soApi = new SalesOrderApi();
-				Console.WriteLine("Readin Sales Orders...");
+				Console.WriteLine("Reading Sales Orders...");
+
 				var soOrders = soApi.SalesOrderGetList(top: 5);
+
 				foreach (var order in soOrders)
 				{
 					Console.WriteLine("Order Type: " + order.OrderType.Value + "; Order Number: " + order.OrderNbr.Value);
@@ -45,11 +43,21 @@ namespace Acumatica_REST_API_Console_Application
 			}
 			finally
 			{
-				authApi.Configuration.BasePath = SiteURL;
-				authApi.AuthLogout();
+				//we use logout in finally block because we need to always logut, even if the request failed for some reason
+				authApi.AuthLogout(); 
 				Console.WriteLine("Logged Out...");
 			}
 			Console.ReadLine();
+		}
+
+		private static void LogIn(AuthApi authApi)
+		{
+			authApi.AuthLogin(new Credentials(Username, Password, Tenant));
+			Console.WriteLine("Logged In...");
+			Configuration.Default = new Configuration(Default._18._200._001.EndpointHelper.CombineEndpointURL(SiteURL));
+
+			//share cookie container between API clients because we use different client for authentication and interaction with endpoint
+			Configuration.Default.ApiClient.RestClient.CookieContainer = authApi.Configuration.ApiClient.RestClient.CookieContainer;
 		}
 	}
 }
