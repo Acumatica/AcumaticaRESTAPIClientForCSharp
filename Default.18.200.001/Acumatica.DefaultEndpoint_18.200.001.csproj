@@ -88,6 +88,7 @@
     <Compile Include="Api\EmailApi.cs" />
     <Compile Include="Api\EmailProcessingApi.cs" />
     <Compile Include="Api\EmployeeApi.cs" />
+    <Compile Include="Api\EntityAPI.cs" />
     <Compile Include="Api\EventApi.cs" />
     <Compile Include="Api\ExpenseClaimApi.cs" />
     <Compile Include="Api\ExpenseReceiptApi.cs" />
