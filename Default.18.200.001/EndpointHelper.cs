@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Default._18._200._001
+namespace DefaultEndpoint_18_200_001
 {
 	public static class EndpointHelper
 	{

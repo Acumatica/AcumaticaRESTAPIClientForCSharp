@@ -14,9 +14,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using Acumatica.RESTClient.Client;
-using Acumatica.DefaultEndpoint.Model;
+using Acumatica.DefaultEndpoint_18_200_001.Model;
 
-namespace Acumatica.DefaultEndpoint.Api
+namespace Acumatica.DefaultEndpoint_18_200_001.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints

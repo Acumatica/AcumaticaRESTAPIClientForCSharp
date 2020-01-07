@@ -22,7 +22,7 @@ using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Acumatica.RESTClient.Client.OpenAPIDateConverter;
 
-namespace Acumatica.DefaultEndpoint.Model
+namespace Acumatica.DefaultEndpoint_18_200_001.Model
 {
     /// <summary>
     /// ExpenseClaimAPDocument

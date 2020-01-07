@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.Auth", "Acumatica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient", "Acumatica.RESTClient\Acumatica.RESTClient.csproj", "{25008D3F-3D78-4BB9-B14B-0A792AE97892}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default.18.200.001", "Default.18.200.001\Default.18.200.001.csproj", "{B26A386B-F5DA-4679-ACBA-1541251B696B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.DefaultEndpoint_18.200.001", "Default.18.200.001\Acumatica.DefaultEndpoint_18.200.001.csproj", "{B26A386B-F5DA-4679-ACBA-1541251B696B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
