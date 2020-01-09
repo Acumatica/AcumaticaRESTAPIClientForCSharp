@@ -6,7 +6,7 @@ The solution contains following projects:
 2. Acumatica.Auth - the project contains REST API Endpoint client for logging in to Acumatica ERP
 3. Acumatica.DefaultEndpoint_18.200.001 - the project contains REST API Endpoint client for Default Endpoint version 18.200.001
 4. Acumatica.RESTClient - the project contains base classes needed for Acumatica.Auth and Acumatica.DefaultEndpoint_18.200.001 clients
-5. SOAPLikeWrapperForDeafultEndpoint_18.200.001 - the project contains wrapper that can be used to migrate a code that have originally been for SOAP API to REST API
+5. SOAPLikeWrapperForDeafultEndpoint_18.200.001 - the project contains wrapper that can be used to migrate a code that has originally been written for SOAP API to REST API
 
 Required Nuget Pacakges:
 https://www.nuget.org/packages/RestSharp/106.10.0
