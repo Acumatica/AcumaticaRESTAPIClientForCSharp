@@ -28,7 +28,7 @@ namespace Acumatica.DefaultEndpoint_18_200_001.Model
     /// Entity
     /// </summary>
     [DataContract]
-    public partial class Entity :  IEquatable<Entity>, IValidatableObject
+    public abstract class Entity :  IEquatable<Entity>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Entity" /> class.
