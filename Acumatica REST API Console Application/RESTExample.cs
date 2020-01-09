@@ -1,6 +1,7 @@
 ﻿using Acumatica.Auth.Api;
 using Acumatica.Auth.Model;
 using Acumatica.DefaultEndpoint_18_200_001.Api;
+using Acumatica.DefaultEndpoint_18_200_001.Model;
 using Acumatica.RESTClient.Client;
 using System;
 using System.Collections.Generic;
@@ -22,15 +23,20 @@ namespace AcumaticaRestApiExample
 			{
 				LogIn(authApi, siteURL, username, password, tenant, branch, locale);
 
-				var soApi = new SalesOrderApi();
-				Console.WriteLine("Reading Sales Orders...");
+				var accountApi = new AccountApi();
+				Console.WriteLine("Reading Accounts...");
 
-				var soOrders = soApi.SalesOrderGetList(top: 5);
+				var accounts = accountApi.GetList(top: 5);
 
-				foreach (var order in soOrders)
+				foreach (var order in accounts)
 				{
-					Console.WriteLine("Order Type: " + order.OrderType.Value + "; Order Number: " + order.OrderNbr.Value);
+					Console.WriteLine("Account Nbr: " + order.AccountCD.Value + ";");
 				}
+
+				Console.WriteLine("ConfirmShipment");
+				var shipmentApi = new ShipmentApi();
+				var shipment= shipmentApi.GetByKeys(new List<string>() { "002805" });
+				shipmentApi.InvokeAction(new ConfirmShipment(shipment));
 			}
 			catch (Exception e)
 			{
