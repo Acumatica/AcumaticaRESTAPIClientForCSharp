@@ -11,7 +11,7 @@ namespace Acumatica.DefaultEndpoint_18_200_001.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public abstract class EntityAPI<EntityType> : IApiAccessor
+    public class EntityAPI<EntityType> : IApiAccessor
         where EntityType : Entity
     {
         protected virtual string GetEntityName()
@@ -49,10 +49,10 @@ namespace Acumatica.DefaultEndpoint_18_200_001.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public EntityAPI(Configuration configuration = null)
+        public EntityAPI(Configuration configuration)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration =Configuration.Default;
+                this.Configuration = Configuration.Default;
             else
                 this.Configuration = configuration;
 
@@ -1262,6 +1262,156 @@ namespace Acumatica.DefaultEndpoint_18_200_001.Api
             }
 
             return GetResponseHeaders(localVarResponse, localVarStatusCode);
+        }
+        /// <summary>
+        /// Performs an action in the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
+        /// <returns></returns>
+        public void InvokeAction(EntityAction<EntityType> action)
+        {
+            InvokeActionWithHttpInfo(action);
+        }
+
+        /// <summary>
+        /// Performs an action in the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> InvokeActionWithHttpInfo(EntityAction<EntityType> action)
+        {
+            // verify the required parameter 'action' is set
+            if (action == null)
+                ThrowMissingParameter("InvokeAction", nameof(action));
+
+            var localVarPath = "/" + GetEntityName() + "/" + action.GetType().Name;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (action != null && action.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(action); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = action; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InvokeAction", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Performs an action in the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task InvokeActionAsync(EntityAction<EntityType> action)
+        {
+            await InvokeActionAsyncWithHttpInfo(action);
+
+        }
+
+        /// <summary>
+        /// Performs an action in the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> InvokeActionAsyncWithHttpInfo(EntityAction<EntityType> action)
+        {
+            // verify the required parameter 'action' is set
+            if (action == null)
+                ThrowMissingParameter("InvokeAction", nameof(action));
+
+            var localVarPath = "/" + GetEntityName() + "/" + action.GetType().Name;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (action != null && action.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(action); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = action; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InvokeAction", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
     }
 }

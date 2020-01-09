@@ -251,6 +251,7 @@
     <Compile Include="Model\CheckHistoryDetail.cs" />
     <Compile Include="Model\CheckLeadForDuplicates.cs" />
     <Compile Include="Model\ClaimExpenseReceipt.cs" />
+    <Compile Include="Model\EntityAction.cs" />
     <Compile Include="Model\CloseContactAsDuplicate.cs" />
     <Compile Include="Model\CloseLeadAsDuplicate.cs" />
     <Compile Include="Model\Commissions.cs" />
