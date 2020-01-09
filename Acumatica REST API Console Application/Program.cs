@@ -22,7 +22,10 @@ namespace AcumaticaRestApiExample
 
 		static void Main(string[] args)
 		{
-			Console.WriteLine("REST API example (reading Sales Order)");
+			Console.WriteLine("SOAP-like example (reading Shipment)");
+			SOAPLikeExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
+
+			Console.WriteLine("REST API example (reading Account), Confirming Shipment");
 			RESTExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
 		}
 

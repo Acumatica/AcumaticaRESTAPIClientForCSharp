@@ -1,7 +1,7 @@
 ﻿using Acumatica.Auth.Api;
 using Acumatica.Auth.Model;
-using Acumatica.DefaultEndpoint.Api;
-using Acumatica.DefaultEndpoint.Model;
+using Acumatica.DefaultEndpoint_18_200_001.Api;
+using Acumatica.DefaultEndpoint_18_200_001.Model;
 using Acumatica.RESTClient.Client;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOAPLikeWrapper
+namespace SOAPLikeWrapperForDeafultEndpoint_18_200_001
 {
     public class RESTClient
     {
@@ -20,7 +20,7 @@ namespace SOAPLikeWrapper
         public RESTClient(string siteURL)
         {
             AuthorizationApi = new AuthApi(siteURL);
-            CurrentConfiguration = new Configuration(Default._18._200._001.EndpointHelper.CombineEndpointURL(siteURL));
+            CurrentConfiguration = new Configuration(DefaultEndpoint_18_200_001.EndpointHelper.CombineEndpointURL(siteURL));
         }
 
         public void Login(string username, string password, string tenant = null, string branch = null, string locale = null)
@@ -36,13 +36,13 @@ namespace SOAPLikeWrapper
         {
             AuthorizationApi.AuthLogout();
         }
-
+        [Obsolete]
         public Entity Get(Entity entity)
         {
             ShipmentApi api = new ShipmentApi(CurrentConfiguration);
             var keys = new List<string>();
             keys.Add(((Shipment)entity).ShipmentNbr.Value);
-            return api.ShipmentGetByKeys(keys);
+            return api.GetByKeys(keys);
         }
     }
 }
