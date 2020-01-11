@@ -238,7 +238,7 @@ namespace Acumatica.RESTClient.Client
                 foreach (var param in (IList)obj)
                 {
                     if (flattenedString.Length > 0)
-                        flattenedString.Append(",");
+                        flattenedString.Append("/");
                     flattenedString.Append(param);
                 }
                 return flattenedString.ToString();
