@@ -47,7 +47,6 @@ namespace AcumaticaRestApiExample
                 Console.WriteLine("Logged Out");
             }
 
-            Console.ReadLine();
         }
     }
 }

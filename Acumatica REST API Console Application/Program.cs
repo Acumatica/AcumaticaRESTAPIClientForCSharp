@@ -13,7 +13,7 @@ namespace AcumaticaRestApiExample
 {
 	class Program
 	{
-		const string SiteURL = "http://localhost/AcumaticaERP/";
+		const string SiteURL = "http://localhost/demo/";
 		const string Username = "admin";
 		const string Password = "123";
 		const string Tenant = null;
@@ -22,11 +22,13 @@ namespace AcumaticaRestApiExample
 
 		static void Main(string[] args)
 		{
-			Console.WriteLine("SOAP-like example (reading Shipment)");
+			Console.WriteLine("SOAP-like example");
 			SOAPLikeExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
 
-			Console.WriteLine("REST API example (reading Account), Confirming Shipment");
+			Console.WriteLine("REST API example");
 			RESTExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
+
+			Console.ReadLine();
 		}
 
 	}

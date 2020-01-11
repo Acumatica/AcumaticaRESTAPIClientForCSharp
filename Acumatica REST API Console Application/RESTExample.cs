@@ -23,19 +23,28 @@ namespace AcumaticaRestApiExample
 			{
 				LogIn(authApi, siteURL, username, password, tenant, branch, locale);
 
-				var accountApi = new AccountApi();
+
 				Console.WriteLine("Reading Accounts...");
-
+				var accountApi = new AccountApi();
 				var accounts = accountApi.GetList(top: 5);
-
-				foreach (var order in accounts)
+				foreach (var account in accounts)
 				{
-					Console.WriteLine("Account Nbr: " + order.AccountCD.Value + ";");
+					Console.WriteLine("Account Nbr: " + account.AccountCD.Value + ";");
 				}
 
-				Console.WriteLine("ConfirmShipment");
+
+				Console.WriteLine("Reading Sales Order by Keys...");
+				var salesOrderApi = new SalesOrderApi();
+				var order = salesOrderApi.GetByKeys(new List<string>() { "SO", "SO005207" });
+				Console.WriteLine("Order Total: "+order.OrderTotal.Value);
+
+
 				var shipmentApi = new ShipmentApi();
 				var shipment= shipmentApi.GetByKeys(new List<string>() { "002805" });
+				Console.WriteLine("CorrectShipment");
+				shipmentApi.InvokeAction(new CorrectShipment(shipment));
+				//WaitCopletion();
+				Console.WriteLine("ConfirmShipment");
 				shipmentApi.InvokeAction(new ConfirmShipment(shipment));
 			}
 			catch (Exception e)
@@ -48,7 +57,6 @@ namespace AcumaticaRestApiExample
 				authApi.AuthLogout();
 				Console.WriteLine("Logged Out...");
 			}
-			Console.ReadLine();
 		}
 
 		private static void LogIn(AuthApi authApi, string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
