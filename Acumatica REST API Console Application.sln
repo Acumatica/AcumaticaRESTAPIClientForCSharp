@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient", "Acu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.DefaultEndpoint_18.200.001", "Default.18.200.001\Acumatica.DefaultEndpoint_18.200.001.csproj", "{B26A386B-F5DA-4679-ACBA-1541251B696B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPLikeWrapperForDeafultEndpoint_18.200.001", "SOAPLikeWrapperForDeafultEndpoint18.200.001\SOAPLikeWrapperForDeafultEndpoint_18.200.001.csproj", "{99541823-473A-46E8-AEC0-CE6250F00FE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPLikeWrapperForREST", "SOAPLikeWrapperForREST\SOAPLikeWrapperForREST.csproj", "{99541823-473A-46E8-AEC0-CE6250F00FE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

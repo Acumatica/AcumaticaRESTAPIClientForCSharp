@@ -1,10 +1,6 @@
 ﻿using Acumatica.DefaultEndpoint_18_200_001.Model;
-using SOAPLikeWrapperForDeafultEndpoint_18_200_001;
+using SOAPLikeWrapperForREST;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AcumaticaRestApiExample
 {

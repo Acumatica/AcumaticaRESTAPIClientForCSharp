@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using Acumatica.DefaultEndpoint_18_200_001.Model;
 
@@ -15,6 +15,11 @@ namespace Acumatica.DefaultEndpoint_18_200_001.Api
         }
         public ExpenseReceiptApi(Configuration configuration) : base(configuration)
         {
+        }
+
+        public string InvokeApproveExpenseReceiptAction(ExpenseReceipt expenseReceipt)
+        {
+            return InvokeAction(new ApproveExpenseReceipt(expenseReceipt));
         }
     }
 }

@@ -63,15 +63,42 @@ OpenAPI spec version: 3
     <Compile Include="Client\ApiException.cs" />
     <Compile Include="Client\ApiResponse.cs" />
     <Compile Include="Client\Configuration.cs" />
+    <Compile Include="Api\EntityAPI.cs" />
     <Compile Include="Client\ExceptionFactory.cs" />
     <Compile Include="Client\IApiAccessor.cs" />
     <Compile Include="Client\IReadableConfiguration.cs" />
     <Compile Include="Client\OpenAPIDateConverter.cs" />
+    <Compile Include="Model\Entity.cs" />
+    <Compile Include="Model\EntityAction.cs" />
+    <Compile Include="Model\FieldTypes\BooleanValue.cs" />
+    <Compile Include="Model\FieldTypes\ByteValue.cs" />
+    <Compile Include="Model\FieldTypes\CustomBooleanField.cs" />
+    <Compile Include="Model\FieldTypes\CustomByteField.cs" />
+    <Compile Include="Model\FieldTypes\CustomDateTimeField.cs" />
+    <Compile Include="Model\FieldTypes\CustomDecimalField.cs" />
+    <Compile Include="Model\FieldTypes\CustomDoubleField.cs" />
+    <Compile Include="Model\FieldTypes\CustomField.cs" />
+    <Compile Include="Model\FieldTypes\CustomGuidField.cs" />
+    <Compile Include="Model\FieldTypes\CustomIntField.cs" />
+    <Compile Include="Model\FieldTypes\CustomLongField.cs" />
+    <Compile Include="Model\FieldTypes\CustomShortField.cs" />
+    <Compile Include="Model\FieldTypes\CustomStringField.cs" />
+    <Compile Include="Model\FieldTypes\DateTimeValue.cs" />
+    <Compile Include="Model\FieldTypes\DecimalValue.cs" />
+    <Compile Include="Model\FieldTypes\DoubleValue.cs" />
+    <Compile Include="Model\FieldTypes\GuidValue.cs" />
+    <Compile Include="Model\FieldTypes\IntValue.cs" />
+    <Compile Include="Model\FieldTypes\LongValue.cs" />
+    <Compile Include="Model\FieldTypes\ShortValue.cs" />
+    <Compile Include="Model\FieldTypes\StringValue.cs" />
+    <Compile Include="Model\FileLink.cs" />
+    <Compile Include="Model\HttpError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

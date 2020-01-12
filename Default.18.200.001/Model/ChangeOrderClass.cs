@@ -20,7 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = Acumatica.RESTClient.Client.OpenAPIDateConverter;
+using Acumatica.RESTClient.Model;
 
 namespace Acumatica.DefaultEndpoint_18_200_001.Model
 {

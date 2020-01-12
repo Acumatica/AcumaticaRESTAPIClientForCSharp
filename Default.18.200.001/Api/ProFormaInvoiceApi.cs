@@ -5,6 +5,7 @@ using System.Linq;
 using RestSharp;
 using Acumatica.RESTClient.Client;
 using Acumatica.DefaultEndpoint_18_200_001.Model;
+using Acumatica.RESTClient.Api;
 
 namespace Acumatica.DefaultEndpoint_18_200_001.Api
 {
@@ -15,6 +16,10 @@ namespace Acumatica.DefaultEndpoint_18_200_001.Api
         }
         public ProFormaInvoiceApi(Configuration configuration) : base(configuration)
         {
+        }
+        public string InvokeApproveProFormaInvoiceAction(ProFormaInvoice proFormaInvoice)
+        {
+            return InvokeAction(new ApproveProFormaInvoice(proFormaInvoice));
         }
     }
 }
