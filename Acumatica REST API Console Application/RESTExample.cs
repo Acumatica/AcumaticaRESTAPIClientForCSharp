@@ -41,11 +41,11 @@ namespace AcumaticaRestApiExample
 
 				var shipmentApi = new ShipmentApi();
 				var shipment= shipmentApi.GetByKeys(new List<string>() { "002805" });
-				Console.WriteLine("CorrectShipment");
-				shipmentApi.InvokeAction(new CorrectShipment(shipment));
-				//WaitCopletion();
 				Console.WriteLine("ConfirmShipment");
-				shipmentApi.InvokeAction(new ConfirmShipment(shipment));
+				shipmentApi.WaitActionCompletion(shipmentApi.InvokeAction(new ConfirmShipment(shipment)));
+
+				Console.WriteLine("CorrectShipment");
+				shipmentApi.WaitActionCompletion(shipmentApi.InvokeAction(new CorrectShipment(shipment)));
 			}
 			catch (Exception e)
 			{

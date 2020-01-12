@@ -5,6 +5,7 @@ using System.Linq;
 using RestSharp;
 using Acumatica.RESTClient.Client;
 using Acumatica.DefaultEndpoint_18_200_001.Model;
+using System.Threading;
 
 namespace Acumatica.DefaultEndpoint_18_200_001.Api
 {
@@ -1269,9 +1270,10 @@ namespace Acumatica.DefaultEndpoint_18_200_001.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
         /// <returns></returns>
-        public void InvokeAction(EntityAction<EntityType> action)
+        public string InvokeAction(EntityAction<EntityType> action)
         {
-            InvokeActionWithHttpInfo(action);
+            var result = InvokeActionWithHttpInfo(action);
+            return result.Headers["Location"];
         }
 
         /// <summary>
@@ -1412,6 +1414,95 @@ namespace Acumatica.DefaultEndpoint_18_200_001.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+    
+        public void WaitActionCompletion(string invokeResult)
+        {
+            while (true)
+            {
+                var processResult = GetProcessStatus(invokeResult);
+
+                switch (processResult)
+                {
+                    case 204: 
+                        return;
+                    case 202:
+                        Thread.Sleep(1000);
+                        continue;
+                    default:
+                        throw new InvalidOperationException();
+                }
+            }
+        }
+        private struct Location
+        {
+            public string Site;
+            public string Entity;
+            public string EndpointName;
+            public string EndpointVersion;
+            public string EntityName;
+            public string ActionName;
+            public string Status;
+            public string ID;
+        }
+        private Location ParseLocation(string location)
+        {
+            var result = new Location();
+           
+            var parts= location.Split(new char[] { '/' } , StringSplitOptions.RemoveEmptyEntries);
+            result.Site = parts[0];
+            result.Entity = parts[1];
+            result.EndpointName = parts[2];
+            result.EndpointVersion = parts[3];
+            result.EntityName = parts[4];
+            result.ActionName = parts[5];
+            result.Status = parts[6];
+            result.ID = parts[7];
+            return result;
+        }
+
+        public int GetProcessStatus(string invokeResult)
+        {
+            if (invokeResult == null)
+                ThrowMissingParameter("GetById", nameof(invokeResult));
+
+            var parsedLocation = ParseLocation(invokeResult);
+            var localVarPath = "/" + parsedLocation.EntityName + "/" + parsedLocation.ActionName + "/" + parsedLocation.Status + "/" + parsedLocation.ID;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+             
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetById", localVarResponse);
+                if (exception != null) throw exception;
+            }
+            return localVarStatusCode;
         }
     }
 }
