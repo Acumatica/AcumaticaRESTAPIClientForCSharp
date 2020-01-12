@@ -1,15 +1,16 @@
+
 using Acumatica.RESTClient.Model;
 using System.Runtime.Serialization;
 
 namespace Acumatica.DefaultEndpoint_18_200_001.Model
 {
-    [DataContract]
-    public partial class CancelActivityEvent : EntityAction<Event>
+[DataContract]
+ public partial class CancelActivityEvent : EntityAction<Event>
     {
-        public CancelActivityEvent(Event entity) : base(entity)
+ public CancelActivityEvent(Event entity) : base(entity)
         { }
 
-        [DataMember(Name = "entity", EmitDefaultValue = false)]
+[DataMember(Name = "entity", EmitDefaultValue = false)]
         public Event Entity
         {
             get

@@ -1,15 +1,16 @@
+
 using Acumatica.RESTClient.Model;
 using System.Runtime.Serialization;
 
 namespace Acumatica.DefaultEndpoint_18_200_001.Model
 {
-    [DataContract]
-    public partial class ArchiveEmail : EntityAction<Email>
+[DataContract]
+ public partial class ArchiveEmail : EntityAction<Email>
     {
-        public ArchiveEmail(Email entity) : base(entity)
+ public ArchiveEmail(Email entity) : base(entity)
         { }
 
-        [DataMember(Name = "entity", EmitDefaultValue = false)]
+[DataMember(Name = "entity", EmitDefaultValue = false)]
         public Email Entity
         {
             get
