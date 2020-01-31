@@ -23,7 +23,7 @@ using System.ComponentModel.DataAnnotations;
 using Acumatica.RESTClient.Model;
 using Acumatica.RESTClient.Model;
 
-namespace Acumatica.DefaultEndpoint_18_200_001.Model
+namespace Acumatica.Default_18_200_001.Model
 {
     /// <summary>
     /// AdjustmentDetail

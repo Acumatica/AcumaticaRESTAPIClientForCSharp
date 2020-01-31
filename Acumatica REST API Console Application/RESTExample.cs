@@ -1,7 +1,7 @@
 ﻿using Acumatica.Auth.Api;
 using Acumatica.Auth.Model;
-using Acumatica.DefaultEndpoint_18_200_001.Api;
-using Acumatica.DefaultEndpoint_18_200_001.Model;
+using Acumatica.Default_18_200_001.Api;
+using Acumatica.Default_18_200_001.Model;
 using Acumatica.RESTClient.Client;
 using System;
 using System.Collections.Generic;

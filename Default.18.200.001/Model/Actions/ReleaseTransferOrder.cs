@@ -2,7 +2,7 @@
 using Acumatica.RESTClient.Model;
 using System.Runtime.Serialization;
 
-namespace Acumatica.DefaultEndpoint_18_200_001.Model
+namespace Acumatica.Default_18_200_001.Model
 {
 [DataContract]
  public partial class ReleaseTransferOrder : EntityAction<TransferOrder>

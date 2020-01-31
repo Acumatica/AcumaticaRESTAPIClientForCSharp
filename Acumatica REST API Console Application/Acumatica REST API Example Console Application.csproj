@@ -65,9 +65,9 @@
       <Project>{25008d3f-3d78-4bb9-b14b-0a792ae97892}</Project>
       <Name>Acumatica.RESTClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Default.18.200.001\Acumatica.DefaultEndpoint_18.200.001.csproj">
+    <ProjectReference Include="..\Default.18.200.001\Acumatica.Default_18.200.001.csproj">
       <Project>{B26A386B-F5DA-4679-ACBA-1541251B696B}</Project>
-      <Name>Acumatica.DefaultEndpoint_18.200.001</Name>
+      <Name>Acumatica.Default_18.200.001</Name>
     </ProjectReference>
     <ProjectReference Include="..\SOAPLikeWrapperForREST\SOAPLikeWrapperForREST.csproj">
       <Project>{99541823-473a-46e8-aec0-ce6250f00fe8}</Project>

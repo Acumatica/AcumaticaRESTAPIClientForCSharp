@@ -1,4 +1,4 @@
-﻿using Acumatica.DefaultEndpoint_18_200_001.Model;
+﻿using Acumatica.Default_18_200_001.Model;
 using SOAPLikeWrapperForREST;
 using System;
 

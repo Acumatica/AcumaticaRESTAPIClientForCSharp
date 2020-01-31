@@ -9,11 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.Auth", "Acumatica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient", "Acumatica.RESTClient\Acumatica.RESTClient.csproj", "{25008D3F-3D78-4BB9-B14B-0A792AE97892}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.DefaultEndpoint_18.200.001", "Default.18.200.001\Acumatica.DefaultEndpoint_18.200.001.csproj", "{B26A386B-F5DA-4679-ACBA-1541251B696B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.Default_18.200.001", "Default.18.200.001\Acumatica.Default_18.200.001.csproj", "{B26A386B-F5DA-4679-ACBA-1541251B696B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPLikeWrapperForREST", "SOAPLikeWrapperForREST\SOAPLikeWrapperForREST.csproj", "{99541823-473A-46E8-AEC0-CE6250F00FE8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoints", "Endpoints", "{F0B2BD45-79AE-43AF-B737-3018CD95C6E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.DeviceHub_17.200.001", "Acumatica.DeviceHub_17.200.001\Acumatica.DeviceHub_17.200.001.csproj", "{4FDDE01D-C802-4E52-9458-B614B1C8EFAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{99541823-473A-46E8-AEC0-CE6250F00FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99541823-473A-46E8-AEC0-CE6250F00FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99541823-473A-46E8-AEC0-CE6250F00FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FDDE01D-C802-4E52-9458-B614B1C8EFAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FDDE01D-C802-4E52-9458-B614B1C8EFAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FDDE01D-C802-4E52-9458-B614B1C8EFAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FDDE01D-C802-4E52-9458-B614B1C8EFAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5B17772D-1F76-4A4B-A3F7-8C8CFFA93E29} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 		{B26A386B-F5DA-4679-ACBA-1541251B696B} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
+		{4FDDE01D-C802-4E52-9458-B614B1C8EFAB} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3A45447-0EDA-45D2-94CE-C3BFFBFE2717}
