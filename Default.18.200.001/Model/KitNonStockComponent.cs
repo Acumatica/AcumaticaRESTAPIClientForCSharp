@@ -21,7 +21,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
 using Acumatica.RESTClient.Model;
-using Acumatica.RESTClient.Model;
 
 namespace Acumatica.Default_18_200_001.Model
 {
