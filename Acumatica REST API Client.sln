@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.DefaultEndpoint_1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPLikeWrapperForREST", "SOAPLikeWrapperForREST\SOAPLikeWrapperForREST.csproj", "{99541823-473A-46E8-AEC0-CE6250F00FE8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoints", "Endpoints", "{F0B2BD45-79AE-43AF-B737-3018CD95C6E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B17772D-1F76-4A4B-A3F7-8C8CFFA93E29} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
+		{B26A386B-F5DA-4679-ACBA-1541251B696B} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3A45447-0EDA-45D2-94CE-C3BFFBFE2717}
