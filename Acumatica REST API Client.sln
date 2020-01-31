@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica REST API Console Application", "Acumatica REST API Console Application\Acumatica REST API Console Application.csproj", "{201508E8-B057-4EFB-AD9D-74C777339C42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica REST API Example Console Application", "Acumatica REST API Console Application\Acumatica REST API Example Console Application.csproj", "{201508E8-B057-4EFB-AD9D-74C777339C42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.Auth", "Acumatica.Auth\Acumatica.Auth.csproj", "{5B17772D-1F76-4A4B-A3F7-8C8CFFA93E29}"
 EndProject
