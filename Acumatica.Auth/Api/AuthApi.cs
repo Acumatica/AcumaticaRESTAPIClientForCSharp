@@ -15,16 +15,15 @@ using System.Linq;
 using RestSharp;
 using Acumatica.RESTClient.Client;
 using Acumatica.Auth.Model;
+using Acumatica.RESTClient.Api;
 
 namespace Acumatica.Auth.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class AuthApi
+    public partial class AuthApi : BaseApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthApi"/> class.
         /// </summary>
@@ -52,36 +51,6 @@ namespace Acumatica.Auth.Api
             ExceptionFactory = Configuration.DefaultExceptionFactory;
         }
 
-        /// <summary>
-        /// Gets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        public String GetBasePath()
-        {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
-        }
-
-        /// <summary>
-        /// Gets or sets the configuration object
-        /// </summary>
-        /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
-
-        /// <summary>
-        /// Provides a factory method hook for the creation of exceptions.
-        /// </summary>
-        public ExceptionFactory ExceptionFactory
-        {
-            get
-            {
-                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
-                {
-                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
-                }
-                return _exceptionFactory;
-            }
-            set { _exceptionFactory = value; }
-        }
 
         /// <summary>
         /// Logs in to the system. 

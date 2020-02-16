@@ -12,7 +12,7 @@ namespace Acumatica.RESTClient.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public abstract class EntityAPI<EntityType> : IApiAccessor
+    public abstract class EntityAPI<EntityType> : BaseApi
         where EntityType : Entity
     {
         #region Constructor
@@ -330,38 +330,6 @@ namespace Acumatica.RESTClient.Api
         #endregion
 
         #region Implementation
-        /// <summary>
-        /// Gets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        public String GetBasePath()
-        {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
-        }
-
-        /// <summary>
-        /// Gets or sets the configuration object
-        /// </summary>
-        /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
-
-        /// <summary>
-        /// Provides a factory method hook for the creation of exceptions.
-        /// </summary>
-        public ExceptionFactory ExceptionFactory
-        {
-            get
-            {
-                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
-                {
-                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
-                }
-                return _exceptionFactory;
-            }
-            set { _exceptionFactory = value; }
-        }
-
-
         private struct Location
         {
             public string Site;
@@ -1404,11 +1372,6 @@ namespace Acumatica.RESTClient.Api
             return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
 
-        private static void ThrowMissingParameter(string methodName, string paramName)
-        {
-            throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");
-        }
-
         /// <summary>
         /// Deletes the record by its session identifier. 
         /// </summary>
@@ -1462,7 +1425,6 @@ namespace Acumatica.RESTClient.Api
         }
 
 
-        protected ExceptionFactory _exceptionFactory = (name, response) => null;
         /// <summary>
         /// Deletes the record by its session identifier. 
         /// </summary>
