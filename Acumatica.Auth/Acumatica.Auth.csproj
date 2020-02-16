@@ -60,7 +60,11 @@ OpenAPI spec version: 1
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AuthApi.cs" />
+    <Compile Include="Api\RootApi.cs" />
     <Compile Include="Model\Credentials.cs" />
+    <Compile Include="Model\Endpoint.cs" />
+    <Compile Include="Model\Version.cs" />
+    <Compile Include="Model\VersionAndEndpoints.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
