@@ -142,7 +142,21 @@ namespace Acumatica.RESTClient.Api
             }
             set { _exceptionFactory = value; }
         }
+        protected object ComposeBody(object credentials)
+        {
+            object localVarPostBody = null;
 
+            if (credentials != null && credentials.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(credentials); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = credentials; // byte array
+            }
+
+            return localVarPostBody;
+        }
         protected void ThrowMissingParameter(string methodName, string paramName)
         {
             throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");

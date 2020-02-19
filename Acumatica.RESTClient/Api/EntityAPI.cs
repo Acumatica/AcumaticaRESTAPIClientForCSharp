@@ -491,21 +491,10 @@ namespace Acumatica.RESTClient.Api
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (action != null && action.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(action); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = action; // byte array
-            }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
@@ -540,21 +529,10 @@ namespace Acumatica.RESTClient.Api
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (action != null && action.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(action); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = action; // byte array
-            }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
@@ -592,25 +570,16 @@ namespace Acumatica.RESTClient.Api
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
 
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
             if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-            if (entity != null && entity.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(entity); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = entity; // byte array
-            }
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                Method.PUT, localVarQueryParams, ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
@@ -882,25 +851,15 @@ namespace Acumatica.RESTClient.Api
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
 
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
             if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-            if (entity != null && entity.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(entity); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = entity; // byte array
-            }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                Method.PUT, localVarQueryParams, ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;

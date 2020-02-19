@@ -106,21 +106,10 @@ namespace Acumatica.Auth.Api
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (credentials != null && credentials.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(credentials); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = credentials; // byte array
-            }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.None), localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
@@ -135,7 +124,6 @@ namespace Acumatica.Auth.Api
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
-
 
         /// <summary>
         /// Logs in to the system. 
@@ -154,21 +142,10 @@ namespace Acumatica.Auth.Api
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (credentials != null && credentials.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(credentials); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = credentials; // byte array
-            }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.None), localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
@@ -199,7 +176,6 @@ namespace Acumatica.Auth.Api
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
