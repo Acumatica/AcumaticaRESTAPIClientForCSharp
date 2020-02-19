@@ -157,8 +157,10 @@ namespace Acumatica.RESTClient.Api
 
             return localVarPostBody;
         }
-        protected ApiResponse<T> DeserializeResponseGeneric<T>(IRestResponse localVarResponse, int localVarStatusCode)
+        protected ApiResponse<T> DeserializeResponse<T>(IRestResponse localVarResponse)
         {
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
             return new ApiResponse<T>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (T)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(T)));

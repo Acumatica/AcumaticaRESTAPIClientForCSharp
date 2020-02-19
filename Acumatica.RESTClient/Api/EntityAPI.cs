@@ -582,15 +582,13 @@ namespace Acumatica.RESTClient.Api
                 Method.PUT, localVarQueryParams, ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PutEntity", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<EntityType>(localVarResponse);
         }
 
         /// <summary>
@@ -629,15 +627,13 @@ namespace Acumatica.RESTClient.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetByKeys", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<EntityType>(localVarResponse);
         }
 
         /// <summary>
@@ -674,15 +670,13 @@ namespace Acumatica.RESTClient.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetList", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<List<EntityType>>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<List<EntityType>>(localVarResponse);
         }
 
         /// <summary>
@@ -720,15 +714,13 @@ namespace Acumatica.RESTClient.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetByKeys", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<EntityType>(localVarResponse);
         }
 
         /// <summary>
@@ -765,14 +757,12 @@ namespace Acumatica.RESTClient.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetList", localVarResponse);
                 if (exception != null) throw exception;
             }
-            return DeserializeResponseGeneric<List<EntityType>>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<List<EntityType>>(localVarResponse);
         }
 
         /// <summary>
@@ -810,15 +800,13 @@ namespace Acumatica.RESTClient.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetById", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<EntityType>(localVarResponse);
         }
 
         /// <summary>
@@ -853,15 +841,13 @@ namespace Acumatica.RESTClient.Api
                 Method.PUT, localVarQueryParams, ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PutEntity", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<EntityType>(localVarResponse);
         }
 
         /// <summary>
@@ -899,15 +885,13 @@ namespace Acumatica.RESTClient.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetById", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<EntityType>(localVarResponse);
         }
 
         /// <summary>
@@ -929,14 +913,12 @@ namespace Acumatica.RESTClient.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetAdHocSchema", localVarResponse);
                 if (exception != null) throw exception;
             }
-            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<EntityType>(localVarResponse);
         }
 
         /// <summary>
@@ -959,15 +941,13 @@ namespace Acumatica.RESTClient.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetAdHocSchema", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<EntityType>(localVarResponse);
         }
 
         /// <summary>

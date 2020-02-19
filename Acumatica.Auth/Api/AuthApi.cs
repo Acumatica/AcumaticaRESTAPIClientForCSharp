@@ -157,7 +157,6 @@ namespace Acumatica.Auth.Api
             return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
 
-
         /// <summary>
         /// Logs out from the system. 
         /// </summary>
@@ -188,8 +187,6 @@ namespace Acumatica.Auth.Api
 
             return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
-
-
 
         /// <summary>
         /// Logs out from the system. 

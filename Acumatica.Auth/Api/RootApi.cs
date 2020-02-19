@@ -69,7 +69,6 @@ namespace Acumatica.Auth.Api
             return localVarResponse.Data;
 
         }
-
 		#endregion
 
 		#region Implementation
@@ -95,18 +94,14 @@ namespace Acumatica.Auth.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("RootGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<VersionAndEndpoints>(localVarResponse, localVarStatusCode);
+            return DeserializeResponse<VersionAndEndpoints>(localVarResponse);
         }
-
-
 
         /// <summary>
         /// Returns the version of the Acumatica ERP instance and the endpoints available in this instance. 
@@ -128,15 +123,13 @@ namespace Acumatica.Auth.Api
                 Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), localVarFormParams, localVarFileParams,
                 localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("RootGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponseGeneric<VersionAndEndpoints>(localVarResponse, localVarStatusCode); 
+            return DeserializeResponse<VersionAndEndpoints>(localVarResponse); 
         }
 		#endregion
 	}
