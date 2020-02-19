@@ -103,9 +103,7 @@ namespace Acumatica.Auth.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<VersionAndEndpoints>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (VersionAndEndpoints)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VersionAndEndpoints)));
+            return DeserializeResponseGeneric<VersionAndEndpoints>(localVarResponse, localVarStatusCode);
         }
 
 
@@ -118,7 +116,6 @@ namespace Acumatica.Auth.Api
         /// <returns>Task of ApiResponse (VersionAndEndpoints)</returns>
         protected async System.Threading.Tasks.Task<ApiResponse<VersionAndEndpoints>> RootGetAsyncWithHttpInfo()
         {
-
             var localVarPath = "/entity";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
@@ -139,9 +136,7 @@ namespace Acumatica.Auth.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<VersionAndEndpoints>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (VersionAndEndpoints)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VersionAndEndpoints)));
+            return DeserializeResponseGeneric<VersionAndEndpoints>(localVarResponse, localVarStatusCode); 
         }
 		#endregion
 	}

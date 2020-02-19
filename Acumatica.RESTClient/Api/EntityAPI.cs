@@ -357,6 +357,11 @@ namespace Acumatica.RESTClient.Api
             return result;
         }
 
+        protected virtual string GetEntityName()
+        {
+            return typeof(EntityType).Name;
+        }
+
         public int GetProcessStatus(string invokeResult)
         {
             if (invokeResult == null)
@@ -428,7 +433,6 @@ namespace Acumatica.RESTClient.Api
             return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
 
-
         /// <summary>
         /// Attaches a file to a record. 
         /// </summary>
@@ -472,8 +476,6 @@ namespace Acumatica.RESTClient.Api
             return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
 
-
-
         /// <summary>
         /// Performs an action in the system. 
         /// </summary>
@@ -509,8 +511,6 @@ namespace Acumatica.RESTClient.Api
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
-
-
 
         /// <summary>
         /// Performs an action in the system. 
@@ -590,9 +590,8 @@ namespace Acumatica.RESTClient.Api
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponse(localVarResponse, localVarStatusCode);
+            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
         }
-
 
         /// <summary>
         /// Retrieves a record by the values of its key fields from the system. 
@@ -638,7 +637,7 @@ namespace Acumatica.RESTClient.Api
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponse(localVarResponse, localVarStatusCode);
+            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
         }
 
         /// <summary>
@@ -683,7 +682,7 @@ namespace Acumatica.RESTClient.Api
                 if (exception != null) throw exception;
             }
 
-            return DeserializeListOfEntities(localVarResponse, localVarStatusCode);
+            return DeserializeResponseGeneric<List<EntityType>>(localVarResponse, localVarStatusCode);
         }
 
         /// <summary>
@@ -729,7 +728,7 @@ namespace Acumatica.RESTClient.Api
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponse(localVarResponse, localVarStatusCode);
+            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
         }
 
         /// <summary>
@@ -773,14 +772,7 @@ namespace Acumatica.RESTClient.Api
                 Exception exception = ExceptionFactory("GetList", localVarResponse);
                 if (exception != null) throw exception;
             }
-            return DeserializeListOfEntities(localVarResponse, localVarStatusCode);
-        }
-
-        private ApiResponse<List<EntityType>> DeserializeListOfEntities(IRestResponse localVarResponse, int localVarStatusCode)
-        {
-            return new ApiResponse<List<EntityType>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<EntityType>)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<EntityType>)));
+            return DeserializeResponseGeneric<List<EntityType>>(localVarResponse, localVarStatusCode);
         }
 
         /// <summary>
@@ -826,9 +818,8 @@ namespace Acumatica.RESTClient.Api
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponse(localVarResponse, localVarStatusCode);
+            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
         }
-
 
         /// <summary>
         /// Creates a record or updates an existing record if <paramref name="entity"/> can be mathed to an existing record by
@@ -870,7 +861,7 @@ namespace Acumatica.RESTClient.Api
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponse(localVarResponse, localVarStatusCode);
+            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
         }
 
         /// <summary>
@@ -916,7 +907,7 @@ namespace Acumatica.RESTClient.Api
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponse(localVarResponse, localVarStatusCode);
+            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
         }
 
         /// <summary>
@@ -926,7 +917,6 @@ namespace Acumatica.RESTClient.Api
         /// <returns>Task of ApiResponse (Entity)</returns>
         protected async System.Threading.Tasks.Task<ApiResponse<EntityType>> GetAdHocSchemaAsyncWithHttpInfo()
         {
-
             var localVarPath = "/" + GetEntityName() + "/$adHocSchema";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
@@ -946,14 +936,7 @@ namespace Acumatica.RESTClient.Api
                 Exception exception = ExceptionFactory("GetAdHocSchema", localVarResponse);
                 if (exception != null) throw exception;
             }
-            return DeserializeResponse(localVarResponse, localVarStatusCode);
-        }
-
-        private ApiResponse<EntityType> DeserializeResponse(IRestResponse localVarResponse, int localVarStatusCode)
-        {
-            return new ApiResponse<EntityType>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (EntityType)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EntityType)));
+            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
         }
 
         /// <summary>
@@ -984,7 +967,7 @@ namespace Acumatica.RESTClient.Api
                 if (exception != null) throw exception;
             }
 
-            return DeserializeResponse(localVarResponse, localVarStatusCode);
+            return DeserializeResponseGeneric<EntityType>(localVarResponse, localVarStatusCode);
         }
 
         /// <summary>
@@ -1025,10 +1008,6 @@ namespace Acumatica.RESTClient.Api
             return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
 
-        protected virtual string GetEntityName()
-        {
-            return typeof(EntityType).Name;
-        }
         /// <summary>
         /// Deletes the record by the values of its key fields. 
         /// </summary>
@@ -1105,7 +1084,6 @@ namespace Acumatica.RESTClient.Api
             return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
 
-
         /// <summary>
         /// Deletes the record by its session identifier. 
         /// </summary>
@@ -1141,13 +1119,6 @@ namespace Acumatica.RESTClient.Api
                 if (exception != null) throw exception;
             }
             return GetResponseHeaders(localVarResponse, localVarStatusCode);
-        }
-
-        private static ApiResponse<object> GetResponseHeaders(IRestResponse localVarResponse, int localVarStatusCode)
-        {
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
         }
         #endregion
     }

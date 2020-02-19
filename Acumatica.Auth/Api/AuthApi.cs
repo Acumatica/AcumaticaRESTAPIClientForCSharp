@@ -120,9 +120,7 @@ namespace Acumatica.Auth.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+            return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
 
         /// <summary>
@@ -156,9 +154,7 @@ namespace Acumatica.Auth.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+            return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
 
 
@@ -190,9 +186,7 @@ namespace Acumatica.Auth.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+            return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
 
 
@@ -225,9 +219,7 @@ namespace Acumatica.Auth.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+            return GetResponseHeaders(localVarResponse, localVarStatusCode);
         }
         #endregion
     }

@@ -157,6 +157,19 @@ namespace Acumatica.RESTClient.Api
 
             return localVarPostBody;
         }
+        protected ApiResponse<T> DeserializeResponseGeneric<T>(IRestResponse localVarResponse, int localVarStatusCode)
+        {
+            return new ApiResponse<T>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (T)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(T)));
+        }
+        protected ApiResponse<object> GetResponseHeaders(IRestResponse localVarResponse, int localVarStatusCode)
+        {
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
         protected void ThrowMissingParameter(string methodName, string paramName)
         {
             throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");
