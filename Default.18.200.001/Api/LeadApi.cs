@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class LeadApi : EntityAPI<Lead>
     {
-        public LeadApi() : base()
-        {
-        }
         public LeadApi(Configuration configuration) : base(configuration)
         {
         }

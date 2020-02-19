@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class VendorClassApi : EntityAPI<VendorClass>
     {
-        public VendorClassApi() : base()
-        {
-        }
         public VendorClassApi(Configuration configuration) : base(configuration)
         {
         }

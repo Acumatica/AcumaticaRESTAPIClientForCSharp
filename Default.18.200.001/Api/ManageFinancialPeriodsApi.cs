@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ManageFinancialPeriodsApi : EntityAPI<ManageFinancialPeriods>
     {
-        public ManageFinancialPeriodsApi() : base()
-        {
-        }
         public ManageFinancialPeriodsApi(Configuration configuration) : base(configuration)
         {
         }

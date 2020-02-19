@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class SubaccountApi : EntityAPI<Subaccount>
     {
-        public SubaccountApi() : base()
-        {
-        }
         public SubaccountApi(Configuration configuration) : base(configuration)
         {
         }

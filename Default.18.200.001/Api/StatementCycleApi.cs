@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class StatementCycleApi : EntityAPI<StatementCycle>
     {
-        public StatementCycleApi() : base()
-        {
-        }
         public StatementCycleApi(Configuration configuration) : base(configuration)
         {
         }

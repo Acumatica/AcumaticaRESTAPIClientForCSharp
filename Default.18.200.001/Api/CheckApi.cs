@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class CheckApi : EntityAPI<Check>
     {
-        public CheckApi() : base()
-        {
-        }
         public CheckApi(Configuration configuration) : base(configuration)
         {
         }

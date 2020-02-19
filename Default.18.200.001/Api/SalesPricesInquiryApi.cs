@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class SalesPricesInquiryApi : EntityAPI<SalesPricesInquiry>
     {
-        public SalesPricesInquiryApi() : base()
-        {
-        }
         public SalesPricesInquiryApi(Configuration configuration) : base(configuration)
         {
         }

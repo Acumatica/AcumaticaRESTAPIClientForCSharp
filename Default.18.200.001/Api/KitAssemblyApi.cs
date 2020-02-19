@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class KitAssemblyApi : EntityAPI<KitAssembly>
     {
-        public KitAssemblyApi() : base()
-        {
-        }
         public KitAssemblyApi(Configuration configuration) : base(configuration)
         {
         }

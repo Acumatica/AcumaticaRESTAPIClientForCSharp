@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class LaborCostRateApi : EntityAPI<LaborCostRate>
     {
-        public LaborCostRateApi() : base()
-        {
-        }
         public LaborCostRateApi(Configuration configuration) : base(configuration)
         {
         }

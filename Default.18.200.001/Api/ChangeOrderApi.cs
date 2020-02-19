@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ChangeOrderApi : EntityAPI<ChangeOrder>
     {
-        public ChangeOrderApi() : base()
-        {
-        }
         public ChangeOrderApi(Configuration configuration) : base(configuration)
         {
         }

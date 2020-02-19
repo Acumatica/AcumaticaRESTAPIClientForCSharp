@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ReportingSettingsApi : EntityAPI<ReportingSettings>
     {
-        public ReportingSettingsApi() : base()
-        {
-        }
         public ReportingSettingsApi(Configuration configuration) : base(configuration)
         {
         }

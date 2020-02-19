@@ -29,27 +29,17 @@ namespace Acumatica.RESTClient.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseApi"/> class
-        /// </summary>
-        /// <returns></returns>
-        public BaseApi()
-        {
-            this.Configuration = Configuration.Default;
-
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
         public BaseApi(Configuration configuration)
         {
-            if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
-            else
-                this.Configuration = configuration;
+            if (configuration == null)
+            {
+                throw new ArgumentNullException(nameof(configuration));
+            }
+            this.Configuration = configuration;
 
             ExceptionFactory = Configuration.DefaultExceptionFactory;
         }

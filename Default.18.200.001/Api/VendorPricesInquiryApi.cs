@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class VendorPricesInquiryApi : EntityAPI<VendorPricesInquiry>
     {
-        public VendorPricesInquiryApi() : base()
-        {
-        }
         public VendorPricesInquiryApi(Configuration configuration) : base(configuration)
         {
         }

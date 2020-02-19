@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class FinancialYearApi : EntityAPI<FinancialYear>
     {
-        public FinancialYearApi() : base()
-        {
-        }
         public FinancialYearApi(Configuration configuration) : base(configuration)
         {
         }

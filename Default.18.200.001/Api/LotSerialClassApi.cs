@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class LotSerialClassApi : EntityAPI<LotSerialClass>
     {
-        public LotSerialClassApi() : base()
-        {
-        }
         public LotSerialClassApi(Configuration configuration) : base(configuration)
         {
         }

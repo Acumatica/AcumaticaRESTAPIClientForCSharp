@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class JournalVoucherApi : EntityAPI<JournalVoucher>
     {
-        public JournalVoucherApi() : base()
-        {
-        }
         public JournalVoucherApi(Configuration configuration) : base(configuration)
         {
         }

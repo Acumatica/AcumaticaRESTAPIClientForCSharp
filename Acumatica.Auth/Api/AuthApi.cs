@@ -19,12 +19,8 @@ namespace Acumatica.Auth.Api
         /// Initializes a new instance of the <see cref="AuthApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public AuthApi(String basePath)
-        {
-            this.Configuration = new Configuration(basePath);
-
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
-        }
+        public AuthApi(String basePath) : base(basePath)
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthApi"/> class
@@ -32,15 +28,8 @@ namespace Acumatica.Auth.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public AuthApi(Configuration configuration = null)
-        {
-            if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
-            else
-                this.Configuration = configuration;
-
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
-        }
+        public AuthApi(Configuration configuration) : base(configuration)
+        { }
         #endregion
 
         #region Public Methods

@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class AccountGroupApi : EntityAPI<AccountGroup>
     {
-        public AccountGroupApi() : base()
-        {
-        }
         public AccountGroupApi(Configuration configuration) : base(configuration)
         {
         }

@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ContractUsageApi : EntityAPI<ContractUsage>
     {
-        public ContractUsageApi() : base()
-        {
-        }
         public ContractUsageApi(Configuration configuration) : base(configuration)
         {
         }

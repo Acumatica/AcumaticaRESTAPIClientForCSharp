@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class UnionLocalApi : EntityAPI<UnionLocal>
     {
-        public UnionLocalApi() : base()
-        {
-        }
         public UnionLocalApi(Configuration configuration) : base(configuration)
         {
         }

@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class EventApi : EntityAPI<Event>
     {
-        public EventApi() : base()
-        {
-        }
         public EventApi(Configuration configuration) : base(configuration)
         {
         }

@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class TimeEntryApi : EntityAPI<TimeEntry>
     {
-        public TimeEntryApi() : base()
-        {
-        }
         public TimeEntryApi(Configuration configuration) : base(configuration)
         {
         }

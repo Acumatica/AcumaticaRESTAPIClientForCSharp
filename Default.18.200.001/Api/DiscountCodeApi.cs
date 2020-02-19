@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class DiscountCodeApi : EntityAPI<DiscountCode>
     {
-        public DiscountCodeApi() : base()
-        {
-        }
         public DiscountCodeApi(Configuration configuration) : base(configuration)
         {
         }

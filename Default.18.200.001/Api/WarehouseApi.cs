@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class WarehouseApi : EntityAPI<Warehouse>
     {
-        public WarehouseApi() : base()
-        {
-        }
         public WarehouseApi(Configuration configuration) : base(configuration)
         {
         }

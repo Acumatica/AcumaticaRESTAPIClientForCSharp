@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class FOBPointApi : EntityAPI<FOBPoint>
     {
-        public FOBPointApi() : base()
-        {
-        }
         public FOBPointApi(Configuration configuration) : base(configuration)
         {
         }

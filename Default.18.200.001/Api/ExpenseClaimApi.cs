@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ExpenseClaimApi : EntityAPI<ExpenseClaim>
     {
-        public ExpenseClaimApi() : base()
-        {
-        }
         public ExpenseClaimApi(Configuration configuration) : base(configuration)
         {
         }

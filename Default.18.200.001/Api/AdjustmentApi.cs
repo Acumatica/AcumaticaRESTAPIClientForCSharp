@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class AdjustmentApi : EntityAPI<Adjustment>
     {
-        public AdjustmentApi() : base()
-        {
-        }
         public AdjustmentApi(Configuration configuration) : base(configuration)
         {
         }

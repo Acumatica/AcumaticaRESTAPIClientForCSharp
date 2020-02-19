@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class CashSaleApi : EntityAPI<CashSale>
     {
-        public CashSaleApi() : base()
-        {
-        }
         public CashSaleApi(Configuration configuration) : base(configuration)
         {
         }

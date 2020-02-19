@@ -10,9 +10,6 @@ namespace Acumatica.DeviceHub_19_200_001.Api
 {
     public partial class PrinterApi : EntityAPI<Printer>
     {
-        public PrinterApi() : base()
-        {
-        }
         public PrinterApi(Configuration configuration) : base(configuration)
         {
         }

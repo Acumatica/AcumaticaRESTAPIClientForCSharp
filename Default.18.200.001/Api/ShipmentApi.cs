@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ShipmentApi : EntityAPI<Shipment>
     {
-        public ShipmentApi() : base()
-        {
-        }
         public ShipmentApi(Configuration configuration) : base(configuration)
         {
         }

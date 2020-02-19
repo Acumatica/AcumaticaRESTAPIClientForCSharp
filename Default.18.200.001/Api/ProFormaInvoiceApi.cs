@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ProFormaInvoiceApi : EntityAPI<ProFormaInvoice>
     {
-        public ProFormaInvoiceApi() : base()
-        {
-        }
         public ProFormaInvoiceApi(Configuration configuration) : base(configuration)
         {
         }

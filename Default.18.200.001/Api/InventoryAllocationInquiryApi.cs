@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class InventoryAllocationInquiryApi : EntityAPI<InventoryAllocationInquiry>
     {
-        public InventoryAllocationInquiryApi() : base()
-        {
-        }
         public InventoryAllocationInquiryApi(Configuration configuration) : base(configuration)
         {
         }

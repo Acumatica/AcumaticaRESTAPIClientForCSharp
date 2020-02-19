@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class VendorPriceWorksheetApi : EntityAPI<VendorPriceWorksheet>
     {
-        public VendorPriceWorksheetApi() : base()
-        {
-        }
         public VendorPriceWorksheetApi(Configuration configuration) : base(configuration)
         {
         }

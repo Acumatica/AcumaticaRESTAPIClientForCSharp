@@ -10,9 +10,6 @@ namespace Acumatica.DeviceHub_17_200_001.Api
 {
     public partial class PrintJobApi : EntityAPI<PrintJob>
     {
-        public PrintJobApi() : base()
-        {
-        }
         public PrintJobApi(Configuration configuration) : base(configuration)
         {
         }

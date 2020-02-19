@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class SalesPriceWorksheetApi : EntityAPI<SalesPriceWorksheet>
     {
-        public SalesPriceWorksheetApi() : base()
-        {
-        }
         public SalesPriceWorksheetApi(Configuration configuration) : base(configuration)
         {
         }

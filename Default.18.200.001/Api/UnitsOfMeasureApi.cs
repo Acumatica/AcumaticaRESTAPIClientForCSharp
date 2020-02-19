@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class UnitsOfMeasureApi : EntityAPI<UnitsOfMeasure>
     {
-        public UnitsOfMeasureApi() : base()
-        {
-        }
         public UnitsOfMeasureApi(Configuration configuration) : base(configuration)
         {
         }

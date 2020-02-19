@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class AccountLocationApi : EntityAPI<AccountLocation>
     {
-        public AccountLocationApi() : base()
-        {
-        }
         public AccountLocationApi(Configuration configuration) : base(configuration)
         {
         }

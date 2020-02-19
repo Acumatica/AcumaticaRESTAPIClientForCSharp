@@ -21,23 +21,8 @@ namespace Acumatica.RESTClient.Api
         /// Initializes a new instance of the <see cref="EntityAPI"/> class.
         /// </summary>
         /// <returns></returns>
-        public EntityAPI(String basePath)
-        {
-            this.Configuration = new Configuration(basePath);
-
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EntityAPI"/> class
-        /// </summary>
-        /// <returns></returns>
-        public EntityAPI()
-        {
-            this.Configuration = Configuration.Default;
-
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
-        }
+        public EntityAPI(String basePath) : base(basePath)
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityAPI"/> class
@@ -45,19 +30,12 @@ namespace Acumatica.RESTClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public EntityAPI(Configuration configuration)
-        {
-            if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
-            else
-                this.Configuration = configuration;
+        public EntityAPI(Configuration configuration) : base(configuration)
+        { }
+		#endregion
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
-        }
-        #endregion
-
-        #region Public Methods
-        public void WaitActionCompletion(string invokeResult)
+		#region Public Methods
+		public void WaitActionCompletion(string invokeResult)
         {
             while (true)
             {

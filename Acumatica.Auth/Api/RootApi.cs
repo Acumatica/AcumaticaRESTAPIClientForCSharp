@@ -15,17 +15,13 @@ namespace Acumatica.Auth.Api
     /// </summary>
     public partial class RootApi : BaseApi
     {
-		#region Constructor
-		/// <summary>
-		/// Initializes a new instance of the <see cref="RootApi"/> class.
-		/// </summary>
-		/// <returns></returns>
-		public RootApi(String basePath)
-        {
-            this.Configuration = new Configuration(basePath);
-
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
-        }
+        #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RootApi"/> class.
+        /// </summary>
+        /// <returns></returns>
+        public RootApi(String basePath) : base(basePath)
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RootApi"/> class
@@ -33,15 +29,8 @@ namespace Acumatica.Auth.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public RootApi(Configuration configuration = null)
-        {
-            if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
-            else
-                this.Configuration = configuration;
-
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
-        }
+        public RootApi(Configuration configuration) : base(configuration)
+        { }
 		#endregion
 
 		#region Public Methods

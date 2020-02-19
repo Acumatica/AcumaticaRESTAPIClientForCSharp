@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class TrialBalanceApi : EntityAPI<TrialBalance>
     {
-        public TrialBalanceApi() : base()
-        {
-        }
         public TrialBalanceApi(Configuration configuration) : base(configuration)
         {
         }

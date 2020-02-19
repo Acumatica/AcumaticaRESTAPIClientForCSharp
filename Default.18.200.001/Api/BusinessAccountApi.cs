@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class BusinessAccountApi : EntityAPI<BusinessAccount>
     {
-        public BusinessAccountApi() : base()
-        {
-        }
         public BusinessAccountApi(Configuration configuration) : base(configuration)
         {
         }

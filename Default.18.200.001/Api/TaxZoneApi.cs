@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class TaxZoneApi : EntityAPI<TaxZone>
     {
-        public TaxZoneApi() : base()
-        {
-        }
         public TaxZoneApi(Configuration configuration) : base(configuration)
         {
         }

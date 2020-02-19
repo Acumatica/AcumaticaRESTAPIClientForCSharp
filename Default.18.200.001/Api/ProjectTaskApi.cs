@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ProjectTaskApi : EntityAPI<ProjectTask>
     {
-        public ProjectTaskApi() : base()
-        {
-        }
         public ProjectTaskApi(Configuration configuration) : base(configuration)
         {
         }

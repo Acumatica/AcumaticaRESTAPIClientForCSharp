@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class PhysicalInventoryReviewApi : EntityAPI<PhysicalInventoryReview>
     {
-        public PhysicalInventoryReviewApi() : base()
-        {
-        }
         public PhysicalInventoryReviewApi(Configuration configuration) : base(configuration)
         {
         }

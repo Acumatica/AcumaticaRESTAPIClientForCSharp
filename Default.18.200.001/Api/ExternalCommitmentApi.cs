@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ExternalCommitmentApi : EntityAPI<ExternalCommitment>
     {
-        public ExternalCommitmentApi() : base()
-        {
-        }
         public ExternalCommitmentApi(Configuration configuration) : base(configuration)
         {
         }

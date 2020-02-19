@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class AccountSummaryInquiryApi : EntityAPI<AccountSummaryInquiry>
     {
-        public AccountSummaryInquiryApi() : base()
-        {
-        }
         public AccountSummaryInquiryApi(Configuration configuration) : base(configuration)
         {
         }

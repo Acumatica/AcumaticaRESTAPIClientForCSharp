@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class SalesInvoiceApi : EntityAPI<SalesInvoice>
     {
-        public SalesInvoiceApi() : base()
-        {
-        }
         public SalesInvoiceApi(Configuration configuration) : base(configuration)
         {
         }

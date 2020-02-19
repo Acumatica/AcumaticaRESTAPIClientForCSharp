@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class EmployeeApi : EntityAPI<Employee>
     {
-        public EmployeeApi() : base()
-        {
-        }
         public EmployeeApi(Configuration configuration) : base(configuration)
         {
         }

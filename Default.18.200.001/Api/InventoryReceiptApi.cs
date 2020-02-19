@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class InventoryReceiptApi : EntityAPI<InventoryReceipt>
     {
-        public InventoryReceiptApi() : base()
-        {
-        }
         public InventoryReceiptApi(Configuration configuration) : base(configuration)
         {
         }

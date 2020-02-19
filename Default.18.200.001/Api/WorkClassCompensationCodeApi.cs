@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class WorkClassCompensationCodeApi : EntityAPI<WorkClassCompensationCode>
     {
-        public WorkClassCompensationCodeApi() : base()
-        {
-        }
         public WorkClassCompensationCodeApi(Configuration configuration) : base(configuration)
         {
         }

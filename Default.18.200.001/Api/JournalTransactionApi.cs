@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class JournalTransactionApi : EntityAPI<JournalTransaction>
     {
-        public JournalTransactionApi() : base()
-        {
-        }
         public JournalTransactionApi(Configuration configuration) : base(configuration)
         {
         }

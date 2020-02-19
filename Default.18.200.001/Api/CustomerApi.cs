@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class CustomerApi : EntityAPI<Customer>
     {
-        public CustomerApi() : base()
-        {
-        }
         public CustomerApi(Configuration configuration) : base(configuration)
         {
         }

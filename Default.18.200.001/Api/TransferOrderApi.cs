@@ -11,9 +11,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class TransferOrderApi : EntityAPI<TransferOrder>
     {
-        public TransferOrderApi() : base()
-        {
-        }
         public TransferOrderApi(Configuration configuration) : base(configuration)
         {
         }

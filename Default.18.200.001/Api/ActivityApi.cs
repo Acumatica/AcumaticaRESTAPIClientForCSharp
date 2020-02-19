@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ActivityApi : EntityAPI<Activity>
     {
-        public ActivityApi() : base()
-        {
-        }
         public ActivityApi(Configuration configuration) : base(configuration)
         {
         }

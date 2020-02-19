@@ -10,9 +10,6 @@ namespace Acumatica.DeviceHub_19_200_001.Api
 {
     public partial class ScanJobApi : EntityAPI<ScanJob>
     {
-        public ScanJobApi() : base()
-        {
-        }
         public ScanJobApi(Configuration configuration) : base(configuration)
         {
         }

@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class OpportunityApi : EntityAPI<Opportunity>
     {
-        public OpportunityApi() : base()
-        {
-        }
         public OpportunityApi(Configuration configuration) : base(configuration)
         {
         }

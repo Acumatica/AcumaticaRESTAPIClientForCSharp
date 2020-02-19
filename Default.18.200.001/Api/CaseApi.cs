@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class CaseApi : EntityAPI<Case>
     {
-        public CaseApi() : base()
-        {
-        }
         public CaseApi(Configuration configuration) : base(configuration)
         {
         }

@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class EmailProcessingApi : EntityAPI<EmailProcessing>
     {
-        public EmailProcessingApi() : base()
-        {
-        }
         public EmailProcessingApi(Configuration configuration) : base(configuration)
         {
         }

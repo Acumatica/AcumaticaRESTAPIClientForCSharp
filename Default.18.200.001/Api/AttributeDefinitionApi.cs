@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class AttributeDefinitionApi : EntityAPI<AttributeDefinition>
     {
-        public AttributeDefinitionApi() : base()
-        {
-        }
         public AttributeDefinitionApi(Configuration configuration) : base(configuration)
         {
         }

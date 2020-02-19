@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class SalesOrderApi : EntityAPI<SalesOrder>
     {
-        public SalesOrderApi() : base()
-        {
-        }
         public SalesOrderApi(Configuration configuration) : base(configuration)
         {
         }

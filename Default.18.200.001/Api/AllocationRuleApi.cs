@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class AllocationRuleApi : EntityAPI<AllocationRule>
     {
-        public AllocationRuleApi() : base()
-        {
-        }
         public AllocationRuleApi(Configuration configuration) : base(configuration)
         {
         }

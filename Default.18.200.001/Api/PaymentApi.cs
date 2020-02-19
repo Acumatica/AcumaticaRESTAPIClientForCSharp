@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class PaymentApi : EntityAPI<Payment>
     {
-        public PaymentApi() : base()
-        {
-        }
         public PaymentApi(Configuration configuration) : base(configuration)
         {
         }

@@ -10,9 +10,6 @@ namespace Acumatica.DeviceHub_19_200_001.Api
 {
     public partial class ScannerApi : EntityAPI<Scanner>
     {
-        public ScannerApi() : base()
-        {
-        }
         public ScannerApi(Configuration configuration) : base(configuration)
         {
         }

@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class ExpenseReceiptApi : EntityAPI<ExpenseReceipt>
     {
-        public ExpenseReceiptApi() : base()
-        {
-        }
         public ExpenseReceiptApi(Configuration configuration) : base(configuration)
         {
         }

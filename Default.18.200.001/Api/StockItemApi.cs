@@ -10,9 +10,6 @@ namespace Acumatica.Default_18_200_001.Api
 {
     public partial class StockItemApi : EntityAPI<StockItem>
     {
-        public StockItemApi() : base()
-        {
-        }
         public StockItemApi(Configuration configuration) : base(configuration)
         {
         }
