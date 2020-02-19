@@ -68,40 +68,59 @@ namespace Acumatica.RESTClient.Api
         private const string TextJsonAcceptContentType = "text/json";
         private const string ApplicationXmlAcceptContentType = "application/xml";
         private const string TextXmlAcceptContentType = "text/xml";
+        private const string WwwFormEncoded = "application/x-www-form-urlencoded";
         private const string AnyAcceptContentType = "*/*";
         [Flags]
-        protected enum AcceptContentTypes : short
+        protected enum HeaderContentType : short
         {
             None = 0,
             Json = 1,
             Xml = 2,
-            Any = 4
+            Any = 4,
+            WwwForm = 8
         };
-        protected Dictionary<string, string> ComposeLocalVarHeaderParams(AcceptContentTypes contentTypes)
+        protected string ComposeContentHeaders(HeaderContentType contentTypes)
+        {
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = ComposeHeadersArray(contentTypes);
+            return this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+        }
+        protected Dictionary<string, string> ComposeAcceptHeaders(HeaderContentType contentTypes)
         {
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             // to determine the Accept header
-            List<string> headers = new List<string>();
-            if ((contentTypes & AcceptContentTypes.Json) == AcceptContentTypes.Json)
-            {
-                headers.Add(ApplicationJsonAcceptContentType);
-                headers.Add(TextJsonAcceptContentType);
-            }
-            if ((contentTypes & AcceptContentTypes.Json) == AcceptContentTypes.Xml)
-            {
-                headers.Add(ApplicationXmlAcceptContentType);
-                headers.Add(TextXmlAcceptContentType);
-            }
-            if ((contentTypes & AcceptContentTypes.Json) == AcceptContentTypes.Any)
-            {
-                headers.Add(AnyAcceptContentType);
-            }
-            String[] localVarHttpHeaderAccepts = headers.ToArray();
+            string[] localVarHttpHeaderAccepts = ComposeHeadersArray(contentTypes);
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             return localVarHeaderParams;
         }
+
+        private static string[] ComposeHeadersArray(HeaderContentType contentTypes)
+        {
+            List<string> headers = new List<string>();
+            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Json)
+            {
+                headers.Add(ApplicationJsonAcceptContentType);
+                headers.Add(TextJsonAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Xml)
+            {
+                headers.Add(ApplicationXmlAcceptContentType);
+                headers.Add(TextXmlAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Any)
+            {
+                headers.Add(AnyAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.WwwForm)
+            {
+                headers.Add(WwwFormEncoded);
+            }
+            String[] localVarHttpHeaderAccepts = headers.ToArray();
+            return localVarHttpHeaderAccepts;
+        }
+
         /// <summary>
         /// Gets or sets the configuration object
         /// </summary>

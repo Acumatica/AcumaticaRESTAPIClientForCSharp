@@ -360,7 +360,7 @@ namespace Acumatica.RESTClient.Api
         public int GetProcessStatus(string invokeResult)
         {
             if (invokeResult == null)
-                ThrowMissingParameter("GetById", nameof(invokeResult));
+                ThrowMissingParameter("GetProcessStatus", nameof(invokeResult));
 
             var parsedLocation = ParseLocation(invokeResult);
             var localVarPath = "/" + parsedLocation.EntityName + "/" + parsedLocation.ActionName + "/" + parsedLocation.Status + "/" + parsedLocation.ID;
@@ -370,16 +370,10 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -414,19 +408,14 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
             if (filename != null) localVarPathParams.Add("filename", this.Configuration.ApiClient.ParameterToString(filename)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.PUT, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -463,19 +452,14 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
             if (filename != null) localVarPathParams.Add("filename", this.Configuration.ApiClient.ParameterToString(filename)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.PUT, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -509,13 +493,6 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (action != null && action.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(action); // http body (model) parameter
@@ -528,8 +505,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.POST, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -565,13 +542,6 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (action != null && action.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(action); // http body (model) parameter
@@ -584,8 +554,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.POST, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -624,13 +594,6 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
@@ -647,8 +610,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.PUT, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -685,11 +648,6 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
 
             if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
@@ -700,8 +658,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -731,24 +689,9 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = "/" + GetEntityName();
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
@@ -760,8 +703,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -793,24 +736,9 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = "/" + GetEntityName() + "/{ids}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
@@ -821,8 +749,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -856,11 +784,6 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
@@ -871,8 +794,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -914,11 +837,6 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
@@ -928,8 +846,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -966,13 +884,6 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
@@ -989,8 +900,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.PUT, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1026,11 +937,6 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
@@ -1040,8 +946,8 @@ namespace Acumatica.RESTClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1069,15 +975,10 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1111,15 +1012,10 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1151,18 +1047,13 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Any), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Any), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1198,18 +1089,13 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Any), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Any), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1241,18 +1127,13 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Any), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Any), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1285,18 +1166,13 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeLocalVarHeaderParams(AcceptContentTypes.Any), localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Any), localVarFormParams, localVarFileParams,
+                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
