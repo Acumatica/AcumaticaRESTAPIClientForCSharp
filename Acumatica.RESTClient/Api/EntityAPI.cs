@@ -369,25 +369,17 @@ namespace Acumatica.RESTClient.Api
 
             var parsedLocation = ParseLocation(invokeResult);
             var localVarPath = "/" + parsedLocation.EntityName + "/" + parsedLocation.ActionName + "/" + parsedLocation.Status + "/" + parsedLocation.ID;
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
+            
             var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), localVarFileParams,
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "GetProcessStatus");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetById", localVarResponse);
-                if (exception != null) throw exception;
-            }
-            return localVarStatusCode;
+            return (int)localVarResponse.StatusCode;
         }
 
         /// <summary>
@@ -407,30 +399,15 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("PutFile", nameof(filename));
 
             var localVarPath = "/" + GetEntityName() + "/{ids}/files/{filename}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
-            if (filename != null) localVarPathParams.Add("filename", this.Configuration.ApiClient.ParameterToString(filename)); // path parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.PUT, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDsPathParams(ids, filename), ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "PutFile");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PutFile", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -450,30 +427,15 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("PutFile", nameof(filename));
 
             var localVarPath = "/" + GetEntityName() + "/{ids}/files/{filename}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
-            if (filename != null) localVarPathParams.Add("filename", this.Configuration.ApiClient.ParameterToString(filename)); // path parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.PUT, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDsPathParams(ids, filename), ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "PutFile");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PutFile", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -488,28 +450,16 @@ namespace Acumatica.RESTClient.Api
             if (action == null)
                 ThrowMissingParameter("InvokeAction", nameof(action));
 
-            var localVarPath = "/" + GetEntityName() + "/" + action.GetType().Name;
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarPath = "/" + GetEntityName() + "/" + action.GetType().Name;            
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
+                Method.POST, ComposeEmptyQueryParams(), ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "InvokeAction");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("InvokeAction", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -525,27 +475,15 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("InvokeAction", nameof(action));
 
             var localVarPath = "/" + GetEntityName() + "/" + action.GetType().Name;
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
+                Method.POST, ComposeEmptyQueryParams(), ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "InvokeAction");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("InvokeAction", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -566,29 +504,37 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("PutEntity", nameof(entity));
 
             var localVarPath = "/" + GetEntityName();
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-
-            if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
+                Method.PUT, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PutEntity", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "PutEntity");
 
             return DeserializeResponse<EntityType>(localVarResponse);
+        }
+
+        /// <summary>
+        /// Composes Query Parameters for API Request. 
+        /// </summary>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
+        /// <param name="top">The number of records to be returned from the system. (optional)</param>
+        protected List<KeyValuePair<string, string>> ComposeQueryParams(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        {
+            var queryParameters = ComposeEmptyQueryParams();
+            if (select != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
+            if (filter != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
+            if (expand != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
+            if (custom != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
+            if (skip != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
+            if (top != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
+
+            return queryParameters;
         }
 
         /// <summary>
@@ -608,30 +554,13 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("GetByKeys", nameof(ids));
 
             var localVarPath = "/" + GetEntityName() + "/{ids}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-
-            if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
-            if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetByKeys", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "GetByKeys");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -649,32 +578,14 @@ namespace Acumatica.RESTClient.Api
         /// <returns>Task of ApiResponse (List&lt;Entity&gt;)</returns>
         protected async System.Threading.Tasks.Task<ApiResponse<List<EntityType>>> GetListAsyncWithHttpInfo(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
-
             var localVarPath = "/" + GetEntityName();
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
-            if (top != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetList", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "GetList");
 
             return DeserializeResponse<List<EntityType>>(localVarResponse);
         }
@@ -696,29 +607,13 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("GetByKeys", nameof(ids));
 
             var localVarPath = "/" + GetEntityName() + "/{ids}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
-            if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetByKeys", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "GetByKeys");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -736,32 +631,15 @@ namespace Acumatica.RESTClient.Api
         /// <returns>ApiResponse of List&lt;Entity&gt;</returns>
         protected ApiResponse<List<EntityType>> GetListWithHttpInfo(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
-
             var localVarPath = "/" + GetEntityName();
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
-            if (top != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetList", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "GetList");
+
             return DeserializeResponse<List<EntityType>>(localVarResponse);
         }
 
@@ -782,29 +660,13 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("GetById", nameof(id));
 
             var localVarPath = "/" + GetEntityName() + "/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetById", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "GetById");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -823,29 +685,16 @@ namespace Acumatica.RESTClient.Api
         protected ApiResponse<EntityType> PutEntityWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null)
         {
             if (entity == null)
-                throw new ApiException(400, $"Missing required parameter '{nameof(entity)}' when calling EntityApi->PutEntity");
-
+                ThrowMissingParameter("PutEntity", nameof(entity));
+               
             var localVarPath = "/" + GetEntityName();
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-
-            if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json));
+                Method.PUT, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PutEntity", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "PutEntity");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -867,29 +716,13 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("GetById", nameof(id));
 
             var localVarPath = "/" + GetEntityName() + "/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (select != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (custom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetById", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "GetById");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -902,22 +735,14 @@ namespace Acumatica.RESTClient.Api
         protected async System.Threading.Tasks.Task<ApiResponse<EntityType>> GetAdHocSchemaAsyncWithHttpInfo()
         {
             var localVarPath = "/" + GetEntityName() + "/$adHocSchema";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetAdHocSchema", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "GetAdHocSchema");
+
             return DeserializeResponse<EntityType>(localVarResponse);
         }
 
@@ -930,22 +755,13 @@ namespace Acumatica.RESTClient.Api
         {
 
             var localVarPath = "/" + GetEntityName() + "/$adHocSchema";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetAdHocSchema", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "GetAdHocSchema");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -963,29 +779,15 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("DeleteByKeys", nameof(ids));
 
             var localVarPath = "/" + GetEntityName() + "/{ids}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Any), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.DELETE, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "DeleteByKeys");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteByKeys", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -1001,29 +803,15 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("DeleteByKeys", nameof(ids));
 
             var localVarPath = "/" + GetEntityName() + "/{ids}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (ids != null) localVarPathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Any), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.DELETE, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "DeleteByKeys");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteByKeys", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -1039,29 +827,14 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("DeleteById", nameof(id));
 
             var localVarPath = "/" + GetEntityName() + "/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Any), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.DELETE, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "DeleteById");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteById", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -1077,28 +850,32 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("DeleteById", nameof(id));
 
             var localVarPath = "/" + GetEntityName() + "/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Any), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.DELETE, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "DeleteById");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteById", localVarResponse);
-                if (exception != null) throw exception;
-            }
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
+        }
+
+        protected Dictionary<string, string> ComposeIDPathParams(Guid? id = null)
+        {
+            Dictionary<string, string> pathParams = ComposeEmptyPathParams();
+
+            if (id != null) pathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            return pathParams;
+        }
+
+        protected Dictionary<string, string> ComposeIDsPathParams(List<string> ids, string filename = null)
+        {
+            var pathParams = ComposeEmptyPathParams();
+
+            if (ids != null) pathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
+            if (filename != null) pathParams.Add("filename", this.Configuration.ApiClient.ParameterToString(filename)); // path parameter
+            return pathParams;
         }
         #endregion
     }

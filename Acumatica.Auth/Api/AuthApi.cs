@@ -99,28 +99,18 @@ namespace Acumatica.Auth.Api
         {
             // verify the required parameter 'credentials' is set
             if (credentials == null)
-                throw new ApiException(400, "Missing required parameter 'credentials' when calling AuthApi->AuthLogin");
+                ThrowMissingParameter("AuthLogin", nameof(credentials));
 
             var localVarPath = "/entity/auth/login";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
+                Method.POST, ComposeEmptyQueryParams(), ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "AuthLogin");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AuthLogin", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -133,28 +123,18 @@ namespace Acumatica.Auth.Api
         {
             // verify the required parameter 'credentials' is set
             if (credentials == null)
-                throw new ApiException(400, "Missing required parameter 'credentials' when calling AuthApi->AuthLogin");
+                ThrowMissingParameter("AuthLogin", nameof(credentials));
 
             var localVarPath = "/entity/auth/login";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
+                Method.POST, ComposeEmptyQueryParams(), ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "AuthLogin");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AuthLogin", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -164,28 +144,16 @@ namespace Acumatica.Auth.Api
         /// <returns>ApiResponse of Object(void)</returns>
         protected ApiResponse<Object> AuthLogoutWithHttpInfo()
         {
-
             var localVarPath = "/entity/auth/logout";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.None), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.POST, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "AuthLogout");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AuthLogout", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
         }
 
         /// <summary>
@@ -195,28 +163,16 @@ namespace Acumatica.Auth.Api
         /// <returns>Task of ApiResponse</returns>
         protected async System.Threading.Tasks.Task<ApiResponse<Object>> AuthLogoutAsyncWithHttpInfo()
         {
-
             var localVarPath = "/entity/auth/logout";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.None), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.POST, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            VerifyResponse(localVarResponse, "AuthLogout");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AuthLogout", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return GetResponseHeaders(localVarResponse, localVarStatusCode);
+            return GetResponseHeaders(localVarResponse);
         }
         #endregion
     }

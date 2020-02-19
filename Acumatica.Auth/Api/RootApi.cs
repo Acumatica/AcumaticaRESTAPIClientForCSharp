@@ -80,25 +80,14 @@ namespace Acumatica.Auth.Api
 		/// <returns>ApiResponse of VersionAndEndpoints</returns>
 		protected ApiResponse<VersionAndEndpoints> RootGetWithHttpInfo()
         {
-
             var localVarPath = "/entity";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("RootGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
+            VerifyResponse(localVarResponse, "RootGet");
 
             return DeserializeResponse<VersionAndEndpoints>(localVarResponse);
         }
@@ -112,25 +101,16 @@ namespace Acumatica.Auth.Api
         protected async System.Threading.Tasks.Task<ApiResponse<VersionAndEndpoints>> RootGetAsyncWithHttpInfo()
         {
             var localVarPath = "/entity";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
+           
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), localVarFormParams, localVarFileParams,
-                localVarPathParams, ComposeContentHeaders(HeaderContentType.None));
+                Method.GET, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
+           
+            VerifyResponse(localVarResponse, "RootGet");
 
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("RootGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return DeserializeResponse<VersionAndEndpoints>(localVarResponse); 
+            return DeserializeResponse<VersionAndEndpoints>(localVarResponse);
         }
-		#endregion
-	}
+        #endregion
+    }
 }

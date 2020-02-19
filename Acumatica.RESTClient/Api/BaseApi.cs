@@ -142,6 +142,22 @@ namespace Acumatica.RESTClient.Api
             }
             set { _exceptionFactory = value; }
         }
+        protected Dictionary<string, FileParameter> ComposeEmptyFileParams()
+        {
+            return new Dictionary<String, FileParameter>();
+        }
+        protected List<KeyValuePair<string, string>> ComposeEmptyQueryParams()
+        {
+            return new List<KeyValuePair<String, String>>();
+        }
+        protected Dictionary<string, string> ComposeEmptyPathParams()
+        {
+            return new Dictionary<String, String>();
+        }
+        protected Dictionary<string, string> ComposeEmptyFormParams()
+        {
+            return new Dictionary<String, String>();
+        }
         protected object ComposeBody(object credentials)
         {
             object localVarPostBody = null;
@@ -157,19 +173,31 @@ namespace Acumatica.RESTClient.Api
 
             return localVarPostBody;
         }
-        protected ApiResponse<T> DeserializeResponse<T>(IRestResponse localVarResponse)
+        protected ApiResponse<T> DeserializeResponse<T>(IRestResponse response)
         {
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int)response.StatusCode;
 
             return new ApiResponse<T>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (T)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(T)));
+                response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (T)this.Configuration.ApiClient.Deserialize(response, typeof(T)));
         }
-        protected ApiResponse<object> GetResponseHeaders(IRestResponse localVarResponse, int localVarStatusCode)
+
+        protected ApiResponse<object> GetResponseHeaders(IRestResponse response)
         {
+            int localVarStatusCode = (int)response.StatusCode;
+
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        protected void VerifyResponse(IRestResponse response, string methodName)
+        {
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory(methodName, response);
+                if (exception != null) throw exception;
+            }
         }
 
         protected void ThrowMissingParameter(string methodName, string paramName)
