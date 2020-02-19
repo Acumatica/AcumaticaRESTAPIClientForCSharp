@@ -72,6 +72,19 @@ namespace Acumatica.RESTClient.Api
 
         }
 
+        protected const string PutMethodInsertHeader = "If-None-Match";
+        protected const string PutMethodUpdateHeader = "If-Match";
+       /// <summary>
+       /// Put method that can be used to determine operation Api Call executes.
+       /// Supported starting from Acumatica ERP version 2019 R2.
+       /// </summary>
+        public enum PutMethod
+        {
+            Insert, 
+            Update, 
+            Any
+        }
+
         /// <summary>
         /// Creates a record or updates an existing record if <paramref name="entity"/> can be mathed to an existing record by
         /// <c>id</c> field value or key fields values.
@@ -83,9 +96,9 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>EntityType</returns>
-        public EntityType PutEntity(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null)
+        public EntityType PutEntity(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any)
         {
-            ApiResponse<EntityType> localVarResponse = PutEntityWithHttpInfo(entity, select, filter, expand, custom);
+            ApiResponse<EntityType> localVarResponse = PutEntityWithHttpInfo(entity, select, filter, expand, custom, method);
             return localVarResponse.Data;
         }
 
@@ -100,11 +113,10 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of Entity</returns>
-        public async System.Threading.Tasks.Task<EntityType> PutEntityAsync(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null)
+        public async System.Threading.Tasks.Task<EntityType> PutEntityAsync(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any)
         {
-            ApiResponse<EntityType> localVarResponse = await PutEntityAsyncWithHttpInfo(entity, select, filter, expand, custom);
+            ApiResponse<EntityType> localVarResponse = await PutEntityAsyncWithHttpInfo(entity, select, filter, expand, custom, method);
             return localVarResponse.Data;
-
         }
 
         /// <summary>
@@ -152,8 +164,8 @@ namespace Acumatica.RESTClient.Api
         public async System.Threading.Tasks.Task InvokeActionAsync(EntityAction<EntityType> action)
         {
             await InvokeActionAsyncWithHttpInfo(action);
-
         }
+
         /// <summary>
         /// Retrieves a record by the values of its key fields from the system. 
         /// </summary>
@@ -168,7 +180,6 @@ namespace Acumatica.RESTClient.Api
         {
             ApiResponse<EntityType> localVarResponse = await GetByKeysAsyncWithHttpInfo(ids, select, filter, expand, custom);
             return localVarResponse.Data;
-
         }
 
         /// <summary>
@@ -230,7 +241,6 @@ namespace Acumatica.RESTClient.Api
         {
             ApiResponse<EntityType> localVarResponse = await GetAdHocSchemaAsyncWithHttpInfo();
             return localVarResponse.Data;
-
         }
 
         /// <summary>
@@ -269,7 +279,6 @@ namespace Acumatica.RESTClient.Api
         public async System.Threading.Tasks.Task DeleteByKeysAsync(List<string> ids)
         {
             await DeleteByKeysAsyncWithHttpInfo(ids);
-
         }
 
         /// <summary>
@@ -303,7 +312,6 @@ namespace Acumatica.RESTClient.Api
         public async System.Threading.Tasks.Task DeleteByIdAsync(Guid? id)
         {
             await DeleteByIdAsyncWithHttpInfo(id);
-
         }
         #endregion
 
@@ -474,18 +482,64 @@ namespace Acumatica.RESTClient.Api
         /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <returns>ApiResponse of Entity</returns>
+        protected ApiResponse<EntityType> PutEntityWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any)
+        {
+            if (entity == null)
+                ThrowMissingParameter("PutEntity", nameof(entity));
+
+            var localVarPath = "/" + GetEntityName();
+            var headers = ComposeAcceptHeaders(HeaderContentType.Json);
+            if (method == PutMethod.Insert)
+            {
+                headers.Add(PutMethodInsertHeader, "");
+            }
+            else if (method == PutMethod.Update)
+            {
+                headers.Add(PutMethodUpdateHeader, "");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), headers, ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
+
+            VerifyResponse(localVarResponse, "PutEntity");
+
+            return DeserializeResponse<EntityType>(localVarResponse);
+        }
+
+        /// <summary>
+        /// Creates a record or updates an existing record if <paramref name="entity"/> can be mathed to an existing record by
+        /// <c>id</c> field value or key fields values.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entity">The record to be passed to the system.</param>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of ApiResponse (Entity)</returns>
-        protected async System.Threading.Tasks.Task<ApiResponse<EntityType>> PutEntityAsyncWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null)
+        protected async System.Threading.Tasks.Task<ApiResponse<EntityType>> PutEntityAsyncWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any)
         {
             // verify the required parameter 'entity' is set
             if (entity == null)
                 ThrowMissingParameter("PutEntity", nameof(entity));
 
             var localVarPath = "/" + GetEntityName();
+            var headers = ComposeAcceptHeaders(HeaderContentType.Json);
+            if (method == PutMethod.Insert)
+            {
+                headers.Add(PutMethodInsertHeader, "");
+            }
+            else if (method == PutMethod.Update)
+            {
+                headers.Add(PutMethodUpdateHeader, "");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                Method.PUT, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), headers, ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
 
             VerifyResponse(localVarResponse, "PutEntity");
@@ -544,31 +598,6 @@ namespace Acumatica.RESTClient.Api
         }
 
         /// <summary>
-        /// Retrieves records that satisfy the specified conditions from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
-        /// <param name="top">The number of records to be returned from the system. (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;Entity&gt;)</returns>
-        protected async System.Threading.Tasks.Task<ApiResponse<List<EntityType>>> GetListAsyncWithHttpInfo(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
-        {
-            var localVarPath = "/" + GetEntityName();
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
-
-            VerifyResponse(localVarResponse, "GetList");
-
-            return DeserializeResponse<List<EntityType>>(localVarResponse);
-        }
-
-        /// <summary>
         /// Retrieves a record by the values of its key fields from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -594,6 +623,31 @@ namespace Acumatica.RESTClient.Api
             VerifyResponse(localVarResponse, "GetByKeys");
 
             return DeserializeResponse<EntityType>(localVarResponse);
+        }
+
+        /// <summary>
+        /// Retrieves records that satisfy the specified conditions from the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
+        /// <param name="top">The number of records to be returned from the system. (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;Entity&gt;)</returns>
+        protected async System.Threading.Tasks.Task<ApiResponse<List<EntityType>>> GetListAsyncWithHttpInfo(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        {
+            var localVarPath = "/" + GetEntityName();
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
+
+            VerifyResponse(localVarResponse, "GetList");
+
+            return DeserializeResponse<List<EntityType>>(localVarResponse);
         }
 
         /// <summary>
@@ -645,34 +699,6 @@ namespace Acumatica.RESTClient.Api
                 ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None));
 
             VerifyResponse(localVarResponse, "GetById");
-
-            return DeserializeResponse<EntityType>(localVarResponse);
-        }
-
-        /// <summary>
-        /// Creates a record or updates an existing record if <paramref name="entity"/> can be mathed to an existing record by
-        /// <c>id</c> field value or key fields values.
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity">The record to be passed to the system.</param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <returns>ApiResponse of Entity</returns>
-        protected ApiResponse<EntityType> PutEntityWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null)
-        {
-            if (entity == null)
-                ThrowMissingParameter("PutEntity", nameof(entity));
-               
-            var localVarPath = "/" + GetEntityName();
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
-
-            VerifyResponse(localVarResponse, "PutEntity");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
