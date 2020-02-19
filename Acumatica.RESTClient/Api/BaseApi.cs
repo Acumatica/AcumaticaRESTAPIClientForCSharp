@@ -64,7 +64,44 @@ namespace Acumatica.RESTClient.Api
         {
             return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
-
+        private const string ApplicationJsonAcceptContentType = "application/json";
+        private const string TextJsonAcceptContentType = "text/json";
+        private const string ApplicationXmlAcceptContentType = "application/xml";
+        private const string TextXmlAcceptContentType = "text/xml";
+        private const string AnyAcceptContentType = "*/*";
+        [Flags]
+        protected enum AcceptContentTypes : short
+        {
+            None = 0,
+            Json = 1,
+            Xml = 2,
+            Any = 4
+        };
+        protected Dictionary<string, string> ComposeLocalVarHeaderParams(AcceptContentTypes contentTypes)
+        {
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            // to determine the Accept header
+            List<string> headers = new List<string>();
+            if ((contentTypes & AcceptContentTypes.Json) == AcceptContentTypes.Json)
+            {
+                headers.Add(ApplicationJsonAcceptContentType);
+                headers.Add(TextJsonAcceptContentType);
+            }
+            if ((contentTypes & AcceptContentTypes.Json) == AcceptContentTypes.Xml)
+            {
+                headers.Add(ApplicationXmlAcceptContentType);
+                headers.Add(TextXmlAcceptContentType);
+            }
+            if ((contentTypes & AcceptContentTypes.Json) == AcceptContentTypes.Any)
+            {
+                headers.Add(AnyAcceptContentType);
+            }
+            String[] localVarHttpHeaderAccepts = headers.ToArray();
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            return localVarHeaderParams;
+        }
         /// <summary>
         /// Gets or sets the configuration object
         /// </summary>
