@@ -35,6 +35,7 @@
       <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -47,7 +48,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESTClient.cs" />
+    <Compile Include="SOAPEntity.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPStringTypesWrappers.cs" />
+    <Compile Include="Wrappers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Acumatica.Auth\Acumatica.Auth.csproj">
@@ -57,6 +60,10 @@
     <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj">
       <Project>{25008d3f-3d78-4bb9-b14b-0a792ae97892}</Project>
       <Name>Acumatica.RESTClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Default.18.200.001\Acumatica.Default_18.200.001.csproj">
+      <Project>{B26A386B-F5DA-4679-ACBA-1541251B696B}</Project>
+      <Name>Acumatica.Default_18.200.001</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

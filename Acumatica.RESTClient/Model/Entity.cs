@@ -30,6 +30,40 @@ namespace Acumatica.RESTClient.Model
     [DataContract]
     public abstract class Entity :  IEquatable<Entity>, IValidatableObject
     {
+        public IEnumerable<EntityField> GetStringFields()
+        {
+            foreach (var field in this.GetType().GetProperties())
+            {
+                if (field.PropertyType == typeof(StringValue) )
+                {
+                    yield return new EntityField(field.PropertyType, ((StringValue)field.GetValue(this))?.Value, field.Name);
+                }
+
+            }
+        }
+        public IEnumerable<DetailEntity> GetDetails()
+        {
+            foreach (var field in this.GetType().GetProperties())
+            {
+                if (typeof(IEnumerable).IsAssignableFrom(field.PropertyType) && ((IEnumerable)field.GetValue(this))!=null)
+                {
+                    yield return new DetailEntity(field.PropertyType, ((IEnumerable)field.GetValue(this)), field.Name);
+                }
+            }
+        }
+        public IEnumerable<LinkedEntity> GetLinkedEntities()
+        {
+            foreach (var field in this.GetType().GetProperties())
+            {
+                if (typeof(Entity).IsAssignableFrom(field.PropertyType) && ((Entity)field.GetValue(this)) != null)
+                {
+                    yield return new LinkedEntity(field.PropertyType, (Entity)field.GetValue(this), field.Name);
+                }
+            }
+        }
+
+        [Obsolete("ReturnBehavior property is for backward compatibility with SOAP only. Please use $select and $expand parameters instead.")]
+        public ReturnBehavior ReturnBehavior { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Entity" /> class.
         /// </summary>

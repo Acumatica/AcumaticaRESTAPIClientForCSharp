@@ -34,7 +34,7 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="DecimalValue" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public DecimalValue(double? value = default(double?))
+        public DecimalValue(decimal? value = default(decimal?))
         {
             this.Value = value;
         }
@@ -43,7 +43,7 @@ namespace Acumatica.RESTClient.Model
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public double? Value { get; set; }
+        public decimal? Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

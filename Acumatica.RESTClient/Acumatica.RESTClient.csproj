@@ -60,6 +60,7 @@ OpenAPI spec version: 3
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\BaseApi.cs" />
+    <Compile Include="Auxiliary\AuxiliaryEntityTypes.cs" />
     <Compile Include="Client\ApiClient.cs" />
     <Compile Include="Client\ApiException.cs" />
     <Compile Include="Client\ApiResponse.cs" />
