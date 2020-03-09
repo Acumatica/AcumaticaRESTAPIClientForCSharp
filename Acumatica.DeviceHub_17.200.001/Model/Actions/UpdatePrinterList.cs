@@ -9,18 +9,5 @@ namespace Acumatica.DeviceHub_17_200_001.Model
     {
         public UpdatePrinterList(Printer entity) : base(entity)
         { }
-
-        [DataMember(Name = "entity", EmitDefaultValue = false)]
-        public Printer Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
     }
 }

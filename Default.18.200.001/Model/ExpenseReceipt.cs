@@ -44,7 +44,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="status">status.</param>
         /// <param name="taxDetails">taxDetails.</param>
         /// <param name="taxTotal">taxTotal.</param>
-        public ExpenseReceipt(StringValue branch = default(StringValue), DecimalValue claimAmount = default(DecimalValue), StringValue claimedBy = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue expenseItemID = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), ExpenseReceiptDetails receiptDetails = default(ExpenseReceiptDetails), IntValue receiptID = default(IntValue), StringValue status = default(StringValue), List<ExpenseReceiptTaxDetails> taxDetails = default(List<ExpenseReceiptTaxDetails>), DecimalValue taxTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ExpenseReceipt(StringValue branch = default(StringValue), DecimalValue claimAmount = default(DecimalValue), StringValue claimedBy = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue expenseItemID = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), ExpenseReceiptDetails receiptDetails = default(ExpenseReceiptDetails), IntValue receiptID = default(IntValue), StringValue status = default(StringValue), IEnumerable<ExpenseReceiptTaxDetails> taxDetails = default(IEnumerable<ExpenseReceiptTaxDetails>), DecimalValue taxTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Branch = branch;
             this.ClaimAmount = claimAmount;
@@ -117,7 +117,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TaxDetails
         /// </summary>
         [DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-        public List<ExpenseReceiptTaxDetails> TaxDetails { get; set; }
+        public IEnumerable<ExpenseReceiptTaxDetails> TaxDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxTotal

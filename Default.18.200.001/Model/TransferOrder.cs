@@ -45,7 +45,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="totalQty">totalQty.</param>
         /// <param name="toWarehouseID">toWarehouseID.</param>
         /// <param name="transferType">transferType.</param>
-        public TransferOrder(DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), List<TransferOrderDetail> details = default(List<TransferOrderDetail>), StringValue externalRef = default(StringValue), StringValue fromWarehouseID = default(StringValue), BooleanValue hold = default(BooleanValue), StringValue postPeriod = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalQty = default(DecimalValue), StringValue toWarehouseID = default(StringValue), StringValue transferType = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public TransferOrder(DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), IEnumerable<TransferOrderDetail> details = default(IEnumerable<TransferOrderDetail>), StringValue externalRef = default(StringValue), StringValue fromWarehouseID = default(StringValue), BooleanValue hold = default(BooleanValue), StringValue postPeriod = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalQty = default(DecimalValue), StringValue toWarehouseID = default(StringValue), StringValue transferType = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Date = date;
             this.Description = description;
@@ -77,7 +77,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<TransferOrderDetail> Details { get; set; }
+        public IEnumerable<TransferOrderDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets ExternalRef

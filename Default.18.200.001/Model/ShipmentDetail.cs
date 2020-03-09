@@ -52,7 +52,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="subitem">subitem.</param>
         /// <param name="uOM">uOM.</param>
         /// <param name="warehouseID">warehouseID.</param>
-        public ShipmentDetail(List<ShipmentDetailAllocation> allocations = default(List<ShipmentDetailAllocation>), StringValue description = default(StringValue), DateTimeValue expirationDate = default(DateTimeValue), BooleanValue freeItem = default(BooleanValue), StringValue inventoryID = default(StringValue), IntValue lineNbr = default(IntValue), StringValue locationID = default(StringValue), StringValue lotSerialNbr = default(StringValue), DecimalValue openQty = default(DecimalValue), DecimalValue orderedQty = default(DecimalValue), IntValue orderLineNbr = default(IntValue), StringValue orderNbr = default(StringValue), StringValue orderType = default(StringValue), DecimalValue originalQty = default(DecimalValue), StringValue reasonCode = default(StringValue), DecimalValue shippedQty = default(DecimalValue), StringValue subitem = default(StringValue), StringValue uOM = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ShipmentDetail(IEnumerable<ShipmentDetailAllocation> allocations = default(IEnumerable<ShipmentDetailAllocation>), StringValue description = default(StringValue), DateTimeValue expirationDate = default(DateTimeValue), BooleanValue freeItem = default(BooleanValue), StringValue inventoryID = default(StringValue), IntValue lineNbr = default(IntValue), StringValue locationID = default(StringValue), StringValue lotSerialNbr = default(StringValue), DecimalValue openQty = default(DecimalValue), DecimalValue orderedQty = default(DecimalValue), IntValue orderLineNbr = default(IntValue), StringValue orderNbr = default(StringValue), StringValue orderType = default(StringValue), DecimalValue originalQty = default(DecimalValue), StringValue reasonCode = default(StringValue), DecimalValue shippedQty = default(DecimalValue), StringValue subitem = default(StringValue), StringValue uOM = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Allocations = allocations;
             this.Description = description;
@@ -79,7 +79,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Allocations
         /// </summary>
         [DataMember(Name="Allocations", EmitDefaultValue=false)]
-        public List<ShipmentDetailAllocation> Allocations { get; set; }
+        public IEnumerable<ShipmentDetailAllocation> Allocations { get; set; }
 
         /// <summary>
         /// Gets or Sets Description

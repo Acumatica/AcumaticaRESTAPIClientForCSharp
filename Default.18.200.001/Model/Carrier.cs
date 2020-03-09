@@ -42,7 +42,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="plugInParameters">plugInParameters.</param>
         /// <param name="plugInType">plugInType.</param>
         /// <param name="uOM">uOM.</param>
-        public Carrier(StringValue carrierID = default(StringValue), StringValue carrierUnitOfWeight = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), List<CarrierCustomerAccount> customerAccounts = default(List<CarrierCustomerAccount>), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), List<CarrierPluginParameter> plugInParameters = default(List<CarrierPluginParameter>), StringValue plugInType = default(StringValue), StringValue uOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Carrier(StringValue carrierID = default(StringValue), StringValue carrierUnitOfWeight = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), IEnumerable<CarrierCustomerAccount> customerAccounts = default(IEnumerable<CarrierCustomerAccount>), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), IEnumerable<CarrierPluginParameter> plugInParameters = default(IEnumerable<CarrierPluginParameter>), StringValue plugInType = default(StringValue), StringValue uOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.CarrierID = carrierID;
             this.CarrierUnitOfWeight = carrierUnitOfWeight;
@@ -77,7 +77,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets CustomerAccounts
         /// </summary>
         [DataMember(Name="CustomerAccounts", EmitDefaultValue=false)]
-        public List<CarrierCustomerAccount> CustomerAccounts { get; set; }
+        public IEnumerable<CarrierCustomerAccount> CustomerAccounts { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -95,7 +95,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets PlugInParameters
         /// </summary>
         [DataMember(Name="PlugInParameters", EmitDefaultValue=false)]
-        public List<CarrierPluginParameter> PlugInParameters { get; set; }
+        public IEnumerable<CarrierPluginParameter> PlugInParameters { get; set; }
 
         /// <summary>
         /// Gets or Sets PlugInType

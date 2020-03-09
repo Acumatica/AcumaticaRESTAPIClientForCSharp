@@ -60,7 +60,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="type">type.</param>
         /// <param name="vATExemptTotal">vATExemptTotal.</param>
         /// <param name="vATTaxableTotal">vATTaxableTotal.</param>
-        public SalesInvoice(DecimalValue amount = default(DecimalValue), List<SalesInvoiceApplicationCreditMemo> applicationsCreditMemo = default(List<SalesInvoiceApplicationCreditMemo>), List<SalesInvoiceApplicationInvoice> applicationsInvoice = default(List<SalesInvoiceApplicationInvoice>), DecimalValue balance = default(DecimalValue), BillToSettings billingSettings = default(BillToSettings), DecimalValue cashDiscount = default(DecimalValue), SalesInvoiceCommissions commissions = default(SalesInvoiceCommissions), BooleanValue creditHold = default(BooleanValue), StringValue currency = default(StringValue), StringValue customerID = default(StringValue), StringValue customerOrder = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), List<SalesInvoiceDetail> details = default(List<SalesInvoiceDetail>), List<SalesInvoiceDiscountDetails> discountDetails = default(List<SalesInvoiceDiscountDetails>), DateTimeValue dueDate = default(DateTimeValue), SalesInvoiceFinancialDetails financialDetails = default(SalesInvoiceFinancialDetails), List<SalesInvoiceFreightDetail> freightDetails = default(List<SalesInvoiceFreightDetail>), BooleanValue hold = default(BooleanValue), StringValue project = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), List<SalesInvoiceTaxDetail> taxDetails = default(List<SalesInvoiceTaxDetail>), SalesInvoiceTotals totals = default(SalesInvoiceTotals), StringValue type = default(StringValue), DecimalValue vATExemptTotal = default(DecimalValue), DecimalValue vATTaxableTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public SalesInvoice(DecimalValue amount = default(DecimalValue), IEnumerable<SalesInvoiceApplicationCreditMemo> applicationsCreditMemo = default(IEnumerable<SalesInvoiceApplicationCreditMemo>), IEnumerable<SalesInvoiceApplicationInvoice> applicationsInvoice = default(IEnumerable<SalesInvoiceApplicationInvoice>), DecimalValue balance = default(DecimalValue), BillToSettings billingSettings = default(BillToSettings), DecimalValue cashDiscount = default(DecimalValue), SalesInvoiceCommissions commissions = default(SalesInvoiceCommissions), BooleanValue creditHold = default(BooleanValue), StringValue currency = default(StringValue), StringValue customerID = default(StringValue), StringValue customerOrder = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), IEnumerable<SalesInvoiceDetail> details = default(IEnumerable<SalesInvoiceDetail>), IEnumerable<SalesInvoiceDiscountDetails> discountDetails = default(IEnumerable<SalesInvoiceDiscountDetails>), DateTimeValue dueDate = default(DateTimeValue), SalesInvoiceFinancialDetails financialDetails = default(SalesInvoiceFinancialDetails), IEnumerable<SalesInvoiceFreightDetail> freightDetails = default(IEnumerable<SalesInvoiceFreightDetail>), BooleanValue hold = default(BooleanValue), StringValue project = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), IEnumerable<SalesInvoiceTaxDetail> taxDetails = default(IEnumerable<SalesInvoiceTaxDetail>), SalesInvoiceTotals totals = default(SalesInvoiceTotals), StringValue type = default(StringValue), DecimalValue vATExemptTotal = default(DecimalValue), DecimalValue vATTaxableTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Amount = amount;
             this.ApplicationsCreditMemo = applicationsCreditMemo;
@@ -101,13 +101,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ApplicationsCreditMemo
         /// </summary>
         [DataMember(Name="ApplicationsCreditMemo", EmitDefaultValue=false)]
-        public List<SalesInvoiceApplicationCreditMemo> ApplicationsCreditMemo { get; set; }
+        public IEnumerable<SalesInvoiceApplicationCreditMemo> ApplicationsCreditMemo { get; set; }
 
         /// <summary>
         /// Gets or Sets ApplicationsInvoice
         /// </summary>
         [DataMember(Name="ApplicationsInvoice", EmitDefaultValue=false)]
-        public List<SalesInvoiceApplicationInvoice> ApplicationsInvoice { get; set; }
+        public IEnumerable<SalesInvoiceApplicationInvoice> ApplicationsInvoice { get; set; }
 
         /// <summary>
         /// Gets or Sets Balance
@@ -173,13 +173,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<SalesInvoiceDetail> Details { get; set; }
+        public IEnumerable<SalesInvoiceDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets DiscountDetails
         /// </summary>
         [DataMember(Name="DiscountDetails", EmitDefaultValue=false)]
-        public List<SalesInvoiceDiscountDetails> DiscountDetails { get; set; }
+        public IEnumerable<SalesInvoiceDiscountDetails> DiscountDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets DueDate
@@ -197,7 +197,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets FreightDetails
         /// </summary>
         [DataMember(Name="FreightDetails", EmitDefaultValue=false)]
-        public List<SalesInvoiceFreightDetail> FreightDetails { get; set; }
+        public IEnumerable<SalesInvoiceFreightDetail> FreightDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets Hold
@@ -227,7 +227,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TaxDetails
         /// </summary>
         [DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-        public List<SalesInvoiceTaxDetail> TaxDetails { get; set; }
+        public IEnumerable<SalesInvoiceTaxDetail> TaxDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets Totals

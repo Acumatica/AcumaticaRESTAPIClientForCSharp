@@ -37,7 +37,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="branch">branch.</param>
         /// <param name="posttoPeriod">posttoPeriod.</param>
         /// <param name="taxZone">taxZone.</param>
-        public ExpenseClaimFinancialDetail(List<ExpenseClaimAPDocument> aPDocuments = default(List<ExpenseClaimAPDocument>), StringValue branch = default(StringValue), StringValue posttoPeriod = default(StringValue), StringValue taxZone = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ExpenseClaimFinancialDetail(IEnumerable<ExpenseClaimAPDocument> aPDocuments = default(IEnumerable<ExpenseClaimAPDocument>), StringValue branch = default(StringValue), StringValue posttoPeriod = default(StringValue), StringValue taxZone = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.APDocuments = aPDocuments;
             this.Branch = branch;
@@ -49,7 +49,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets APDocuments
         /// </summary>
         [DataMember(Name="APDocuments", EmitDefaultValue=false)]
-        public List<ExpenseClaimAPDocument> APDocuments { get; set; }
+        public IEnumerable<ExpenseClaimAPDocument> APDocuments { get; set; }
 
         /// <summary>
         /// Gets or Sets Branch

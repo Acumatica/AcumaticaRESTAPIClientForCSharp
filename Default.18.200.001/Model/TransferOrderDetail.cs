@@ -45,7 +45,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="subitem">subitem.</param>
         /// <param name="toLocationID">toLocationID.</param>
         /// <param name="uOM">uOM.</param>
-        public TransferOrderDetail(List<TransferOrderDetailAllocation> allocations = default(List<TransferOrderDetailAllocation>), StringValue description = default(StringValue), DateTimeValue expirationDate = default(DateTimeValue), StringValue fromLocationID = default(StringValue), StringValue inventoryID = default(StringValue), IntValue lineNbr = default(IntValue), StringValue lotSerialNbr = default(StringValue), DecimalValue qty = default(DecimalValue), StringValue reasonCode = default(StringValue), StringValue subitem = default(StringValue), StringValue toLocationID = default(StringValue), StringValue uOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public TransferOrderDetail(IEnumerable<TransferOrderDetailAllocation> allocations = default(IEnumerable<TransferOrderDetailAllocation>), StringValue description = default(StringValue), DateTimeValue expirationDate = default(DateTimeValue), StringValue fromLocationID = default(StringValue), StringValue inventoryID = default(StringValue), IntValue lineNbr = default(IntValue), StringValue lotSerialNbr = default(StringValue), DecimalValue qty = default(DecimalValue), StringValue reasonCode = default(StringValue), StringValue subitem = default(StringValue), StringValue toLocationID = default(StringValue), StringValue uOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Allocations = allocations;
             this.Description = description;
@@ -65,7 +65,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Allocations
         /// </summary>
         [DataMember(Name="Allocations", EmitDefaultValue=false)]
-        public List<TransferOrderDetailAllocation> Allocations { get; set; }
+        public IEnumerable<TransferOrderDetailAllocation> Allocations { get; set; }
 
         /// <summary>
         /// Gets or Sets Description

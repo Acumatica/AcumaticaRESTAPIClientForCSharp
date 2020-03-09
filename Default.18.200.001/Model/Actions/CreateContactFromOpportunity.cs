@@ -9,18 +9,7 @@ namespace Acumatica.Default_18_200_001.Model
     {
  public CreateContactFromOpportunity(Opportunity entity) : base(entity)
         { }
-
-[DataMember(Name = "entity", EmitDefaultValue = false)]
-        public Opportunity Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
-    }
+ public CreateContactFromOpportunity() : base()
+        { }
+  }
 }

@@ -53,7 +53,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="summary">summary.</param>
         /// <param name="timeActivity">timeActivity.</param>
         /// <param name="workgroupID">workgroupID.</param>
-        public Task(StringValue body = default(StringValue), StringValue category = default(StringValue), DateTimeValue completedAt = default(DateTimeValue), IntValue completionPercentage = default(IntValue), DateTimeValue dueDate = default(DateTimeValue), BooleanValue _internal = default(BooleanValue), GuidValue noteID = default(GuidValue), StringValue owner = default(StringValue), GuidValue parent = default(GuidValue), StringValue parentSummary = default(StringValue), StringValue priority = default(StringValue), List<TaskRelatedActivity> relatedActivities = default(List<TaskRelatedActivity>), StringValue relatedEntityDescription = default(StringValue), List<TaskRelatedTask> relatedTasks = default(List<TaskRelatedTask>), ReminderDetail reminder = default(ReminderDetail), DateTimeValue startDate = default(DateTimeValue), StringValue status = default(StringValue), StringValue summary = default(StringValue), TaskTimeActivity timeActivity = default(TaskTimeActivity), StringValue workgroupID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Task(StringValue body = default(StringValue), StringValue category = default(StringValue), DateTimeValue completedAt = default(DateTimeValue), IntValue completionPercentage = default(IntValue), DateTimeValue dueDate = default(DateTimeValue), BooleanValue _internal = default(BooleanValue), GuidValue noteID = default(GuidValue), StringValue owner = default(StringValue), GuidValue parent = default(GuidValue), StringValue parentSummary = default(StringValue), StringValue priority = default(StringValue), IEnumerable<TaskRelatedActivity> relatedActivities = default(IEnumerable<TaskRelatedActivity>), StringValue relatedEntityDescription = default(StringValue), IEnumerable<TaskRelatedTask> relatedTasks = default(IEnumerable<TaskRelatedTask>), ReminderDetail reminder = default(ReminderDetail), DateTimeValue startDate = default(DateTimeValue), StringValue status = default(StringValue), StringValue summary = default(StringValue), TaskTimeActivity timeActivity = default(TaskTimeActivity), StringValue workgroupID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Body = body;
             this.Category = category;
@@ -147,7 +147,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets RelatedActivities
         /// </summary>
         [DataMember(Name="RelatedActivities", EmitDefaultValue=false)]
-        public List<TaskRelatedActivity> RelatedActivities { get; set; }
+        public IEnumerable<TaskRelatedActivity> RelatedActivities { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedEntityDescription
@@ -159,7 +159,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets RelatedTasks
         /// </summary>
         [DataMember(Name="RelatedTasks", EmitDefaultValue=false)]
-        public List<TaskRelatedTask> RelatedTasks { get; set; }
+        public IEnumerable<TaskRelatedTask> RelatedTasks { get; set; }
 
         /// <summary>
         /// Gets or Sets Reminder

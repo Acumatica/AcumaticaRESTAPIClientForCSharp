@@ -57,7 +57,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="vendorID">vendorID.</param>
         /// <param name="vendorRef">vendorRef.</param>
         /// <param name="vendorTaxZone">vendorTaxZone.</param>
-        public PurchaseOrder(StringValue branch = default(StringValue), DecimalValue controlTotal = default(DecimalValue), StringValue currencyID = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), List<PurchaseOrderDetail> details = default(List<PurchaseOrderDetail>), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DecimalValue lineTotal = default(DecimalValue), StringValue location = default(StringValue), StringValue orderNbr = default(StringValue), DecimalValue orderTotal = default(DecimalValue), StringValue owner = default(StringValue), StringValue project = default(StringValue), DateTimeValue promisedOn = default(DateTimeValue), ShippingInstructions shippingInstructions = default(ShippingInstructions), StringValue status = default(StringValue), List<PurchaseOrderTaxDetail> taxDetails = default(List<PurchaseOrderTaxDetail>), DecimalValue taxTotal = default(DecimalValue), StringValue terms = default(StringValue), StringValue type = default(StringValue), StringValue vendorID = default(StringValue), StringValue vendorRef = default(StringValue), StringValue vendorTaxZone = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public PurchaseOrder(StringValue branch = default(StringValue), DecimalValue controlTotal = default(DecimalValue), StringValue currencyID = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), IEnumerable<PurchaseOrderDetail> details = default(IEnumerable<PurchaseOrderDetail>), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DecimalValue lineTotal = default(DecimalValue), StringValue location = default(StringValue), StringValue orderNbr = default(StringValue), DecimalValue orderTotal = default(DecimalValue), StringValue owner = default(StringValue), StringValue project = default(StringValue), DateTimeValue promisedOn = default(DateTimeValue), ShippingInstructions shippingInstructions = default(ShippingInstructions), StringValue status = default(StringValue), IEnumerable<PurchaseOrderTaxDetail> taxDetails = default(IEnumerable<PurchaseOrderTaxDetail>), DecimalValue taxTotal = default(DecimalValue), StringValue terms = default(StringValue), StringValue type = default(StringValue), StringValue vendorID = default(StringValue), StringValue vendorRef = default(StringValue), StringValue vendorTaxZone = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Branch = branch;
             this.ControlTotal = controlTotal;
@@ -119,7 +119,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<PurchaseOrderDetail> Details { get; set; }
+        public IEnumerable<PurchaseOrderDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets Hold
@@ -191,7 +191,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TaxDetails
         /// </summary>
         [DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-        public List<PurchaseOrderTaxDetail> TaxDetails { get; set; }
+        public IEnumerable<PurchaseOrderTaxDetail> TaxDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxTotal

@@ -40,7 +40,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="includeFailed">includeFailed.</param>
         /// <param name="result">result.</param>
         /// <param name="type">type.</param>
-        public EmailProcessing(IntValue account = default(IntValue), StringValue accountEmailAccountID = default(StringValue), BooleanValue assignedToMe = default(BooleanValue), StringValue assignedToOwner = default(StringValue), BooleanValue includeFailed = default(BooleanValue), List<EmailProcessingRow> result = default(List<EmailProcessingRow>), StringValue type = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public EmailProcessing(IntValue account = default(IntValue), StringValue accountEmailAccountID = default(StringValue), BooleanValue assignedToMe = default(BooleanValue), StringValue assignedToOwner = default(StringValue), BooleanValue includeFailed = default(BooleanValue), IEnumerable<EmailProcessingRow> result = default(IEnumerable<EmailProcessingRow>), StringValue type = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Account = account;
             this.AccountEmailAccountID = accountEmailAccountID;
@@ -85,7 +85,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Result
         /// </summary>
         [DataMember(Name="Result", EmitDefaultValue=false)]
-        public List<EmailProcessingRow> Result { get; set; }
+        public IEnumerable<EmailProcessingRow> Result { get; set; }
 
         /// <summary>
         /// Gets or Sets Type

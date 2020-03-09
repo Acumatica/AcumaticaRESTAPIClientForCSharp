@@ -73,7 +73,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="weightTotal">weightTotal.</param>
         /// <param name="workgroupDescription">workgroupDescription.</param>
         /// <param name="workgroupID">workgroupID.</param>
-        public Opportunity(List<ActivityDetail> activities = default(List<ActivityDetail>), Address address = default(Address), DecimalValue amount = default(DecimalValue), List<AttributeDetail> attributes = default(List<AttributeDetail>), StringValue branch = default(StringValue), StringValue businessAccount = default(StringValue), StringValue classID = default(StringValue), StringValue contactDisplayName = default(StringValue), IntValue contactID = default(IntValue), OpportunityContact contactInformation = default(OpportunityContact), StringValue convertedLeadDisplayName = default(StringValue), IntValue convertedLeadID = default(IntValue), StringValue currencyID = default(StringValue), BooleanValue currencyViewState = default(BooleanValue), StringValue details = default(StringValue), DecimalValue discount = default(DecimalValue), List<OpportunityDiscount> discounts = default(List<OpportunityDiscount>), DateTimeValue estimation = default(DateTimeValue), StringValue location = default(StringValue), BooleanValue manualAmount = default(BooleanValue), StringValue opportunityID = default(StringValue), BooleanValue _override = default(BooleanValue), StringValue owner = default(StringValue), StringValue ownerEmployeeName = default(StringValue), StringValue parentAccount = default(StringValue), List<OpportunityProduct> products = default(List<OpportunityProduct>), StringValue project = default(StringValue), StringValue reason = default(StringValue), List<RelationDetail> relations = default(List<RelationDetail>), StringValue source = default(StringValue), StringValue sourceCampaign = default(StringValue), StringValue stage = default(StringValue), StringValue status = default(StringValue), StringValue subject = default(StringValue), List<OpportunityTaxDetail> taxDetails = default(List<OpportunityTaxDetail>), StringValue taxZone = default(StringValue), DecimalValue total = default(DecimalValue), DecimalValue weightTotal = default(DecimalValue), StringValue workgroupDescription = default(StringValue), StringValue workgroupID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Opportunity(IEnumerable<ActivityDetail> activities = default(IEnumerable<ActivityDetail>), Address address = default(Address), DecimalValue amount = default(DecimalValue), IEnumerable<AttributeDetail> attributes = default(IEnumerable<AttributeDetail>), StringValue branch = default(StringValue), StringValue businessAccount = default(StringValue), StringValue classID = default(StringValue), StringValue contactDisplayName = default(StringValue), IntValue contactID = default(IntValue), OpportunityContact contactInformation = default(OpportunityContact), StringValue convertedLeadDisplayName = default(StringValue), IntValue convertedLeadID = default(IntValue), StringValue currencyID = default(StringValue), BooleanValue currencyViewState = default(BooleanValue), StringValue details = default(StringValue), DecimalValue discount = default(DecimalValue), IEnumerable<OpportunityDiscount> discounts = default(IEnumerable<OpportunityDiscount>), DateTimeValue estimation = default(DateTimeValue), StringValue location = default(StringValue), BooleanValue manualAmount = default(BooleanValue), StringValue opportunityID = default(StringValue), BooleanValue _override = default(BooleanValue), StringValue owner = default(StringValue), StringValue ownerEmployeeName = default(StringValue), StringValue parentAccount = default(StringValue), IEnumerable<OpportunityProduct> products = default(IEnumerable<OpportunityProduct>), StringValue project = default(StringValue), StringValue reason = default(StringValue), IEnumerable<RelationDetail> relations = default(IEnumerable<RelationDetail>), StringValue source = default(StringValue), StringValue sourceCampaign = default(StringValue), StringValue stage = default(StringValue), StringValue status = default(StringValue), StringValue subject = default(StringValue), IEnumerable<OpportunityTaxDetail> taxDetails = default(IEnumerable<OpportunityTaxDetail>), StringValue taxZone = default(StringValue), DecimalValue total = default(DecimalValue), DecimalValue weightTotal = default(DecimalValue), StringValue workgroupDescription = default(StringValue), StringValue workgroupID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Activities = activities;
             this.Address = address;
@@ -121,7 +121,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Activities
         /// </summary>
         [DataMember(Name="Activities", EmitDefaultValue=false)]
-        public List<ActivityDetail> Activities { get; set; }
+        public IEnumerable<ActivityDetail> Activities { get; set; }
 
         /// <summary>
         /// Gets or Sets Address
@@ -139,7 +139,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeDetail> Attributes { get; set; }
+        public IEnumerable<AttributeDetail> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Branch
@@ -217,7 +217,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Discounts
         /// </summary>
         [DataMember(Name="Discounts", EmitDefaultValue=false)]
-        public List<OpportunityDiscount> Discounts { get; set; }
+        public IEnumerable<OpportunityDiscount> Discounts { get; set; }
 
         /// <summary>
         /// Gets or Sets Estimation
@@ -271,7 +271,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Products
         /// </summary>
         [DataMember(Name="Products", EmitDefaultValue=false)]
-        public List<OpportunityProduct> Products { get; set; }
+        public IEnumerable<OpportunityProduct> Products { get; set; }
 
         /// <summary>
         /// Gets or Sets Project
@@ -289,7 +289,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Relations
         /// </summary>
         [DataMember(Name="Relations", EmitDefaultValue=false)]
-        public List<RelationDetail> Relations { get; set; }
+        public IEnumerable<RelationDetail> Relations { get; set; }
 
         /// <summary>
         /// Gets or Sets Source
@@ -325,7 +325,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TaxDetails
         /// </summary>
         [DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-        public List<OpportunityTaxDetail> TaxDetails { get; set; }
+        public IEnumerable<OpportunityTaxDetail> TaxDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxZone

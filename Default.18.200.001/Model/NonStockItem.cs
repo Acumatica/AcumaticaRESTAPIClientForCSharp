@@ -75,7 +75,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="volumeUOM">volumeUOM.</param>
         /// <param name="weight">weight.</param>
         /// <param name="weightUOM">weightUOM.</param>
-        public NonStockItem(List<NonStockItemAttribute> attributes = default(List<NonStockItemAttribute>), StringValue baseUnit = default(StringValue), List<InventoryItemCrossReference> crossReferences = default(List<InventoryItemCrossReference>), DecimalValue currentCost = default(DecimalValue), DecimalValue defaultPrice = default(DecimalValue), StringValue deferralAccount = default(StringValue), StringValue deferralSubaccount = default(StringValue), StringValue description = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), StringValue expenseAccount = default(StringValue), StringValue expenseAccrualAccount = default(StringValue), StringValue expenseAccrualSubaccount = default(StringValue), StringValue expenseSubaccount = default(StringValue), StringValue inventoryID = default(StringValue), BooleanValue isKit = default(BooleanValue), StringValue itemClass = default(StringValue), StringValue itemStatus = default(StringValue), StringValue itemType = default(StringValue), DecimalValue lastCost = default(DecimalValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DecimalValue pendingCost = default(DecimalValue), DateTimeValue pendingCostDate = default(DateTimeValue), StringValue pOAccrualAccount = default(StringValue), StringValue pOAccrualSubaccount = default(StringValue), StringValue postingClass = default(StringValue), StringValue priceClass = default(StringValue), StringValue purchasePriceVarianceAccount = default(StringValue), StringValue purchasePriceVarianceSubaccount = default(StringValue), StringValue purchaseUnit = default(StringValue), StringValue reasonCodeSubaccount = default(StringValue), BooleanValue requireReceipt = default(BooleanValue), BooleanValue requireShipment = default(BooleanValue), StringValue salesAccount = default(StringValue), List<NonStockItemSalesCategory> salesCategories = default(List<NonStockItemSalesCategory>), StringValue salesSubaccount = default(StringValue), StringValue salesUnit = default(StringValue), StringValue taxCategory = default(StringValue), List<NonStockItemVendorDetail> vendorDetails = default(List<NonStockItemVendorDetail>), DecimalValue volume = default(DecimalValue), StringValue volumeUOM = default(StringValue), DecimalValue weight = default(DecimalValue), StringValue weightUOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public NonStockItem(IEnumerable<NonStockItemAttribute> attributes = default(IEnumerable<NonStockItemAttribute>), StringValue baseUnit = default(StringValue), IEnumerable<InventoryItemCrossReference> crossReferences = default(IEnumerable<InventoryItemCrossReference>), DecimalValue currentCost = default(DecimalValue), DecimalValue defaultPrice = default(DecimalValue), StringValue deferralAccount = default(StringValue), StringValue deferralSubaccount = default(StringValue), StringValue description = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), StringValue expenseAccount = default(StringValue), StringValue expenseAccrualAccount = default(StringValue), StringValue expenseAccrualSubaccount = default(StringValue), StringValue expenseSubaccount = default(StringValue), StringValue inventoryID = default(StringValue), BooleanValue isKit = default(BooleanValue), StringValue itemClass = default(StringValue), StringValue itemStatus = default(StringValue), StringValue itemType = default(StringValue), DecimalValue lastCost = default(DecimalValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DecimalValue pendingCost = default(DecimalValue), DateTimeValue pendingCostDate = default(DateTimeValue), StringValue pOAccrualAccount = default(StringValue), StringValue pOAccrualSubaccount = default(StringValue), StringValue postingClass = default(StringValue), StringValue priceClass = default(StringValue), StringValue purchasePriceVarianceAccount = default(StringValue), StringValue purchasePriceVarianceSubaccount = default(StringValue), StringValue purchaseUnit = default(StringValue), StringValue reasonCodeSubaccount = default(StringValue), BooleanValue requireReceipt = default(BooleanValue), BooleanValue requireShipment = default(BooleanValue), StringValue salesAccount = default(StringValue), IEnumerable<NonStockItemSalesCategory> salesCategories = default(IEnumerable<NonStockItemSalesCategory>), StringValue salesSubaccount = default(StringValue), StringValue salesUnit = default(StringValue), StringValue taxCategory = default(StringValue), IEnumerable<NonStockItemVendorDetail> vendorDetails = default(IEnumerable<NonStockItemVendorDetail>), DecimalValue volume = default(DecimalValue), StringValue volumeUOM = default(StringValue), DecimalValue weight = default(DecimalValue), StringValue weightUOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Attributes = attributes;
             this.BaseUnit = baseUnit;
@@ -125,7 +125,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<NonStockItemAttribute> Attributes { get; set; }
+        public IEnumerable<NonStockItemAttribute> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets BaseUnit
@@ -137,7 +137,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets CrossReferences
         /// </summary>
         [DataMember(Name="CrossReferences", EmitDefaultValue=false)]
-        public List<InventoryItemCrossReference> CrossReferences { get; set; }
+        public IEnumerable<InventoryItemCrossReference> CrossReferences { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentCost
@@ -323,7 +323,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets SalesCategories
         /// </summary>
         [DataMember(Name="SalesCategories", EmitDefaultValue=false)]
-        public List<NonStockItemSalesCategory> SalesCategories { get; set; }
+        public IEnumerable<NonStockItemSalesCategory> SalesCategories { get; set; }
 
         /// <summary>
         /// Gets or Sets SalesSubaccount
@@ -347,7 +347,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets VendorDetails
         /// </summary>
         [DataMember(Name="VendorDetails", EmitDefaultValue=false)]
-        public List<NonStockItemVendorDetail> VendorDetails { get; set; }
+        public IEnumerable<NonStockItemVendorDetail> VendorDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets Volume

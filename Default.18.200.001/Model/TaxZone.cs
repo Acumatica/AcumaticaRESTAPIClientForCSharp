@@ -38,7 +38,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="description">description.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="taxZoneID">taxZoneID.</param>
-        public TaxZone(List<TaxZoneApplicableTaxDetail> applicableTaxes = default(List<TaxZoneApplicableTaxDetail>), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue taxZoneID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public TaxZone(IEnumerable<TaxZoneApplicableTaxDetail> applicableTaxes = default(IEnumerable<TaxZoneApplicableTaxDetail>), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue taxZoneID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ApplicableTaxes = applicableTaxes;
             this.CreatedDateTime = createdDateTime;
@@ -51,7 +51,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ApplicableTaxes
         /// </summary>
         [DataMember(Name="ApplicableTaxes", EmitDefaultValue=false)]
-        public List<TaxZoneApplicableTaxDetail> ApplicableTaxes { get; set; }
+        public IEnumerable<TaxZoneApplicableTaxDetail> ApplicableTaxes { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedDateTime

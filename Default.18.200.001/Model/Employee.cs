@@ -43,7 +43,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="financialSettings">financialSettings.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="status">status.</param>
-        public Employee(List<AttributeDetail> attributes = default(List<AttributeDetail>), Contact contactInfo = default(Contact), List<EmployeeDelegate> delegates = default(List<EmployeeDelegate>), StringValue employeeID = default(StringValue), StringValue employeeName = default(StringValue), EmployeeSettings employeeSettings = default(EmployeeSettings), List<EmploymentHistoryRecord> employmentHistory = default(List<EmploymentHistoryRecord>), EmployeeFinancialSettings financialSettings = default(EmployeeFinancialSettings), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue status = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Employee(IEnumerable<AttributeDetail> attributes = default(IEnumerable<AttributeDetail>), Contact contactInfo = default(Contact), IEnumerable<EmployeeDelegate> delegates = default(IEnumerable<EmployeeDelegate>), StringValue employeeID = default(StringValue), StringValue employeeName = default(StringValue), EmployeeSettings employeeSettings = default(EmployeeSettings), IEnumerable<EmploymentHistoryRecord> employmentHistory = default(IEnumerable<EmploymentHistoryRecord>), EmployeeFinancialSettings financialSettings = default(EmployeeFinancialSettings), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue status = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Attributes = attributes;
             this.ContactInfo = contactInfo;
@@ -61,7 +61,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeDetail> Attributes { get; set; }
+        public IEnumerable<AttributeDetail> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets ContactInfo
@@ -73,7 +73,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Delegates
         /// </summary>
         [DataMember(Name="Delegates", EmitDefaultValue=false)]
-        public List<EmployeeDelegate> Delegates { get; set; }
+        public IEnumerable<EmployeeDelegate> Delegates { get; set; }
 
         /// <summary>
         /// Gets or Sets EmployeeID
@@ -97,7 +97,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets EmploymentHistory
         /// </summary>
         [DataMember(Name="EmploymentHistory", EmitDefaultValue=false)]
-        public List<EmploymentHistoryRecord> EmploymentHistory { get; set; }
+        public IEnumerable<EmploymentHistoryRecord> EmploymentHistory { get; set; }
 
         /// <summary>
         /// Gets or Sets FinancialSettings

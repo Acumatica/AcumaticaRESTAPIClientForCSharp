@@ -40,7 +40,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="postPeriod">postPeriod.</param>
         /// <param name="projectTemplate">projectTemplate.</param>
         /// <param name="statementCycle">statementCycle.</param>
-        public ProjectBilling(StringValue customer = default(StringValue), StringValue customerClass = default(StringValue), List<ProjectBillingDetails> details = default(List<ProjectBillingDetails>), DateTimeValue invoiceDate = default(DateTimeValue), StringValue postPeriod = default(StringValue), StringValue projectTemplate = default(StringValue), StringValue statementCycle = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ProjectBilling(StringValue customer = default(StringValue), StringValue customerClass = default(StringValue), IEnumerable<ProjectBillingDetails> details = default(IEnumerable<ProjectBillingDetails>), DateTimeValue invoiceDate = default(DateTimeValue), StringValue postPeriod = default(StringValue), StringValue projectTemplate = default(StringValue), StringValue statementCycle = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Customer = customer;
             this.CustomerClass = customerClass;
@@ -67,7 +67,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<ProjectBillingDetails> Details { get; set; }
+        public IEnumerable<ProjectBillingDetails> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets InvoiceDate

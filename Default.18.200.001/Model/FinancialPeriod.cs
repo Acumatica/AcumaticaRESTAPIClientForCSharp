@@ -40,7 +40,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="nbrOfPeriods">nbrOfPeriods.</param>
         /// <param name="startDate">startDate.</param>
         /// <param name="userDefinedPeriods">userDefinedPeriods.</param>
-        public FinancialPeriod(DateTimeValue createdDateTime = default(DateTimeValue), List<FinancialPeriodDetail> details = default(List<FinancialPeriodDetail>), StringValue financialYear = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), ShortValue nbrOfPeriods = default(ShortValue), DateTimeValue startDate = default(DateTimeValue), BooleanValue userDefinedPeriods = default(BooleanValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public FinancialPeriod(DateTimeValue createdDateTime = default(DateTimeValue), IEnumerable<FinancialPeriodDetail> details = default(IEnumerable<FinancialPeriodDetail>), StringValue financialYear = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), ShortValue nbrOfPeriods = default(ShortValue), DateTimeValue startDate = default(DateTimeValue), BooleanValue userDefinedPeriods = default(BooleanValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.CreatedDateTime = createdDateTime;
             this.Details = details;
@@ -61,7 +61,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<FinancialPeriodDetail> Details { get; set; }
+        public IEnumerable<FinancialPeriodDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets FinancialYear

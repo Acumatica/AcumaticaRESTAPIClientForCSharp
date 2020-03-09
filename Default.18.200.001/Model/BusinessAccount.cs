@@ -69,7 +69,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="type">type.</param>
         /// <param name="workgroup">workgroup.</param>
         /// <param name="workgroupDescription">workgroupDescription.</param>
-        public BusinessAccount(StringValue accountRef = default(StringValue), List<BusinessAccountActivityDetail> activities = default(List<BusinessAccountActivityDetail>), List<AttributeDetail> attributes = default(List<AttributeDetail>), StringValue businessAccountID = default(StringValue), List<CampaignDetail> campaigns = default(List<CampaignDetail>), List<BusinessAccountCaseDetail> cases = default(List<BusinessAccountCaseDetail>), StringValue classID = default(StringValue), List<BusinessAccountContact> contacts = default(List<BusinessAccountContact>), List<BusinessAccountContract> contracts = default(List<BusinessAccountContract>), BusinessAccountDefaultLocationSetting defaultLocationSettings = default(BusinessAccountDefaultLocationSetting), StringValue duplicate = default(StringValue), List<DuplicateDetail> duplicates = default(List<DuplicateDetail>), DateTimeValue lastIncomingActivity = default(DateTimeValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DateTimeValue lastOutgoingActivity = default(DateTimeValue), List<BusinessAccountLocation> locations = default(List<BusinessAccountLocation>), Address mainAddress = default(Address), BooleanValue mainAddressValidated = default(BooleanValue), BusinessAccountMainContact mainContact = default(BusinessAccountMainContact), List<BusinessAccountMarketingListDetail> marketingLists = default(List<BusinessAccountMarketingListDetail>), StringValue name = default(StringValue), List<BusinessAccountOpportunityDetail> opportunities = default(List<BusinessAccountOpportunityDetail>), List<BusinessAccountOrder> orders = default(List<BusinessAccountOrder>), StringValue owner = default(StringValue), StringValue ownerEmployeeName = default(StringValue), StringValue parentAccount = default(StringValue), List<RelationDetail> relations = default(List<RelationDetail>), Address shippingAddress = default(Address), BooleanValue shippingAddressSameAsMain = default(BooleanValue), BooleanValue shippingAddressValidated = default(BooleanValue), BusinessAccountShippingContact shippingContact = default(BusinessAccountShippingContact), StringValue sourceCampaign = default(StringValue), StringValue status = default(StringValue), StringValue type = default(StringValue), StringValue workgroup = default(StringValue), StringValue workgroupDescription = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public BusinessAccount(StringValue accountRef = default(StringValue), IEnumerable<BusinessAccountActivityDetail> activities = default(IEnumerable<BusinessAccountActivityDetail>), IEnumerable<AttributeDetail> attributes = default(IEnumerable<AttributeDetail>), StringValue businessAccountID = default(StringValue), IEnumerable<CampaignDetail> campaigns = default(IEnumerable<CampaignDetail>), IEnumerable<BusinessAccountCaseDetail> cases = default(IEnumerable<BusinessAccountCaseDetail>), StringValue classID = default(StringValue), IEnumerable<BusinessAccountContact> contacts = default(IEnumerable<BusinessAccountContact>), IEnumerable<BusinessAccountContract> contracts = default(IEnumerable<BusinessAccountContract>), BusinessAccountDefaultLocationSetting defaultLocationSettings = default(BusinessAccountDefaultLocationSetting), StringValue duplicate = default(StringValue), IEnumerable<DuplicateDetail> duplicates = default(IEnumerable<DuplicateDetail>), DateTimeValue lastIncomingActivity = default(DateTimeValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DateTimeValue lastOutgoingActivity = default(DateTimeValue), IEnumerable<BusinessAccountLocation> locations = default(IEnumerable<BusinessAccountLocation>), Address mainAddress = default(Address), BooleanValue mainAddressValidated = default(BooleanValue), BusinessAccountMainContact mainContact = default(BusinessAccountMainContact), IEnumerable<BusinessAccountMarketingListDetail> marketingLists = default(IEnumerable<BusinessAccountMarketingListDetail>), StringValue name = default(StringValue), IEnumerable<BusinessAccountOpportunityDetail> opportunities = default(IEnumerable<BusinessAccountOpportunityDetail>), IEnumerable<BusinessAccountOrder> orders = default(IEnumerable<BusinessAccountOrder>), StringValue owner = default(StringValue), StringValue ownerEmployeeName = default(StringValue), StringValue parentAccount = default(StringValue), IEnumerable<RelationDetail> relations = default(IEnumerable<RelationDetail>), Address shippingAddress = default(Address), BooleanValue shippingAddressSameAsMain = default(BooleanValue), BooleanValue shippingAddressValidated = default(BooleanValue), BusinessAccountShippingContact shippingContact = default(BusinessAccountShippingContact), StringValue sourceCampaign = default(StringValue), StringValue status = default(StringValue), StringValue type = default(StringValue), StringValue workgroup = default(StringValue), StringValue workgroupDescription = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.AccountRef = accountRef;
             this.Activities = activities;
@@ -119,13 +119,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Activities
         /// </summary>
         [DataMember(Name="Activities", EmitDefaultValue=false)]
-        public List<BusinessAccountActivityDetail> Activities { get; set; }
+        public IEnumerable<BusinessAccountActivityDetail> Activities { get; set; }
 
         /// <summary>
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeDetail> Attributes { get; set; }
+        public IEnumerable<AttributeDetail> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets BusinessAccountID
@@ -137,13 +137,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Campaigns
         /// </summary>
         [DataMember(Name="Campaigns", EmitDefaultValue=false)]
-        public List<CampaignDetail> Campaigns { get; set; }
+        public IEnumerable<CampaignDetail> Campaigns { get; set; }
 
         /// <summary>
         /// Gets or Sets Cases
         /// </summary>
         [DataMember(Name="Cases", EmitDefaultValue=false)]
-        public List<BusinessAccountCaseDetail> Cases { get; set; }
+        public IEnumerable<BusinessAccountCaseDetail> Cases { get; set; }
 
         /// <summary>
         /// Gets or Sets ClassID
@@ -155,13 +155,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Contacts
         /// </summary>
         [DataMember(Name="Contacts", EmitDefaultValue=false)]
-        public List<BusinessAccountContact> Contacts { get; set; }
+        public IEnumerable<BusinessAccountContact> Contacts { get; set; }
 
         /// <summary>
         /// Gets or Sets Contracts
         /// </summary>
         [DataMember(Name="Contracts", EmitDefaultValue=false)]
-        public List<BusinessAccountContract> Contracts { get; set; }
+        public IEnumerable<BusinessAccountContract> Contracts { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultLocationSettings
@@ -179,7 +179,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Duplicates
         /// </summary>
         [DataMember(Name="Duplicates", EmitDefaultValue=false)]
-        public List<DuplicateDetail> Duplicates { get; set; }
+        public IEnumerable<DuplicateDetail> Duplicates { get; set; }
 
         /// <summary>
         /// Gets or Sets LastIncomingActivity
@@ -203,7 +203,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Locations
         /// </summary>
         [DataMember(Name="Locations", EmitDefaultValue=false)]
-        public List<BusinessAccountLocation> Locations { get; set; }
+        public IEnumerable<BusinessAccountLocation> Locations { get; set; }
 
         /// <summary>
         /// Gets or Sets MainAddress
@@ -227,7 +227,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets MarketingLists
         /// </summary>
         [DataMember(Name="MarketingLists", EmitDefaultValue=false)]
-        public List<BusinessAccountMarketingListDetail> MarketingLists { get; set; }
+        public IEnumerable<BusinessAccountMarketingListDetail> MarketingLists { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -239,13 +239,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Opportunities
         /// </summary>
         [DataMember(Name="Opportunities", EmitDefaultValue=false)]
-        public List<BusinessAccountOpportunityDetail> Opportunities { get; set; }
+        public IEnumerable<BusinessAccountOpportunityDetail> Opportunities { get; set; }
 
         /// <summary>
         /// Gets or Sets Orders
         /// </summary>
         [DataMember(Name="Orders", EmitDefaultValue=false)]
-        public List<BusinessAccountOrder> Orders { get; set; }
+        public IEnumerable<BusinessAccountOrder> Orders { get; set; }
 
         /// <summary>
         /// Gets or Sets Owner
@@ -269,7 +269,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Relations
         /// </summary>
         [DataMember(Name="Relations", EmitDefaultValue=false)]
-        public List<RelationDetail> Relations { get; set; }
+        public IEnumerable<RelationDetail> Relations { get; set; }
 
         /// <summary>
         /// Gets or Sets ShippingAddress

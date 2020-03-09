@@ -80,7 +80,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="webSite">webSite.</param>
         /// <param name="workgroup">workgroup.</param>
         /// <param name="workgroupDescription">workgroupDescription.</param>
-        public Lead(List<ActivityDetail> activities = default(List<ActivityDetail>), Address address = default(Address), List<AttributeDetail> attributes = default(List<AttributeDetail>), StringValue businessAccount = default(StringValue), List<CampaignDetail> campaigns = default(List<CampaignDetail>), StringValue companyName = default(StringValue), StringValue contactMethod = default(StringValue), BooleanValue doNotCall = default(BooleanValue), BooleanValue doNotEmail = default(BooleanValue), BooleanValue doNotFax = default(BooleanValue), BooleanValue doNotMail = default(BooleanValue), StringValue duplicate = default(StringValue), BooleanValue duplicateFound = default(BooleanValue), List<DuplicateDetail> duplicates = default(List<DuplicateDetail>), StringValue email = default(StringValue), StringValue fax = default(StringValue), StringValue faxType = default(StringValue), StringValue firstName = default(StringValue), StringValue jobTitle = default(StringValue), StringValue languageOrLocale = default(StringValue), DateTimeValue lastIncomingActivity = default(DateTimeValue), StringValue lastName = default(StringValue), DateTimeValue lastOutgoingActivity = default(DateTimeValue), StringValue leadClass = default(StringValue), StringValue leadDisplayName = default(StringValue), IntValue leadID = default(IntValue), List<MarketingListDetail> marketingLists = default(List<MarketingListDetail>), BooleanValue noMarketing = default(BooleanValue), BooleanValue noMassMail = default(BooleanValue), StringValue owner = default(StringValue), StringValue ownerEmployeeName = default(StringValue), StringValue parentAccount = default(StringValue), StringValue phone1 = default(StringValue), StringValue phone1Type = default(StringValue), StringValue phone2 = default(StringValue), StringValue phone2Type = default(StringValue), StringValue phone3 = default(StringValue), StringValue phone3Type = default(StringValue), StringValue reason = default(StringValue), List<RelationDetail> relations = default(List<RelationDetail>), StringValue source = default(StringValue), StringValue sourceCampaign = default(StringValue), StringValue status = default(StringValue), StringValue title = default(StringValue), StringValue webSite = default(StringValue), StringValue workgroup = default(StringValue), StringValue workgroupDescription = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Lead(IEnumerable<ActivityDetail> activities = default(IEnumerable<ActivityDetail>), Address address = default(Address), IEnumerable<AttributeDetail> attributes = default(IEnumerable<AttributeDetail>), StringValue businessAccount = default(StringValue), IEnumerable<CampaignDetail> campaigns = default(IEnumerable<CampaignDetail>), StringValue companyName = default(StringValue), StringValue contactMethod = default(StringValue), BooleanValue doNotCall = default(BooleanValue), BooleanValue doNotEmail = default(BooleanValue), BooleanValue doNotFax = default(BooleanValue), BooleanValue doNotMail = default(BooleanValue), StringValue duplicate = default(StringValue), BooleanValue duplicateFound = default(BooleanValue), IEnumerable<DuplicateDetail> duplicates = default(IEnumerable<DuplicateDetail>), StringValue email = default(StringValue), StringValue fax = default(StringValue), StringValue faxType = default(StringValue), StringValue firstName = default(StringValue), StringValue jobTitle = default(StringValue), StringValue languageOrLocale = default(StringValue), DateTimeValue lastIncomingActivity = default(DateTimeValue), StringValue lastName = default(StringValue), DateTimeValue lastOutgoingActivity = default(DateTimeValue), StringValue leadClass = default(StringValue), StringValue leadDisplayName = default(StringValue), IntValue leadID = default(IntValue), IEnumerable<MarketingListDetail> marketingLists = default(IEnumerable<MarketingListDetail>), BooleanValue noMarketing = default(BooleanValue), BooleanValue noMassMail = default(BooleanValue), StringValue owner = default(StringValue), StringValue ownerEmployeeName = default(StringValue), StringValue parentAccount = default(StringValue), StringValue phone1 = default(StringValue), StringValue phone1Type = default(StringValue), StringValue phone2 = default(StringValue), StringValue phone2Type = default(StringValue), StringValue phone3 = default(StringValue), StringValue phone3Type = default(StringValue), StringValue reason = default(StringValue), IEnumerable<RelationDetail> relations = default(IEnumerable<RelationDetail>), StringValue source = default(StringValue), StringValue sourceCampaign = default(StringValue), StringValue status = default(StringValue), StringValue title = default(StringValue), StringValue webSite = default(StringValue), StringValue workgroup = default(StringValue), StringValue workgroupDescription = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Activities = activities;
             this.Address = address;
@@ -135,7 +135,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Activities
         /// </summary>
         [DataMember(Name="Activities", EmitDefaultValue=false)]
-        public List<ActivityDetail> Activities { get; set; }
+        public IEnumerable<ActivityDetail> Activities { get; set; }
 
         /// <summary>
         /// Gets or Sets Address
@@ -147,7 +147,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeDetail> Attributes { get; set; }
+        public IEnumerable<AttributeDetail> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets BusinessAccount
@@ -159,7 +159,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Campaigns
         /// </summary>
         [DataMember(Name="Campaigns", EmitDefaultValue=false)]
-        public List<CampaignDetail> Campaigns { get; set; }
+        public IEnumerable<CampaignDetail> Campaigns { get; set; }
 
         /// <summary>
         /// Gets or Sets CompanyName
@@ -213,7 +213,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Duplicates
         /// </summary>
         [DataMember(Name="Duplicates", EmitDefaultValue=false)]
-        public List<DuplicateDetail> Duplicates { get; set; }
+        public IEnumerable<DuplicateDetail> Duplicates { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
@@ -291,7 +291,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets MarketingLists
         /// </summary>
         [DataMember(Name="MarketingLists", EmitDefaultValue=false)]
-        public List<MarketingListDetail> MarketingLists { get; set; }
+        public IEnumerable<MarketingListDetail> MarketingLists { get; set; }
 
         /// <summary>
         /// Gets or Sets NoMarketing
@@ -369,7 +369,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Relations
         /// </summary>
         [DataMember(Name="Relations", EmitDefaultValue=false)]
-        public List<RelationDetail> Relations { get; set; }
+        public IEnumerable<RelationDetail> Relations { get; set; }
 
         /// <summary>
         /// Gets or Sets Source

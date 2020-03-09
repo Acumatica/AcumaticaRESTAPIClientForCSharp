@@ -39,7 +39,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="fromYear">fromYear.</param>
         /// <param name="reopenFinancialPeriodsinAllModules">reopenFinancialPeriodsinAllModules.</param>
         /// <param name="toYear">toYear.</param>
-        public ManageFinancialPeriods(StringValue actionToPerform = default(StringValue), StringValue company = default(StringValue), List<ManageFinancialPeriodsDetail> details = default(List<ManageFinancialPeriodsDetail>), StringValue fromYear = default(StringValue), BooleanValue reopenFinancialPeriodsinAllModules = default(BooleanValue), StringValue toYear = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ManageFinancialPeriods(StringValue actionToPerform = default(StringValue), StringValue company = default(StringValue), IEnumerable<ManageFinancialPeriodsDetail> details = default(IEnumerable<ManageFinancialPeriodsDetail>), StringValue fromYear = default(StringValue), BooleanValue reopenFinancialPeriodsinAllModules = default(BooleanValue), StringValue toYear = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ActionToPerform = actionToPerform;
             this.Company = company;
@@ -65,7 +65,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<ManageFinancialPeriodsDetail> Details { get; set; }
+        public IEnumerable<ManageFinancialPeriodsDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets FromYear

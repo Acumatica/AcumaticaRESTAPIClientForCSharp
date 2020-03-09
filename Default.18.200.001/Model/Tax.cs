@@ -58,7 +58,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="taxSchedule">taxSchedule.</param>
         /// <param name="taxType">taxType.</param>
         /// <param name="zones">zones.</param>
-        public Tax(StringValue calculateOn = default(StringValue), StringValue cashDiscount = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), BooleanValue deductibleVAT = default(BooleanValue), StringValue description = default(StringValue), BooleanValue enterFromTaxBill = default(BooleanValue), BooleanValue excludeFromTaxonTaxCalculation = default(BooleanValue), BooleanValue includeInVATExemptTotal = default(BooleanValue), BooleanValue includeInVATTaxableTotal = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DateTimeValue notValidAfter = default(DateTimeValue), BooleanValue pendingVAT = default(BooleanValue), BooleanValue reverseVAT = default(BooleanValue), BooleanValue statisticalVAT = default(BooleanValue), StringValue taxAgency = default(StringValue), StringValue taxClaimableAccount = default(StringValue), StringValue taxClaimableSubaccount = default(StringValue), StringValue taxExpenseAccount = default(StringValue), StringValue taxExpenseSubaccount = default(StringValue), StringValue taxID = default(StringValue), StringValue taxPayableAccount = default(StringValue), StringValue taxPayableSubaccount = default(StringValue), List<TaxScheduleDetail> taxSchedule = default(List<TaxScheduleDetail>), StringValue taxType = default(StringValue), List<TaxZoneDetail> zones = default(List<TaxZoneDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Tax(StringValue calculateOn = default(StringValue), StringValue cashDiscount = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), BooleanValue deductibleVAT = default(BooleanValue), StringValue description = default(StringValue), BooleanValue enterFromTaxBill = default(BooleanValue), BooleanValue excludeFromTaxonTaxCalculation = default(BooleanValue), BooleanValue includeInVATExemptTotal = default(BooleanValue), BooleanValue includeInVATTaxableTotal = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DateTimeValue notValidAfter = default(DateTimeValue), BooleanValue pendingVAT = default(BooleanValue), BooleanValue reverseVAT = default(BooleanValue), BooleanValue statisticalVAT = default(BooleanValue), StringValue taxAgency = default(StringValue), StringValue taxClaimableAccount = default(StringValue), StringValue taxClaimableSubaccount = default(StringValue), StringValue taxExpenseAccount = default(StringValue), StringValue taxExpenseSubaccount = default(StringValue), StringValue taxID = default(StringValue), StringValue taxPayableAccount = default(StringValue), StringValue taxPayableSubaccount = default(StringValue), IEnumerable<TaxScheduleDetail> taxSchedule = default(IEnumerable<TaxScheduleDetail>), StringValue taxType = default(StringValue), IEnumerable<TaxZoneDetail> zones = default(IEnumerable<TaxZoneDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.CalculateOn = calculateOn;
             this.CashDiscount = cashDiscount;
@@ -223,7 +223,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TaxSchedule
         /// </summary>
         [DataMember(Name="TaxSchedule", EmitDefaultValue=false)]
-        public List<TaxScheduleDetail> TaxSchedule { get; set; }
+        public IEnumerable<TaxScheduleDetail> TaxSchedule { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxType
@@ -235,7 +235,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Zones
         /// </summary>
         [DataMember(Name="Zones", EmitDefaultValue=false)]
-        public List<TaxZoneDetail> Zones { get; set; }
+        public IEnumerable<TaxZoneDetail> Zones { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

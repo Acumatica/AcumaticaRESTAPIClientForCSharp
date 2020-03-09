@@ -37,7 +37,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="postingLedger">postingLedger.</param>
         /// <param name="transactionsInDestinationBranch">transactionsInDestinationBranch.</param>
         /// <param name="transactionsInSourceBranch">transactionsInSourceBranch.</param>
-        public InterBranchAccountMapping(StringValue originatingBranch = default(StringValue), StringValue postingLedger = default(StringValue), List<InterBranchAccountMappingTransactionInDestinationBranchDetail> transactionsInDestinationBranch = default(List<InterBranchAccountMappingTransactionInDestinationBranchDetail>), List<InterBranchAccountMappingTransactionInSourceBranchDetail> transactionsInSourceBranch = default(List<InterBranchAccountMappingTransactionInSourceBranchDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public InterBranchAccountMapping(StringValue originatingBranch = default(StringValue), StringValue postingLedger = default(StringValue), IEnumerable<InterBranchAccountMappingTransactionInDestinationBranchDetail> transactionsInDestinationBranch = default(IEnumerable<InterBranchAccountMappingTransactionInDestinationBranchDetail>), IEnumerable<InterBranchAccountMappingTransactionInSourceBranchDetail> transactionsInSourceBranch = default(IEnumerable<InterBranchAccountMappingTransactionInSourceBranchDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.OriginatingBranch = originatingBranch;
             this.PostingLedger = postingLedger;
@@ -61,13 +61,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TransactionsInDestinationBranch
         /// </summary>
         [DataMember(Name="TransactionsInDestinationBranch", EmitDefaultValue=false)]
-        public List<InterBranchAccountMappingTransactionInDestinationBranchDetail> TransactionsInDestinationBranch { get; set; }
+        public IEnumerable<InterBranchAccountMappingTransactionInDestinationBranchDetail> TransactionsInDestinationBranch { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionsInSourceBranch
         /// </summary>
         [DataMember(Name="TransactionsInSourceBranch", EmitDefaultValue=false)]
-        public List<InterBranchAccountMappingTransactionInSourceBranchDetail> TransactionsInSourceBranch { get; set; }
+        public IEnumerable<InterBranchAccountMappingTransactionInSourceBranchDetail> TransactionsInSourceBranch { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

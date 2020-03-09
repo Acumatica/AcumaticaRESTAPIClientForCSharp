@@ -40,7 +40,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="segments">segments.</param>
         /// <param name="trackExpirationDate">trackExpirationDate.</param>
         /// <param name="trackingMethod">trackingMethod.</param>
-        public LotSerialClass(StringValue assignmentMethod = default(StringValue), StringValue classID = default(StringValue), StringValue description = default(StringValue), StringValue issueMethod = default(StringValue), List<LotSerialClassSegment> segments = default(List<LotSerialClassSegment>), BooleanValue trackExpirationDate = default(BooleanValue), StringValue trackingMethod = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public LotSerialClass(StringValue assignmentMethod = default(StringValue), StringValue classID = default(StringValue), StringValue description = default(StringValue), StringValue issueMethod = default(StringValue), IEnumerable<LotSerialClassSegment> segments = default(IEnumerable<LotSerialClassSegment>), BooleanValue trackExpirationDate = default(BooleanValue), StringValue trackingMethod = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.AssignmentMethod = assignmentMethod;
             this.ClassID = classID;
@@ -79,7 +79,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Segments
         /// </summary>
         [DataMember(Name="Segments", EmitDefaultValue=false)]
-        public List<LotSerialClassSegment> Segments { get; set; }
+        public IEnumerable<LotSerialClassSegment> Segments { get; set; }
 
         /// <summary>
         /// Gets or Sets TrackExpirationDate

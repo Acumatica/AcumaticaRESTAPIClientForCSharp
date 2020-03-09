@@ -36,7 +36,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="commissionAmount">commissionAmount.</param>
         /// <param name="salesPersons">salesPersons.</param>
         /// <param name="totalCommissionableAmount">totalCommissionableAmount.</param>
-        public SalesInvoiceCommissions(DecimalValue commissionAmount = default(DecimalValue), List<SalesInvoiceSalesPersonDetail> salesPersons = default(List<SalesInvoiceSalesPersonDetail>), DecimalValue totalCommissionableAmount = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public SalesInvoiceCommissions(DecimalValue commissionAmount = default(DecimalValue), IEnumerable<SalesInvoiceSalesPersonDetail> salesPersons = default(IEnumerable<SalesInvoiceSalesPersonDetail>), DecimalValue totalCommissionableAmount = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.CommissionAmount = commissionAmount;
             this.SalesPersons = salesPersons;
@@ -53,7 +53,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets SalesPersons
         /// </summary>
         [DataMember(Name="SalesPersons", EmitDefaultValue=false)]
-        public List<SalesInvoiceSalesPersonDetail> SalesPersons { get; set; }
+        public IEnumerable<SalesInvoiceSalesPersonDetail> SalesPersons { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalCommissionableAmount

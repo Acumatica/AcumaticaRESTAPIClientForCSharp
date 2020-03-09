@@ -38,7 +38,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="defaultAccount">defaultAccount.</param>
         /// <param name="defaultSubaccount">defaultSubaccount.</param>
         /// <param name="defaultTaskForGLAccounts">defaultTaskForGLAccounts.</param>
-        public ProjectGLAccount(StringValue accrualAccount = default(StringValue), StringValue accrualSubaccount = default(StringValue), StringValue defaultAccount = default(StringValue), StringValue defaultSubaccount = default(StringValue), List<DefaultTaskForGLAccount> defaultTaskForGLAccounts = default(List<DefaultTaskForGLAccount>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ProjectGLAccount(StringValue accrualAccount = default(StringValue), StringValue accrualSubaccount = default(StringValue), StringValue defaultAccount = default(StringValue), StringValue defaultSubaccount = default(StringValue), IEnumerable<DefaultTaskForGLAccount> defaultTaskForGLAccounts = default(IEnumerable<DefaultTaskForGLAccount>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.AccrualAccount = accrualAccount;
             this.AccrualSubaccount = accrualSubaccount;
@@ -75,7 +75,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets DefaultTaskForGLAccounts
         /// </summary>
         [DataMember(Name="DefaultTaskForGLAccounts", EmitDefaultValue=false)]
-        public List<DefaultTaskForGLAccount> DefaultTaskForGLAccounts { get; set; }
+        public IEnumerable<DefaultTaskForGLAccount> DefaultTaskForGLAccounts { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -148,20 +148,20 @@ namespace Acumatica.RESTClient.Api
         {
             return new Dictionary<String, String>();
         }
-        protected object ComposeBody(object credentials)
+        protected object ComposeBody(object objectForRequestBody)
         {
-            object localVarPostBody = null;
+            object postBody = null;
 
-            if (credentials != null && credentials.GetType() != typeof(byte[]))
+            if (objectForRequestBody != null && objectForRequestBody.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(credentials); // http body (model) parameter
+                postBody = this.Configuration.ApiClient.Serialize(objectForRequestBody); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = credentials; // byte array
+                postBody = objectForRequestBody; // byte array
             }
 
-            return localVarPostBody;
+            return postBody;
         }
         protected ApiResponse<T> DeserializeResponse<T>(IRestResponse response)
         {

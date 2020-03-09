@@ -48,7 +48,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="type">type.</param>
         /// <param name="unappliedBalance">unappliedBalance.</param>
         /// <param name="vendor">vendor.</param>
-        public Check(DateTimeValue applicationDate = default(DateTimeValue), StringValue cashAccount = default(StringValue), StringValue currencyID = default(StringValue), StringValue description = default(StringValue), List<CheckDetail> details = default(List<CheckDetail>), List<CheckHistoryDetail> history = default(List<CheckHistoryDetail>), BooleanValue hold = default(BooleanValue), DecimalValue paymentAmount = default(DecimalValue), StringValue paymentMethod = default(StringValue), StringValue paymentRef = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), StringValue type = default(StringValue), DecimalValue unappliedBalance = default(DecimalValue), StringValue vendor = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Check(DateTimeValue applicationDate = default(DateTimeValue), StringValue cashAccount = default(StringValue), StringValue currencyID = default(StringValue), StringValue description = default(StringValue), IEnumerable<CheckDetail> details = default(IEnumerable<CheckDetail>), IEnumerable<CheckHistoryDetail> history = default(IEnumerable<CheckHistoryDetail>), BooleanValue hold = default(BooleanValue), DecimalValue paymentAmount = default(DecimalValue), StringValue paymentMethod = default(StringValue), StringValue paymentRef = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), StringValue type = default(StringValue), DecimalValue unappliedBalance = default(DecimalValue), StringValue vendor = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ApplicationDate = applicationDate;
             this.CashAccount = cashAccount;
@@ -95,13 +95,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<CheckDetail> Details { get; set; }
+        public IEnumerable<CheckDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets History
         /// </summary>
         [DataMember(Name="History", EmitDefaultValue=false)]
-        public List<CheckHistoryDetail> History { get; set; }
+        public IEnumerable<CheckHistoryDetail> History { get; set; }
 
         /// <summary>
         /// Gets or Sets Hold

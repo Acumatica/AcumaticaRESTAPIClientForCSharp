@@ -50,7 +50,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="toDate">toDate.</param>
         /// <param name="toPeriod">toPeriod.</param>
         /// <param name="turnover">turnover.</param>
-        public AccountDetailsInquiry(StringValue account = default(StringValue), DecimalValue beginingBalance = default(DecimalValue), StringValue branch = default(StringValue), DecimalValue endingBalance = default(DecimalValue), DateTimeValue fromDate = default(DateTimeValue), StringValue fromPeriod = default(StringValue), BooleanValue includeReclassified = default(BooleanValue), BooleanValue includeUnposted = default(BooleanValue), BooleanValue includeUnreleased = default(BooleanValue), StringValue ledger = default(StringValue), DateTimeValue periodEndDate = default(DateTimeValue), DateTimeValue periodStartDate = default(DateTimeValue), List<AccountDetailsRow> results = default(List<AccountDetailsRow>), StringValue subaccount = default(StringValue), DateTimeValue toDate = default(DateTimeValue), StringValue toPeriod = default(StringValue), DecimalValue turnover = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public AccountDetailsInquiry(StringValue account = default(StringValue), DecimalValue beginingBalance = default(DecimalValue), StringValue branch = default(StringValue), DecimalValue endingBalance = default(DecimalValue), DateTimeValue fromDate = default(DateTimeValue), StringValue fromPeriod = default(StringValue), BooleanValue includeReclassified = default(BooleanValue), BooleanValue includeUnposted = default(BooleanValue), BooleanValue includeUnreleased = default(BooleanValue), StringValue ledger = default(StringValue), DateTimeValue periodEndDate = default(DateTimeValue), DateTimeValue periodStartDate = default(DateTimeValue), IEnumerable<AccountDetailsRow> results = default(IEnumerable<AccountDetailsRow>), StringValue subaccount = default(StringValue), DateTimeValue toDate = default(DateTimeValue), StringValue toPeriod = default(StringValue), DecimalValue turnover = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Account = account;
             this.BeginingBalance = beginingBalance;
@@ -147,7 +147,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Results
         /// </summary>
         [DataMember(Name="Results", EmitDefaultValue=false)]
-        public List<AccountDetailsRow> Results { get; set; }
+        public IEnumerable<AccountDetailsRow> Results { get; set; }
 
         /// <summary>
         /// Gets or Sets Subaccount

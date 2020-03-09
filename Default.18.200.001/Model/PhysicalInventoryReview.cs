@@ -44,7 +44,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="totalVarianceQty">totalVarianceQty.</param>
         /// <param name="typeID">typeID.</param>
         /// <param name="warehouseID">warehouseID.</param>
-        public PhysicalInventoryReview(DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), List<PhysicalInventoryReviewDetail> details = default(List<PhysicalInventoryReviewDetail>), DateTimeValue freezeDate = default(DateTimeValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalPhysicalQty = default(DecimalValue), DecimalValue totalVarianceCost = default(DecimalValue), DecimalValue totalVarianceQty = default(DecimalValue), StringValue typeID = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public PhysicalInventoryReview(DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), IEnumerable<PhysicalInventoryReviewDetail> details = default(IEnumerable<PhysicalInventoryReviewDetail>), DateTimeValue freezeDate = default(DateTimeValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalPhysicalQty = default(DecimalValue), DecimalValue totalVarianceCost = default(DecimalValue), DecimalValue totalVarianceQty = default(DecimalValue), StringValue typeID = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.CreatedDateTime = createdDateTime;
             this.Description = description;
@@ -75,7 +75,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<PhysicalInventoryReviewDetail> Details { get; set; }
+        public IEnumerable<PhysicalInventoryReviewDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets FreezeDate

@@ -9,18 +9,7 @@ namespace Acumatica.Default_18_200_001.Model
     {
  public CreateCaseFromEmail(Email entity) : base(entity)
         { }
-
-[DataMember(Name = "entity", EmitDefaultValue = false)]
-        public Email Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
-    }
+ public CreateCaseFromEmail() : base()
+        { }
+  }
 }

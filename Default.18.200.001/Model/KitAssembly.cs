@@ -51,7 +51,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="type">type.</param>
         /// <param name="uOM">uOM.</param>
         /// <param name="warehouseID">warehouseID.</param>
-        public KitAssembly(List<KitAssemblyAllocation> allocations = default(List<KitAssemblyAllocation>), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), BooleanValue hold = default(BooleanValue), StringValue kitInventoryID = default(StringValue), StringValue locationID = default(StringValue), List<KitAssemblyNonStockComponent> nonStockComponents = default(List<KitAssemblyNonStockComponent>), StringValue postPeriod = default(StringValue), DecimalValue qty = default(DecimalValue), StringValue reasonCode = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue revision = default(StringValue), StringValue status = default(StringValue), List<KitAssemblyStockComponent> stockComponents = default(List<KitAssemblyStockComponent>), StringValue subitem = default(StringValue), StringValue type = default(StringValue), StringValue uOM = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public KitAssembly(IEnumerable<KitAssemblyAllocation> allocations = default(IEnumerable<KitAssemblyAllocation>), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), BooleanValue hold = default(BooleanValue), StringValue kitInventoryID = default(StringValue), StringValue locationID = default(StringValue), IEnumerable<KitAssemblyNonStockComponent> nonStockComponents = default(IEnumerable<KitAssemblyNonStockComponent>), StringValue postPeriod = default(StringValue), DecimalValue qty = default(DecimalValue), StringValue reasonCode = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue revision = default(StringValue), StringValue status = default(StringValue), IEnumerable<KitAssemblyStockComponent> stockComponents = default(IEnumerable<KitAssemblyStockComponent>), StringValue subitem = default(StringValue), StringValue type = default(StringValue), StringValue uOM = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Allocations = allocations;
             this.Date = date;
@@ -77,7 +77,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Allocations
         /// </summary>
         [DataMember(Name="Allocations", EmitDefaultValue=false)]
-        public List<KitAssemblyAllocation> Allocations { get; set; }
+        public IEnumerable<KitAssemblyAllocation> Allocations { get; set; }
 
         /// <summary>
         /// Gets or Sets Date
@@ -113,7 +113,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets NonStockComponents
         /// </summary>
         [DataMember(Name="NonStockComponents", EmitDefaultValue=false)]
-        public List<KitAssemblyNonStockComponent> NonStockComponents { get; set; }
+        public IEnumerable<KitAssemblyNonStockComponent> NonStockComponents { get; set; }
 
         /// <summary>
         /// Gets or Sets PostPeriod
@@ -155,7 +155,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets StockComponents
         /// </summary>
         [DataMember(Name="StockComponents", EmitDefaultValue=false)]
-        public List<KitAssemblyStockComponent> StockComponents { get; set; }
+        public IEnumerable<KitAssemblyStockComponent> StockComponents { get; set; }
 
         /// <summary>
         /// Gets or Sets Subitem

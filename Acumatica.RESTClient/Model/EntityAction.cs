@@ -1,8 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.Model
 {
+
+    [DataContract]
     public abstract class EntityAction<EntityType>
         where EntityType : Entity
     {
@@ -19,11 +22,22 @@ namespace Acumatica.RESTClient.Model
             }
             else
             {
-                this._Entity = entity;
+                this.Entity = entity;
             }
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Action" /> class.
+        /// </summary>
+        public EntityAction()
+        {
+        }
 
-        protected EntityType _Entity { get; set; }
+        [DataMember(Name = "entity", EmitDefaultValue = false)]
+        public EntityType Entity
+        {
+            get;
+            set;
+        }
     }
 
 }

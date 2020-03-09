@@ -49,7 +49,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="unitCost">unitCost.</param>
         /// <param name="uOM">uOM.</param>
         /// <param name="warehouseID">warehouseID.</param>
-        public InventoryReceiptDetail(List<InventoryReceiptDetailAllocation> allocations = default(List<InventoryReceiptDetailAllocation>), StringValue costCode = default(StringValue), StringValue description = default(StringValue), DateTimeValue expirationDate = default(DateTimeValue), DecimalValue extCost = default(DecimalValue), StringValue inventoryID = default(StringValue), IntValue lineNumber = default(IntValue), StringValue location = default(StringValue), StringValue lotSerialNbr = default(StringValue), StringValue project = default(StringValue), StringValue projectTask = default(StringValue), DecimalValue qty = default(DecimalValue), StringValue subitem = default(StringValue), DecimalValue unitCost = default(DecimalValue), StringValue uOM = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public InventoryReceiptDetail(IEnumerable<InventoryReceiptDetailAllocation> allocations = default(IEnumerable<InventoryReceiptDetailAllocation>), StringValue costCode = default(StringValue), StringValue description = default(StringValue), DateTimeValue expirationDate = default(DateTimeValue), DecimalValue extCost = default(DecimalValue), StringValue inventoryID = default(StringValue), IntValue lineNumber = default(IntValue), StringValue location = default(StringValue), StringValue lotSerialNbr = default(StringValue), StringValue project = default(StringValue), StringValue projectTask = default(StringValue), DecimalValue qty = default(DecimalValue), StringValue subitem = default(StringValue), DecimalValue unitCost = default(DecimalValue), StringValue uOM = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Allocations = allocations;
             this.CostCode = costCode;
@@ -73,7 +73,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Allocations
         /// </summary>
         [DataMember(Name="Allocations", EmitDefaultValue=false)]
-        public List<InventoryReceiptDetailAllocation> Allocations { get; set; }
+        public IEnumerable<InventoryReceiptDetailAllocation> Allocations { get; set; }
 
         /// <summary>
         /// Gets or Sets CostCode

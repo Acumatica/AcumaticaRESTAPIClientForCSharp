@@ -39,7 +39,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="results">results.</param>
         /// <param name="subitem">subitem.</param>
         /// <param name="warehouseID">warehouseID.</param>
-        public InventorySummaryInquiry(BooleanValue expandByLotSerialNbr = default(BooleanValue), StringValue inventoryID = default(StringValue), StringValue locationID = default(StringValue), List<InventorySummaryRow> results = default(List<InventorySummaryRow>), StringValue subitem = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public InventorySummaryInquiry(BooleanValue expandByLotSerialNbr = default(BooleanValue), StringValue inventoryID = default(StringValue), StringValue locationID = default(StringValue), IEnumerable<InventorySummaryRow> results = default(IEnumerable<InventorySummaryRow>), StringValue subitem = default(StringValue), StringValue warehouseID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ExpandByLotSerialNbr = expandByLotSerialNbr;
             this.InventoryID = inventoryID;
@@ -71,7 +71,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Results
         /// </summary>
         [DataMember(Name="Results", EmitDefaultValue=false)]
-        public List<InventorySummaryRow> Results { get; set; }
+        public IEnumerable<InventorySummaryRow> Results { get; set; }
 
         /// <summary>
         /// Gets or Sets Subitem

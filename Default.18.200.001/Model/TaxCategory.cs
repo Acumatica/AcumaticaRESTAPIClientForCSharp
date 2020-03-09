@@ -40,7 +40,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="excludeListedTaxes">excludeListedTaxes.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="taxCategoryID">taxCategoryID.</param>
-        public TaxCategory(BooleanValue active = default(BooleanValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), List<TaxCategoryTaxDetail> details = default(List<TaxCategoryTaxDetail>), BooleanValue excludeListedTaxes = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue taxCategoryID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public TaxCategory(BooleanValue active = default(BooleanValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), IEnumerable<TaxCategoryTaxDetail> details = default(IEnumerable<TaxCategoryTaxDetail>), BooleanValue excludeListedTaxes = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue taxCategoryID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Active = active;
             this.CreatedDateTime = createdDateTime;
@@ -73,7 +73,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<TaxCategoryTaxDetail> Details { get; set; }
+        public IEnumerable<TaxCategoryTaxDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets ExcludeListedTaxes

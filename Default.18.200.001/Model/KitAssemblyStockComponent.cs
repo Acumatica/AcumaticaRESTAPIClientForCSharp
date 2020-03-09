@@ -43,7 +43,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="subitem">subitem.</param>
         /// <param name="unitCost">unitCost.</param>
         /// <param name="uOM">uOM.</param>
-        public KitAssemblyStockComponent(List<KitAssemblyStockComponentAllocation> allocations = default(List<KitAssemblyStockComponentAllocation>), DecimalValue componentQty = default(DecimalValue), IntValue lineNbr = default(IntValue), StringValue locationID = default(StringValue), DecimalValue qty = default(DecimalValue), StringValue reasonCode = default(StringValue), StringValue stockInventoryID = default(StringValue), StringValue subitem = default(StringValue), DecimalValue unitCost = default(DecimalValue), StringValue uOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public KitAssemblyStockComponent(IEnumerable<KitAssemblyStockComponentAllocation> allocations = default(IEnumerable<KitAssemblyStockComponentAllocation>), DecimalValue componentQty = default(DecimalValue), IntValue lineNbr = default(IntValue), StringValue locationID = default(StringValue), DecimalValue qty = default(DecimalValue), StringValue reasonCode = default(StringValue), StringValue stockInventoryID = default(StringValue), StringValue subitem = default(StringValue), DecimalValue unitCost = default(DecimalValue), StringValue uOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Allocations = allocations;
             this.ComponentQty = componentQty;
@@ -61,7 +61,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Allocations
         /// </summary>
         [DataMember(Name="Allocations", EmitDefaultValue=false)]
-        public List<KitAssemblyStockComponentAllocation> Allocations { get; set; }
+        public IEnumerable<KitAssemblyStockComponentAllocation> Allocations { get; set; }
 
         /// <summary>
         /// Gets or Sets ComponentQty

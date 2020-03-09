@@ -86,7 +86,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="terms">terms.</param>
         /// <param name="warehouseID">warehouseID.</param>
         /// <param name="writeOffLimit">writeOffLimit.</param>
-        public Customer(StringValue accountRef = default(StringValue), BooleanValue applyOverdueCharges = default(BooleanValue), List<AttributeDetail> attributes = default(List<AttributeDetail>), BooleanValue autoApplyPayments = default(BooleanValue), BooleanValue billingAddressSameAsMain = default(BooleanValue), Contact billingContact = default(Contact), BooleanValue billingContactSameAsMain = default(BooleanValue), List<CustomerContact> contacts = default(List<CustomerContact>), DateTimeValue createdDateTime = default(DateTimeValue), CreditVerificationRules creditVerificationRules = default(CreditVerificationRules), StringValue currencyID = default(StringValue), StringValue currencyRateType = default(StringValue), StringValue customerClass = default(StringValue), StringValue customerID = default(StringValue), StringValue customerName = default(StringValue), BooleanValue enableCurrencyOverride = default(BooleanValue), BooleanValue enableRateOverride = default(BooleanValue), BooleanValue enableWriteOffs = default(BooleanValue), StringValue fOBPoint = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), ShortValue leadTimedays = default(ShortValue), StringValue locationName = default(StringValue), Contact mainContact = default(Contact), BooleanValue multiCurrencyStatements = default(BooleanValue), ShortValue orderPriority = default(ShortValue), StringValue parentRecord = default(StringValue), List<BusinessAccountPaymentInstructionDetail> paymentInstructions = default(List<BusinessAccountPaymentInstructionDetail>), StringValue priceClassID = default(StringValue), BooleanValue printDunningLetters = default(BooleanValue), BooleanValue printInvoices = default(BooleanValue), BooleanValue printStatements = default(BooleanValue), BooleanValue residentialDelivery = default(BooleanValue), List<CustomerSalesPerson> salespersons = default(List<CustomerSalesPerson>), BooleanValue saturdayDelivery = default(BooleanValue), BooleanValue sendDunningLettersbyEmail = default(BooleanValue), BooleanValue sendInvoicesbyEmail = default(BooleanValue), BooleanValue sendStatementsbyEmail = default(BooleanValue), BooleanValue shippingAddressSameAsMain = default(BooleanValue), StringValue shippingBranch = default(StringValue), Contact shippingContact = default(Contact), BooleanValue shippingContactSameAsMain = default(BooleanValue), StringValue shippingRule = default(StringValue), StringValue shippingTerms = default(StringValue), StringValue shippingZoneID = default(StringValue), StringValue shipVia = default(StringValue), StringValue statementCycleID = default(StringValue), StringValue statementType = default(StringValue), StringValue status = default(StringValue), StringValue taxRegistrationID = default(StringValue), StringValue taxZone = default(StringValue), StringValue terms = default(StringValue), StringValue warehouseID = default(StringValue), DecimalValue writeOffLimit = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Customer(StringValue accountRef = default(StringValue), BooleanValue applyOverdueCharges = default(BooleanValue), IEnumerable<AttributeDetail> attributes = default(IEnumerable<AttributeDetail>), BooleanValue autoApplyPayments = default(BooleanValue), BooleanValue billingAddressSameAsMain = default(BooleanValue), Contact billingContact = default(Contact), BooleanValue billingContactSameAsMain = default(BooleanValue), IEnumerable<CustomerContact> contacts = default(IEnumerable<CustomerContact>), DateTimeValue createdDateTime = default(DateTimeValue), CreditVerificationRules creditVerificationRules = default(CreditVerificationRules), StringValue currencyID = default(StringValue), StringValue currencyRateType = default(StringValue), StringValue customerClass = default(StringValue), StringValue customerID = default(StringValue), StringValue customerName = default(StringValue), BooleanValue enableCurrencyOverride = default(BooleanValue), BooleanValue enableRateOverride = default(BooleanValue), BooleanValue enableWriteOffs = default(BooleanValue), StringValue fOBPoint = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), ShortValue leadTimedays = default(ShortValue), StringValue locationName = default(StringValue), Contact mainContact = default(Contact), BooleanValue multiCurrencyStatements = default(BooleanValue), ShortValue orderPriority = default(ShortValue), StringValue parentRecord = default(StringValue), IEnumerable<BusinessAccountPaymentInstructionDetail> paymentInstructions = default(IEnumerable<BusinessAccountPaymentInstructionDetail>), StringValue priceClassID = default(StringValue), BooleanValue printDunningLetters = default(BooleanValue), BooleanValue printInvoices = default(BooleanValue), BooleanValue printStatements = default(BooleanValue), BooleanValue residentialDelivery = default(BooleanValue), IEnumerable<CustomerSalesPerson> salespersons = default(IEnumerable<CustomerSalesPerson>), BooleanValue saturdayDelivery = default(BooleanValue), BooleanValue sendDunningLettersbyEmail = default(BooleanValue), BooleanValue sendInvoicesbyEmail = default(BooleanValue), BooleanValue sendStatementsbyEmail = default(BooleanValue), BooleanValue shippingAddressSameAsMain = default(BooleanValue), StringValue shippingBranch = default(StringValue), Contact shippingContact = default(Contact), BooleanValue shippingContactSameAsMain = default(BooleanValue), StringValue shippingRule = default(StringValue), StringValue shippingTerms = default(StringValue), StringValue shippingZoneID = default(StringValue), StringValue shipVia = default(StringValue), StringValue statementCycleID = default(StringValue), StringValue statementType = default(StringValue), StringValue status = default(StringValue), StringValue taxRegistrationID = default(StringValue), StringValue taxZone = default(StringValue), StringValue terms = default(StringValue), StringValue warehouseID = default(StringValue), DecimalValue writeOffLimit = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.AccountRef = accountRef;
             this.ApplyOverdueCharges = applyOverdueCharges;
@@ -159,7 +159,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeDetail> Attributes { get; set; }
+        public IEnumerable<AttributeDetail> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets AutoApplyPayments
@@ -189,7 +189,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Contacts
         /// </summary>
         [DataMember(Name="Contacts", EmitDefaultValue=false)]
-        public List<CustomerContact> Contacts { get; set; }
+        public IEnumerable<CustomerContact> Contacts { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedDateTime
@@ -303,7 +303,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets PaymentInstructions
         /// </summary>
         [DataMember(Name="PaymentInstructions", EmitDefaultValue=false)]
-        public List<BusinessAccountPaymentInstructionDetail> PaymentInstructions { get; set; }
+        public IEnumerable<BusinessAccountPaymentInstructionDetail> PaymentInstructions { get; set; }
 
         /// <summary>
         /// Gets or Sets PriceClassID
@@ -339,7 +339,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Salespersons
         /// </summary>
         [DataMember(Name="Salespersons", EmitDefaultValue=false)]
-        public List<CustomerSalesPerson> Salespersons { get; set; }
+        public IEnumerable<CustomerSalesPerson> Salespersons { get; set; }
 
         /// <summary>
         /// Gets or Sets SaturdayDelivery

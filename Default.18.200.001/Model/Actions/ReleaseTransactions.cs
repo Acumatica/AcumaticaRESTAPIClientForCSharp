@@ -9,18 +9,7 @@ namespace Acumatica.Default_18_200_001.Model
     {
  public ReleaseTransactions(ProjectTransaction entity) : base(entity)
         { }
-
-[DataMember(Name = "entity", EmitDefaultValue = false)]
-        public ProjectTransaction Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
-    }
+ public ReleaseTransactions() : base()
+        { }
+  }
 }

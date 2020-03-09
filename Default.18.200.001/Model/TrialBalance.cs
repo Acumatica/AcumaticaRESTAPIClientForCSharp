@@ -48,7 +48,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="ledger">ledger.</param>
         /// <param name="period">period.</param>
         /// <param name="status">status.</param>
-        public TrialBalance(StringValue batchNbr = default(StringValue), StringValue branch = default(StringValue), DecimalValue controlTotal = default(DecimalValue), DateTimeValue createdDateTime = default(DateTimeValue), DecimalValue creditTotal = default(DecimalValue), DecimalValue debitTotal = default(DecimalValue), StringValue description = default(StringValue), List<TrialBalanceDetail> details = default(List<TrialBalanceDetail>), BooleanValue hold = default(BooleanValue), DateTimeValue importDate = default(DateTimeValue), StringValue importNbr = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue ledger = default(StringValue), StringValue period = default(StringValue), StringValue status = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public TrialBalance(StringValue batchNbr = default(StringValue), StringValue branch = default(StringValue), DecimalValue controlTotal = default(DecimalValue), DateTimeValue createdDateTime = default(DateTimeValue), DecimalValue creditTotal = default(DecimalValue), DecimalValue debitTotal = default(DecimalValue), StringValue description = default(StringValue), IEnumerable<TrialBalanceDetail> details = default(IEnumerable<TrialBalanceDetail>), BooleanValue hold = default(BooleanValue), DateTimeValue importDate = default(DateTimeValue), StringValue importNbr = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue ledger = default(StringValue), StringValue period = default(StringValue), StringValue status = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.BatchNbr = batchNbr;
             this.Branch = branch;
@@ -113,7 +113,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<TrialBalanceDetail> Details { get; set; }
+        public IEnumerable<TrialBalanceDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets Hold

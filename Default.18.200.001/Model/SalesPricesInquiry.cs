@@ -44,7 +44,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="priceWorkgroup">priceWorkgroup.</param>
         /// <param name="priceWorkgroupIsMine">priceWorkgroupIsMine.</param>
         /// <param name="salesPriceDetails">salesPriceDetails.</param>
-        public SalesPricesInquiry(DateTimeValue effectiveAsOf = default(DateTimeValue), StringValue inventoryID = default(StringValue), StringValue itemClassID = default(StringValue), StringValue priceClass = default(StringValue), StringValue priceCode = default(StringValue), StringValue priceManager = default(StringValue), BooleanValue priceManagerIsMe = default(BooleanValue), StringValue priceType = default(StringValue), StringValue priceWorkgroup = default(StringValue), BooleanValue priceWorkgroupIsMine = default(BooleanValue), List<SalesPriceDetail> salesPriceDetails = default(List<SalesPriceDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public SalesPricesInquiry(DateTimeValue effectiveAsOf = default(DateTimeValue), StringValue inventoryID = default(StringValue), StringValue itemClassID = default(StringValue), StringValue priceClass = default(StringValue), StringValue priceCode = default(StringValue), StringValue priceManager = default(StringValue), BooleanValue priceManagerIsMe = default(BooleanValue), StringValue priceType = default(StringValue), StringValue priceWorkgroup = default(StringValue), BooleanValue priceWorkgroupIsMine = default(BooleanValue), IEnumerable<SalesPriceDetail> salesPriceDetails = default(IEnumerable<SalesPriceDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.EffectiveAsOf = effectiveAsOf;
             this.InventoryID = inventoryID;
@@ -123,7 +123,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets SalesPriceDetails
         /// </summary>
         [DataMember(Name="SalesPriceDetails", EmitDefaultValue=false)]
-        public List<SalesPriceDetail> SalesPriceDetails { get; set; }
+        public IEnumerable<SalesPriceDetail> SalesPriceDetails { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

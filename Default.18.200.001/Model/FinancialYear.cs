@@ -49,7 +49,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="periodType">periodType.</param>
         /// <param name="userDefinedPeriods">userDefinedPeriods.</param>
         /// <param name="yearEndCalculationMethod">yearEndCalculationMethod.</param>
-        public FinancialYear(BooleanValue adjustToPeriodStart = default(BooleanValue), BooleanValue belongsToNextYear = default(BooleanValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue dayOfWeek = default(StringValue), List<FinancialYearPeriodDetail> details = default(List<FinancialYearPeriodDetail>), DateTimeValue financialYearStartsOn = default(DateTimeValue), StringValue firstFinancialYear = default(StringValue), DateTimeValue firstPeriodStartDate = default(DateTimeValue), BooleanValue hasAdjustmentPeriod = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), ShortValue lengthOfFinancialPeriodInDays = default(ShortValue), ShortValue nbrOfFinancialPeriods = default(ShortValue), StringValue periodsStartDayOfWeek = default(StringValue), StringValue periodType = default(StringValue), BooleanValue userDefinedPeriods = default(BooleanValue), StringValue yearEndCalculationMethod = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public FinancialYear(BooleanValue adjustToPeriodStart = default(BooleanValue), BooleanValue belongsToNextYear = default(BooleanValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue dayOfWeek = default(StringValue), IEnumerable<FinancialYearPeriodDetail> details = default(IEnumerable<FinancialYearPeriodDetail>), DateTimeValue financialYearStartsOn = default(DateTimeValue), StringValue firstFinancialYear = default(StringValue), DateTimeValue firstPeriodStartDate = default(DateTimeValue), BooleanValue hasAdjustmentPeriod = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), ShortValue lengthOfFinancialPeriodInDays = default(ShortValue), ShortValue nbrOfFinancialPeriods = default(ShortValue), StringValue periodsStartDayOfWeek = default(StringValue), StringValue periodType = default(StringValue), BooleanValue userDefinedPeriods = default(BooleanValue), StringValue yearEndCalculationMethod = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.AdjustToPeriodStart = adjustToPeriodStart;
             this.BelongsToNextYear = belongsToNextYear;
@@ -97,7 +97,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<FinancialYearPeriodDetail> Details { get; set; }
+        public IEnumerable<FinancialYearPeriodDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets FinancialYearStartsOn

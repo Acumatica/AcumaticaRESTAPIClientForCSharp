@@ -9,18 +9,7 @@ namespace Acumatica.Default_18_200_001.Model
     {
  public ExportCardEvent(Event entity) : base(entity)
         { }
-
-[DataMember(Name = "entity", EmitDefaultValue = false)]
-        public Event Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
-    }
+ public ExportCardEvent() : base()
+        { }
+  }
 }

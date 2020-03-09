@@ -51,7 +51,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="referenceNbr">referenceNbr.</param>
         /// <param name="status">status.</param>
         /// <param name="type">type.</param>
-        public Payment(DateTimeValue applicationDate = default(DateTimeValue), List<PaymentApplicationHistoryDetail> applicationHistory = default(List<PaymentApplicationHistoryDetail>), DecimalValue appliedToDocuments = default(DecimalValue), IntValue cardAccountNbr = default(IntValue), StringValue cashAccount = default(StringValue), List<CreditCardProcessingDetail> creditCardProcessingInfo = default(List<CreditCardProcessingDetail>), StringValue currencyID = default(StringValue), StringValue customerID = default(StringValue), StringValue description = default(StringValue), List<PaymentDetail> documentsToApply = default(List<PaymentDetail>), BooleanValue hold = default(BooleanValue), List<PaymentOrderDetail> ordersToApply = default(List<PaymentOrderDetail>), DecimalValue paymentAmount = default(DecimalValue), StringValue paymentMethod = default(StringValue), StringValue paymentRef = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), StringValue type = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Payment(DateTimeValue applicationDate = default(DateTimeValue), IEnumerable<PaymentApplicationHistoryDetail> applicationHistory = default(IEnumerable<PaymentApplicationHistoryDetail>), DecimalValue appliedToDocuments = default(DecimalValue), IntValue cardAccountNbr = default(IntValue), StringValue cashAccount = default(StringValue), IEnumerable<CreditCardProcessingDetail> creditCardProcessingInfo = default(IEnumerable<CreditCardProcessingDetail>), StringValue currencyID = default(StringValue), StringValue customerID = default(StringValue), StringValue description = default(StringValue), IEnumerable<PaymentDetail> documentsToApply = default(IEnumerable<PaymentDetail>), BooleanValue hold = default(BooleanValue), IEnumerable<PaymentOrderDetail> ordersToApply = default(IEnumerable<PaymentOrderDetail>), DecimalValue paymentAmount = default(DecimalValue), StringValue paymentMethod = default(StringValue), StringValue paymentRef = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), StringValue type = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ApplicationDate = applicationDate;
             this.ApplicationHistory = applicationHistory;
@@ -83,7 +83,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ApplicationHistory
         /// </summary>
         [DataMember(Name="ApplicationHistory", EmitDefaultValue=false)]
-        public List<PaymentApplicationHistoryDetail> ApplicationHistory { get; set; }
+        public IEnumerable<PaymentApplicationHistoryDetail> ApplicationHistory { get; set; }
 
         /// <summary>
         /// Gets or Sets AppliedToDocuments
@@ -107,7 +107,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets CreditCardProcessingInfo
         /// </summary>
         [DataMember(Name="CreditCardProcessingInfo", EmitDefaultValue=false)]
-        public List<CreditCardProcessingDetail> CreditCardProcessingInfo { get; set; }
+        public IEnumerable<CreditCardProcessingDetail> CreditCardProcessingInfo { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrencyID
@@ -131,7 +131,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets DocumentsToApply
         /// </summary>
         [DataMember(Name="DocumentsToApply", EmitDefaultValue=false)]
-        public List<PaymentDetail> DocumentsToApply { get; set; }
+        public IEnumerable<PaymentDetail> DocumentsToApply { get; set; }
 
         /// <summary>
         /// Gets or Sets Hold
@@ -143,7 +143,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets OrdersToApply
         /// </summary>
         [DataMember(Name="OrdersToApply", EmitDefaultValue=false)]
-        public List<PaymentOrderDetail> OrdersToApply { get; set; }
+        public IEnumerable<PaymentOrderDetail> OrdersToApply { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentAmount

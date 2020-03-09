@@ -49,7 +49,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="stockItem">stockItem.</param>
         /// <param name="taxCategoryID">taxCategoryID.</param>
         /// <param name="valuationMethod">valuationMethod.</param>
-        public ItemClass(List<ItemClassAtrribute> attributes = default(List<ItemClassAtrribute>), StringValue availabilityCalculationRule = default(StringValue), StringValue baseUOM = default(StringValue), StringValue classID = default(StringValue), StringValue defaultWarehouseID = default(StringValue), StringValue description = default(StringValue), StringValue itemType = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue lotSerialClass = default(StringValue), StringValue postingClass = default(StringValue), StringValue priceClass = default(StringValue), StringValue purchaseUOM = default(StringValue), StringValue salesUOM = default(StringValue), BooleanValue stockItem = default(BooleanValue), StringValue taxCategoryID = default(StringValue), StringValue valuationMethod = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ItemClass(IEnumerable<ItemClassAtrribute> attributes = default(IEnumerable<ItemClassAtrribute>), StringValue availabilityCalculationRule = default(StringValue), StringValue baseUOM = default(StringValue), StringValue classID = default(StringValue), StringValue defaultWarehouseID = default(StringValue), StringValue description = default(StringValue), StringValue itemType = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue lotSerialClass = default(StringValue), StringValue postingClass = default(StringValue), StringValue priceClass = default(StringValue), StringValue purchaseUOM = default(StringValue), StringValue salesUOM = default(StringValue), BooleanValue stockItem = default(BooleanValue), StringValue taxCategoryID = default(StringValue), StringValue valuationMethod = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Attributes = attributes;
             this.AvailabilityCalculationRule = availabilityCalculationRule;
@@ -73,7 +73,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<ItemClassAtrribute> Attributes { get; set; }
+        public IEnumerable<ItemClassAtrribute> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets AvailabilityCalculationRule

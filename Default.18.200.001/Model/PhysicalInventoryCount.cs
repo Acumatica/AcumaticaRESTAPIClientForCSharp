@@ -39,7 +39,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="lotSerialNbr">lotSerialNbr.</param>
         /// <param name="referenceNbr">referenceNbr.</param>
         /// <param name="subitem">subitem.</param>
-        public PhysicalInventoryCount(List<PhysicalInventoryCountDetail> details = default(List<PhysicalInventoryCountDetail>), StringValue inventoryID = default(StringValue), StringValue location = default(StringValue), StringValue lotSerialNbr = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue subitem = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public PhysicalInventoryCount(IEnumerable<PhysicalInventoryCountDetail> details = default(IEnumerable<PhysicalInventoryCountDetail>), StringValue inventoryID = default(StringValue), StringValue location = default(StringValue), StringValue lotSerialNbr = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue subitem = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Details = details;
             this.InventoryID = inventoryID;
@@ -53,7 +53,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<PhysicalInventoryCountDetail> Details { get; set; }
+        public IEnumerable<PhysicalInventoryCountDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets InventoryID

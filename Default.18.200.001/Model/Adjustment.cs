@@ -42,7 +42,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="status">status.</param>
         /// <param name="totalCost">totalCost.</param>
         /// <param name="totalQty">totalQty.</param>
-        public Adjustment(DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), List<AdjustmentDetail> details = default(List<AdjustmentDetail>), StringValue externalRef = default(StringValue), BooleanValue hold = default(BooleanValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalCost = default(DecimalValue), DecimalValue totalQty = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Adjustment(DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), IEnumerable<AdjustmentDetail> details = default(IEnumerable<AdjustmentDetail>), StringValue externalRef = default(StringValue), BooleanValue hold = default(BooleanValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalCost = default(DecimalValue), DecimalValue totalQty = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Date = date;
             this.Description = description;
@@ -71,7 +71,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<AdjustmentDetail> Details { get; set; }
+        public IEnumerable<AdjustmentDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets ExternalRef

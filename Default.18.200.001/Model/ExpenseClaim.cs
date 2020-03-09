@@ -55,7 +55,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="taxTotal">taxTotal.</param>
         /// <param name="vATExemptTotal">vATExemptTotal.</param>
         /// <param name="vATTaxableTotal">vATTaxableTotal.</param>
-        public ExpenseClaim(DateTimeValue approvalDate = default(DateTimeValue), List<Approval> approvalDetails = default(List<Approval>), StringValue baseCurrencyID = default(StringValue), StringValue claimedBy = default(StringValue), DecimalValue claimTotal = default(DecimalValue), StringValue currencyID = default(StringValue), DecimalValue currencyRate = default(DecimalValue), StringValue customerID = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue departmentID = default(StringValue), StringValue description = default(StringValue), List<ExpenseClaimDetails> details = default(List<ExpenseClaimDetails>), ExpenseClaimFinancialDetail financialDetails = default(ExpenseClaimFinancialDetail), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue locationID = default(StringValue), DecimalValue reciprocalRate = default(DecimalValue), StringValue refNbr = default(StringValue), StringValue status = default(StringValue), List<ExpenseClaimTaxDetail> taxDetails = default(List<ExpenseClaimTaxDetail>), DecimalValue taxTotal = default(DecimalValue), DecimalValue vATExemptTotal = default(DecimalValue), DecimalValue vATTaxableTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ExpenseClaim(DateTimeValue approvalDate = default(DateTimeValue), IEnumerable<Approval> approvalDetails = default(IEnumerable<Approval>), StringValue baseCurrencyID = default(StringValue), StringValue claimedBy = default(StringValue), DecimalValue claimTotal = default(DecimalValue), StringValue currencyID = default(StringValue), DecimalValue currencyRate = default(DecimalValue), StringValue customerID = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue departmentID = default(StringValue), StringValue description = default(StringValue), IEnumerable<ExpenseClaimDetails> details = default(IEnumerable<ExpenseClaimDetails>), ExpenseClaimFinancialDetail financialDetails = default(ExpenseClaimFinancialDetail), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue locationID = default(StringValue), DecimalValue reciprocalRate = default(DecimalValue), StringValue refNbr = default(StringValue), StringValue status = default(StringValue), IEnumerable<ExpenseClaimTaxDetail> taxDetails = default(IEnumerable<ExpenseClaimTaxDetail>), DecimalValue taxTotal = default(DecimalValue), DecimalValue vATExemptTotal = default(DecimalValue), DecimalValue vATTaxableTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ApprovalDate = approvalDate;
             this.ApprovalDetails = approvalDetails;
@@ -91,7 +91,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ApprovalDetails
         /// </summary>
         [DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
-        public List<Approval> ApprovalDetails { get; set; }
+        public IEnumerable<Approval> ApprovalDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets BaseCurrencyID
@@ -151,7 +151,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<ExpenseClaimDetails> Details { get; set; }
+        public IEnumerable<ExpenseClaimDetails> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets FinancialDetails
@@ -193,7 +193,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TaxDetails
         /// </summary>
         [DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-        public List<ExpenseClaimTaxDetail> TaxDetails { get; set; }
+        public IEnumerable<ExpenseClaimTaxDetail> TaxDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxTotal

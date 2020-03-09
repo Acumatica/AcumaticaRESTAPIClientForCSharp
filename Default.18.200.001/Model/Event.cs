@@ -52,7 +52,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="status">status.</param>
         /// <param name="summary">summary.</param>
         /// <param name="timeActivity">timeActivity.</param>
-        public Event(BooleanValue allDay = default(BooleanValue), List<EventAttendee> attendees = default(List<EventAttendee>), StringValue body = default(StringValue), StringValue category = default(StringValue), DateTimeValue endDate = default(DateTimeValue), DateTimeValue endTime = default(DateTimeValue), BooleanValue _internal = default(BooleanValue), StringValue location = default(StringValue), GuidValue noteID = default(GuidValue), StringValue priority = default(StringValue), List<EventRelatedActivity> relatedActivities = default(List<EventRelatedActivity>), StringValue relatedEntityDescription = default(StringValue), ReminderDetail reminder = default(ReminderDetail), StringValue showAs = default(StringValue), DateTimeValue startDate = default(DateTimeValue), DateTimeValue startTime = default(DateTimeValue), StringValue status = default(StringValue), StringValue summary = default(StringValue), EventTimeActivity timeActivity = default(EventTimeActivity), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Event(BooleanValue allDay = default(BooleanValue), IEnumerable<EventAttendee> attendees = default(IEnumerable<EventAttendee>), StringValue body = default(StringValue), StringValue category = default(StringValue), DateTimeValue endDate = default(DateTimeValue), DateTimeValue endTime = default(DateTimeValue), BooleanValue _internal = default(BooleanValue), StringValue location = default(StringValue), GuidValue noteID = default(GuidValue), StringValue priority = default(StringValue), IEnumerable<EventRelatedActivity> relatedActivities = default(IEnumerable<EventRelatedActivity>), StringValue relatedEntityDescription = default(StringValue), ReminderDetail reminder = default(ReminderDetail), StringValue showAs = default(StringValue), DateTimeValue startDate = default(DateTimeValue), DateTimeValue startTime = default(DateTimeValue), StringValue status = default(StringValue), StringValue summary = default(StringValue), EventTimeActivity timeActivity = default(EventTimeActivity), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.AllDay = allDay;
             this.Attendees = attendees;
@@ -85,7 +85,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attendees
         /// </summary>
         [DataMember(Name="Attendees", EmitDefaultValue=false)]
-        public List<EventAttendee> Attendees { get; set; }
+        public IEnumerable<EventAttendee> Attendees { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
@@ -139,7 +139,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets RelatedActivities
         /// </summary>
         [DataMember(Name="RelatedActivities", EmitDefaultValue=false)]
-        public List<EventRelatedActivity> RelatedActivities { get; set; }
+        public IEnumerable<EventRelatedActivity> RelatedActivities { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedEntityDescription

@@ -9,18 +9,7 @@ namespace Acumatica.Default_18_200_001.Model
     {
  public EnterPOReceipt(PurchaseOrder entity) : base(entity)
         { }
-
-[DataMember(Name = "entity", EmitDefaultValue = false)]
-        public PurchaseOrder Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
-    }
+ public EnterPOReceipt() : base()
+        { }
+  }
 }

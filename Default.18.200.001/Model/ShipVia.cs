@@ -45,7 +45,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="freightSalesSubaccount">freightSalesSubaccount.</param>
         /// <param name="packages">packages.</param>
         /// <param name="taxCategory">taxCategory.</param>
-        public ShipVia(StringValue calculationMethod = default(StringValue), StringValue calendar = default(StringValue), StringValue carrierID = default(StringValue), BooleanValue commonCarrier = default(BooleanValue), StringValue description = default(StringValue), StringValue freightExpenseAccount = default(StringValue), StringValue freightExpenseSubaccount = default(StringValue), List<ShipViaFreightRate> freightRates = default(List<ShipViaFreightRate>), StringValue freightSalesAccount = default(StringValue), StringValue freightSalesSubaccount = default(StringValue), List<ShippingBox> packages = default(List<ShippingBox>), StringValue taxCategory = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ShipVia(StringValue calculationMethod = default(StringValue), StringValue calendar = default(StringValue), StringValue carrierID = default(StringValue), BooleanValue commonCarrier = default(BooleanValue), StringValue description = default(StringValue), StringValue freightExpenseAccount = default(StringValue), StringValue freightExpenseSubaccount = default(StringValue), IEnumerable<ShipViaFreightRate> freightRates = default(IEnumerable<ShipViaFreightRate>), StringValue freightSalesAccount = default(StringValue), StringValue freightSalesSubaccount = default(StringValue), IEnumerable<ShippingBox> packages = default(IEnumerable<ShippingBox>), StringValue taxCategory = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.CalculationMethod = calculationMethod;
             this.Calendar = calendar;
@@ -107,7 +107,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets FreightRates
         /// </summary>
         [DataMember(Name="FreightRates", EmitDefaultValue=false)]
-        public List<ShipViaFreightRate> FreightRates { get; set; }
+        public IEnumerable<ShipViaFreightRate> FreightRates { get; set; }
 
         /// <summary>
         /// Gets or Sets FreightSalesAccount
@@ -125,7 +125,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Packages
         /// </summary>
         [DataMember(Name="Packages", EmitDefaultValue=false)]
-        public List<ShippingBox> Packages { get; set; }
+        public IEnumerable<ShippingBox> Packages { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxCategory

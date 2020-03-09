@@ -39,7 +39,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="members">members.</param>
         /// <param name="parentCategoryID">parentCategoryID.</param>
         /// <param name="path">path.</param>
-        public ItemSalesCategory(IntValue categoryID = default(IntValue), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), List<ItemSalesCategoryMember> members = default(List<ItemSalesCategoryMember>), IntValue parentCategoryID = default(IntValue), StringValue path = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ItemSalesCategory(IntValue categoryID = default(IntValue), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), IEnumerable<ItemSalesCategoryMember> members = default(IEnumerable<ItemSalesCategoryMember>), IntValue parentCategoryID = default(IntValue), StringValue path = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.CategoryID = categoryID;
             this.Description = description;
@@ -71,7 +71,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Members
         /// </summary>
         [DataMember(Name="Members", EmitDefaultValue=false)]
-        public List<ItemSalesCategoryMember> Members { get; set; }
+        public IEnumerable<ItemSalesCategoryMember> Members { get; set; }
 
         /// <summary>
         /// Gets or Sets ParentCategoryID

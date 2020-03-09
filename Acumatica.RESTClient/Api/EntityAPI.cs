@@ -147,7 +147,7 @@ namespace Acumatica.RESTClient.Api
         /// Performs an action in the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
+        /// <param name="action">The action that should be executed.</param>
         /// <returns></returns>
         public string InvokeAction(EntityAction<EntityType> action)
         {

@@ -38,7 +38,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="description">description.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
-        public VendorClass(List<BusinessAccountClassAttributeDetail> attributes = default(List<BusinessAccountClassAttributeDetail>), StringValue classID = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public VendorClass(IEnumerable<BusinessAccountClassAttributeDetail> attributes = default(IEnumerable<BusinessAccountClassAttributeDetail>), StringValue classID = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Attributes = attributes;
             this.ClassID = classID;
@@ -51,7 +51,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<BusinessAccountClassAttributeDetail> Attributes { get; set; }
+        public IEnumerable<BusinessAccountClassAttributeDetail> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets ClassID

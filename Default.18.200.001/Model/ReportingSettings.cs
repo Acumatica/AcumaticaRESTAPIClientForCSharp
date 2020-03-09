@@ -35,7 +35,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// </summary>
         /// <param name="reportingGroups">reportingGroups.</param>
         /// <param name="taxAgency">taxAgency.</param>
-        public ReportingSettings(List<ReportingGroup> reportingGroups = default(List<ReportingGroup>), StringValue taxAgency = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ReportingSettings(IEnumerable<ReportingGroup> reportingGroups = default(IEnumerable<ReportingGroup>), StringValue taxAgency = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ReportingGroups = reportingGroups;
             this.TaxAgency = taxAgency;
@@ -45,7 +45,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ReportingGroups
         /// </summary>
         [DataMember(Name="ReportingGroups", EmitDefaultValue=false)]
-        public List<ReportingGroup> ReportingGroups { get; set; }
+        public IEnumerable<ReportingGroup> ReportingGroups { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxAgency

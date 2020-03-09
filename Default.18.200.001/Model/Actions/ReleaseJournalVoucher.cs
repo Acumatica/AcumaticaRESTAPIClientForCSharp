@@ -9,18 +9,7 @@ namespace Acumatica.Default_18_200_001.Model
     {
  public ReleaseJournalVoucher(JournalVoucher entity) : base(entity)
         { }
-
-[DataMember(Name = "entity", EmitDefaultValue = false)]
-        public JournalVoucher Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
-    }
+ public ReleaseJournalVoucher() : base()
+        { }
+  }
 }

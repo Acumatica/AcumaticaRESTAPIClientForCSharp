@@ -109,7 +109,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="volumeUOM">volumeUOM.</param>
         /// <param name="warehouseDetails">warehouseDetails.</param>
         /// <param name="weightUOM">weightUOM.</param>
-        public StockItem(StringValue aBCCode = default(StringValue), List<AttributeValue> attributes = default(List<AttributeValue>), StringValue autoIncrementalValue = default(StringValue), DecimalValue averageCost = default(DecimalValue), StringValue baseUOM = default(StringValue), List<BoxStockItem> boxes = default(List<BoxStockItem>), List<CategoryStockItem> categories = default(List<CategoryStockItem>), StringValue cOGSAccount = default(StringValue), StringValue cOGSSubaccount = default(StringValue), StringValue content = default(StringValue), List<InventoryItemCrossReference> crossReferences = default(List<InventoryItemCrossReference>), DecimalValue currentStdCost = default(DecimalValue), StringValue defaultIssueLocationID = default(StringValue), DecimalValue defaultPrice = default(DecimalValue), StringValue defaultReceiptLocationID = default(StringValue), StringValue defaultSubitem = default(StringValue), StringValue defaultWarehouseID = default(StringValue), StringValue deferralAccount = default(StringValue), StringValue deferralSubaccount = default(StringValue), StringValue description = default(StringValue), DecimalValue dimensionVolume = default(DecimalValue), DecimalValue dimensionWeight = default(DecimalValue), StringValue discountAccount = default(StringValue), StringValue discountSubaccount = default(StringValue), StringValue imageUrl = default(StringValue), StringValue inventoryAccount = default(StringValue), StringValue inventoryID = default(StringValue), StringValue inventorySubaccount = default(StringValue), BooleanValue isAKit = default(BooleanValue), StringValue itemClass = default(StringValue), StringValue itemStatus = default(StringValue), StringValue itemType = default(StringValue), StringValue landedCostVarianceAccount = default(StringValue), StringValue landedCostVarianceSubaccount = default(StringValue), DecimalValue lastCost = default(DecimalValue), DateTimeValue lastModified = default(DateTimeValue), DecimalValue lastStdCost = default(DecimalValue), StringValue lotSerialClass = default(StringValue), DecimalValue markup = default(DecimalValue), DecimalValue maxCost = default(DecimalValue), DecimalValue minCost = default(DecimalValue), DecimalValue minMarkup = default(DecimalValue), DecimalValue mSRP = default(DecimalValue), StringValue packagingOption = default(StringValue), BooleanValue packSeparately = default(BooleanValue), DecimalValue pendingStdCost = default(DecimalValue), StringValue pOAccrualAccount = default(StringValue), StringValue pOAccrualSubaccount = default(StringValue), StringValue postingClass = default(StringValue), StringValue priceClass = default(StringValue), StringValue priceManager = default(StringValue), StringValue priceWorkgroup = default(StringValue), StringValue productManager = default(StringValue), StringValue productWorkgroup = default(StringValue), StringValue purchasePriceVarianceAccount = default(StringValue), StringValue purchasePriceVarianceSubaccount = default(StringValue), StringValue purchaseUOM = default(StringValue), StringValue reasonCodeSubaccount = default(StringValue), List<ReplenishmentParameterStockItem> replenishmentParameters = default(List<ReplenishmentParameterStockItem>), StringValue salesAccount = default(StringValue), StringValue salesSubaccount = default(StringValue), StringValue salesUOM = default(StringValue), StringValue standardCostRevaluationAccount = default(StringValue), StringValue standardCostRevaluationSubaccount = default(StringValue), StringValue standardCostVarianceAccount = default(StringValue), StringValue standardCostVarianceSubaccount = default(StringValue), List<SubItemStockItem> subItems = default(List<SubItemStockItem>), BooleanValue subjectToCommission = default(BooleanValue), StringValue taxCategory = default(StringValue), List<InventoryItemUOMConversion> uOMConversions = default(List<InventoryItemUOMConversion>), BooleanValue useOnEntry = default(BooleanValue), StringValue valuationMethod = default(StringValue), List<StockItemVendorDetail> vendorDetails = default(List<StockItemVendorDetail>), StringValue volumeUOM = default(StringValue), List<StockItemWarehouseDetail> warehouseDetails = default(List<StockItemWarehouseDetail>), StringValue weightUOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public StockItem(StringValue aBCCode = default(StringValue), IEnumerable<AttributeValue> attributes = default(IEnumerable<AttributeValue>), StringValue autoIncrementalValue = default(StringValue), DecimalValue averageCost = default(DecimalValue), StringValue baseUOM = default(StringValue), IEnumerable<BoxStockItem> boxes = default(IEnumerable<BoxStockItem>), IEnumerable<CategoryStockItem> categories = default(IEnumerable<CategoryStockItem>), StringValue cOGSAccount = default(StringValue), StringValue cOGSSubaccount = default(StringValue), StringValue content = default(StringValue), IEnumerable<InventoryItemCrossReference> crossReferences = default(IEnumerable<InventoryItemCrossReference>), DecimalValue currentStdCost = default(DecimalValue), StringValue defaultIssueLocationID = default(StringValue), DecimalValue defaultPrice = default(DecimalValue), StringValue defaultReceiptLocationID = default(StringValue), StringValue defaultSubitem = default(StringValue), StringValue defaultWarehouseID = default(StringValue), StringValue deferralAccount = default(StringValue), StringValue deferralSubaccount = default(StringValue), StringValue description = default(StringValue), DecimalValue dimensionVolume = default(DecimalValue), DecimalValue dimensionWeight = default(DecimalValue), StringValue discountAccount = default(StringValue), StringValue discountSubaccount = default(StringValue), StringValue imageUrl = default(StringValue), StringValue inventoryAccount = default(StringValue), StringValue inventoryID = default(StringValue), StringValue inventorySubaccount = default(StringValue), BooleanValue isAKit = default(BooleanValue), StringValue itemClass = default(StringValue), StringValue itemStatus = default(StringValue), StringValue itemType = default(StringValue), StringValue landedCostVarianceAccount = default(StringValue), StringValue landedCostVarianceSubaccount = default(StringValue), DecimalValue lastCost = default(DecimalValue), DateTimeValue lastModified = default(DateTimeValue), DecimalValue lastStdCost = default(DecimalValue), StringValue lotSerialClass = default(StringValue), DecimalValue markup = default(DecimalValue), DecimalValue maxCost = default(DecimalValue), DecimalValue minCost = default(DecimalValue), DecimalValue minMarkup = default(DecimalValue), DecimalValue mSRP = default(DecimalValue), StringValue packagingOption = default(StringValue), BooleanValue packSeparately = default(BooleanValue), DecimalValue pendingStdCost = default(DecimalValue), StringValue pOAccrualAccount = default(StringValue), StringValue pOAccrualSubaccount = default(StringValue), StringValue postingClass = default(StringValue), StringValue priceClass = default(StringValue), StringValue priceManager = default(StringValue), StringValue priceWorkgroup = default(StringValue), StringValue productManager = default(StringValue), StringValue productWorkgroup = default(StringValue), StringValue purchasePriceVarianceAccount = default(StringValue), StringValue purchasePriceVarianceSubaccount = default(StringValue), StringValue purchaseUOM = default(StringValue), StringValue reasonCodeSubaccount = default(StringValue), IEnumerable<ReplenishmentParameterStockItem> replenishmentParameters = default(IEnumerable<ReplenishmentParameterStockItem>), StringValue salesAccount = default(StringValue), StringValue salesSubaccount = default(StringValue), StringValue salesUOM = default(StringValue), StringValue standardCostRevaluationAccount = default(StringValue), StringValue standardCostRevaluationSubaccount = default(StringValue), StringValue standardCostVarianceAccount = default(StringValue), StringValue standardCostVarianceSubaccount = default(StringValue), IEnumerable<SubItemStockItem> subItems = default(IEnumerable<SubItemStockItem>), BooleanValue subjectToCommission = default(BooleanValue), StringValue taxCategory = default(StringValue), IEnumerable<InventoryItemUOMConversion> uOMConversions = default(IEnumerable<InventoryItemUOMConversion>), BooleanValue useOnEntry = default(BooleanValue), StringValue valuationMethod = default(StringValue), IEnumerable<StockItemVendorDetail> vendorDetails = default(IEnumerable<StockItemVendorDetail>), StringValue volumeUOM = default(StringValue), IEnumerable<StockItemWarehouseDetail> warehouseDetails = default(IEnumerable<StockItemWarehouseDetail>), StringValue weightUOM = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ABCCode = aBCCode;
             this.Attributes = attributes;
@@ -199,7 +199,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeValue> Attributes { get; set; }
+        public IEnumerable<AttributeValue> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets AutoIncrementalValue
@@ -223,13 +223,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Boxes
         /// </summary>
         [DataMember(Name="Boxes", EmitDefaultValue=false)]
-        public List<BoxStockItem> Boxes { get; set; }
+        public IEnumerable<BoxStockItem> Boxes { get; set; }
 
         /// <summary>
         /// Gets or Sets Categories
         /// </summary>
         [DataMember(Name="Categories", EmitDefaultValue=false)]
-        public List<CategoryStockItem> Categories { get; set; }
+        public IEnumerable<CategoryStockItem> Categories { get; set; }
 
         /// <summary>
         /// Gets or Sets COGSAccount
@@ -253,7 +253,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets CrossReferences
         /// </summary>
         [DataMember(Name="CrossReferences", EmitDefaultValue=false)]
-        public List<InventoryItemCrossReference> CrossReferences { get; set; }
+        public IEnumerable<InventoryItemCrossReference> CrossReferences { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentStdCost
@@ -541,7 +541,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ReplenishmentParameters
         /// </summary>
         [DataMember(Name="ReplenishmentParameters", EmitDefaultValue=false)]
-        public List<ReplenishmentParameterStockItem> ReplenishmentParameters { get; set; }
+        public IEnumerable<ReplenishmentParameterStockItem> ReplenishmentParameters { get; set; }
 
         /// <summary>
         /// Gets or Sets SalesAccount
@@ -589,7 +589,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets SubItems
         /// </summary>
         [DataMember(Name="SubItems", EmitDefaultValue=false)]
-        public List<SubItemStockItem> SubItems { get; set; }
+        public IEnumerable<SubItemStockItem> SubItems { get; set; }
 
         /// <summary>
         /// Gets or Sets SubjectToCommission
@@ -607,7 +607,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets UOMConversions
         /// </summary>
         [DataMember(Name="UOMConversions", EmitDefaultValue=false)]
-        public List<InventoryItemUOMConversion> UOMConversions { get; set; }
+        public IEnumerable<InventoryItemUOMConversion> UOMConversions { get; set; }
 
         /// <summary>
         /// Gets or Sets UseOnEntry
@@ -625,7 +625,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets VendorDetails
         /// </summary>
         [DataMember(Name="VendorDetails", EmitDefaultValue=false)]
-        public List<StockItemVendorDetail> VendorDetails { get; set; }
+        public IEnumerable<StockItemVendorDetail> VendorDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets VolumeUOM
@@ -637,7 +637,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets WarehouseDetails
         /// </summary>
         [DataMember(Name="WarehouseDetails", EmitDefaultValue=false)]
-        public List<StockItemWarehouseDetail> WarehouseDetails { get; set; }
+        public IEnumerable<StockItemWarehouseDetail> WarehouseDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets WeightUOM

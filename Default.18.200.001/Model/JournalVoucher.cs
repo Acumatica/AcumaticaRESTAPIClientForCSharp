@@ -54,7 +54,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="reciprocalRate">reciprocalRate.</param>
         /// <param name="status">status.</param>
         /// <param name="transactionDate">transactionDate.</param>
-        public JournalVoucher(StringValue baseCurrencyID = default(StringValue), StringValue batchNbr = default(StringValue), StringValue branch = default(StringValue), DecimalValue controlTotal = default(DecimalValue), DateTimeValue createdDateTime = default(DateTimeValue), DecimalValue creditTotal = default(DecimalValue), StringValue currencyID = default(StringValue), DecimalValue currencyRate = default(DecimalValue), StringValue currencyRateTypeID = default(StringValue), DecimalValue debitTotal = default(DecimalValue), StringValue description = default(StringValue), List<JournalVoucherDetail> details = default(List<JournalVoucherDetail>), DateTimeValue effectiveDate = default(DateTimeValue), List<JournalVoucherGLTransaction> gLTransactions = default(List<JournalVoucherGLTransaction>), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue ledger = default(StringValue), StringValue postPeriod = default(StringValue), DecimalValue reciprocalRate = default(DecimalValue), StringValue status = default(StringValue), DateTimeValue transactionDate = default(DateTimeValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public JournalVoucher(StringValue baseCurrencyID = default(StringValue), StringValue batchNbr = default(StringValue), StringValue branch = default(StringValue), DecimalValue controlTotal = default(DecimalValue), DateTimeValue createdDateTime = default(DateTimeValue), DecimalValue creditTotal = default(DecimalValue), StringValue currencyID = default(StringValue), DecimalValue currencyRate = default(DecimalValue), StringValue currencyRateTypeID = default(StringValue), DecimalValue debitTotal = default(DecimalValue), StringValue description = default(StringValue), IEnumerable<JournalVoucherDetail> details = default(IEnumerable<JournalVoucherDetail>), DateTimeValue effectiveDate = default(DateTimeValue), IEnumerable<JournalVoucherGLTransaction> gLTransactions = default(IEnumerable<JournalVoucherGLTransaction>), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue ledger = default(StringValue), StringValue postPeriod = default(StringValue), DecimalValue reciprocalRate = default(DecimalValue), StringValue status = default(StringValue), DateTimeValue transactionDate = default(DateTimeValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.BaseCurrencyID = baseCurrencyID;
             this.BatchNbr = batchNbr;
@@ -149,7 +149,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<JournalVoucherDetail> Details { get; set; }
+        public IEnumerable<JournalVoucherDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets EffectiveDate
@@ -161,7 +161,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets GLTransactions
         /// </summary>
         [DataMember(Name="GLTransactions", EmitDefaultValue=false)]
-        public List<JournalVoucherGLTransaction> GLTransactions { get; set; }
+        public IEnumerable<JournalVoucherGLTransaction> GLTransactions { get; set; }
 
         /// <summary>
         /// Gets or Sets Hold

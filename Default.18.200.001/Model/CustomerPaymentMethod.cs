@@ -44,7 +44,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="paymentMethod">paymentMethod.</param>
         /// <param name="procCenterID">procCenterID.</param>
-        public CustomerPaymentMethod(BooleanValue active = default(BooleanValue), StringValue cardAccountNbr = default(StringValue), StringValue cashAccount = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue customerID = default(StringValue), StringValue customerProfileID = default(StringValue), List<CustomerPaymentMethodDetail> details = default(List<CustomerPaymentMethodDetail>), IntValue instanceID = default(IntValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue paymentMethod = default(StringValue), StringValue procCenterID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public CustomerPaymentMethod(BooleanValue active = default(BooleanValue), StringValue cardAccountNbr = default(StringValue), StringValue cashAccount = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue customerID = default(StringValue), StringValue customerProfileID = default(StringValue), IEnumerable<CustomerPaymentMethodDetail> details = default(IEnumerable<CustomerPaymentMethodDetail>), IntValue instanceID = default(IntValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue paymentMethod = default(StringValue), StringValue procCenterID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Active = active;
             this.CardAccountNbr = cardAccountNbr;
@@ -99,7 +99,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<CustomerPaymentMethodDetail> Details { get; set; }
+        public IEnumerable<CustomerPaymentMethodDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets InstanceID

@@ -9,18 +9,5 @@ namespace Acumatica.DeviceHub_19_200_001.Model
     {
         public UpdateScannerList(Scanner entity) : base(entity)
         { }
-
-        [DataMember(Name = "entity", EmitDefaultValue = false)]
-        public Scanner Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
     }
 }

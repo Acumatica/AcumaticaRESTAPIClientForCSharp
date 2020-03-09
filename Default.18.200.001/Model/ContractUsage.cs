@@ -37,7 +37,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="contractID">contractID.</param>
         /// <param name="postPeriod">postPeriod.</param>
         /// <param name="unbilledTransactions">unbilledTransactions.</param>
-        public ContractUsage(List<ContractUsageTransactionDetail> billedTransactions = default(List<ContractUsageTransactionDetail>), StringValue contractID = default(StringValue), StringValue postPeriod = default(StringValue), List<ContractUsageTransactionDetail> unbilledTransactions = default(List<ContractUsageTransactionDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ContractUsage(IEnumerable<ContractUsageTransactionDetail> billedTransactions = default(IEnumerable<ContractUsageTransactionDetail>), StringValue contractID = default(StringValue), StringValue postPeriod = default(StringValue), IEnumerable<ContractUsageTransactionDetail> unbilledTransactions = default(IEnumerable<ContractUsageTransactionDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.BilledTransactions = billedTransactions;
             this.ContractID = contractID;
@@ -49,7 +49,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets BilledTransactions
         /// </summary>
         [DataMember(Name="BilledTransactions", EmitDefaultValue=false)]
-        public List<ContractUsageTransactionDetail> BilledTransactions { get; set; }
+        public IEnumerable<ContractUsageTransactionDetail> BilledTransactions { get; set; }
 
         /// <summary>
         /// Gets or Sets ContractID
@@ -67,7 +67,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets UnbilledTransactions
         /// </summary>
         [DataMember(Name="UnbilledTransactions", EmitDefaultValue=false)]
-        public List<ContractUsageTransactionDetail> UnbilledTransactions { get; set; }
+        public IEnumerable<ContractUsageTransactionDetail> UnbilledTransactions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -47,7 +47,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="properties">properties.</param>
         /// <param name="status">status.</param>
         /// <param name="visibilitySettings">visibilitySettings.</param>
-        public ProjectTask(List<ProjectActivity> activityHistory = default(List<ProjectActivity>), List<AttributeValue> attribute = default(List<AttributeValue>), ProjectTaskBillingAndAllocationSettings billingAndAllocationSettings = default(ProjectTaskBillingAndAllocationSettings), ProjectTaskToCRMLink cRMLink = default(ProjectTaskToCRMLink), BooleanValue _default = default(BooleanValue), ProjectTaskDefaultValues defaultValues = default(ProjectTaskDefaultValues), StringValue description = default(StringValue), StringValue externalRefNbr = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue projectID = default(StringValue), StringValue projectTaskID = default(StringValue), ProjectTaskProperties properties = default(ProjectTaskProperties), StringValue status = default(StringValue), VisibilitySettings visibilitySettings = default(VisibilitySettings), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ProjectTask(IEnumerable<ProjectActivity> activityHistory = default(IEnumerable<ProjectActivity>), IEnumerable<AttributeValue> attribute = default(IEnumerable<AttributeValue>), ProjectTaskBillingAndAllocationSettings billingAndAllocationSettings = default(ProjectTaskBillingAndAllocationSettings), ProjectTaskToCRMLink cRMLink = default(ProjectTaskToCRMLink), BooleanValue _default = default(BooleanValue), ProjectTaskDefaultValues defaultValues = default(ProjectTaskDefaultValues), StringValue description = default(StringValue), StringValue externalRefNbr = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue projectID = default(StringValue), StringValue projectTaskID = default(StringValue), ProjectTaskProperties properties = default(ProjectTaskProperties), StringValue status = default(StringValue), VisibilitySettings visibilitySettings = default(VisibilitySettings), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ActivityHistory = activityHistory;
             this.Attribute = attribute;
@@ -69,13 +69,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ActivityHistory
         /// </summary>
         [DataMember(Name="ActivityHistory", EmitDefaultValue=false)]
-        public List<ProjectActivity> ActivityHistory { get; set; }
+        public IEnumerable<ProjectActivity> ActivityHistory { get; set; }
 
         /// <summary>
         /// Gets or Sets Attribute
         /// </summary>
         [DataMember(Name="Attribute", EmitDefaultValue=false)]
-        public List<AttributeValue> Attribute { get; set; }
+        public IEnumerable<AttributeValue> Attribute { get; set; }
 
         /// <summary>
         /// Gets or Sets BillingAndAllocationSettings

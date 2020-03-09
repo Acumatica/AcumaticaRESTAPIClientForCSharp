@@ -42,7 +42,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="regExp">regExp.</param>
         /// <param name="values">values.</param>
-        public AttributeDefinition(StringValue attributeID = default(StringValue), StringValue controlType = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), StringValue entryMask = default(StringValue), BooleanValue _internal = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue regExp = default(StringValue), List<AttributeDefinitionValue> values = default(List<AttributeDefinitionValue>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public AttributeDefinition(StringValue attributeID = default(StringValue), StringValue controlType = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), StringValue entryMask = default(StringValue), BooleanValue _internal = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue regExp = default(StringValue), IEnumerable<AttributeDefinitionValue> values = default(IEnumerable<AttributeDefinitionValue>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.AttributeID = attributeID;
             this.ControlType = controlType;
@@ -107,7 +107,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name="Values", EmitDefaultValue=false)]
-        public List<AttributeDefinitionValue> Values { get; set; }
+        public IEnumerable<AttributeDefinitionValue> Values { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

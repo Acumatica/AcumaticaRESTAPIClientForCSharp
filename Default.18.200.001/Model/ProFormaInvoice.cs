@@ -58,7 +58,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="taxTotal">taxTotal.</param>
         /// <param name="timeAndMaterial">timeAndMaterial.</param>
         /// <param name="timeAndMaterialTotal">timeAndMaterialTotal.</param>
-        public ProFormaInvoice(DecimalValue amountDue = default(DecimalValue), List<Approval> approvalDetails = default(List<Approval>), BillToSettings billingSettings = default(BillToSettings), StringValue currencyID = default(StringValue), StringValue customerID = default(StringValue), StringValue description = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), StringValue externalRefNbr = default(StringValue), ProFormaFinancialDetails financialDetails = default(ProFormaFinancialDetails), BooleanValue hold = default(BooleanValue), DateTimeValue invoiceDate = default(DateTimeValue), DecimalValue invoiceTotal = default(DecimalValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue location = default(StringValue), StringValue postPeriod = default(StringValue), List<ProgressBilling> progressBilling = default(List<ProgressBilling>), DecimalValue progressBillingTotal = default(DecimalValue), StringValue projectID = default(StringValue), StringValue refNbr = default(StringValue), DecimalValue retainageTotal = default(DecimalValue), StringValue status = default(StringValue), List<ProFormaTaxDetail> taxDetails = default(List<ProFormaTaxDetail>), DecimalValue taxTotal = default(DecimalValue), List<TimeAndMaterial> timeAndMaterial = default(List<TimeAndMaterial>), DecimalValue timeAndMaterialTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ProFormaInvoice(DecimalValue amountDue = default(DecimalValue), IEnumerable<Approval> approvalDetails = default(IEnumerable<Approval>), BillToSettings billingSettings = default(BillToSettings), StringValue currencyID = default(StringValue), StringValue customerID = default(StringValue), StringValue description = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), StringValue externalRefNbr = default(StringValue), ProFormaFinancialDetails financialDetails = default(ProFormaFinancialDetails), BooleanValue hold = default(BooleanValue), DateTimeValue invoiceDate = default(DateTimeValue), DecimalValue invoiceTotal = default(DecimalValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue location = default(StringValue), StringValue postPeriod = default(StringValue), IEnumerable<ProgressBilling> progressBilling = default(IEnumerable<ProgressBilling>), DecimalValue progressBillingTotal = default(DecimalValue), StringValue projectID = default(StringValue), StringValue refNbr = default(StringValue), DecimalValue retainageTotal = default(DecimalValue), StringValue status = default(StringValue), IEnumerable<ProFormaTaxDetail> taxDetails = default(IEnumerable<ProFormaTaxDetail>), DecimalValue taxTotal = default(DecimalValue), IEnumerable<TimeAndMaterial> timeAndMaterial = default(IEnumerable<TimeAndMaterial>), DecimalValue timeAndMaterialTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.AmountDue = amountDue;
             this.ApprovalDetails = approvalDetails;
@@ -97,7 +97,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ApprovalDetails
         /// </summary>
         [DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
-        public List<Approval> ApprovalDetails { get; set; }
+        public IEnumerable<Approval> ApprovalDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets BillingSettings
@@ -181,7 +181,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ProgressBilling
         /// </summary>
         [DataMember(Name="ProgressBilling", EmitDefaultValue=false)]
-        public List<ProgressBilling> ProgressBilling { get; set; }
+        public IEnumerable<ProgressBilling> ProgressBilling { get; set; }
 
         /// <summary>
         /// Gets or Sets ProgressBillingTotal
@@ -217,7 +217,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TaxDetails
         /// </summary>
         [DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-        public List<ProFormaTaxDetail> TaxDetails { get; set; }
+        public IEnumerable<ProFormaTaxDetail> TaxDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxTotal
@@ -229,7 +229,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TimeAndMaterial
         /// </summary>
         [DataMember(Name="TimeAndMaterial", EmitDefaultValue=false)]
-        public List<TimeAndMaterial> TimeAndMaterial { get; set; }
+        public IEnumerable<TimeAndMaterial> TimeAndMaterial { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeAndMaterialTotal

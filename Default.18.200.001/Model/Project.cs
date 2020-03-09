@@ -58,7 +58,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="status">status.</param>
         /// <param name="unionLocals">unionLocals.</param>
         /// <param name="visibilitySettings">visibilitySettings.</param>
-        public Project(List<ProjectActivity> activityHistory = default(List<ProjectActivity>), List<Approval> approvalDetails = default(List<Approval>), DecimalValue assets = default(DecimalValue), List<AttributeValue> attributes = default(List<AttributeValue>), List<ProjectBalance> balances = default(List<ProjectBalance>), ProjectBillingAndAllocationSettings billingAndAllocationSettings = default(ProjectBillingAndAllocationSettings), BillToSettings billToSettings = default(BillToSettings), StringValue customer = default(StringValue), StringValue description = default(StringValue), List<ProjectEmployee> employees = default(List<ProjectEmployee>), List<ProjectEquipment> equipments = default(List<ProjectEquipment>), DecimalValue expenses = default(DecimalValue), StringValue externalRefNbr = default(StringValue), ProjectGLAccount gLAccounts = default(ProjectGLAccount), BooleanValue hold = default(BooleanValue), DecimalValue income = default(DecimalValue), List<ProjectProFormaDetails> invoices = default(List<ProjectProFormaDetails>), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DecimalValue liabilities = default(DecimalValue), StringValue projectID = default(StringValue), ProjectProperties projectProperties = default(ProjectProperties), StringValue projectTemplateID = default(StringValue), StringValue status = default(StringValue), List<ProjectUnionLocal> unionLocals = default(List<ProjectUnionLocal>), VisibilitySettings visibilitySettings = default(VisibilitySettings), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Project(IEnumerable<ProjectActivity> activityHistory = default(IEnumerable<ProjectActivity>), IEnumerable<Approval> approvalDetails = default(IEnumerable<Approval>), DecimalValue assets = default(DecimalValue), IEnumerable<AttributeValue> attributes = default(IEnumerable<AttributeValue>), IEnumerable<ProjectBalance> balances = default(IEnumerable<ProjectBalance>), ProjectBillingAndAllocationSettings billingAndAllocationSettings = default(ProjectBillingAndAllocationSettings), BillToSettings billToSettings = default(BillToSettings), StringValue customer = default(StringValue), StringValue description = default(StringValue), IEnumerable<ProjectEmployee> employees = default(IEnumerable<ProjectEmployee>), IEnumerable<ProjectEquipment> equipments = default(IEnumerable<ProjectEquipment>), DecimalValue expenses = default(DecimalValue), StringValue externalRefNbr = default(StringValue), ProjectGLAccount gLAccounts = default(ProjectGLAccount), BooleanValue hold = default(BooleanValue), DecimalValue income = default(DecimalValue), IEnumerable<ProjectProFormaDetails> invoices = default(IEnumerable<ProjectProFormaDetails>), DateTimeValue lastModifiedDateTime = default(DateTimeValue), DecimalValue liabilities = default(DecimalValue), StringValue projectID = default(StringValue), ProjectProperties projectProperties = default(ProjectProperties), StringValue projectTemplateID = default(StringValue), StringValue status = default(StringValue), IEnumerable<ProjectUnionLocal> unionLocals = default(IEnumerable<ProjectUnionLocal>), VisibilitySettings visibilitySettings = default(VisibilitySettings), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ActivityHistory = activityHistory;
             this.ApprovalDetails = approvalDetails;
@@ -91,13 +91,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ActivityHistory
         /// </summary>
         [DataMember(Name="ActivityHistory", EmitDefaultValue=false)]
-        public List<ProjectActivity> ActivityHistory { get; set; }
+        public IEnumerable<ProjectActivity> ActivityHistory { get; set; }
 
         /// <summary>
         /// Gets or Sets ApprovalDetails
         /// </summary>
         [DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
-        public List<Approval> ApprovalDetails { get; set; }
+        public IEnumerable<Approval> ApprovalDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets Assets
@@ -109,13 +109,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeValue> Attributes { get; set; }
+        public IEnumerable<AttributeValue> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Balances
         /// </summary>
         [DataMember(Name="Balances", EmitDefaultValue=false)]
-        public List<ProjectBalance> Balances { get; set; }
+        public IEnumerable<ProjectBalance> Balances { get; set; }
 
         /// <summary>
         /// Gets or Sets BillingAndAllocationSettings
@@ -145,13 +145,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Employees
         /// </summary>
         [DataMember(Name="Employees", EmitDefaultValue=false)]
-        public List<ProjectEmployee> Employees { get; set; }
+        public IEnumerable<ProjectEmployee> Employees { get; set; }
 
         /// <summary>
         /// Gets or Sets Equipments
         /// </summary>
         [DataMember(Name="Equipments", EmitDefaultValue=false)]
-        public List<ProjectEquipment> Equipments { get; set; }
+        public IEnumerable<ProjectEquipment> Equipments { get; set; }
 
         /// <summary>
         /// Gets or Sets Expenses
@@ -187,7 +187,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Invoices
         /// </summary>
         [DataMember(Name="Invoices", EmitDefaultValue=false)]
-        public List<ProjectProFormaDetails> Invoices { get; set; }
+        public IEnumerable<ProjectProFormaDetails> Invoices { get; set; }
 
         /// <summary>
         /// Gets or Sets LastModifiedDateTime
@@ -229,7 +229,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets UnionLocals
         /// </summary>
         [DataMember(Name="UnionLocals", EmitDefaultValue=false)]
-        public List<ProjectUnionLocal> UnionLocals { get; set; }
+        public IEnumerable<ProjectUnionLocal> UnionLocals { get; set; }
 
         /// <summary>
         /// Gets or Sets VisibilitySettings

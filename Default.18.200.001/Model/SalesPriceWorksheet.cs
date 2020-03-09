@@ -43,7 +43,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="referenceNbr">referenceNbr.</param>
         /// <param name="salesPrices">salesPrices.</param>
         /// <param name="status">status.</param>
-        public SalesPriceWorksheet(DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), DateTimeValue expirationDate = default(DateTimeValue), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), BooleanValue overwriteOverlappingPrices = default(BooleanValue), StringValue referenceNbr = default(StringValue), List<SalesPricesWorksheetDetail> salesPrices = default(List<SalesPricesWorksheetDetail>), StringValue status = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public SalesPriceWorksheet(DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), DateTimeValue expirationDate = default(DateTimeValue), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), BooleanValue overwriteOverlappingPrices = default(BooleanValue), StringValue referenceNbr = default(StringValue), IEnumerable<SalesPricesWorksheetDetail> salesPrices = default(IEnumerable<SalesPricesWorksheetDetail>), StringValue status = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.CreatedDateTime = createdDateTime;
             this.Description = description;
@@ -109,7 +109,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets SalesPrices
         /// </summary>
         [DataMember(Name="SalesPrices", EmitDefaultValue=false)]
-        public List<SalesPricesWorksheetDetail> SalesPrices { get; set; }
+        public IEnumerable<SalesPricesWorksheetDetail> SalesPrices { get; set; }
 
         /// <summary>
         /// Gets or Sets Status

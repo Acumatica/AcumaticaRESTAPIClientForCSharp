@@ -9,18 +9,7 @@ namespace Acumatica.Default_18_200_001.Model
     {
  public UpdateStandardCostNonStockItem(NonStockItem entity) : base(entity)
         { }
-
-[DataMember(Name = "entity", EmitDefaultValue = false)]
-        public NonStockItem Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
-    }
+ public UpdateStandardCostNonStockItem() : base()
+        { }
+  }
 }

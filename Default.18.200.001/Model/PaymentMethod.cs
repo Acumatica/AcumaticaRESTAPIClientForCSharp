@@ -45,7 +45,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="requireRemittanceInformationforCashAccount">requireRemittanceInformationforCashAccount.</param>
         /// <param name="useInAP">useInAP.</param>
         /// <param name="useInAR">useInAR.</param>
-        public PaymentMethod(BooleanValue active = default(BooleanValue), List<PaymentMethodAllowedCashAccountDetail> allowedCashAccounts = default(List<PaymentMethodAllowedCashAccountDetail>), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), BooleanValue integratedProcessing = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue meansOfPayment = default(StringValue), StringValue paymentMethodID = default(StringValue), List<PaymentMethodProcessingCenterDetail> processingCenters = default(List<PaymentMethodProcessingCenterDetail>), BooleanValue requireRemittanceInformationforCashAccount = default(BooleanValue), BooleanValue useInAP = default(BooleanValue), BooleanValue useInAR = default(BooleanValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public PaymentMethod(BooleanValue active = default(BooleanValue), IEnumerable<PaymentMethodAllowedCashAccountDetail> allowedCashAccounts = default(IEnumerable<PaymentMethodAllowedCashAccountDetail>), DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), BooleanValue integratedProcessing = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue meansOfPayment = default(StringValue), StringValue paymentMethodID = default(StringValue), IEnumerable<PaymentMethodProcessingCenterDetail> processingCenters = default(IEnumerable<PaymentMethodProcessingCenterDetail>), BooleanValue requireRemittanceInformationforCashAccount = default(BooleanValue), BooleanValue useInAP = default(BooleanValue), BooleanValue useInAR = default(BooleanValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Active = active;
             this.AllowedCashAccounts = allowedCashAccounts;
@@ -71,7 +71,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets AllowedCashAccounts
         /// </summary>
         [DataMember(Name="AllowedCashAccounts", EmitDefaultValue=false)]
-        public List<PaymentMethodAllowedCashAccountDetail> AllowedCashAccounts { get; set; }
+        public IEnumerable<PaymentMethodAllowedCashAccountDetail> AllowedCashAccounts { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedDateTime
@@ -113,7 +113,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ProcessingCenters
         /// </summary>
         [DataMember(Name="ProcessingCenters", EmitDefaultValue=false)]
-        public List<PaymentMethodProcessingCenterDetail> ProcessingCenters { get; set; }
+        public IEnumerable<PaymentMethodProcessingCenterDetail> ProcessingCenters { get; set; }
 
         /// <summary>
         /// Gets or Sets RequireRemittanceInformationforCashAccount

@@ -52,7 +52,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="vendorID">vendorID.</param>
         /// <param name="vendorRef">vendorRef.</param>
         /// <param name="warehouse">warehouse.</param>
-        public PurchaseReceipt(DateTimeValue billDate = default(DateTimeValue), StringValue branch = default(StringValue), DecimalValue controlAmount = default(DecimalValue), DecimalValue controlQty = default(DecimalValue), BooleanValue createBill = default(BooleanValue), StringValue currencyID = default(StringValue), DateTimeValue date = default(DateTimeValue), List<PurchaseReceiptDetail> details = default(List<PurchaseReceiptDetail>), BooleanValue hold = default(BooleanValue), StringValue postPeriod = default(StringValue), StringValue receiptNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalAmount = default(DecimalValue), DecimalValue totalQty = default(DecimalValue), StringValue type = default(StringValue), DecimalValue unbilledQuantity = default(DecimalValue), StringValue vendorID = default(StringValue), StringValue vendorRef = default(StringValue), StringValue warehouse = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public PurchaseReceipt(DateTimeValue billDate = default(DateTimeValue), StringValue branch = default(StringValue), DecimalValue controlAmount = default(DecimalValue), DecimalValue controlQty = default(DecimalValue), BooleanValue createBill = default(BooleanValue), StringValue currencyID = default(StringValue), DateTimeValue date = default(DateTimeValue), IEnumerable<PurchaseReceiptDetail> details = default(IEnumerable<PurchaseReceiptDetail>), BooleanValue hold = default(BooleanValue), StringValue postPeriod = default(StringValue), StringValue receiptNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalAmount = default(DecimalValue), DecimalValue totalQty = default(DecimalValue), StringValue type = default(StringValue), DecimalValue unbilledQuantity = default(DecimalValue), StringValue vendorID = default(StringValue), StringValue vendorRef = default(StringValue), StringValue warehouse = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.BillDate = billDate;
             this.Branch = branch;
@@ -121,7 +121,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<PurchaseReceiptDetail> Details { get; set; }
+        public IEnumerable<PurchaseReceiptDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets Hold

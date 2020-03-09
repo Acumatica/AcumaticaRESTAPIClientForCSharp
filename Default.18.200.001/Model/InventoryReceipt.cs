@@ -45,7 +45,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="totalCost">totalCost.</param>
         /// <param name="totalQty">totalQty.</param>
         /// <param name="transferNbr">transferNbr.</param>
-        public InventoryReceipt(DecimalValue controlCost = default(DecimalValue), DecimalValue controlQty = default(DecimalValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), List<InventoryReceiptDetail> details = default(List<InventoryReceiptDetail>), BooleanValue hold = default(BooleanValue), StringValue postPeriod = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalCost = default(DecimalValue), DecimalValue totalQty = default(DecimalValue), StringValue transferNbr = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public InventoryReceipt(DecimalValue controlCost = default(DecimalValue), DecimalValue controlQty = default(DecimalValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), IEnumerable<InventoryReceiptDetail> details = default(IEnumerable<InventoryReceiptDetail>), BooleanValue hold = default(BooleanValue), StringValue postPeriod = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), DecimalValue totalCost = default(DecimalValue), DecimalValue totalQty = default(DecimalValue), StringValue transferNbr = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ControlCost = controlCost;
             this.ControlQty = controlQty;
@@ -89,7 +89,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<InventoryReceiptDetail> Details { get; set; }
+        public IEnumerable<InventoryReceiptDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets Hold

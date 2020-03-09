@@ -52,7 +52,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="sequence">sequence.</param>
         /// <param name="showFreeItem">showFreeItem.</param>
         /// <param name="warehouses">warehouses.</param>
-        public Discount(BooleanValue active = default(BooleanValue), StringValue breakBy = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), List<DiscountCustomerPriceClassesDetail> customerPriceClasses = default(List<DiscountCustomerPriceClassesDetail>), List<DiscountCustomerDetail> customers = default(List<DiscountCustomerDetail>), StringValue description = default(StringValue), List<DiscountBreakpointDetail> discountBreakpoints = default(List<DiscountBreakpointDetail>), StringValue discountBy = default(StringValue), StringValue discountCode = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), DateTimeValue expirationDate = default(DateTimeValue), List<DiscountItemPriceClassesDetail> itemPriceClasses = default(List<DiscountItemPriceClassesDetail>), List<DiscountItemDetail> items = default(List<DiscountItemDetail>), DateTimeValue lastModifiedDateTime = default(DateTimeValue), BooleanValue promotional = default(BooleanValue), BooleanValue prorateDiscount = default(BooleanValue), StringValue sequence = default(StringValue), BooleanValue showFreeItem = default(BooleanValue), List<DiscountWarehouseDetail> warehouses = default(List<DiscountWarehouseDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Discount(BooleanValue active = default(BooleanValue), StringValue breakBy = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), IEnumerable<DiscountCustomerPriceClassesDetail> customerPriceClasses = default(IEnumerable<DiscountCustomerPriceClassesDetail>), IEnumerable<DiscountCustomerDetail> customers = default(IEnumerable<DiscountCustomerDetail>), StringValue description = default(StringValue), IEnumerable<DiscountBreakpointDetail> discountBreakpoints = default(IEnumerable<DiscountBreakpointDetail>), StringValue discountBy = default(StringValue), StringValue discountCode = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), DateTimeValue expirationDate = default(DateTimeValue), IEnumerable<DiscountItemPriceClassesDetail> itemPriceClasses = default(IEnumerable<DiscountItemPriceClassesDetail>), IEnumerable<DiscountItemDetail> items = default(IEnumerable<DiscountItemDetail>), DateTimeValue lastModifiedDateTime = default(DateTimeValue), BooleanValue promotional = default(BooleanValue), BooleanValue prorateDiscount = default(BooleanValue), StringValue sequence = default(StringValue), BooleanValue showFreeItem = default(BooleanValue), IEnumerable<DiscountWarehouseDetail> warehouses = default(IEnumerable<DiscountWarehouseDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Active = active;
             this.BreakBy = breakBy;
@@ -97,13 +97,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets CustomerPriceClasses
         /// </summary>
         [DataMember(Name="CustomerPriceClasses", EmitDefaultValue=false)]
-        public List<DiscountCustomerPriceClassesDetail> CustomerPriceClasses { get; set; }
+        public IEnumerable<DiscountCustomerPriceClassesDetail> CustomerPriceClasses { get; set; }
 
         /// <summary>
         /// Gets or Sets Customers
         /// </summary>
         [DataMember(Name="Customers", EmitDefaultValue=false)]
-        public List<DiscountCustomerDetail> Customers { get; set; }
+        public IEnumerable<DiscountCustomerDetail> Customers { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -115,7 +115,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets DiscountBreakpoints
         /// </summary>
         [DataMember(Name="DiscountBreakpoints", EmitDefaultValue=false)]
-        public List<DiscountBreakpointDetail> DiscountBreakpoints { get; set; }
+        public IEnumerable<DiscountBreakpointDetail> DiscountBreakpoints { get; set; }
 
         /// <summary>
         /// Gets or Sets DiscountBy
@@ -145,13 +145,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ItemPriceClasses
         /// </summary>
         [DataMember(Name="ItemPriceClasses", EmitDefaultValue=false)]
-        public List<DiscountItemPriceClassesDetail> ItemPriceClasses { get; set; }
+        public IEnumerable<DiscountItemPriceClassesDetail> ItemPriceClasses { get; set; }
 
         /// <summary>
         /// Gets or Sets Items
         /// </summary>
         [DataMember(Name="Items", EmitDefaultValue=false)]
-        public List<DiscountItemDetail> Items { get; set; }
+        public IEnumerable<DiscountItemDetail> Items { get; set; }
 
         /// <summary>
         /// Gets or Sets LastModifiedDateTime
@@ -187,7 +187,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Warehouses
         /// </summary>
         [DataMember(Name="Warehouses", EmitDefaultValue=false)]
-        public List<DiscountWarehouseDetail> Warehouses { get; set; }
+        public IEnumerable<DiscountWarehouseDetail> Warehouses { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

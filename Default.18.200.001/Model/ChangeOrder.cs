@@ -59,7 +59,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="revenueChangeNbr">revenueChangeNbr.</param>
         /// <param name="reverseStatus">reverseStatus.</param>
         /// <param name="status">status.</param>
-        public ChangeOrder(List<Approval> approvalDetails = default(List<Approval>), List<AttributeValue> attributes = default(List<AttributeValue>), DateTimeValue changeDate = default(DateTimeValue), StringValue _class = default(StringValue), List<ChangeOrderCommitment> commitments = default(List<ChangeOrderCommitment>), DecimalValue commitmentsChangeTotal = default(DecimalValue), DateTimeValue completionDate = default(DateTimeValue), IntValue contractTimeChangeDays = default(IntValue), List<ChangeOrderCostBudget> costBudget = default(List<ChangeOrderCostBudget>), DecimalValue costBudgetChangeTotal = default(DecimalValue), StringValue customer = default(StringValue), StringValue description = default(StringValue), StringValue detailedDescription = default(StringValue), StringValue externalRefNbr = default(StringValue), DecimalValue grossMargin = default(DecimalValue), DecimalValue grossMarginAmount = default(DecimalValue), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue originalCORefNbr = default(StringValue), StringValue projectID = default(StringValue), StringValue refNbr = default(StringValue), List<ChangeOrderRevenueBudget> revenueBudget = default(List<ChangeOrderRevenueBudget>), DecimalValue revenueBudgetChangeTotal = default(DecimalValue), StringValue revenueChangeNbr = default(StringValue), StringValue reverseStatus = default(StringValue), StringValue status = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ChangeOrder(IEnumerable<Approval> approvalDetails = default(IEnumerable<Approval>), IEnumerable<AttributeValue> attributes = default(IEnumerable<AttributeValue>), DateTimeValue changeDate = default(DateTimeValue), StringValue _class = default(StringValue), IEnumerable<ChangeOrderCommitment> commitments = default(IEnumerable<ChangeOrderCommitment>), DecimalValue commitmentsChangeTotal = default(DecimalValue), DateTimeValue completionDate = default(DateTimeValue), IntValue contractTimeChangeDays = default(IntValue), IEnumerable<ChangeOrderCostBudget> costBudget = default(IEnumerable<ChangeOrderCostBudget>), DecimalValue costBudgetChangeTotal = default(DecimalValue), StringValue customer = default(StringValue), StringValue description = default(StringValue), StringValue detailedDescription = default(StringValue), StringValue externalRefNbr = default(StringValue), DecimalValue grossMargin = default(DecimalValue), DecimalValue grossMarginAmount = default(DecimalValue), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue originalCORefNbr = default(StringValue), StringValue projectID = default(StringValue), StringValue refNbr = default(StringValue), IEnumerable<ChangeOrderRevenueBudget> revenueBudget = default(IEnumerable<ChangeOrderRevenueBudget>), DecimalValue revenueBudgetChangeTotal = default(DecimalValue), StringValue revenueChangeNbr = default(StringValue), StringValue reverseStatus = default(StringValue), StringValue status = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.ApprovalDetails = approvalDetails;
             this.Attributes = attributes;
@@ -93,13 +93,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets ApprovalDetails
         /// </summary>
         [DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
-        public List<Approval> ApprovalDetails { get; set; }
+        public IEnumerable<Approval> ApprovalDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeValue> Attributes { get; set; }
+        public IEnumerable<AttributeValue> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets ChangeDate
@@ -117,7 +117,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Commitments
         /// </summary>
         [DataMember(Name="Commitments", EmitDefaultValue=false)]
-        public List<ChangeOrderCommitment> Commitments { get; set; }
+        public IEnumerable<ChangeOrderCommitment> Commitments { get; set; }
 
         /// <summary>
         /// Gets or Sets CommitmentsChangeTotal
@@ -141,7 +141,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets CostBudget
         /// </summary>
         [DataMember(Name="CostBudget", EmitDefaultValue=false)]
-        public List<ChangeOrderCostBudget> CostBudget { get; set; }
+        public IEnumerable<ChangeOrderCostBudget> CostBudget { get; set; }
 
         /// <summary>
         /// Gets or Sets CostBudgetChangeTotal
@@ -219,7 +219,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets RevenueBudget
         /// </summary>
         [DataMember(Name="RevenueBudget", EmitDefaultValue=false)]
-        public List<ChangeOrderRevenueBudget> RevenueBudget { get; set; }
+        public IEnumerable<ChangeOrderRevenueBudget> RevenueBudget { get; set; }
 
         /// <summary>
         /// Gets or Sets RevenueBudgetChangeTotal

@@ -39,7 +39,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="productWorkgroup">productWorkgroup.</param>
         /// <param name="vendor">vendor.</param>
         /// <param name="vendorPriceDetails">vendorPriceDetails.</param>
-        public VendorPricesInquiry(StringValue inventoryID = default(StringValue), StringValue itemClass = default(StringValue), StringValue productManager = default(StringValue), StringValue productWorkgroup = default(StringValue), StringValue vendor = default(StringValue), List<VendorPriceDetail> vendorPriceDetails = default(List<VendorPriceDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public VendorPricesInquiry(StringValue inventoryID = default(StringValue), StringValue itemClass = default(StringValue), StringValue productManager = default(StringValue), StringValue productWorkgroup = default(StringValue), StringValue vendor = default(StringValue), IEnumerable<VendorPriceDetail> vendorPriceDetails = default(IEnumerable<VendorPriceDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.InventoryID = inventoryID;
             this.ItemClass = itemClass;
@@ -83,7 +83,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets VendorPriceDetails
         /// </summary>
         [DataMember(Name="VendorPriceDetails", EmitDefaultValue=false)]
-        public List<VendorPriceDetail> VendorPriceDetails { get; set; }
+        public IEnumerable<VendorPriceDetail> VendorPriceDetails { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

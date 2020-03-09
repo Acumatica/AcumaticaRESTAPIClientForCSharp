@@ -92,7 +92,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="totals">totals.</param>
         /// <param name="vATExemptTotal">vATExemptTotal.</param>
         /// <param name="vATTaxableTotal">vATTaxableTotal.</param>
-        public SalesOrder(BooleanValue approved = default(BooleanValue), StringValue baseCurrencyID = default(StringValue), Address billToAddress = default(Address), BooleanValue billToAddressOverride = default(BooleanValue), BooleanValue billToAddressValidated = default(BooleanValue), DocContact billToContact = default(DocContact), BooleanValue billToContactOverride = default(BooleanValue), StringValue cashAccount = default(StringValue), Commissions commissions = default(Commissions), DecimalValue controlTotal = default(DecimalValue), BooleanValue creditHold = default(BooleanValue), StringValue currencyID = default(StringValue), DecimalValue currencyRate = default(DecimalValue), StringValue currencyRateTypeID = default(StringValue), StringValue customerID = default(StringValue), StringValue customerOrder = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), StringValue destinationWarehouseID = default(StringValue), List<SalesOrderDetail> details = default(List<SalesOrderDetail>), BooleanValue disableAutomaticDiscountUpdate = default(BooleanValue), List<SalesOrdersDiscountDetails> discountDetails = default(List<SalesOrdersDiscountDetails>), DateTimeValue effectiveDate = default(DateTimeValue), StringValue externalRef = default(StringValue), FinancialSettings financialSettings = default(FinancialSettings), BooleanValue hold = default(BooleanValue), BooleanValue isTaxValid = default(BooleanValue), DateTimeValue lastModified = default(DateTimeValue), StringValue locationID = default(StringValue), BooleanValue newCard = default(BooleanValue), DecimalValue orderedQty = default(DecimalValue), StringValue orderNbr = default(StringValue), DecimalValue orderTotal = default(DecimalValue), StringValue orderType = default(StringValue), StringValue paymentCardIdentifier = default(StringValue), StringValue paymentMethod = default(StringValue), StringValue paymentProfileID = default(StringValue), StringValue paymentRef = default(StringValue), List<Payments> payments = default(List<Payments>), StringValue preAuthorizationNbr = default(StringValue), DecimalValue preAuthorizedAmount = default(DecimalValue), StringValue preferredWarehouseID = default(StringValue), StringValue project = default(StringValue), DecimalValue reciprocalRate = default(DecimalValue), DateTimeValue requestedOn = default(DateTimeValue), List<SalesOrderShipment> shipments = default(List<SalesOrderShipment>), ShippingSettings shippingSettings = default(ShippingSettings), Address shipToAddress = default(Address), BooleanValue shipToAddressOverride = default(BooleanValue), BooleanValue shipToAddressValidated = default(BooleanValue), DocContact shipToContact = default(DocContact), BooleanValue shipToContactOverride = default(BooleanValue), StringValue shipVia = default(StringValue), StringValue status = default(StringValue), List<TaxDetail> taxDetails = default(List<TaxDetail>), DecimalValue taxTotal = default(DecimalValue), Totals totals = default(Totals), DecimalValue vATExemptTotal = default(DecimalValue), DecimalValue vATTaxableTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public SalesOrder(BooleanValue approved = default(BooleanValue), StringValue baseCurrencyID = default(StringValue), Address billToAddress = default(Address), BooleanValue billToAddressOverride = default(BooleanValue), BooleanValue billToAddressValidated = default(BooleanValue), DocContact billToContact = default(DocContact), BooleanValue billToContactOverride = default(BooleanValue), StringValue cashAccount = default(StringValue), Commissions commissions = default(Commissions), DecimalValue controlTotal = default(DecimalValue), BooleanValue creditHold = default(BooleanValue), StringValue currencyID = default(StringValue), DecimalValue currencyRate = default(DecimalValue), StringValue currencyRateTypeID = default(StringValue), StringValue customerID = default(StringValue), StringValue customerOrder = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), StringValue destinationWarehouseID = default(StringValue), IEnumerable<SalesOrderDetail> details = default(IEnumerable<SalesOrderDetail>), BooleanValue disableAutomaticDiscountUpdate = default(BooleanValue), IEnumerable<SalesOrdersDiscountDetails> discountDetails = default(IEnumerable<SalesOrdersDiscountDetails>), DateTimeValue effectiveDate = default(DateTimeValue), StringValue externalRef = default(StringValue), FinancialSettings financialSettings = default(FinancialSettings), BooleanValue hold = default(BooleanValue), BooleanValue isTaxValid = default(BooleanValue), DateTimeValue lastModified = default(DateTimeValue), StringValue locationID = default(StringValue), BooleanValue newCard = default(BooleanValue), DecimalValue orderedQty = default(DecimalValue), StringValue orderNbr = default(StringValue), DecimalValue orderTotal = default(DecimalValue), StringValue orderType = default(StringValue), StringValue paymentCardIdentifier = default(StringValue), StringValue paymentMethod = default(StringValue), StringValue paymentProfileID = default(StringValue), StringValue paymentRef = default(StringValue), IEnumerable<Payments> payments = default(IEnumerable<Payments>), StringValue preAuthorizationNbr = default(StringValue), DecimalValue preAuthorizedAmount = default(DecimalValue), StringValue preferredWarehouseID = default(StringValue), StringValue project = default(StringValue), DecimalValue reciprocalRate = default(DecimalValue), DateTimeValue requestedOn = default(DateTimeValue), IEnumerable<SalesOrderShipment> shipments = default(IEnumerable<SalesOrderShipment>), ShippingSettings shippingSettings = default(ShippingSettings), Address shipToAddress = default(Address), BooleanValue shipToAddressOverride = default(BooleanValue), BooleanValue shipToAddressValidated = default(BooleanValue), DocContact shipToContact = default(DocContact), BooleanValue shipToContactOverride = default(BooleanValue), StringValue shipVia = default(StringValue), StringValue status = default(StringValue), IEnumerable<TaxDetail> taxDetails = default(IEnumerable<TaxDetail>), DecimalValue taxTotal = default(DecimalValue), Totals totals = default(Totals), DecimalValue vATExemptTotal = default(DecimalValue), DecimalValue vATTaxableTotal = default(DecimalValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Approved = approved;
             this.BaseCurrencyID = baseCurrencyID;
@@ -273,7 +273,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<SalesOrderDetail> Details { get; set; }
+        public IEnumerable<SalesOrderDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets DisableAutomaticDiscountUpdate
@@ -285,7 +285,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets DiscountDetails
         /// </summary>
         [DataMember(Name="DiscountDetails", EmitDefaultValue=false)]
-        public List<SalesOrdersDiscountDetails> DiscountDetails { get; set; }
+        public IEnumerable<SalesOrdersDiscountDetails> DiscountDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets EffectiveDate
@@ -387,7 +387,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Payments
         /// </summary>
         [DataMember(Name="Payments", EmitDefaultValue=false)]
-        public List<Payments> Payments { get; set; }
+        public IEnumerable<Payments> Payments { get; set; }
 
         /// <summary>
         /// Gets or Sets PreAuthorizationNbr
@@ -429,7 +429,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Shipments
         /// </summary>
         [DataMember(Name="Shipments", EmitDefaultValue=false)]
-        public List<SalesOrderShipment> Shipments { get; set; }
+        public IEnumerable<SalesOrderShipment> Shipments { get; set; }
 
         /// <summary>
         /// Gets or Sets ShippingSettings
@@ -483,7 +483,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TaxDetails
         /// </summary>
         [DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-        public List<TaxDetail> TaxDetails { get; set; }
+        public IEnumerable<TaxDetail> TaxDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxTotal

@@ -46,7 +46,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="postPeriod">postPeriod.</param>
         /// <param name="status">status.</param>
         /// <param name="transactionDate">transactionDate.</param>
-        public JournalTransaction(StringValue batchNbr = default(StringValue), StringValue branchID = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue currencyID = default(StringValue), StringValue description = default(StringValue), List<JournalTransactionDetail> details = default(List<JournalTransactionDetail>), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue ledgerID = default(StringValue), StringValue module = default(StringValue), StringValue postPeriod = default(StringValue), StringValue status = default(StringValue), DateTimeValue transactionDate = default(DateTimeValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public JournalTransaction(StringValue batchNbr = default(StringValue), StringValue branchID = default(StringValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue currencyID = default(StringValue), StringValue description = default(StringValue), IEnumerable<JournalTransactionDetail> details = default(IEnumerable<JournalTransactionDetail>), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue ledgerID = default(StringValue), StringValue module = default(StringValue), StringValue postPeriod = default(StringValue), StringValue status = default(StringValue), DateTimeValue transactionDate = default(DateTimeValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.BatchNbr = batchNbr;
             this.BranchID = branchID;
@@ -97,7 +97,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<JournalTransactionDetail> Details { get; set; }
+        public IEnumerable<JournalTransactionDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets Hold

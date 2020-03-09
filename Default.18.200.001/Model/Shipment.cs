@@ -76,7 +76,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="useCustomersAccount">useCustomersAccount.</param>
         /// <param name="warehouseID">warehouseID.</param>
         /// <param name="workgroupID">workgroupID.</param>
-        public Shipment(StringValue baseCurrencyID = default(StringValue), DecimalValue controlQty = default(DecimalValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue currencyID = default(StringValue), DecimalValue currencyRate = default(DecimalValue), StringValue currencyRateTypeID = default(StringValue), BooleanValue currencyViewState = default(BooleanValue), StringValue customerID = default(StringValue), List<ShipmentDetail> details = default(List<ShipmentDetail>), DateTimeValue effectiveDate = default(DateTimeValue), StringValue fOBPoint = default(StringValue), DecimalValue freightAmount = default(DecimalValue), DecimalValue freightCost = default(DecimalValue), StringValue freightCurrency = default(StringValue), BooleanValue groundCollect = default(BooleanValue), BooleanValue hold = default(BooleanValue), BooleanValue insurance = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue locationID = default(StringValue), StringValue operation = default(StringValue), List<ShipmentOrderDetail> orders = default(List<ShipmentOrderDetail>), StringValue owner = default(StringValue), IntValue packageCount = default(IntValue), List<ShipmentPackage> packages = default(List<ShipmentPackage>), DecimalValue packageWeight = default(DecimalValue), DecimalValue reciprocalRate = default(DecimalValue), BooleanValue residentialDelivery = default(BooleanValue), BooleanValue saturdayDelivery = default(BooleanValue), DateTimeValue shipmentDate = default(DateTimeValue), StringValue shipmentNbr = default(StringValue), DecimalValue shippedQty = default(DecimalValue), DecimalValue shippedVolume = default(DecimalValue), DecimalValue shippedWeight = default(DecimalValue), ShipToSettings shippingSettings = default(ShipToSettings), StringValue shippingTerms = default(StringValue), StringValue shippingZoneID = default(StringValue), StringValue shipVia = default(StringValue), StringValue status = default(StringValue), StringValue toWarehouseID = default(StringValue), StringValue type = default(StringValue), BooleanValue useCustomersAccount = default(BooleanValue), StringValue warehouseID = default(StringValue), StringValue workgroupID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Shipment(StringValue baseCurrencyID = default(StringValue), DecimalValue controlQty = default(DecimalValue), DateTimeValue createdDateTime = default(DateTimeValue), StringValue currencyID = default(StringValue), DecimalValue currencyRate = default(DecimalValue), StringValue currencyRateTypeID = default(StringValue), BooleanValue currencyViewState = default(BooleanValue), StringValue customerID = default(StringValue), IEnumerable<ShipmentDetail> details = default(IEnumerable<ShipmentDetail>), DateTimeValue effectiveDate = default(DateTimeValue), StringValue fOBPoint = default(StringValue), DecimalValue freightAmount = default(DecimalValue), DecimalValue freightCost = default(DecimalValue), StringValue freightCurrency = default(StringValue), BooleanValue groundCollect = default(BooleanValue), BooleanValue hold = default(BooleanValue), BooleanValue insurance = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue locationID = default(StringValue), StringValue operation = default(StringValue), IEnumerable<ShipmentOrderDetail> orders = default(IEnumerable<ShipmentOrderDetail>), StringValue owner = default(StringValue), IntValue packageCount = default(IntValue), IEnumerable<ShipmentPackage> packages = default(IEnumerable<ShipmentPackage>), DecimalValue packageWeight = default(DecimalValue), DecimalValue reciprocalRate = default(DecimalValue), BooleanValue residentialDelivery = default(BooleanValue), BooleanValue saturdayDelivery = default(BooleanValue), DateTimeValue shipmentDate = default(DateTimeValue), StringValue shipmentNbr = default(StringValue), DecimalValue shippedQty = default(DecimalValue), DecimalValue shippedVolume = default(DecimalValue), DecimalValue shippedWeight = default(DecimalValue), ShipToSettings shippingSettings = default(ShipToSettings), StringValue shippingTerms = default(StringValue), StringValue shippingZoneID = default(StringValue), StringValue shipVia = default(StringValue), StringValue status = default(StringValue), StringValue toWarehouseID = default(StringValue), StringValue type = default(StringValue), BooleanValue useCustomersAccount = default(BooleanValue), StringValue warehouseID = default(StringValue), StringValue workgroupID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.BaseCurrencyID = baseCurrencyID;
             this.ControlQty = controlQty;
@@ -175,7 +175,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<ShipmentDetail> Details { get; set; }
+        public IEnumerable<ShipmentDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets EffectiveDate
@@ -247,7 +247,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Orders
         /// </summary>
         [DataMember(Name="Orders", EmitDefaultValue=false)]
-        public List<ShipmentOrderDetail> Orders { get; set; }
+        public IEnumerable<ShipmentOrderDetail> Orders { get; set; }
 
         /// <summary>
         /// Gets or Sets Owner
@@ -265,7 +265,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Packages
         /// </summary>
         [DataMember(Name="Packages", EmitDefaultValue=false)]
-        public List<ShipmentPackage> Packages { get; set; }
+        public IEnumerable<ShipmentPackage> Packages { get; set; }
 
         /// <summary>
         /// Gets or Sets PackageWeight

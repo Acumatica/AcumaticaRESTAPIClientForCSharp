@@ -44,7 +44,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="referenceNbr">referenceNbr.</param>
         /// <param name="status">status.</param>
         /// <param name="vendorSalesPrices">vendorSalesPrices.</param>
-        public VendorPriceWorksheet(DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), DateTimeValue expirationDate = default(DateTimeValue), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), BooleanValue overwriteOverlappingPrices = default(BooleanValue), BooleanValue promotional = default(BooleanValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), List<VendorPriceWorksheetDetail> vendorSalesPrices = default(List<VendorPriceWorksheetDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public VendorPriceWorksheet(DateTimeValue createdDateTime = default(DateTimeValue), StringValue description = default(StringValue), DateTimeValue effectiveDate = default(DateTimeValue), DateTimeValue expirationDate = default(DateTimeValue), BooleanValue hold = default(BooleanValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), BooleanValue overwriteOverlappingPrices = default(BooleanValue), BooleanValue promotional = default(BooleanValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), IEnumerable<VendorPriceWorksheetDetail> vendorSalesPrices = default(IEnumerable<VendorPriceWorksheetDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.CreatedDateTime = createdDateTime;
             this.Description = description;
@@ -123,7 +123,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets VendorSalesPrices
         /// </summary>
         [DataMember(Name="VendorSalesPrices", EmitDefaultValue=false)]
-        public List<VendorPriceWorksheetDetail> VendorSalesPrices { get; set; }
+        public IEnumerable<VendorPriceWorksheetDetail> VendorSalesPrices { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

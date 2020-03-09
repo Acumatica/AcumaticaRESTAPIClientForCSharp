@@ -41,7 +41,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="expense">expense.</param>
         /// <param name="sortOrder">sortOrder.</param>
         /// <param name="type">type.</param>
-        public AccountGroup(StringValue accountGroupID = default(StringValue), BooleanValue active = default(BooleanValue), List<AttributeDetail> attributes = default(List<AttributeDetail>), StringValue defaultAccountID = default(StringValue), StringValue description = default(StringValue), BooleanValue expense = default(BooleanValue), ShortValue sortOrder = default(ShortValue), StringValue type = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public AccountGroup(StringValue accountGroupID = default(StringValue), BooleanValue active = default(BooleanValue), IEnumerable<AttributeDetail> attributes = default(IEnumerable<AttributeDetail>), StringValue defaultAccountID = default(StringValue), StringValue description = default(StringValue), BooleanValue expense = default(BooleanValue), ShortValue sortOrder = default(ShortValue), StringValue type = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.AccountGroupID = accountGroupID;
             this.Active = active;
@@ -69,7 +69,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeDetail> Attributes { get; set; }
+        public IEnumerable<AttributeDetail> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultAccountID

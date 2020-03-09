@@ -40,7 +40,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="nonStockComponents">nonStockComponents.</param>
         /// <param name="revisionID">revisionID.</param>
         /// <param name="stockComponents">stockComponents.</param>
-        public KitSpecification(BooleanValue active = default(BooleanValue), StringValue description = default(StringValue), BooleanValue isNonStock = default(BooleanValue), StringValue kitInventoryID = default(StringValue), List<KitNonStockComponent> nonStockComponents = default(List<KitNonStockComponent>), StringValue revisionID = default(StringValue), List<KitStockComponent> stockComponents = default(List<KitStockComponent>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public KitSpecification(BooleanValue active = default(BooleanValue), StringValue description = default(StringValue), BooleanValue isNonStock = default(BooleanValue), StringValue kitInventoryID = default(StringValue), IEnumerable<KitNonStockComponent> nonStockComponents = default(IEnumerable<KitNonStockComponent>), StringValue revisionID = default(StringValue), IEnumerable<KitStockComponent> stockComponents = default(IEnumerable<KitStockComponent>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Active = active;
             this.Description = description;
@@ -79,7 +79,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets NonStockComponents
         /// </summary>
         [DataMember(Name="NonStockComponents", EmitDefaultValue=false)]
-        public List<KitNonStockComponent> NonStockComponents { get; set; }
+        public IEnumerable<KitNonStockComponent> NonStockComponents { get; set; }
 
         /// <summary>
         /// Gets or Sets RevisionID
@@ -91,7 +91,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets StockComponents
         /// </summary>
         [DataMember(Name="StockComponents", EmitDefaultValue=false)]
-        public List<KitStockComponent> StockComponents { get; set; }
+        public IEnumerable<KitStockComponent> StockComponents { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

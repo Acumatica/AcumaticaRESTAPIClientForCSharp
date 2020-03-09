@@ -42,7 +42,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="projectTemplateTaskID">projectTemplateTaskID.</param>
         /// <param name="properties">properties.</param>
         /// <param name="visibilitySettings">visibilitySettings.</param>
-        public ProjectTemplateTask(List<AttributeValue> attributes = default(List<AttributeValue>), ProjectTaskBillingAndAllocationSettings billingAndAllocationSettings = default(ProjectTaskBillingAndAllocationSettings), ProjectTaskDefaultValues defaultValues = default(ProjectTaskDefaultValues), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue projectTemplateID = default(StringValue), StringValue projectTemplateTaskID = default(StringValue), ProjectTemplateTaskProperties properties = default(ProjectTemplateTaskProperties), VisibilitySettings visibilitySettings = default(VisibilitySettings), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ProjectTemplateTask(IEnumerable<AttributeValue> attributes = default(IEnumerable<AttributeValue>), ProjectTaskBillingAndAllocationSettings billingAndAllocationSettings = default(ProjectTaskBillingAndAllocationSettings), ProjectTaskDefaultValues defaultValues = default(ProjectTaskDefaultValues), StringValue description = default(StringValue), DateTimeValue lastModifiedDateTime = default(DateTimeValue), StringValue projectTemplateID = default(StringValue), StringValue projectTemplateTaskID = default(StringValue), ProjectTemplateTaskProperties properties = default(ProjectTemplateTaskProperties), VisibilitySettings visibilitySettings = default(VisibilitySettings), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Attributes = attributes;
             this.BillingAndAllocationSettings = billingAndAllocationSettings;
@@ -59,7 +59,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeValue> Attributes { get; set; }
+        public IEnumerable<AttributeValue> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets BillingAndAllocationSettings

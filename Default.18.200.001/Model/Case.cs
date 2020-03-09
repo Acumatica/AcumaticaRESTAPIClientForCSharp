@@ -69,7 +69,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="timeSpent">timeSpent.</param>
         /// <param name="workgroup">workgroup.</param>
         /// <param name="workgroupDescription">workgroupDescription.</param>
-        public Case(List<CaseActivityDetail> activities = default(List<CaseActivityDetail>), List<AttributeDetail> attributes = default(List<AttributeDetail>), BooleanValue billable = default(BooleanValue), IntValue billableOvertime = default(IntValue), IntValue billableTime = default(IntValue), StringValue businessAccount = default(StringValue), StringValue businessAccountName = default(StringValue), StringValue caseID = default(StringValue), StringValue classID = default(StringValue), DateTimeValue closingDate = default(DateTimeValue), StringValue contactDisplayName = default(StringValue), IntValue contactID = default(IntValue), StringValue contract = default(StringValue), DateTimeValue dateReported = default(DateTimeValue), StringValue description = default(StringValue), StringValue initialResponse = default(StringValue), DateTimeValue lastActivityDate = default(DateTimeValue), DateTimeValue lastIncomingActivity = default(DateTimeValue), DateTimeValue lastOutgoingActivity = default(DateTimeValue), StringValue location = default(StringValue), BooleanValue manualOverride = default(BooleanValue), StringValue overtimeSpent = default(StringValue), StringValue owner = default(StringValue), StringValue ownerEmployeeName = default(StringValue), StringValue priority = default(StringValue), StringValue reason = default(StringValue), List<CaseRelatedCase> relatedCases = default(List<CaseRelatedCase>), List<RelationDetail> relations = default(List<RelationDetail>), StringValue resolutionTime = default(StringValue), StringValue severity = default(StringValue), DateTimeValue sLA = default(DateTimeValue), StringValue status = default(StringValue), StringValue subject = default(StringValue), StringValue timeSpent = default(StringValue), StringValue workgroup = default(StringValue), StringValue workgroupDescription = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Case(IEnumerable<CaseActivityDetail> activities = default(IEnumerable<CaseActivityDetail>), IEnumerable<AttributeDetail> attributes = default(IEnumerable<AttributeDetail>), BooleanValue billable = default(BooleanValue), IntValue billableOvertime = default(IntValue), IntValue billableTime = default(IntValue), StringValue businessAccount = default(StringValue), StringValue businessAccountName = default(StringValue), StringValue caseID = default(StringValue), StringValue classID = default(StringValue), DateTimeValue closingDate = default(DateTimeValue), StringValue contactDisplayName = default(StringValue), IntValue contactID = default(IntValue), StringValue contract = default(StringValue), DateTimeValue dateReported = default(DateTimeValue), StringValue description = default(StringValue), StringValue initialResponse = default(StringValue), DateTimeValue lastActivityDate = default(DateTimeValue), DateTimeValue lastIncomingActivity = default(DateTimeValue), DateTimeValue lastOutgoingActivity = default(DateTimeValue), StringValue location = default(StringValue), BooleanValue manualOverride = default(BooleanValue), StringValue overtimeSpent = default(StringValue), StringValue owner = default(StringValue), StringValue ownerEmployeeName = default(StringValue), StringValue priority = default(StringValue), StringValue reason = default(StringValue), IEnumerable<CaseRelatedCase> relatedCases = default(IEnumerable<CaseRelatedCase>), IEnumerable<RelationDetail> relations = default(IEnumerable<RelationDetail>), StringValue resolutionTime = default(StringValue), StringValue severity = default(StringValue), DateTimeValue sLA = default(DateTimeValue), StringValue status = default(StringValue), StringValue subject = default(StringValue), StringValue timeSpent = default(StringValue), StringValue workgroup = default(StringValue), StringValue workgroupDescription = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Activities = activities;
             this.Attributes = attributes;
@@ -113,13 +113,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Activities
         /// </summary>
         [DataMember(Name="Activities", EmitDefaultValue=false)]
-        public List<CaseActivityDetail> Activities { get; set; }
+        public IEnumerable<CaseActivityDetail> Activities { get; set; }
 
         /// <summary>
         /// Gets or Sets Attributes
         /// </summary>
         [DataMember(Name="Attributes", EmitDefaultValue=false)]
-        public List<AttributeDetail> Attributes { get; set; }
+        public IEnumerable<AttributeDetail> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Billable
@@ -269,13 +269,13 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets RelatedCases
         /// </summary>
         [DataMember(Name="RelatedCases", EmitDefaultValue=false)]
-        public List<CaseRelatedCase> RelatedCases { get; set; }
+        public IEnumerable<CaseRelatedCase> RelatedCases { get; set; }
 
         /// <summary>
         /// Gets or Sets Relations
         /// </summary>
         [DataMember(Name="Relations", EmitDefaultValue=false)]
-        public List<RelationDetail> Relations { get; set; }
+        public IEnumerable<RelationDetail> Relations { get; set; }
 
         /// <summary>
         /// Gets or Sets ResolutionTime

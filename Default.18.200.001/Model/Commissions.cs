@@ -35,7 +35,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// </summary>
         /// <param name="defaultSalesperson">defaultSalesperson.</param>
         /// <param name="salesPersons">salesPersons.</param>
-        public Commissions(StringValue defaultSalesperson = default(StringValue), List<SalesPersonDetail> salesPersons = default(List<SalesPersonDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Commissions(StringValue defaultSalesperson = default(StringValue), IEnumerable<SalesPersonDetail> salesPersons = default(IEnumerable<SalesPersonDetail>), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.DefaultSalesperson = defaultSalesperson;
             this.SalesPersons = salesPersons;
@@ -51,7 +51,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets SalesPersons
         /// </summary>
         [DataMember(Name="SalesPersons", EmitDefaultValue=false)]
-        public List<SalesPersonDetail> SalesPersons { get; set; }
+        public IEnumerable<SalesPersonDetail> SalesPersons { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

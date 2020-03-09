@@ -39,7 +39,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="period">period.</param>
         /// <param name="results">results.</param>
         /// <param name="subaccount">subaccount.</param>
-        public AccountBySubaccountInquiry(StringValue account = default(StringValue), StringValue branch = default(StringValue), StringValue ledger = default(StringValue), StringValue period = default(StringValue), List<AccountBySubaccountRow> results = default(List<AccountBySubaccountRow>), StringValue subaccount = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public AccountBySubaccountInquiry(StringValue account = default(StringValue), StringValue branch = default(StringValue), StringValue ledger = default(StringValue), StringValue period = default(StringValue), IEnumerable<AccountBySubaccountRow> results = default(IEnumerable<AccountBySubaccountRow>), StringValue subaccount = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Account = account;
             this.Branch = branch;
@@ -77,7 +77,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Results
         /// </summary>
         [DataMember(Name="Results", EmitDefaultValue=false)]
-        public List<AccountBySubaccountRow> Results { get; set; }
+        public IEnumerable<AccountBySubaccountRow> Results { get; set; }
 
         /// <summary>
         /// Gets or Sets Subaccount

@@ -39,7 +39,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="roles">roles.</param>
         /// <param name="status">status.</param>
         /// <param name="userType">userType.</param>
-        public ContactUserInfo(BooleanValue generatePassword = default(BooleanValue), StringValue login = default(StringValue), StringValue password = default(StringValue), List<ContactRoles> roles = default(List<ContactRoles>), StringValue status = default(StringValue), StringValue userType = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ContactUserInfo(BooleanValue generatePassword = default(BooleanValue), StringValue login = default(StringValue), StringValue password = default(StringValue), IEnumerable<ContactRoles> roles = default(IEnumerable<ContactRoles>), StringValue status = default(StringValue), StringValue userType = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.GeneratePassword = generatePassword;
             this.Login = login;
@@ -71,7 +71,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Roles
         /// </summary>
         [DataMember(Name="Roles", EmitDefaultValue=false)]
-        public List<ContactRoles> Roles { get; set; }
+        public IEnumerable<ContactRoles> Roles { get; set; }
 
         /// <summary>
         /// Gets or Sets Status

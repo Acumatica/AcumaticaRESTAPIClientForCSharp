@@ -9,18 +9,7 @@ namespace Acumatica.Default_18_200_001.Model
     {
  public ReleaseCase(Case entity) : base(entity)
         { }
-
-[DataMember(Name = "entity", EmitDefaultValue = false)]
-        public Case Entity
-        {
-            get
-            {
-                return _Entity;
-            }
-            set
-            {
-                _Entity = value;
-            }
-        }
-    }
+ public ReleaseCase() : base()
+        { }
+  }
 }

@@ -56,7 +56,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="type">type.</param>
         /// <param name="vendor">vendor.</param>
         /// <param name="vendorRef">vendorRef.</param>
-        public Bill(DecimalValue amount = default(DecimalValue), List<BillApplicationDetail> applications = default(List<BillApplicationDetail>), BooleanValue approvedForPayment = default(BooleanValue), DecimalValue balance = default(DecimalValue), StringValue branchID = default(StringValue), StringValue cashAccount = default(StringValue), StringValue currencyID = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), List<BillDetail> details = default(List<BillDetail>), DateTimeValue dueDate = default(DateTimeValue), BooleanValue hold = default(BooleanValue), StringValue locationID = default(StringValue), StringValue postPeriod = default(StringValue), StringValue project = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), List<BillTaxDetail> taxDetails = default(List<BillTaxDetail>), DecimalValue taxTotal = default(DecimalValue), StringValue terms = default(StringValue), StringValue type = default(StringValue), StringValue vendor = default(StringValue), StringValue vendorRef = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public Bill(DecimalValue amount = default(DecimalValue), IEnumerable<BillApplicationDetail> applications = default(IEnumerable<BillApplicationDetail>), BooleanValue approvedForPayment = default(BooleanValue), DecimalValue balance = default(DecimalValue), StringValue branchID = default(StringValue), StringValue cashAccount = default(StringValue), StringValue currencyID = default(StringValue), DateTimeValue date = default(DateTimeValue), StringValue description = default(StringValue), IEnumerable<BillDetail> details = default(IEnumerable<BillDetail>), DateTimeValue dueDate = default(DateTimeValue), BooleanValue hold = default(BooleanValue), StringValue locationID = default(StringValue), StringValue postPeriod = default(StringValue), StringValue project = default(StringValue), StringValue referenceNbr = default(StringValue), StringValue status = default(StringValue), IEnumerable<BillTaxDetail> taxDetails = default(IEnumerable<BillTaxDetail>), DecimalValue taxTotal = default(DecimalValue), StringValue terms = default(StringValue), StringValue type = default(StringValue), StringValue vendor = default(StringValue), StringValue vendorRef = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Amount = amount;
             this.Applications = applications;
@@ -93,7 +93,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Applications
         /// </summary>
         [DataMember(Name="Applications", EmitDefaultValue=false)]
-        public List<BillApplicationDetail> Applications { get; set; }
+        public IEnumerable<BillApplicationDetail> Applications { get; set; }
 
         /// <summary>
         /// Gets or Sets ApprovedForPayment
@@ -141,7 +141,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<BillDetail> Details { get; set; }
+        public IEnumerable<BillDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets DueDate
@@ -189,7 +189,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets TaxDetails
         /// </summary>
         [DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-        public List<BillTaxDetail> TaxDetails { get; set; }
+        public IEnumerable<BillTaxDetail> TaxDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets TaxTotal

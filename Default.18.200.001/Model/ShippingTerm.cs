@@ -36,7 +36,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// <param name="description">description.</param>
         /// <param name="details">details.</param>
         /// <param name="termID">termID.</param>
-        public ShippingTerm(StringValue description = default(StringValue), List<ShippingTermDetail> details = default(List<ShippingTermDetail>), StringValue termID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
+        public ShippingTerm(StringValue description = default(StringValue), IEnumerable<ShippingTermDetail> details = default(IEnumerable<ShippingTermDetail>), StringValue termID = default(StringValue), Guid? id = default(Guid?), long? rowNumber = default(long?), string note = default(string), Dictionary<string, Dictionary<string, CustomField>> custom = default(Dictionary<string, Dictionary<string, CustomField>>), List<FileLink> files = default(List<FileLink>)) : base(id, rowNumber, note, custom, files)
         {
             this.Description = description;
             this.Details = details;
@@ -53,7 +53,7 @@ namespace Acumatica.Default_18_200_001.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="Details", EmitDefaultValue=false)]
-        public List<ShippingTermDetail> Details { get; set; }
+        public IEnumerable<ShippingTermDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or Sets TermID
