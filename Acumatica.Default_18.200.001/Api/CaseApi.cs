@@ -1,21 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-    public partial class CaseApi : EntityAPI<Case>
-    {
-        public CaseApi(Configuration configuration) : base(configuration)
-        {
-        }
-        public string InvokeAssignCaseAction(Case caseEntity)
-        {
-            return InvokeAction(new AssignCase(caseEntity));
-        }
-    }
+	public partial class CaseApi : EntityAPI<Case>
+	{
+		public CaseApi(Configuration configuration) : base(configuration)
+		{ }
+	}
 }

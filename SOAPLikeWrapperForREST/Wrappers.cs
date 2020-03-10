@@ -48,7 +48,7 @@ namespace AcumaticaSOAPWrapperForREST
 	}
 	public class DefaultSoapClient : RESTClient
 	{
-		public DefaultSoapClient(string siteURL) : base(siteURL)
+		public DefaultSoapClient(string siteURL, string endpoint) : base(siteURL, endpoint)
 		{ }
 		public ProcessResult WaitInvoke<T>(EntityAction<T> action)
 			where T : Entity

@@ -1,0 +1,14 @@
+using Acumatica.RESTClient.Model;
+using System.Runtime.Serialization;
+
+namespace Acumatica.POS_17_200_001.Model
+{
+	[DataContract]
+	public partial class SelectSourceEmail : EntityAction<Email>
+	{
+		public SelectSourceEmail(Email entity) : base(entity)
+		{ }
+		public SelectSourceEmail() : base()
+		{ }
+	}
+}
