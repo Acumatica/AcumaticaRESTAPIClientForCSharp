@@ -1,0 +1,21 @@
+using Acumatica.RESTClient.Model;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+
+namespace Acumatica.Default_18_200_001.Model
+{
+	[DataContract]
+	public partial class LotSerialClassSegment : Entity
+	{
+
+		[DataMember(Name="SegmentNbr", EmitDefaultValue=false)]
+		public ShortValue SegmentNbr { get; set; }
+
+		[DataMember(Name="Type", EmitDefaultValue=false)]
+		public StringValue Type { get; set; }
+
+		[DataMember(Name="Value", EmitDefaultValue=false)]
+		public StringValue Value { get; set; }
+
+	}
+}
