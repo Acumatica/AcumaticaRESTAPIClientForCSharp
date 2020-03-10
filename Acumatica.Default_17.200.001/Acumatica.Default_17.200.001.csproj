@@ -425,12 +425,10 @@
     <Compile Include="Model\ShipVia.cs" />
     <Compile Include="Model\ShipViaFreightRate.cs" />
     <Compile Include="Model\ShopForRates.cs" />
-    <Compile Include="Model\ShortValue.cs" />
     <Compile Include="Model\StatementCycle.cs" />
     <Compile Include="Model\StockItem.cs" />
     <Compile Include="Model\StockItemVendorDetail.cs" />
     <Compile Include="Model\StockItemWarehouseDetail.cs" />
-    <Compile Include="Model\StringValue.cs" />
     <Compile Include="Model\Subaccount.cs" />
     <Compile Include="Model\SubItemStockItem.cs" />
     <Compile Include="Model\TakeCase.cs" />
