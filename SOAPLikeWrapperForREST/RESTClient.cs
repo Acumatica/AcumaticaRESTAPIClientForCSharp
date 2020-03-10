@@ -4,7 +4,6 @@ using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.Model;
 using AcumaticaSOAPWrapperForREST;
-using DefaultEndpoint_18_200_001;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,11 +21,11 @@ namespace SOAPLikeWrapperForREST
         protected AuthApi AuthorizationApi;
         protected Configuration CurrentConfiguration;
 
-        public RESTClient(string siteURL)
+        public RESTClient(string siteURL, string endpointPath)
         {
             AuthorizationApi = new AuthApi(siteURL);
             ProcessStartTime = new Dictionary<string, DateTime>();
-            CurrentConfiguration = new Configuration(EndpointHelper.CombineEndpointURL(siteURL));
+            CurrentConfiguration = new Configuration(siteURL + endpointPath);
         }
 
         public void Login(string username, string password, string tenant = null, string branch = null, string locale = null)
