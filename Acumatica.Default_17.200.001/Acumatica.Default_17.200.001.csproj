@@ -159,7 +159,6 @@
     <Compile Include="Model\BillDetail.cs" />
     <Compile Include="Model\BillTaxDetail.cs" />
     <Compile Include="Model\BillToSettings.cs" />
-    <Compile Include="Model\BooleanValue.cs" />
     <Compile Include="Model\BoxStockItem.cs" />
     <Compile Include="Model\BusinessAccount.cs" />
     <Compile Include="Model\BusinessAccountActivityDetail.cs" />
@@ -321,7 +320,6 @@
     <Compile Include="Model\KitSpecification.cs" />
     <Compile Include="Model\KitStockComponent.cs" />
     <Compile Include="Model\Lead.cs" />
-    <Compile Include="Model\LongValue.cs" />
     <Compile Include="Model\LotSerialClass.cs" />
     <Compile Include="Model\LotSerialClassSegment.cs" />
     <Compile Include="Model\MarkBusinessAccountAsValidated.cs" />
