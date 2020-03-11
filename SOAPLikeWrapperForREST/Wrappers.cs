@@ -3,8 +3,9 @@ using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Model;
 using SOAPLikeWrapperForREST;
 using System;
+using System.Collections.Generic;
 
-namespace AcumaticaSOAPWrapperForREST
+namespace SOAPLikeWrapperForREST
 {
 	public enum ProcessStatus
 	{
@@ -50,8 +51,31 @@ namespace AcumaticaSOAPWrapperForREST
 	{
 		public DefaultSoapClient(string siteURL, string endpoint) : base(siteURL, endpoint)
 		{ }
-		public ProcessResult WaitInvoke<T>(EntityAction<T> action)
+		public T[] GetList<T>(T entity)
 			where T : Entity
+		{
+			string expand = ComposeExpands(entity);
+			SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
+
+			string filter = ComposeFilter(entity);
+			var result = api.GetList(filter: filter, expand: expand);
+
+			return result.ToArray();
+		}
+		public string Invoke<T>(T entity, EntityAction<T> action)
+			where T : Entity
+		{
+			action.Entity = entity;
+			return Invoke(action);
+		}
+		public ProcessResult WaitInvoke<T>(T entity, EntityAction<T> action)
+			where T : Entity
+		{
+			action.Entity = entity;
+			return WaitInvoke(action);
+		}
+		public ProcessResult WaitInvoke<T>(EntityAction<T> action)
+		where T : Entity
 		{
 			InvokeResult invokeResult = Invoke(action);
 

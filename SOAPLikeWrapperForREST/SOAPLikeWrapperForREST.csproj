@@ -49,7 +49,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESTClient.cs" />
     <Compile Include="SOAPEntity.cs" />
+    <Compile Include="SOAPTypeWrappers\SOAPBooleanTypesWrappers.cs" />
+    <Compile Include="SOAPTypeWrappers\SOAPDateTimeTypesWrappers.cs" />
+    <Compile Include="SOAPTypeWrappers\SOAPDecimalTypesWrappers.cs" />
+    <Compile Include="SOAPTypeWrappers\SOAPGUIDTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPStringTypesWrappers.cs" />
+    <Compile Include="SOAPTypeWrappers\SOAPIntTypesWrappers.cs" />
     <Compile Include="Wrappers.cs" />
   </ItemGroup>
   <ItemGroup>

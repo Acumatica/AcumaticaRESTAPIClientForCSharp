@@ -58,7 +58,7 @@ namespace SOAPLikeWrapperForREST
             return result.FirstOrDefault();
         }
 
-        private static string ComposeFilter<T>(T entity) where T : Entity
+       protected string ComposeFilter<T>(T entity) where T : Entity
         {
             string filter = "";
             foreach (var field in entity.GetStringFields())
@@ -72,7 +72,7 @@ namespace SOAPLikeWrapperForREST
             filter = filter.Substring(0, filter.Length - 4);
             return filter;
         }
-        private static string ComposeExpands<T>(T entity) where T : Entity
+        protected string ComposeExpands<T>(T entity) where T : Entity
         {
             string expand = "";
             foreach (DetailEntity detailEntity in entity.GetDetails())

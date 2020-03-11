@@ -172,6 +172,9 @@
     <Compile Include="Model\AccountLocationContact.cs" />
     <Compile Include="Model\AccountSummaryInquiry.cs" />
     <Compile Include="Model\AccountSummaryRow.cs" />
+    <Compile Include="Model\Actions\MarkLeadAsValidated.cs" />
+    <Compile Include="Model\Actions\TrialBalanceProcess.cs" />
+    <Compile Include="Model\Actions\TrialBalanceProcessAll.cs" />
     <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\ActivityDetail.cs" />
     <Compile Include="Model\Address.cs" />
@@ -406,7 +409,6 @@
     <Compile Include="Model\Actions\MarkBusinessAccountAsValidated.cs" />
     <Compile Include="Model\Actions\MarkContactAsValidated.cs" />
     <Compile Include="Model\MarketingListDetail.cs" />
-    <Compile Include="Model\MarkLeadAsValidated.cs" />
     <Compile Include="Model\NonStockItem.cs" />
     <Compile Include="Model\NonStockItemAttribute.cs" />
     <Compile Include="Model\NonStockItemSalesCategory.cs" />
@@ -600,8 +602,6 @@
     <Compile Include="Model\TransferOrderDetailAllocation.cs" />
     <Compile Include="Model\TrialBalance.cs" />
     <Compile Include="Model\TrialBalanceDetail.cs" />
-    <Compile Include="Model\TrialBalanceProcess.cs" />
-    <Compile Include="Model\TrialBalanceProcessAll.cs" />
     <Compile Include="Model\UnionLocal.cs" />
     <Compile Include="Model\UnitsOfMeasure.cs" />
     <Compile Include="Model\Actions\UnlockProjectBudget.cs" />

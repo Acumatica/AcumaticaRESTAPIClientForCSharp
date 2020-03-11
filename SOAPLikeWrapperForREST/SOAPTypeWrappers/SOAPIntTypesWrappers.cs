@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SOAPLikeWrapperForREST
 {
-  
-    public enum StringCondition
+    public enum IntCondition
     {
+
         /// <remarks/>
         Equal,
 
@@ -32,31 +32,21 @@ namespace SOAPLikeWrapperForREST
         IsLessThanOrEqualsTo,
 
         /// <remarks/>
-        Contains,
-
-        /// <remarks/>
-        DoesNotContain,
-
-        /// <remarks/>
-        StartsWith,
-
-        /// <remarks/>
-        EndsWith,
-
-        /// <remarks/>
         IsNull,
 
         /// <remarks/>
         IsNotNull,
     }
-    
-    public partial class StringSearch : StringValue
+
+    public partial class IntSearch : IntValue
     {
-        private StringCondition conditionField;
 
-        private string value2Field;
+        private IntCondition conditionField;
 
-        public StringCondition Condition
+        private System.Nullable<int> value2Field;
+
+
+        public IntCondition Condition
         {
             get
             {
@@ -68,7 +58,7 @@ namespace SOAPLikeWrapperForREST
             }
         }
 
-        public string Value2
+        public System.Nullable<int> Value2
         {
             get
             {
@@ -80,11 +70,4 @@ namespace SOAPLikeWrapperForREST
             }
         }
     }
-    public partial class StringReturn : StringValue
-    {
-    }
-    public partial class StringSkip : StringValue
-    {
-    }
-
 }
