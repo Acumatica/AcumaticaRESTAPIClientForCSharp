@@ -72,6 +72,13 @@ namespace Acumatica.RESTClient.Model
         public Guid? Id { get; set; }
 
         /// <summary>
+        /// Indicates whether it is needed to delete detail record.
+        /// </summary>
+        [DataMember(Name = "Delete", EmitDefaultValue = false)]
+        public bool? Delete { get; set; }
+
+
+        /// <summary>
         /// Gets or Sets RowNumber
         /// </summary>
         [DataMember(Name="rowNumber", EmitDefaultValue=false)]

@@ -34,7 +34,7 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="ShortValue" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public ShortValue(int? value = default(int?))
+        public ShortValue(short? value = default(short?))
         {
             this.Value = value;
         }
@@ -43,7 +43,7 @@ namespace Acumatica.RESTClient.Model
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public int? Value { get; set; }
+        public short? Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
