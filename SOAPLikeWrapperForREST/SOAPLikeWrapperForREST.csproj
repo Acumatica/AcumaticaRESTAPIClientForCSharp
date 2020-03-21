@@ -47,15 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RESTClient.cs" />
-    <Compile Include="SOAPEntity.cs" />
+    <Compile Include="SOAPLikeClient.cs" />
+    <Compile Include="SOAPLikeEntityAPI.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPBooleanTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPDateTimeTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPDecimalTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPGUIDTypesWrappers.cs" />
+    <Compile Include="SOAPTypeWrappers\SOAPProcessingTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPStringTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPIntTypesWrappers.cs" />
-    <Compile Include="Wrappers.cs" />
+    <Compile Include="SOAPTypeWrappers\DefaultSoapClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Acumatica.Auth\Acumatica.Auth.csproj">

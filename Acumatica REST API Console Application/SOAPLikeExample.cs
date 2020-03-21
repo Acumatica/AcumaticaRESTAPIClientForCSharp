@@ -8,7 +8,7 @@ namespace AcumaticaRestApiExample
     {
         public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
-            var restClient = new RESTClient(siteURL, "/Default/18.200.001");
+            var restClient = new SOAPLikeClient(siteURL, "/Default/18.200.001");
 
             try
             {

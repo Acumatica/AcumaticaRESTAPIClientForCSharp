@@ -70,6 +70,12 @@ namespace Acumatica.RESTClient.Model
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
+        [Obsolete("viewName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
+        public string viewName;
+      
+        [Obsolete("fieldName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
+        public string fieldName;
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
