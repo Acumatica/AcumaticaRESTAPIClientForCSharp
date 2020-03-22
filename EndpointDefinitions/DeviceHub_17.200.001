@@ -1,0 +1,1447 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "3",
+    "title": "DeviceHub/17.200.001"
+  },
+  "host": "localhost",
+  "basePath": "/beta/entity/DeviceHub/17.200.001",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/Printer/$adHocSchema": {
+      "get": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "Printer_GetAdHocSchema",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/Printer/{ids}": {
+      "get": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "Printer_GetByKeys",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "Printer_DeleteByKeys",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/Printer/{id}": {
+      "get": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "Printer_GetById",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "Printer_DeleteById",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/Printer/UpdatePrinterList": {
+      "post": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "Printer_InvokeAction_UpdatePrinterList",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "invocation",
+            "in": "body",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdatePrinterList",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed."
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/Printer/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "Printer_PutFile",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "filename",
+            "in": "path",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/Printer": {
+      "get": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "Printer_GetList",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "The number of records to be returned from the system.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Printer"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "Printer_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "body",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/PrintJob/$adHocSchema": {
+      "get": {
+        "tags": [
+          "PrintJob"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "PrintJob_GetAdHocSchema",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/PrintJob"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/PrintJob/{ids}": {
+      "get": {
+        "tags": [
+          "PrintJob"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "PrintJob_GetByKeys",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/PrintJob"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PrintJob"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "PrintJob_DeleteByKeys",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/PrintJob/{id}": {
+      "get": {
+        "tags": [
+          "PrintJob"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "PrintJob_GetById",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/PrintJob"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PrintJob"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "PrintJob_DeleteById",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/PrintJob/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "PrintJob"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "PrintJob_PutFile",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "filename",
+            "in": "path",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/PrintJob": {
+      "get": {
+        "tags": [
+          "PrintJob"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "PrintJob_GetList",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "The number of records to be returned from the system.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJob"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PrintJob"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "PrintJob_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "body",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrintJob"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/PrintJob"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "LongValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "StringValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomStringField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomDecimalField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "CustomDateTimeField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "date-time",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomBooleanField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "CustomIntField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    },
+    "CustomLongField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    },
+    "CustomShortField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    },
+    "CustomByteField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    },
+    "CustomDoubleField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "CustomGuidField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomField": {
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "discriminator": "type"
+    },
+    "DecimalValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "DateTimeValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "BooleanValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean"
+        }
+      }
+    },
+    "IntValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ShortValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ByteValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "DoubleValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "GuidValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "FileLink": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "href": {
+          "format": "uri",
+          "type": "string"
+        }
+      }
+    },
+    "Entity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "rowNumber": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        },
+        "custom": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/CustomField"
+            }
+          }
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FileLink"
+          }
+        }
+      }
+    },
+    "HttpError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "messageDetail": {
+          "type": "string"
+        },
+        "exceptionMessage": {
+          "type": "string"
+        },
+        "exceptionType": {
+          "type": "string"
+        },
+        "stackTrace": {
+          "type": "string"
+        },
+        "modelState": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "Printer": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Description": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "IsActive": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "PrinterName": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "PrintJob": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "CreatedBy": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "CreationDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "Description": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "JobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Printer": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ReportID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Selected": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "Status": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "UpdatePrinterList": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/Printer"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Printer",
+      "description": "(SM206510)"
+    },
+    {
+      "name": "PrintJob",
+      "description": "(SM206500)"
+    }
+  ]
+}
