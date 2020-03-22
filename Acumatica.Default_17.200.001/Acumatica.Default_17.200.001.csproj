@@ -132,6 +132,15 @@
     <Compile Include="Api\VendorPriceWorksheetApi.cs" />
     <Compile Include="Api\VoucherEntryCodeApi.cs" />
     <Compile Include="Api\WarehouseApi.cs" />
+    <Compile Include="Model\ActionParameters\ChangeBusinessAccountIDParameters.cs" />
+    <Compile Include="Model\ActionParameters\ConvertContactToBusinessAccountParameters.cs" />
+    <Compile Include="Model\ActionParameters\ConvertLeadToBAccountParameters.cs" />
+    <Compile Include="Model\ActionParameters\CreateAccountFromOpportunityParameters.cs" />
+    <Compile Include="Model\ActionParameters\CreateOpportunitySalesOrderParameters.cs" />
+    <Compile Include="Model\ActionParameters\SelectRelatedEntityEmailParameters.cs" />
+    <Compile Include="Model\ActionParameters\SelectRelatedEntityEventParameters.cs" />
+    <Compile Include="Model\ActionParameters\SelectRelatedEntityTaskParameters.cs" />
+    <Compile Include="Model\ActionParameters\UpdateDiscountsParameters.cs" />
     <Compile Include="Model\Actions\AcceptInvitationEvent.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountByPeriodInquiry.cs" />
@@ -266,7 +275,6 @@
     <Compile Include="Model\CashSaleDetail.cs" />
     <Compile Include="Model\CategoryStockItem.cs" />
     <Compile Include="Model\Actions\ChangeBusinessAccountID.cs" />
-    <Compile Include="Model\Actions\ChangeBusinessAccountIDParameters.cs" />
     <Compile Include="Model\Check.cs" />
     <Compile Include="Model\CheckDetail.cs" />
     <Compile Include="Model\CheckHistoryDetail.cs" />

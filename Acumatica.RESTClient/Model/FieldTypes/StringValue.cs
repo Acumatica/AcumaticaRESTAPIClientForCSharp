@@ -119,6 +119,6 @@ namespace Acumatica.RESTClient.Model
         {
             yield break;
         }
-    }
+	}
 
 }

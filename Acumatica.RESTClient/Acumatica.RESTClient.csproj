@@ -72,6 +72,7 @@ OpenAPI spec version: 3
     <Compile Include="Client\OpenAPIDateConverter.cs" />
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\EntityAction.cs" />
+    <Compile Include="Model\EntityActionWithParameters.cs" />
     <Compile Include="Model\FieldTypes\BooleanValue.cs" />
     <Compile Include="Model\FieldTypes\ByteValue.cs" />
     <Compile Include="Model\FieldTypes\CustomBooleanField.cs" />
