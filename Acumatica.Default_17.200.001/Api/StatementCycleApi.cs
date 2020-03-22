@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class StatementCycleApi : EntityAPI<StatementCycle>
+	public class StatementCycleApi : EntityAPI<StatementCycle>
 	{
 		public StatementCycleApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class CreateEventEmail : EntityAction<Email>
+	public class CreateEventEmail : EntityAction<Email>
 	{
 		public CreateEventEmail(Email entity) : base(entity)
 		{ }

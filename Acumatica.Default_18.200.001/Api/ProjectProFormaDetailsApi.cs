@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ProjectProFormaDetailsApi : EntityAPI<ProjectProFormaDetails>
+	public class ProjectProFormaDetailsApi : EntityAPI<ProjectProFormaDetails>
 	{
 		public ProjectProFormaDetailsApi(Configuration configuration) : base(configuration)
 		{ }

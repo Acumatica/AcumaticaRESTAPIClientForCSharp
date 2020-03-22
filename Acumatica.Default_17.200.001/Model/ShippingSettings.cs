@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class ShippingSettings : Entity
+	public class ShippingSettings : Entity
 	{
 
 		[DataMember(Name="CancelByDate", EmitDefaultValue=false)]

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class CompletePhysicalInventory : EntityAction<PhysicalInventoryReview>
+	public class CompletePhysicalInventory : EntityAction<PhysicalInventoryReview>
 	{
 		public CompletePhysicalInventory(PhysicalInventoryReview entity) : base(entity)
 		{ }

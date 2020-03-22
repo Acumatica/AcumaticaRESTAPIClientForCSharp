@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class AdjustmentDetailApi : EntityAPI<AdjustmentDetail>
+	public class AdjustmentDetailApi : EntityAPI<AdjustmentDetail>
 	{
 		public AdjustmentDetailApi(Configuration configuration) : base(configuration)
 		{ }

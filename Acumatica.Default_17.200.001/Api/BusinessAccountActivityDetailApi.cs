@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class BusinessAccountActivityDetailApi : EntityAPI<BusinessAccountActivityDetail>
+	public class BusinessAccountActivityDetailApi : EntityAPI<BusinessAccountActivityDetail>
 	{
 		public BusinessAccountActivityDetailApi(Configuration configuration) : base(configuration)
 		{ }

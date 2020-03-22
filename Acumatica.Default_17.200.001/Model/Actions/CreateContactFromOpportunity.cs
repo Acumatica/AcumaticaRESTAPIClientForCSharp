@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class CreateContactFromOpportunity : EntityAction<Opportunity>
+	public class CreateContactFromOpportunity : EntityAction<Opportunity>
 	{
 		public CreateContactFromOpportunity(Opportunity entity) : base(entity)
 		{ }

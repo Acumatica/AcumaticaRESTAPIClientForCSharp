@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class ReminderDetailApi : EntityAPI<ReminderDetail>
+	public class ReminderDetailApi : EntityAPI<ReminderDetail>
 	{
 		public ReminderDetailApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class DiscountCodeApi : EntityAPI<DiscountCode>
+	public class DiscountCodeApi : EntityAPI<DiscountCode>
 	{
 		public DiscountCodeApi(Configuration configuration) : base(configuration)
 		{ }

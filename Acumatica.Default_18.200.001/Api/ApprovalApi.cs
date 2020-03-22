@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ApprovalApi : EntityAPI<Approval>
+	public class ApprovalApi : EntityAPI<Approval>
 	{
 		public ApprovalApi(Configuration configuration) : base(configuration)
 		{ }

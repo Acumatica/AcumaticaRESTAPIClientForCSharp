@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class TransferOrderDetailAllocationApi : EntityAPI<TransferOrderDetailAllocation>
+	public class TransferOrderDetailAllocationApi : EntityAPI<TransferOrderDetailAllocation>
 	{
 		public TransferOrderDetailAllocationApi(Configuration configuration) : base(configuration)
 		{ }

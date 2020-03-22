@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class OpportunityProductApi : EntityAPI<OpportunityProduct>
+	public class OpportunityProductApi : EntityAPI<OpportunityProduct>
 	{
 		public OpportunityProductApi(Configuration configuration) : base(configuration)
 		{ }

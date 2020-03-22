@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class ApproveChangeOrder : EntityAction<ChangeOrder>
+	public class ApproveChangeOrder : EntityAction<ChangeOrder>
 	{
 		public ApproveChangeOrder(ChangeOrder entity) : base(entity)
 		{ }

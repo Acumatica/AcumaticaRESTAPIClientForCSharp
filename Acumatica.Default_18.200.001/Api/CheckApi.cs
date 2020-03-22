@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class CheckApi : EntityAPI<Check>
+	public class CheckApi : EntityAPI<Check>
 	{
 		public CheckApi(Configuration configuration) : base(configuration)
 		{ }

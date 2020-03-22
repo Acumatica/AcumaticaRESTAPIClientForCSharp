@@ -8,10 +8,11 @@ namespace Acumatica.RESTClient.Model
     [DataContract]
     public abstract class EntityActionWithParameters<EntityType, ParameterType> : EntityAction<EntityType>
         where EntityType : Entity
+        where ParameterType : new()
     {
-
-        public EntityActionWithParameters() :base()
+        public EntityActionWithParameters() : base()
         {
+            this.Parameters = new ParameterType();
         }
 
         public EntityActionWithParameters(EntityType entity, ParameterType parameters) : base(entity)

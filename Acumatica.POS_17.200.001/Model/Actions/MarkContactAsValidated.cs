@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class MarkContactAsValidated : EntityAction<Contact>
+	public class MarkContactAsValidated : EntityAction<Contact>
 	{
 		public MarkContactAsValidated(Contact entity) : base(entity)
 		{ }

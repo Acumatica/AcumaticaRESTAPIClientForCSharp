@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class VoucherEntryCodeApi : EntityAPI<VoucherEntryCode>
+	public class VoucherEntryCodeApi : EntityAPI<VoucherEntryCode>
 	{
 		public VoucherEntryCodeApi(Configuration configuration) : base(configuration)
 		{ }

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class ShipToSettings : Entity
+	public class ShipToSettings : Entity
 	{
 
 		[DataMember(Name="ShipToAddress", EmitDefaultValue=false)]

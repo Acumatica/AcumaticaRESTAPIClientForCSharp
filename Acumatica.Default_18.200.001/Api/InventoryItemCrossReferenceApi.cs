@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class InventoryItemCrossReferenceApi : EntityAPI<InventoryItemCrossReference>
+	public class InventoryItemCrossReferenceApi : EntityAPI<InventoryItemCrossReference>
 	{
 		public InventoryItemCrossReferenceApi(Configuration configuration) : base(configuration)
 		{ }

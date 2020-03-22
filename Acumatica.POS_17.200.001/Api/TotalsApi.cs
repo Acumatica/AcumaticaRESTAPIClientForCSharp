@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class TotalsApi : EntityAPI<Totals>
+	public class TotalsApi : EntityAPI<Totals>
 	{
 		public TotalsApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class ApproveExpenseClaim : EntityAction<ExpenseClaim>
+	public class ApproveExpenseClaim : EntityAction<ExpenseClaim>
 	{
 		public ApproveExpenseClaim(ExpenseClaim entity) : base(entity)
 		{ }

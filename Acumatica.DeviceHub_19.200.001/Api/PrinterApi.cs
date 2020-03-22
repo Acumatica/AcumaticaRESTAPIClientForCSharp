@@ -4,7 +4,7 @@ using Acumatica.DeviceHub_19_200_001.Model;
 
 namespace Acumatica.DeviceHub_19_200_001.Api
 {
-	public partial class PrinterApi : EntityAPI<Printer>
+	public class PrinterApi : EntityAPI<Printer>
 	{
 		public PrinterApi(Configuration configuration) : base(configuration)
 		{ }

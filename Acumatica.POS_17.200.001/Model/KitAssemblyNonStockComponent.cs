@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class KitAssemblyNonStockComponent : Entity
+	public class KitAssemblyNonStockComponent : Entity
 	{
 
 		[DataMember(Name="ComponentQty", EmitDefaultValue=false)]

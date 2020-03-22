@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class AccountDetailsInquiryApi : EntityAPI<AccountDetailsInquiry>
+	public class AccountDetailsInquiryApi : EntityAPI<AccountDetailsInquiry>
 	{
 		public AccountDetailsInquiryApi(Configuration configuration) : base(configuration)
 		{ }

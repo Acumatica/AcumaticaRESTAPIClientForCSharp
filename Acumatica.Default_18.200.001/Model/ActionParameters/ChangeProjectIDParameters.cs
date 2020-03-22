@@ -5,10 +5,12 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class ChangeProjectIDParameters
+	public class ChangeProjectIDParameters
 	{
 		public ChangeProjectIDParameters() { }
 
+		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
+		public StringValue ProjectID { get; set; }
 		public virtual string ToJson()
 		{
 			return JsonConvert.SerializeObject(this, Formatting.Indented);

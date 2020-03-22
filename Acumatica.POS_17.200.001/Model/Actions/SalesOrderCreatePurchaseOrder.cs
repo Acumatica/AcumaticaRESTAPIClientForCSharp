@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class SalesOrderCreatePurchaseOrder : EntityAction<SalesOrder>
+	public class SalesOrderCreatePurchaseOrder : EntityAction<SalesOrder>
 	{
 		public SalesOrderCreatePurchaseOrder(SalesOrder entity) : base(entity)
 		{ }

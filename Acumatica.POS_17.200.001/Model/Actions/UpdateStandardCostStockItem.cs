@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class UpdateStandardCostStockItem : EntityAction<StockItem>
+	public class UpdateStandardCostStockItem : EntityAction<StockItem>
 	{
 		public UpdateStandardCostStockItem(StockItem entity) : base(entity)
 		{ }

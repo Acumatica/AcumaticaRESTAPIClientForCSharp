@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class InterBranchAccountMapping : Entity
+	public class InterBranchAccountMapping : Entity
 	{
 
 		[DataMember(Name="OriginatingBranch", EmitDefaultValue=false)]

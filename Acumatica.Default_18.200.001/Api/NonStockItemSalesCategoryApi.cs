@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class NonStockItemSalesCategoryApi : EntityAPI<NonStockItemSalesCategory>
+	public class NonStockItemSalesCategoryApi : EntityAPI<NonStockItemSalesCategory>
 	{
 		public NonStockItemSalesCategoryApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class DuplicateDetailApi : EntityAPI<DuplicateDetail>
+	public class DuplicateDetailApi : EntityAPI<DuplicateDetail>
 	{
 		public DuplicateDetailApi(Configuration configuration) : base(configuration)
 		{ }

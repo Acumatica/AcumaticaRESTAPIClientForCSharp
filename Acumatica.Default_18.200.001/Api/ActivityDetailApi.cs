@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ActivityDetailApi : EntityAPI<ActivityDetail>
+	public class ActivityDetailApi : EntityAPI<ActivityDetail>
 	{
 		public ActivityDetailApi(Configuration configuration) : base(configuration)
 		{ }

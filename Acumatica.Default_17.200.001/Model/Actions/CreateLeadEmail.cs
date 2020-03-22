@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class CreateLeadEmail : EntityAction<Email>
+	public class CreateLeadEmail : EntityAction<Email>
 	{
 		public CreateLeadEmail(Email entity) : base(entity)
 		{ }

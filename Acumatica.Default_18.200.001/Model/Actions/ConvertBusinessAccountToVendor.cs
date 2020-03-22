@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class ConvertBusinessAccountToVendor : EntityAction<BusinessAccount>
+	public class ConvertBusinessAccountToVendor : EntityAction<BusinessAccount>
 	{
 		public ConvertBusinessAccountToVendor(BusinessAccount entity) : base(entity)
 		{ }

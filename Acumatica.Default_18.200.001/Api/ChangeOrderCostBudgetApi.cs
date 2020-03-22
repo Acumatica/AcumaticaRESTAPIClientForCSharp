@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ChangeOrderCostBudgetApi : EntityAPI<ChangeOrderCostBudget>
+	public class ChangeOrderCostBudgetApi : EntityAPI<ChangeOrderCostBudget>
 	{
 		public ChangeOrderCostBudgetApi(Configuration configuration) : base(configuration)
 		{ }

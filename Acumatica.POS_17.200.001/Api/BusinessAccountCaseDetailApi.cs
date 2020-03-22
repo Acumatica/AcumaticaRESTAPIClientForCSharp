@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class BusinessAccountCaseDetailApi : EntityAPI<BusinessAccountCaseDetail>
+	public class BusinessAccountCaseDetailApi : EntityAPI<BusinessAccountCaseDetail>
 	{
 		public BusinessAccountCaseDetailApi(Configuration configuration) : base(configuration)
 		{ }

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class Carrier : Entity
+	public class Carrier : Entity
 	{
 
 		[DataMember(Name="CarrierID", EmitDefaultValue=false)]

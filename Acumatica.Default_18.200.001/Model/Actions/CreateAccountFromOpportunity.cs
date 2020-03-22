@@ -10,5 +10,21 @@ namespace Acumatica.Default_18_200_001.Model
 		{ }
 		public CreateAccountFromOpportunity(Opportunity entity, CreateAccountFromOpportunityParameters parameters) : base(entity, parameters)
 		{ }
+
+		public StringValue AccountClass
+		{
+			get { return Parameters.AccountClass; }
+			set { Parameters.AccountClass = value; }
+		}
+		public StringValue AccountName
+		{
+			get { return Parameters.AccountName; }
+			set { Parameters.AccountName = value; }
+		}
+		public StringValue BAccountID
+		{
+			get { return Parameters.BAccountID; }
+			set { Parameters.BAccountID = value; }
+		}
 	}
 }

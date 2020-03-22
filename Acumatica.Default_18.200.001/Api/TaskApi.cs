@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class TaskApi : EntityAPI<Task>
+	public class TaskApi : EntityAPI<Task>
 	{
 		public TaskApi(Configuration configuration) : base(configuration)
 		{ }

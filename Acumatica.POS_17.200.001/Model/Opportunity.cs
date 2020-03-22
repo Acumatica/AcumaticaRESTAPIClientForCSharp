@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class Opportunity : Entity
+	public class Opportunity : Entity
 	{
 
 		[DataMember(Name="Activities", EmitDefaultValue=false)]

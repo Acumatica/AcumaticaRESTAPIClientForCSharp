@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ProjectTaskBillingAndAllocationSettingsApi : EntityAPI<ProjectTaskBillingAndAllocationSettings>
+	public class ProjectTaskBillingAndAllocationSettingsApi : EntityAPI<ProjectTaskBillingAndAllocationSettings>
 	{
 		public ProjectTaskBillingAndAllocationSettingsApi(Configuration configuration) : base(configuration)
 		{ }

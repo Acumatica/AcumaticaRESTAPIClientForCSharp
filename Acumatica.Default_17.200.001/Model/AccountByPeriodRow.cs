@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class AccountByPeriodRow : Entity
+	public class AccountByPeriodRow : Entity
 	{
 
 		[DataMember(Name="BeginingBalance", EmitDefaultValue=false)]

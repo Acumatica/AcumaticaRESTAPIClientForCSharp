@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class FOBPointApi : EntityAPI<FOBPoint>
+	public class FOBPointApi : EntityAPI<FOBPoint>
 	{
 		public FOBPointApi(Configuration configuration) : base(configuration)
 		{ }

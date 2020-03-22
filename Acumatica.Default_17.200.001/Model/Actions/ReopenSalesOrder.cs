@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class ReopenSalesOrder : EntityAction<SalesOrder>
+	public class ReopenSalesOrder : EntityAction<SalesOrder>
 	{
 		public ReopenSalesOrder(SalesOrder entity) : base(entity)
 		{ }

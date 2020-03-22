@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class CarrierPluginParameter : Entity
+	public class CarrierPluginParameter : Entity
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]

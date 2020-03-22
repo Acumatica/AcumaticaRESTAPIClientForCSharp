@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class OpportunityApi : EntityAPI<Opportunity>
+	public class OpportunityApi : EntityAPI<Opportunity>
 	{
 		public OpportunityApi(Configuration configuration) : base(configuration)
 		{ }

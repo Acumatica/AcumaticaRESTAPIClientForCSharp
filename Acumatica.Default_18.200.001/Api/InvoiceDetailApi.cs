@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class InvoiceDetailApi : EntityAPI<InvoiceDetail>
+	public class InvoiceDetailApi : EntityAPI<InvoiceDetail>
 	{
 		public InvoiceDetailApi(Configuration configuration) : base(configuration)
 		{ }

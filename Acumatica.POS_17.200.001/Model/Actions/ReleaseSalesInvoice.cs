@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class ReleaseSalesInvoice : EntityAction<SalesInvoice>
+	public class ReleaseSalesInvoice : EntityAction<SalesInvoice>
 	{
 		public ReleaseSalesInvoice(SalesInvoice entity) : base(entity)
 		{ }

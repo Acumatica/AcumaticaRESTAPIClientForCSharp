@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class InventoryReceiptApi : EntityAPI<InventoryReceipt>
+	public class InventoryReceiptApi : EntityAPI<InventoryReceipt>
 	{
 		public InventoryReceiptApi(Configuration configuration) : base(configuration)
 		{ }

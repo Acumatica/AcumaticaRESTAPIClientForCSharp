@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class CheckLeadForDuplicates : EntityAction<Lead>
+	public class CheckLeadForDuplicates : EntityAction<Lead>
 	{
 		public CheckLeadForDuplicates(Lead entity) : base(entity)
 		{ }

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class TransferOrder : Entity
+	public class TransferOrder : Entity
 	{
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]

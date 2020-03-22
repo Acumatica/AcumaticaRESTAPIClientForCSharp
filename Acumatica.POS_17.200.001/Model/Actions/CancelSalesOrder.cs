@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class CancelSalesOrder : EntityAction<SalesOrder>
+	public class CancelSalesOrder : EntityAction<SalesOrder>
 	{
 		public CancelSalesOrder(SalesOrder entity) : base(entity)
 		{ }

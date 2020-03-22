@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class TaskTimeActivityApi : EntityAPI<TaskTimeActivity>
+	public class TaskTimeActivityApi : EntityAPI<TaskTimeActivity>
 	{
 		public TaskTimeActivityApi(Configuration configuration) : base(configuration)
 		{ }

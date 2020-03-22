@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class ReleaseTransferOrder : EntityAction<TransferOrder>
+	public class ReleaseTransferOrder : EntityAction<TransferOrder>
 	{
 		public ReleaseTransferOrder(TransferOrder entity) : base(entity)
 		{ }

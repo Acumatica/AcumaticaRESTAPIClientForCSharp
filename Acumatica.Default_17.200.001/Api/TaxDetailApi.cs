@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class TaxDetailApi : EntityAPI<TaxDetail>
+	public class TaxDetailApi : EntityAPI<TaxDetail>
 	{
 		public TaxDetailApi(Configuration configuration) : base(configuration)
 		{ }

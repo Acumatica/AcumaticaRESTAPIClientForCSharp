@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ProFormaInvoiceApi : EntityAPI<ProFormaInvoice>
+	public class ProFormaInvoiceApi : EntityAPI<ProFormaInvoice>
 	{
 		public ProFormaInvoiceApi(Configuration configuration) : base(configuration)
 		{ }

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class Event : Entity
+	public class Event : Entity
 	{
 
 		[DataMember(Name="AllDay", EmitDefaultValue=false)]

@@ -4,7 +4,7 @@ using Acumatica.DeviceHub_19_200_001.Model;
 
 namespace Acumatica.DeviceHub_19_200_001.Api
 {
-	public partial class ScanJobApi : EntityAPI<ScanJob>
+	public class ScanJobApi : EntityAPI<ScanJob>
 	{
 		public ScanJobApi(Configuration configuration) : base(configuration)
 		{ }

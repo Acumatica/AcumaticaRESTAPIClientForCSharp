@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ItemSalesCategoryMemberApi : EntityAPI<ItemSalesCategoryMember>
+	public class ItemSalesCategoryMemberApi : EntityAPI<ItemSalesCategoryMember>
 	{
 		public ItemSalesCategoryMemberApi(Configuration configuration) : base(configuration)
 		{ }

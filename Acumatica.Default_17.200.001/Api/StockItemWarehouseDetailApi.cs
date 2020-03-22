@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class StockItemWarehouseDetailApi : EntityAPI<StockItemWarehouseDetail>
+	public class StockItemWarehouseDetailApi : EntityAPI<StockItemWarehouseDetail>
 	{
 		public StockItemWarehouseDetailApi(Configuration configuration) : base(configuration)
 		{ }

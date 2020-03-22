@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class CreditVerificationRules : Entity
+	public class CreditVerificationRules : Entity
 	{
 
 		[DataMember(Name="CreditDaysPastDue", EmitDefaultValue=false)]

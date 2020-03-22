@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class DiscountBreakpointDetail : Entity
+	public class DiscountBreakpointDetail : Entity
 	{
 
 		[DataMember(Name="BreakAmount", EmitDefaultValue=false)]

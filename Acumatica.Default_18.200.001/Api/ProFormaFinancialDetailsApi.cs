@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ProFormaFinancialDetailsApi : EntityAPI<ProFormaFinancialDetails>
+	public class ProFormaFinancialDetailsApi : EntityAPI<ProFormaFinancialDetails>
 	{
 		public ProFormaFinancialDetailsApi(Configuration configuration) : base(configuration)
 		{ }

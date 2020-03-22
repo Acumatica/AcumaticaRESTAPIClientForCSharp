@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class ReleaseSalesPriceWorksheet : EntityAction<SalesPriceWorksheet>
+	public class ReleaseSalesPriceWorksheet : EntityAction<SalesPriceWorksheet>
 	{
 		public ReleaseSalesPriceWorksheet(SalesPriceWorksheet entity) : base(entity)
 		{ }

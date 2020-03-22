@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ExpenseClaimTaxDetailApi : EntityAPI<ExpenseClaimTaxDetail>
+	public class ExpenseClaimTaxDetailApi : EntityAPI<ExpenseClaimTaxDetail>
 	{
 		public ExpenseClaimTaxDetailApi(Configuration configuration) : base(configuration)
 		{ }

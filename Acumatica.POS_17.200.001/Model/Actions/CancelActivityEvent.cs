@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class CancelActivityEvent : EntityAction<Event>
+	public class CancelActivityEvent : EntityAction<Event>
 	{
 		public CancelActivityEvent(Event entity) : base(entity)
 		{ }

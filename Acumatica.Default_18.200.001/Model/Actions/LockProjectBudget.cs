@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class LockProjectBudget : EntityAction<Project>
+	public class LockProjectBudget : EntityAction<Project>
 	{
 		public LockProjectBudget(Project entity) : base(entity)
 		{ }

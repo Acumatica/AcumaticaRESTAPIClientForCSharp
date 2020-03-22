@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class InviteEvent : EntityAction<Event>
+	public class InviteEvent : EntityAction<Event>
 	{
 		public InviteEvent(Event entity) : base(entity)
 		{ }

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class PhysicalInventoryCount : Entity
+	public class PhysicalInventoryCount : Entity
 	{
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]

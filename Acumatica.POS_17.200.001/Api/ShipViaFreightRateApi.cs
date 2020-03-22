@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class ShipViaFreightRateApi : EntityAPI<ShipViaFreightRate>
+	public class ShipViaFreightRateApi : EntityAPI<ShipViaFreightRate>
 	{
 		public ShipViaFreightRateApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class JournalVoucherGLTransactionApi : EntityAPI<JournalVoucherGLTransaction>
+	public class JournalVoucherGLTransactionApi : EntityAPI<JournalVoucherGLTransaction>
 	{
 		public JournalVoucherGLTransactionApi(Configuration configuration) : base(configuration)
 		{ }

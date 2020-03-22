@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class DownloadEmlFileEmail : EntityAction<Email>
+	public class DownloadEmlFileEmail : EntityAction<Email>
 	{
 		public DownloadEmlFileEmail(Email entity) : base(entity)
 		{ }

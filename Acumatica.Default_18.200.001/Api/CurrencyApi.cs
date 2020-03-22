@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class CurrencyApi : EntityAPI<Currency>
+	public class CurrencyApi : EntityAPI<Currency>
 	{
 		public CurrencyApi(Configuration configuration) : base(configuration)
 		{ }

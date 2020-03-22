@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class ItemWarehouseApi : EntityAPI<ItemWarehouse>
+	public class ItemWarehouseApi : EntityAPI<ItemWarehouse>
 	{
 		public ItemWarehouseApi(Configuration configuration) : base(configuration)
 		{ }

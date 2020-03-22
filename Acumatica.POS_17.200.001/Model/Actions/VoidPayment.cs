@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class VoidPayment : EntityAction<Payment>
+	public class VoidPayment : EntityAction<Payment>
 	{
 		public VoidPayment(Payment entity) : base(entity)
 		{ }

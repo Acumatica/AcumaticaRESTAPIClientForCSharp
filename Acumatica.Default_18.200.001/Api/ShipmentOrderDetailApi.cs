@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ShipmentOrderDetailApi : EntityAPI<ShipmentOrderDetail>
+	public class ShipmentOrderDetailApi : EntityAPI<ShipmentOrderDetail>
 	{
 		public ShipmentOrderDetailApi(Configuration configuration) : base(configuration)
 		{ }

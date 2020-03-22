@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class BillApplicationDetailApi : EntityAPI<BillApplicationDetail>
+	public class BillApplicationDetailApi : EntityAPI<BillApplicationDetail>
 	{
 		public BillApplicationDetailApi(Configuration configuration) : base(configuration)
 		{ }

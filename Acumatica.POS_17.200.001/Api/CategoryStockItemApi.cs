@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class CategoryStockItemApi : EntityAPI<CategoryStockItem>
+	public class CategoryStockItemApi : EntityAPI<CategoryStockItem>
 	{
 		public CategoryStockItemApi(Configuration configuration) : base(configuration)
 		{ }

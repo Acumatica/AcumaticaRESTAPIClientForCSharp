@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class StockItemVendorDetailApi : EntityAPI<StockItemVendorDetail>
+	public class StockItemVendorDetailApi : EntityAPI<StockItemVendorDetail>
 	{
 		public StockItemVendorDetailApi(Configuration configuration) : base(configuration)
 		{ }

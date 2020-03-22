@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class VisibilitySettingsApi : EntityAPI<VisibilitySettings>
+	public class VisibilitySettingsApi : EntityAPI<VisibilitySettings>
 	{
 		public VisibilitySettingsApi(Configuration configuration) : base(configuration)
 		{ }

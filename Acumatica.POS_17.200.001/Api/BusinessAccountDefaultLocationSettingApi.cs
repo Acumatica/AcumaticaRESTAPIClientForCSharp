@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class BusinessAccountDefaultLocationSettingApi : EntityAPI<BusinessAccountDefaultLocationSetting>
+	public class BusinessAccountDefaultLocationSettingApi : EntityAPI<BusinessAccountDefaultLocationSetting>
 	{
 		public BusinessAccountDefaultLocationSettingApi(Configuration configuration) : base(configuration)
 		{ }

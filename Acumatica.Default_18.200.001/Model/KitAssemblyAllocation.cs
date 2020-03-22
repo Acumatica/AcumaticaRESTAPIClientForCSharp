@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class KitAssemblyAllocation : Entity
+	public class KitAssemblyAllocation : Entity
 	{
 
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]

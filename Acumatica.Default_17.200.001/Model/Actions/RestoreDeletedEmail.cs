@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class RestoreDeletedEmail : EntityAction<Email>
+	public class RestoreDeletedEmail : EntityAction<Email>
 	{
 		public RestoreDeletedEmail(Email entity) : base(entity)
 		{ }

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class Email : Entity
+	public class Email : Entity
 	{
 
 		[DataMember(Name="Bcc", EmitDefaultValue=false)]

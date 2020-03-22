@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class EmployeeApi : EntityAPI<Employee>
+	public class EmployeeApi : EntityAPI<Employee>
 	{
 		public EmployeeApi(Configuration configuration) : base(configuration)
 		{ }

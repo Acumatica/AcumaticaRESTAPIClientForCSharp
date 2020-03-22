@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class WorkClassCompensationCodeApi : EntityAPI<WorkClassCompensationCode>
+	public class WorkClassCompensationCodeApi : EntityAPI<WorkClassCompensationCode>
 	{
 		public WorkClassCompensationCodeApi(Configuration configuration) : base(configuration)
 		{ }

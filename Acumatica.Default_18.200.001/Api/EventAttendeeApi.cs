@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class EventAttendeeApi : EntityAPI<EventAttendee>
+	public class EventAttendeeApi : EntityAPI<EventAttendee>
 	{
 		public EventAttendeeApi(Configuration configuration) : base(configuration)
 		{ }

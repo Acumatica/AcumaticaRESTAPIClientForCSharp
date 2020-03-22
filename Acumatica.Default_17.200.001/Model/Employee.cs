@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class Employee : Entity
+	public class Employee : Entity
 	{
 
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]

@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class TimeAndMaterialApi : EntityAPI<TimeAndMaterial>
+	public class TimeAndMaterialApi : EntityAPI<TimeAndMaterial>
 	{
 		public TimeAndMaterialApi(Configuration configuration) : base(configuration)
 		{ }

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.DeviceHub_19_200_001.Model
 {
 	[DataContract]
-	public partial class PrintJobsInquiry : Entity
+	public class PrintJobsInquiry : Entity
 	{
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.DeviceHub_19_200_001.Model
 {
 	[DataContract]
-	public partial class Scanner : Entity
+	public class Scanner : Entity
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class CustomerContact : Entity
+	public class CustomerContact : Entity
 	{
 
 		[DataMember(Name="Contact", EmitDefaultValue=false)]

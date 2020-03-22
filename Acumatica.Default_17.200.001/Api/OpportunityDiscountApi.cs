@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class OpportunityDiscountApi : EntityAPI<OpportunityDiscount>
+	public class OpportunityDiscountApi : EntityAPI<OpportunityDiscount>
 	{
 		public OpportunityDiscountApi(Configuration configuration) : base(configuration)
 		{ }

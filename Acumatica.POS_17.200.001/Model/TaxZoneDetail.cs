@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class TaxZoneDetail : Entity
+	public class TaxZoneDetail : Entity
 	{
 
 		[DataMember(Name="DefaultTaxCategory", EmitDefaultValue=false)]

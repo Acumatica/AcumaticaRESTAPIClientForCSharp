@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ExpenseReceiptApi : EntityAPI<ExpenseReceipt>
+	public class ExpenseReceiptApi : EntityAPI<ExpenseReceipt>
 	{
 		public ExpenseReceiptApi(Configuration configuration) : base(configuration)
 		{ }

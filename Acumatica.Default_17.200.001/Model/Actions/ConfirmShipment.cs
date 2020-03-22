@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class ConfirmShipment : EntityAction<Shipment>
+	public class ConfirmShipment : EntityAction<Shipment>
 	{
 		public ConfirmShipment(Shipment entity) : base(entity)
 		{ }

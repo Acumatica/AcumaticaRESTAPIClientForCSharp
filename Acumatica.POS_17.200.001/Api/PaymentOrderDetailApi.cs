@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class PaymentOrderDetailApi : EntityAPI<PaymentOrderDetail>
+	public class PaymentOrderDetailApi : EntityAPI<PaymentOrderDetail>
 	{
 		public PaymentOrderDetailApi(Configuration configuration) : base(configuration)
 		{ }

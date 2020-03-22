@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class VendorClassApi : EntityAPI<VendorClass>
+	public class VendorClassApi : EntityAPI<VendorClass>
 	{
 		public VendorClassApi(Configuration configuration) : base(configuration)
 		{ }

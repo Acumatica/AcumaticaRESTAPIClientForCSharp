@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ProjectBalanceApi : EntityAPI<ProjectBalance>
+	public class ProjectBalanceApi : EntityAPI<ProjectBalance>
 	{
 		public ProjectBalanceApi(Configuration configuration) : base(configuration)
 		{ }

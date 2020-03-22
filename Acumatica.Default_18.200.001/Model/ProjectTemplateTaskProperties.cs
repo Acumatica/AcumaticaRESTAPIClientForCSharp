@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class ProjectTemplateTaskProperties : Entity
+	public class ProjectTemplateTaskProperties : Entity
 	{
 
 		[DataMember(Name="Approver", EmitDefaultValue=false)]

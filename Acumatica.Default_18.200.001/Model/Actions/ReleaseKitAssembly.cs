@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class ReleaseKitAssembly : EntityAction<KitAssembly>
+	public class ReleaseKitAssembly : EntityAction<KitAssembly>
 	{
 		public ReleaseKitAssembly(KitAssembly entity) : base(entity)
 		{ }

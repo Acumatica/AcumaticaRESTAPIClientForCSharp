@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class ContractUsageTransactionDetailApi : EntityAPI<ContractUsageTransactionDetail>
+	public class ContractUsageTransactionDetailApi : EntityAPI<ContractUsageTransactionDetail>
 	{
 		public ContractUsageTransactionDetailApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class EventRelatedActivityApi : EntityAPI<EventRelatedActivity>
+	public class EventRelatedActivityApi : EntityAPI<EventRelatedActivity>
 	{
 		public EventRelatedActivityApi(Configuration configuration) : base(configuration)
 		{ }

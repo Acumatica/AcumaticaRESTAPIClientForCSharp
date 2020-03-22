@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class SalesInvoiceAutoApply : EntityAction<SalesInvoice>
+	public class SalesInvoiceAutoApply : EntityAction<SalesInvoice>
 	{
 		public SalesInvoiceAutoApply(SalesInvoice entity) : base(entity)
 		{ }

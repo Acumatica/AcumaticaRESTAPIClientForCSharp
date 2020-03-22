@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class SalesInvoiceApplicationCreditMemo : Entity
+	public class SalesInvoiceApplicationCreditMemo : Entity
 	{
 
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]

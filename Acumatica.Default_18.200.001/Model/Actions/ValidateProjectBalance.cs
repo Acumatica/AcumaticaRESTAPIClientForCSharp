@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class ValidateProjectBalance : EntityAction<Project>
+	public class ValidateProjectBalance : EntityAction<Project>
 	{
 		public ValidateProjectBalance(Project entity) : base(entity)
 		{ }

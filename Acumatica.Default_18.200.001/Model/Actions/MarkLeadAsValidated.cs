@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class MarkLeadAsValidated : EntityAction<Lead>
+	public class MarkLeadAsValidated : EntityAction<Lead>
 	{
 		public MarkLeadAsValidated(Lead entity) : base(entity)
 		{ }

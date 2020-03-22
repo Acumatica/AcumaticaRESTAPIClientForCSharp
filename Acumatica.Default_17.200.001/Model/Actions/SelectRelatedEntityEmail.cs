@@ -10,5 +10,16 @@ namespace Acumatica.Default_17_200_001.Model
 		{ }
 		public SelectRelatedEntityEmail(Email entity, SelectRelatedEntityEmailParameters parameters) : base(entity, parameters)
 		{ }
+
+		public StringValue RelatedEntity
+		{
+			get { return Parameters.RelatedEntity; }
+			set { Parameters.RelatedEntity = value; }
+		}
+		public StringValue Type
+		{
+			get { return Parameters.Type; }
+			set { Parameters.Type = value; }
+		}
 	}
 }

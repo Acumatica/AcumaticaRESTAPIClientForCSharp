@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class BusinessAccountOrder : Entity
+	public class BusinessAccountOrder : Entity
 	{
 
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]

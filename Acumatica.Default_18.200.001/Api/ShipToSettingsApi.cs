@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ShipToSettingsApi : EntityAPI<ShipToSettings>
+	public class ShipToSettingsApi : EntityAPI<ShipToSettings>
 	{
 		public ShipToSettingsApi(Configuration configuration) : base(configuration)
 		{ }

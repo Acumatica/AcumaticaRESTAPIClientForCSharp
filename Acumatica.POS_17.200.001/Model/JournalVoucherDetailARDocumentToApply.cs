@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class JournalVoucherDetailARDocumentToApply : Entity
+	public class JournalVoucherDetailARDocumentToApply : Entity
 	{
 
 		[DataMember(Name="BalanceWriteOff", EmitDefaultValue=false)]

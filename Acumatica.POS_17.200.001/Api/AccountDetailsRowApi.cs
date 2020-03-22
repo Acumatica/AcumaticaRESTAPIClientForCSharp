@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class AccountDetailsRowApi : EntityAPI<AccountDetailsRow>
+	public class AccountDetailsRowApi : EntityAPI<AccountDetailsRow>
 	{
 		public AccountDetailsRowApi(Configuration configuration) : base(configuration)
 		{ }

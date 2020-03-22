@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class BillTaxDetail : Entity
+	public class BillTaxDetail : Entity
 	{
 
 		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]

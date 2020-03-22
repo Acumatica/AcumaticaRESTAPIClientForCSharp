@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class SalesInvoiceTotals : Entity
+	public class SalesInvoiceTotals : Entity
 	{
 
 		[DataMember(Name="DiscountTotal", EmitDefaultValue=false)]

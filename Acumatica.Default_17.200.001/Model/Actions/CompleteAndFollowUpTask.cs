@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class CompleteAndFollowUpTask : EntityAction<Task>
+	public class CompleteAndFollowUpTask : EntityAction<Task>
 	{
 		public CompleteAndFollowUpTask(Task entity) : base(entity)
 		{ }

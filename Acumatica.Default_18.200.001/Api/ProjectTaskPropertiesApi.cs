@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class ProjectTaskPropertiesApi : EntityAPI<ProjectTaskProperties>
+	public class ProjectTaskPropertiesApi : EntityAPI<ProjectTaskProperties>
 	{
 		public ProjectTaskPropertiesApi(Configuration configuration) : base(configuration)
 		{ }

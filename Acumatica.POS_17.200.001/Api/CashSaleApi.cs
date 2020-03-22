@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class CashSaleApi : EntityAPI<CashSale>
+	public class CashSaleApi : EntityAPI<CashSale>
 	{
 		public CashSaleApi(Configuration configuration) : base(configuration)
 		{ }

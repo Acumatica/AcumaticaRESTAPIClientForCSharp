@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class KitAssemblyStockComponentAllocationApi : EntityAPI<KitAssemblyStockComponentAllocation>
+	public class KitAssemblyStockComponentAllocationApi : EntityAPI<KitAssemblyStockComponentAllocation>
 	{
 		public KitAssemblyStockComponentAllocationApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class LotSerialClassSegmentApi : EntityAPI<LotSerialClassSegment>
+	public class LotSerialClassSegmentApi : EntityAPI<LotSerialClassSegment>
 	{
 		public LotSerialClassSegmentApi(Configuration configuration) : base(configuration)
 		{ }

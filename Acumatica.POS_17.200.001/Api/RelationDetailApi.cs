@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class RelationDetailApi : EntityAPI<RelationDetail>
+	public class RelationDetailApi : EntityAPI<RelationDetail>
 	{
 		public RelationDetailApi(Configuration configuration) : base(configuration)
 		{ }

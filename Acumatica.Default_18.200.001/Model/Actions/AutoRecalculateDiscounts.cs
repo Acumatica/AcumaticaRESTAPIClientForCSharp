@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class AutoRecalculateDiscounts : EntityAction<SalesOrder>
+	public class AutoRecalculateDiscounts : EntityAction<SalesOrder>
 	{
 		public AutoRecalculateDiscounts(SalesOrder entity) : base(entity)
 		{ }

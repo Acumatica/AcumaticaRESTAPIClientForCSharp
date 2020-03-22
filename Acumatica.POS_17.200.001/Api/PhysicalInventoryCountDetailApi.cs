@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class PhysicalInventoryCountDetailApi : EntityAPI<PhysicalInventoryCountDetail>
+	public class PhysicalInventoryCountDetailApi : EntityAPI<PhysicalInventoryCountDetail>
 	{
 		public PhysicalInventoryCountDetailApi(Configuration configuration) : base(configuration)
 		{ }

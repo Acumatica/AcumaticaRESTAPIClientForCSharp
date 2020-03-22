@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class FinancialSettingsApi : EntityAPI<FinancialSettings>
+	public class FinancialSettingsApi : EntityAPI<FinancialSettings>
 	{
 		public FinancialSettingsApi(Configuration configuration) : base(configuration)
 		{ }

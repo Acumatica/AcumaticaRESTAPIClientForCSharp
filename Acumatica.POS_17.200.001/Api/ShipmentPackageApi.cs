@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class ShipmentPackageApi : EntityAPI<ShipmentPackage>
+	public class ShipmentPackageApi : EntityAPI<ShipmentPackage>
 	{
 		public ShipmentPackageApi(Configuration configuration) : base(configuration)
 		{ }

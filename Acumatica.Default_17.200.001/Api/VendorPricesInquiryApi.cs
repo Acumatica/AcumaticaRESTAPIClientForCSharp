@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class VendorPricesInquiryApi : EntityAPI<VendorPricesInquiry>
+	public class VendorPricesInquiryApi : EntityAPI<VendorPricesInquiry>
 	{
 		public VendorPricesInquiryApi(Configuration configuration) : base(configuration)
 		{ }

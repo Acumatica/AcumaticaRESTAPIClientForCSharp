@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class BusinessAccountShippingContactApi : EntityAPI<BusinessAccountShippingContact>
+	public class BusinessAccountShippingContactApi : EntityAPI<BusinessAccountShippingContact>
 	{
 		public BusinessAccountShippingContactApi(Configuration configuration) : base(configuration)
 		{ }

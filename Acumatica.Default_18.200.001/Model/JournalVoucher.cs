@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class JournalVoucher : Entity
+	public class JournalVoucher : Entity
 	{
 
 		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]

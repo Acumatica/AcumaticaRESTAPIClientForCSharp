@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class CaseActivityDetailApi : EntityAPI<CaseActivityDetail>
+	public class CaseActivityDetailApi : EntityAPI<CaseActivityDetail>
 	{
 		public CaseActivityDetailApi(Configuration configuration) : base(configuration)
 		{ }

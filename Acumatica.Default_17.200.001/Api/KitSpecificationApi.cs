@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class KitSpecificationApi : EntityAPI<KitSpecification>
+	public class KitSpecificationApi : EntityAPI<KitSpecification>
 	{
 		public KitSpecificationApi(Configuration configuration) : base(configuration)
 		{ }

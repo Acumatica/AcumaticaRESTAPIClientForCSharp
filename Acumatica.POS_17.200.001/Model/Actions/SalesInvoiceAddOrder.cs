@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class SalesInvoiceAddOrder : EntityAction<SalesInvoice>
+	public class SalesInvoiceAddOrder : EntityAction<SalesInvoice>
 	{
 		public SalesInvoiceAddOrder(SalesInvoice entity) : base(entity)
 		{ }

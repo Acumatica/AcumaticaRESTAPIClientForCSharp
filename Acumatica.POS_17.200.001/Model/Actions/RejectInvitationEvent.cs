@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public partial class RejectInvitationEvent : EntityAction<Event>
+	public class RejectInvitationEvent : EntityAction<Event>
 	{
 		public RejectInvitationEvent(Event entity) : base(entity)
 		{ }

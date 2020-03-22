@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class ReleasePayment : EntityAction<Payment>
+	public class ReleasePayment : EntityAction<Payment>
 	{
 		public ReleasePayment(Payment entity) : base(entity)
 		{ }

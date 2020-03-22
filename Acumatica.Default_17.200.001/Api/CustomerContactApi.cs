@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public partial class CustomerContactApi : EntityAPI<CustomerContact>
+	public class CustomerContactApi : EntityAPI<CustomerContact>
 	{
 		public CustomerContactApi(Configuration configuration) : base(configuration)
 		{ }

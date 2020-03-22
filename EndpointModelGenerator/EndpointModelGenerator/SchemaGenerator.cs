@@ -120,18 +120,22 @@ namespace EndpointSchemaGenerator
                 if (schema.Parameters.ContainsKey(action.Key))
                 {
                     StreamWriter writer = new StreamWriter(modelFilesDirectory + "Actions/" + action.Key + ".cs");
-                   
-                    string result = String.Format(Templates.ActionWithParametersTemplate, endpointNamespace, action.Key, action.Value);
+                    string content = "";
+                    foreach (var parameter in schema.Parameters[action.Key])
+                    {
+                        content +=  String.Format(Templates.InActionParameterTemplate, parameter.Key, parameter.Value);
+                    }
+                    string result = String.Format(Templates.ActionWithParametersTemplate, endpointNamespace, action.Key, action.Value, content);
                  
                     writer.Write(Templates.ActionUsingsTemplate + result);
                     writer.Close();
 
                     writer = new StreamWriter(modelFilesDirectory + "ActionParameters/" + action.Key + "Parameters.cs");
 
-                    string content = "";
-                    foreach (var parameter in  schema.Parameters[action.Key])
-                    { 
-                        String.Format(Templates.ParameterTemplate, parameter.Key, parameter.Value);
+                    content = "";
+                    foreach (var parameter in schema.Parameters[action.Key])
+                    {
+                        content += "\r\n" + String.Format(Templates.ParameterTemplate, parameter.Key, parameter.Value);
                     }
                     result = String.Format(Templates.ActionParametersTemplate, endpointNamespace, action.Key, content);
                     Console.WriteLine("ActionsWithParameters/" + action.Key);

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public partial class TrialBalanceProcessAll : EntityAction<TrialBalance>
+	public class TrialBalanceProcessAll : EntityAction<TrialBalance>
 	{
 		public TrialBalanceProcessAll(TrialBalance entity) : base(entity)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class PaymentMethodProcessingCenterDetailApi : EntityAPI<PaymentMethodProcessingCenterDetail>
+	public class PaymentMethodProcessingCenterDetailApi : EntityAPI<PaymentMethodProcessingCenterDetail>
 	{
 		public PaymentMethodProcessingCenterDetailApi(Configuration configuration) : base(configuration)
 		{ }

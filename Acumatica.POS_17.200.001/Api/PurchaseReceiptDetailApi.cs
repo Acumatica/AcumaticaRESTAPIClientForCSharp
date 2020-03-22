@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class PurchaseReceiptDetailApi : EntityAPI<PurchaseReceiptDetail>
+	public class PurchaseReceiptDetailApi : EntityAPI<PurchaseReceiptDetail>
 	{
 		public PurchaseReceiptDetailApi(Configuration configuration) : base(configuration)
 		{ }

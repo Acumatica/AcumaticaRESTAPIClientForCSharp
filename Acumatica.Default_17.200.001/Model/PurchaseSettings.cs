@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public partial class PurchaseSettings : Entity
+	public class PurchaseSettings : Entity
 	{
 
 		[DataMember(Name="POSiteID", EmitDefaultValue=false)]

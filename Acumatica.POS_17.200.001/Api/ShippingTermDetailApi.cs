@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class ShippingTermDetailApi : EntityAPI<ShippingTermDetail>
+	public class ShippingTermDetailApi : EntityAPI<ShippingTermDetail>
 	{
 		public ShippingTermDetailApi(Configuration configuration) : base(configuration)
 		{ }

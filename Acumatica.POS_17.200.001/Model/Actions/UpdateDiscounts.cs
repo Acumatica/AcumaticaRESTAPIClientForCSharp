@@ -10,5 +10,11 @@ namespace Acumatica.POS_17_200_001.Model
 		{ }
 		public UpdateDiscounts(Discount entity, UpdateDiscountsParameters parameters) : base(entity, parameters)
 		{ }
+
+		public DateTimeValue Date
+		{
+			get { return Parameters.Date; }
+			set { Parameters.Date = value; }
+		}
 	}
 }

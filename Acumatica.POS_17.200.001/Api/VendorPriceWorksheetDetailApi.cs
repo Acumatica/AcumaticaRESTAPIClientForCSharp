@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class VendorPriceWorksheetDetailApi : EntityAPI<VendorPriceWorksheetDetail>
+	public class VendorPriceWorksheetDetailApi : EntityAPI<VendorPriceWorksheetDetail>
 	{
 		public VendorPriceWorksheetDetailApi(Configuration configuration) : base(configuration)
 		{ }

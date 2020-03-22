@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public partial class SalesOrdersDiscountDetailsApi : EntityAPI<SalesOrdersDiscountDetails>
+	public class SalesOrdersDiscountDetailsApi : EntityAPI<SalesOrdersDiscountDetails>
 	{
 		public SalesOrdersDiscountDetailsApi(Configuration configuration) : base(configuration)
 		{ }

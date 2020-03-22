@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public partial class OpportunityTaxDetailApi : EntityAPI<OpportunityTaxDetail>
+	public class OpportunityTaxDetailApi : EntityAPI<OpportunityTaxDetail>
 	{
 		public OpportunityTaxDetailApi(Configuration configuration) : base(configuration)
 		{ }
