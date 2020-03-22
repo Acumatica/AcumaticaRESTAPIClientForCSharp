@@ -2,16 +2,10 @@
 
 namespace SOAPLikeWrapperForREST
 {
-    public partial class DecimalReturn : DecimalValue
+    public partial class LongReturn : LongValue
     {
     }
-    public partial class DecimalSearch : DecimalValue
-    {
-        public DecimalCondition Condition { get; set; }
-
-		public decimal? Value2 { get; set; }
-	}
-    public enum DecimalCondition
+    public enum LongCondition
     {
         Equal,
         NotEqual,
@@ -22,5 +16,12 @@ namespace SOAPLikeWrapperForREST
         IsLessThanOrEqualsTo,
         IsNull,
         IsNotNull,
+    }
+
+    public partial class LongSearch : LongValue
+    {
+        public LongCondition Condition { get; set; }
+
+        public long? Value2 { get; set; }
     }
 }

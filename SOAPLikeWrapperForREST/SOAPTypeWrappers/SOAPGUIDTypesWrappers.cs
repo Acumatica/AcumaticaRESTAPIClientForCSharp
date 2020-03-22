@@ -1,57 +1,28 @@
 ﻿using Acumatica.RESTClient.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOAPLikeWrapperForREST
 {
+    public partial class GuidReturn : GuidValue
+    {
+    }
+
     public enum GuidCondition
     {
-
-        /// <remarks/>
         Equal,
-
-        /// <remarks/>
         NotEqual,
-
-        /// <remarks/>
         IsNull,
-
-        /// <remarks/>
         IsNotNull,
     }
   
     public partial class GuidSearch : GuidValue
     {
+		public GuidCondition Condition { get; set; }
 
-        private GuidCondition conditionField;
-
-        private System.Guid value2Field;
-
-        public GuidCondition Condition
+		public Guid Value2
         {
-            get
-            {
-                return this.conditionField;
-            }
-            set
-            {
-                this.conditionField = value;
-            }
-        }
-
-        public System.Guid Value2
-        {
-            get
-            {
-                return this.value2Field;
-            }
-            set
-            {
-                this.value2Field = value;
-            }
+            get;
+            set;
         }
     }
 }

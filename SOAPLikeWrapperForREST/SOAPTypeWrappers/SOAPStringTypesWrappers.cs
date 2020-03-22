@@ -7,79 +7,29 @@ using System.Threading.Tasks;
 
 namespace SOAPLikeWrapperForREST
 {
-  
     public enum StringCondition
     {
-        /// <remarks/>
         Equal,
-
-        /// <remarks/>
         NotEqual,
-
-        /// <remarks/>
         IsBetween,
-
-        /// <remarks/>
         IsGreaterThan,
-
-        /// <remarks/>
         IsLessThan,
-
-        /// <remarks/>
         IsGreaterThanOrEqualsTo,
-
-        /// <remarks/>
         IsLessThanOrEqualsTo,
-
-        /// <remarks/>
         Contains,
-
-        /// <remarks/>
         DoesNotContain,
-
-        /// <remarks/>
         StartsWith,
-
-        /// <remarks/>
         EndsWith,
-
-        /// <remarks/>
         IsNull,
-
-        /// <remarks/>
         IsNotNull,
     }
     
     public partial class StringSearch : StringValue
     {
-        private StringCondition conditionField;
+        public StringCondition Condition { get; set; }
 
-        private string value2Field;
-
-        public StringCondition Condition
-        {
-            get
-            {
-                return this.conditionField;
-            }
-            set
-            {
-                this.conditionField = value;
-            }
-        }
-
-        public string Value2
-        {
-            get
-            {
-                return this.value2Field;
-            }
-            set
-            {
-                this.value2Field = value;
-            }
-        }
-    }
+		public string Value2 { get; set; }
+	}
     public partial class StringReturn : StringValue
     {
     }

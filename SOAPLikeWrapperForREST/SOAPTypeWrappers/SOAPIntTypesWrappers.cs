@@ -7,67 +7,27 @@ using System.Threading.Tasks;
 
 namespace SOAPLikeWrapperForREST
 {
+    public partial class IntReturn : IntValue
+    {
+    }
+
     public enum IntCondition
     {
-
-        /// <remarks/>
         Equal,
-
-        /// <remarks/>
         NotEqual,
-
-        /// <remarks/>
         IsBetween,
-
-        /// <remarks/>
         IsGreaterThan,
-
-        /// <remarks/>
         IsLessThan,
-
-        /// <remarks/>
         IsGreaterThanOrEqualsTo,
-
-        /// <remarks/>
         IsLessThanOrEqualsTo,
-
-        /// <remarks/>
         IsNull,
-
-        /// <remarks/>
         IsNotNull,
     }
 
     public partial class IntSearch : IntValue
     {
+        public IntCondition Condition { get; set; }
 
-        private IntCondition conditionField;
-
-        private System.Nullable<int> value2Field;
-
-
-        public IntCondition Condition
-        {
-            get
-            {
-                return this.conditionField;
-            }
-            set
-            {
-                this.conditionField = value;
-            }
-        }
-
-        public System.Nullable<int> Value2
-        {
-            get
-            {
-                return this.value2Field;
-            }
-            set
-            {
-                this.value2Field = value;
-            }
-        }
-    }
+		public int? Value2 { get; set; }
+	}
 }

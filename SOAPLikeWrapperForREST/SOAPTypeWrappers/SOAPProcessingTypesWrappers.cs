@@ -9,17 +9,9 @@ namespace SOAPLikeWrapperForREST
 {
 	public enum ProcessStatus
 	{
-
-		/// <remarks/>
 		NotExists = 404,
-
-		/// <remarks/>
 		InProcess = 202,
-
-		/// <remarks/>
 		Completed = 204,
-
-		/// <remarks/>
 		Aborted,
 	}
 	public partial class ProcessResult

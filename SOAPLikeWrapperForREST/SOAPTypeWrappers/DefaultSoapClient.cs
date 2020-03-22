@@ -1,11 +1,4 @@
-﻿
-using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Model;
-using SOAPLikeWrapperForREST;
-using System;
-using System.Collections.Generic;
-
-namespace SOAPLikeWrapperForREST
+﻿namespace SOAPLikeWrapperForREST
 {
 	public class DefaultSoapClient : SOAPLikeClient
 	{
