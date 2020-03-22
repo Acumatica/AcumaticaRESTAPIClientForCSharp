@@ -13,18 +13,16 @@ namespace SOAPLikeWrapperForREST
 {
     public class SOAPLikeClient
     {
-        Dictionary<string, DateTime> ProcessStartTime;
-
-        protected AuthApi AuthorizationApi;
-        protected Configuration CurrentConfiguration;
-
+        #region Constructor
         public SOAPLikeClient(string siteURL, string endpointPath)
         {
             AuthorizationApi = new AuthApi(siteURL);
             ProcessStartTime = new Dictionary<string, DateTime>();
             CurrentConfiguration = new Configuration(siteURL + endpointPath);
         }
+        #endregion
 
+        #region Public Methods
         public void Login(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             var cookieContainer = new CookieContainer();
@@ -50,121 +48,46 @@ namespace SOAPLikeWrapperForREST
                 return api.GetById(entity.ID, expand: expand);
             }
             string filter = ComposeFilter(entity);
-            var result = api.GetList(filter: filter, expand: expand);
+            var result = api.GetList(filter: filter);
             if (result.Count > 1)
+            {
                 throw new Exception("More than one entity satisfies the condition.");
-            return result.FirstOrDefault();
-        }
+            }
 
-        Type[] SearchTypes;
-        public IEnumerable<EntityField> GetSearchFields()
+            return api.GetById(result.FirstOrDefault().ID, expand: expand);
+        }
+        public T[] GetList<T>(T entity)
+ where T : Entity
         {
-            foreach (var field in this.GetType().GetProperties())
-            {
-                if (SearchTypes.Contains(field.PropertyType))
-                {
-                    yield return new EntityField(field.PropertyType, ((StringValue)field.GetValue(this))?.Value, field.Name);
-                }
+            string expand = ComposeExpands(entity);
+            SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
 
-            }
+            string filter = ComposeFilter(entity);
+            var result = api.GetList(filter: filter, expand: expand);
+
+            return result.ToArray();
         }
-        public IEnumerable<EntityField> GetStringFields<T>(T entity)
-            where T: Entity
-        {
-            foreach (var field in entity.GetType().GetProperties())
-            {
-                if (field.PropertyType == typeof(StringValue))
-                {
-                    yield return new EntityField(field.PropertyType, ((StringValue)field.GetValue(entity))?.Value, field.Name);
-                }
-
-            }
-        }
-        public IEnumerable<DetailEntity> GetDetails<T>(T entity)
-                        where T : Entity
-        {
-            foreach (var field in entity.GetType().GetProperties())
-            {
-                if (typeof(IEnumerable).IsAssignableFrom(field.PropertyType) && ((IEnumerable)field.GetValue(this)) != null)
-                {
-                    yield return new DetailEntity(field.PropertyType, ((IEnumerable)field.GetValue(entity)), field.Name);
-                }
-            }
-        }
-        public IEnumerable<LinkedEntity> GetLinkedEntities<T>(T entity)
-                                    where T : Entity
-        {
-            foreach (var field in entity.GetType().GetProperties())
-            {
-                if (typeof(Entity).IsAssignableFrom(field.PropertyType) && ((Entity)field.GetValue(entity)) != null)
-                {
-                    yield return new LinkedEntity(field.PropertyType, (Entity)field.GetValue(entity), field.Name);
-                }
-            }
-        }
-        protected string ComposeFilterForGetList<T>(T entity) where T : Entity
-        {
-            string filter = "";
-            foreach (var field in GetStringFields(entity))
-            {
-                if (field.Value != null)
-                {
-                    filter += field.Name + " eq " + "'" + field.Value + "' and ";
-                }
-            }
-
-            filter = filter.Substring(0, filter.Length - 4);
-            return filter;
-        }
-        protected string ComposeFilter<T>(T entity) where T : Entity
-        {
-            string filter = "";
-            foreach (var field in GetStringFields(entity))
-            {
-                if (field.Value != null)
-                {
-                    filter += field.Name + " eq " + "'" + field.Value + "' and ";
-                }
-            }
-
-            filter = filter.Substring(0, filter.Length - 4);
-            return filter;
-        }
-        protected string ComposeExpands<T>(T entity) where T : Entity
-        {
-            string expand = "";
-            foreach (DetailEntity detailEntity in GetDetails(entity))
-            {
-                foreach (var row in detailEntity.Details)
-                {
-                    if (row?.ReturnBehavior == ReturnBehavior.All || row?.ReturnBehavior == ReturnBehavior.Default)
-                    {
-                        expand += detailEntity.Name += ",";
-                        break;
-                    }
-                }
-            }
-            foreach (LinkedEntity linkedEntity in GetLinkedEntities(entity))
-            {
-                if (linkedEntity?.Value?.ReturnBehavior == ReturnBehavior.All || linkedEntity?.Value?.ReturnBehavior == ReturnBehavior.Default)
-                {
-                    expand += linkedEntity.Name += ",";
-                    break;
-                }
-            }
-
-            expand = expand.TrimEnd(',');
-
-            return expand;
-        }
-
-
         public T Put<T>(T entity)
             where T : Entity
         {
             SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
             return api.PutEntity(entity);
         }
+        [Obsolete("Delete method is for backward compatibility with SOAP only. Use one of the following REST methods instead: DeleteByID, DeleteByKeys")]
+        public void Delete<T>(T entity)
+            where T : Entity
+        {
+            SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
+            if (entity.ID != null)
+            {
+                api.DeleteById(entity.ID);
+            }
+            else
+            {
+                api.DeleteById(Get(entity).ID);
+            }
+        }
+
         public string Invoke<T>(EntityAction<T> action)
               where T : Entity
         {
@@ -183,32 +106,7 @@ namespace SOAPLikeWrapperForREST
                 Message = invokeResult
             };
         }
-        int GetProcessingSeconds(string invokeResult)
-        {
-            if (ProcessStartTime.ContainsKey(invokeResult))
-            {
-                return (int)(DateTime.Now - ProcessStartTime[invokeResult]).TotalSeconds;
-            }
-            return 0;
-        }
-        public void Delete<T>(T entity)
-              where T : Entity
-        {
-            SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
-             api.DeleteById(entity.ID);
-        }
 
-        public T[] GetList<T>(T entity)
-        where T : Entity
-        {
-            string expand = ComposeExpands(entity);
-            SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
-
-            string filter = ComposeFilter(entity);
-            var result = api.GetList(filter: filter, expand: expand);
-
-            return result.ToArray();
-        }
         public string Invoke<T>(T entity, EntityAction<T> action)
             where T : Entity
         {
@@ -250,5 +148,145 @@ namespace SOAPLikeWrapperForREST
                 }
             }
         }
+        #endregion
+
+        #region Implementation
+        Dictionary<string, DateTime> ProcessStartTime;
+
+        protected AuthApi AuthorizationApi;
+        protected Configuration CurrentConfiguration;
+
+        Type[] SearchTypes;
+        protected IEnumerable<EntityField> GetSearchFields<T>(T entity)
+            where T : Entity
+        {
+            foreach (var field in entity.GetType().GetProperties())
+            {
+                if (SearchTypes.Contains(field.PropertyType))
+                {
+                    yield return new EntityField(field.PropertyType, ((StringValue)field.GetValue(entity))?.Value, field.Name);
+                }
+            }
+        }
+        protected IEnumerable<EntityField> GetPossibleKeyFields<T>(T entity)
+            where T : Entity
+        {
+            foreach (var field in entity.GetType().GetProperties())
+            {
+                if (field.PropertyType == typeof(StringValue))
+                {
+                    yield return new EntityField(field.PropertyType, ((StringValue)field.GetValue(entity))?.Value, field.Name);
+                }
+                if (field.PropertyType == typeof(IntValue))
+                {
+                    yield return new EntityField(field.PropertyType, ((IntValue)field.GetValue(entity))?.Value, field.Name);
+                }
+                if (field.PropertyType == typeof(LongValue))
+                {
+                    yield return new EntityField(field.PropertyType, ((LongValue)field.GetValue(entity))?.Value, field.Name);
+                }
+
+            }
+        }
+        protected IEnumerable<DetailEntity> GetDetails<T>(T entity)
+                        where T : Entity
+        {
+            foreach (var field in entity.GetType().GetProperties())
+            {
+                if (typeof(IEnumerable).IsAssignableFrom(field.PropertyType)
+                    && field.Name != "Custom"
+                    && field.Name != "Files"
+                    && field.PropertyType != typeof(CustomField[])
+                    && field.PropertyType != typeof(String)
+                    // && ((IEnumerable)field.GetValue(entity)) != null
+                    )
+                {
+                    yield return new DetailEntity(field.PropertyType, ((IEnumerable)field.GetValue(entity)), field.Name);
+                }
+            }
+        }
+
+        protected IEnumerable<LinkedEntity> GetLinkedEntities<T>(T entity)
+                                    where T : Entity
+        {
+            foreach (var field in entity.GetType().GetProperties())
+            {
+                if (typeof(Entity).IsAssignableFrom(field.PropertyType) && ((Entity)field.GetValue(entity)) != null)
+                {
+                    yield return new LinkedEntity(field.PropertyType, (Entity)field.GetValue(entity), field.Name);
+                }
+            }
+        }
+        protected string ComposeFilterForGetList<T>(T entity) where T : Entity
+        {
+            string filter = "";
+            foreach (var field in GetSearchFields(entity))
+            {
+                if (field.Value != null)
+                {
+                    filter += field.Name + " eq " + "'" + field.Value.ToString() + "' and ";
+                }
+            }
+
+            filter = filter.Substring(0, filter.Length - 4);
+            return filter;
+        }
+        protected string ComposeFilter<T>(T entity) where T : Entity
+        {
+            string filter = "";
+            foreach (var field in GetPossibleKeyFields(entity))
+            {
+                if (field.Value != null)
+                {
+                    filter += field.Name + " eq " + "'" + field.Value.ToString() + "' and ";
+                }
+            }
+
+            filter = filter.Substring(0, filter.Length - 4);
+            return filter;
+        }
+        protected string ComposeExpands<T>(T entity) where T : Entity
+        {
+            string expand = "";
+            foreach (DetailEntity detailEntity in GetDetails(entity))
+            {
+                if (entity.ReturnBehavior == ReturnBehavior.All)
+                {
+                    expand += detailEntity.Name += ",";
+                }
+                else if (detailEntity.Details != null)
+                {
+                    foreach (var row in detailEntity.Details)
+                    {
+                        if (row?.ReturnBehavior == ReturnBehavior.All || row?.ReturnBehavior == ReturnBehavior.Default)
+                        {
+                            expand += detailEntity.Name += ",";
+                            break;
+                        }
+                    }
+                }
+            }
+            foreach (LinkedEntity linkedEntity in GetLinkedEntities(entity))
+            {
+                if (entity.ReturnBehavior == ReturnBehavior.All || linkedEntity?.Value?.ReturnBehavior == ReturnBehavior.All || linkedEntity?.Value?.ReturnBehavior == ReturnBehavior.Default)
+                {
+                    expand += linkedEntity.Name += ",";
+                    break;
+                }
+            }
+
+            expand = expand.TrimEnd(',');
+
+            return expand;
+        }
+        protected int GetProcessingSeconds(string invokeResult)
+        {
+            if (ProcessStartTime.ContainsKey(invokeResult))
+            {
+                return (int)(DateTime.Now - ProcessStartTime[invokeResult]).TotalSeconds;
+            }
+            return 0;
+        }
+        #endregion
     }
 }

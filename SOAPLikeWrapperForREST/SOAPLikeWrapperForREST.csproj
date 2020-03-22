@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SOAPLikeClient.cs" />
-    <Compile Include="SOAPLikeEntityAPI.cs" />
+    <Compile Include="SOAPTypeWrappers\SOAPLikeEntityAPI.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPBooleanTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPDateTimeTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPDecimalTypesWrappers.cs" />
