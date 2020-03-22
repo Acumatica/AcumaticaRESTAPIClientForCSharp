@@ -119,6 +119,14 @@ namespace Acumatica.RESTClient.Api
             return localVarResponse.Data;
         }
 
+        public void PutFile(string id, string filename)
+        {
+            PutFileWithHttpInfo(new List<string>() { id }, filename);
+        }
+        public async System.Threading.Tasks.Task PutFileAsync(string id, string filename)
+        {
+            await PutFileAsyncWithHttpInfo(new List<string>() { id }, filename);
+        }
         /// <summary>
         /// Attaches a file to a record. 
         /// </summary>
