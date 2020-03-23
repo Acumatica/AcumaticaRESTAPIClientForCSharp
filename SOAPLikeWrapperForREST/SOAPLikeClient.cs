@@ -23,6 +23,11 @@ namespace SOAPLikeWrapperForREST
         #endregion
 
         #region Public Methods
+        public void SetBusinessDate(DateTime now)
+        {
+            BusinessDate = now;
+        }
+
         public void Login(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             var cookieContainer = new CookieContainer();
@@ -38,7 +43,7 @@ namespace SOAPLikeWrapperForREST
         }
 
         [Obsolete("Get method is for backward compatibility with SOAP only. Use one of the following REST methods instead: GetList, GetByKeys, GetByID")]
-        public Entity Get<T>(T entity)
+        public T Get<T>(T entity)
             where T : Entity
         {
             string expand = ComposeExpands(entity);
@@ -56,14 +61,14 @@ namespace SOAPLikeWrapperForREST
 
             return api.GetById(result.FirstOrDefault().ID, expand: expand);
         }
-        public T[] GetList<T>(T entity)
+        public T[] GetList<T>(T entity, int? top = null, int? skip = null)
  where T : Entity
         {
             string expand = ComposeExpands(entity);
             SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
 
-            string filter = ComposeFilter(entity);
-            var result = api.GetList(filter: filter, expand: expand);
+            string filter = ComposeFilterForGetList(entity);
+            var result = api.GetList(filter: filter, expand: expand, skip: skip, top: top);
 
             return result.ToArray();
         }
@@ -71,7 +76,19 @@ namespace SOAPLikeWrapperForREST
             where T : Entity
         {
             SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
-            return api.PutEntity(entity);
+            return api.PutEntity(entity, expand: ComposeExpands(entity), businessDate: BusinessDate);
+        }
+        [Obsolete("PutFiles method is for backward compatibility with SOAP only. Use one of the following REST methods instead: PutFile, PutFileAsync")]
+        public void PutFiles<T>(List<string> keys, File[] files)
+            where T : Entity
+        {
+            if (files.Length > 1)
+            {
+                throw new NotImplementedException("Only one file attachment at a time is supported.");
+            }
+            SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
+            api.PutFile(keys, files[0].Name, files[0].Content);
+        }
         }
         [Obsolete("Delete method is for backward compatibility with SOAP only. Use one of the following REST methods instead: DeleteByID, DeleteByKeys")]
         public void Delete<T>(T entity)
@@ -93,7 +110,12 @@ namespace SOAPLikeWrapperForREST
         {
             SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
             string invokeResult = api.InvokeAction(action);
+            if (ProcessStartTime.ContainsKey(invokeResult))
+            { }
+            else
+            {
             ProcessStartTime.Add(invokeResult, DateTime.Now);
+            }
             return invokeResult;
         }
         public ProcessResult GetProcessStatus(string invokeResult)
@@ -138,6 +160,7 @@ namespace SOAPLikeWrapperForREST
                                                   processResult.Status + "; Error: " +
                                                   processResult.Message);
                     case ProcessStatus.Completed:
+                    case ProcessStatus.OK:
                         return processResult;
                     case ProcessStatus.InProcess:
                         if (processResult.Seconds > 30)
@@ -155,19 +178,42 @@ namespace SOAPLikeWrapperForREST
 
         protected AuthApi AuthorizationApi;
         protected Configuration CurrentConfiguration;
+        protected DateTime? BusinessDate;
 
-        Type[] SearchTypes;
-        protected IEnumerable<EntityField> GetSearchFields<T>(T entity)
+
+        protected IEnumerable<EntityField> GetSearchFields<T, SearchType>(T entity)
             where T : Entity
         {
+            Type[] searchTypes = new Type[] { typeof(SearchType) };
+
             foreach (var field in entity.GetType().GetProperties())
             {
-                if (SearchTypes.Contains(field.PropertyType))
+                if (field.GetValue(entity) != null)
                 {
-                    yield return new EntityField(field.PropertyType, ((StringValue)field.GetValue(entity))?.Value, field.Name);
+                    if (searchTypes.Contains(field.GetValue(entity).GetType()))
+                    {
+                        yield return new EntityField(field.GetValue(entity).GetType(), (SearchType)field.GetValue(entity), field.Name);
+                    }
+                }
+            }
+            foreach (var linkedEntity in GetLinkedEntities(entity))
+            {
+                if (linkedEntity.Value != null)
+                {
+                    foreach (var field in linkedEntity.Value.GetType().GetProperties())
+                    {
+                        if (field.GetValue(linkedEntity.Value) != null)
+                        {
+                            if (searchTypes.Contains(field.GetValue(linkedEntity.Value).GetType()))
+                            {
+                                yield return new EntityField(field.GetValue(linkedEntity.Value).GetType(), (SearchType)field.GetValue(linkedEntity.Value), linkedEntity.Name + "/" + field.Name);
+        }
+                        }
+                    }
                 }
             }
         }
+
         protected IEnumerable<EntityField> GetPossibleKeyFields<T>(T entity)
             where T : Entity
         {
@@ -185,7 +231,6 @@ namespace SOAPLikeWrapperForREST
                 {
                     yield return new EntityField(field.PropertyType, ((LongValue)field.GetValue(entity))?.Value, field.Name);
                 }
-
             }
         }
         protected IEnumerable<DetailEntity> GetDetails<T>(T entity)
@@ -211,7 +256,7 @@ namespace SOAPLikeWrapperForREST
         {
             foreach (var field in entity.GetType().GetProperties())
             {
-                if (typeof(Entity).IsAssignableFrom(field.PropertyType) && ((Entity)field.GetValue(entity)) != null)
+                if (typeof(Entity).IsAssignableFrom(field.PropertyType))
                 {
                     yield return new LinkedEntity(field.PropertyType, (Entity)field.GetValue(entity), field.Name);
                 }
@@ -220,14 +265,21 @@ namespace SOAPLikeWrapperForREST
         protected string ComposeFilterForGetList<T>(T entity) where T : Entity
         {
             string filter = "";
-            foreach (var field in GetSearchFields(entity))
+            foreach (var field in GetSearchFields<T, StringSearch>(entity))
             {
                 if (field.Value != null)
                 {
-                    filter += field.Name + " eq " + "'" + field.Value.ToString() + "' and ";
+                    filter += field.Name + " eq " + "'" + ((StringSearch)field.Value).Value.ToString() + "' and ";
                 }
             }
-
+            foreach (var field in GetSearchFields<T, IntSearch>(entity))
+            {
+                if (field.Value != null)
+                {
+                    filter += field.Name + " eq " + ((IntSearch)field.Value).Value.ToString() + " and ";
+                }
+            }
+            if (!string.IsNullOrEmpty(filter))
             filter = filter.Substring(0, filter.Length - 4);
             return filter;
         }
@@ -238,7 +290,10 @@ namespace SOAPLikeWrapperForREST
             {
                 if (field.Value != null)
                 {
+                    if (field.Type == typeof(StringValue))
                     filter += field.Name + " eq " + "'" + field.Value.ToString() + "' and ";
+                    else
+                        filter += field.Name + " eq " + field.Value.ToString() + " and ";
                 }
             }
 
@@ -271,7 +326,6 @@ namespace SOAPLikeWrapperForREST
                 if (entity.ReturnBehavior == ReturnBehavior.All || linkedEntity?.Value?.ReturnBehavior == ReturnBehavior.All || linkedEntity?.Value?.ReturnBehavior == ReturnBehavior.Default)
                 {
                     expand += linkedEntity.Name += ",";
-                    break;
                 }
             }
 

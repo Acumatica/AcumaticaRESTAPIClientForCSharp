@@ -9,6 +9,7 @@ namespace SOAPLikeWrapperForREST
 {
 	public enum ProcessStatus
 	{
+		OK = 200,
 		NotExists = 404,
 		InProcess = 202,
 		Completed = 204,

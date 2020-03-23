@@ -96,9 +96,9 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>EntityType</returns>
-        public EntityType PutEntity(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any)
+        public EntityType PutEntity(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null)
         {
-            ApiResponse<EntityType> localVarResponse = PutEntityWithHttpInfo(entity, select, filter, expand, custom, method);
+            ApiResponse<EntityType> localVarResponse = PutEntityWithHttpInfo(entity, select, filter, expand, custom, method, businessDate);
             return localVarResponse.Data;
         }
 
@@ -119,13 +119,13 @@ namespace Acumatica.RESTClient.Api
             return localVarResponse.Data;
         }
 
-        public void PutFile(string id, string filename)
+        public void PutFile(string id, string filename, byte[] content)
         {
-            PutFileWithHttpInfo(new List<string>() { id }, filename);
+            PutFileWithHttpInfo(new List<string>() { id }, filename, content);
         }
-        public async System.Threading.Tasks.Task PutFileAsync(string id, string filename)
+        public async System.Threading.Tasks.Task PutFileAsync(string id, string filename, byte[] content)
         {
-            await PutFileAsyncWithHttpInfo(new List<string>() { id }, filename);
+            await PutFileAsyncWithHttpInfo(new List<string>() { id }, filename, content);
         }
         /// <summary>
         /// Attaches a file to a record. 
@@ -134,9 +134,9 @@ namespace Acumatica.RESTClient.Api
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
         /// <returns></returns>
-        public void PutFile(List<string> ids, string filename)
+        public void PutFile(List<string> ids, string filename, byte[] content)
         {
-            PutFileWithHttpInfo(ids, filename);
+            PutFileWithHttpInfo(ids, filename, content);
         }
         /// <summary>
         /// Attaches a file to a record. 
@@ -145,9 +145,9 @@ namespace Acumatica.RESTClient.Api
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PutFileAsync(List<string> ids, string filename)
+        public async System.Threading.Tasks.Task PutFileAsync(List<string> ids, string filename, byte[] content)
         {
-            await PutFileAsyncWithHttpInfo(ids, filename);
+            await PutFileAsyncWithHttpInfo(ids, filename, content);
 
         }
 
@@ -345,6 +345,12 @@ namespace Acumatica.RESTClient.Api
             result.EndpointName = parts[2];
             result.EndpointVersion = parts[3];
             result.EntityName = parts[4];
+            if (parts.Length == 6)
+            {
+                result.ID = parts[5];
+                return result;
+            }
+
             result.ActionName = parts[5];
             result.Status = parts[6];
             result.ID = parts[7];
@@ -383,7 +389,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        protected ApiResponse<Object> PutFileWithHttpInfo(List<string> ids, string filename)
+        protected ApiResponse<Object> PutFileWithHttpInfo(List<string> ids, string filename, byte[] content)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -394,9 +400,12 @@ namespace Acumatica.RESTClient.Api
 
             var localVarPath = "/" + GetEntityName() + "/{ids}/files/{filename}";
 
+            var fileParams = ComposeEmptyFileParams();
+            fileParams.Add(filename, FileParameter.Create(filename, content, filename));
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                Method.PUT, ComposeEmptyQueryParams(), content, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(),
+                fileParams,
                 ComposeIDsPathParams(ids, filename), ComposeContentHeaders(HeaderContentType.None));
 
             VerifyResponse(localVarResponse, "PutFile");
@@ -411,7 +420,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
         /// <returns>Task of ApiResponse</returns>
-        protected async System.Threading.Tasks.Task<ApiResponse<Object>> PutFileAsyncWithHttpInfo(List<string> ids, string filename)
+        protected async System.Threading.Tasks.Task<ApiResponse<Object>> PutFileAsyncWithHttpInfo(List<string> ids, string filename, byte[] content)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -422,9 +431,12 @@ namespace Acumatica.RESTClient.Api
 
             var localVarPath = "/" + GetEntityName() + "/{ids}/files/{filename}";
 
+            var fileParams = ComposeEmptyFileParams();
+            fileParams.Add(filename, FileParameter.Create(filename, content, filename));
+
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                Method.PUT, ComposeEmptyQueryParams(), content, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), fileParams,
                 ComposeIDsPathParams(ids, filename), ComposeContentHeaders(HeaderContentType.None));
 
             VerifyResponse(localVarResponse, "PutFile");
@@ -491,7 +503,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>ApiResponse of Entity</returns>
-        protected ApiResponse<EntityType> PutEntityWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any)
+        protected ApiResponse<EntityType> PutEntityWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null)
         {
             if (entity == null)
                 ThrowMissingParameter("PutEntity", nameof(entity));
@@ -500,11 +512,15 @@ namespace Acumatica.RESTClient.Api
             var headers = ComposeAcceptHeaders(HeaderContentType.Json);
             if (method == PutMethod.Insert)
             {
-                headers.Add(PutMethodInsertHeader, "");
+                headers.Add(PutMethodInsertHeader, "*");
             }
             else if (method == PutMethod.Update)
             {
-                headers.Add(PutMethodUpdateHeader, "");
+                headers.Add(PutMethodUpdateHeader, "*");
+            }
+            if (businessDate != null)
+            {
+                headers.Add("PX-CbApiBusinessDate", businessDate.ToString());
             }
 
             // make the HTTP request
@@ -538,11 +554,11 @@ namespace Acumatica.RESTClient.Api
             var headers = ComposeAcceptHeaders(HeaderContentType.Json);
             if (method == PutMethod.Insert)
             {
-                headers.Add(PutMethodInsertHeader, "");
+                headers.Add(PutMethodInsertHeader, "*");
             }
             else if (method == PutMethod.Update)
             {
-                headers.Add(PutMethodUpdateHeader, "");
+                headers.Add(PutMethodUpdateHeader, "*");
             }
 
             // make the HTTP request
@@ -567,10 +583,10 @@ namespace Acumatica.RESTClient.Api
         protected List<KeyValuePair<string, string>> ComposeQueryParams(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
             var queryParameters = ComposeEmptyQueryParams();
-            if (select != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (filter != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (expand != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (custom != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
+            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
+            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
+            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
+            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
             if (skip != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
             if (top != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
 
