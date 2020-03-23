@@ -89,7 +89,7 @@ namespace SOAPLikeWrapperForREST
             SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
             api.PutFile(keys, files[0].Name, files[0].Content);
         }
-        }
+
         [Obsolete("Delete method is for backward compatibility with SOAP only. Use one of the following REST methods instead: DeleteByID, DeleteByKeys")]
         public void Delete<T>(T entity)
             where T : Entity
