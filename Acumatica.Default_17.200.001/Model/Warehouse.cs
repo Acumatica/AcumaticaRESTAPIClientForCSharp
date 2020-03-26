@@ -48,7 +48,7 @@ namespace Acumatica.Default_17_200_001.Model
 		public StringValue LandedCostVarianceSubaccount { get; set; }
 
 		[DataMember(Name="Locations", EmitDefaultValue=false)]
-		public List<WarehouseLocation> Locations { get; set; }
+		public WarehouseLocation[] Locations { get; set; }
 
 		[DataMember(Name="MiscChargeAccount", EmitDefaultValue=false)]
 		public StringValue MiscChargeAccount { get; set; }
