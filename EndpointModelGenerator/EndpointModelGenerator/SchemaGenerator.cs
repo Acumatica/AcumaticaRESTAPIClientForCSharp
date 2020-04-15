@@ -13,99 +13,115 @@ using Microsoft.Build.Evaluation;
 namespace EndpointSchemaGenerator
 {
     public partial class SchemaGenerator
-    {
-		#region setting
-		static bool GenerateArraysInstedOfLists = false;
-        const string OutputDirectoryTemplate = @"\Acumatica.{0}";
-        const string EndpointSchemaDirectory = @"\EndpointDefinitions\";
-        const string DefaultNamespaceTemplate = @"Acumatica.{0}";
-        
-        // List of entities that are shared between all endpoints
-        public static string[] IgnoreList = new string[] { "StringValue", "LongValue", "CustomStringField",
-        "CustomDecimalField", "CustomDateTimeField", "CustomBooleanField", "CustomIntField", "CustomLongField",
-        "CustomShortField", "CustoByteField", "CustomDoubleField", "CustomGuidField", "CustomField",
-        "DecimalValue", "DateTimeValue", "BooleanValue", "IntValue", "ShortValue", "ByteValue", "DoubleValue",
-        "GuidValue", "FileLink", "Entity", "HttpError", "CustomByteField"};
-        #endregion
-
-        static void Main(string[] args)
+    { 
+        public static void WriteCSharp(string outputPath, Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string csprojPath)
         {
-            string solutionFolderPath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()).ToString()).ToString()).ToString();
-            
-            foreach (var file in Directory.GetFiles(solutionFolderPath + EndpointSchemaDirectory))
-            {
-                string endpoint = file.Replace(solutionFolderPath + EndpointSchemaDirectory, "");
-                StreamReader reader = new StreamReader(file);
-                string input = reader.ReadToEnd();
-                reader.Close();
+            string modelLocalPath = "Model\\";
+            string actionsLocalPath = modelLocalPath + "Actions\\";
+            string actionParametersLocalPath = modelLocalPath + "ActionParameters\\";
+            string apiLocalPath = "Api\\";
 
-                Schema schema = ComposeEndpointSchema(input);
+            string modelFilesDirectory = outputPath + modelLocalPath;
+            string modelActionsFilesDirectory = outputPath + actionsLocalPath;
+            string modelParametersFilesDirectory = outputPath + actionParametersLocalPath;
+            string apiFilesDirectory = outputPath + apiLocalPath;
 
-                WriteCSharp(
-                    solutionFolderPath + string.Format(OutputDirectoryTemplate, endpoint),
-                     endpoint,
-                    schema);
-            }
-        }
-        public static void Generate(string path, string endpointDefinitionJson)
-        {
-            Schema schema = ComposeEndpointSchema(endpointDefinitionJson);
-            string directoryPath = Directory.GetParent(path).ToString();
-            string endpointName = path.Replace(directoryPath, "").Replace(".csproj", "").Replace("Acumatica.", "").Replace("\\", "");
-            WriteCSharp(directoryPath, endpointName, schema);
-          
+            RegenerateDirectories(outputPath, modelFilesDirectory, modelActionsFilesDirectory, modelParametersFilesDirectory, apiFilesDirectory);
+
+            Project project = new Project(csprojPath);
+            project.RemoveItems(project.GetItems("Compile"));
+
+            WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory, project);
+            WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory, project);
+            WriteActions(schema, writeLogDelegate, endpointNamespace, actionsLocalPath, actionParametersLocalPath, modelActionsFilesDirectory, modelParametersFilesDirectory, project);
+
+            project.AddItem("Compile", "Properties\\AssemblyInfo.cs");
+            project.Save();
+            writeLogDelegate.Invoke("Done!");
         }
 
-        public static string ParseParentRef(JToken jsonObject)
+        private static void WriteActions(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string actionsLocalPath, string actionParametersLocalPath, string modelActionsFilesDirectory, string modelParametersFilesDirectory, Project project)
         {
-            var s = jsonObject.Children().First().Children().First().ToString();
-            if (s.Contains("definitions/"))
+            foreach (var action in schema.Actions)
             {
-                s = s.Substring(s.IndexOf("definitions/") + 12);
-                if (s.IndexOf("\"") > 0)
+                string filename = action.Key + ".cs";
+                if (schema.Parameters.ContainsKey(action.Key))
                 {
-                    s = s.Substring(0, s.IndexOf("\""));
+                    StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + filename);
+                    project.AddItem("Compile", actionsLocalPath + filename);
+                    string content = "";
+                    foreach (var parameter in schema.Parameters[action.Key])
+                    {
+                        content += String.Format(Templates.InActionParameterTemplate, parameter.Key, parameter.Value);
+                    }
+                    string result = String.Format(Templates.ActionWithParametersTemplate, endpointNamespace, action.Key, action.Value, content);
+
+                    writer.Write(Templates.ActionUsingsTemplate + result);
+                    writer.Close();
+
+                    string paramFileName = action.Key + "Parameters.cs";
+                    writer = new StreamWriter(modelParametersFilesDirectory + paramFileName);
+                    project.AddItem("Compile", actionParametersLocalPath + paramFileName);
+
+                    content = "";
+                    foreach (var parameter in schema.Parameters[action.Key])
+                    {
+                        content += "\r\n" + String.Format(Templates.ParameterTemplate, parameter.Key, parameter.Value);
+                    }
+                    result = String.Format(Templates.ActionParametersTemplate, endpointNamespace, action.Key, content);
+                    writeLogDelegate.Invoke("ActionsWithParameters/" + action.Key);
+                    writer.Write(result);
+                    writer.Close();
                 }
-                return s;
-            }
-            else if (s.Contains("array"))
-            {
-                var k = jsonObject.ToString();
-                if (k.Contains("definitions/"))
+                else
                 {
-                    k = k.Substring(k.IndexOf("definitions/") + 12);
-                    if (k.IndexOf("\"") > 0)
-                    {
-                        k = k.Substring(0, k.IndexOf("\""));
-                    }
-                    if (GenerateArraysInstedOfLists)
-                    {
-                        return k + "[]";
-                    }
-                    else
-                    {
-                        return "List<" + k + ">";
-                    }
+                    StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + filename);
+                    project.AddItem("Compile", actionsLocalPath + filename);
+
+                    string result = String.Format(Templates.ActionTemplate, endpointNamespace, action.Key, action.Value);
+                    writeLogDelegate.Invoke("Actions/" + action.Key);
+                    writer.Write(Templates.ActionUsingsTemplate + result);
+                    writer.Close();
                 }
-                else return "";
             }
-            else
+        }
+
+        private static void WriteApis(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string apiLocalPath, string apiFilesDirectory, Project project)
+        {
+            foreach (var entity in schema.TopLevelEntities)
             {
-                return "";
+                string filename = entity + "Api.cs";
+                StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
+                project.AddItem("Compile", apiLocalPath + filename);
+
+                string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity);
+                writeLogDelegate.Invoke(entity + "Api");
+                writer.Write(result);
+                writer.Close();
             }
         }
-        public static string ParseParentRef(JObject jsonObject)
+
+        private static void WriteEntities(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string modelLocalPath, string modelFilesDirectory, Project project)
         {
-            return ParseParentRef(jsonObject.Children().First());
+            foreach (var entity in schema.Entities)
+            {
+                string filename = entity.Key + ".cs";
+                StreamWriter writer = new StreamWriter(modelFilesDirectory + filename);
+                project.AddItem("Compile", modelLocalPath + filename);
+                string body = "";
+                foreach (var field in entity.Value)
+                {
+                    body += string.Format(Templates.FieldTemplate, field.Key, field.Value);
+                }
+                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body);
+                writeLogDelegate.Invoke(entity.Key);
+                writer.Write(Templates.EntityUsingsTemplate + result);
+                writer.Close();
+            }
         }
-        private static void WriteCSharp(string outputPath, string endpointName, Schema schema)
+
+        private static void RegenerateDirectories(string outputPath, string modelFilesDirectory, string modelActionsFilesDirectory, string modelParametersFilesDirectory, string apiFilesDirectory)
         {
-            string endpointNamespace = string.Format(DefaultNamespaceTemplate, endpointName.Replace(".", "_"));
-            string modelFilesDirectory = outputPath + "\\Model\\";
-            string modelActionsFilesDirectory = modelFilesDirectory + "\\Actions\\";
-            string modelParametersFilesDirectory = modelFilesDirectory + "\\ActionParameters\\";
-            string apiFilesDirectory = outputPath + "\\Api\\";
-            string csprojPath = outputPath + "\\" + string.Format(DefaultNamespaceTemplate, endpointName) + ".csproj";
             Directory.CreateDirectory(outputPath);
             try
             {
@@ -121,197 +137,6 @@ namespace EndpointSchemaGenerator
             }
             catch { }
             Directory.CreateDirectory(apiFilesDirectory);
-
-
-            Project project = new Project(csprojPath);
-            project.RemoveItems(project.GetItems("Compile"));
-
-            foreach (var entity in schema.Entities)
-            {
-                StreamWriter writer = new StreamWriter(modelFilesDirectory + entity.Key + ".cs");
-                project.AddItem("Compile", "Model\\" + entity.Key + ".cs");
-                string body = "";
-                foreach (var field in entity.Value)
-                {
-                    body += string.Format(Templates.FieldTemplate, field.Key, field.Value);
-                }
-                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body);
-                Console.WriteLine(entity.Key);
-                writer.Write(Templates.EntityUsingsTemplate + result);
-                writer.Close();
-            }
-            foreach (var entity in schema.TopLevelEntities)
-            {
-                StreamWriter writer = new StreamWriter(apiFilesDirectory + entity + "Api.cs");
-                project.AddItem("Compile", "Api\\" + entity + "Api.cs");
-
-                string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity);
-                Console.WriteLine(entity + "Api");
-                writer.Write(result);
-                writer.Close();
-            }
-
-            foreach (var action in schema.Actions)
-            {
-                if (schema.Parameters.ContainsKey(action.Key))
-                {
-                    StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + action.Key + ".cs");
-                    project.AddItem("Compile", "Model\\Actions\\" + action.Key + ".cs");
-                    string content = "";
-                    foreach (var parameter in schema.Parameters[action.Key])
-                    {
-                        content += String.Format(Templates.InActionParameterTemplate, parameter.Key, parameter.Value);
-                    }
-                    string result = String.Format(Templates.ActionWithParametersTemplate, endpointNamespace, action.Key, action.Value, content);
-
-                    writer.Write(Templates.ActionUsingsTemplate + result);
-                    writer.Close();
-
-                    writer = new StreamWriter(modelParametersFilesDirectory + action.Key + "Parameters.cs");
-                    project.AddItem("Compile", "Model\\ActionParameters\\" + action.Key + "Parameters.cs");
-
-                    content = "";
-                    foreach (var parameter in schema.Parameters[action.Key])
-                    {
-                        content += "\r\n" + String.Format(Templates.ParameterTemplate, parameter.Key, parameter.Value);
-                    }
-                    result = String.Format(Templates.ActionParametersTemplate, endpointNamespace, action.Key, content);
-                    Console.WriteLine("ActionsWithParameters/" + action.Key);
-                    writer.Write(result);
-                    writer.Close();
-                }
-                else
-                {
-                    StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + action.Key + ".cs");
-                    project.AddItem("Compile", "Model\\Actions\\" + action.Key + ".cs");
-
-                    string result = String.Format(Templates.ActionTemplate, endpointNamespace, action.Key, action.Value);
-                    Console.WriteLine("Actions/" + action.Key);
-                    writer.Write(Templates.ActionUsingsTemplate + result);
-                    writer.Close();
-                }
-            }
-            project.AddItem("Compile", "Properties\\AssemblyInfo.cs");
-            project.Save();
         }
-
-        private static Schema ComposeEndpointSchema(string input)
-        {
-            var schema = JsonConvert.DeserializeObject<Schema>(input);
-            foreach (var item in IgnoreList)
-            {
-                schema.Definitions.Remove(item);
-            }
-            schema.Entities = new Dictionary<string, Dictionary<string, string>>();
-            schema.TopLevelEntities = new HashSet<string>();
-            foreach (var item in schema.Definitions)
-            {
-                var res = ParseObject(item);
-                if (res != null)
-                {
-                    schema.Entities.Add(item.Key, res);
-                    if (IsTopLevelEntity(schema, item.Key))
-                    {
-                        schema.TopLevelEntities.Add(item.Key);
-                    }
-                }
-            }
-            schema.Actions = new Dictionary<string, string>();
-            foreach (var item in schema.Definitions)
-            {
-                string entityType = ParseAction(item);
-                if (!String.IsNullOrEmpty(entityType))
-                {
-                    schema.Actions.Add(item.Key, entityType);
-                }
-            }
-            schema.Parameters = new Dictionary<string, Dictionary<string, string>>();
-            foreach (var item in schema.Definitions)
-            {
-                string entityType = ParseActionWithParameters(item);
-                if (!String.IsNullOrEmpty(entityType))
-                {
-                    schema.Actions.Add(item.Key, entityType);
-                    schema.Parameters.Add(item.Key, ParseParameters(item));
-                }
-            }
-            Dictionary<string, Dictionary<string, string>> parameters = new Dictionary<string, Dictionary<string, string>>();
-            foreach (var item in schema.Definitions)
-            {
-                //    entities.Add(item.Key, ParseObject(item));
-            }
-           
-            return schema;
-        }
-
-        private static bool IsTopLevelEntity(Schema schema, string key)
-        {
-            return schema.Tags.Where(_ => _.Name == key).Any();
-        }
-
-        private static Dictionary<string, string> ParseObject(KeyValuePair<string, JObject> item)
-        {
-            var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
-            var res = new EntitySchema();
-            res.ParentReference = ParseParentRef(item.Value);
-            if (res.ParentReference == "Entity")
-            {
-                s.AllOf.Remove(null);
-                if (s.AllOf.Count() > 0)
-                {
-                    var schema = s.AllOf.First();
-                    foreach (var property in schema.Properties)
-                    {
-                        res.FieldsSchema.Add(property.Key, ParseParentRef(property.Value));
-                    }
-                }
-                return res.FieldsSchema;
-            }
-            else return null;
-        }
-
-        private static string ParseAction(KeyValuePair<string, JObject> item)
-        {
-            var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
-            var k = JsonConvert.DeserializeObject<EntitySchemaInternal2>(item.Value.ToString());
-
-            if (ParseParentRef(item.Value) == "" && s.Required != null && s.Required.Count() == 1) 
-            {
-                return ParseParentRef(k.Properties);
-            }
-            else return null;
-        }
-        private static string ParseActionWithParameters(KeyValuePair<string, JObject> item)
-        {
-            var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
-            var k = JsonConvert.DeserializeObject<EntitySchemaInternal2>(item.Value.ToString());
-            if (ParseParentRef(item.Value) == "" && s.Required != null && s.Required.Count() == 2)
-            {
-                string entityName= ParseParentRef(k.Properties);
-                //action with parameters
-                return entityName;
-            }
-            else return null;
-        }
-        private static Dictionary<string, string> ParseParameters(KeyValuePair<string, JObject> item)
-        {
-            var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
-            var k = JsonConvert.DeserializeObject<EntitySchemaInternal2>(item.Value.ToString());
-            if (ParseParentRef(item.Value) == "" && s.Required != null && s.Required.Count() == 2)
-            {
-                Dictionary<string, string> result = new Dictionary<string, string>();
-               var parameters= JsonConvert.DeserializeObject<Dictionary<string, object>>(k.Properties.Last.Last.ToString());
-               
-                foreach (var node in (JObject)parameters["properties"])
-                {
-                    result.Add(node.Key, ParseParentRef(node.Value));
-                }
-                // k.Properties;
-                //action with parameters
-                return result;
-            }
-            else return null;
-        }
-
     }
 }
