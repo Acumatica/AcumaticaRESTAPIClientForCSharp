@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Microsoft.Build;
+using Microsoft.Build.Evaluation;
 
 namespace EndpointSchemaGenerator
 {
@@ -41,7 +44,7 @@ namespace EndpointSchemaGenerator
 
                 WriteCSharp(
                     solutionFolderPath + string.Format(OutputDirectoryTemplate, endpoint),
-                    string.Format(DefaultNamespaceTemplate, endpoint.Replace(".", "_")),
+                     endpoint,
                     schema);
             }
         }
@@ -88,13 +91,28 @@ namespace EndpointSchemaGenerator
         {
             return ParseParentRef(jsonObject.Children().First());
         }
-        private static void WriteCSharp(string outputPath, string endpointNamespace,  Schema schema)
+        private static void WriteCSharp(string outputPath, string endpointName, Schema schema)
         {
+            string endpointNamespace = string.Format(DefaultNamespaceTemplate, endpointName.Replace(".", "_"));
             string modelFilesDirectory = outputPath + "\\Model\\";
+            string modelActionsFilesDirectory = modelFilesDirectory + "\\Actions\\";
+            string modelParametersFilesDirectory = modelFilesDirectory + "\\ActionParameters\\";
             string apiFilesDirectory = outputPath + "\\Api\\";
+            string csprojPath = outputPath + "\\" + string.Format(DefaultNamespaceTemplate, endpointName) + ".csproj";
+            Directory.CreateDirectory(outputPath);
+            Directory.CreateDirectory(modelFilesDirectory);
+            Directory.CreateDirectory(modelActionsFilesDirectory);
+            Directory.CreateDirectory(modelParametersFilesDirectory);
+            Directory.CreateDirectory(apiFilesDirectory);
+
+
+            Project project = new Project(csprojPath);
+            project.RemoveItems(project.GetItems("Compile"));
+
             foreach (var entity in schema.Entities)
             {
                 StreamWriter writer = new StreamWriter(modelFilesDirectory + entity.Key + ".cs");
+                project.AddItem("Compile", "Model\\" + entity.Key + ".cs");
                 string body = "";
                 foreach (var field in entity.Value)
                 {
@@ -108,6 +126,7 @@ namespace EndpointSchemaGenerator
             foreach (var entity in schema.Entities)
             {
                 StreamWriter writer = new StreamWriter(apiFilesDirectory + entity.Key + "Api.cs");
+                project.AddItem("Compile", "Api\\" + entity.Key + "Api.cs");
 
                 string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity.Key);
                 Console.WriteLine(entity.Key + "Api");
@@ -119,18 +138,20 @@ namespace EndpointSchemaGenerator
             {
                 if (schema.Parameters.ContainsKey(action.Key))
                 {
-                    StreamWriter writer = new StreamWriter(modelFilesDirectory + "Actions/" + action.Key + ".cs");
+                    StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + action.Key + ".cs");
+                    project.AddItem("Compile", "Model\\Actions\\" + action.Key + ".cs");
                     string content = "";
                     foreach (var parameter in schema.Parameters[action.Key])
                     {
-                        content +=  String.Format(Templates.InActionParameterTemplate, parameter.Key, parameter.Value);
+                        content += String.Format(Templates.InActionParameterTemplate, parameter.Key, parameter.Value);
                     }
                     string result = String.Format(Templates.ActionWithParametersTemplate, endpointNamespace, action.Key, action.Value, content);
-                 
+
                     writer.Write(Templates.ActionUsingsTemplate + result);
                     writer.Close();
 
-                    writer = new StreamWriter(modelFilesDirectory + "ActionParameters/" + action.Key + "Parameters.cs");
+                    writer = new StreamWriter(modelParametersFilesDirectory + action.Key + "Parameters.cs");
+                    project.AddItem("Compile", "Model\\ActionParameters\\" + action.Key + "Parameters.cs");
 
                     content = "";
                     foreach (var parameter in schema.Parameters[action.Key])
@@ -144,7 +165,8 @@ namespace EndpointSchemaGenerator
                 }
                 else
                 {
-                    StreamWriter writer = new StreamWriter(modelFilesDirectory + "Actions/" + action.Key + ".cs");
+                    StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + action.Key + ".cs");
+                    project.AddItem("Compile", "Model\\Actions\\" + action.Key + ".cs");
 
                     string result = String.Format(Templates.ActionTemplate, endpointNamespace, action.Key, action.Value);
                     Console.WriteLine("Actions/" + action.Key);
@@ -152,6 +174,8 @@ namespace EndpointSchemaGenerator
                     writer.Close();
                 }
             }
+            project.AddItem("Compile", "Properties\\AssemblyInfo.cs");
+            project.Save();
         }
 
         private static Schema ComposeEndpointSchema(string input)
