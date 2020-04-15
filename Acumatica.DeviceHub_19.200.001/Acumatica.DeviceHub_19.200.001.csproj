@@ -54,19 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\PrinterApi.cs" />
-    <Compile Include="Api\PrintJobApi.cs" />
-    <Compile Include="Api\ScanJobApi.cs" />
-    <Compile Include="Api\ScannerApi.cs" />
-    <Compile Include="Model\Printer.cs" />
-    <Compile Include="Model\PrintJob.cs" />
-    <Compile Include="Model\ScanJob.cs" />
-    <Compile Include="Model\Scanner.cs" />
-    <Compile Include="Model\Actions\UpdatePrinterList.cs" />
-    <Compile Include="Model\Actions\UpdateScannerList.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -75,6 +62,20 @@
       <Project>{25008D3F-3D78-4BB9-B14B-0A792AE97892}</Project>
       <Name>Acumatica.RESTClient</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\PrinterApi.cs" />
+    <Compile Include="Api\PrintJobsInquiryApi.cs" />
+    <Compile Include="Api\ScanJobApi.cs" />
+    <Compile Include="Api\ScannerApi.cs" />
+    <Compile Include="Model\Actions\UpdatePrinterList.cs" />
+    <Compile Include="Model\Actions\UpdateScannerList.cs" />
+    <Compile Include="Model\Printer.cs" />
+    <Compile Include="Model\PrintJob.cs" />
+    <Compile Include="Model\PrintJobsInquiry.cs" />
+    <Compile Include="Model\ScanJob.cs" />
+    <Compile Include="Model\Scanner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

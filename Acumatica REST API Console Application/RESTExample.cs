@@ -63,7 +63,7 @@ namespace AcumaticaRestApiExample
 
 			authApi.AuthLogin(new Credentials(username, password, tenant, branch, locale));
 			Console.WriteLine("Logged In...");
-			var configuration =  new Configuration(DefaultEndpoint_18_200_001.EndpointHelper.CombineEndpointURL(siteURL));
+			var configuration = new Configuration(siteURL + "/entity/Default/18.200.001/");
 
 			//share cookie container between API clients because we use different client for authentication and interaction with endpoint
 			configuration.ApiClient.RestClient.CookieContainer = authApi.Configuration.ApiClient.RestClient.CookieContainer;

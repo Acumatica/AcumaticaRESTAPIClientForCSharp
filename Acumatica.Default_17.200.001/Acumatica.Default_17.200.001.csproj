@@ -51,6 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj">
+      <Project>{25008D3F-3D78-4BB9-B14B-0A792AE97892}</Project>
+      <Name>Acumatica.RESTClient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Api\AccountApi.cs" />
     <Compile Include="Api\AccountByPeriodInquiryApi.cs" />
     <Compile Include="Api\AccountBySubaccountInquiryApi.cs" />
@@ -132,16 +141,6 @@
     <Compile Include="Api\VendorPriceWorksheetApi.cs" />
     <Compile Include="Api\VoucherEntryCodeApi.cs" />
     <Compile Include="Api\WarehouseApi.cs" />
-    <Compile Include="Model\ActionParameters\ChangeBusinessAccountIDParameters.cs" />
-    <Compile Include="Model\ActionParameters\ConvertContactToBusinessAccountParameters.cs" />
-    <Compile Include="Model\ActionParameters\ConvertLeadToBAccountParameters.cs" />
-    <Compile Include="Model\ActionParameters\CreateAccountFromOpportunityParameters.cs" />
-    <Compile Include="Model\ActionParameters\CreateOpportunitySalesOrderParameters.cs" />
-    <Compile Include="Model\ActionParameters\SelectRelatedEntityEmailParameters.cs" />
-    <Compile Include="Model\ActionParameters\SelectRelatedEntityEventParameters.cs" />
-    <Compile Include="Model\ActionParameters\SelectRelatedEntityTaskParameters.cs" />
-    <Compile Include="Model\ActionParameters\UpdateDiscountsParameters.cs" />
-    <Compile Include="Model\Actions\AcceptInvitationEvent.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountByPeriodInquiry.cs" />
     <Compile Include="Model\AccountByPeriodRow.cs" />
@@ -153,7 +152,25 @@
     <Compile Include="Model\AccountLocationContact.cs" />
     <Compile Include="Model\AccountSummaryInquiry.cs" />
     <Compile Include="Model\AccountSummaryRow.cs" />
+    <Compile Include="Model\ActionParameters\ChangeBusinessAccountIDParameters.cs" />
+    <Compile Include="Model\ActionParameters\ConvertContactToBusinessAccountParameters.cs" />
+    <Compile Include="Model\ActionParameters\ConvertLeadToBAccountParameters.cs" />
+    <Compile Include="Model\ActionParameters\CreateAccountFromOpportunityParameters.cs" />
+    <Compile Include="Model\ActionParameters\CreateOpportunitySalesOrderParameters.cs" />
+    <Compile Include="Model\ActionParameters\SelectRelatedEntityEmailParameters.cs" />
+    <Compile Include="Model\ActionParameters\SelectRelatedEntityEventParameters.cs" />
+    <Compile Include="Model\ActionParameters\SelectRelatedEntityTaskParameters.cs" />
+    <Compile Include="Model\ActionParameters\UpdateDiscountsParameters.cs" />
+    <Compile Include="Model\Actions\AcceptInvitationEvent.cs" />
     <Compile Include="Model\Actions\ArchiveEmail.cs" />
+    <Compile Include="Model\Actions\AssignCase.cs" />
+    <Compile Include="Model\Actions\CancelActivityEvent.cs" />
+    <Compile Include="Model\Actions\CancelActivityTask.cs" />
+    <Compile Include="Model\Actions\CancelPhysicalInventory.cs" />
+    <Compile Include="Model\Actions\CancelSalesOrder.cs" />
+    <Compile Include="Model\Actions\CancelSendingEmail.cs" />
+    <Compile Include="Model\Actions\CaptureCreditCardPayment.cs" />
+    <Compile Include="Model\Actions\ChangeBusinessAccountID.cs" />
     <Compile Include="Model\Actions\CheckForBusinessAccountDuplicates.cs" />
     <Compile Include="Model\Actions\CheckForContactDuplicates.cs" />
     <Compile Include="Model\Actions\CheckLeadForDuplicates.cs" />
@@ -167,10 +184,13 @@
     <Compile Include="Model\Actions\ConfirmShipment.cs" />
     <Compile Include="Model\Actions\ConvertBusinessAccountToCustomer.cs" />
     <Compile Include="Model\Actions\ConvertBusinessAccountToVendor.cs" />
+    <Compile Include="Model\Actions\ConvertContactToBusinessAccount.cs" />
+    <Compile Include="Model\Actions\ConvertLeadToBAccount.cs" />
     <Compile Include="Model\Actions\ConvertLeadToContact.cs" />
     <Compile Include="Model\Actions\ConvertLeadToOpportunity.cs" />
     <Compile Include="Model\Actions\CopyFromCompany.cs" />
     <Compile Include="Model\Actions\CorrectShipment.cs" />
+    <Compile Include="Model\Actions\CreateAccountFromOpportunity.cs" />
     <Compile Include="Model\Actions\CreateCaseEmail.cs" />
     <Compile Include="Model\Actions\CreateContactEmail.cs" />
     <Compile Include="Model\Actions\CreateContactFromOpportunity.cs" />
@@ -179,6 +199,7 @@
     <Compile Include="Model\Actions\CreateLeadEmail.cs" />
     <Compile Include="Model\Actions\CreateOpportunityEmail.cs" />
     <Compile Include="Model\Actions\CreateOpportunityInvoice.cs" />
+    <Compile Include="Model\Actions\CreateOpportunitySalesOrder.cs" />
     <Compile Include="Model\Actions\CreateTaskEmail.cs" />
     <Compile Include="Model\Actions\DownloadEmlFileEmail.cs" />
     <Compile Include="Model\Actions\ExportCardEvent.cs" />
@@ -216,11 +237,15 @@
     <Compile Include="Model\Actions\RestoreDeletedEmail.cs" />
     <Compile Include="Model\Actions\ReverseBill.cs" />
     <Compile Include="Model\Actions\ReverseInvoice.cs" />
+    <Compile Include="Model\Actions\SelectRelatedEntityEmail.cs" />
+    <Compile Include="Model\Actions\SelectRelatedEntityEvent.cs" />
+    <Compile Include="Model\Actions\SelectRelatedEntityTask.cs" />
     <Compile Include="Model\Actions\SelectSourceEmail.cs" />
     <Compile Include="Model\Actions\SendEmail.cs" />
     <Compile Include="Model\Actions\TakeCase.cs" />
     <Compile Include="Model\Actions\TrialBalanceProcess.cs" />
     <Compile Include="Model\Actions\TrialBalanceProcessAll.cs" />
+    <Compile Include="Model\Actions\UpdateDiscounts.cs" />
     <Compile Include="Model\Actions\UpdateIN.cs" />
     <Compile Include="Model\Actions\UpdateStandardCostNonStockItem.cs" />
     <Compile Include="Model\Actions\UpdateStandardCostStockItem.cs" />
@@ -232,7 +257,6 @@
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Adjustment.cs" />
     <Compile Include="Model\AdjustmentDetail.cs" />
-    <Compile Include="Model\Actions\AssignCase.cs" />
     <Compile Include="Model\AttributeDefinition.cs" />
     <Compile Include="Model\AttributeDefinitionValue.cs" />
     <Compile Include="Model\AttributeDetail.cs" />
@@ -258,12 +282,6 @@
     <Compile Include="Model\BusinessAccountPaymentInstructionDetail.cs" />
     <Compile Include="Model\BusinessAccountShippingContact.cs" />
     <Compile Include="Model\CampaignDetail.cs" />
-    <Compile Include="Model\Actions\CancelActivityEvent.cs" />
-    <Compile Include="Model\Actions\CancelActivityTask.cs" />
-    <Compile Include="Model\Actions\CancelPhysicalInventory.cs" />
-    <Compile Include="Model\Actions\CancelSalesOrder.cs" />
-    <Compile Include="Model\Actions\CancelSendingEmail.cs" />
-    <Compile Include="Model\Actions\CaptureCreditCardPayment.cs" />
     <Compile Include="Model\Carrier.cs" />
     <Compile Include="Model\CarrierCustomerAccount.cs" />
     <Compile Include="Model\CarrierPluginParameter.cs" />
@@ -274,7 +292,6 @@
     <Compile Include="Model\CashSale.cs" />
     <Compile Include="Model\CashSaleDetail.cs" />
     <Compile Include="Model\CategoryStockItem.cs" />
-    <Compile Include="Model\Actions\ChangeBusinessAccountID.cs" />
     <Compile Include="Model\Check.cs" />
     <Compile Include="Model\CheckDetail.cs" />
     <Compile Include="Model\CheckHistoryDetail.cs" />
@@ -466,16 +483,6 @@
     <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Model\WarehouseLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj">
-      <Project>{25008D3F-3D78-4BB9-B14B-0A792AE97892}</Project>
-      <Name>Acumatica.RESTClient</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

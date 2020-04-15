@@ -47,13 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\CustomersApi.cs" />
-    <Compile Include="Api\ISVSolutionApi.cs" />
-    <Compile Include="Model\Customers.cs" />
-    <Compile Include="Model\ISVSolution.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj">
       <Project>{25008d3f-3d78-4bb9-b14b-0a792ae97892}</Project>
       <Name>Acumatica.RESTClient</Name>
@@ -66,6 +59,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\ISVSolutionApi.cs" />
+    <Compile Include="Model\Customers.cs" />
+    <Compile Include="Model\ISVSolution.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

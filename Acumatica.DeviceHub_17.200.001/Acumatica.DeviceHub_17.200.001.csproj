@@ -57,14 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\PrinterApi.cs" />
-    <Compile Include="Api\PrintJobApi.cs" />
-    <Compile Include="Model\Printer.cs" />
-    <Compile Include="Model\PrintJob.cs" />
-    <Compile Include="Model\Actions\UpdatePrinterList.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj">
       <Project>{25008D3F-3D78-4BB9-B14B-0A792AE97892}</Project>
       <Name>Acumatica.RESTClient</Name>
@@ -73,6 +65,14 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\PrinterApi.cs" />
+    <Compile Include="Api\PrintJobApi.cs" />
+    <Compile Include="Model\Actions\UpdatePrinterList.cs" />
+    <Compile Include="Model\Printer.cs" />
+    <Compile Include="Model\PrintJob.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

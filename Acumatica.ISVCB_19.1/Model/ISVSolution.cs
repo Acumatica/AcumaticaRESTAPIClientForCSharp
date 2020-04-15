@@ -21,7 +21,7 @@ namespace Acumatica.ISVCB_19_1.Model
 		public StringValue SolutionStage { get; set; }
 
 		[DataMember(Name="Customers", EmitDefaultValue=false)]
-		public Customers[] Customers { get; set; }
+		public List<Customers> Customers { get; set; }
 
 		[DataMember(Name="Initials", EmitDefaultValue=false)]
 		public StringValue Initials { get; set; }
