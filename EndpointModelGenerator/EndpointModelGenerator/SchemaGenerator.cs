@@ -28,7 +28,6 @@ namespace EndpointSchemaGenerator
         "GuidValue", "FileLink", "Entity", "HttpError", "CustomByteField"};
         #endregion
 
-
         static void Main(string[] args)
         {
             string solutionFolderPath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()).ToString()).ToString()).ToString();
@@ -47,6 +46,14 @@ namespace EndpointSchemaGenerator
                      endpoint,
                     schema);
             }
+        }
+        public static void Generate(string path, string endpointDefinitionJson)
+        {
+            Schema schema = ComposeEndpointSchema(endpointDefinitionJson);
+            string directoryPath = Directory.GetParent(path).ToString();
+            string endpointName = path.Replace(directoryPath, "").Replace(".csproj", "").Replace("Acumatica.", "").Replace("\\", "");
+            WriteCSharp(directoryPath, endpointName, schema);
+          
         }
 
         public static string ParseParentRef(JToken jsonObject)
