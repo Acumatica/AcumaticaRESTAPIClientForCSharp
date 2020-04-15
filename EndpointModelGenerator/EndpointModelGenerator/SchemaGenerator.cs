@@ -107,9 +107,19 @@ namespace EndpointSchemaGenerator
             string apiFilesDirectory = outputPath + "\\Api\\";
             string csprojPath = outputPath + "\\" + string.Format(DefaultNamespaceTemplate, endpointName) + ".csproj";
             Directory.CreateDirectory(outputPath);
+            try
+            {
+                Directory.Delete(modelFilesDirectory, true);
+            }
+            catch { }
             Directory.CreateDirectory(modelFilesDirectory);
             Directory.CreateDirectory(modelActionsFilesDirectory);
             Directory.CreateDirectory(modelParametersFilesDirectory);
+            try
+            {
+                Directory.Delete(apiFilesDirectory, true);
+            }
+            catch { }
             Directory.CreateDirectory(apiFilesDirectory);
 
 

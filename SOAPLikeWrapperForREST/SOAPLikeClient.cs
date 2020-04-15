@@ -114,7 +114,7 @@ namespace SOAPLikeWrapperForREST
             { }
             else
             {
-            ProcessStartTime.Add(invokeResult, DateTime.Now);
+                ProcessStartTime.Add(invokeResult, DateTime.Now);
             }
             return invokeResult;
         }
@@ -207,7 +207,7 @@ namespace SOAPLikeWrapperForREST
                             if (searchTypes.Contains(field.GetValue(linkedEntity.Value).GetType()))
                             {
                                 yield return new EntityField(field.GetValue(linkedEntity.Value).GetType(), (SearchType)field.GetValue(linkedEntity.Value), linkedEntity.Name + "/" + field.Name);
-        }
+                            }
                         }
                     }
                 }
@@ -280,7 +280,7 @@ namespace SOAPLikeWrapperForREST
                 }
             }
             if (!string.IsNullOrEmpty(filter))
-            filter = filter.Substring(0, filter.Length - 4);
+                filter = filter.Substring(0, filter.Length - 4);
             return filter;
         }
         protected string ComposeFilter<T>(T entity) where T : Entity
@@ -291,7 +291,7 @@ namespace SOAPLikeWrapperForREST
                 if (field.Value != null)
                 {
                     if (field.Type == typeof(StringValue))
-                    filter += field.Name + " eq " + "'" + field.Value.ToString() + "' and ";
+                        filter += field.Name + " eq " + "'" + field.Value.ToString() + "' and ";
                     else
                         filter += field.Name + " eq " + field.Value.ToString() + " and ";
                 }
