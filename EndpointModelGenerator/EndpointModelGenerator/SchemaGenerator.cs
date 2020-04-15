@@ -123,13 +123,13 @@ namespace EndpointSchemaGenerator
                 writer.Write(Templates.EntityUsingsTemplate + result);
                 writer.Close();
             }
-            foreach (var entity in schema.Entities)
+            foreach (var entity in schema.TopLevelEntities)
             {
-                StreamWriter writer = new StreamWriter(apiFilesDirectory + entity.Key + "Api.cs");
-                project.AddItem("Compile", "Api\\" + entity.Key + "Api.cs");
+                StreamWriter writer = new StreamWriter(apiFilesDirectory + entity + "Api.cs");
+                project.AddItem("Compile", "Api\\" + entity + "Api.cs");
 
-                string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity.Key);
-                Console.WriteLine(entity.Key + "Api");
+                string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity);
+                Console.WriteLine(entity + "Api");
                 writer.Write(result);
                 writer.Close();
             }
@@ -186,11 +186,18 @@ namespace EndpointSchemaGenerator
                 schema.Definitions.Remove(item);
             }
             schema.Entities = new Dictionary<string, Dictionary<string, string>>();
+            schema.TopLevelEntities = new HashSet<string>();
             foreach (var item in schema.Definitions)
             {
                 var res = ParseObject(item);
                 if (res != null)
-                    schema.Entities.Add(item.Key, ParseObject(item));
+                {
+                    schema.Entities.Add(item.Key, res);
+                    if (IsTopLevelEntity(schema, item.Key))
+                    {
+                        schema.TopLevelEntities.Add(item.Key);
+                    }
+                }
             }
             schema.Actions = new Dictionary<string, string>();
             foreach (var item in schema.Definitions)
@@ -218,6 +225,11 @@ namespace EndpointSchemaGenerator
             }
            
             return schema;
+        }
+
+        private static bool IsTopLevelEntity(Schema schema, string key)
+        {
+            return schema.Tags.Where(_ => _.Name == key).Any();
         }
 
         private static Dictionary<string, string> ParseObject(KeyValuePair<string, JObject> item)
