@@ -97,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EndpointModelGenerator\EndpointModelGenerator.csproj">
-      <Project>{b1a5d2c4-8321-4235-92d7-d5f9058acb4d}</Project>
+      <Project>{B1A5D2C4-8321-4235-92D7-D5F9058ACB4D}</Project>
       <Name>EndpointModelGenerator</Name>
     </ProjectReference>
   </ItemGroup>

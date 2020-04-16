@@ -34,7 +34,7 @@ namespace ModelGeneratorUI
 		string directoryPath;
 		string endpointName;
 		private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-		{ 
+		{
 			pathToProject = ((OpenFileDialog)sender).FileName;
 			label5.Text = pathToProject;
 			directoryPath = Directory.GetParent(pathToProject).ToString();
@@ -54,9 +54,9 @@ namespace ModelGeneratorUI
 			Schema schema = JsonSchemaParser.ComposeEndpointSchema(textBox1.Text);
 			textBox2.Text += "\r\nEnpoint schema - OK";
 
-			textBox2.Text += "\n\rWriting code...";
+			textBox2.Text += "\r\nWriting code...";
 
-			SchemaGenerator.WriteCSharp(pathToProject, directoryPath, endpointName, textBox1.Text, (_) => textBox2.Text += ("\n\r" + _));
+			SchemaGenerator.WriteCSharp(directoryPath + "\\", schema, (_) => textBox2.Text += ("\r\n" + _), "Acumatica." + endpointName.Replace(".", "_"), pathToProject);
 		}
 	}
 }

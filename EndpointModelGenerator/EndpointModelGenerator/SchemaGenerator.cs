@@ -29,13 +29,12 @@ namespace EndpointSchemaGenerator
             RegenerateDirectories(outputPath, modelFilesDirectory, modelActionsFilesDirectory, modelParametersFilesDirectory, apiFilesDirectory);
 
             Project project = new Project(csprojPath);
-            project.RemoveItems(project.GetItems("Compile"));
+            project.RemoveItems(project.GetItems("Compile").Where(_ => _.EvaluatedInclude.StartsWith(modelLocalPath) || _.EvaluatedInclude.StartsWith(apiLocalPath)));
 
             WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory, project);
             WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory, project);
             WriteActions(schema, writeLogDelegate, endpointNamespace, actionsLocalPath, actionParametersLocalPath, modelActionsFilesDirectory, modelParametersFilesDirectory, project);
 
-            project.AddItem("Compile", "Properties\\AssemblyInfo.cs");
             project.Save();
             writeLogDelegate.Invoke("Done!");
         }
