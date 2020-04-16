@@ -32,16 +32,22 @@ namespace ModelGeneratorUI
 		}
 		string pathToProject;
 		string directoryPath;
+		string additionalPath;
 		string endpointName;
 		private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
 		{
 			pathToProject = ((OpenFileDialog)sender).FileName;
 			label5.Text = pathToProject;
 			directoryPath = Directory.GetParent(pathToProject).ToString();
-			textBox4.Text = directoryPath;
-
+			additionalPath = "";
 			endpointName = pathToProject.Replace(directoryPath, "").Replace(".csproj", "").Replace("Acumatica.", "").Replace("\\", "");
+			if (endpointName == "RESTClient")
+			{
+				endpointName = "Default_20.200.001";
+				additionalPath += endpointName + "\\";
+			}
 			textBox3.Text = endpointName;
+			textBox4.Text = directoryPath;
 		}
 
 		private void button2_Click(object sender, EventArgs e)
@@ -50,13 +56,24 @@ namespace ModelGeneratorUI
 			button2.Enabled = false;
 
 			textBox2.Text = "Generating...";
-
-			Schema schema = JsonSchemaParser.ComposeEndpointSchema(textBox1.Text);
+			Schema schema;
+			try
+			{
+				schema = JsonSchemaParser.ComposeEndpointSchema(textBox1.Text);
+			}
+			catch (Exception ex)
+			{
+				textBox2.Text+= "\r\nError reading endpoint";
+				textBox2.Text += "\r\n" + ex.Message;
+				button1.Enabled = true;
+				button2.Enabled = true;
+				return;
+			}
 			textBox2.Text += "\r\nEnpoint schema - OK";
 
 			textBox2.Text += "\r\nWriting code...";
 
-			SchemaGenerator.WriteCSharp(directoryPath + "\\", schema, (_) => textBox2.Text += ("\r\n" + _), "Acumatica." + endpointName.Replace(".", "_"), pathToProject);
+			SchemaGenerator.WriteCSharp(directoryPath + "\\", schema, (_) => textBox2.Text += ("\r\n" + _), "Acumatica." + endpointName.Replace(".", "_"), pathToProject, additionalPath);
 		}
 	}
 }

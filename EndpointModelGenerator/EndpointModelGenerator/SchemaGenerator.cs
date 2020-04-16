@@ -13,13 +13,13 @@ using Microsoft.Build.Evaluation;
 namespace EndpointSchemaGenerator
 {
     public partial class SchemaGenerator
-    { 
-        public static void WriteCSharp(string outputPath, Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string csprojPath)
+    {
+        public static void WriteCSharp(string outputPath, Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string csprojPath, string additionalPath = "")
         {
-            string modelLocalPath = "Model\\";
+            string modelLocalPath = additionalPath + "Model\\";
             string actionsLocalPath = modelLocalPath + "Actions\\";
             string actionParametersLocalPath = modelLocalPath + "ActionParameters\\";
-            string apiLocalPath = "Api\\";
+            string apiLocalPath = additionalPath + "Api\\";
 
             string modelFilesDirectory = outputPath + modelLocalPath;
             string modelActionsFilesDirectory = outputPath + actionsLocalPath;
