@@ -24,11 +24,12 @@ namespace EndpointSchemaGenerator
 
         public static Schema ComposeEndpointSchema(string input)
         {
-            var schema = JsonConvert.DeserializeObject<Schema>(input);
-            foreach (var item in IgnoreList)
+            Schema schema = JsonConvert.DeserializeObject<Schema>(input);
+            foreach (string item in IgnoreList.Union(schema.Definitions.Keys.Where(s => s.EndsWith("CustomAction"))).ToArray())
             {
                 schema.Definitions.Remove(item);
             }
+
             schema.Entities = new Dictionary<string, Dictionary<string, string>>();
             schema.TopLevelEntities = new HashSet<string>();
             foreach (var item in schema.Definitions)
