@@ -134,7 +134,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
         /// <returns></returns>
-        public void PutFile(List<string> ids, string filename, byte[] content)
+        public void PutFile(IEnumerable<string> ids, string filename, byte[] content)
         {
             PutFileWithHttpInfo(ids, filename, content);
         }
@@ -145,7 +145,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PutFileAsync(List<string> ids, string filename, byte[] content)
+        public async System.Threading.Tasks.Task PutFileAsync(IEnumerable<string> ids, string filename, byte[] content)
         {
             await PutFileAsyncWithHttpInfo(ids, filename, content);
 
@@ -184,7 +184,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of Entity</returns>
-        public async System.Threading.Tasks.Task<EntityType> GetByKeysAsync(List<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
+        public async System.Threading.Tasks.Task<EntityType> GetByKeysAsync(IEnumerable<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
         {
             ApiResponse<EntityType> localVarResponse = await GetByKeysAsyncWithHttpInfo(ids, select, filter, expand, custom);
             return localVarResponse.Data;
@@ -217,7 +217,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Entity</returns>
-        public EntityType GetByKeys(List<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
+        public EntityType GetByKeys(IEnumerable<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
         {
             ApiResponse<EntityType> localVarResponse = GetByKeysWithHttpInfo(ids, select, filter, expand, custom);
             return localVarResponse.Data;
@@ -273,7 +273,7 @@ namespace Acumatica.RESTClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <returns></returns>
-        public void DeleteByKeys(List<string> ids)
+        public void DeleteByKeys(IEnumerable<string> ids)
         {
             DeleteByKeysWithHttpInfo(ids);
         }
@@ -284,7 +284,7 @@ namespace Acumatica.RESTClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteByKeysAsync(List<string> ids)
+        public async System.Threading.Tasks.Task DeleteByKeysAsync(IEnumerable<string> ids)
         {
             await DeleteByKeysAsyncWithHttpInfo(ids);
         }
@@ -389,7 +389,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        protected ApiResponse<Object> PutFileWithHttpInfo(List<string> ids, string filename, byte[] content)
+        protected ApiResponse<Object> PutFileWithHttpInfo(IEnumerable<string> ids, string filename, byte[] content)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -420,7 +420,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
         /// <returns>Task of ApiResponse</returns>
-        protected async System.Threading.Tasks.Task<ApiResponse<Object>> PutFileAsyncWithHttpInfo(List<string> ids, string filename, byte[] content)
+        protected async System.Threading.Tasks.Task<ApiResponse<Object>> PutFileAsyncWithHttpInfo(IEnumerable<string> ids, string filename, byte[] content)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -520,7 +520,7 @@ namespace Acumatica.RESTClient.Api
             }
             if (businessDate != null)
             {
-                headers.Add("PX-CbApiBusinessDate", businessDate.ToString());
+                headers.Add("PX-CbApiBusinessDate", businessDate?.ToString(System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat));
             }
 
             // make the HTTP request
@@ -603,7 +603,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of ApiResponse (Entity)</returns>
-        protected async System.Threading.Tasks.Task<ApiResponse<EntityType>> GetByKeysAsyncWithHttpInfo(List<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
+        protected async System.Threading.Tasks.Task<ApiResponse<EntityType>> GetByKeysAsyncWithHttpInfo(IEnumerable<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -631,7 +631,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>ApiResponse of Entity</returns>
-        protected ApiResponse<EntityType> GetByKeysWithHttpInfo(List<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
+        protected ApiResponse<EntityType> GetByKeysWithHttpInfo(IEnumerable<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -800,7 +800,7 @@ namespace Acumatica.RESTClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <returns>Task of ApiResponse</returns>
-        protected async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteByKeysAsyncWithHttpInfo(List<string> ids)
+        protected async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteByKeysAsyncWithHttpInfo(IEnumerable<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -824,7 +824,7 @@ namespace Acumatica.RESTClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        protected ApiResponse<Object> DeleteByKeysWithHttpInfo(List<string> ids)
+        protected ApiResponse<Object> DeleteByKeysWithHttpInfo(IEnumerable<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -897,7 +897,7 @@ namespace Acumatica.RESTClient.Api
             return pathParams;
         }
 
-        protected Dictionary<string, string> ComposeIDsPathParams(List<string> ids, string filename = null)
+        protected Dictionary<string, string> ComposeIDsPathParams(IEnumerable<string> ids, string filename = null)
         {
             var pathParams = ComposeEmptyPathParams();
 

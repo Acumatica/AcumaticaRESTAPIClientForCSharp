@@ -172,12 +172,15 @@ namespace Acumatica.RESTClient.Client
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
-        public virtual string BasePath {
+        public virtual string BasePath
+        {
             get { return _basePath; }
-            set {
+            set
+            {
                 _basePath = value;
                 // pass-through to ApiClient if it's set.
-                if(_apiClient != null) {
+                if (_apiClient != null)
+                {
                     _apiClient.RestClient.BaseUrl = new Uri(_basePath);
                 }
             }
