@@ -92,6 +92,7 @@ OpenAPI spec version: 3
     <Compile Include="Model\FieldTypes\GuidValue.cs" />
     <Compile Include="Model\FieldTypes\IntValue.cs" />
     <Compile Include="Model\FieldTypes\LongValue.cs" />
+    <Compile Include="Model\FieldTypes\RestValueBase.cs" />
     <Compile Include="Model\FieldTypes\ShortValue.cs" />
     <Compile Include="Model\FieldTypes\StringValue.cs" />
     <Compile Include="Model\FileLink.cs" />
