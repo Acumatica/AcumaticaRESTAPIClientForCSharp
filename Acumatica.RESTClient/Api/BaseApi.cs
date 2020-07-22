@@ -181,11 +181,20 @@ namespace Acumatica.RESTClient.Api
                 null);
         }
 
+        protected void VerifyResponse<T>(IRestResponse response, string methodName)
+        {
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory(methodName, response, typeof(T));
+                if (exception != null) throw exception;
+            }
+        }
+
         protected void VerifyResponse(IRestResponse response, string methodName)
         {
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory(methodName, response);
+                Exception exception = ExceptionFactory(methodName, response, null);
                 if (exception != null) throw exception;
             }
         }
@@ -195,7 +204,7 @@ namespace Acumatica.RESTClient.Api
             throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");
         }
 
-        protected ExceptionFactory _exceptionFactory = (name, response) => null;
+        protected ExceptionFactory _exceptionFactory = (name, response, type) => null;
 
         #endregion
     }

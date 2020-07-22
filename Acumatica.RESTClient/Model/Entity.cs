@@ -80,6 +80,11 @@ namespace Acumatica.RESTClient.Model
         /// </summary>
         [DataMember(Name="note", EmitDefaultValue=false)]
         public string Note { get; set; }
+        /// <summary>
+        /// Gets or Sets Error
+        /// </summary>
+        [DataMember(Name = "error", EmitDefaultValue = false)]
+        public string Error { get; set; }
 
         /// <summary>
         /// Gets or Sets Custom

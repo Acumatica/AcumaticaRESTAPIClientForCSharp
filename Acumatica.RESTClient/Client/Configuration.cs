@@ -44,22 +44,30 @@ namespace Acumatica.RESTClient.Client
         /// <summary>
         /// Default creation of exceptions for a given method name and response object
         /// </summary>
-        public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
+        public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response, objectType) =>
         {
             var status = (int)response.StatusCode;
             if (status >= 400)
             {
-                return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.Content),
-                    response.Content);
+                return GetGenericApiException(status, "Error calling " + methodName, response.Content, objectType);
             }
             if (status == 0)
             {
-                return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.ErrorMessage), response.ErrorMessage);
+                return GetGenericApiException(status,
+                    string.Format("Error calling {0}", methodName, response.ErrorMessage),
+                    null, objectType);
             }
             return null;
         };
+
+        public static ApiException GetGenericApiException(int status, string message, string content, Type genericType)
+        {
+            if (genericType == null || genericType.IsAbstract)
+                return new ApiException(status, message, content);
+            return (ApiException)Activator.CreateInstance(
+                typeof(ApiException<>).MakeGenericType(genericType),
+                status, message, content);
+        }
 
         /// <summary>
         /// Gets or sets the default Configuration.
@@ -196,7 +204,7 @@ namespace Acumatica.RESTClient.Client
         /// </summary>
         public virtual int Timeout
         {
-            
+
             get { return ApiClient.RestClient.Timeout; }
             set { ApiClient.RestClient.Timeout = value; }
         }
@@ -227,9 +235,9 @@ namespace Acumatica.RESTClient.Client
         public string GetApiKeyWithPrefix(string apiKeyIdentifier)
         {
             var apiKeyValue = "";
-            ApiKey.TryGetValue (apiKeyIdentifier, out apiKeyValue);
+            ApiKey.TryGetValue(apiKeyIdentifier, out apiKeyValue);
             var apiKeyPrefix = "";
-            if (ApiKeyPrefix.TryGetValue (apiKeyIdentifier, out apiKeyPrefix))
+            if (ApiKeyPrefix.TryGetValue(apiKeyIdentifier, out apiKeyPrefix))
                 return apiKeyPrefix + " " + apiKeyValue;
             else
                 return apiKeyValue;
@@ -367,7 +375,7 @@ namespace Acumatica.RESTClient.Client
         {
             String report = "C# SDK (Org.OpenAPITools) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
-            report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
+            report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: 3\n";
             report += "    SDK Package Version: 1.0.0\n";
 
