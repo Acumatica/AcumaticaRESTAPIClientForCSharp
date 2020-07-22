@@ -324,36 +324,43 @@ namespace Acumatica.RESTClient.Api
         #endregion
 
         #region Implementation
-        private struct Location
+        public struct Location
         {
             public string Site;
-            public string Entity;
+            public string Status;
             public string EndpointName;
             public string EndpointVersion;
             public string EntityName;
             public string ActionName;
-            public string Status;
             public string ID;
         }
-        private Location ParseLocation(string location)
+        public static Location ParseLocation(string location)
         {
-            var result = new Location();
+            string entityKeyword = "/entity/";
+            char[] pathSeparators = new char[] { '/' };
 
-            var parts = location.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-            result.Site = parts[0];
-            result.Entity = parts[1];
-            result.EndpointName = parts[2];
-            result.EndpointVersion = parts[3];
-            result.EntityName = parts[4];
-            if (parts.Length == 6)
+            var result = new Location();
+            var parts = location.Split(pathSeparators, StringSplitOptions.RemoveEmptyEntries);
+            result.ID = parts[parts.Length - 1];
+
+            int indexOfEntity = location.IndexOf(entityKeyword, StringComparison.OrdinalIgnoreCase);
+            if (indexOfEntity < 0)
+                throw new Exception("Incorrect location");
+            if (location.Substring(indexOfEntity + entityKeyword.Length).IndexOf(entityKeyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                throw new Exception("Location cannot be parsed as it contains more than 1 entity keyword");
+            result.Site = location.Substring(0, indexOfEntity);
+            string restOfLocation = location.Substring(indexOfEntity);
+            parts = restOfLocation.Split(pathSeparators, StringSplitOptions.RemoveEmptyEntries);
+
+            result.EndpointName = parts[1];
+            result.EndpointVersion = parts[2];
+            result.EntityName = parts[3];
+            if (parts.Length == 7)
             {
-                result.ID = parts[5];
-                return result;
+                result.ActionName = parts[4];
+                result.Status = parts[5];
             }
 
-            result.ActionName = parts[5];
-            result.Status = parts[6];
-            result.ID = parts[7];
             return result;
         }
 
@@ -368,6 +375,8 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("GetProcessStatus", nameof(invokeResult));
 
             var parsedLocation = ParseLocation(invokeResult);
+            if (parsedLocation.ActionName == null)
+                return 204;
             var localVarPath = "/" + parsedLocation.EntityName + "/" + parsedLocation.ActionName + "/" + parsedLocation.Status + "/" + parsedLocation.ID;
             
             var localVarFileParams = new Dictionary<String, FileParameter>();
