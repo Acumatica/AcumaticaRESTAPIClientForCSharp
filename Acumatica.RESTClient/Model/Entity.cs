@@ -59,9 +59,8 @@ namespace Acumatica.RESTClient.Model
 		/// <summary>
 		/// Indicates whether it is needed to delete detail record.
 		/// </summary>
-		[DataMember(Name = "Delete", EmitDefaultValue = false)]
+        [DataMember(Name = "delete", EmitDefaultValue = false)]
         public bool? Delete { get; set; }
-
 
         /// <summary>
         /// Gets or Sets Id

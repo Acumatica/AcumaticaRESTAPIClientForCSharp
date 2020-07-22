@@ -54,7 +54,7 @@
     <Compile Include="SOAPTypeWrappers\SOAPDateTimeTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPDecimalTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPGUIDTypesWrappers.cs" />
-    <Compile Include="SOAPTypeWrappers\SOAPLongTypeWrappers.cs" />
+    <Compile Include="SOAPTypeWrappers\SOAPLongTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPProcessingTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPStringTypesWrappers.cs" />
     <Compile Include="SOAPTypeWrappers\SOAPIntTypesWrappers.cs" />

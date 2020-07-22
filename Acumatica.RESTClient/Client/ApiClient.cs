@@ -15,7 +15,7 @@ namespace Acumatica.RESTClient.Client
     /// </summary>
     public partial class ApiClient
     {
-		private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+        private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
         };
@@ -52,7 +52,7 @@ namespace Acumatica.RESTClient.Client
         /// <param name="basePath">The base path.</param>
         public ApiClient(String basePath)
         {
-           if (String.IsNullOrEmpty(basePath))
+            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
 
             RestClient = new RestClient(basePath);
@@ -86,23 +86,23 @@ namespace Acumatica.RESTClient.Client
             var request = new RestRequest(path, method);
 
             // add path parameter, if any
-            foreach(var param in pathParams)
+            foreach (var param in pathParams)
                 request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
 
             // add header parameter, if any
-            foreach(var param in headerParams)
+            foreach (var param in headerParams)
                 request.AddHeader(param.Key, param.Value);
 
             // add query parameter, if any
-            foreach(var param in queryParams)
+            foreach (var param in queryParams)
                 request.AddQueryParameter(param.Key, param.Value);
 
             // add form parameter, if any
-            foreach(var param in formParams)
+            foreach (var param in formParams)
                 request.AddParameter(param.Key, param.Value);
 
             // add file parameter, if any
-            foreach(var param in fileParams)
+            foreach (var param in fileParams)
             {
                 request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
             }
@@ -139,7 +139,7 @@ namespace Acumatica.RESTClient.Client
                 pathParams, contentType);
 
             // set timeout
-            
+
             RestClient.Timeout = Configuration.Timeout;
             // set user agent
             RestClient.UserAgent = Configuration.UserAgent;
@@ -148,7 +148,7 @@ namespace Acumatica.RESTClient.Client
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
 
-            return (Object) response;
+            return (Object)response;
         }
         /// <summary>
         /// Makes the asynchronous HTTP request.
@@ -216,14 +216,16 @@ namespace Acumatica.RESTClient.Client
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTime)obj).ToString (Configuration.DateTimeFormat);
+                return ((DateTime)obj).ToString(Configuration.DateTimeFormat);
             else if (obj is DateTimeOffset)
                 // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTimeOffset)obj).ToString (Configuration.DateTimeFormat);
-            else if (obj is IList)
+                return ((DateTimeOffset)obj).ToString(Configuration.DateTimeFormat);
+            if (obj is string str)
+                return str;
+            else if (obj is IEnumerable enumerable)
             {
                 var flattenedString = new StringBuilder();
                 foreach (var param in enumerable)
@@ -235,7 +237,7 @@ namespace Acumatica.RESTClient.Client
                 return flattenedString.ToString();
             }
             else
-                return Convert.ToString (obj);
+                return Convert.ToString(obj);
         }
 
         /// <summary>
@@ -278,7 +280,7 @@ namespace Acumatica.RESTClient.Client
 
             if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
             {
-                return DateTime.Parse(response.Content,  null, System.Globalization.DateTimeStyles.RoundtripKind);
+                return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
 
             if (type == typeof(String) || type.Name.StartsWith("System.Nullable")) // return primitive type
@@ -397,7 +399,7 @@ namespace Acumatica.RESTClient.Client
         /// <returns>Byte array</returns>
         public static byte[] ReadAsBytes(Stream inputStream)
         {
-            byte[] buf = new byte[16*1024];
+            byte[] buf = new byte[16 * 1024];
             using (MemoryStream ms = new MemoryStream())
             {
                 int count;
