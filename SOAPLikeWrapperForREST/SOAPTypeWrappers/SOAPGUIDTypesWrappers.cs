@@ -3,10 +3,6 @@ using System;
 
 namespace SOAPLikeWrapperForREST
 {
-    public partial class GuidReturn : GuidValue
-    {
-    }
-
     public enum GuidCondition
     {
         Equal,
@@ -14,12 +10,15 @@ namespace SOAPLikeWrapperForREST
         IsNull,
         IsNotNull,
     }
-  
+
     public partial class GuidSearch : GuidValue
     {
-		public GuidCondition Condition { get; set; }
+        public GuidSearch(Guid? value = null) : base(value)
+        { }
 
-		public Guid Value2
+        public GuidCondition Condition { get; set; }
+
+        public Guid Value2
         {
             get;
             set;

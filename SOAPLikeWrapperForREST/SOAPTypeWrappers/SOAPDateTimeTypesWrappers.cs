@@ -3,15 +3,16 @@ using System;
 
 namespace SOAPLikeWrapperForREST
 {
-    public partial class DateTimeReturn : DateTimeValue
-    {
-    }
     public partial class DateTimeSearch : DateTimeValue
     {
-		public DateTimeCondition Condition { get; set; }
+        public DateTimeSearch(DateTime? value = null) : base(value)
+        { }
+        public DateTimeCondition Condition { get; set; }
 
-		public DateTime? Value2 { get; set; }
-	}
+        public DateTime? Value2 { get; set; }
+    }
+    public partial class DateTimeReturn : DateTimeValue
+    { }
 
     public enum DateTimeCondition
     {

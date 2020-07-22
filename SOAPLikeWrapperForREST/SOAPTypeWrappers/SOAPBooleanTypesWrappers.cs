@@ -15,7 +15,7 @@ namespace SOAPLikeWrapperForREST
     }
     public partial class BooleanSearch : BooleanValue
     {
-        public BooleanCondition Condition { get; set; }
+		public BooleanCondition Condition { get; set; }
 
 		public bool? Value2 { get; set; }
 	}

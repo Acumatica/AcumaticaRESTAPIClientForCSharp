@@ -2,9 +2,6 @@
 
 namespace SOAPLikeWrapperForREST
 {
-    public partial class LongReturn : LongValue
-    {
-    }
     public enum LongCondition
     {
         Equal,
@@ -23,5 +20,8 @@ namespace SOAPLikeWrapperForREST
         public LongCondition Condition { get; set; }
 
         public long? Value2 { get; set; }
+    }
+    public partial class LongReturn : IntValue
+    {
     }
 }

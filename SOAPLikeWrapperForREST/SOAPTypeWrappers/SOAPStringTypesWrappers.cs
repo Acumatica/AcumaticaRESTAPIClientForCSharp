@@ -1,12 +1,8 @@
 ﻿using Acumatica.RESTClient.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOAPLikeWrapperForREST
 {
+
     public enum StringCondition
     {
         Equal,
@@ -23,13 +19,16 @@ namespace SOAPLikeWrapperForREST
         IsNull,
         IsNotNull,
     }
-    
+
     public partial class StringSearch : StringValue
     {
+        public StringSearch(string value = null) : base(value)
+        { }
+
         public StringCondition Condition { get; set; }
 
-		public string Value2 { get; set; }
-	}
+        public string Value2 { get; set; }
+    }
     public partial class StringReturn : StringValue
     {
     }

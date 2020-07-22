@@ -9,8 +9,8 @@ namespace SOAPLikeWrapperForREST
     {
         public DecimalCondition Condition { get; set; }
 
-		public decimal? Value2 { get; set; }
-	}
+        public decimal? Value2 { get; set; }
+    }
     public enum DecimalCondition
     {
         Equal,
