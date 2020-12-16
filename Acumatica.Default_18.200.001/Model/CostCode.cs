@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class CostCode : Entity
+	public class CostCode : Entity_v3
 	{
 
 		[DataMember(Name="CostCodeID", EmitDefaultValue=false)]

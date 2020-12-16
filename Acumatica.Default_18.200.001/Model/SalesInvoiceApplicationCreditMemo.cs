@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class SalesInvoiceApplicationCreditMemo : Entity
+	public class SalesInvoiceApplicationCreditMemo : Entity_v3
 	{
 
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]

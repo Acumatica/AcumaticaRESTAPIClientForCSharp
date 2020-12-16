@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public class SalesOrderDetailAllocation : Entity
+	public class SalesOrderDetailAllocation : Entity_v3
 	{
 
 		[DataMember(Name="Allocated", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class ExpenseReceipt : Entity
+	public class ExpenseReceipt : Entity_v3
 	{
 
 		[DataMember(Name="Branch", EmitDefaultValue=false)]

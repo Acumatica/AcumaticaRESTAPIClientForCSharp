@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class JournalTransactionDetail : Entity
+	public class JournalTransactionDetail : Entity_v3
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]

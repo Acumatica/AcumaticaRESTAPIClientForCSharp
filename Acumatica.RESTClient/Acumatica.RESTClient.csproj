@@ -73,6 +73,8 @@ OpenAPI spec version: 3
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\EntityAction.cs" />
     <Compile Include="Model\EntityActionWithParameters.cs" />
+    <Compile Include="Model\Entity_v3.cs" />
+    <Compile Include="Model\Entity_v4.cs" />
     <Compile Include="Model\FieldTypes\BooleanValue.cs" />
     <Compile Include="Model\FieldTypes\ByteValue.cs" />
     <Compile Include="Model\FieldTypes\CustomBooleanField.cs" />

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class ProjectTaskToCRMLink : Entity
+	public class ProjectTaskToCRMLink : Entity_v3
 	{
 
 		[DataMember(Name="AccountedCampaign", EmitDefaultValue=false)]

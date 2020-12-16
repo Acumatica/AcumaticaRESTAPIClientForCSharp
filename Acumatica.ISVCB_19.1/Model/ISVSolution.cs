@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.ISVCB_19_1.Model
 {
 	[DataContract]
-	public class ISVSolution : Entity
+	public class ISVSolution : Entity_v3
 	{
 
 		[DataMember(Name="SolutionCode", EmitDefaultValue=false)]

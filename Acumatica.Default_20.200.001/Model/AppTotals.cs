@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class AppTotals : Entity
+	public class AppTotals : Entity_v4
 	{
 
 		[DataMember(Name="ActualTotal", EmitDefaultValue=false)]

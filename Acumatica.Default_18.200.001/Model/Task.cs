@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class Task : Entity
+	public class Task : Entity_v3
 	{
 
 		[DataMember(Name="Body", EmitDefaultValue=false)]

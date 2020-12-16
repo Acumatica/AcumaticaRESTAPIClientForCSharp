@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class ChangeOrderRevenueBudget : Entity
+	public class ChangeOrderRevenueBudget : Entity_v3
 	{
 
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]

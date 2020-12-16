@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class ProjectUnionLocal : Entity
+	public class ProjectUnionLocal : Entity_v3
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]

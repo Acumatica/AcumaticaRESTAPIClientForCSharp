@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class VisibilitySettings : Entity
+	public class VisibilitySettings : Entity_v4
 	{
 
 		[DataMember(Name="AP", EmitDefaultValue=false)]

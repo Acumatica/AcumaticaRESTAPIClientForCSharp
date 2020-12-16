@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public class CarrierPluginParameter : Entity
+	public class CarrierPluginParameter : Entity_v3
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]

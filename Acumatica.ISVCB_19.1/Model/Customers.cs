@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.ISVCB_19_1.Model
 {
 	[DataContract]
-	public class Customers : Entity
+	public class Customers : Entity_v3
 	{
 
 		[DataMember(Name="InstalledAcumaticaVersion", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public class FinancialYearPeriodDetail : Entity
+	public class FinancialYearPeriodDetail : Entity_v3
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]

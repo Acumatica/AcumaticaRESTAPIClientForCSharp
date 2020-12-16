@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.DeviceHub_19_200_001.Model
 {
 	[DataContract]
-	public class Printer : Entity
+	public class Printer : Entity_v3
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]

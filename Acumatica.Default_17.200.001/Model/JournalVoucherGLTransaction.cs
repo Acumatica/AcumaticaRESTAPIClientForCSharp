@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public class JournalVoucherGLTransaction : Entity
+	public class JournalVoucherGLTransaction : Entity_v3
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]

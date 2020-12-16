@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class ReportingSettings : Entity
+	public class ReportingSettings : Entity_v3
 	{
 
 		[DataMember(Name="ReportingGroups", EmitDefaultValue=false)]

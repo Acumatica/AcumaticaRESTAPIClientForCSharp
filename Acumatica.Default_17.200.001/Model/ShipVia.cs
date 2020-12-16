@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public class ShipVia : Entity
+	public class ShipVia : Entity_v3
 	{
 
 		[DataMember(Name="CalculationMethod", EmitDefaultValue=false)]

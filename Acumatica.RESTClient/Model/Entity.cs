@@ -1,23 +1,14 @@
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = Acumatica.RESTClient.Client.OpenAPIDateConverter;
 
 namespace Acumatica.RESTClient.Model
 {
-    /// <summary>
-    /// Entity
-    /// </summary>
-    [DataContract]
+	/// <summary>
+	/// Entity
+	/// </summary>
+	[DataContract]
     public abstract class Entity
     {
 		#region Backward compatibility with SOAP
@@ -74,11 +65,7 @@ namespace Acumatica.RESTClient.Model
         [DataMember(Name="rowNumber", EmitDefaultValue=false)]
         public long? RowNumber { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Note
-        /// </summary>
-        [DataMember(Name="note", EmitDefaultValue=false)]
-        public string Note { get; set; }
+
         /// <summary>
         /// Gets or Sets Error
         /// </summary>

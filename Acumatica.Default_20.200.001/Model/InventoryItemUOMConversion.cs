@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class InventoryItemUOMConversion : Entity
+	public class InventoryItemUOMConversion : Entity_v4
 	{
 
 		[DataMember(Name="ConversionFactor", EmitDefaultValue=false)]

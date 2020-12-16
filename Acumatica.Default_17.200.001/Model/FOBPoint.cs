@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public class FOBPoint : Entity
+	public class FOBPoint : Entity_v3
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]

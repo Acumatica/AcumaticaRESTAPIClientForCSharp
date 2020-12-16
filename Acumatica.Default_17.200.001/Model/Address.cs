@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_17_200_001.Model
 {
 	[DataContract]
-	public class Address : Entity
+	public class Address : Entity_v3
 	{
 
 		[DataMember(Name="AddressLine1", EmitDefaultValue=false)]

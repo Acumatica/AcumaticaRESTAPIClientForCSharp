@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_18_200_001.Model
 {
 	[DataContract]
-	public class AccountLocationContact : Entity
+	public class AccountLocationContact : Entity_v3
 	{
 
 		[DataMember(Name="Attention", EmitDefaultValue=false)]
