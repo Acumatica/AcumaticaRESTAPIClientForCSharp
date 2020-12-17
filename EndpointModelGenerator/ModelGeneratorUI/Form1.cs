@@ -54,6 +54,7 @@ namespace ModelGeneratorUI
 		{
 			button1.Enabled = false;
 			button2.Enabled = false;
+			JsonSchemaParser.GenerateArraysInstedOfLists = checkBox1.Checked;
 
 			textBox2.Text = "Generating...";
 			Schema schema;
