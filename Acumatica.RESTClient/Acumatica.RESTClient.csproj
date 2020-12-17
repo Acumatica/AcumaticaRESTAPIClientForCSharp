@@ -103,8 +103,10 @@ OpenAPI spec version: 3
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="NuGetReferenceHintPathRewrite.targets" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="NuGetReferenceHintPathRewrite.targets" />
 </Project>
