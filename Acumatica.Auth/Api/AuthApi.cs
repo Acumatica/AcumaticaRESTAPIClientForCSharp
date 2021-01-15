@@ -1,18 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using RestSharp;
-using Acumatica.RESTClient.Client;
 using Acumatica.Auth.Model;
 using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.Client;
+using RestSharp;
+using System;
+using System.Net;
+
 
 namespace Acumatica.Auth.Api
 {
-    /// <summary>
-    /// Represents a collection of functions to interact with the Authorization endpoint
-    /// </summary>
-    public partial class AuthApi : BaseApi
+	/// <summary>
+	/// Represents a collection of functions to interact with the Authorization endpoint
+	/// </summary>
+	public partial class AuthApi : BaseApi
     {
         #region Constructor
         /// <summary>
@@ -33,7 +32,19 @@ namespace Acumatica.Auth.Api
         #endregion
 
         #region Public Methods
+        public Configuration LogIn(string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+            var cookieContainer = new CookieContainer();
+            this.Configuration.ApiClient.RestClient.CookieContainer = cookieContainer;
 
+            this.AuthLogin(new Credentials(username, password, tenant, branch, locale));
+          //  Console.WriteLine("Logged In...");
+            var configuration = new Configuration(this.Configuration.BasePath);
+
+            //share cookie container between API clients because we use different client for authentication and interaction with endpoint
+            configuration.ApiClient.RestClient.CookieContainer = this.Configuration.ApiClient.RestClient.CookieContainer;
+            return configuration;
+        }
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
