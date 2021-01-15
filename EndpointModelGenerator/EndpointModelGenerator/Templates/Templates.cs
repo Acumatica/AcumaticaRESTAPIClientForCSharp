@@ -18,11 +18,12 @@
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_18_200_001)
 		//{1} = EntityName
 		//{2} = Content
-		public static string EntityTemplate = "\r\n\r\nnamespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : Entity\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
+		//{3} = version of System Contract
+		public static string EntityTemplate = "\r\n\r\nnamespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : Entity_v{3}\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_18_200_001)
 		//{1} = EntityName
-		public static string ApiTemplate = "using Acumatica.RESTClient.Api;\r\nusing Acumatica.RESTClient.Client;\r\nusing {0}.Model;\r\n\r\nnamespace {0}.Api\r\n{{\r\n\tpublic class {1}Api : EntityAPI<{1}>\r\n\t{{\r\n\t\tpublic {1}Api(Configuration configuration) : base(configuration)\r\n\t\t{{ }}\r\n\t}}\r\n}}";
+		public static string ApiTemplate = "using Acumatica.RESTClient.Api;\r\nusing Acumatica.RESTClient.Client;\r\nusing {0}.Model;\r\n\r\nnamespace {0}.Api\r\n{{\r\n\tpublic class {1}Api : BaseEndpointApi<{1}>\r\n\t{{\r\n\t\tpublic {1}Api(Configuration configuration) : base(configuration)\r\n\t\t{{ }}\r\n\t}}\r\n}}";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_18_200_001)
 		//{1} = ActionName
@@ -42,5 +43,9 @@
 		//{0} = Parameter Name
 		//{1} = Parameter Type
 		public static string InActionParameterTemplate = "\r\n\t\tpublic {1} {0}\r\n\t\t{{\r\n\t\t\tget {{ return Parameters.{0}; }}\r\n\t\t\tset {{ Parameters.{0} = value; }}\r\n\t\t}}";
+
+		//{0} = Endpoint namespace (e.g. Acumatica.Default_18_200_001)
+		//{1} = Endpoint Path
+		public static string BaseEndpointApiTemplate = "using Acumatica.RESTClient.Api;\r\nusing Acumatica.RESTClient.Client;\r\nusing Acumatica.RESTClient.Model;\r\n\r\nnamespace {0}.Api\r\n{{\r\n\tpublic abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>\r\n\t\twhere EntityType : Entity\r\n\t{{\r\n\t\tpublic BaseEndpointApi(Configuration configuration) : base(configuration)\r\n\t\t{{ }}\r\n\t\tpublic override string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{1}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 	}
 }

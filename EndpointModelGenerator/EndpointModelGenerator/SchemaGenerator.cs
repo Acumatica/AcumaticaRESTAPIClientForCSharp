@@ -32,6 +32,7 @@ namespace EndpointSchemaGenerator
             project.RemoveItems(project.GetItems("Compile").Where(_ => _.EvaluatedInclude.StartsWith(modelLocalPath) || _.EvaluatedInclude.StartsWith(apiLocalPath)));
 
             WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory, project);
+            WriteBaseApi(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory, project); 
             WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory, project);
             WriteActions(schema, writeLogDelegate, endpointNamespace, actionsLocalPath, actionParametersLocalPath, modelActionsFilesDirectory, modelParametersFilesDirectory, project);
 
@@ -84,21 +85,31 @@ namespace EndpointSchemaGenerator
                 }
             }
         }
+        private static void WriteBaseApi(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string apiLocalPath, string apiFilesDirectory, Project project)
+        {
+            string filename = "BaseEndpointApi.cs";
+            StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
+            project.AddItem("Compile", apiLocalPath + filename);
 
+            string result = String.Format(Templates.BaseEndpointApiTemplate, endpointNamespace, schema.Info.Title);
+            writeLogDelegate.Invoke("BaseEndpointApi");
+            writer.Write(result);
+            writer.Close();
+        }
         private static void WriteApis(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string apiLocalPath, string apiFilesDirectory, Project project)
         {
-            foreach (var entity in schema.TopLevelEntities)
-            {
-                string filename = entity + "Api.cs";
-                StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
-                project.AddItem("Compile", apiLocalPath + filename);
+			foreach (var entity in schema.TopLevelEntities)
+			{
+				string filename = entity + "Api.cs";
+				StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
+				project.AddItem("Compile", apiLocalPath + filename);
 
-                string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity);
-                writeLogDelegate.Invoke(entity + "Api");
-                writer.Write(result);
-                writer.Close();
-            }
-        }
+				string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity);
+				writeLogDelegate.Invoke(entity + "Api");
+				writer.Write(result);
+				writer.Close();
+			}
+		}
 
         private static void WriteEntities(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string modelLocalPath, string modelFilesDirectory, Project project)
         {
@@ -112,7 +123,7 @@ namespace EndpointSchemaGenerator
                 {
                     body += string.Format(Templates.FieldTemplate, field.Key, field.Value);
                 }
-                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body);
+                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body, schema.Info.Version);
                 writeLogDelegate.Invoke(entity.Key);
                 writer.Write(Templates.EntityUsingsTemplate + result);
                 writer.Close();
