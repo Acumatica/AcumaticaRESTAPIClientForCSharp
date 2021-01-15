@@ -75,6 +75,7 @@
     <Compile Include="Api\AccountSummaryInquiryApi.cs" />
     <Compile Include="Api\AdjustmentApi.cs" />
     <Compile Include="Api\AttributeDefinitionApi.cs" />
+    <Compile Include="Api\BaseEndpointApi.cs" />
     <Compile Include="Api\BillApi.cs" />
     <Compile Include="Api\BusinessAccountApi.cs" />
     <Compile Include="Api\CarrierApi.cs" />

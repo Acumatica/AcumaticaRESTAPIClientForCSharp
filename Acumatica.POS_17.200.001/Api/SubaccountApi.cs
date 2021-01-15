@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class SubaccountApi : EntityAPI<Subaccount>
+	public class SubaccountApi : BaseEndpointApi<Subaccount>
 	{
 		public SubaccountApi(Configuration configuration) : base(configuration)
 		{ }

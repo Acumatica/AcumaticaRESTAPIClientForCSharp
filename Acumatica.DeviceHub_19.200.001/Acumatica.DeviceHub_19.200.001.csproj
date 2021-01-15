@@ -64,6 +64,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\BaseEndpointApi.cs" />
     <Compile Include="Api\PrinterApi.cs" />
     <Compile Include="Api\PrintJobsInquiryApi.cs" />
     <Compile Include="Api\ScanJobApi.cs" />

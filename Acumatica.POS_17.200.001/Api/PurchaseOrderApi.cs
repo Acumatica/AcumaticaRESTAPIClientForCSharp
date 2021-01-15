@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class PurchaseOrderApi : EntityAPI<PurchaseOrder>
+	public class PurchaseOrderApi : BaseEndpointApi<PurchaseOrder>
 	{
 		public PurchaseOrderApi(Configuration configuration) : base(configuration)
 		{ }

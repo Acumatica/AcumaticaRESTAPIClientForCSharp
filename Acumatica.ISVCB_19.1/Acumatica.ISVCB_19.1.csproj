@@ -61,6 +61,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\BaseEndpointApi.cs" />
     <Compile Include="Api\ISVSolutionApi.cs" />
     <Compile Include="Model\Customers.cs" />
     <Compile Include="Model\ISVSolution.cs" />

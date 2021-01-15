@@ -4,7 +4,7 @@ using Acumatica.Default_20_200_001.Model;
 
 namespace Acumatica.Default_20_200_001.Api
 {
-	public class ServiceOrderApi : EntityAPI<ServiceOrder>
+	public class ServiceOrderApi : BaseEndpointApi<ServiceOrder>
 	{
 		public ServiceOrderApi(Configuration configuration) : base(configuration)
 		{ }

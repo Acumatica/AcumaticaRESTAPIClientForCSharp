@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public class CreditCardProcessingDetail : Entity
+	public class CreditCardProcessingDetail : Entity_v3
 	{
 
 		[DataMember(Name="TransactionAmount", EmitDefaultValue=false)]

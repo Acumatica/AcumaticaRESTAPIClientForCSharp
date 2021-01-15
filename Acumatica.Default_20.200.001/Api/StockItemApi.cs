@@ -4,7 +4,7 @@ using Acumatica.Default_20_200_001.Model;
 
 namespace Acumatica.Default_20_200_001.Api
 {
-	public class StockItemApi : EntityAPI<StockItem>
+	public class StockItemApi : BaseEndpointApi<StockItem>
 	{
 		public StockItemApi(Configuration configuration) : base(configuration)
 		{ }

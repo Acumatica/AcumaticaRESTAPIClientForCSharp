@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public class FinancialSettings : Entity
+	public class FinancialSettings : Entity_v3
 	{
 
 		[DataMember(Name="BillSeparately", EmitDefaultValue=false)]

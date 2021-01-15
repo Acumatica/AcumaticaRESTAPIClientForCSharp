@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public class AccountSummaryRow : Entity
+	public class AccountSummaryRow : Entity_v3
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]

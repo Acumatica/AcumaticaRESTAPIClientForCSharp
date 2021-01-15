@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public class StockItemWarehouseDetail : Entity
+	public class StockItemWarehouseDetail : Entity_v3
 	{
 
 		[DataMember(Name="DailyDemandForecast", EmitDefaultValue=false)]

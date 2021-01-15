@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class JournalTransactionApi : EntityAPI<JournalTransaction>
+	public class JournalTransactionApi : BaseEndpointApi<JournalTransaction>
 	{
 		public JournalTransactionApi(Configuration configuration) : base(configuration)
 		{ }

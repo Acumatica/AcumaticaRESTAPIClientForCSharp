@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class ShipViaApi : EntityAPI<ShipVia>
+	public class ShipViaApi : BaseEndpointApi<ShipVia>
 	{
 		public ShipViaApi(Configuration configuration) : base(configuration)
 		{ }

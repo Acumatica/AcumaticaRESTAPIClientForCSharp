@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public class ProjectBudgetApi : EntityAPI<ProjectBudget>
+	public class ProjectBudgetApi : BaseEndpointApi<ProjectBudget>
 	{
 		public ProjectBudgetApi(Configuration configuration) : base(configuration)
 		{ }

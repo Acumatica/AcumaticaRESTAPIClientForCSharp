@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class DiscountApi : EntityAPI<Discount>
+	public class DiscountApi : BaseEndpointApi<Discount>
 	{
 		public DiscountApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public class ProjectBillingRulesApi : EntityAPI<ProjectBillingRules>
+	public class ProjectBillingRulesApi : BaseEndpointApi<ProjectBillingRules>
 	{
 		public ProjectBillingRulesApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class TaxCategoryApi : EntityAPI<TaxCategory>
+	public class TaxCategoryApi : BaseEndpointApi<TaxCategory>
 	{
 		public TaxCategoryApi(Configuration configuration) : base(configuration)
 		{ }

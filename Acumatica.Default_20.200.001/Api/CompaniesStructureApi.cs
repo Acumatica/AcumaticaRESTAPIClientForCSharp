@@ -4,7 +4,7 @@ using Acumatica.Default_20_200_001.Model;
 
 namespace Acumatica.Default_20_200_001.Api
 {
-	public class CompaniesStructureApi : EntityAPI<CompaniesStructure>
+	public class CompaniesStructureApi : BaseEndpointApi<CompaniesStructure>
 	{
 		public CompaniesStructureApi(Configuration configuration) : base(configuration)
 		{ }

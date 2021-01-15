@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class UnitsOfMeasureApi : EntityAPI<UnitsOfMeasure>
+	public class UnitsOfMeasureApi : BaseEndpointApi<UnitsOfMeasure>
 	{
 		public UnitsOfMeasureApi(Configuration configuration) : base(configuration)
 		{ }

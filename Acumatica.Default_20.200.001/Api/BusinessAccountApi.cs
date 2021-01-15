@@ -4,7 +4,7 @@ using Acumatica.Default_20_200_001.Model;
 
 namespace Acumatica.Default_20_200_001.Api
 {
-	public class BusinessAccountApi : EntityAPI<BusinessAccount>
+	public class BusinessAccountApi : BaseEndpointApi<BusinessAccount>
 	{
 		public BusinessAccountApi(Configuration configuration) : base(configuration)
 		{ }

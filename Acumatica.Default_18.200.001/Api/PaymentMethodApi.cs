@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public class PaymentMethodApi : EntityAPI<PaymentMethod>
+	public class PaymentMethodApi : BaseEndpointApi<PaymentMethod>
 	{
 		public PaymentMethodApi(Configuration configuration) : base(configuration)
 		{ }

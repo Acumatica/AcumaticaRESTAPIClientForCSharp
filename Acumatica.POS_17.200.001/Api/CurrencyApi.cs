@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class CurrencyApi : EntityAPI<Currency>
+	public class CurrencyApi : BaseEndpointApi<Currency>
 	{
 		public CurrencyApi(Configuration configuration) : base(configuration)
 		{ }

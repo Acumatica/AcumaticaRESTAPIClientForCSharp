@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class ShippingBoxApi : EntityAPI<ShippingBox>
+	public class ShippingBoxApi : BaseEndpointApi<ShippingBox>
 	{
 		public ShippingBoxApi(Configuration configuration) : base(configuration)
 		{ }

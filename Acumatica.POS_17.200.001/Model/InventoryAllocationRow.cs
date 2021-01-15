@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public class InventoryAllocationRow : Entity
+	public class InventoryAllocationRow : Entity_v3
 	{
 
 		[DataMember(Name="AllocationDate", EmitDefaultValue=false)]

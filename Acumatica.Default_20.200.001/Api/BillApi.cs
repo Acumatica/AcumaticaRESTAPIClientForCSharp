@@ -4,7 +4,7 @@ using Acumatica.Default_20_200_001.Model;
 
 namespace Acumatica.Default_20_200_001.Api
 {
-	public class BillApi : EntityAPI<Bill>
+	public class BillApi : BaseEndpointApi<Bill>
 	{
 		public BillApi(Configuration configuration) : base(configuration)
 		{ }

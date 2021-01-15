@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public class EmployeeCostRecord : Entity
+	public class EmployeeCostRecord : Entity_v3
 	{
 
 		[DataMember(Name="AnnualSalaryAmount", EmitDefaultValue=false)]

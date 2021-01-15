@@ -4,7 +4,7 @@ using Acumatica.Default_20_200_001.Model;
 
 namespace Acumatica.Default_20_200_001.Api
 {
-	public class KitAssemblyApi : EntityAPI<KitAssembly>
+	public class KitAssemblyApi : BaseEndpointApi<KitAssembly>
 	{
 		public KitAssemblyApi(Configuration configuration) : base(configuration)
 		{ }

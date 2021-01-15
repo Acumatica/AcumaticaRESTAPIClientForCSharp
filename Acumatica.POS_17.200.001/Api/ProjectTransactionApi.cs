@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class ProjectTransactionApi : EntityAPI<ProjectTransaction>
+	public class ProjectTransactionApi : BaseEndpointApi<ProjectTransaction>
 	{
 		public ProjectTransactionApi(Configuration configuration) : base(configuration)
 		{ }

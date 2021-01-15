@@ -4,7 +4,7 @@ using Acumatica.DeviceHub_19_200_001.Model;
 
 namespace Acumatica.DeviceHub_19_200_001.Api
 {
-	public class PrintJobsInquiryApi : EntityAPI<PrintJobsInquiry>
+	public class PrintJobsInquiryApi : BaseEndpointApi<PrintJobsInquiry>
 	{
 		public PrintJobsInquiryApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class AccountByPeriodInquiryApi : EntityAPI<AccountByPeriodInquiry>
+	public class AccountByPeriodInquiryApi : BaseEndpointApi<AccountByPeriodInquiry>
 	{
 		public AccountByPeriodInquiryApi(Configuration configuration) : base(configuration)
 		{ }

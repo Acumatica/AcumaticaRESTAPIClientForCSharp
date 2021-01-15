@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public class TrialBalance : Entity
+	public class TrialBalance : Entity_v3
 	{
 
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]

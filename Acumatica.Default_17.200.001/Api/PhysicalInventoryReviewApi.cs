@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public class PhysicalInventoryReviewApi : EntityAPI<PhysicalInventoryReview>
+	public class PhysicalInventoryReviewApi : BaseEndpointApi<PhysicalInventoryReview>
 	{
 		public PhysicalInventoryReviewApi(Configuration configuration) : base(configuration)
 		{ }

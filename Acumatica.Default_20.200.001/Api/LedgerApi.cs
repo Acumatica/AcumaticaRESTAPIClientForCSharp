@@ -4,7 +4,7 @@ using Acumatica.Default_20_200_001.Model;
 
 namespace Acumatica.Default_20_200_001.Api
 {
-	public class LedgerApi : EntityAPI<Ledger>
+	public class LedgerApi : BaseEndpointApi<Ledger>
 	{
 		public LedgerApi(Configuration configuration) : base(configuration)
 		{ }

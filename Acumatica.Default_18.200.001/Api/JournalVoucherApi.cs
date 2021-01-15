@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public class JournalVoucherApi : EntityAPI<JournalVoucher>
+	public class JournalVoucherApi : BaseEndpointApi<JournalVoucher>
 	{
 		public JournalVoucherApi(Configuration configuration) : base(configuration)
 		{ }

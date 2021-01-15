@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class EmailApi : EntityAPI<Email>
+	public class EmailApi : BaseEndpointApi<Email>
 	{
 		public EmailApi(Configuration configuration) : base(configuration)
 		{ }

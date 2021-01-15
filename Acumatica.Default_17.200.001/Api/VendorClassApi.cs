@@ -4,7 +4,7 @@ using Acumatica.Default_17_200_001.Model;
 
 namespace Acumatica.Default_17_200_001.Api
 {
-	public class VendorClassApi : EntityAPI<VendorClass>
+	public class VendorClassApi : BaseEndpointApi<VendorClass>
 	{
 		public VendorClassApi(Configuration configuration) : base(configuration)
 		{ }

@@ -4,7 +4,7 @@ using Acumatica.Default_20_200_001.Model;
 
 namespace Acumatica.Default_20_200_001.Api
 {
-	public class FinancialYearApi : EntityAPI<FinancialYear>
+	public class FinancialYearApi : BaseEndpointApi<FinancialYear>
 	{
 		public FinancialYearApi(Configuration configuration) : base(configuration)
 		{ }

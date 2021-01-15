@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class SalesPriceWorksheetApi : EntityAPI<SalesPriceWorksheet>
+	public class SalesPriceWorksheetApi : BaseEndpointApi<SalesPriceWorksheet>
 	{
 		public SalesPriceWorksheetApi(Configuration configuration) : base(configuration)
 		{ }

@@ -67,6 +67,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\BaseEndpointApi.cs" />
     <Compile Include="Api\PrinterApi.cs" />
     <Compile Include="Api\PrintJobApi.cs" />
     <Compile Include="Model\Actions\UpdatePrinterList.cs" />

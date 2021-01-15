@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public class ReportingSettingsApi : EntityAPI<ReportingSettings>
+	public class ReportingSettingsApi : BaseEndpointApi<ReportingSettings>
 	{
 		public ReportingSettingsApi(Configuration configuration) : base(configuration)
 		{ }

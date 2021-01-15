@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.POS_17_200_001.Model
 {
 	[DataContract]
-	public class StockItem : Entity
+	public class StockItem : Entity_v3
 	{
 
 		[DataMember(Name="ABCCode", EmitDefaultValue=false)]

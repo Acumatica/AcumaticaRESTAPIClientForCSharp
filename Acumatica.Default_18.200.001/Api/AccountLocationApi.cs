@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public class AccountLocationApi : EntityAPI<AccountLocation>
+	public class AccountLocationApi : BaseEndpointApi<AccountLocation>
 	{
 		public AccountLocationApi(Configuration configuration) : base(configuration)
 		{ }

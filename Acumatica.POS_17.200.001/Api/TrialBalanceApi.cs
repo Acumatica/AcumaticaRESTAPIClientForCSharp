@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class TrialBalanceApi : EntityAPI<TrialBalance>
+	public class TrialBalanceApi : BaseEndpointApi<TrialBalance>
 	{
 		public TrialBalanceApi(Configuration configuration) : base(configuration)
 		{ }

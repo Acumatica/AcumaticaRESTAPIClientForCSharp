@@ -4,7 +4,7 @@ using Acumatica.Default_18_200_001.Model;
 
 namespace Acumatica.Default_18_200_001.Api
 {
-	public class WarehouseApi : EntityAPI<Warehouse>
+	public class WarehouseApi : BaseEndpointApi<Warehouse>
 	{
 		public WarehouseApi(Configuration configuration) : base(configuration)
 		{ }

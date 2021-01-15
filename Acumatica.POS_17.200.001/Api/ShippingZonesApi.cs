@@ -4,7 +4,7 @@ using Acumatica.POS_17_200_001.Model;
 
 namespace Acumatica.POS_17_200_001.Api
 {
-	public class ShippingZonesApi : EntityAPI<ShippingZones>
+	public class ShippingZonesApi : BaseEndpointApi<ShippingZones>
 	{
 		public ShippingZonesApi(Configuration configuration) : base(configuration)
 		{ }
