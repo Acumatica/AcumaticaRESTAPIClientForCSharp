@@ -9,5 +9,10 @@ namespace SOAPLikeWrapperForREST
     {
         public SOAPLikeEntityAPI(Configuration configuration) : base(configuration)
         { }
-    }
+
+		public override string GetEndpointPath()
+		{
+			return "";
+		}
+	}
 }

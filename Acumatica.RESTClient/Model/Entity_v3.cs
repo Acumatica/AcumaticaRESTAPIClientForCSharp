@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Acumatica.RESTClient.Model
 {
 	[DataContract]
-	public class Entity_v3 : Entity
+	public abstract class Entity_v3 : Entity
 	{
 		/// <summary>
 		/// Gets or Sets Note

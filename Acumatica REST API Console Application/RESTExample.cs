@@ -20,7 +20,7 @@ namespace AcumaticaRestApiExample
 			
 			try
 			{
-				var configuration = LogIn(authApi, siteURL, username, password, tenant, branch, locale);
+				var configuration = authApi.LogIn(username, password, tenant, branch, locale);
 
 				Console.WriteLine("Reading Accounts...");
 				var accountApi = new AccountApi(configuration);
@@ -54,20 +54,6 @@ namespace AcumaticaRestApiExample
 				authApi.AuthLogout();
 				Console.WriteLine("Logged Out...");
 			}
-		}
-
-		private static Configuration LogIn(AuthApi authApi, string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
-		{
-			var cookieContainer = new CookieContainer();
-			authApi.Configuration.ApiClient.RestClient.CookieContainer = cookieContainer;
-
-			authApi.AuthLogin(new Credentials(username, password, tenant, branch, locale));
-			Console.WriteLine("Logged In...");
-			var configuration = new Configuration(siteURL + "/entity/Default/18.200.001/");
-
-			//share cookie container between API clients because we use different client for authentication and interaction with endpoint
-			configuration.ApiClient.RestClient.CookieContainer = authApi.Configuration.ApiClient.RestClient.CookieContainer;
-			return configuration;
 		}
 	}
 }

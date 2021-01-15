@@ -60,12 +60,13 @@ OpenAPI spec version: 3
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\BaseApi.cs" />
+    <Compile Include="Api\EntityAPI_Implementation.cs" />
     <Compile Include="Auxiliary\AuxiliaryEntityTypes.cs" />
     <Compile Include="Client\ApiClient.cs" />
     <Compile Include="Client\ApiException.cs" />
     <Compile Include="Client\ApiResponse.cs" />
     <Compile Include="Client\Configuration.cs" />
-    <Compile Include="Api\EntityAPI.cs" />
+    <Compile Include="Api\EntityAPI_Public.cs" />
     <Compile Include="Client\ExceptionFactory.cs" />
     <Compile Include="Client\IApiAccessor.cs" />
     <Compile Include="Client\IReadableConfiguration.cs" />
