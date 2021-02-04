@@ -95,9 +95,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue LocationID { get; set; }
 
-		[DataMember(Name="NewCard", EmitDefaultValue=false)]
-		public BooleanValue NewCard { get; set; }
-
 		[DataMember(Name="OrderedQty", EmitDefaultValue=false)]
 		public DecimalValue OrderedQty { get; set; }
 
@@ -110,26 +107,11 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue OrderType { get; set; }
 
-		[DataMember(Name="PaymentCardIdentifier", EmitDefaultValue=false)]
-		public StringValue PaymentCardIdentifier { get; set; }
-
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue PaymentMethod { get; set; }
 
-		[DataMember(Name="PaymentProfileID", EmitDefaultValue=false)]
-		public StringValue PaymentProfileID { get; set; }
-
-		[DataMember(Name="PaymentRef", EmitDefaultValue=false)]
-		public StringValue PaymentRef { get; set; }
-
 		[DataMember(Name="Payments", EmitDefaultValue=false)]
 		public List<SalesOrderPayment> Payments { get; set; }
-
-		[DataMember(Name="PreAuthorizationNbr", EmitDefaultValue=false)]
-		public StringValue PreAuthorizationNbr { get; set; }
-
-		[DataMember(Name="PreAuthorizedAmount", EmitDefaultValue=false)]
-		public DecimalValue PreAuthorizedAmount { get; set; }
 
 		[DataMember(Name="PreferredWarehouseID", EmitDefaultValue=false)]
 		public StringValue PreferredWarehouseID { get; set; }

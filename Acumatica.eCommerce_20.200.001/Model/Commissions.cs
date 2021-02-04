@@ -1,0 +1,18 @@
+using Acumatica.RESTClient.Model;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+
+namespace Acumatica.eCommerce_20_200_001.Model
+{
+	[DataContract]
+	public class Commissions : Entity_v4
+	{
+
+		[DataMember(Name="DefaultSalesperson", EmitDefaultValue=false)]
+		public StringValue DefaultSalesperson { get; set; }
+
+		[DataMember(Name="SalesPersons", EmitDefaultValue=false)]
+		public List<SalesPersonDetail> SalesPersons { get; set; }
+
+	}
+}

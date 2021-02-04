@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6807B27E-B03A-47B3-8C9F-D9D1519CC248}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Acumatica.Manufacturing_18._200._001</RootNamespace>
+    <AssemblyName>Acumatica.Manufacturing_18.200.001</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Primitives.4.3.0\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\BaseEndpointApi.cs" />
+    <Compile Include="Api\BillOfMaterialApi.cs" />
+    <Compile Include="Api\BomAttributesApi.cs" />
+    <Compile Include="Api\DisassemblyEntryApi.cs" />
+    <Compile Include="Api\ItemWhereUsedInquiryApi.cs" />
+    <Compile Include="Api\LaborEntryApi.cs" />
+    <Compile Include="Api\MachineApi.cs" />
+    <Compile Include="Api\MaterialEntryApi.cs" />
+    <Compile Include="Api\MoveEntryApi.cs" />
+    <Compile Include="Api\OverheadApi.cs" />
+    <Compile Include="Api\ProductionOrderApi.cs" />
+    <Compile Include="Api\ProductionOrderDetailApi.cs" />
+    <Compile Include="Api\ToolApi.cs" />
+    <Compile Include="Api\WipAdjustmentEntryApi.cs" />
+    <Compile Include="Api\WorkCenterApi.cs" />
+    <Compile Include="Model\Actions\CalculateProductionOrderPlanCost.cs" />
+    <Compile Include="Model\Actions\CancelProductionOrder.cs" />
+    <Compile Include="Model\Actions\CompleteProductionOrder.cs" />
+    <Compile Include="Model\Actions\CreateLinkedProductionOrders.cs" />
+    <Compile Include="Model\Actions\PlanProductionOrder.cs" />
+    <Compile Include="Model\Actions\ReleaseDisassemblyEntry.cs" />
+    <Compile Include="Model\Actions\ReleaseLaborEntry.cs" />
+    <Compile Include="Model\Actions\ReleaseMaterialEntry.cs" />
+    <Compile Include="Model\Actions\ReleaseMoveEntry.cs" />
+    <Compile Include="Model\Actions\ReleaseProductionOrder.cs" />
+    <Compile Include="Model\Actions\ReleaseWipAdjustmentEntry.cs" />
+    <Compile Include="Model\AttributeDetail.cs" />
+    <Compile Include="Model\BillOfMaterial.cs" />
+    <Compile Include="Model\BomAttributes.cs" />
+    <Compile Include="Model\BomOverheadDetail.cs" />
+    <Compile Include="Model\DisassemblyEntry.cs" />
+    <Compile Include="Model\DisassemblyEntryAllocation.cs" />
+    <Compile Include="Model\DisassemblyEntryAttribute.cs" />
+    <Compile Include="Model\DisassemblyEntryMaterial.cs" />
+    <Compile Include="Model\DisassemblyEntryMaterialAllocation.cs" />
+    <Compile Include="Model\EventHistoryDetail.cs" />
+    <Compile Include="Model\ItemWhereUsedInquiry.cs" />
+    <Compile Include="Model\ItemWhereUsedRow.cs" />
+    <Compile Include="Model\LaborEntry.cs" />
+    <Compile Include="Model\LaborEntryDetail.cs" />
+    <Compile Include="Model\LaborEntryDetailAllocation.cs" />
+    <Compile Include="Model\LaborEntryTranAttributes.cs" />
+    <Compile Include="Model\Machine.cs" />
+    <Compile Include="Model\MachineDetail.cs" />
+    <Compile Include="Model\MaterialDetail.cs" />
+    <Compile Include="Model\MaterialEntry.cs" />
+    <Compile Include="Model\MaterialEntryDetail.cs" />
+    <Compile Include="Model\MaterialEntryDetailAllocation.cs" />
+    <Compile Include="Model\MoveEntry.cs" />
+    <Compile Include="Model\MoveEntryDetail.cs" />
+    <Compile Include="Model\MoveEntryDetailAllocation.cs" />
+    <Compile Include="Model\MoveEntryTranAttribute.cs" />
+    <Compile Include="Model\OperationDetail.cs" />
+    <Compile Include="Model\OrderAttributeDetail.cs" />
+    <Compile Include="Model\OrderMaterialDetail.cs" />
+    <Compile Include="Model\OrderOperationDetail.cs" />
+    <Compile Include="Model\OrderOverheadDetail.cs" />
+    <Compile Include="Model\OrderStepDetail.cs" />
+    <Compile Include="Model\OrderToolDetail.cs" />
+    <Compile Include="Model\Overhead.cs" />
+    <Compile Include="Model\ProductionOrder.cs" />
+    <Compile Include="Model\ProductionOrderDetail.cs" />
+    <Compile Include="Model\ProductionOrderOperationTotal.cs" />
+    <Compile Include="Model\ProductionOrderTotals.cs" />
+    <Compile Include="Model\ShiftDetail.cs" />
+    <Compile Include="Model\StepDetail.cs" />
+    <Compile Include="Model\Tool.cs" />
+    <Compile Include="Model\ToolDetail.cs" />
+    <Compile Include="Model\WhereUsedDetail.cs" />
+    <Compile Include="Model\WipAdjustmentEntry.cs" />
+    <Compile Include="Model\WipAdjustmentEntryDetail.cs" />
+    <Compile Include="Model\WorkCenter.cs" />
+    <Compile Include="Model\WorkCenterOverheadDetail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj">
+      <Project>{25008D3F-3D78-4BB9-B14B-0A792AE97892}</Project>
+      <Name>Acumatica.RESTClient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

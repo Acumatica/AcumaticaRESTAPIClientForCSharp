@@ -86,14 +86,17 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="ParentAccount", EmitDefaultValue=false)]
 		public StringValue ParentAccount { get; set; }
 
+		[DataMember(Name="PrimaryContact", EmitDefaultValue=false)]
+		public Contact PrimaryContact { get; set; }
+
 		[DataMember(Name="Relations", EmitDefaultValue=false)]
 		public List<RelationDetail> Relations { get; set; }
 
 		[DataMember(Name="ShippingAddress", EmitDefaultValue=false)]
 		public Address ShippingAddress { get; set; }
 
-		[DataMember(Name="ShippingAddressSameAsMain", EmitDefaultValue=false)]
-		public BooleanValue ShippingAddressSameAsMain { get; set; }
+		[DataMember(Name="ShippingAddressOverride", EmitDefaultValue=false)]
+		public BooleanValue ShippingAddressOverride { get; set; }
 
 		[DataMember(Name="ShippingAddressValidated", EmitDefaultValue=false)]
 		public BooleanValue ShippingAddressValidated { get; set; }

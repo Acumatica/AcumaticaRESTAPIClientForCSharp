@@ -26,8 +26,8 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Phone2", EmitDefaultValue=false)]
 		public StringValue Phone2 { get; set; }
 
-		[DataMember(Name="SameasMain", EmitDefaultValue=false)]
-		public BooleanValue SameasMain { get; set; }
+		[DataMember(Name="Override", EmitDefaultValue=false)]
+		public BooleanValue Override { get; set; }
 
 	}
 }

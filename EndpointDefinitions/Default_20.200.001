@@ -5,7 +5,7 @@
     "title": "Default/20.200.001"
   },
   "host": "localhost",
-  "basePath": "/dev/entity/Default/20.200.001",
+  "basePath": "/20r208/entity/Default/20.200.001",
   "schemes": [
     "http"
   ],
@@ -71596,7 +71596,7 @@
           "format": "int64",
           "type": "integer"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -71607,7 +71607,7 @@
         "value": {
           "type": "string"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -71623,7 +71623,7 @@
             "value": {
               "type": "string"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71642,7 +71642,7 @@
               "format": "double",
               "type": "number"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71661,7 +71661,7 @@
               "format": "date-time",
               "type": "string"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71679,7 +71679,7 @@
             "value": {
               "type": "boolean"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71698,7 +71698,7 @@
               "format": "int32",
               "type": "integer"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71717,7 +71717,7 @@
               "format": "int64",
               "type": "integer"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71736,7 +71736,7 @@
               "format": "int32",
               "type": "integer"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71755,7 +71755,7 @@
               "format": "int32",
               "type": "integer"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71774,7 +71774,7 @@
               "format": "double",
               "type": "number"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71793,7 +71793,7 @@
               "format": "uuid",
               "type": "string"
             },
-            "errorText": {
+            "error": {
               "type": "string"
             }
           }
@@ -71819,7 +71819,7 @@
           "format": "double",
           "type": "number"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -71831,7 +71831,7 @@
           "format": "date-time",
           "type": "string"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -71842,7 +71842,7 @@
         "value": {
           "type": "boolean"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -71854,7 +71854,7 @@
           "format": "int32",
           "type": "integer"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -71866,7 +71866,7 @@
           "format": "int32",
           "type": "integer"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -71878,7 +71878,7 @@
           "format": "int32",
           "type": "integer"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -71890,7 +71890,7 @@
           "format": "double",
           "type": "number"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -71902,7 +71902,7 @@
           "format": "uuid",
           "type": "string"
         },
-        "errorText": {
+        "error": {
           "type": "string"
         }
       }
@@ -74040,6 +74040,9 @@
             "ParentAccount": {
               "$ref": "#/definitions/StringValue"
             },
+            "PrimaryContact": {
+              "$ref": "#/definitions/Contact"
+            },
             "Relations": {
               "type": "array",
               "items": {
@@ -74049,7 +74052,7 @@
             "ShippingAddress": {
               "$ref": "#/definitions/Address"
             },
-            "ShippingAddressSameAsMain": {
+            "ShippingAddressOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "ShippingAddressValidated": {
@@ -74535,7 +74538,7 @@
             "Phone2": {
               "$ref": "#/definitions/StringValue"
             },
-            "SameasMain": {
+            "Override": {
               "$ref": "#/definitions/BooleanValue"
             }
           }
@@ -75720,7 +75723,7 @@
             "Address": {
               "$ref": "#/definitions/Address"
             },
-            "AddressIsSameAsInAccount": {
+            "OverrideAccountAddress": {
               "$ref": "#/definitions/BooleanValue"
             },
             "AddressValidated": {
@@ -76317,13 +76320,13 @@
             "AutoApplyPayments": {
               "$ref": "#/definitions/BooleanValue"
             },
-            "BillingAddressSameAsMain": {
+            "BillingAddressOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "BillingContact": {
               "$ref": "#/definitions/Contact"
             },
-            "BillingContactSameAsMain": {
+            "BillingContactOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "Contacts": {
@@ -76395,6 +76398,9 @@
             "PriceClassID": {
               "$ref": "#/definitions/StringValue"
             },
+            "PrimaryContact": {
+              "$ref": "#/definitions/Contact"
+            },
             "PrintDunningLetters": {
               "$ref": "#/definitions/BooleanValue"
             },
@@ -76425,7 +76431,7 @@
             "SendStatementsbyEmail": {
               "$ref": "#/definitions/BooleanValue"
             },
-            "ShippingAddressSameAsMain": {
+            "ShippingAddressOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "ShippingBranch": {
@@ -76434,7 +76440,7 @@
             "ShippingContact": {
               "$ref": "#/definitions/Contact"
             },
-            "ShippingContactSameAsMain": {
+            "ShippingContactOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "ShippingRule": {
@@ -76704,13 +76710,13 @@
             "Active": {
               "$ref": "#/definitions/BooleanValue"
             },
-            "AddressSameAsMain": {
+            "AddressOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "Calendar": {
               "$ref": "#/definitions/StringValue"
             },
-            "ContactSameAsMain": {
+            "ContactOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "CreatedDateTime": {
@@ -84435,9 +84441,6 @@
             "LocationID": {
               "$ref": "#/definitions/StringValue"
             },
-            "NewCard": {
-              "$ref": "#/definitions/BooleanValue"
-            },
             "OrderedQty": {
               "$ref": "#/definitions/DecimalValue"
             },
@@ -84450,16 +84453,7 @@
             "OrderType": {
               "$ref": "#/definitions/StringValue"
             },
-            "PaymentCardIdentifier": {
-              "$ref": "#/definitions/StringValue"
-            },
             "PaymentMethod": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "PaymentProfileID": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "PaymentRef": {
               "$ref": "#/definitions/StringValue"
             },
             "Payments": {
@@ -84467,12 +84461,6 @@
               "items": {
                 "$ref": "#/definitions/SalesOrderPayment"
               }
-            },
-            "PreAuthorizationNbr": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "PreAuthorizedAmount": {
-              "$ref": "#/definitions/DecimalValue"
             },
             "PreferredWarehouseID": {
               "$ref": "#/definitions/StringValue"
@@ -88524,6 +88512,9 @@
             "PaySeparately": {
               "$ref": "#/definitions/BooleanValue"
             },
+            "PrimaryContact": {
+              "$ref": "#/definitions/Contact"
+            },
             "PrintOrders": {
               "$ref": "#/definitions/BooleanValue"
             },
@@ -88533,22 +88524,22 @@
             "ReceivingBranch": {
               "$ref": "#/definitions/StringValue"
             },
-            "RemittanceAddressSameasMain": {
+            "RemittanceAddressOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "RemittanceContact": {
               "$ref": "#/definitions/Contact"
             },
-            "RemittanceContactSameasMain": {
+            "RemittanceContactOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "SendOrdersbyEmail": {
               "$ref": "#/definitions/BooleanValue"
             },
-            "ShippersContactSameasMain": {
+            "ShippingContactOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
-            "ShippingAddressSameasMain": {
+            "ShippingAddressOverride": {
               "$ref": "#/definitions/BooleanValue"
             },
             "ShippingContact": {
@@ -93445,7 +93436,7 @@
     },
     {
       "name": "Carrier",
-      "description": "(CS207700)"
+      "description": "Carriers (CS207700)"
     },
     {
       "name": "Case",
@@ -93457,11 +93448,11 @@
     },
     {
       "name": "ChangeOrder",
-      "description": "(PM308000)"
+      "description": "Change Orders (PM308000)"
     },
     {
       "name": "ChangeOrderClass",
-      "description": "(PM203000)"
+      "description": "Change Order Classes (PM203000)"
     },
     {
       "name": "Check",
@@ -93505,7 +93496,7 @@
     },
     {
       "name": "CustomerLocation",
-      "description": "(AR303020)"
+      "description": "Customer Locations (AR303020)"
     },
     {
       "name": "CustomerPaymentMethod",
@@ -93621,7 +93612,7 @@
     },
     {
       "name": "LotSerialClass",
-      "description": "(IN207000)"
+      "description": "Lot/Serial Classes (IN207000)"
     },
     {
       "name": "NonStockItem",

@@ -17,8 +17,8 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Address", EmitDefaultValue=false)]
 		public Address Address { get; set; }
 
-		[DataMember(Name="AddressIsSameAsInAccount", EmitDefaultValue=false)]
-		public BooleanValue AddressIsSameAsInAccount { get; set; }
+		[DataMember(Name="OverrideAccountAddress", EmitDefaultValue=false)]
+		public BooleanValue OverrideAccountAddress { get; set; }
 
 		[DataMember(Name="AddressValidated", EmitDefaultValue=false)]
 		public BooleanValue AddressValidated { get; set; }

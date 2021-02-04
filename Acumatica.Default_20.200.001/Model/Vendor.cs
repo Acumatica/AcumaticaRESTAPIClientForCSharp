@@ -95,6 +95,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="PaySeparately", EmitDefaultValue=false)]
 		public BooleanValue PaySeparately { get; set; }
 
+		[DataMember(Name="PrimaryContact", EmitDefaultValue=false)]
+		public Contact PrimaryContact { get; set; }
+
 		[DataMember(Name="PrintOrders", EmitDefaultValue=false)]
 		public BooleanValue PrintOrders { get; set; }
 
@@ -104,23 +107,23 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="ReceivingBranch", EmitDefaultValue=false)]
 		public StringValue ReceivingBranch { get; set; }
 
-		[DataMember(Name="RemittanceAddressSameasMain", EmitDefaultValue=false)]
-		public BooleanValue RemittanceAddressSameasMain { get; set; }
+		[DataMember(Name="RemittanceAddressOverride", EmitDefaultValue=false)]
+		public BooleanValue RemittanceAddressOverride { get; set; }
 
 		[DataMember(Name="RemittanceContact", EmitDefaultValue=false)]
 		public Contact RemittanceContact { get; set; }
 
-		[DataMember(Name="RemittanceContactSameasMain", EmitDefaultValue=false)]
-		public BooleanValue RemittanceContactSameasMain { get; set; }
+		[DataMember(Name="RemittanceContactOverride", EmitDefaultValue=false)]
+		public BooleanValue RemittanceContactOverride { get; set; }
 
 		[DataMember(Name="SendOrdersbyEmail", EmitDefaultValue=false)]
 		public BooleanValue SendOrdersbyEmail { get; set; }
 
-		[DataMember(Name="ShippersContactSameasMain", EmitDefaultValue=false)]
-		public BooleanValue ShippersContactSameasMain { get; set; }
+		[DataMember(Name="ShippingContactOverride", EmitDefaultValue=false)]
+		public BooleanValue ShippingContactOverride { get; set; }
 
-		[DataMember(Name="ShippingAddressSameasMain", EmitDefaultValue=false)]
-		public BooleanValue ShippingAddressSameasMain { get; set; }
+		[DataMember(Name="ShippingAddressOverride", EmitDefaultValue=false)]
+		public BooleanValue ShippingAddressOverride { get; set; }
 
 		[DataMember(Name="ShippingContact", EmitDefaultValue=false)]
 		public Contact ShippingContact { get; set; }
