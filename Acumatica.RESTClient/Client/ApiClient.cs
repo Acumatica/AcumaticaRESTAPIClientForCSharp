@@ -15,7 +15,8 @@ namespace Acumatica.RESTClient.Client
     /// </summary>
     public partial class ApiClient
     {
-        private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+		private const string RequestsLogPath = "RequestsLog.txt";
+		private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
         };
@@ -132,7 +133,7 @@ namespace Acumatica.RESTClient.Client
             String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType)
+            String contentType, bool logRequests = true, bool logResponse = true)
         {
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
@@ -144,37 +145,88 @@ namespace Acumatica.RESTClient.Client
             // set user agent
             RestClient.UserAgent = Configuration.UserAgent;
 
-            InterceptRequest(request);
+            if (logRequests)
+			{
+				LogRequest(request);
+			}
+
+			InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
 
-            return (Object)response;
+            if (logResponse)
+			{
+				LogResponse(response);
+			}
+
+			return (Object)response;
         }
-        /// <summary>
-        /// Makes the asynchronous HTTP request.
-        /// </summary>
-        /// <param name="path">URL path.</param>
-        /// <param name="method">HTTP method.</param>
-        /// <param name="queryParams">Query parameters.</param>
-        /// <param name="postBody">HTTP body (POST request).</param>
-        /// <param name="headerParams">Header parameters.</param>
-        /// <param name="formParams">Form parameters.</param>
-        /// <param name="fileParams">File parameters.</param>
-        /// <param name="pathParams">Path parameters.</param>
-        /// <param name="contentType">Content type.</param>
-        /// <returns>The Task instance.</returns>
-        public async System.Threading.Tasks.Task<Object> CallApiAsync(
+
+		private static void LogResponse(IRestResponse response)
+		{
+			StreamWriter writer = new StreamWriter(RequestsLogPath, true);
+			writer.WriteLine(DateTime.Now.ToString());
+			writer.WriteLine("Response");
+			writer.WriteLine("\tStatus code: " + response.StatusCode);
+			writer.WriteLine("\tContent: " + response.Content);
+			writer.WriteLine("-----------------------------------------");
+			writer.WriteLine(); 
+            writer.Flush();
+            writer.Close();
+            
+		}
+
+		private void LogRequest(RestRequest request)
+		{
+			StreamWriter writer = new StreamWriter(RequestsLogPath, true);
+			writer.WriteLine(DateTime.Now.ToString());
+			writer.WriteLine("Request");
+			writer.WriteLine("\tMethod: " + request.Method);
+			writer.WriteLine("\tURL: " + RestClient.BaseUrl + request.Resource);
+			writer.WriteLine("\tBody: " + request.Body?.Value);
+			writer.WriteLine("-----------------------------------------");
+			writer.WriteLine();
+            writer.Flush();
+            writer.Close();
+        }
+
+		/// <summary>
+		/// Makes the asynchronous HTTP request.
+		/// </summary>
+		/// <param name="path">URL path.</param>
+		/// <param name="method">HTTP method.</param>
+		/// <param name="queryParams">Query parameters.</param>
+		/// <param name="postBody">HTTP body (POST request).</param>
+		/// <param name="headerParams">Header parameters.</param>
+		/// <param name="formParams">Form parameters.</param>
+		/// <param name="fileParams">File parameters.</param>
+		/// <param name="pathParams">Path parameters.</param>
+		/// <param name="contentType">Content type.</param>
+		/// <returns>The Task instance.</returns>
+		public async System.Threading.Tasks.Task<Object> CallApiAsync(
             String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType)
+            String contentType, bool logRequests = true, bool logResponse = true)
         {
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
+
+            if (logRequests)
+            {
+                LogRequest(request);
+            }
+
             InterceptRequest(request);
             var response = await RestClient.ExecuteTaskAsync(request);
             InterceptResponse(request, response);
+           
+            if (logResponse)
+            {
+                LogResponse(response);
+            }
+
             return (Object)response;
         }
 
