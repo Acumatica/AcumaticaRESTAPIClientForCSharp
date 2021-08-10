@@ -182,8 +182,22 @@ namespace Acumatica.RESTClient.Client
 			writer.WriteLine(DateTime.Now.ToString());
 			writer.WriteLine("Request");
 			writer.WriteLine("\tMethod: " + request.Method);
-			writer.WriteLine("\tURL: " + RestClient.BaseUrl + request.Resource);
-			writer.WriteLine("\tBody: " + request.Body?.Value);
+            string parameters = "";
+            string body = "";
+            foreach (var parametr in request.Parameters)
+            {
+                if (parametr.Type == ParameterType.QueryString)
+                {
+                    parameters += String.IsNullOrEmpty(parameters) ? "?$" : "&$"; 
+                    parameters += parametr.Value; 
+                }
+
+                if (parametr.Type == ParameterType.RequestBody)
+                    body += parametr.Value;
+            }
+			writer.WriteLine("\tURL: " + RestClient.BaseUrl + request.Resource+ parameters);
+            if (!String.IsNullOrEmpty(body))
+                writer.WriteLine("\tBody: " + body);
 			writer.WriteLine("-----------------------------------------");
 			writer.WriteLine();
             writer.Flush();
