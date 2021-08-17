@@ -176,30 +176,30 @@ namespace Acumatica.RESTClient.Client
             
 		}
 
-		private void LogRequest(RestRequest request)
-		{
-			StreamWriter writer = new StreamWriter(RequestsLogPath, true);
-			writer.WriteLine(DateTime.Now.ToString());
-			writer.WriteLine("Request");
-			writer.WriteLine("\tMethod: " + request.Method);
+        private void LogRequest(RestRequest request)
+        {
+            StreamWriter writer = new StreamWriter(RequestsLogPath, true);
+            writer.WriteLine(DateTime.Now.ToString());
+            writer.WriteLine("Request");
+            writer.WriteLine("\tMethod: " + request.Method);
             string parameters = "";
             string body = "";
             foreach (var parametr in request.Parameters)
             {
                 if (parametr.Type == ParameterType.QueryString)
                 {
-                    parameters += String.IsNullOrEmpty(parameters) ? "?$" : "&$"; 
-                    parameters += parametr.Value; 
+                    parameters += String.IsNullOrEmpty(parameters) ? "?" : "&";
+                    parameters += parametr.Name + "=" + parametr.Value;
                 }
 
                 if (parametr.Type == ParameterType.RequestBody)
                     body += parametr.Value;
             }
-			writer.WriteLine("\tURL: " + RestClient.BaseUrl + request.Resource+ parameters);
+            writer.WriteLine("\tURL: " + RestClient.BaseUrl + "/" + request.Resource + parameters);
             if (!String.IsNullOrEmpty(body))
                 writer.WriteLine("\tBody: " + body);
-			writer.WriteLine("-----------------------------------------");
-			writer.WriteLine();
+            writer.WriteLine("-----------------------------------------");
+            writer.WriteLine();
             writer.Flush();
             writer.Close();
         }
