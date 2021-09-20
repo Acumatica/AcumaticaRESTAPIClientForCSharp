@@ -59,6 +59,7 @@ namespace Acumatica.RESTClient.Api
         private const string ApplicationXmlAcceptContentType = "application/xml";
         private const string TextXmlAcceptContentType = "text/xml";
         private const string WwwFormEncoded = "application/x-www-form-urlencoded";
+        private const string OctetStream = "application/octet-stream";
         private const string AnyAcceptContentType = "*/*";
         [Flags]
         protected enum HeaderContentType : short
@@ -67,7 +68,8 @@ namespace Acumatica.RESTClient.Api
             Json = 1,
             Xml = 2,
             Any = 4,
-            WwwForm = 8
+            WwwForm = 8,
+            OctetStream = 16
         };
         protected string ComposeContentHeaders(HeaderContentType contentTypes)
         {
@@ -94,18 +96,23 @@ namespace Acumatica.RESTClient.Api
                 headers.Add(ApplicationJsonAcceptContentType);
                 headers.Add(TextJsonAcceptContentType);
             }
-            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Xml)
+            if ((contentTypes & HeaderContentType.Xml) == HeaderContentType.Xml)
             {
                 headers.Add(ApplicationXmlAcceptContentType);
                 headers.Add(TextXmlAcceptContentType);
             }
-            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Any)
+            if ((contentTypes & HeaderContentType.Any) == HeaderContentType.Any)
             {
                 headers.Add(AnyAcceptContentType);
             }
-            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.WwwForm)
+            if ((contentTypes & HeaderContentType.WwwForm) == HeaderContentType.WwwForm)
             {
                 headers.Add(WwwFormEncoded);
+            }
+
+            if ((contentTypes & HeaderContentType.OctetStream) == HeaderContentType.OctetStream)
+            {
+                headers.Add(OctetStream);
             }
             String[] localVarHttpHeaderAccepts = headers.ToArray();
             return localVarHttpHeaderAccepts;
