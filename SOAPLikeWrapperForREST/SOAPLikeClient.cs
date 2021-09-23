@@ -112,11 +112,12 @@ namespace SOAPLikeWrapperForREST
             SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
             api.PutFile(keys, files[0].Name, files[0].Content);
         }
-        [Obsolete("GetFiles method is for backward compatibility with SOAP only. Use one of the following REST methods instead: PutFile, PutFileAsync")]
+        [Obsolete("GetFiles method is for backward compatibility with SOAP only. Use one of the following REST methods instead: FileApi.GetFile")]
         public File[] GetFiles<T>(T entity)
             where T : Entity
         {
-            SOAPLikeEntityAPI<T> api = new SOAPLikeEntityAPI<T>(CurrentConfiguration);
+            FileApi api = new FileApi(CurrentConfiguration);
+
             return new File[] { };
         }
 
