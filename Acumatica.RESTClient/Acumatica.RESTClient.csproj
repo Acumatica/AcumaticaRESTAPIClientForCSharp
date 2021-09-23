@@ -59,24 +59,28 @@ OpenAPI spec version: 3
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\BaseApi.cs" />
-    <Compile Include="Api\EntityAPI_Implementation.cs" />
-    <Compile Include="Api\FileApi.cs" />
+    <Compile Include="AcumaticaApi\AuthApi.cs" />
+    <Compile Include="AcumaticaApi\RootApi.cs" />
+    <Compile Include="BaseApi\BaseApi.cs" />
+    <Compile Include="BaseApi\EntityAPI_Implementation.cs" />
+    <Compile Include="AcumaticaApi\FileApi.cs" />
     <Compile Include="Auxiliary\AuxiliaryEntityTypes.cs" />
     <Compile Include="Client\ApiClient.cs" />
     <Compile Include="Client\ApiException.cs" />
     <Compile Include="Client\ApiResponse.cs" />
     <Compile Include="Client\Configuration.cs" />
-    <Compile Include="Api\EntityAPI_Public.cs" />
+    <Compile Include="BaseApi\EntityAPI_Public.cs" />
     <Compile Include="Client\ExceptionFactory.cs" />
     <Compile Include="Client\IApiAccessor.cs" />
     <Compile Include="Client\IReadableConfiguration.cs" />
     <Compile Include="Client\OpenAPIDateConverter.cs" />
-    <Compile Include="Model\Entity.cs" />
-    <Compile Include="Model\EntityAction.cs" />
-    <Compile Include="Model\EntityActionWithParameters.cs" />
-    <Compile Include="Model\Entity_v3.cs" />
-    <Compile Include="Model\Entity_v4.cs" />
+    <Compile Include="Model\Credentials.cs" />
+    <Compile Include="Model\Endpoint.cs" />
+    <Compile Include="Model\EntityBase\Entity.cs" />
+    <Compile Include="Model\EntityBase\EntityAction.cs" />
+    <Compile Include="Model\EntityBase\EntityActionWithParameters.cs" />
+    <Compile Include="Model\EntityBase\Entity_v3.cs" />
+    <Compile Include="Model\EntityBase\Entity_v4.cs" />
     <Compile Include="Model\FieldTypes\BooleanValue.cs" />
     <Compile Include="Model\FieldTypes\ByteValue.cs" />
     <Compile Include="Model\FieldTypes\CustomBooleanField.cs" />
@@ -101,6 +105,8 @@ OpenAPI spec version: 3
     <Compile Include="Model\FieldTypes\StringValue.cs" />
     <Compile Include="Model\FileLink.cs" />
     <Compile Include="Model\HttpError.cs" />
+    <Compile Include="Model\Version.cs" />
+    <Compile Include="Model\VersionAndEndpoints.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -133,7 +133,7 @@ namespace Acumatica.RESTClient.Client
             String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType, bool logRequests = true, bool logResponse = true)
+            String contentType, bool logRequests = false, bool logResponse = false)
         {
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,

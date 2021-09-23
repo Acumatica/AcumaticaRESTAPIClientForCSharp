@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OpenAPI Library")]
-[assembly: AssemblyDescription("A library generated from a OpenAPI doc")]
+[assembly: AssemblyTitle("Acumatica REST Client")]
+[assembly: AssemblyDescription("A simple client allowing to use Acuamtica REST API from C#")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("OpenAPI")]
-[assembly: AssemblyProduct("OpenAPILibrary")]
-[assembly: AssemblyCopyright("No Copyright")]
+[assembly: AssemblyCompany("Acumatica")]
+[assembly: AssemblyProduct("AcumaticaRESTClient")]
+[assembly: AssemblyCopyright("© 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -30,3 +30,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0")]
 [assembly: AssemblyFileVersion("1.0.0")]
+[assembly: Guid("34BCEA8E-F207-46EF-A498-0E07E3BB5D3E")]
