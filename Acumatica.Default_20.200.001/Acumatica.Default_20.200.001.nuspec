@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Dmitrii-Naumov</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+	<license type="expression">GPL-3.0-only</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</projectUrl>
+    <description>C# classes generated based on Acumatica Default endpoint version 20.200.001</description>
+    <copyright>$copyright$</copyright>
+    <tags>Acumatica REST</tags>
+  </metadata>
+</package>
