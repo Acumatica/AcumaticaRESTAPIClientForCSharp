@@ -1,5 +1,6 @@
 # AcumaticaRESTAPIClientForCSharp
 Acumatica REST API Client for C#
+
 The solution allows to easily start developing REST API based integration with Acumatica ERP. 
 
 The solution contains following projects:
