@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Default.18.200.001")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Acumatica.DefaultEndpoint.20.200.001")]
+[assembly: AssemblyDescription("C# classes generated based on Acumatica Default endpoint version 20.200.001")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Default.18.200.001")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCompany("Acumatica")]
+[assembly: AssemblyProduct("Default.20.200.001")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
