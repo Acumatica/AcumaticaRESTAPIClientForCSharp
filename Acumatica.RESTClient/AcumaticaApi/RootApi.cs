@@ -72,9 +72,9 @@ namespace Acumatica.Auth.Api
             var localVarPath = "/entity";
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
+            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
             VerifyResponse(localVarResponse, "RootGet");
 
@@ -92,8 +92,8 @@ namespace Acumatica.Auth.Api
             var localVarPath = "/entity";
            
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
            
             VerifyResponse(localVarResponse, "RootGet");

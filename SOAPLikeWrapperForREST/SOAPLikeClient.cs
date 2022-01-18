@@ -14,11 +14,11 @@ namespace SOAPLikeWrapperForREST
     public class SOAPLikeClient
     {
         #region Constructor
-        public SOAPLikeClient(string siteURL, string endpointPath)
+        public SOAPLikeClient(string siteURL, string endpointPath, int timeout = 10000)
         {
             AuthorizationApi = new AuthApi(siteURL);
             ProcessStartTime = new Dictionary<string, DateTime>();
-            CurrentConfiguration = new Configuration(siteURL + endpointPath);
+            CurrentConfiguration = new Configuration(siteURL + endpointPath, timeout);
         }
         #endregion
 
@@ -30,12 +30,10 @@ namespace SOAPLikeWrapperForREST
 
         public void Login(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
-            var cookieContainer = new CookieContainer();
-            AuthorizationApi.Configuration.ApiClient.RestClient.CookieContainer = cookieContainer;
             AuthorizationApi.AuthLogin(new Credentials(username, password, tenant, branch, locale));
 
-            //share cookie container between API clients because we use different client for authentication and interaction with endpoint
-            CurrentConfiguration.ApiClient.RestClient.CookieContainer = AuthorizationApi.Configuration.ApiClient.RestClient.CookieContainer;
+             CurrentConfiguration.ApiClient.RestClient.CookieContainer.Add(
+                 AuthorizationApi.Configuration.ApiClient.RestClient.CookieContainer.GetCookies(new Uri(AuthorizationApi.Configuration.BasePath)));
         }
         public void Logout()
         {

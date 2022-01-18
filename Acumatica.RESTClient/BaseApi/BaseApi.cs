@@ -20,9 +20,11 @@ namespace Acumatica.RESTClient.Api
         /// Initializes a new instance of the <see cref="BaseApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public BaseApi(String basePath)
+        public BaseApi(String basePath, int timeout = 100000,
+            Action<RestRequest, RestClient> requestInterceptor = null,
+            Action<RestRequest, RestResponse, RestClient> responseInterceptor = null)
         {
-            this.Configuration = new Configuration(basePath);
+            Configuration = new Configuration(basePath, timeout, requestInterceptor, responseInterceptor);
 
             ExceptionFactory = Configuration.DefaultExceptionFactory;
         }
@@ -39,7 +41,7 @@ namespace Acumatica.RESTClient.Api
             {
                 throw new ArgumentNullException(nameof(configuration));
             }
-            this.Configuration = configuration;
+            Configuration = configuration;
 
             ExceptionFactory = Configuration.DefaultExceptionFactory;
         }
@@ -52,7 +54,7 @@ namespace Acumatica.RESTClient.Api
         /// <value>The base path</value>
         public String GetBasePath()
         {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return this.Configuration.BasePath.ToString();
         }
         private const string ApplicationJsonAcceptContentType = "application/json";
         private const string TextJsonAcceptContentType = "text/json";
@@ -170,25 +172,32 @@ namespace Acumatica.RESTClient.Api
 
             return postBody;
         }
-        protected ApiResponse<T> DeserializeResponse<T>(IRestResponse response)
+        protected ApiResponse<T> DeserializeResponse<T>(RestResponse response)
         {
             int localVarStatusCode = (int)response.StatusCode;
 
             return new ApiResponse<T>(localVarStatusCode,
-                response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                GetHeadersExceptCookies(response),
                 (T)this.Configuration.ApiClient.Deserialize(response, typeof(T)));
         }
 
-        protected ApiResponse<object> GetResponseHeaders(IRestResponse response)
+        protected ApiResponse<object> GetResponseHeaders(RestResponse response)
         {
             int localVarStatusCode = (int)response.StatusCode;
 
-            return new ApiResponse<Object>(localVarStatusCode,
-                response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+            return new ApiResponse<object>(localVarStatusCode,
+                GetHeadersExceptCookies(response),
                 null);
         }
 
-        protected void VerifyResponse<T>(IRestResponse response, string methodName)
+        private static Dictionary<string, string> GetHeadersExceptCookies(RestResponse response)
+        {
+            return response.Headers
+                            .Where(x => x.Name != "Set-Cookie")
+                            .ToDictionary(x => x.Name, x => x.Value.ToString());
+        }
+
+        protected void VerifyResponse<T>(RestResponse response, string methodName)
         {
             if (ExceptionFactory != null)
             {
@@ -197,7 +206,7 @@ namespace Acumatica.RESTClient.Api
             }
         }
 
-        protected void VerifyResponse(IRestResponse response, string methodName)
+        protected void VerifyResponse(RestResponse response, string methodName)
         {
             if (ExceptionFactory != null)
             {

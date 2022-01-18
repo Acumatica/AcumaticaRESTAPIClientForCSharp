@@ -15,25 +15,12 @@ namespace Acumatica.RESTClient.Client
     /// </summary>
     public partial class ApiClient
     {
-		private const string RequestsLogPath = "RequestsLog.txt";
+        #region State & ctor
+
 		private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
         };
-
-        /// <summary>
-        /// Allows for extending request processing for <see cref="ApiClient"/> generated code.
-        /// </summary>
-        /// <param name="request">The RestSharp request object</param>
-        partial void InterceptRequest(IRestRequest request);
-
-        /// <summary>
-        /// Allows for extending response processing for <see cref="ApiClient"/> generated code.
-        /// </summary>
-        /// <param name="request">The RestSharp request object</param>
-        /// <param name="response">The RestSharp response object</param>
-        partial void InterceptResponse(IRestRequest request, IRestResponse response);
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
         /// with default base path.
@@ -41,23 +28,9 @@ namespace Acumatica.RESTClient.Client
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? Acumatica.RESTClient.Client.Configuration.Default;
+            Configuration = config ?? Client.Configuration.Default;
 
             RestClient = new RestClient(Configuration.BasePath);
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default configuration.
-        /// </summary>
-        /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath)
-        {
-            if (String.IsNullOrEmpty(basePath))
-                throw new ArgumentException("basePath cannot be empty");
-
-            RestClient = new RestClient(basePath);
-            Configuration = Client.Configuration.Default;
         }
 
         /// <summary>
@@ -76,48 +49,11 @@ namespace Acumatica.RESTClient.Client
         /// </summary>
         /// <value>An instance of the RestClient</value>
         public RestClient RestClient { get; set; }
+        #endregion
 
-        // Creates and sets up a RestRequest prior to a call.
-        private RestRequest PrepareRequest(
-            String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
-            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
-            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType)
-        {
-            var request = new RestRequest(path, method);
-
-            // add path parameter, if any
-            foreach (var param in pathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-
-            // add header parameter, if any
-            foreach (var param in headerParams)
-                request.AddHeader(param.Key, param.Value);
-
-            // add query parameter, if any
-            foreach (var param in queryParams)
-                request.AddQueryParameter(param.Key, param.Value);
-
-            // add form parameter, if any
-            foreach (var param in formParams)
-                request.AddParameter(param.Key, param.Value);
-
-            // add file parameter, if any
-            foreach (var param in fileParams)
-            {
-                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
-            }
-
-            if (postBody != null) // http body (model or byte[]) parameter
-            {
-                request.AddParameter(contentType, postBody, ParameterType.RequestBody);
-            }
-
-            return request;
-        }
-
+        #region Public Methods
         /// <summary>
-        /// Makes the HTTP request (Sync).
+        /// Makes the asynchronous HTTP request.
         /// </summary>
         /// <param name="path">URL path.</param>
         /// <param name="method">HTTP method.</param>
@@ -127,119 +63,23 @@ namespace Acumatica.RESTClient.Client
         /// <param name="formParams">Form parameters.</param>
         /// <param name="fileParams">File parameters.</param>
         /// <param name="pathParams">Path parameters.</param>
-        /// <param name="contentType">Content Type of the request</param>
-        /// <returns>Object</returns>
-        public Object CallApi(
-            String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
+        /// <param name="contentType">Content type.</param>
+        /// <returns>The Task instance.</returns>
+        public async System.Threading.Tasks.Task<Object> CallApiAsync(
+            String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType, bool logRequests = false, bool logResponse = false)
+            String contentType)
         {
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
-                pathParams, contentType);
+                pathParams, contentType, Configuration.Timeout);
 
-            // set timeout
-
-            RestClient.Timeout = Configuration.Timeout;
-            // set user agent
-            RestClient.UserAgent = Configuration.UserAgent;
-
-            if (logRequests)
-			{
-				LogRequest(request);
-			}
-
-			InterceptRequest(request);
-            var response = RestClient.Execute(request);
-            InterceptResponse(request, response);
-
-            if (logResponse)
-			{
-				LogResponse(response);
-			}
-
-			return (Object)response;
-        }
-
-		private static void LogResponse(IRestResponse response)
-		{
-			StreamWriter writer = new StreamWriter(RequestsLogPath, true);
-			writer.WriteLine(DateTime.Now.ToString());
-			writer.WriteLine("Response");
-			writer.WriteLine("\tStatus code: " + response.StatusCode);
-			writer.WriteLine("\tContent: " + response.Content);
-			writer.WriteLine("-----------------------------------------");
-			writer.WriteLine(); 
-            writer.Flush();
-            writer.Close();
-            
-		}
-
-        private void LogRequest(RestRequest request)
-        {
-            StreamWriter writer = new StreamWriter(RequestsLogPath, true);
-            writer.WriteLine(DateTime.Now.ToString());
-            writer.WriteLine("Request");
-            writer.WriteLine("\tMethod: " + request.Method);
-            string parameters = "";
-            string body = "";
-            foreach (var parametr in request.Parameters)
-            {
-                if (parametr.Type == ParameterType.QueryString)
-                {
-                    parameters += String.IsNullOrEmpty(parameters) ? "?" : "&";
-                    parameters += parametr.Name + "=" + parametr.Value;
-                }
-
-                if (parametr.Type == ParameterType.RequestBody)
-                    body += parametr.Value;
-            }
-            writer.WriteLine("\tURL: " + RestClient.BaseUrl + "/" + request.Resource + parameters);
-            if (!String.IsNullOrEmpty(body))
-                writer.WriteLine("\tBody: " + body);
-            writer.WriteLine("-----------------------------------------");
-            writer.WriteLine();
-            writer.Flush();
-            writer.Close();
-        }
-
-		/// <summary>
-		/// Makes the asynchronous HTTP request.
-		/// </summary>
-		/// <param name="path">URL path.</param>
-		/// <param name="method">HTTP method.</param>
-		/// <param name="queryParams">Query parameters.</param>
-		/// <param name="postBody">HTTP body (POST request).</param>
-		/// <param name="headerParams">Header parameters.</param>
-		/// <param name="formParams">Form parameters.</param>
-		/// <param name="fileParams">File parameters.</param>
-		/// <param name="pathParams">Path parameters.</param>
-		/// <param name="contentType">Content type.</param>
-		/// <returns>The Task instance.</returns>
-		public async System.Threading.Tasks.Task<Object> CallApiAsync(
-            String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
-            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
-            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType, bool logRequests = true, bool logResponse = true)
-        {
-            var request = PrepareRequest(
-                path, method, queryParams, postBody, headerParams, formParams, fileParams,
-                pathParams, contentType);
-
-            if (logRequests)
-            {
-                LogRequest(request);
-            }
-
-            InterceptRequest(request);
-            var response = await RestClient.ExecuteTaskAsync(request);
-            InterceptResponse(request, response);
-           
-            if (logResponse)
-            {
-                LogResponse(response);
-            }
+            if (Configuration.RequestInterceptor != null)
+                Configuration.RequestInterceptor(request, this.RestClient);
+            var response = await RestClient.ExecuteAsync(request);
+            if (Configuration.ResponseInterceptor != null)
+                Configuration.ResponseInterceptor(request, response, this.RestClient);
 
             return (Object)response;
         }
@@ -312,9 +152,9 @@ namespace Acumatica.RESTClient.Client
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public object Deserialize(IRestResponse response, Type type)
+        public object Deserialize(RestResponse response, Type type)
         {
-            IList<Parameter> headers = response.Headers;
+            IReadOnlyCollection<Parameter> headers = response.Headers;
             if (type == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
@@ -554,6 +394,50 @@ namespace Acumatica.RESTClient.Client
 
             return parameters;
         }
+        #endregion
+
+        #region Implementation
+      
+        // Creates and sets up a RestRequest prior to a call.
+        private RestRequest PrepareRequest(
+            String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
+            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
+            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
+            String contentType, int timeout)
+        {
+            var request = new RestRequest(path, method);
+
+            // add path parameter, if any
+            foreach (var param in pathParams)
+                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
+
+            // add header parameter, if any
+            foreach (var param in headerParams)
+                request.AddHeader(param.Key, param.Value);
+
+            // add query parameter, if any
+            foreach (var param in queryParams)
+                request.AddQueryParameter(param.Key, param.Value);
+
+            // add form parameter, if any
+            foreach (var param in formParams)
+                request.AddParameter(param.Key, param.Value);
+
+            // add file parameter, if any
+            foreach (var param in fileParams)
+            {
+                request.AddFile(param.Value.Name, param.Value.GetFile, param.Value.FileName, param.Value.ContentType);
+            }
+
+            if (postBody != null) // http body (model or byte[]) parameter
+            {
+                request.AddBody(postBody, contentType);
+            }
+
+            request.Timeout = timeout;
+
+            return request;
+        }
 
         /// <summary>
         /// Check if generic object is a collection.
@@ -564,5 +448,6 @@ namespace Acumatica.RESTClient.Client
         {
             return value is IList || value is ICollection;
         }
+        #endregion
     }
 }

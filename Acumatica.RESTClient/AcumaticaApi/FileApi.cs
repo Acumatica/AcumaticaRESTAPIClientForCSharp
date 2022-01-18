@@ -26,10 +26,10 @@ namespace Acumatica.RESTClient.Api
 		}
 		public System.IO.Stream GetFile(string href)
         {
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(
+			// make the HTTP request
+			RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
 				href,
-                Method.GET, 
+                Method.Get, 
 				ComposeEmptyQueryParams(), 
 				null, 
 				ComposeAcceptHeaders(HeaderContentType.OctetStream), 
@@ -37,7 +37,7 @@ namespace Acumatica.RESTClient.Api
 				ComposeEmptyFileParams(),
 				ComposeEmptyPathParams(),
 				ComposeContentHeaders(HeaderContentType.Json)
-				);
+				).Result;
 
             VerifyResponse<FileLink>(localVarResponse, "GetFile");
 			MemoryStream stream = new MemoryStream(localVarResponse.RawBytes);

@@ -18,7 +18,9 @@ namespace Acumatica.Auth.Api
         /// Initializes a new instance of the <see cref="AuthApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public AuthApi(String basePath) : base(basePath)
+        public AuthApi(String basePath, int timeout = 100000,
+            Action<RestRequest, RestClient> requestInterceptor = null,
+            Action<RestRequest, RestResponse, RestClient> responseInterceptor = null) : base(basePath, timeout, requestInterceptor, responseInterceptor)
         { }
 
         /// <summary>
@@ -34,15 +36,13 @@ namespace Acumatica.Auth.Api
         #region Public Methods
         public Configuration LogIn(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
-            var cookieContainer = new CookieContainer();
-            this.Configuration.ApiClient.RestClient.CookieContainer = cookieContainer;
 
             this.AuthLogin(new Credentials(username, password, tenant, branch, locale));
           //  Console.WriteLine("Logged In...");
-            var configuration = new Configuration(this.Configuration.BasePath);
+            var configuration = new Configuration(Configuration);
 
             //share cookie container between API clients because we use different client for authentication and interaction with endpoint
-            configuration.ApiClient.RestClient.CookieContainer = this.Configuration.ApiClient.RestClient.CookieContainer;
+            configuration.ApiClient.RestClient.CookieContainer.Add(Configuration.ApiClient.RestClient.CookieContainer.GetCookies(new Uri(Configuration.BasePath)));
             return configuration;
         }
         /// <summary>
@@ -104,9 +104,9 @@ namespace Acumatica.Auth.Api
             var localVarPath = "/entity/auth/login";
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, ComposeEmptyQueryParams(), ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
+            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, ComposeEmptyQueryParams(), ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm)).Result;
 
             VerifyResponse(localVarResponse, "AuthLogin");
 
@@ -128,8 +128,8 @@ namespace Acumatica.Auth.Api
             var localVarPath = "/entity/auth/login";
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, ComposeEmptyQueryParams(), ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, ComposeEmptyQueryParams(), ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
 
             VerifyResponse(localVarResponse, "AuthLogin");
@@ -147,9 +147,9 @@ namespace Acumatica.Auth.Api
             var localVarPath = "/entity/auth/logout";
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
+            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
             VerifyResponse(localVarResponse, "AuthLogout");
 
@@ -166,8 +166,8 @@ namespace Acumatica.Auth.Api
             var localVarPath = "/entity/auth/logout";
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
+            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
             VerifyResponse(localVarResponse, "AuthLogout");
