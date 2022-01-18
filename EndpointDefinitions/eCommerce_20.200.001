@@ -5,7 +5,7 @@
     "title": "eCommerce/20.200.001"
   },
   "host": "localhost",
-  "basePath": "/20r208/entity/eCommerce/20.200.001",
+  "basePath": "/21r202/entity/eCommerce/20.200.001",
   "schemes": [
     "http"
   ],
@@ -42125,6 +42125,168 @@
         }
       }
     },
+    "/Payment/VoidCardPayment": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "Payment_InvokeAction_VoidCardPayment",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "invocation",
+            "in": "body",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VoidCardPayment",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/Payment"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/Payment/CardOperation": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "Payment_InvokeAction_CardOperation",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "invocation",
+            "in": "body",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CardOperation",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/Payment"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
     "/Payment/CaptureCreditCardPayment": {
       "post": {
         "tags": [
@@ -60733,6 +60895,582 @@
         }
       }
     },
+    "/ShopifyStore/$adHocSchema": {
+      "get": {
+        "tags": [
+          "ShopifyStore"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "ShopifyStore_GetAdHocSchema",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/ShopifyStore"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ShopifyStore/{ids}": {
+      "get": {
+        "tags": [
+          "ShopifyStore"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "ShopifyStore_GetByKeys",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ShopifyStore"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ShopifyStore"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "ShopifyStore_DeleteByKeys",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ShopifyStore/{id}": {
+      "get": {
+        "tags": [
+          "ShopifyStore"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "ShopifyStore_GetById",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ShopifyStore"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ShopifyStore"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "ShopifyStore_DeleteById",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ShopifyStore/{actionName}": {
+      "post": {
+        "tags": [
+          "ShopifyStore"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "ShopifyStore_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "invocation",
+            "in": "body",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShopifyStoreCustomAction",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/ShopifyStore"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ShopifyStore/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "ShopifyStore"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "ShopifyStore_PutFile",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "filename",
+            "in": "path",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ShopifyStore": {
+      "get": {
+        "tags": [
+          "ShopifyStore"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "ShopifyStore_GetList",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "The number of records to be returned from the system.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ShopifyStore"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ShopifyStore"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "ShopifyStore_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "body",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShopifyStore"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/ShopifyStore"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/ShopifyStore"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
     "/StatementCycle/$adHocSchema": {
       "get": {
         "tags": [
@@ -76509,7 +77247,7 @@
         {
           "type": "object",
           "properties": {
-            "LastModifiedDateTime": {
+            "LastModified": {
               "$ref": "#/definitions/DateTimeValue"
             },
             "ShippingNoteID": {
@@ -76520,6 +77258,9 @@
             },
             "OrderType": {
               "$ref": "#/definitions/StringValue"
+            },
+            "BindingID": {
+              "$ref": "#/definitions/IntValue"
             },
             "Results": {
               "type": "array",
@@ -76539,6 +77280,15 @@
         {
           "type": "object",
           "properties": {
+            "ExternalShipmentUpdated": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "InvoiceNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "InvoiceType": {
+              "$ref": "#/definitions/StringValue"
+            },
             "Confirmed": {
               "$ref": "#/definitions/BooleanValue"
             },
@@ -76554,13 +77304,13 @@
             "OrderNoteID": {
               "$ref": "#/definitions/GuidValue"
             },
+            "OrderType": {
+              "$ref": "#/definitions/StringValue"
+            },
             "ShipmentNumber": {
               "$ref": "#/definitions/StringValue"
             },
             "ShipmentType": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "VendorRef": {
               "$ref": "#/definitions/StringValue"
             }
           }
@@ -78573,6 +79323,9 @@
             "CashDiscountBalance": {
               "$ref": "#/definitions/DecimalValue"
             },
+            "DocLineNbr": {
+              "$ref": "#/definitions/IntValue"
+            },
             "DocType": {
               "$ref": "#/definitions/StringValue"
             },
@@ -79269,6 +80022,12 @@
         {
           "type": "object",
           "properties": {
+            "OrigTranNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ExpirationDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
             "TranNbr": {
               "$ref": "#/definitions/StringValue"
             },
@@ -79368,6 +80127,9 @@
         {
           "type": "object",
           "properties": {
+            "RestrictVisibilityTo": {
+              "$ref": "#/definitions/StringValue"
+            },
             "CreditLimit": {
               "$ref": "#/definitions/DecimalValue"
             },
@@ -80596,7 +81358,10 @@
               "$ref": "#/definitions/StringValue"
             },
             "PaymentInstructions": {
-              "$ref": "#/definitions/BusinessAccountPaymentInstructionDetail"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BusinessAccountPaymentInstructionDetail"
+              }
             },
             "PaymentMethod": {
               "$ref": "#/definitions/StringValue"
@@ -83783,6 +84548,9 @@
             },
             "ItemStatus": {
               "$ref": "#/definitions/StringValue"
+            },
+            "ExportToExternal": {
+              "$ref": "#/definitions/BooleanValue"
             }
           }
         }
@@ -83796,8 +84564,17 @@
         {
           "type": "object",
           "properties": {
+            "CurySpecificMSRP": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "CurySpecificPrice": {
+              "$ref": "#/definitions/DecimalValue"
+            },
             "Availability": {
               "$ref": "#/definitions/StringValue"
+            },
+            "ExportToExternal": {
+              "$ref": "#/definitions/BooleanValue"
             },
             "Categories": {
               "type": "array",
@@ -84442,6 +85219,27 @@
         }
       ]
     },
+    "OrderRisks": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Message": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Recommendation": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Score": {
+              "$ref": "#/definitions/DecimalValue"
+            }
+          }
+        }
+      ]
+    },
     "Payment": {
       "allOf": [
         {
@@ -84450,6 +85248,12 @@
         {
           "type": "object",
           "properties": {
+            "ExternalRef": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "OrigTransaction": {
+              "$ref": "#/definitions/StringValue"
+            },
             "BranchID": {
               "$ref": "#/definitions/StringValue"
             },
@@ -84656,6 +85460,9 @@
             },
             "Description": {
               "$ref": "#/definitions/StringValue"
+            },
+            "DocLineNbr": {
+              "$ref": "#/definitions/IntValue"
             },
             "DocType": {
               "$ref": "#/definitions/StringValue"
@@ -87606,8 +88413,20 @@
         {
           "type": "object",
           "properties": {
+            "OrderRisks": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderRisks"
+              }
+            },
+            "MaxRiskScore": {
+              "$ref": "#/definitions/DecimalValue"
+            },
             "ExternalOrderOriginal": {
               "$ref": "#/definitions/BooleanValue"
+            },
+            "ExternalRefundRef": {
+              "$ref": "#/definitions/StringValue"
             },
             "WillCall": {
               "$ref": "#/definitions/BooleanValue"
@@ -87620,6 +88439,15 @@
             },
             "UsrExternalOrderOriginal": {
               "$ref": "#/definitions/BooleanValue"
+            },
+            "ExternalOrderOrigin": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ExternalOrderSource": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "TaxCalcMode": {
+              "$ref": "#/definitions/StringValue"
             },
             "Approved": {
               "$ref": "#/definitions/BooleanValue"
@@ -87647,6 +88475,9 @@
             },
             "Commissions": {
               "$ref": "#/definitions/Commissions"
+            },
+            "ContactID": {
+              "$ref": "#/definitions/StringValue"
             },
             "ControlTotal": {
               "$ref": "#/definitions/DecimalValue"
@@ -87837,11 +88668,20 @@
         {
           "type": "object",
           "properties": {
+            "AssociatedOrderLineNbr": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "GiftMessage": {
+              "$ref": "#/definitions/StringValue"
+            },
             "ManualPrice": {
               "$ref": "#/definitions/BooleanValue"
             },
             "NoteID": {
               "$ref": "#/definitions/GuidValue"
+            },
+            "ExternalRef": {
+              "$ref": "#/definitions/StringValue"
             },
             "Account": {
               "$ref": "#/definitions/StringValue"
@@ -88062,6 +88902,9 @@
         {
           "type": "object",
           "properties": {
+            "ExternalRef": {
+              "$ref": "#/definitions/StringValue"
+            },
             "NoteID": {
               "$ref": "#/definitions/GuidValue"
             },
@@ -88107,6 +88950,9 @@
             "LastModifiedDateTime": {
               "$ref": "#/definitions/DateTimeValue"
             },
+            "OrigTransactionNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
             "PaymentAmount": {
               "$ref": "#/definitions/DecimalValue"
             },
@@ -88122,6 +88968,9 @@
             "ReferenceNbr": {
               "$ref": "#/definitions/StringValue"
             },
+            "Refund": {
+              "$ref": "#/definitions/BooleanValue"
+            },
             "SaveCard": {
               "$ref": "#/definitions/BooleanValue"
             },
@@ -88130,6 +88979,9 @@
             },
             "TransferredtoInvoice": {
               "$ref": "#/definitions/DecimalValue"
+            },
+            "ValidateCCRefundOrigTransaction": {
+              "$ref": "#/definitions/BooleanValue"
             }
           }
         }
@@ -88314,6 +89166,9 @@
             "Warehouse": {
               "$ref": "#/definitions/StringValue"
             },
+            "TaxCalculationMode": {
+              "$ref": "#/definitions/StringValue"
+            },
             "BreakQty": {
               "$ref": "#/definitions/DecimalValue"
             },
@@ -88371,6 +89226,9 @@
         {
           "type": "object",
           "properties": {
+            "TaxCalculationMode": {
+              "$ref": "#/definitions/StringValue"
+            },
             "EffectiveAsOf": {
               "$ref": "#/definitions/DateTimeValue"
             },
@@ -89443,6 +90301,45 @@
         }
       ]
     },
+    "ShopifyStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "AccessToken": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Active": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "APIKey": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "APIPassword": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Connector": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Default": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "SharedSecret": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "StoreAdminURL": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "StoreName": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
     "SrvOrdAddress": {
       "allOf": [
         {
@@ -90096,11 +90993,20 @@
         {
           "type": "object",
           "properties": {
+            "CurySpecificMSRP": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "CurySpecificPrice": {
+              "$ref": "#/definitions/DecimalValue"
+            },
             "Availability": {
               "$ref": "#/definitions/StringValue"
             },
             "CustomURL": {
               "$ref": "#/definitions/StringValue"
+            },
+            "ExportToExternal": {
+              "$ref": "#/definitions/BooleanValue"
             },
             "FileURLs": {
               "type": "array",
@@ -90633,6 +91539,9 @@
         {
           "type": "object",
           "properties": {
+            "BindingID": {
+              "$ref": "#/definitions/IntValue"
+            },
             "Results": {
               "type": "array",
               "items": {
@@ -90705,10 +91614,13 @@
             "Availability": {
               "$ref": "#/definitions/StringValue"
             },
+            "IdentifyNoteID": {
+              "$ref": "#/definitions/StringValue"
+            },
             "InventoryDescription": {
               "$ref": "#/definitions/StringValue"
             },
-            "InventoryID": {
+            "InventoryCD": {
               "$ref": "#/definitions/StringValue"
             },
             "InventoryLastModifiedDate": {
@@ -90750,8 +91662,11 @@
             "LotSerialNbr": {
               "$ref": "#/definitions/StringValue"
             },
-            "NoQtyMode": {
+            "NotAvailMode": {
               "$ref": "#/definitions/StringValue"
+            },
+            "ParentSyncId": {
+              "$ref": "#/definitions/IntValue"
             },
             "SiteAvailable": {
               "$ref": "#/definitions/DecimalValue"
@@ -91332,6 +92247,12 @@
         {
           "type": "object",
           "properties": {
+            "CurySpecificMSRP": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "CurySpecificPrice": {
+              "$ref": "#/definitions/DecimalValue"
+            },
             "ItemClass": {
               "$ref": "#/definitions/StringValue"
             },
@@ -91373,6 +92294,9 @@
             },
             "DimensionWeight": {
               "$ref": "#/definitions/DecimalValue"
+            },
+            "ExportToExternal": {
+              "$ref": "#/definitions/BooleanValue"
             },
             "FileURLs": {
               "type": "array",
@@ -91424,6 +92348,9 @@
             },
             "MetaKeywords": {
               "$ref": "#/definitions/StringValue"
+            },
+            "RequireShipment": {
+              "$ref": "#/definitions/BooleanValue"
             }
           }
         }
@@ -95205,6 +96132,81 @@
         }
       }
     },
+    "VoidCardPayment": {
+      "required": [
+        "entity",
+        "parameters"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/Payment"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "TranType": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "TranNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ExtProfileId": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "TranDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "NeedValidation": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "OrigTranNbr": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      }
+    },
+    "CardOperation": {
+      "required": [
+        "entity",
+        "parameters"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/Payment"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "TranType": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "TranNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "AuthNumber": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ExtProfileId": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "TranDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "OrigTranNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Amount": {
+              "$ref": "#/definitions/DecimalValue"
+            }
+          }
+        }
+      }
+    },
     "CaptureCreditCardPayment": {
       "required": [
         "entity"
@@ -96458,6 +97460,32 @@
         }
       }
     },
+    "ShopifyStoreCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/ShopifyStore"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "StatementCycleCustomAction": {
       "required": [
         "entity"
@@ -97357,7 +98385,7 @@
     },
     {
       "name": "LaborCostRate",
-      "description": "Labor Cost Rates (PM209900)"
+      "description": "Labor Rates (PM209900)"
     },
     {
       "name": "Lead",
@@ -97484,6 +98512,10 @@
       "description": "Ship via Codes (CS207500)"
     },
     {
+      "name": "ShopifyStore",
+      "description": "(BC201010)"
+    },
+    {
       "name": "StatementCycle",
       "description": "Statement Cycles (AR202800)"
     },
@@ -97497,7 +98529,7 @@
     },
     {
       "name": "StorageDetailsByLocationInquiry",
-      "description": "Storage Details By Item Warehouse Location (IN408055)"
+      "description": "Storage Details by Item Warehouse Location (IN408055)"
     },
     {
       "name": "StorageDetailsInquiry",

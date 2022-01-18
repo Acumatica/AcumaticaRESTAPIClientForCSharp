@@ -5,7 +5,7 @@
     "title": "DeviceHub/19.200.001"
   },
   "host": "localhost",
-  "basePath": "/beta/entity/DeviceHub/19.200.001",
+  "basePath": "/21r202/entity/DeviceHub/19.200.001",
   "schemes": [
     "http"
   ],
@@ -2445,6 +2445,33 @@
             },
             "ModifiedDateTime": {
               "$ref": "#/definitions/DateTimeValue"
+            },
+            "Parameters": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJobParameter"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "PrintJobParameter": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "JobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "ParameterName": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ParameterValue": {
+              "$ref": "#/definitions/StringValue"
             }
           }
         }
@@ -2475,6 +2502,12 @@
               "items": {
                 "$ref": "#/definitions/PrintJob"
               }
+            },
+            "StartModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "EndModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
             }
           }
         }

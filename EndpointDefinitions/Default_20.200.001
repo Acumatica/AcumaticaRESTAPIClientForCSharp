@@ -5,7 +5,7 @@
     "title": "Default/20.200.001"
   },
   "host": "localhost",
-  "basePath": "/20r208/entity/Default/20.200.001",
+  "basePath": "/21r202/entity/Default/20.200.001",
   "schemes": [
     "http"
   ],
@@ -75513,6 +75513,9 @@
             "CashDiscountBalance": {
               "$ref": "#/definitions/DecimalValue"
             },
+            "DocLineNbr": {
+              "$ref": "#/definitions/IntValue"
+            },
             "DocType": {
               "$ref": "#/definitions/StringValue"
             },
@@ -77521,7 +77524,10 @@
               "$ref": "#/definitions/StringValue"
             },
             "PaymentInstructions": {
-              "$ref": "#/definitions/BusinessAccountPaymentInstructionDetail"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BusinessAccountPaymentInstructionDetail"
+              }
             },
             "PaymentMethod": {
               "$ref": "#/definitions/StringValue"
@@ -81399,6 +81405,9 @@
             "Description": {
               "$ref": "#/definitions/StringValue"
             },
+            "DocLineNbr": {
+              "$ref": "#/definitions/IntValue"
+            },
             "DocType": {
               "$ref": "#/definitions/StringValue"
             },
@@ -84375,6 +84384,9 @@
             "Commissions": {
               "$ref": "#/definitions/Commissions"
             },
+            "ContactID": {
+              "$ref": "#/definitions/StringValue"
+            },
             "ControlTotal": {
               "$ref": "#/definitions/DecimalValue"
             },
@@ -84825,6 +84837,9 @@
             "LastModifiedDateTime": {
               "$ref": "#/definitions/DateTimeValue"
             },
+            "OrigTransactionNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
             "PaymentAmount": {
               "$ref": "#/definitions/DecimalValue"
             },
@@ -84840,6 +84855,9 @@
             "ReferenceNbr": {
               "$ref": "#/definitions/StringValue"
             },
+            "Refund": {
+              "$ref": "#/definitions/BooleanValue"
+            },
             "SaveCard": {
               "$ref": "#/definitions/BooleanValue"
             },
@@ -84848,6 +84866,9 @@
             },
             "TransferredtoInvoice": {
               "$ref": "#/definitions/DecimalValue"
+            },
+            "ValidateCCRefundOrigTransaction": {
+              "$ref": "#/definitions/BooleanValue"
             }
           }
         }
@@ -93600,7 +93621,7 @@
     },
     {
       "name": "LaborCostRate",
-      "description": "Labor Cost Rates (PM209900)"
+      "description": "Labor Rates (PM209900)"
     },
     {
       "name": "Lead",
@@ -93736,7 +93757,7 @@
     },
     {
       "name": "StorageDetailsByLocationInquiry",
-      "description": "Storage Details By Item Warehouse Location (IN408055)"
+      "description": "Storage Details by Item Warehouse Location (IN408055)"
     },
     {
       "name": "StorageDetailsInquiry",
