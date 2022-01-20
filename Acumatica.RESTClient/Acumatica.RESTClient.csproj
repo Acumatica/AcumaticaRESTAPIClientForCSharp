@@ -41,6 +41,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="AcumaticaRESTClientLogo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Update="images\AcumaticaRESTClientLogo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
