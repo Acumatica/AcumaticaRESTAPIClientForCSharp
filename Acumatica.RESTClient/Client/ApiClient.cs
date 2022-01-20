@@ -152,16 +152,16 @@ namespace Acumatica.RESTClient.Client
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public object Deserialize(RestResponse response, Type type)
+        public object Deserialize<T>(RestResponse response)
         {
             IReadOnlyCollection<Parameter> headers = response.Headers;
-            if (type == typeof(byte[])) // return byte array
+            if (typeof(T) == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
             }
 
             // TODO: ? if (type.IsAssignableFrom(typeof(Stream)))
-            if (type == typeof(Stream))
+            if (typeof(T) == typeof(Stream))
             {
                 if (headers != null)
                 {
@@ -184,20 +184,25 @@ namespace Acumatica.RESTClient.Client
                 return stream;
             }
 
-            if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
+            if (typeof(T).Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
             {
                 return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
 
-            if (type == typeof(String) || type.Name.StartsWith("System.Nullable")) // return primitive type
+            if (typeof(T) == typeof(String)) // return primitive type
             {
-                return ConvertType(response.Content, type);
+                return (String)response.Content;
+            }
+
+            if (typeof(T).Name.StartsWith("System.Nullable"))
+            {
+                return Convert.ChangeType(response.Content, typeof(T));
             }
 
             // at this point, it must be a model (json)
             try
             {
-                return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+                return JsonConvert.DeserializeObject(response.Content, typeof(T), serializerSettings);
             }
             catch (Exception e)
             {
@@ -287,16 +292,6 @@ namespace Acumatica.RESTClient.Client
             return System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text));
         }
 
-        /// <summary>
-        /// Dynamically cast the object into target type.
-        /// </summary>
-        /// <param name="fromObject">Object to be casted</param>
-        /// <param name="toObject">Target type</param>
-        /// <returns>Casted object</returns>
-        public static dynamic ConvertType(dynamic fromObject, Type toObject)
-        {
-            return Convert.ChangeType(fromObject, toObject);
-        }
 
         /// <summary>
         /// Convert stream to byte array

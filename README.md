@@ -1,5 +1,6 @@
-# AcumaticaRESTAPIClientForCSharp
-Acumatica REST API Client for C#
+# Acumatica REST API Client for C#
+
+[![NuGet](https://buildstats.info/nuget/Acumatica.RESTClient)](https://www.nuget.org/packages/Acumatica.RESTClient/)
 
 The solution allows to easily start developing REST API based integration with Acumatica ERP. 
 

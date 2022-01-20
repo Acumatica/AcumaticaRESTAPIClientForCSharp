@@ -1,6 +1,6 @@
 ﻿using Acumatica.Auth.Api;
 using Acumatica.Auth.Model;
-using Acumatica.Default_18_200_001.Api;
+using Acumatica.Default_20_200_001.Api;
 using Acumatica.RESTClient.Client;
 using System;
 using System.Collections.Generic;

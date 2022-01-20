@@ -1,4 +1,4 @@
-﻿using Acumatica.Default_18_200_001.Model;
+﻿using Acumatica.Default_20_200_001.Model;
 using SOAPLikeWrapperForREST;
 using System;
 
@@ -8,7 +8,7 @@ namespace AcumaticaRestApiExample
     {
         public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
-            var restClient = new SOAPLikeClient(siteURL, "/Default/18.200.001");
+            var restClient = new SOAPLikeClient(siteURL, "/Default/20.200.001");
 
             try
             {
