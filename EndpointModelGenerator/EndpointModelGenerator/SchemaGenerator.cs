@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace EndpointSchemaGenerator
 {
@@ -56,27 +57,28 @@ namespace EndpointSchemaGenerator
                 if (schema.Parameters.ContainsKey(action.Key))
                 {
                     StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + filename);
-              
-                    string content = "";
+
+                    StringBuilder content = new StringBuilder();
                     foreach (var parameter in schema.Parameters[action.Key])
                     {
-                        content += String.Format(Templates.InActionParameterTemplate, parameter.Key, parameter.Value);
+                        content.Append(String.Format(Templates.InActionParameterTemplate, parameter.Key, parameter.Value));
                     }
-                    string result = String.Format(Templates.ActionWithParametersTemplate, endpointNamespace, action.Key, action.Value, content);
+                    string result = String.Format(Templates.ActionWithParametersTemplate, endpointNamespace, action.Key, action.Value, content.ToString());
 
                     writer.Write(Templates.ActionUsingsTemplate + result);
                     writer.Close();
 
                     string paramFileName = action.Key + "Parameters.cs";
                     writer = new StreamWriter(modelParametersFilesDirectory + paramFileName);
-           
 
-                    content = "";
+
+                    content = new StringBuilder();
                     foreach (var parameter in schema.Parameters[action.Key])
                     {
-                        content += "\r\n" + String.Format(Templates.ParameterTemplate, parameter.Key, parameter.Value);
+                        content.Append("\r\n");
+                        content.Append(String.Format(Templates.ParameterTemplate, parameter.Key, parameter.Value));
                     }
-                    result = String.Format(Templates.ActionParametersTemplate, endpointNamespace, action.Key, content);
+                    result = String.Format(Templates.ActionParametersTemplate, endpointNamespace, action.Key, content.ToString());
                     writeLogDelegate.Invoke("ActionsWithParameters/" + action.Key);
                     writer.Write(result);
                     writer.Close();
@@ -134,12 +136,15 @@ namespace EndpointSchemaGenerator
             {
                 string filename = entity.Key + ".cs";
                 StreamWriter writer = new StreamWriter(modelFilesDirectory + filename);
-                string body = "";
+                StringBuilder body = new StringBuilder();
                 foreach (var field in entity.Value)
                 {
-                    body += string.Format(Templates.FieldTemplate, field.Key, field.Value);
+                    if (field.Key == entity.Key)
+                        body.Append(string.Format(Templates.FieldTemplate, field.Key.ToLowerInvariant(), field.Value));
+                    else
+                        body.Append(string.Format(Templates.FieldTemplate, field.Key, field.Value));
                 }
-                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body, schema.Info.Version);
+                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString(), schema.Info.Version);
                 writeLogDelegate.Invoke(entity.Key);
                 writer.Write(Templates.EntityUsingsTemplate + result);
                 writer.Close();
