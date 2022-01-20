@@ -23,5 +23,11 @@ namespace Acumatica.DeviceHub_19_200_001.Model
 		[DataMember(Name="Jobs", EmitDefaultValue=false)]
 		public List<PrintJob> Jobs { get; set; }
 
+		[DataMember(Name="StartModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue StartModifiedDateTime { get; set; }
+
+		[DataMember(Name="EndModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue EndModifiedDateTime { get; set; }
+
 	}
 }

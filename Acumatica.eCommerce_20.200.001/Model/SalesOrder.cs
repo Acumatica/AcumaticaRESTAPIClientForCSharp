@@ -8,8 +8,17 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class SalesOrder : Entity_v4
 	{
 
+		[DataMember(Name="OrderRisks", EmitDefaultValue=false)]
+		public List<OrderRisks> OrderRisks { get; set; }
+
+		[DataMember(Name="MaxRiskScore", EmitDefaultValue=false)]
+		public DecimalValue MaxRiskScore { get; set; }
+
 		[DataMember(Name="ExternalOrderOriginal", EmitDefaultValue=false)]
 		public BooleanValue ExternalOrderOriginal { get; set; }
+
+		[DataMember(Name="ExternalRefundRef", EmitDefaultValue=false)]
+		public StringValue ExternalRefundRef { get; set; }
 
 		[DataMember(Name="WillCall", EmitDefaultValue=false)]
 		public BooleanValue WillCall { get; set; }
@@ -22,6 +31,15 @@ namespace Acumatica.eCommerce_20_200_001.Model
 
 		[DataMember(Name="UsrExternalOrderOriginal", EmitDefaultValue=false)]
 		public BooleanValue UsrExternalOrderOriginal { get; set; }
+
+		[DataMember(Name="ExternalOrderOrigin", EmitDefaultValue=false)]
+		public StringValue ExternalOrderOrigin { get; set; }
+
+		[DataMember(Name="ExternalOrderSource", EmitDefaultValue=false)]
+		public StringValue ExternalOrderSource { get; set; }
+
+		[DataMember(Name="TaxCalcMode", EmitDefaultValue=false)]
+		public StringValue TaxCalcMode { get; set; }
 
 		[DataMember(Name="Approved", EmitDefaultValue=false)]
 		public BooleanValue Approved { get; set; }
@@ -49,6 +67,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 
 		[DataMember(Name="Commissions", EmitDefaultValue=false)]
 		public Commissions Commissions { get; set; }
+
+		[DataMember(Name="ContactID", EmitDefaultValue=false)]
+		public StringValue ContactID { get; set; }
 
 		[DataMember(Name="ControlTotal", EmitDefaultValue=false)]
 		public DecimalValue ControlTotal { get; set; }

@@ -11,11 +11,14 @@ namespace Acumatica.eCommerce_20_200_001.Model
 		[DataMember(Name="Availability", EmitDefaultValue=false)]
 		public StringValue Availability { get; set; }
 
+		[DataMember(Name="IdentifyNoteID", EmitDefaultValue=false)]
+		public StringValue IdentifyNoteID { get; set; }
+
 		[DataMember(Name="InventoryDescription", EmitDefaultValue=false)]
 		public StringValue InventoryDescription { get; set; }
 
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		[DataMember(Name="InventoryCD", EmitDefaultValue=false)]
+		public StringValue InventoryCD { get; set; }
 
 		[DataMember(Name="InventoryLastModifiedDate", EmitDefaultValue=false)]
 		public DateTimeValue InventoryLastModifiedDate { get; set; }
@@ -56,8 +59,11 @@ namespace Acumatica.eCommerce_20_200_001.Model
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue LotSerialNbr { get; set; }
 
-		[DataMember(Name="NoQtyMode", EmitDefaultValue=false)]
-		public StringValue NoQtyMode { get; set; }
+		[DataMember(Name="NotAvailMode", EmitDefaultValue=false)]
+		public StringValue NotAvailMode { get; set; }
+
+		[DataMember(Name="ParentSyncId", EmitDefaultValue=false)]
+		public IntValue ParentSyncId { get; set; }
 
 		[DataMember(Name="SiteAvailable", EmitDefaultValue=false)]
 		public DecimalValue SiteAvailable { get; set; }

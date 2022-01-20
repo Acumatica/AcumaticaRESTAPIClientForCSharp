@@ -8,6 +8,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class SalesPricesInquiry : Entity_v4
 	{
 
+		[DataMember(Name="TaxCalculationMode", EmitDefaultValue=false)]
+		public StringValue TaxCalculationMode { get; set; }
+
 		[DataMember(Name="EffectiveAsOf", EmitDefaultValue=false)]
 		public DateTimeValue EffectiveAsOf { get; set; }
 

@@ -8,6 +8,12 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class CreditCardTransactionDetail : Entity_v4
 	{
 
+		[DataMember(Name="OrigTranNbr", EmitDefaultValue=false)]
+		public StringValue OrigTranNbr { get; set; }
+
+		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
+		public DateTimeValue ExpirationDate { get; set; }
+
 		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
 		public StringValue TranNbr { get; set; }
 

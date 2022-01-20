@@ -8,11 +8,20 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class StockItem : Entity_v4
 	{
 
+		[DataMember(Name="CurySpecificMSRP", EmitDefaultValue=false)]
+		public DecimalValue CurySpecificMSRP { get; set; }
+
+		[DataMember(Name="CurySpecificPrice", EmitDefaultValue=false)]
+		public DecimalValue CurySpecificPrice { get; set; }
+
 		[DataMember(Name="Availability", EmitDefaultValue=false)]
 		public StringValue Availability { get; set; }
 
 		[DataMember(Name="CustomURL", EmitDefaultValue=false)]
 		public StringValue CustomURL { get; set; }
+
+		[DataMember(Name="ExportToExternal", EmitDefaultValue=false)]
+		public BooleanValue ExportToExternal { get; set; }
 
 		[DataMember(Name="FileURLs", EmitDefaultValue=false)]
 		public List<InventoryFileUrls> FileURLs { get; set; }

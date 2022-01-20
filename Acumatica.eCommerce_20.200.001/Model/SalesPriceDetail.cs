@@ -14,6 +14,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue Warehouse { get; set; }
 
+		[DataMember(Name="TaxCalculationMode", EmitDefaultValue=false)]
+		public StringValue TaxCalculationMode { get; set; }
+
 		[DataMember(Name="BreakQty", EmitDefaultValue=false)]
 		public DecimalValue BreakQty { get; set; }
 

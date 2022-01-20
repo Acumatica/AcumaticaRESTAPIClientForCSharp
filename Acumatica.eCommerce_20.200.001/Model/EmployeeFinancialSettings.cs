@@ -24,7 +24,7 @@ namespace Acumatica.eCommerce_20_200_001.Model
 		public StringValue ExpenseSubaccount { get; set; }
 
 		[DataMember(Name="PaymentInstructions", EmitDefaultValue=false)]
-		public BusinessAccountPaymentInstructionDetail PaymentInstructions { get; set; }
+		public List<BusinessAccountPaymentInstructionDetail> PaymentInstructions { get; set; }
 
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue PaymentMethod { get; set; }

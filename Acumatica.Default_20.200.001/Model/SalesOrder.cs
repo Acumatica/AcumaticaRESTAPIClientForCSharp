@@ -35,6 +35,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Commissions", EmitDefaultValue=false)]
 		public Commissions Commissions { get; set; }
 
+		[DataMember(Name="ContactID", EmitDefaultValue=false)]
+		public StringValue ContactID { get; set; }
+
 		[DataMember(Name="ControlTotal", EmitDefaultValue=false)]
 		public DecimalValue ControlTotal { get; set; }
 

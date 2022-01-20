@@ -8,6 +8,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class Customer : Entity_v4
 	{
 
+		[DataMember(Name="RestrictVisibilityTo", EmitDefaultValue=false)]
+		public StringValue RestrictVisibilityTo { get; set; }
+
 		[DataMember(Name="CreditLimit", EmitDefaultValue=false)]
 		public DecimalValue CreditLimit { get; set; }
 

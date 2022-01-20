@@ -8,8 +8,8 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class BCShipments : Entity_v4
 	{
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		[DataMember(Name="LastModified", EmitDefaultValue=false)]
+		public DateTimeValue LastModified { get; set; }
 
 		[DataMember(Name="ShippingNoteID", EmitDefaultValue=false)]
 		public GuidValue ShippingNoteID { get; set; }
@@ -19,6 +19,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue OrderType { get; set; }
+
+		[DataMember(Name="BindingID", EmitDefaultValue=false)]
+		public IntValue BindingID { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<BCShipmentsResult> Results { get; set; }

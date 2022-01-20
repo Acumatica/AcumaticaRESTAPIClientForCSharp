@@ -23,5 +23,8 @@ namespace Acumatica.eCommerce_20_200_001.Model
 		[DataMember(Name="ItemStatus", EmitDefaultValue=false)]
 		public StringValue ItemStatus { get; set; }
 
+		[DataMember(Name="ExportToExternal", EmitDefaultValue=false)]
+		public BooleanValue ExportToExternal { get; set; }
+
 	}
 }

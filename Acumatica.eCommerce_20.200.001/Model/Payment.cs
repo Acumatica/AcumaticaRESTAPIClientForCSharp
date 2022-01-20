@@ -8,6 +8,12 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class Payment : Entity_v4
 	{
 
+		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
+		public StringValue ExternalRef { get; set; }
+
+		[DataMember(Name="OrigTransaction", EmitDefaultValue=false)]
+		public StringValue OrigTransaction { get; set; }
+
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue BranchID { get; set; }
 

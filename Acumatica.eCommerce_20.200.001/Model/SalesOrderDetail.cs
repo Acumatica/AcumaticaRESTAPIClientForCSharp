@@ -8,11 +8,20 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class SalesOrderDetail : Entity_v4
 	{
 
+		[DataMember(Name="AssociatedOrderLineNbr", EmitDefaultValue=false)]
+		public IntValue AssociatedOrderLineNbr { get; set; }
+
+		[DataMember(Name="GiftMessage", EmitDefaultValue=false)]
+		public StringValue GiftMessage { get; set; }
+
 		[DataMember(Name="ManualPrice", EmitDefaultValue=false)]
 		public BooleanValue ManualPrice { get; set; }
 
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue NoteID { get; set; }
+
+		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
+		public StringValue ExternalRef { get; set; }
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue Account { get; set; }

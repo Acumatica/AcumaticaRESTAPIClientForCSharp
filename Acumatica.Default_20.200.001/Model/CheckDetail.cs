@@ -17,6 +17,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="CashDiscountBalance", EmitDefaultValue=false)]
 		public DecimalValue CashDiscountBalance { get; set; }
 
+		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
+		public IntValue DocLineNbr { get; set; }
+
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
 		public StringValue DocType { get; set; }
 

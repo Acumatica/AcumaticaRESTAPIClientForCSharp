@@ -14,8 +14,8 @@ namespace Acumatica.Manufacturing_20_200_001.Model
 		[DataMember(Name="DiffType", EmitDefaultValue=false)]
 		public StringValue DiffType { get; set; }
 
-		[DataMember(Name="Shift", EmitDefaultValue=false)]
-		public StringValue _Shift { get; set; }
+		[DataMember(Name="shift", EmitDefaultValue=false)]
+		public StringValue shift { get; set; }
 
 		[DataMember(Name="ShiftDiff", EmitDefaultValue=false)]
 		public DecimalValue ShiftDiff { get; set; }

@@ -8,6 +8,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class SalesOrderPayment : Entity_v4
 	{
 
+		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
+		public StringValue ExternalRef { get; set; }
+
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue NoteID { get; set; }
 
@@ -50,6 +53,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue LastModifiedDateTime { get; set; }
 
+		[DataMember(Name="OrigTransactionNbr", EmitDefaultValue=false)]
+		public StringValue OrigTransactionNbr { get; set; }
+
 		[DataMember(Name="PaymentAmount", EmitDefaultValue=false)]
 		public DecimalValue PaymentAmount { get; set; }
 
@@ -65,6 +71,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue ReferenceNbr { get; set; }
 
+		[DataMember(Name="Refund", EmitDefaultValue=false)]
+		public BooleanValue Refund { get; set; }
+
 		[DataMember(Name="SaveCard", EmitDefaultValue=false)]
 		public BooleanValue SaveCard { get; set; }
 
@@ -73,6 +82,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 
 		[DataMember(Name="TransferredtoInvoice", EmitDefaultValue=false)]
 		public DecimalValue TransferredtoInvoice { get; set; }
+
+		[DataMember(Name="ValidateCCRefundOrigTransaction", EmitDefaultValue=false)]
+		public BooleanValue ValidateCCRefundOrigTransaction { get; set; }
 
 	}
 }

@@ -8,6 +8,12 @@ namespace Acumatica.eCommerce_20_200_001.Model
 	public class TemplateItems : Entity_v4
 	{
 
+		[DataMember(Name="CurySpecificMSRP", EmitDefaultValue=false)]
+		public DecimalValue CurySpecificMSRP { get; set; }
+
+		[DataMember(Name="CurySpecificPrice", EmitDefaultValue=false)]
+		public DecimalValue CurySpecificPrice { get; set; }
+
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue ItemClass { get; set; }
 
@@ -43,6 +49,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 
 		[DataMember(Name="DimensionWeight", EmitDefaultValue=false)]
 		public DecimalValue DimensionWeight { get; set; }
+
+		[DataMember(Name="ExportToExternal", EmitDefaultValue=false)]
+		public BooleanValue ExportToExternal { get; set; }
 
 		[DataMember(Name="FileURLs", EmitDefaultValue=false)]
 		public List<InventoryFileUrls> FileURLs { get; set; }
@@ -88,6 +97,9 @@ namespace Acumatica.eCommerce_20_200_001.Model
 
 		[DataMember(Name="MetaKeywords", EmitDefaultValue=false)]
 		public StringValue MetaKeywords { get; set; }
+
+		[DataMember(Name="RequireShipment", EmitDefaultValue=false)]
+		public BooleanValue RequireShipment { get; set; }
 
 	}
 }
