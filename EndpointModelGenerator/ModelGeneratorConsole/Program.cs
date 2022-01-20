@@ -1,14 +1,10 @@
 ﻿using EndpointSchemaGenerator;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EndpointGenerator
+namespace ModelGeneratorConsole
 {
-	class Program
+    internal class Program
     {
         const string OutputDirectoryTemplate = @"\Acumatica.{0}";
         const string EndpointSchemaDirectory = @"\EndpointDefinitions\";
@@ -16,7 +12,7 @@ namespace EndpointGenerator
 
         static void Main(string[] args)
         {
-            string solutionFolderPath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()).ToString()).ToString()).ToString();
+            string solutionFolderPath = GetParentDirectory(Directory.GetCurrentDirectory(), 5).ToString();
 
             foreach (var file in Directory.GetFiles(solutionFolderPath + EndpointSchemaDirectory))
             {
@@ -33,7 +29,21 @@ namespace EndpointGenerator
                     schema,
                    (_) => Console.WriteLine(_));
             }
+
         }
+
+        private static DirectoryInfo GetParentDirectory(string currentDirectory, int levels = 1)
+        {
+            if(levels<1)
+                throw new ArgumentOutOfRangeException(nameof(levels), "Number of levels must be grater than 0");
+            var parentDirectory = Directory.GetParent(currentDirectory);
+            for (int i = 1; i < levels; i++)
+            {
+                parentDirectory = parentDirectory.Parent;
+            }
+            return parentDirectory;
+        }
+
         private static void WriteCSharp(string outputPath, string endpointName, Schema schema, Action<string> writeLogDelegate)
         {
             outputPath += "\\";

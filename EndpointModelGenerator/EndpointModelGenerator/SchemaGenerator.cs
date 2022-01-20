@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Build;
-using Microsoft.Build.Evaluation;
 
 namespace EndpointSchemaGenerator
 {
     public partial class SchemaGenerator
     {
-        public static void WriteCSharp(string outputPath, Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string csprojPath, string additionalPath = "")
+        public static void WriteCSharp(string outputPath, 
+            Schema schema, 
+            Action<string> writeLogDelegate, 
+            string endpointNamespace, 
+            string csprojPath, 
+            string additionalPath = "")
         {
             string modelLocalPath = additionalPath + "Model\\";
             string actionsLocalPath = modelLocalPath + "Actions\\";
@@ -28,19 +25,30 @@ namespace EndpointSchemaGenerator
 
             RegenerateDirectories(outputPath, modelFilesDirectory, modelActionsFilesDirectory, modelParametersFilesDirectory, apiFilesDirectory);
 
-            Project project = new Project(csprojPath);
-            project.RemoveItems(project.GetItems("Compile").Where(_ => _.EvaluatedInclude.StartsWith(modelLocalPath) || _.EvaluatedInclude.StartsWith(apiLocalPath)));
+            WriteCsProj(csprojPath);
 
-            WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory, project);
-            WriteBaseApi(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory, project); 
-            WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory, project);
-            WriteActions(schema, writeLogDelegate, endpointNamespace, actionsLocalPath, actionParametersLocalPath, modelActionsFilesDirectory, modelParametersFilesDirectory, project);
+            WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory);
+            WriteBaseApi(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
+            WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
+            WriteActions(schema, writeLogDelegate, endpointNamespace, actionsLocalPath, actionParametersLocalPath, modelActionsFilesDirectory, modelParametersFilesDirectory);
 
-            project.Save();
             writeLogDelegate.Invoke("Done!");
         }
 
-        private static void WriteActions(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string actionsLocalPath, string actionParametersLocalPath, string modelActionsFilesDirectory, string modelParametersFilesDirectory, Project project)
+        private static void WriteCsProj(string csprojPath)
+        {
+            StreamWriter writer = new StreamWriter(csprojPath);
+            writer.Write(Templates.ProjectTemplate);
+            writer.Close();
+        }
+
+        private static void WriteActions(Schema schema, 
+            Action<string> writeLogDelegate, 
+            string endpointNamespace, 
+            string actionsLocalPath, 
+            string actionParametersLocalPath, 
+            string modelActionsFilesDirectory, 
+            string modelParametersFilesDirectory)
         {
             foreach (var action in schema.Actions)
             {
@@ -48,7 +56,7 @@ namespace EndpointSchemaGenerator
                 if (schema.Parameters.ContainsKey(action.Key))
                 {
                     StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + filename);
-                    project.AddItem("Compile", actionsLocalPath + filename);
+              
                     string content = "";
                     foreach (var parameter in schema.Parameters[action.Key])
                     {
@@ -61,7 +69,7 @@ namespace EndpointSchemaGenerator
 
                     string paramFileName = action.Key + "Parameters.cs";
                     writer = new StreamWriter(modelParametersFilesDirectory + paramFileName);
-                    project.AddItem("Compile", actionParametersLocalPath + paramFileName);
+           
 
                     content = "";
                     foreach (var parameter in schema.Parameters[action.Key])
@@ -76,8 +84,7 @@ namespace EndpointSchemaGenerator
                 else
                 {
                     StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + filename);
-                    project.AddItem("Compile", actionsLocalPath + filename);
-
+                   
                     string result = String.Format(Templates.ActionTemplate, endpointNamespace, action.Key, action.Value);
                     writeLogDelegate.Invoke("Actions/" + action.Key);
                     writer.Write(Templates.ActionUsingsTemplate + result);
@@ -85,24 +92,30 @@ namespace EndpointSchemaGenerator
                 }
             }
         }
-        private static void WriteBaseApi(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string apiLocalPath, string apiFilesDirectory, Project project)
+        private static void WriteBaseApi(Schema schema, 
+            Action<string> writeLogDelegate, 
+            string endpointNamespace, 
+            string apiLocalPath, 
+            string apiFilesDirectory)
         {
             string filename = "BaseEndpointApi.cs";
             StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
-            project.AddItem("Compile", apiLocalPath + filename);
 
             string result = String.Format(Templates.BaseEndpointApiTemplate, endpointNamespace, schema.Info.Title);
             writeLogDelegate.Invoke("BaseEndpointApi");
             writer.Write(result);
             writer.Close();
         }
-        private static void WriteApis(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string apiLocalPath, string apiFilesDirectory, Project project)
+        private static void WriteApis(Schema schema, 
+            Action<string> writeLogDelegate, 
+            string endpointNamespace, 
+            string apiLocalPath, 
+            string apiFilesDirectory)
         {
 			foreach (var entity in schema.TopLevelEntities)
 			{
 				string filename = entity + "Api.cs";
 				StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
-				project.AddItem("Compile", apiLocalPath + filename);
 
 				string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity);
 				writeLogDelegate.Invoke(entity + "Api");
@@ -111,13 +124,16 @@ namespace EndpointSchemaGenerator
 			}
 		}
 
-        private static void WriteEntities(Schema schema, Action<string> writeLogDelegate, string endpointNamespace, string modelLocalPath, string modelFilesDirectory, Project project)
+        private static void WriteEntities(Schema schema, 
+            Action<string> writeLogDelegate, 
+            string endpointNamespace, 
+            string modelLocalPath, 
+            string modelFilesDirectory)
         {
             foreach (var entity in schema.Entities)
             {
                 string filename = entity.Key + ".cs";
                 StreamWriter writer = new StreamWriter(modelFilesDirectory + filename);
-                project.AddItem("Compile", modelLocalPath + filename);
                 string body = "";
                 foreach (var field in entity.Value)
                 {
@@ -130,7 +146,11 @@ namespace EndpointSchemaGenerator
             }
         }
 
-        private static void RegenerateDirectories(string outputPath, string modelFilesDirectory, string modelActionsFilesDirectory, string modelParametersFilesDirectory, string apiFilesDirectory)
+        private static void RegenerateDirectories(string outputPath, 
+            string modelFilesDirectory, 
+            string modelActionsFilesDirectory, 
+            string modelParametersFilesDirectory, 
+            string apiFilesDirectory)
         {
             Directory.CreateDirectory(outputPath);
             try
