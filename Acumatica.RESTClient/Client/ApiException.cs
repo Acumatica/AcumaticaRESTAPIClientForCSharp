@@ -81,7 +81,7 @@ namespace Acumatica.RESTClient.Client
                 }
                 catch
                 {
-                    ErrorContent = message;
+                    ErrorContent = message + "\r\n Error code: " + errorCode.ToString();
                 }
             }
         }
