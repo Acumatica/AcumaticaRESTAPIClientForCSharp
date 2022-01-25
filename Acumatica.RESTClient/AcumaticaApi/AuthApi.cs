@@ -37,19 +37,42 @@ namespace Acumatica.Auth.Api
         /// Logs in to the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="credentials"></param>
+        /// <param name="branch"></param>
+        /// <param name="locale"></param>
+        /// <param name="password"></param>
+        /// <param name="tenant"></param>
+        /// <param name="username"></param>
         /// <returns>
         /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
         /// </returns>
         public Configuration LogIn(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
+            return LogIn(new Credentials(username, password, tenant, branch, locale));
+        }
 
-            this.AuthLoginWithHttpInfo(new Credentials(username, password, tenant, branch, locale));
+        /// <summary>
+        /// Logs in to the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="credentials"></param>
+        /// <returns>
+        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
+        /// </returns>
+        public Configuration LogIn(Credentials credentials)
+        {
+            this.AuthLoginWithHttpInfo(credentials);
             var configuration = new Configuration(Configuration);
 
             //share cookie container between API clients because we use different client for authentication and interaction with endpoint
             configuration.ApiClient.RestClient.CookieContainer.Add(Configuration.ApiClient.RestClient.CookieContainer.GetCookies(new Uri(Configuration.BasePath)));
             return configuration;
+        }
+
+
+        [Obsolete("Use LogIn method instead.")]
+        public Configuration AuthLogIn(Credentials credentials)
+        {
+            return LogIn(credentials);
         }
 
         /// <summary>
