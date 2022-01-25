@@ -3,15 +3,14 @@ using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using RestSharp;
 using System;
-using System.Net;
 
 
 namespace Acumatica.Auth.Api
 {
-	/// <summary>
-	/// Represents a collection of functions to interact with the Authorization endpoint
-	/// </summary>
-	public partial class AuthApi : BaseApi
+    /// <summary>
+    /// Represents a collection of functions to interact with the Authorization endpoint
+    /// </summary>
+    public partial class AuthApi : BaseApi
     {
         #region Constructor
         /// <summary>
@@ -29,62 +28,76 @@ namespace Acumatica.Auth.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public AuthApi(Configuration configuration) : base(configuration)
+        protected AuthApi(Configuration configuration) : base(configuration)
         { }
         #endregion
 
         #region Public Methods
+        /// <summary>
+        /// Logs in to the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="credentials"></param>
+        /// <returns>
+        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
+        /// </returns>
         public Configuration LogIn(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
 
-            this.AuthLogin(new Credentials(username, password, tenant, branch, locale));
-          //  Console.WriteLine("Logged In...");
+            this.AuthLoginWithHttpInfo(new Credentials(username, password, tenant, branch, locale));
             var configuration = new Configuration(Configuration);
 
             //share cookie container between API clients because we use different client for authentication and interaction with endpoint
             configuration.ApiClient.RestClient.CookieContainer.Add(Configuration.ApiClient.RestClient.CookieContainer.GetCookies(new Uri(Configuration.BasePath)));
             return configuration;
         }
-        /// <summary>
-        /// Logs in to the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="credentials"></param>
-        /// <returns></returns>
-        public void AuthLogin(Credentials credentials)
-        {
-            AuthLoginWithHttpInfo(credentials);
-        }
-        /// <summary>
-        /// Logs in to the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="credentials"></param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AuthLoginAsync(Credentials credentials)
-        {
-            await AuthLoginAsyncWithHttpInfo(credentials);
-
-        }
 
         /// <summary>
         /// Logs out from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
+        public void Logout()
+        {
+            AuthLogoutWithHttpInfo();
+        }
+
+        [Obsolete("Use Logout or TryLogout instead.")]
         public void AuthLogout()
         {
             AuthLogoutWithHttpInfo();
         }
+
+        /// <summary>
+        /// Logs out from the system without throwing exceptions if the logout failed.
+        /// </summary>
+        /// <returns>Returns <c>true</c> if the logout has been successful</returns>
+        public bool TryLogout()
+        {
+            try
+            {
+                Logout();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         /// <summary>
         /// Logs out from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task LogoutAsync()
+        {
+            await AuthLogoutAsyncWithHttpInfo();
+        }
+
+        [Obsolete("Use LogoutAsync instead.")]
         public async System.Threading.Tasks.Task AuthLogoutAsync()
         {
             await AuthLogoutAsyncWithHttpInfo();
-
         }
         #endregion
 
