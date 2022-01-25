@@ -30,14 +30,14 @@ namespace SOAPLikeWrapperForREST
 
         public void Login(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
-            AuthorizationApi.AuthLogin(new Credentials(username, password, tenant, branch, locale));
+            AuthorizationApi.LogIn(new Credentials(username, password, tenant, branch, locale));
 
              CurrentConfiguration.ApiClient.RestClient.CookieContainer.Add(
                  AuthorizationApi.Configuration.ApiClient.RestClient.CookieContainer.GetCookies(new Uri(AuthorizationApi.Configuration.BasePath)));
         }
         public void Logout()
         {
-            AuthorizationApi.AuthLogout();
+            AuthorizationApi.TryLogout();
             BusinessDate = null;
         }
 

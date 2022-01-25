@@ -46,8 +46,14 @@ namespace AcumaticaRestApiExample
 			finally
 			{
 				//we use logout in finally block because we need to always logut, even if the request failed for some reason
-				authApi.AuthLogout();
-				Console.WriteLine("Logged Out...");
+				if (authApi.TryLogout())
+				{
+					Console.WriteLine("Logged out successfully.");
+				}
+				else
+				{
+					Console.WriteLine("An error occured during loguot.");
+				}
 			}
 		}
 	}
