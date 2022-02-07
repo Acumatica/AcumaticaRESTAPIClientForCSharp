@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_20.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_21.200.001", "Acumatica.Manufacturing_21.200.001\Acumatica.Manufacturing_21.200.001.csproj", "{4EB48CBD-6535-4CAA-96EE-346B3D426D6D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.ISVCB_21.200.001", "Acumatica.ISVCB_21.200.001\Acumatica.ISVCB_21.200.001.csproj", "{9DECC2EE-7FBC-4FC2-98A7-A1CD420F0C2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{4EB48CBD-6535-4CAA-96EE-346B3D426D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EB48CBD-6535-4CAA-96EE-346B3D426D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EB48CBD-6535-4CAA-96EE-346B3D426D6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DECC2EE-7FBC-4FC2-98A7-A1CD420F0C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DECC2EE-7FBC-4FC2-98A7-A1CD420F0C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DECC2EE-7FBC-4FC2-98A7-A1CD420F0C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DECC2EE-7FBC-4FC2-98A7-A1CD420F0C2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +90,7 @@ Global
 		{6807B27E-B03A-47B3-8C9F-D9D1519CC248} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 		{4DCA1AEA-A967-424F-89CA-9AF7AB9BA1E1} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 		{4EB48CBD-6535-4CAA-96EE-346B3D426D6D} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
+		{9DECC2EE-7FBC-4FC2-98A7-A1CD420F0C2A} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3A45447-0EDA-45D2-94CE-C3BFFBFE2717}
