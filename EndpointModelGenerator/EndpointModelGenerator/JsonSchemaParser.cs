@@ -115,16 +115,20 @@ namespace EndpointSchemaGenerator
                 return "";
             }
         }
-        public static string ParseParentRef(JObject jsonObject)
+        public static string TryParseParentRef(JObject jsonObject)
         {
-            return ParseParentRef(jsonObject.Children().First());
+            try
+            {
+                return ParseParentRef(jsonObject.Children().First());
+            }
+            catch { return null; }
         }
         private static Dictionary<string, string> ParseObject(KeyValuePair<string, JObject> item)
         {
             var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
             var res = new EntitySchema();
-            res.ParentReference = ParseParentRef(item.Value);
-            if (res.ParentReference == "Entity")
+            res.ParentReference = TryParseParentRef(item.Value);
+            if (res?.ParentReference == "Entity")
             {
                 s.AllOf.Remove(null);
                 if (s.AllOf.Count() > 0)
