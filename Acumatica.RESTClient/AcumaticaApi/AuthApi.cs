@@ -50,6 +50,11 @@ namespace Acumatica.Auth.Api
             return LogIn(new Credentials(username, password, tenant, branch, locale));
         }
 
+        public async System.Threading.Tasks.Task<Configuration> LogInAsync(string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+            return await LogInAsync(new Credentials(username, password, tenant, branch, locale));
+        }
+
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
@@ -61,6 +66,16 @@ namespace Acumatica.Auth.Api
         public Configuration LogIn(Credentials credentials)
         {
             this.AuthLoginWithHttpInfo(credentials);
+            var configuration = new Configuration(Configuration);
+
+            //share cookie container between API clients because we use different client for authentication and interaction with endpoint
+            configuration.ApiClient.RestClient.CookieContainer.Add(Configuration.ApiClient.RestClient.CookieContainer.GetCookies(new Uri(Configuration.BasePath)));
+            return configuration;
+        }
+
+        public async System.Threading.Tasks.Task<Configuration> LogInAsync(Credentials credentials)
+        {
+            await this.AuthLoginAsyncWithHttpInfo(credentials);
             var configuration = new Configuration(Configuration);
 
             //share cookie container between API clients because we use different client for authentication and interaction with endpoint
