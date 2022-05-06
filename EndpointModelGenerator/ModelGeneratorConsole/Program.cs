@@ -20,7 +20,7 @@ namespace ModelGeneratorConsole
                 StreamReader reader = new StreamReader(file);
                 string input = reader.ReadToEnd();
                 reader.Close();
-
+                //JsonSchemaParser.GenerateArraysInstedOfLists = true;
                 Schema schema = JsonSchemaParser.ComposeEndpointSchema(input);
 
                 WriteCSharp(
