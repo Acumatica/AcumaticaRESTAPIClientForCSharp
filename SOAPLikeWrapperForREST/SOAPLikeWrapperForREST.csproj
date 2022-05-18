@@ -12,6 +12,7 @@
 	<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
+	<PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
