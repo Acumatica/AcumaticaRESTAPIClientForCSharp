@@ -3,6 +3,7 @@
 [![NuGet](https://buildstats.info/nuget/Acumatica.RESTClient)](https://www.nuget.org/packages/Acumatica.RESTClient/)
 [![NuGet](https://buildstats.info/nuget/Acumatica.Default_20.200.001)](https://www.nuget.org/packages/Acumatica.Default_20.200.001/)
 [![NuGet](https://buildstats.info/nuget/Acumatica.Manufacturing_21.200.001)](https://www.nuget.org/packages/Acumatica.Manufacturing_21.200.001/)
+[![NuGet](https://www.nuget.org/packages/Acumatica.SOAPLikeWrapperForREST)](https://www.nuget.org/packages/Acumatica.SOAPLikeWrapperForREST/)
 
 The solution allows to easily start developing REST API based integration with Acumatica ERP. 
 
