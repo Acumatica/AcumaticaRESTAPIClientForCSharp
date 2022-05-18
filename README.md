@@ -17,6 +17,7 @@ The Acumatica REST Client and some endpoints are also available as Nuget package
 * https://www.nuget.org/packages/Acumatica.RESTClient/
 * https://www.nuget.org/packages/Acumatica.Default_20.200.001/
 * https://www.nuget.org/packages/Acumatica.Manufacturing_21.200.001/
+* https://www.nuget.org/packages/Acumatica.SOAPLikeWrapperForREST/
 
 Dependencies:
 * JsonSubTypes (>= 1.8.0)
