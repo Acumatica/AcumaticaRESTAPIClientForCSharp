@@ -71,6 +71,11 @@ namespace Acumatica.RESTClient.Client
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
             String contentType)
         {
+            if (Configuration.Token != null)
+            {
+                headerParams.Add("Authorization", Configuration.Token.Token_type + " " + Configuration.Token.Access_token);
+            }
+
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType, Configuration.Timeout);

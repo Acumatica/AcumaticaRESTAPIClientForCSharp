@@ -1,3 +1,5 @@
+using Acumatica.Auth.Model;
+
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -23,7 +25,7 @@ namespace Acumatica.RESTClient.Client
         /// Gets the access token.
         /// </summary>
         /// <value>Access token.</value>
-        string AccessToken { get; }
+        Token Token { get; }
 
         /// <summary>
         /// Gets the API key.

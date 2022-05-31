@@ -1,9 +1,11 @@
 using Acumatica.Auth.Model;
 using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 using RestSharp;
 using System;
-
+using System.Collections.Generic;
+using System.Text;
 
 namespace Acumatica.Auth.Api
 {
@@ -48,6 +50,30 @@ namespace Acumatica.Auth.Api
         public Configuration LogIn(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             return LogIn(new Credentials(username, password, tenant, branch, locale));
+        }
+
+        public Configuration RefreshAccessToken(string clientID, string clientSecret, Configuration configuration)
+        {
+            if (configuration == null || String.IsNullOrEmpty(configuration.Token?.Refresh_token))
+                ThrowMissingParameter("RefreshAccessToken", "Refresh_Token");
+
+            var result = RefreshWithHttpInfo(clientID, clientSecret, configuration.Token.Refresh_token);
+            configuration.Token = result.Data;
+            return configuration;
+        }
+
+        public Configuration ReceiveAccessToken(string clientID, string clientSecret, string username, string password, OAuthScope scope)
+        {
+            var configuration = new Configuration(Configuration);
+
+            var result = ConnectWithHttpInfo(
+                clientID,
+                clientSecret,
+                username,
+                password,
+                scope);
+            configuration.Token = result.Data;
+            return configuration;
         }
 
         /// <summary>
@@ -125,6 +151,84 @@ namespace Acumatica.Auth.Api
         #endregion
 
         #region Implementation
+        [Flags]
+        public enum OAuthScope
+        {
+            None = 0,
+            API = 1,
+            OfflineAccess = 2,
+            ConcurrentAccess = 4
+        }
+        protected ApiResponse<Token> RefreshWithHttpInfo(string clientID, string clientSecret, string refreshToken)
+        {
+            var localVarPath = "/identity/connect/token";
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+                localVarPath,
+                Method.Post,
+                ComposeEmptyQueryParams(),
+                FormUrlEncodedConverter.ToFormUrlEncoded(new Dictionary<string, string>() 
+                { 
+                    {"grant_type", "refresh_token" },
+                    {"client_id", clientID },
+                    {"client_secret", clientSecret },
+                    {"refresh_token", refreshToken },
+                }),
+                ComposeAcceptHeaders(HeaderContentType.None),
+                ComposeEmptyFormParams(),
+                ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(),
+                ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
+
+            VerifyResponse(localVarResponse, "RefreshToken");
+
+            return DeserializeResponse<Token>(localVarResponse);
+        }
+
+        protected ApiResponse<Token> ConnectWithHttpInfo(string clientID, string clientSecret, string username, string password, OAuthScope scope)
+        {
+            var localVarPath = "/identity/connect/token";
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+                localVarPath,
+                Method.Post, 
+                ComposeEmptyQueryParams(),
+                FormUrlEncodedConverter.ToFormUrlEncoded(new Dictionary<string, string>
+                {
+                    {"grant_type", "password" },
+                    {"client_id", clientID },
+                    {"client_secret", clientSecret },
+                    {"username", username },
+                    {"password", password },
+                    {"scope", PrepareScopeParameter(scope) }
+                }), 
+                ComposeAcceptHeaders(HeaderContentType.None), 
+                ComposeEmptyFormParams(), 
+                ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), 
+                ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
+            
+            VerifyResponse(localVarResponse, "RequestToken");
+
+            return DeserializeResponse<Token>(localVarResponse);
+        }
+
+
+        private static string PrepareScopeParameter(OAuthScope scope)
+        {
+            StringBuilder s = new StringBuilder();
+            if (scope.HasFlag(OAuthScope.API))
+                s.Append("api ");
+            if (scope.HasFlag(OAuthScope.OfflineAccess))
+                s.Append("offline_access ");
+            if (scope.HasFlag(OAuthScope.ConcurrentAccess))
+                s.Append("api:concurrent_access ");
+
+            return s.ToString().TrimEnd(' ');
+        }
+
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
