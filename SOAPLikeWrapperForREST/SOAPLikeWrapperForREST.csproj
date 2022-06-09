@@ -3,7 +3,7 @@
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	<PackageId>Acumatica.$(AssemblyName)</PackageId>
-	<Version>2.0.0</Version>
+	<Version>2.2.0</Version>
 	<Company>Acumatica</Company>
 	<Authors>Acumatica</Authors>
 	<Product>Acumatica.$(AssemblyName)</Product>
@@ -13,10 +13,11 @@
 	<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 	<PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+	<PackageReleaseNotes>Fixed minor bug with Authorization + should work with OAuth 2.0 now</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Acumatica.RESTClient" Version="2.1.1" />
+    <PackageReference Include="Acumatica.RESTClient" Version="2.2.0" />
   </ItemGroup>
 
 </Project>
