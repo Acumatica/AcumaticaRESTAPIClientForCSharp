@@ -18,7 +18,7 @@ namespace SOAPLikeWrapperForREST
         {
             AuthorizationApi = new AuthApi(siteURL);
             ProcessStartTime = new Dictionary<string, DateTime>();
-            CurrentConfiguration = new Configuration(siteURL + endpointPath, timeout);
+            Timeout = timeout;
         }
         #endregion
 
@@ -30,10 +30,8 @@ namespace SOAPLikeWrapperForREST
 
         public void Login(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
-            AuthorizationApi.LogIn(new Credentials(username, password, tenant, branch, locale));
-
-             CurrentConfiguration.ApiClient.RestClient.CookieContainer.Add(
-                 AuthorizationApi.Configuration.ApiClient.RestClient.CookieContainer.GetCookies(new Uri(AuthorizationApi.Configuration.BasePath)));
+            CurrentConfiguration = AuthorizationApi.LogIn(new Credentials(username, password, tenant, branch, locale));
+            CurrentConfiguration.Timeout = Timeout;
         }
         public void Logout()
         {
@@ -227,6 +225,7 @@ namespace SOAPLikeWrapperForREST
 
         protected AuthApi AuthorizationApi;
         protected Configuration CurrentConfiguration;
+        protected int Timeout;
         protected DateTime? BusinessDate;
 
 
