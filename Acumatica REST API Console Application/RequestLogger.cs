@@ -22,7 +22,6 @@ namespace AcumaticaRestApiExample
 			writer.WriteLine();
 			writer.Flush();
 			writer.Close();
-
 		}
 
 		/// <summary>
@@ -36,16 +35,16 @@ namespace AcumaticaRestApiExample
 			writer.WriteLine("\tMethod: " + request.Method);
 			string parameters = "";
 			string body = "";
-			foreach (var parametr in request.Parameters)
+			foreach (var parameter in request.Parameters)
 			{
-				if (parametr.Type == ParameterType.QueryString)
+				if (parameter.Type == ParameterType.QueryString)
 				{
 					parameters += String.IsNullOrEmpty(parameters) ? "?" : "&";
-					parameters += parametr.Name + "=" + parametr.Value;
+					parameters += parameter.Name + "=" + parameter.Value;
 				}
 
-				if (parametr.Type == ParameterType.RequestBody)
-					body += parametr.Value;
+				if (parameter.Type == ParameterType.RequestBody)
+					body += parameter.Value;
 			}
 
 			writer.WriteLine("\tURL: " + restClient.BuildUri(request) + parameters);

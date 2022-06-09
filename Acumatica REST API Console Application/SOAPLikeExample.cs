@@ -22,10 +22,10 @@ namespace AcumaticaRestApiExample
                     //{
                     //    new ShipmentPackage { 
                     //        ReturnBehavior=  ReturnBehavior.All,
-                    //    PacakgeContents = new PacakgeContents[]
-                    //    {
-                    //        new PacakgeContents() { ReturnBehavior= ReturnBehavior.All}
-                    //    }
+                    //        PackageContents = new PackageContents[]
+                    //        {
+                    //            new PackageContents() { ReturnBehavior= ReturnBehavior.All}
+                    //        }
                     //    }
                     //}
                 };
