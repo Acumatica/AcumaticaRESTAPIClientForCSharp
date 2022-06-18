@@ -81,27 +81,6 @@ namespace Acumatica.RESTClient.Api
             return (int)localVarResponse.StatusCode;
         }
 
-        /// <summary>
-        /// Composes Query Parameters for API Request. 
-        /// </summary>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
-        /// <param name="top">The number of records to be returned from the system. (optional)</param>
-        protected List<KeyValuePair<string, string>> ComposeQueryParams(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
-        {
-            var queryParameters = ComposeEmptyQueryParams();
-            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-            if (skip != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
-            if (top != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
-
-            return queryParameters;
-        }
       
         protected Dictionary<string, string> ComposeIDPathParams(Guid? id = null)
         {
