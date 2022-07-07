@@ -27,7 +27,12 @@ namespace AcumaticaRestApiExample
 
 			Console.WriteLine("REST API example");
 			RESTExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
-
+			
+			Console.WriteLine("OData V3 example");
+			
+			var path = "http://localhost/MyStoreInstance/OData";
+			ODataExample.ODataGetV3(path, Username, Password);
+			
 			Console.ReadLine();
 		}
 
