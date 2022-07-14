@@ -14,6 +14,7 @@ namespace AcumaticaRestApiExample
 	class Program
 	{
 		const string SiteURL = "http://localhost/demo/";
+		//const string SiteURL = "http://localhost/MyStoreInstance";
 		const string Username = "admin";
 		const string Password = "123";
 		const string Tenant = null;
@@ -22,18 +23,19 @@ namespace AcumaticaRestApiExample
 
 		static void Main(string[] args)
 		{
-			//Console.WriteLine("SOAP-like example");
-			//SOAPLikeExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
+			Console.WriteLine("SOAP-like example");
+			SOAPLikeExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
 
 			Console.WriteLine("REST API example");
 			RESTExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
 			
 			Console.WriteLine("OData V3 example");
 			
-			var path = "http://localhost/MyStoreInstance/OData";
-			ODataExample.ODataGetV3(path, Username, Password);
-			
-			Console.ReadLine();
+			ODataExample.ODataGetV3(SiteURL, Username, Password);
+
+			Console.WriteLine("OData V4 example");
+			ODataExample.ODataGetV4(SiteURL, Username, Password);
+
 		}
 
 	}
