@@ -1,82 +1,151 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Acumatica.RESTClient.Client;
 using RestSharp;
 using RestSharp.Authenticators;
 
+
 namespace Acumatica.RESTClient.Api
 {
    
-    public class ODataAPI : BaseApi
+    public class ODataAPI
     {
         RestClient client;
+        readonly string username;
+        readonly string password;
         string basePath;
-
-        public ODataAPI(Configuration configuration) : base(configuration)
+        Version version;
+        string tenant;
+        Auth.Model.Token token;
+        
+        //for oauth initialization
+        public ODataAPI(Configuration configuration, Version version, string tenant=null) 
         {
+            username = configuration.Username;
+            password = configuration.Password;
             basePath = configuration.BasePath;
+            this.version = version;
+            this.tenant = tenant;
+            token = configuration.Token;
+            
         }
-        /*
-        public string Get(string path, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        //for basic authentication
+        public ODataAPI(string username, string password, string basePath, Version version, string tenant = null)
         {
-            ApiResponse<string> localVarResponse = GetWithHttpInfo(path, select, filter, expand, custom, skip, top);
-            return localVarResponse.Data;
+            this.username = username;
+            this.password = password;
+            this.basePath = basePath;
+            this.version = version;
+            this.tenant = tenant;
         }
-        */
-        public string Get(string version, string resource = null, Dictionary<string, string> parameters = null, string username = null, string password = null)
+      
+        public string Get(string resource = null, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
-            if(username != null && password != null)
+            RestRequest request;
+            RestResponse response;
+            var path = ConfigurePath(version.ToString(), tenant);
+            client = new RestClient(path);
+            //Oauth authentication
+            if (token != null)
             {
-                //get for login
-                basePath += "/" + version;
-                client = new RestClient(basePath);
-                client.Authenticator = new HttpBasicAuthenticator(username, password);
-                var request = new RestRequest();
-                var response = client.ExecuteAsync(request).Result;
-                ApiResponse<string> apiresponse = DeserializeResponse<string>(response);
-                return apiresponse.Data;
+                request = GetOauthAuthentication(client);
+            }   
+
+            //Basic authentication
+            else
+            {
+                request = GetBasicAuthentication(client, resource);                
+            }
+            AddParameters(request, select, filter, expand, custom, skip, top);
+            response = client.ExecuteAsync(request).Result;
+
+            ApiResponse<string> apiresponse = new ApiResponse<string>((int)response.StatusCode, response.Headers
+                            .Where(x => x.Name != "Set-Cookie")
+                            .ToDictionary(x => x.Name, x => x.Value.ToString()),
+                            response.Content);
+
+            return apiresponse.Data;
+        }
+
+
+        /// <summary>
+        /// Composes Query Parameters for API Request. 
+        /// </summary>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
+        /// <param name="top">The number of records to be returned from the system. (optional)</param>
+        public void AddParameters(RestRequest request, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        {
+
+            var queryParameters = new Dictionary<string, string>();
+            queryParameters.Add("$format", "json");
+            if (!String.IsNullOrEmpty(select)) queryParameters.Add("$select", select); // query parameter
+            if (!String.IsNullOrEmpty(filter)) queryParameters.Add("$filter", filter); // query parameter
+            if (!String.IsNullOrEmpty(expand)) queryParameters.Add("$expand", expand); // query parameter
+            if (!String.IsNullOrEmpty(custom)) queryParameters.Add("$custom", custom); // query parameter
+            if (skip != null) queryParameters.Add("$skip", skip.ToString()); // query parameter
+            if (top != null) queryParameters.Add("$top", top.ToString()); // query parameter
+            foreach (var parameter in queryParameters)
+            {
+                request.AddParameter(parameter.Key, parameter.Value);
+             }
+            
+        }
+
+
+        #region Implementation
+        private string ConfigurePath(string version, string tenant = null)
+        {
+           string path; 
+           if(tenant== null)
+            {
+                path = basePath + "/" + version;
             }
             else
             {
-                var request = new RestRequest(resource);
-                if(parameters != null)
-                {
-                    foreach (var parameter in parameters)
-                    {
-                        request.AddParameter(parameter.Key, parameter.Value);
-                    }
-                }
-                var response = client.GetAsync(request);
-                ApiResponse<string> apiresponse = DeserializeResponse<string>(response.Result);
-                return apiresponse.Data;
-                
+                path = basePath + "/" + version + "/" + tenant;
             }
+            return path;
         }
 
-        protected ApiResponse<string> GetWithHttpInfo(string path, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        private RestRequest GetOauthAuthentication(RestClient client)
         {
-            if (String.IsNullOrEmpty(path))
-                ThrowMissingParameter(nameof(GetWithHttpInfo), nameof(path));
+            var request = new RestRequest();
+            client.Authenticator = new JwtAuthenticator(token.Access_token);
+            return request;
+        }
 
-            var localVarPath = "OData" + "/" + path;
+        private RestRequest GetBasicAuthentication(RestClient client, string resource = null)
+        {
+            client.Authenticator = new HttpBasicAuthenticator(username, password);
+            RestRequest request;
+            if (resource != null)
+            {
+                request = new RestRequest(resource);
+            }
+            else
+            {
+                request = new RestRequest();
+            }
+            return request;
 
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
-                localVarPath,
-                Method.Get, 
-                ComposeQueryParams(select, filter, expand, custom, top, skip), 
-                null, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), 
-                ComposeContentHeaders(HeaderContentType.None)).Result;
 
-            VerifyResponse<string>(localVarResponse, nameof(GetWithHttpInfo));
+        }
 
-            return DeserializeResponse<string>(localVarResponse);
-        }     
+        #endregion
+
 
     }
+
+
+
+    public enum Version
+    {
+        OData, ODatav4
+    } 
 
 }

@@ -1,70 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
+using Acumatica.Auth.Api;
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
+using static Acumatica.Auth.Api.AuthApi;
+using Version = Acumatica.RESTClient.Api.Version;
 
 namespace AcumaticaRestApiExample
 {
 	public class ODataExample
+		
 	{
+		
+		public static void OauthExample(string siteURL, string username, string password, string tenant = null)
+		{
+			Console.WriteLine("OData with Oauth authentication");
+			string clientID = "332C64AC-D7A2-E7D4-47C5-18F299FA2E4C@MyStore";
+			string clientSecret = "z-8Mhmxi8uz5EndUA0NFOA";
+			var authApi = new AuthApi(siteURL,
+				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
+			var configuration = authApi.ReceiveAccessToken(clientID, clientSecret, username, password, OAuthScope.API);
+			
+			ODataAPI example1 = new ODataAPI(configuration, Version.OData);
+			var response = example1.Get();
+			Console.WriteLine(response);
+		}
+		
 		public static void ODataGetV3(string basePath, string username, string password)
 		{
-			Console.WriteLine("OData version 3 examples");
-			var version = "OData";
-			var configuration = new Configuration(basePath);
-
+			Console.WriteLine("OData version 3 with Basic Authentication");
 			Console.WriteLine("Testing sign in");  
-			ODataAPI odata = new ODataAPI(configuration);
-			var response = odata.Get(version, null, null, username, password);
+			ODataAPI odata = new ODataAPI(username, password, basePath, Version.OData);
+			var response = odata.Get();
 			Console.WriteLine(response);
 
 			Console.WriteLine("Example retrieval of customers with OData Version 3");
-			var parameter = new Dictionary<string, string>();
-			parameter.Add("format", "json");
-			var response2 = odata.Get(version, "Customer%20Contacts", parameter);
+			var response2 = odata.Get("Customer%20Contacts");
 			Console.WriteLine(response2);
 
 			Console.WriteLine("Retrieving quantities from tables with OData Version 3");
-			var response3 = odata.Get(version, "Item%20Availability%20Data", parameter);
+			var response3 = odata.Get("Item%20Availability%20Data");
 			Console.WriteLine(response3);
 
 			Console.WriteLine("Filtering the Result of a Generic Inquiry with OData Version 3");
-			var response4 = odata.Get(version, "$metadata");
+			var response4 = odata.Get("$metadata");
 			Console.WriteLine(response4);
 
 			Console.WriteLine("Retrieve the modified stocks with OData Version 3");
-			parameter.Add("filter", "ItemStatus eq 'Active' and LastModifiedOn gt datetime'2022-07-13T00:00:00.000'");
-			var response5 = odata.Get(version, "Modified%20Stock%20Items", parameter);
+			string filterParam = "ItemStatus eq 'Active' and LastModifiedOn gt datetime'2022-07-13T00:00:00.000'";
+			var response5 = odata.Get("Modified%20Stock%20Items", null, filterParam);
+			Console.WriteLine(response5);
 		}
 
 		public static void ODataGetV4(string basePath, string username, string password)
         {
 			Console.WriteLine("OData version 4 examples");
-			var version = "ODatav4";
-			var configuration = new Configuration(basePath);
-
 			Console.WriteLine("Testing sign in");  
-			ODataAPI odata = new ODataAPI(configuration);
-			var response = odata.Get(version, "$metadata", null, username, password);
+			ODataAPI odata = new ODataAPI(username, password, basePath, Version.ODatav4);
+			var response = odata.Get("$metadata");
 			Console.WriteLine(response);
 
 			Console.WriteLine("Retrieving quantities from tables with OData Version 4");
-			var parameter = new Dictionary<string, string>();
-			parameter.Add("select", "QtyOnHand,QtyAvail");
-			parameter.Add("expand", "InventoryItemByInventoryID($select=InventoryCD,Descr),INSiteBySiteID($select = SiteCD)");
-			var response3 = odata.Get(version, "PX_Objects_IN_INSiteStatus", parameter);
+			string selectParam = "QtyOnHand,QtyAvail";
+			string expandParam = "InventoryItemByInventoryID($select=InventoryCD,Descr),INSiteBySiteID($select = SiteCD)";
+			var response3 = odata.Get("PX_Objects_IN_INSiteStatus", selectParam, null, expandParam);
 			Console.WriteLine(response3);
 
 			Console.WriteLine("Retrieve the list of modified stocks with OData Version 4");
-			parameter.Add("filter", "ItemStatus eq 'Active' and LastModifiedOn gt datetime'2022-07-13T00:00:00.000'");
-			parameter = new Dictionary<string, string>();
-			parameter.Add("select", "InventoryCD,Descr,ItemStatus,LastModifiedDateTime,BaseUnit");
-			parameter.Add("expand", "INSiteByDfltSiteID($select=SiteCD),INItemClassByItemClassID($select = ItemClassCD),INSiteStatusCollection($select = QtyOnHand");
-			parameter.Add("filter", "StkItem eq true and ItemStatus eq 'AC' and LastModifiedDateTime gt 2022 - 07 - 13T00: 00:00 - 04:00");
-			var response5 = odata.Get(version, "PX_Objects_IN_InventoryItem", parameter);
+			selectParam = "InventoryCD,Descr,ItemStatus,LastModifiedDateTime,BaseUnit";
+			expandParam = "INSiteByDfltSiteID($select=SiteCD),INItemClassByItemClassID($select = ItemClassCD),INSiteStatusCollection($select = QtyOnHand)";
+			string filterParam = "StkItem eq true and ItemStatus eq 'AC' and LastModifiedDateTime gt 2022-07-13T00:00-04:00";
+			var response5 = odata.Get("PX_Objects_IN_InventoryItem", selectParam, filterParam, expandParam);
 			Console.WriteLine(response5);
 
         }
-
+		
 	}
+		
 }
+		
