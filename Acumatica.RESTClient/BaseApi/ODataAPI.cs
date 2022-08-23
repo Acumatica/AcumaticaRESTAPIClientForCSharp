@@ -15,12 +15,12 @@ namespace Acumatica.RESTClient.Api
         readonly string username;
         readonly string password;
         string basePath;
-        Version version;
+        ODataVersion version;
         string tenant;
         Auth.Model.Token token;
         
         //for oauth initialization
-        public ODataAPI(Configuration configuration, Version version, string tenant=null) 
+        public ODataAPI(Configuration configuration, ODataVersion version, string tenant=null) 
         {
             username = configuration.Username;
             password = configuration.Password;
@@ -29,9 +29,11 @@ namespace Acumatica.RESTClient.Api
             this.tenant = tenant;
             token = configuration.Token;
             
+
         }
+        
         //for basic authentication
-        public ODataAPI(string username, string password, string basePath, Version version, string tenant = null)
+        public ODataAPI(string username, string password, string basePath, ODataVersion version, string tenant = null)
         {
             this.username = username;
             this.password = password;
@@ -143,7 +145,7 @@ namespace Acumatica.RESTClient.Api
 
 
 
-    public enum Version
+    public enum ODataVersion
     {
         OData, ODatav4
     } 

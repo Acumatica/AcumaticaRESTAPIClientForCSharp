@@ -22,7 +22,6 @@ namespace AcumaticaRestApiExample
 		const string Tenant = null;
 		const string Branch = null;
 		const string Locale = null;
-		const string tokenUrl = "https://localhost/MyStoreInstance/identity/connect/token";
 
 		static void Main(string[] args)
 		{
