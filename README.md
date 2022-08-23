@@ -3,21 +3,18 @@
 [![NuGet](https://buildstats.info/nuget/Acumatica.RESTClient)](https://www.nuget.org/packages/Acumatica.RESTClient/)
 [![NuGet](https://buildstats.info/nuget/Acumatica.Default_20.200.001)](https://www.nuget.org/packages/Acumatica.Default_20.200.001/)
 [![NuGet](https://buildstats.info/nuget/Acumatica.Manufacturing_21.200.001)](https://www.nuget.org/packages/Acumatica.Manufacturing_21.200.001/)
-[![NuGet](https://www.nuget.org/packages/Acumatica.SOAPLikeWrapperForREST)](https://www.nuget.org/packages/Acumatica.SOAPLikeWrapperForREST/)
 
 The solution allows to easily start developing REST API based integration with Acumatica ERP. 
 
 The repository contains the following solutions:
 1. Acumatica REST API Client - the solution contains Acumatica REST API client based on RESTSharp. The solution also contains base classes required for endpoint definitions and the endpoint definitions.
 2. Example Console Application - the solution contains examples of API calls to Acumatica ERP.
-3. SOAPLikeWrapperForREST - the project contains a wrapper that can be used to migrate a code that has originally been written for SOAP API to REST API.
-4. EndpointModelGenerator - the solution allows to generate C# projects and classes for the REST API client based on OpenAPI 2.0 endpoint schemas.  
+3. EndpointModelGenerator - the solution allows to generate C# projects and classes for the REST API client based on OpenAPI 2.0 endpoint schemas.  
 
 The Acumatica REST Client and some endpoints are also available as Nuget packages:
 * https://www.nuget.org/packages/Acumatica.RESTClient/
 * https://www.nuget.org/packages/Acumatica.Default_20.200.001/
 * https://www.nuget.org/packages/Acumatica.Manufacturing_21.200.001/
-* https://www.nuget.org/packages/Acumatica.SOAPLikeWrapperForREST/
 
 Dependencies:
 * JsonSubTypes (>= 1.8.0)
