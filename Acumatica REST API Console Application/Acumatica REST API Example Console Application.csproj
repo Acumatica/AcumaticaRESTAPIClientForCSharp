@@ -16,9 +16,6 @@
     <Reference Include="Acumatica.RESTClient">
       <HintPath>..\Acumatica.RESTClient\bin\Debug\netstandard2.0\Acumatica.RESTClient.dll</HintPath>
     </Reference>
-    <Reference Include="SOAPLikeWrapperForREST">
-      <HintPath>..\SOAPLikeWrapperForREST\bin\Release\netstandard2.0\SOAPLikeWrapperForREST.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
