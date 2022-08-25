@@ -1,33 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using Acumatica.Auth.Model;
 using Acumatica.RESTClient.Client;
+
 using RestSharp;
 using RestSharp.Authenticators;
 
 
 namespace Acumatica.RESTClient.Api
 {
-   
+
     public class ODataAPI
     {
-        RestClient client;
-        readonly string username;
-        readonly string password;
-        string basePath;
-        ODataVersion version;
-        string tenant;
-        Auth.Model.Token token;
+        protected readonly string Username;
+        protected readonly string Password;
+        protected string BasePath;
+        protected ODataVersion Version;
+        protected string Tenant;
+        protected Token Token;
         
         //for oauth initialization
         public ODataAPI(Configuration configuration, ODataVersion version, string tenant=null) 
         {
-            username = configuration.Username;
-            password = configuration.Password;
-            basePath = configuration.BasePath;
-            this.version = version;
-            this.tenant = tenant;
-            token = configuration.Token;
+            Username = configuration.Username;
+            Password = configuration.Password;
+            BasePath = configuration.BasePath;
+            Version = version;
+            Tenant = tenant;
+            Token = configuration.Token;
             
 
         }
@@ -35,21 +37,21 @@ namespace Acumatica.RESTClient.Api
         //for basic authentication
         public ODataAPI(string username, string password, string basePath, ODataVersion version, string tenant = null)
         {
-            this.username = username;
-            this.password = password;
-            this.basePath = basePath;
-            this.version = version;
-            this.tenant = tenant;
+            Username = username;
+            Password = password;
+            BasePath = basePath;
+            Version = version;
+            Tenant = tenant;
         }
       
         public string Get(string resource = null, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
             RestRequest request;
             RestResponse response;
-            var path = ConfigurePath(version.ToString(), tenant);
-            client = new RestClient(path);
+            var path = ConfigurePath(Version.ToString(), Tenant);
+            RestClient client = new RestClient(path);
             //Oauth authentication
-            if (token != null)
+            if (Token != null)
             {
                 request = GetOauthAuthentication(client);
             }   
@@ -71,6 +73,11 @@ namespace Acumatica.RESTClient.Api
         }
 
 
+
+
+        #region Implementation
+
+
         /// <summary>
         /// Composes Query Parameters for API Request. 
         /// </summary>
@@ -80,7 +87,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
-        public void AddParameters(RestRequest request, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        protected void AddParameters(RestRequest request, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
 
             var queryParameters = new Dictionary<string, string>();
@@ -94,22 +101,20 @@ namespace Acumatica.RESTClient.Api
             foreach (var parameter in queryParameters)
             {
                 request.AddParameter(parameter.Key, parameter.Value);
-             }
-            
+            }
+
         }
 
-
-        #region Implementation
         private string ConfigurePath(string version, string tenant = null)
         {
-           string path; 
-           if(tenant== null)
+            string path;
+            if (tenant == null)
             {
-                path = basePath + "/" + version;
+                path = BasePath + "/" + version;
             }
             else
             {
-                path = basePath + "/" + version + "/" + tenant;
+                path = BasePath + "/" + version + "/" + tenant;
             }
             return path;
         }
@@ -117,13 +122,13 @@ namespace Acumatica.RESTClient.Api
         private RestRequest GetOauthAuthentication(RestClient client)
         {
             var request = new RestRequest();
-            client.Authenticator = new JwtAuthenticator(token.Access_token);
+            client.Authenticator = new JwtAuthenticator(Token.Access_token);
             return request;
         }
 
         private RestRequest GetBasicAuthentication(RestClient client, string resource = null)
         {
-            client.Authenticator = new HttpBasicAuthenticator(username, password);
+            client.Authenticator = new HttpBasicAuthenticator(Username, Password);
             RestRequest request;
             if (resource != null)
             {
@@ -139,15 +144,6 @@ namespace Acumatica.RESTClient.Api
         }
 
         #endregion
-
-
     }
-
-
-
-    public enum ODataVersion
-    {
-        OData, ODatav4
-    } 
 
 }

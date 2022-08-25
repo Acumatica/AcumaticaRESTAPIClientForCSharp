@@ -12,7 +12,7 @@ using Acumatica.RESTClient.Model;
 
 using AcumaticaRestApiExample;
 
-namespace Acumatica_REST_API_Example_Console_Application
+namespace AcumaticaRestApiExample
 {
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
 		 where EntityType : Entity

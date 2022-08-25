@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using Acumatica.Auth.Api;
 using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Client;
+
 using static Acumatica.Auth.Api.AuthApi;
-using Version = Acumatica.RESTClient.Api.Version;
+
+using Version = Acumatica.RESTClient.ODataVersion;
 
 namespace AcumaticaRestApiExample
 {
-	public class ODataExample
+    public class ODataExample
 		
 	{
 		
-		public static void OauthExample(string siteURL, string username, string password, string tenant = null)
+		public static void OauthExample(string siteURL, string username, string password, string clientSecret, string clientID, string tenant = null)
 		{
 			Console.WriteLine("OData with Oauth authentication");
-			string clientID = "332C64AC-D7A2-E7D4-47C5-18F299FA2E4C@MyStore";
-			string clientSecret = "z-8Mhmxi8uz5EndUA0NFOA";
-			var authApi = new AuthApi(siteURL,
+            var authApi = new AuthApi(siteURL,
 				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
 			var configuration = authApi.ReceiveAccessToken(clientID, clientSecret, username, password, OAuthScope.API);
 			
