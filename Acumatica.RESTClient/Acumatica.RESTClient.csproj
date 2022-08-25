@@ -43,7 +43,7 @@
   <ItemGroup>
     <PackageReference Include="JsonSubTypes" Version="1.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp" Version="107.1.1" />
+    <PackageReference Include="RestSharp" Version="108.0.1" />
     <PackageReference Include="System.Text.Json" Version="6.0.5" />
   </ItemGroup>
 

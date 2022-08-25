@@ -25,8 +25,6 @@ namespace AcumaticaRestApiExample
 
 		static void Main(string[] args)
 		{
-			Console.WriteLine("SOAP-like example");
-			//SOAPLikeExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
 
 			Console.WriteLine("REST API example");
 			//RESTExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
