@@ -8,12 +8,15 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Acumatica.RESTClient.Api;
+using Version = Acumatica.RESTClient.Api.Version;
 
 namespace AcumaticaRestApiExample
 {
 	class Program
 	{
-		const string SiteURL = "http://localhost/demo/";
+		//const string SiteURL = "http://localhost/demo/";
+		const string SiteURL = "http://localhost/MyStoreInstance";
 		const string Username = "admin";
 		const string Password = "123";
 		const string Tenant = null;
@@ -24,9 +27,18 @@ namespace AcumaticaRestApiExample
 		{
 
 			Console.WriteLine("REST API example");
-			RESTExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
+			//RESTExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
+			
+			Console.WriteLine("OData V3 example");
+			
+			//ODataExample.ODataGetV3(SiteURL, Username, Password);
 
-			Console.ReadLine();
+			Console.WriteLine("OData V4 example");
+			//ODataExample.ODataGetV4(SiteURL, Username, Password);
+
+			Console.WriteLine("OData Oauth example");
+			ODataExample.OauthExample(SiteURL, Username, Password);
+
 		}
 
 	}

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="108.0.1" />
+	  <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +18,10 @@
     <Reference Include="Acumatica.RESTClient">
       <HintPath>..\Acumatica.RESTClient\bin\Debug\netstandard2.0\Acumatica.RESTClient.dll</HintPath>
     </Reference>
+    <Reference Include="SOAPLikeWrapperForREST">
+      <HintPath>..\SOAPLikeWrapperForREST\bin\Debug\netstandard2.0\SOAPLikeWrapperForREST.dll</HintPath>
+    </Reference>
   </ItemGroup>
+
 
 </Project>
