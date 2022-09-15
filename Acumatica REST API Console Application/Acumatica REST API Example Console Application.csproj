@@ -6,21 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acumatica.Default_20.200.001" Version="2.0.0" />
+    <PackageReference Include="Acumatica.RESTClient" Version="2.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="108.0.1" />
 	  <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Acumatica.Default_20.200.001">
-      <HintPath>..\Acumatica.Default_20.200.001\bin\Debug\netstandard2.0\Acumatica.Default_20.200.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Acumatica.RESTClient">
-      <HintPath>..\Acumatica.RESTClient\bin\Debug\netstandard2.0\Acumatica.RESTClient.dll</HintPath>
-    </Reference>
-    <Reference Include="SOAPLikeWrapperForREST">
-      <HintPath>..\SOAPLikeWrapperForREST\bin\Debug\netstandard2.0\SOAPLikeWrapperForREST.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 
