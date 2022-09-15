@@ -15,7 +15,6 @@ namespace AcumaticaRestApiExample
 		
 	{
 		
-		
 		public static void OauthExample(string siteURL, string username, string password, string clientSecret, string clientID, string tenant = null)
 		{
 			Console.WriteLine("OData with Oauth authentication");
@@ -23,15 +22,13 @@ namespace AcumaticaRestApiExample
 				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
 			var configuration = authApi.ReceiveAccessToken(clientID, clientSecret, username, password, OAuthScope.API);
 			
-			ODataAPI oauth = new ODataAPI(configuration, Version.OData);
-			var response = oauth.Get();
+			ODataAPI ODataOauthExample = new ODataAPI(configuration, Version.OData);
+			var response = ODataOauthExample.Get();
 			Console.WriteLine(response);
 		}
 		
 		public static void ODataGetV3(string siteURL, string username, string password, string tenant=null, string branch=null, string locale=null)
-		{			
-			var authApi = new AuthApi(siteURL, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
-			
+		{						
                 Console.WriteLine("OData version 3 with Basic Authentication");
                 var conf = new Configuration(siteURL, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
 				conf.Username= username;
@@ -65,7 +62,6 @@ namespace AcumaticaRestApiExample
         {
 			Console.WriteLine("OData version 4 examples");
 			Console.WriteLine("Testing sign in");
-            var authApi = new AuthApi(siteURL, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
             var conf = new Configuration(siteURL, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
             conf.Username = username;
             conf.Password = password;

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Acumatica.Auth.Model;
+﻿using Acumatica.Auth.Model;
 using Acumatica.RESTClient.Client;
 
 using RestSharp;
 using RestSharp.Authenticators;
-
+using System;
 
 namespace Acumatica.RESTClient.Api
 {
@@ -17,13 +13,11 @@ namespace Acumatica.RESTClient.Api
       
         protected ODataVersion Version;
         protected string Tenant;
-        protected Token Token;
         
         public ODataAPI(Configuration configuration, ODataVersion version, string tenant=null): base(configuration)
         {
             Version = version;
             Tenant = tenant;
-            Token = configuration.Token;
         }
       
        
@@ -31,11 +25,18 @@ namespace Acumatica.RESTClient.Api
         {
             var path = ConfigureResourcePath(ConfigurePath(), resource);
 
+            if(this.Configuration.Token==null && (this.Configuration.Username == null && this.Configuration.Password == null))
+            {
+                throw new Exception("Either token or username/password  pair have to be provided");
+            }
+
             //Basic authentication
-            if (Token == null)
+            if (this.Configuration.Token == null)
             {
                 BasicAuthentication(this.Configuration.ApiClient.RestClient);
             }
+            
+            //Oauth authentication
             RestResponse response = (RestResponse)Configuration.ApiClient.CallApiAsync(path, Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;         
             return DeserializeResponse<string>(response);
         }
@@ -54,7 +55,7 @@ namespace Acumatica.RESTClient.Api
                 path = this.Configuration.BasePath + "/" + Version;
             }
             else
-            {
+            {;
                 path = GetBasePath() + "/" + Version + "/" + Tenant;
             }
             return path;
