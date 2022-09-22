@@ -5,6 +5,7 @@ using Acumatica.RESTClient.Client;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Acumatica.Auth.Api
@@ -35,23 +36,8 @@ namespace Acumatica.Auth.Api
         #endregion
 
         #region Public Methods
-        /// <summary>
-        /// Logs in to the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="branch"></param>
-        /// <param name="locale"></param>
-        /// <param name="password"></param>
-        /// <param name="tenant"></param>
-        /// <param name="username"></param>
-        /// <returns>
-        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
-        /// </returns>
-        public Configuration LogIn(string username, string password, string tenant = null, string branch = null, string locale = null)
-        {
-            return LogIn(new Credentials(username, password, tenant, branch, locale));
-        }
 
+        #region OAuth
         public Configuration RefreshAccessToken(string clientID, string clientSecret, Configuration configuration)
         {
             if (configuration == null || String.IsNullOrEmpty(configuration.Token?.Refresh_token))
@@ -76,6 +62,47 @@ namespace Acumatica.Auth.Api
             return configuration;
         }
 
+        public string Authorize(string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
+        {
+            var result1 = AuthorizeWithHttpInfo(
+              clientID,
+              redirectUrl,
+              scope);
+            return result1.Headers.Where(_ => _.Name == "Location").FirstOrDefault().Value.ToString();
+        }
+
+        public Configuration ReceiveAccessTokenAuthCode(string clientID, string clientSecret, string redirectUrl, string code)
+        {
+            var configuration = new Configuration(Configuration);
+
+            var result = ConnectWithHttpInfoAuthCode(
+                clientID,
+                clientSecret,
+                redirectUrl,
+                code);
+            configuration.Token = result.Data;
+            return configuration;
+        }
+        #endregion
+
+        #region Login
+        /// <summary>
+        /// Logs in to the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="branch"></param>
+        /// <param name="locale"></param>
+        /// <param name="password"></param>
+        /// <param name="tenant"></param>
+        /// <param name="username"></param>
+        /// <returns>
+        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
+        /// </returns>
+        public Configuration LogIn(string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+            return LogIn(new Credentials(username, password, tenant, branch, locale));
+        }
+
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
@@ -94,13 +121,14 @@ namespace Acumatica.Auth.Api
             return configuration;
         }
 
-
         [Obsolete("Use LogIn method instead.")]
         public Configuration AuthLogIn(Credentials credentials)
         {
             return LogIn(credentials);
         }
+        #endregion
 
+        #region Logout
         /// <summary>
         /// Logs out from the system. 
         /// </summary>
@@ -148,6 +176,7 @@ namespace Acumatica.Auth.Api
         {
             await AuthLogoutAsyncWithHttpInfo();
         }
+        #endregion
         #endregion
 
         #region Implementation
@@ -215,7 +244,62 @@ namespace Acumatica.Auth.Api
             return DeserializeResponse<Token>(localVarResponse);
         }
 
+        protected RestResponse AuthorizeWithHttpInfo(string clientID, string redirectUrl, OAuthScope scope)
+        {
+            var localVarPath = "/identity/connect/authorize";
 
+            var queryParameters = ComposeEmptyQueryParams();
+            queryParameters.Add(new KeyValuePair<string, string>("response_type", "code"));
+            queryParameters.Add(new KeyValuePair<string, string>("client_id", clientID));
+            queryParameters.Add(new KeyValuePair<string, string>("state", "strt"));
+            queryParameters.Add(new KeyValuePair<string, string>("scope", PrepareScopeParameter(scope)));
+            queryParameters.Add(new KeyValuePair<string, string>("redirect_uri", redirectUrl));
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+                localVarPath,
+                Method.Get,
+                queryParameters,
+                String.Empty,
+                ComposeAcceptHeaders(HeaderContentType.None),
+                ComposeEmptyFormParams(),
+                ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(),
+                ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
+
+            VerifyResponse(localVarResponse, "RequestToken");
+
+            return localVarResponse;
+        }
+      
+        protected ApiResponse<Token> ConnectWithHttpInfoAuthCode(string clientID, string clientSecret, string redirectUrl, string code)
+        {
+            var localVarPath = "/identity/connect/token";
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+                localVarPath,
+                Method.Post,
+                ComposeEmptyQueryParams(),
+                FormUrlEncodedConverter.ToFormUrlEncoded(new Dictionary<string, string>
+                {
+                    {"grant_type", "authorization_code" },
+                    {"code", code },
+                    {"redirect_uri", redirectUrl },
+                    {"client_id", clientID },
+                    {"client_secret", clientSecret }
+                   // ,                    {"scope", PrepareScopeParameter(scope) }
+                }),
+                ComposeAcceptHeaders(HeaderContentType.None),
+                ComposeEmptyFormParams(),
+                ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(),
+                ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
+
+            VerifyResponse(localVarResponse, "RequestToken");
+
+            return DeserializeResponse<Token>(localVarResponse);
+        }
+     
         private static string PrepareScopeParameter(OAuthScope scope)
         {
             StringBuilder s = new StringBuilder();
