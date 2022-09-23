@@ -2,6 +2,7 @@
 
 [![NuGet](https://buildstats.info/nuget/Acumatica.RESTClient)](https://www.nuget.org/packages/Acumatica.RESTClient/)
 [![NuGet](https://buildstats.info/nuget/Acumatica.Default_20.200.001)](https://www.nuget.org/packages/Acumatica.Default_20.200.001/)
+[![NuGet](https://buildstats.info/nuget/Acumatica.Default_22.200.001)](https://www.nuget.org/packages/Acumatica.Default_22.200.001/)
 [![NuGet](https://buildstats.info/nuget/Acumatica.Manufacturing_21.200.001)](https://www.nuget.org/packages/Acumatica.Manufacturing_21.200.001/)
 
 The solution allows to easily start developing REST API based integration with Acumatica ERP. 
@@ -14,6 +15,7 @@ The repository contains the following solutions:
 The Acumatica REST Client and some endpoints are also available as Nuget packages:
 * https://www.nuget.org/packages/Acumatica.RESTClient/
 * https://www.nuget.org/packages/Acumatica.Default_20.200.001/
+* https://www.nuget.org/packages/Acumatica.Default_22.200.001/
 * https://www.nuget.org/packages/Acumatica.Manufacturing_21.200.001/
 
 Dependencies:
