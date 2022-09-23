@@ -1,15 +1,4 @@
-﻿using Acumatica.Auth.Api;
-using Acumatica.Auth.Model;
-using Acumatica.Default_20_200_001.Api;
-using Acumatica.RESTClient.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using Acumatica.RESTClient.Api;
-using Version = Acumatica.RESTClient.ODataVersion;
+﻿using System;
 
 namespace AcumaticaRestApiExample
 {
@@ -23,6 +12,7 @@ namespace AcumaticaRestApiExample
 		const string Locale = null;
         private const string ClientSecret = "*-******************";
         private const string ClientID = "********-****-****-****-************@MyStore";
+        const string RedirectUrl = "https://localhost/urlForOauth/";
 
         static void Main(string[] args)
 		{
@@ -39,8 +29,11 @@ namespace AcumaticaRestApiExample
 			Console.WriteLine("OData V4 example");
 			ODataExample.ODataGetV4(SiteURL, Username, Password);
 
-			Console.WriteLine("OData Oauth example");
+			Console.WriteLine("OData OAuth 2.0 (Resource Owner Password Credentials flow) example");
 			ODataExample.OauthExample(SiteURL, Username, Password, ClientSecret, ClientID);
+
+			Console.WriteLine("OAuth 2.0 (Authorization Code flow)");
+			OAuthAuthCodeExample.Example(SiteURL, ClientSecret, ClientID, RedirectUrl);
 
 		}
 
