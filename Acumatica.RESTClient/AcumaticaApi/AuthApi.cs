@@ -79,11 +79,17 @@ namespace Acumatica.Auth.Api
 
         public string Authorize(string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
         {
-            var result1 = AuthorizeWithHttpInfo(
+            var response = AuthorizeWithHttpInfo(
               clientID,
               redirectUrl,
               scope);
-            return result1.Headers.Where(_ => _.Name == "Location").FirstOrDefault().Value.ToString();
+            var locationHeader = response.Headers.Where(_ => _.Name == "Location").FirstOrDefault();
+            if (locationHeader == null)
+            {
+                //maybe we've already been redirected, let's take response URL in this case
+                return response.ResponseUri.ToString();
+            }
+            return locationHeader.Value.ToString();
         }
 
         public Configuration ReceiveAccessTokenAuthCode(string clientID, string clientSecret, string redirectUrl, string code)
