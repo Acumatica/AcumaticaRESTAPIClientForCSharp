@@ -251,7 +251,6 @@ namespace Acumatica.Auth.Api
             var queryParameters = ComposeEmptyQueryParams();
             queryParameters.Add(new KeyValuePair<string, string>("response_type", "code"));
             queryParameters.Add(new KeyValuePair<string, string>("client_id", clientID));
-            queryParameters.Add(new KeyValuePair<string, string>("state", "strt"));
             queryParameters.Add(new KeyValuePair<string, string>("scope", PrepareScopeParameter(scope)));
             queryParameters.Add(new KeyValuePair<string, string>("redirect_uri", redirectUrl));
             // make the HTTP request

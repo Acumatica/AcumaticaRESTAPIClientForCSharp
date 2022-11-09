@@ -37,12 +37,6 @@ namespace AcumaticaRestApiExample
 			string body = "";
 			foreach (var parameter in request.Parameters)
 			{
-				if (parameter.Type == ParameterType.QueryString)
-				{
-					parameters += String.IsNullOrEmpty(parameters) ? "?" : "&";
-					parameters += parameter.Name + "=" + parameter.Value;
-				}
-
 				if (parameter.Type == ParameterType.RequestBody)
 					body += parameter.Value;
 			}
