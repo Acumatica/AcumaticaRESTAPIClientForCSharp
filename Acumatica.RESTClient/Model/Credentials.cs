@@ -20,7 +20,7 @@ namespace Acumatica.Auth.Model
     /// Credentials
     /// </summary>
     [DataContract]
-    public partial class Credentials : IEquatable<Credentials>
+    public partial class Credentials
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Credentials" /> class.
@@ -30,12 +30,12 @@ namespace Acumatica.Auth.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Credentials" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
-        /// <param name="password">password (required).</param>
-        /// <param name="company">company.</param>
-        /// <param name="tenant">tenant.</param>
-        /// <param name="branch">branch.</param>
-        /// <param name="locale">locale.</param>
+        /// <param name="name">Username (required).</param>
+        /// <param name="password">User password (required).</param>
+        /// <param name="company">[Obsolete] Company parameter defines tenant to log in. Please use <paramref name="tenant"/> instead.</param>
+        /// <param name="tenant">Defines tenant to log in.</param>
+        /// <param name="branch">Defines tenant to log in.</param>
+        /// <param name="locale">Defines locale to use for localizable data.</param>
         public Credentials(string name = default(string), string password = default(string), string company = default(string), string tenant = default(string), string branch = default(string), string locale = default(string))
         {
             // to ensure "name" is required (not null)
@@ -56,8 +56,14 @@ namespace Acumatica.Auth.Model
             {
                 this.Password = password;
             }
-            this.Company = company;
-            this.Tenant = tenant;
+
+            if (!String.IsNullOrEmpty(company) && !String.IsNullOrEmpty(tenant))
+            {
+                throw new InvalidDataException($"Both {nameof(company)} and {nameof(tenant)} cannot be defined in the same request. Please use {nameof(tenant)}.");
+            }
+
+            this.Company = null;
+            this.Tenant = String.IsNullOrEmpty(tenant) ? company : tenant;
             this.Branch = branch;
             this.Locale = locale;
         }
@@ -77,6 +83,7 @@ namespace Acumatica.Auth.Model
         /// <summary>
         /// Gets or Sets Company
         /// </summary>
+        [Obsolete("Please use teanant instead")]
         [DataMember(Name = "company", EmitDefaultValue = false)]
         public string Company { get; set; }
 
@@ -97,111 +104,7 @@ namespace Acumatica.Auth.Model
         /// </summary>
         [DataMember(Name = "locale", EmitDefaultValue = false)]
         public string Locale { get; set; }
-
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append("class Credentials {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Password: ").Append(Password).Append("\n");
-            sb.Append("  Company: ").Append(Company).Append("\n");
-            sb.Append("  Tenant: ").Append(Tenant).Append("\n");
-            sb.Append("  Branch: ").Append(Branch).Append("\n");
-            sb.Append("  Locale: ").Append(Locale).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
-        }
-
-        /// <summary>
-        /// Returns the JSON string presentation of the object
-        /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Credentials);
-        }
-
-        /// <summary>
-        /// Returns true if Credentials instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Credentials to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Credentials input)
-        {
-            if (input == null)
-                return false;
-
-            return
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) &&
-                (
-                    this.Password == input.Password ||
-                    (this.Password != null &&
-                    this.Password.Equals(input.Password))
-                ) &&
-                (
-                    this.Company == input.Company ||
-                    (this.Company != null &&
-                    this.Company.Equals(input.Company))
-                ) &&
-                (
-                    this.Tenant == input.Tenant ||
-                    (this.Tenant != null &&
-                    this.Tenant.Equals(input.Tenant))
-                ) &&
-                (
-                    this.Branch == input.Branch ||
-                    (this.Branch != null &&
-                    this.Branch.Equals(input.Branch))
-                ) &&
-                (
-                    this.Locale == input.Locale ||
-                    (this.Locale != null &&
-                    this.Locale.Equals(input.Locale))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Password != null)
-                    hashCode = hashCode * 59 + this.Password.GetHashCode();
-                if (this.Company != null)
-                    hashCode = hashCode * 59 + this.Company.GetHashCode();
-                if (this.Tenant != null)
-                    hashCode = hashCode * 59 + this.Tenant.GetHashCode();
-                if (this.Branch != null)
-                    hashCode = hashCode * 59 + this.Branch.GetHashCode();
-                if (this.Locale != null)
-                    hashCode = hashCode * 59 + this.Locale.GetHashCode();
-                return hashCode;
-            }
-        }
+       
     }
 
 }

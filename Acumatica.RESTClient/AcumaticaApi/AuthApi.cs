@@ -17,9 +17,24 @@ namespace Acumatica.Auth.Api
     {
         #region Constructor
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthApi"/> class.
+        /// Initializes a new instance of the <see cref="AuthApi"/> class
         /// </summary>
-        /// <returns></returns>
+        /// <param name="basePath">
+        /// Path to the Acumatica instance e.g. <c>https://example.acumatica.com/</c>
+        /// </param>
+        /// <param name="timeout">
+        /// Request timeout of API requests in milliseconds. Default to 10000 milliseconds. 
+        /// The timeout is saved in the <see cref="Configuration"/> and will be applied to 
+        /// all subsequent requests using the same <see cref="Configuration"/>.
+        /// </param>
+        /// <param name="requestInterceptor">
+        /// An action delegate that will be executed along with sending an API request. 
+        /// Can be used for logging purposes.
+        /// </param>
+        /// <param name="responseInterceptor">
+        /// An action delegate that will be executed along with receiving an API response. 
+        /// Can be used for logging purposes.
+        /// </param>
         public AuthApi(String basePath, int timeout = 100000,
             Action<RestRequest, RestClient> requestInterceptor = null,
             Action<RestRequest, RestResponse, RestClient> responseInterceptor = null) : base(basePath, timeout, requestInterceptor, responseInterceptor)
@@ -100,7 +115,7 @@ namespace Acumatica.Auth.Api
         /// </returns>
         public Configuration LogIn(string username, string password, string tenant = null, string branch = null, string locale = null)
         {
-            return LogIn(new Credentials(username, password, tenant, branch, locale));
+            return LogIn(new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
         }
 
         /// <summary>
