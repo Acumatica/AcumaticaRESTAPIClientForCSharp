@@ -12,7 +12,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
     <PackageTags>Acumatica;REST;client;</PackageTags>
-    <PackageReleaseNotes>Fixed Credentials Parameters Mismatch</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed Credentials Parameters Mismatch and added some documentation.</PackageReleaseNotes>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <OutputType>Library</OutputType>
