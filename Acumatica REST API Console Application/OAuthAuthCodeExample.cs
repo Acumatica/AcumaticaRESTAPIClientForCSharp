@@ -18,7 +18,8 @@ namespace AcumaticaRestApiExample
     {
         public static void Example(string siteURL, string clientSecret, string clientID, string redirectUrl)
         {
-            var authApi = new AuthApi(siteURL);
+            var authApi = new AuthApi(siteURL, 
+                requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
             var url = authApi.Authorize(
                 clientID,
                 clientSecret,
