@@ -34,7 +34,7 @@ namespace Acumatica.RESTClient.Model
             }
             set
             {
-                Custom.Clear();
+                Custom = new Dictionary<string, Dictionary<string, CustomField>>();
                 foreach (var field in value)
                 {
                     if (!Custom.ContainsKey(field.viewName))
