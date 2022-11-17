@@ -111,11 +111,11 @@ namespace Acumatica.Auth.Api
         /// Logs in to the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="branch"></param>
-        /// <param name="locale"></param>
-        /// <param name="password"></param>
-        /// <param name="tenant"></param>
-        /// <param name="username"></param>
+        /// <param name="username">Name of the user that is used to open a new session (required).</param>
+        /// <param name="password">User password (required).</param>
+        /// <param name="tenant">Defines the tenant to log in.</param>
+        /// <param name="branch">Defines the branch to log in.</param>
+        /// <param name="locale">Defines the locale to use for localizable data.</param>
         /// <returns>
         /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
         /// </returns>
@@ -128,7 +128,9 @@ namespace Acumatica.Auth.Api
         /// Logs in to the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="credentials"></param>
+        /// <param name="credentials">
+        /// <see cref="Credentials"/> object that provides information required to log into the web service.
+        /// </param>
         /// <returns>
         /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
         /// </returns>

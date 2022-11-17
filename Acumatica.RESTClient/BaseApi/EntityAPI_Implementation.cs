@@ -59,12 +59,12 @@ namespace Acumatica.RESTClient.Api
             return typeof(EntityType).Name;
         }
 
-        public int GetProcessStatus(string invokeResult)
+        protected int GetProcessStatusWithHttpInfo(string locationRaw)
         {
-            if (invokeResult == null)
-                ThrowMissingParameter("GetProcessStatus", nameof(invokeResult));
+            if (locationRaw == null)
+                ThrowMissingParameter("GetProcessStatus", nameof(locationRaw));
 
-            var parsedLocation = ParseLocation(invokeResult);
+            var parsedLocation = ParseLocation(locationRaw);
             if (parsedLocation.ActionName == null)
                 return 204;
             var localVarPath = "/" + GetEndpointPath() + "/" + parsedLocation.EntityName + "/" + parsedLocation.ActionName + "/" + parsedLocation.Status + "/" + parsedLocation.ID;
@@ -211,21 +211,25 @@ namespace Acumatica.RESTClient.Api
 
             return GetResponseHeaders(localVarResponse);
         }
-		#endregion
+        #endregion
 
-		#region Put
-		/// <summary>
-		/// Creates a record or updates an existing record if <paramref name="entity"/> can be mathed to an existing record by
-		/// <c>id</c> field value or key fields values.
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="entity">The record to be passed to the system.</param>
-		/// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-		/// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-		/// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-		/// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-		/// <returns>ApiResponse of Entity</returns>
-		protected ApiResponse<EntityType> PutEntityWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null)
+        #region Put
+
+        protected const string PutMethodInsertHeader = "If-None-Match";
+        protected const string PutMethodUpdateHeader = "If-Match";
+
+        /// <summary>
+        /// Creates a record or updates an existing record if <paramref name="entity"/> can be mathed to an existing record by
+        /// <c>id</c> field value or key fields values.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entity">The record to be passed to the system.</param>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <returns>ApiResponse of Entity</returns>
+        protected ApiResponse<EntityType> PutEntityWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null)
         {
             if (entity == null)
                 ThrowMissingParameter("PutEntity", nameof(entity));

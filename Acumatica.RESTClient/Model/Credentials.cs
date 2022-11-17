@@ -33,9 +33,9 @@ namespace Acumatica.Auth.Model
         /// <param name="name">Username (required).</param>
         /// <param name="password">User password (required).</param>
         /// <param name="company">[Obsolete] Company parameter defines tenant to log in. Please use <paramref name="tenant"/> instead.</param>
-        /// <param name="tenant">Defines tenant to log in.</param>
-        /// <param name="branch">Defines tenant to log in.</param>
-        /// <param name="locale">Defines locale to use for localizable data.</param>
+        /// <param name="tenant">Defines the tenant to log in.</param>
+        /// <param name="branch">Defines the branch to log in.</param>
+        /// <param name="locale">Defines the locale to use for localizable data.</param>
         public Credentials(string name = default(string), string password = default(string), string company = default(string), string tenant = default(string), string branch = default(string), string locale = default(string))
         {
             // to ensure "name" is required (not null)

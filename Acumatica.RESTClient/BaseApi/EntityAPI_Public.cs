@@ -32,25 +32,61 @@ namespace Acumatica.RESTClient.Api
         #endregion
 
         #region Public Methods
+        /// <summary>
+        /// Returns relative endpoint path startnig with <c>entity</c> keyword, 
+        /// e.g. <c>entity/Default/22.200.001</c>
+        /// </summary>
         public abstract string GetEndpointPath();
 
-        public void WaitActionCompletion(string invokeResult)
+        /// <summary>
+        /// Queries the system with the specified <paramref name="millisecondsInterval"/> 
+        /// to get status of a running operation
+        /// untill the operation status is Completed.
+        /// </summary>
+        /// <param name="locationRaw">
+        /// Value of the Location header returned 
+        /// from <see cref="InvokeAction(EntityAction{EntityType})"/> or
+        /// <see cref="InvokeActionAsync(EntityAction{EntityType})"/>
+        /// </param>
+        /// <param name="millisecondsInterval">
+        /// Time that the system waits between querying for the operation status in milliseconds.
+        /// Default value is <c>1000</c>.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// Throws the the exception if the operation finishes with a status code not indicating 
+        /// successful completion.
+        /// </exception>
+        public void WaitActionCompletion(string locationRaw, int millisecondsInterval = 1000)
         {
             while (true)
             {
-                var processResult = GetProcessStatus(invokeResult);
+                var processResult = GetProcessStatus(locationRaw);
 
                 switch (processResult)
                 {
                     case 204:
                         return;
                     case 202:
-                        Thread.Sleep(1000);
+                        Thread.Sleep(millisecondsInterval);
                         continue;
                     default:
                         throw new InvalidOperationException();
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets the status of an operation started by invoking an action.
+        /// </summary>
+        /// <param name="locationRaw">
+        /// Value of the Location header returned 
+        /// from <see cref="InvokeAction(EntityAction{EntityType})"/> or
+        /// <see cref="InvokeActionAsync(EntityAction{EntityType})"/>
+        /// </param>
+        /// <returns>Returns HTTP status code of the running operation.</returns>
+        public int GetProcessStatus(string locationRaw)
+        {
+            return GetProcessStatusWithHttpInfo(locationRaw);
         }
 
         /// <summary>
@@ -71,8 +107,6 @@ namespace Acumatica.RESTClient.Api
 
         }
 
-        protected const string PutMethodInsertHeader = "If-None-Match";
-        protected const string PutMethodUpdateHeader = "If-Match";
         /// <summary>
         /// Put method that can be used to determine operation Api Call executes.
         /// Supported starting from Acumatica ERP version 2019 R2.
@@ -154,7 +188,10 @@ namespace Acumatica.RESTClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">The action that should be executed.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// Returns value of Location header. The value can be used to 
+        /// query the status of running operation using <see cref="GetProcessStatus(string)"/>
+        /// </returns>
         public string InvokeAction(EntityAction<EntityType> action)
         {
             var result = InvokeActionWithHttpInfo(action);
