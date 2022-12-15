@@ -28,9 +28,14 @@ namespace Acumatica.RESTClient.Client
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? Client.Configuration.Default;
+            Configuration = config ?? Configuration.Default;
 
-            RestClient = new RestClient(Configuration.BasePath);
+            var options = new RestClientOptions(Configuration.BasePath)
+            {
+                MaxTimeout = Configuration.Timeout,
+            };
+
+            RestClient = new RestClient(options);
         }
 
         /// <summary>
