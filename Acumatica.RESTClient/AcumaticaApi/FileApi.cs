@@ -1,12 +1,10 @@
-﻿using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Model;
-using RestSharp;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.Model;
+
+using RestSharp;
 
 namespace Acumatica.RESTClient.Api
 {
@@ -16,15 +14,15 @@ namespace Acumatica.RESTClient.Api
 		{
 		}
 
-		public System.IO.Stream GetFile(FileLink fileLink)
+		public Stream GetFile(FileLink fileLink)
 		{
 			return GetFile(fileLink.Href);
 		}
-		public System.IO.Stream GetFile(Guid fileID, string endpointName, string endpointVersion)
+		public Stream GetFile(Guid fileID, string endpointName, string endpointVersion)
 		{
 			throw new NotImplementedException();
 		}
-		public System.IO.Stream GetFile(string href)
+		public Stream GetFile(string href)
         {
 			// make the HTTP request
 			RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(

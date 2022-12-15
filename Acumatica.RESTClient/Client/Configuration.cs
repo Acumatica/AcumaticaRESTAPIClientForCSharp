@@ -17,7 +17,7 @@ namespace Acumatica.RESTClient.Client
     /// <summary>
     /// Represents a set of configuration settings
     /// </summary>
-    public class Configuration : IReadableConfiguration
+    public class Configuration
     {
         #region Constants
 
@@ -40,34 +40,6 @@ namespace Acumatica.RESTClient.Client
 
         private static readonly object GlobalConfigSync = new { };
         private static Configuration _globalConfiguration;
-
-        /// <summary>
-        /// Default creation of exceptions for a given method name and response object
-        /// </summary>
-        public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response, objectType) =>
-        {
-            var status = (int)response.StatusCode;
-            if (status >= 400)
-            {
-                return GetGenericApiException(status, "Error calling " + methodName, response.Content, objectType);
-            }
-            if (status == 0)
-            {
-                return GetGenericApiException(status,
-                    string.Format("Error calling {0}", methodName, response.ErrorMessage),
-                    null, objectType);
-            }
-            return null;
-        };
-
-        public static ApiException GetGenericApiException(int status, string message, string content, Type genericType)
-        {
-            if (genericType == null || genericType.IsAbstract)
-                return new ApiException(status, message, content);
-            return (ApiException)Activator.CreateInstance(
-                typeof(ApiException<>).MakeGenericType(genericType),
-                status, message, content);
-        }
 
         /// <summary>
         /// Gets or sets the default Configuration.
@@ -112,14 +84,11 @@ namespace Acumatica.RESTClient.Client
         /// Initializes a new instance of the <see cref="Configuration" /> class
         /// </summary>
         public Configuration(string basePath, int timeout = 100000,
-            Action<RestRequest, RestClient> requestInterceptor = null,
+             Action<RestRequest, RestClient> requestInterceptor = null,
             Action<RestRequest, RestResponse, RestClient> responseInterceptor = null)
         {
-            UserAgent = "OpenAPI-Generator/1.0.0/csharp";
-            BasePath = basePath;
-            DefaultHeader = new ConcurrentDictionary<string, string>();
-            ApiKey = new ConcurrentDictionary<string, string>();
-            ApiKeyPrefix = new ConcurrentDictionary<string, string>();
+            UserAgent = "AcumaticaClient/2.3.0/csharp";
+            _basePath = basePath;
             this.timeout = timeout;
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
@@ -128,42 +97,6 @@ namespace Acumatica.RESTClient.Client
         public Configuration(Configuration prototype) : 
             this(prototype.BasePath, prototype.Timeout, prototype.RequestInterceptor, prototype.ResponseInterceptor)
         { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class
-        /// </summary>
-        public Configuration(
-            IDictionary<string, string> defaultHeader,
-            IDictionary<string, string> apiKey,
-            IDictionary<string, string> apiKeyPrefix,
-            string basePath) : this(basePath)
-        {
-            if (string.IsNullOrWhiteSpace(basePath))
-                throw new ArgumentException("The provided basePath is invalid.", "basePath");
-            if (defaultHeader == null)
-                throw new ArgumentNullException("defaultHeader");
-            if (apiKey == null)
-                throw new ArgumentNullException("apiKey");
-            if (apiKeyPrefix == null)
-                throw new ArgumentNullException("apiKeyPrefix");
-
-            BasePath = basePath;
-
-            foreach (var keyValuePair in defaultHeader)
-            {
-                DefaultHeader.Add(keyValuePair);
-            }
-
-            foreach (var keyValuePair in apiKey)
-            {
-                ApiKey.Add(keyValuePair);
-            }
-
-            foreach (var keyValuePair in apiKeyPrefix)
-            {
-                ApiKeyPrefix.Add(keyValuePair);
-            }
-        }
         #endregion Constructors
 
 
@@ -193,26 +126,16 @@ namespace Acumatica.RESTClient.Client
         public virtual string BasePath
         {
             get { return _basePath; }
-            set
-            {
-                _basePath = value;
-            }
         }
-
-        /// <summary>
-        /// Gets or sets the default header.
-        /// </summary>
-        public virtual IDictionary<string, string> DefaultHeader { get; set; }
 
         private int timeout;
         /// <summary>
-        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
+        /// Gets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
         /// </summary>
         public virtual int Timeout
         {
 
             get { return timeout; }
-            set { timeout = value; }
         }
 
         /// <summary>
@@ -233,21 +156,6 @@ namespace Acumatica.RESTClient.Client
         /// <value>The password.</value>
         public virtual string Password { get; set; }
 
-        /// <summary>
-        /// Gets the API key with prefix.
-        /// </summary>
-        /// <param name="apiKeyIdentifier">API key identifier (authentication scheme).</param>
-        /// <returns>API key with prefix.</returns>
-        public string GetApiKeyWithPrefix(string apiKeyIdentifier)
-        {
-            var apiKeyValue = "";
-            ApiKey.TryGetValue(apiKeyIdentifier, out apiKeyValue);
-            var apiKeyPrefix = "";
-            if (ApiKeyPrefix.TryGetValue(apiKeyIdentifier, out apiKeyPrefix))
-                return apiKeyPrefix + " " + apiKeyValue;
-            else
-                return apiKeyValue;
-        }
 
         /// <summary>
         /// Gets or sets the access token for OAuth2 authentication.
@@ -314,101 +222,17 @@ namespace Acumatica.RESTClient.Client
                 _dateTimeFormat = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
-        /// </summary>
-        /// <value>The prefix of the API key.</value>
-        public virtual IDictionary<string, string> ApiKeyPrefix
-        {
-            get { return _apiKeyPrefix; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKeyPrefix collection may not be null.");
-                }
-                _apiKeyPrefix = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the API key based on the authentication name.
-        /// </summary>
-        /// <value>The API key.</value>
-        public virtual IDictionary<string, string> ApiKey
-        {
-            get { return _apiKey; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKey collection may not be null.");
-                }
-                _apiKey = value;
-            }
-        }
-
         #endregion Properties
 
         #region Methods
-
-        /// <summary>
-        /// Add default header.
-        /// </summary>
-        /// <param name="key">Header field name.</param>
-        /// <param name="value">Header field value.</param>
-        /// <returns></returns>
-        public void AddDefaultHeader(string key, string value)
-        {
-            DefaultHeader[key] = value;
-        }
-
         /// <summary>
         /// Creates a new <see cref="ApiClient" /> based on this <see cref="Configuration" /> instance.
         /// </summary>
         /// <returns></returns>
-        public ApiClient CreateApiClient()
+        private ApiClient CreateApiClient()
         {
             return new ApiClient(this);
         }
-
-
-        /// <summary>
-        /// Returns a string with essential information for debugging.
-        /// </summary>
-        public static String ToDebugReport()
-        {
-            String report = "C# SDK (Org.OpenAPITools) Debug Report:\n";
-            report += "    OS: " + System.Environment.OSVersion + "\n";
-            report += "    .NET Framework Version: " + System.Environment.Version + "\n";
-            report += "    Version of the API: 3\n";
-            report += "    SDK Package Version: 1.0.0\n";
-
-            return report;
-        }
-
-        /// <summary>
-        /// Add Api Key Header.
-        /// </summary>
-        /// <param name="key">Api Key name.</param>
-        /// <param name="value">Api Key value.</param>
-        /// <returns></returns>
-        public void AddApiKey(string key, string value)
-        {
-            ApiKey[key] = value;
-        }
-
-        /// <summary>
-        /// Sets the API key prefix.
-        /// </summary>
-        /// <param name="key">Api Key name.</param>
-        /// <param name="value">Api Key value.</param>
-        public void AddApiKeyPrefix(string key, string value)
-        {
-            ApiKeyPrefix[key] = value;
-        }
-
         #endregion Methods
     }
 }

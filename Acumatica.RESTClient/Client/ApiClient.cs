@@ -3,7 +3,6 @@ using RestSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -11,7 +10,7 @@ using System.Text.RegularExpressions;
 namespace Acumatica.RESTClient.Client
 {
     /// <summary>
-    /// API client is mainly responsible for making the HTTP call to the API backend.
+    /// API client for making the HTTP call to the API backend.
     /// </summary>
     public partial class ApiClient
     {
@@ -39,20 +38,13 @@ namespace Acumatica.RESTClient.Client
         }
 
         /// <summary>
-        /// Gets or sets an instance of the IReadableConfiguration.
+        /// Gets or sets an instance of the Configuration.
         /// </summary>
-        /// <value>An instance of the IReadableConfiguration.</value>
-        /// <remarks>
-        /// <see cref="IReadableConfiguration"/> helps us to avoid modifying possibly global
-        /// configuration values from within a given client. It does not guarantee thread-safety
-        /// of the <see cref="Configuration"/> instance in any way.
-        /// </remarks>
-        public IReadableConfiguration Configuration { get; set; }
+        public Configuration Configuration { get; set; }
 
         /// <summary>
         /// Gets or sets the RestClient.
         /// </summary>
-        /// <value>An instance of the RestClient</value>
         public RestClient RestClient { get; set; }
         #endregion
 
@@ -71,7 +63,8 @@ namespace Acumatica.RESTClient.Client
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
         public async System.Threading.Tasks.Task<Object> CallApiAsync(
-            String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
+            String path, Method method, List<KeyValuePair<String, String>> queryParams,
+            Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
             String contentType)
@@ -86,37 +79,21 @@ namespace Acumatica.RESTClient.Client
                 pathParams, contentType, Configuration.Timeout);
 
             if (Configuration.RequestInterceptor != null)
-                Configuration.RequestInterceptor(request, this.RestClient);
+            {
+                Configuration.RequestInterceptor(request, RestClient);
+            }
+
+
             var response = await RestClient.ExecuteAsync(request);
+
             if (Configuration.ResponseInterceptor != null)
-                Configuration.ResponseInterceptor(request, response, this.RestClient);
+            {
+                Configuration.ResponseInterceptor(request, response, RestClient);
+            }
 
-            return (Object)response;
+            return response;
         }
 
-        /// <summary>
-        /// Escape string (url-encoded).
-        /// </summary>
-        /// <param name="str">String to be escaped.</param>
-        /// <returns>Escaped string.</returns>
-        public string EscapeString(string str)
-        {
-            return UrlEncode(str);
-        }
-
-        /// <summary>
-        /// Create FileParameter based on Stream.
-        /// </summary>
-        /// <param name="name">Parameter name.</param>
-        /// <param name="stream">Input stream.</param>
-        /// <returns>FileParameter.</returns>
-        public FileParameter ParameterToFile(string name, Stream stream)
-        {
-            if (stream is FileStream)
-                return FileParameter.Create(name, ReadAsBytes(stream), Path.GetFileName(((FileStream)stream).Name));
-            else
-                return FileParameter.Create(name, ReadAsBytes(stream), "no_file_name_provided");
-        }
 
         /// <summary>
         /// If parameter is DateTime, output in a formatted string (default ISO 8601), customizable with Configuration.DateTime.
@@ -168,30 +145,6 @@ namespace Acumatica.RESTClient.Client
             if (typeof(T) == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
-            }
-
-            // TODO: ? if (type.IsAssignableFrom(typeof(Stream)))
-            if (typeof(T) == typeof(Stream))
-            {
-                if (headers != null)
-                {
-                    var filePath = String.IsNullOrEmpty(Configuration.TempFolderPath)
-                        ? Path.GetTempPath()
-                        : Configuration.TempFolderPath;
-                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$");
-                    foreach (var header in headers)
-                    {
-                        var match = regex.Match(header.ToString());
-                        if (match.Success)
-                        {
-                            string fileName = filePath + SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
-                            File.WriteAllBytes(fileName, response.RawBytes);
-                            return new FileStream(fileName, FileMode.Open);
-                        }
-                    }
-                }
-                var stream = new MemoryStream(response.RawBytes);
-                return stream;
             }
 
             if (typeof(T).Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
@@ -293,90 +246,6 @@ namespace Acumatica.RESTClient.Client
         }
 
         /// <summary>
-        /// Encode string in base64 format.
-        /// </summary>
-        /// <param name="text">String to be encoded.</param>
-        /// <returns>Encoded string.</returns>
-        public static string Base64Encode(string text)
-        {
-            return System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text));
-        }
-
-
-        /// <summary>
-        /// Convert stream to byte array
-        /// </summary>
-        /// <param name="inputStream">Input stream to be converted</param>
-        /// <returns>Byte array</returns>
-        public static byte[] ReadAsBytes(Stream inputStream)
-        {
-            byte[] buf = new byte[16 * 1024];
-            using (MemoryStream ms = new MemoryStream())
-            {
-                int count;
-                while ((count = inputStream.Read(buf, 0, buf.Length)) > 0)
-                {
-                    ms.Write(buf, 0, count);
-                }
-                return ms.ToArray();
-            }
-        }
-
-        /// <summary>
-        /// URL encode a string
-        /// Credit/Ref: https://github.com/restsharp/RestSharp/blob/master/RestSharp/Extensions/StringExtensions.cs#L50
-        /// </summary>
-        /// <param name="input">String to be URL encoded</param>
-        /// <returns>Byte array</returns>
-        public static string UrlEncode(string input)
-        {
-            const int maxLength = 32766;
-
-            if (input == null)
-            {
-                throw new ArgumentNullException("input");
-            }
-
-            if (input.Length <= maxLength)
-            {
-                return Uri.EscapeDataString(input);
-            }
-
-            StringBuilder sb = new StringBuilder(input.Length * 2);
-            int index = 0;
-
-            while (index < input.Length)
-            {
-                int length = Math.Min(input.Length - index, maxLength);
-                string subString = input.Substring(index, length);
-
-                sb.Append(Uri.EscapeDataString(subString));
-                index += subString.Length;
-            }
-
-            return sb.ToString();
-        }
-
-        /// <summary>
-        /// Sanitize filename by removing the path
-        /// </summary>
-        /// <param name="filename">Filename</param>
-        /// <returns>Filename</returns>
-        public static string SanitizeFilename(string filename)
-        {
-            Match match = Regex.Match(filename, @".*[/\\](.*)$");
-
-            if (match.Success)
-            {
-                return match.Groups[1].Value;
-            }
-            else
-            {
-                return filename;
-            }
-        }
-
-        /// <summary>
         /// Convert params to key/value pairs. 
         /// Use collectionFormat to properly format lists and collections.
         /// </summary>
@@ -405,13 +274,13 @@ namespace Acumatica.RESTClient.Client
       
         // Creates and sets up a RestRequest prior to a call.
         private RestRequest PrepareRequest(
-            String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
+            String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
             String contentType, int timeout)
         {
             var request = new RestRequest(path, method);
-
+            
             // add path parameter, if any
             foreach (var param in pathParams)
                 request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
@@ -419,7 +288,7 @@ namespace Acumatica.RESTClient.Client
             // add header parameter, if any
             foreach (var param in headerParams)
                 request.AddHeader(param.Key, param.Value);
-
+           
             // add query parameter, if any
             foreach (var param in queryParams)
                 request.AddQueryParameter(param.Key, param.Value);
