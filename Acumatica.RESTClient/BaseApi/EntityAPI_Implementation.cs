@@ -229,13 +229,15 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>ApiResponse of Entity</returns>
-        protected ApiResponse<EntityType> PutEntityWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null)
+        protected ApiResponse<EntityType> PutEntityWithHttpInfo(EntityType entity, 
+            string select = null, string filter = null, string expand = null, string custom = null, 
+            PutMethod method = PutMethod.Any, DateTime? businessDate = null, string branch = null)
         {
             if (entity == null)
                 ThrowMissingParameter("PutEntity", nameof(entity));
 
             var localVarPath = GetEndpointPath() + "/" + GetEntityName();
-            Dictionary<string, string> headers = ComposePutHeaders(method, businessDate);
+            Dictionary<string, string> headers = ComposePutHeaders(method, businessDate, branch);
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -258,14 +260,16 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of ApiResponse (Entity)</returns>
-        protected async System.Threading.Tasks.Task<ApiResponse<EntityType>> PutEntityAsyncWithHttpInfo(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null)
+        protected async System.Threading.Tasks.Task<ApiResponse<EntityType>> PutEntityAsyncWithHttpInfo(EntityType entity, 
+            string select = null, string filter = null, string expand = null, string custom = null, 
+            PutMethod method = PutMethod.Any, DateTime? businessDate = null, string branch=null)
 		{
 			// verify the required parameter 'entity' is set
 			if (entity == null)
 				ThrowMissingParameter("PutEntity", nameof(entity));
 
 			var localVarPath = GetEndpointPath() + "/" + GetEntityName();
-			Dictionary<string, string> headers = ComposePutHeaders(method, businessDate);
+			Dictionary<string, string> headers = ComposePutHeaders(method, businessDate, branch);
 
 			// make the HTTP request
 			RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -277,7 +281,7 @@ namespace Acumatica.RESTClient.Api
 			return DeserializeResponse<EntityType>(localVarResponse);
 		}
 
-		private Dictionary<string, string> ComposePutHeaders(PutMethod method, DateTime? businessDate)
+		private Dictionary<string, string> ComposePutHeaders(PutMethod method, DateTime? businessDate, string branch)
 		{
 			var headers = ComposeAcceptHeaders(HeaderContentType.Json);
 			if (method == PutMethod.Insert)
@@ -292,8 +296,12 @@ namespace Acumatica.RESTClient.Api
 			{
 				headers.Add("PX-CbApiBusinessDate", businessDate?.ToString(System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat));
 			}
+            if (!String.IsNullOrEmpty(branch))
+            {
+                headers.Add("PX-CbApiBranch", branch);
+            }
 
-			return headers;
+            return headers;
 		}
 		#endregion
 

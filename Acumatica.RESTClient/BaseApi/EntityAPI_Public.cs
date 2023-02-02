@@ -128,10 +128,28 @@ namespace Acumatica.RESTClient.Api
         /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <returns>EntityType</returns>
-        public EntityType PutEntity(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null)
+        /// <param name="method">
+        /// Optional. Used to determine whether the system should <see cref="PutMethod.Insert"/> a new record
+        /// or <see cref="PutMethod.Update"/> an existing record. 
+        /// If not specifified the default behavior is <see cref="PutMethod.Any">Any/Upsert</see>. 
+        /// </param>
+        /// <param name="businessDate">
+        /// Optional. Specifies the new business date. If you omit this header, 
+        /// the current date is used as the business date.
+        /// </param>
+        /// <param name="branch">
+        /// Optional. Specifies the new current branch. 
+        /// The branch should be specified as a branch name. 
+        /// If you omit this header, the branch that you specified when signing in is used as the current branch.
+        /// </param>
+        /// <returns>Object of <typeparamref name="EntityType"/> type.</returns>
+        public EntityType PutEntity(EntityType entity, 
+            string select = null, string filter = null, string expand = null, string custom = null, 
+            PutMethod method = PutMethod.Any, DateTime? businessDate = null, string branch = null)
         {
-            ApiResponse<EntityType> localVarResponse = PutEntityWithHttpInfo(entity, select, filter, expand, custom, method, businessDate);
+            ApiResponse<EntityType> localVarResponse = PutEntityWithHttpInfo(entity, 
+                select, filter, expand, custom, 
+                method, businessDate, branch);
             return localVarResponse.Data;
         }
 
@@ -145,10 +163,28 @@ namespace Acumatica.RESTClient.Api
         /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <returns>Task of Entity</returns>
-        public async System.Threading.Tasks.Task<EntityType> PutEntityAsync(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any)
+        /// <param name="method">
+        /// Optional. Used to determine whether the system should <see cref="PutMethod.Insert"/> a new record
+        /// or <see cref="PutMethod.Update"/> an existing record. 
+        /// If not specifified the default behavior is <see cref="PutMethod.Any">Any/Upsert</see>. 
+        /// </param>
+        /// <param name="businessDate">
+        /// Optional. Specifies the new business date. If you omit this header, 
+        /// the current date is used as the business date.
+        /// </param>
+        /// <param name="branch">
+        /// Optional. Specifies the new current branch. 
+        /// The branch should be specified as a branch name. 
+        /// If you omit this header, the branch that you specified when signing in is used as the current branch.
+        /// </param>
+        /// <returns><see cref="System.Threading.Tasks.Task"/> of <typeparamref name="EntityType"/></returns>
+        public async System.Threading.Tasks.Task<EntityType> PutEntityAsync(EntityType entity, 
+            string select = null, string filter = null, string expand = null, string custom = null, 
+            PutMethod method = PutMethod.Any, DateTime? businessDate = null, string branch=null)
         {
-            ApiResponse<EntityType> localVarResponse = await PutEntityAsyncWithHttpInfo(entity, select, filter, expand, custom, method);
+            ApiResponse<EntityType> localVarResponse = await PutEntityAsyncWithHttpInfo(entity, 
+                select, filter, expand, custom, 
+                method, businessDate, branch);
             return localVarResponse.Data;
         }
 
