@@ -1,14 +1,14 @@
-using Acumatica.RESTClient.Auxiliary;
-
-using Newtonsoft.Json;
-using RestSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
+
+using Acumatica.RESTClient.Auxiliary;
+
+using Newtonsoft.Json;
+
+using RestSharp;
 
 namespace Acumatica.RESTClient.Client
 {

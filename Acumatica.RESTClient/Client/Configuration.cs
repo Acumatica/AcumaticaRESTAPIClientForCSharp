@@ -15,9 +15,5 @@ namespace Acumatica.RESTClient.Client
         public Configuration(string basePath, int timeout = 100000, Action<RestRequest, RestClient> requestInterceptor = null, Action<RestRequest, RestResponse, RestClient> responseInterceptor = null) : base(basePath, timeout, requestInterceptor, responseInterceptor)
         {
         }
-
-        public Configuration(IDictionary<string, string> defaultHeader, IDictionary<string, string> apiKey, IDictionary<string, string> apiKeyPrefix, string basePath) : base(defaultHeader, apiKey, apiKeyPrefix, basePath)
-        {
-        }
     }
 }

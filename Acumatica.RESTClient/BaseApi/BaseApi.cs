@@ -77,7 +77,7 @@ namespace Acumatica.RESTClient.Client
         }
         protected Dictionary<string, string> ComposeAcceptHeaders(HeaderContentType contentTypes)
         {
-            var localVarHeaderParams = new Dictionary<String, String>(this.Session.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>();
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = ComposeHeadersArray(contentTypes);
             String localVarHttpHeaderAccept = this.Session.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
