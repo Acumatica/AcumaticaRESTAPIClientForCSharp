@@ -1,3 +1,5 @@
+using Acumatica.RESTClient.Auxiliary;
+
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -92,30 +94,6 @@ namespace Acumatica.RESTClient.Client
                 Configuration.ResponseInterceptor(request, response, this.RestClient);
 
             return (Object)response;
-        }
-
-        /// <summary>
-        /// Escape string (url-encoded).
-        /// </summary>
-        /// <param name="str">String to be escaped.</param>
-        /// <returns>Escaped string.</returns>
-        public string EscapeString(string str)
-        {
-            return UrlEncode(str);
-        }
-
-        /// <summary>
-        /// Create FileParameter based on Stream.
-        /// </summary>
-        /// <param name="name">Parameter name.</param>
-        /// <param name="stream">Input stream.</param>
-        /// <returns>FileParameter.</returns>
-        public FileParameter ParameterToFile(string name, Stream stream)
-        {
-            if (stream is FileStream)
-                return FileParameter.Create(name, ReadAsBytes(stream), Path.GetFileName(((FileStream)stream).Name));
-            else
-                return FileParameter.Create(name, ReadAsBytes(stream), "no_file_name_provided");
         }
 
         /// <summary>
@@ -214,22 +192,6 @@ namespace Acumatica.RESTClient.Client
         }
 
         /// <summary>
-        ///Check if the given MIME is a JSON MIME.
-        ///JSON MIME examples:
-        ///    application/json
-        ///    application/json; charset=UTF8
-        ///    APPLICATION/JSON
-        ///    application/vnd.company+json
-        /// </summary>
-        /// <param name="mime">MIME</param>
-        /// <returns>Returns True if MIME type is json.</returns>
-        public bool IsJsonMime(String mime)
-        {
-            var jsonRegex = new Regex("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
-            return mime != null && (jsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json"));
-        }
-
-        /// <summary>
         /// Select the Content-Type header's value from the given content-type array:
         /// if JSON type exists in the given array, use it;
         /// otherwise use the first one defined in 'consumes'
@@ -266,90 +228,6 @@ namespace Acumatica.RESTClient.Client
                 return "application/json";
 
             return String.Join(",", accepts);
-        }
-
-        /// <summary>
-        /// Encode string in base64 format.
-        /// </summary>
-        /// <param name="text">String to be encoded.</param>
-        /// <returns>Encoded string.</returns>
-        public static string Base64Encode(string text)
-        {
-            return System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text));
-        }
-
-
-        /// <summary>
-        /// Convert stream to byte array
-        /// </summary>
-        /// <param name="inputStream">Input stream to be converted</param>
-        /// <returns>Byte array</returns>
-        public static byte[] ReadAsBytes(Stream inputStream)
-        {
-            byte[] buf = new byte[16 * 1024];
-            using (MemoryStream ms = new MemoryStream())
-            {
-                int count;
-                while ((count = inputStream.Read(buf, 0, buf.Length)) > 0)
-                {
-                    ms.Write(buf, 0, count);
-                }
-                return ms.ToArray();
-            }
-        }
-
-        /// <summary>
-        /// URL encode a string
-        /// Credit/Ref: https://github.com/restsharp/RestSharp/blob/master/RestSharp/Extensions/StringExtensions.cs#L50
-        /// </summary>
-        /// <param name="input">String to be URL encoded</param>
-        /// <returns>Byte array</returns>
-        public static string UrlEncode(string input)
-        {
-            const int maxLength = 32766;
-
-            if (input == null)
-            {
-                throw new ArgumentNullException("input");
-            }
-
-            if (input.Length <= maxLength)
-            {
-                return Uri.EscapeDataString(input);
-            }
-
-            StringBuilder sb = new StringBuilder(input.Length * 2);
-            int index = 0;
-
-            while (index < input.Length)
-            {
-                int length = Math.Min(input.Length - index, maxLength);
-                string subString = input.Substring(index, length);
-
-                sb.Append(Uri.EscapeDataString(subString));
-                index += subString.Length;
-            }
-
-            return sb.ToString();
-        }
-
-        /// <summary>
-        /// Sanitize filename by removing the path
-        /// </summary>
-        /// <param name="filename">Filename</param>
-        /// <returns>Filename</returns>
-        public static string SanitizeFilename(string filename)
-        {
-            Match match = Regex.Match(filename, @".*[/\\](.*)$");
-
-            if (match.Success)
-            {
-                return match.Groups[1].Value;
-            }
-            else
-            {
-                return filename;
-            }
         }
 
         /// <summary>
@@ -418,16 +296,6 @@ namespace Acumatica.RESTClient.Client
             request.Timeout = timeout;
 
             return request;
-        }
-
-        /// <summary>
-        /// Check if generic object is a collection.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns>True if object is a collection type</returns>
-        private static bool IsCollection(object value)
-        {
-            return value is IList || value is ICollection;
         }
         #endregion
     }
