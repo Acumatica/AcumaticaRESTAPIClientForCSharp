@@ -5,26 +5,6 @@ using System.Linq;
 
 namespace Acumatica.RESTClient.Model
 {
-    public enum ReturnBehavior
-    {
-        Default,
-        All,
-        None,
-        OnlySystem,
-        OnlySpecified,
-    }
-    public class EntityField
-    {
-        public object Value;
-        public Type Type;
-        public string Name;
-        public EntityField(Type type, object value, string name)
-        {
-            Value = value;
-            Type = type;
-            Name = name;
-        }
-    }
     public class LinkedEntity
     {
         public Entity Value;

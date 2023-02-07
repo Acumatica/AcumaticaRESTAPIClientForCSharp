@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Acumatica.RESTClient.File.Model;
 using Newtonsoft.Json;
 
 namespace Acumatica.RESTClient.Model
 {
-	/// <summary>
-	/// Entity
-	/// </summary>
-	[DataContract]
+    /// <summary>
+    /// Entity
+    /// </summary>
+    [DataContract]
     public abstract class Entity
     {
 		#region Backward compatibility with SOAP

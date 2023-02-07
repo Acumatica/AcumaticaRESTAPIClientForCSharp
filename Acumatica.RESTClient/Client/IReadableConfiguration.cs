@@ -1,5 +1,4 @@
-using Acumatica.Auth.Model;
-
+using Acumatica.RESTClient.Auth.Model;
 using RestSharp;
 using System;
 using System.Collections.Generic;

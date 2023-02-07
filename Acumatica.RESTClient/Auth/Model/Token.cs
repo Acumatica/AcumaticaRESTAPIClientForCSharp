@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-using System;
-using System.IO;
 using System.Runtime.Serialization;
-using System.Text;
 
-namespace Acumatica.Auth.Model
+using Newtonsoft.Json;
+
+namespace Acumatica.RESTClient.Auth.Model
 {
     [DataContract]
-    public partial class Token 
+    public partial class Token
     {
-        [JsonConstructorAttribute]
+        [JsonConstructor]
         protected Token() { }
 
         public Token(
-            string accessToken = default(string), 
-            string expiresIn = default(string), 
-            string refreshToken = default(string), 
-            string scope = default(string), 
-            string token_type = default(string))
+            string accessToken = default,
+            string expiresIn = default,
+            string refreshToken = default,
+            string scope = default,
+            string token_type = default)
         {
             Access_token = accessToken;
             Expires_in = expiresIn;

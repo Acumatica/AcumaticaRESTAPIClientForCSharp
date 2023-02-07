@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 
-using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Model;
+using Acumatica.RESTClient.Customization.Model;
+
 using RestSharp;
 
-using static System.Net.WebRequestMethods;
-
-namespace Acumatica.RESTClient.Api
+namespace Acumatica.RESTClient.Customization
 {
     public class CustomizationApi : BaseApi
     {
@@ -106,14 +102,14 @@ namespace Acumatica.RESTClient.Api
         {
             if (projectName == null)
                 ThrowMissingParameter("PublishBegin", nameof(projectName));
-            var list = new List<string >();
+            var list = new List<string>();
             list.Add(projectName);
-           return PublishBegin(list, 
-               isMergeWithExistingPackages, 
-               isOnlyValidation,
-               isOnlyDbUpdates,
-               isReplayPreviouslyExecutedScripts,
-               tenantMode);
+            return PublishBegin(list,
+                isMergeWithExistingPackages,
+                isOnlyValidation,
+                isOnlyDbUpdates,
+                isReplayPreviouslyExecutedScripts,
+                tenantMode);
         }
 
         /// <summary>

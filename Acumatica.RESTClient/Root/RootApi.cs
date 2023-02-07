@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.Root.Model;
+
 using RestSharp;
-using Acumatica.RESTClient.Client;
-using Acumatica.Auth.Model;
-using Acumatica.RESTClient.Api;
 
-namespace Acumatica.Auth.Api
+namespace Acumatica.RESTClient.Root
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -20,7 +15,7 @@ namespace Acumatica.Auth.Api
         /// Initializes a new instance of the <see cref="RootApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public RootApi(String basePath) : base(basePath)
+        public RootApi(string basePath) : base(basePath)
         { }
 
         /// <summary>
@@ -31,17 +26,17 @@ namespace Acumatica.Auth.Api
         /// <returns></returns>
         public RootApi(Configuration configuration) : base(configuration)
         { }
-		#endregion
+        #endregion
 
-		#region Public Methods
+        #region Public Methods
 
-		/// <summary>
-		/// Returns the version of the Acumatica ERP instance and the endpoints available in this instance. 
-		/// Available stating from 2019 R2 version of Acumatica ERP.
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <returns>VersionAndEndpoints</returns>
-		public VersionAndEndpoints RootGet()
+        /// <summary>
+        /// Returns the version of the Acumatica ERP instance and the endpoints available in this instance. 
+        /// Available stating from 2019 R2 version of Acumatica ERP.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <returns>VersionAndEndpoints</returns>
+        public VersionAndEndpoints RootGet()
         {
             ApiResponse<VersionAndEndpoints> localVarResponse = RootGetWithHttpInfo();
             return localVarResponse.Data;
@@ -58,16 +53,16 @@ namespace Acumatica.Auth.Api
             return localVarResponse.Data;
 
         }
-		#endregion
+        #endregion
 
-		#region Implementation
-		/// <summary>
-		/// Returns the version of the Acumatica ERP instance and the endpoints available in this instance. 
-		/// Available stating from 2019 R2 version of Acumatica ERP.
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <returns>ApiResponse of VersionAndEndpoints</returns>
-		protected ApiResponse<VersionAndEndpoints> RootGetWithHttpInfo()
+        #region Implementation
+        /// <summary>
+        /// Returns the version of the Acumatica ERP instance and the endpoints available in this instance. 
+        /// Available stating from 2019 R2 version of Acumatica ERP.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of VersionAndEndpoints</returns>
+        protected ApiResponse<VersionAndEndpoints> RootGetWithHttpInfo()
         {
             var localVarPath = "/entity";
 
@@ -90,12 +85,12 @@ namespace Acumatica.Auth.Api
         protected async System.Threading.Tasks.Task<ApiResponse<VersionAndEndpoints>> RootGetAsyncWithHttpInfo()
         {
             var localVarPath = "/entity";
-           
+
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
-           
+
             VerifyResponse(localVarResponse, "RootGet");
 
             return DeserializeResponse<VersionAndEndpoints>(localVarResponse);

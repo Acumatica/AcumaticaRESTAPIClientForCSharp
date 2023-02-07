@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
-using Acumatica.RESTClient.Client;
-using System.Threading;
-using Acumatica.RESTClient.Model;
 
-namespace Acumatica.RESTClient.Api
+using RestSharp;
+
+namespace Acumatica.RESTClient.Client
 {
     /// <summary>
     /// Represents a base class with common logic for all Api classes.

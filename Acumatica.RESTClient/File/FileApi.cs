@@ -1,14 +1,12 @@
-﻿using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Model;
-using RestSharp;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Acumatica.RESTClient.Api
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.File.Model;
+
+using RestSharp;
+
+namespace Acumatica.RESTClient.File
 {
 	public class FileApi : BaseApi
 	{

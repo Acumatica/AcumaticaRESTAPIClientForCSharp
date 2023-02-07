@@ -170,30 +170,6 @@ namespace Acumatica.RESTClient.Client
                 return response.RawBytes;
             }
 
-            // TODO: ? if (type.IsAssignableFrom(typeof(Stream)))
-            if (typeof(T) == typeof(Stream))
-            {
-                if (headers != null)
-                {
-                    var filePath = String.IsNullOrEmpty(Configuration.TempFolderPath)
-                        ? Path.GetTempPath()
-                        : Configuration.TempFolderPath;
-                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$");
-                    foreach (var header in headers)
-                    {
-                        var match = regex.Match(header.ToString());
-                        if (match.Success)
-                        {
-                            string fileName = filePath + SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
-                            File.WriteAllBytes(fileName, response.RawBytes);
-                            return new FileStream(fileName, FileMode.Open);
-                        }
-                    }
-                }
-                var stream = new MemoryStream(response.RawBytes);
-                return stream;
-            }
-
             if (typeof(T).Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
             {
                 return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);

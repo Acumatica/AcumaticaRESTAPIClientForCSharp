@@ -1,10 +1,7 @@
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
-namespace Acumatica.RESTClient.Model
+namespace Acumatica.RESTClient.Customization.Model
 {
     /// <summary>
     /// CustomizationImport
@@ -17,7 +14,7 @@ namespace Acumatica.RESTClient.Model
         }
 
 
-        [DataMember(Name= "isMergeWithExistingPackages", EmitDefaultValue=false)]
+        [DataMember(Name = "isMergeWithExistingPackages", EmitDefaultValue = false)]
         public bool IsMergeWithExistingPackages { get; set; }
 
         [DataMember(Name = "isOnlyValidation", EmitDefaultValue = false)]

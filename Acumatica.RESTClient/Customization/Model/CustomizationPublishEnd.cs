@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Acumatica.RESTClient.Model
+namespace Acumatica.RESTClient.Customization.Model
 {
     /// <summary>
     /// CustomizationImport

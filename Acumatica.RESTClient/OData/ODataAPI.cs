@@ -1,43 +1,43 @@
-﻿using Acumatica.Auth.Model;
+﻿using System;
+
 using Acumatica.RESTClient.Client;
 
 using RestSharp;
 using RestSharp.Authenticators;
-using System;
 
-namespace Acumatica.RESTClient.Api
+namespace Acumatica.RESTClient.OData
 {
 
     public class ODataAPI : BaseApi
     {
-      
+
         protected ODataVersion Version;
         protected string Tenant;
-        
-        public ODataAPI(Configuration configuration, ODataVersion version, string tenant=null): base(configuration)
+
+        public ODataAPI(Configuration configuration, ODataVersion version, string tenant = null) : base(configuration)
         {
             Version = version;
             Tenant = tenant;
         }
-      
-       
+
+
         public ApiResponse<string> Get(string resource = null, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
             var path = ConfigureResourcePath(ConfigurePath(), resource);
 
-            if(this.Configuration.Token==null && (this.Configuration.Username == null && this.Configuration.Password == null))
+            if (Configuration.Token == null && Configuration.Username == null && Configuration.Password == null)
             {
                 throw new Exception("Either token or username/password  pair have to be provided");
             }
 
             //Basic authentication
-            if (this.Configuration.Token == null)
+            if (Configuration.Token == null)
             {
-                BasicAuthentication(this.Configuration.ApiClient.RestClient);
+                BasicAuthentication(Configuration.ApiClient.RestClient);
             }
-            
+
             //Oauth authentication
-            RestResponse response = (RestResponse)Configuration.ApiClient.CallApiAsync(path, Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;         
+            RestResponse response = (RestResponse)Configuration.ApiClient.CallApiAsync(path, Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
             return DeserializeResponse<string>(response);
         }
 
@@ -52,10 +52,10 @@ namespace Acumatica.RESTClient.Api
             string path;
             if (Tenant == null)
             {
-                path = this.Configuration.BasePath + "/" + Version;
+                path = Configuration.BasePath + "/" + Version;
             }
             else
-            {;
+            {
                 path = GetBasePath() + "/" + Version + "/" + Tenant;
             }
             return path;
@@ -69,12 +69,12 @@ namespace Acumatica.RESTClient.Api
             }
             return path;
         }
- 
+
         private void BasicAuthentication(RestClient client)
         {
-            client.Authenticator = new HttpBasicAuthenticator(this.Configuration.Username, this.Configuration.Password);
+            client.Authenticator = new HttpBasicAuthenticator(Configuration.Username, Configuration.Password);
         }
-        
+
 
         #endregion
     }

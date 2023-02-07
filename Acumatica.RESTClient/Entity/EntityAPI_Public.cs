@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.Model;
 
 namespace Acumatica.RESTClient.Api
 {
-	/// <summary>
-	/// Represents a collection of functions to interact with the API endpoints
-	/// </summary>
-	public abstract partial class EntityAPI<EntityType> : BaseApi
-        where EntityType : Entity
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public abstract partial class EntityAPI<EntityType> : BaseApi
+         where EntityType : Entity
     {
         #region Constructor
 

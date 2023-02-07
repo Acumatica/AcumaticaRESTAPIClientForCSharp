@@ -1,5 +1,4 @@
-using Acumatica.Auth.Model;
-using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.Auth.Model;
 using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 using RestSharp;
@@ -8,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Acumatica.Auth.Api
+namespace Acumatica.RESTClient.Auth
 {
     /// <summary>
     /// Represents a collection of functions to interact with the Authorization endpoint
@@ -35,7 +34,7 @@ namespace Acumatica.Auth.Api
         /// An action delegate that will be executed along with receiving an API response. 
         /// Can be used for logging purposes.
         /// </param>
-        public AuthApi(String basePath, int timeout = 100000,
+        public AuthApi(string basePath, int timeout = 100000,
             Action<RestRequest, RestClient> requestInterceptor = null,
             Action<RestRequest, RestResponse, RestClient> responseInterceptor = null) : base(basePath, timeout, requestInterceptor, responseInterceptor)
         { }
@@ -55,7 +54,7 @@ namespace Acumatica.Auth.Api
         #region OAuth
         public Configuration RefreshAccessToken(string clientID, string clientSecret, Configuration configuration)
         {
-            if (configuration == null || String.IsNullOrEmpty(configuration.Token?.Refresh_token))
+            if (configuration == null || string.IsNullOrEmpty(configuration.Token?.Refresh_token))
                 ThrowMissingParameter("RefreshAccessToken", "Refresh_Token");
 
             var result = RefreshWithHttpInfo(clientID, clientSecret, configuration.Token.Refresh_token);
@@ -136,7 +135,7 @@ namespace Acumatica.Auth.Api
         /// </returns>
         public Configuration LogIn(Credentials credentials)
         {
-            this.AuthLoginWithHttpInfo(credentials);
+            AuthLoginWithHttpInfo(credentials);
             var configuration = new Configuration(Configuration);
 
             //share cookie container between API clients because we use different client for authentication and interaction with endpoint
@@ -220,8 +219,8 @@ namespace Acumatica.Auth.Api
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
-                FormUrlEncodedConverter.ToFormUrlEncoded(new Dictionary<string, string>() 
-                { 
+                FormUrlEncodedConverter.ToFormUrlEncoded(new Dictionary<string, string>()
+                {
                     {"grant_type", "refresh_token" },
                     {"client_id", clientID },
                     {"client_secret", clientSecret },
@@ -245,7 +244,7 @@ namespace Acumatica.Auth.Api
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
                 localVarPath,
-                Method.Post, 
+                Method.Post,
                 ComposeEmptyQueryParams(),
                 FormUrlEncodedConverter.ToFormUrlEncoded(new Dictionary<string, string>
                 {
@@ -255,13 +254,13 @@ namespace Acumatica.Auth.Api
                     {"username", username },
                     {"password", password },
                     {"scope", PrepareScopeParameter(scope) }
-                }), 
-                ComposeAcceptHeaders(HeaderContentType.None), 
-                ComposeEmptyFormParams(), 
+                }),
+                ComposeAcceptHeaders(HeaderContentType.None),
+                ComposeEmptyFormParams(),
                 ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), 
+                ComposeEmptyPathParams(),
                 ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
-            
+
             VerifyResponse(localVarResponse, "RequestToken");
 
             return DeserializeResponse<Token>(localVarResponse);
@@ -281,7 +280,7 @@ namespace Acumatica.Auth.Api
                 localVarPath,
                 Method.Get,
                 queryParameters,
-                String.Empty,
+                string.Empty,
                 ComposeAcceptHeaders(HeaderContentType.None),
                 ComposeEmptyFormParams(),
                 ComposeEmptyFileParams(),
@@ -292,7 +291,7 @@ namespace Acumatica.Auth.Api
 
             return localVarResponse;
         }
-      
+
         protected ApiResponse<Token> ConnectWithHttpInfoAuthCode(string clientID, string clientSecret, string redirectUrl, string code)
         {
             var localVarPath = "/identity/connect/token";
@@ -321,7 +320,7 @@ namespace Acumatica.Auth.Api
 
             return DeserializeResponse<Token>(localVarResponse);
         }
-     
+
         private static string PrepareScopeParameter(OAuthScope scope)
         {
             StringBuilder s = new StringBuilder();
@@ -341,7 +340,7 @@ namespace Acumatica.Auth.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="credentials"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        protected ApiResponse<Object> AuthLoginWithHttpInfo(Credentials credentials)
+        protected ApiResponse<object> AuthLoginWithHttpInfo(Credentials credentials)
         {
             // verify the required parameter 'credentials' is set
             if (credentials == null)
@@ -365,7 +364,7 @@ namespace Acumatica.Auth.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="credentials"></param>
         /// <returns>Task of ApiResponse</returns>
-        protected async System.Threading.Tasks.Task<ApiResponse<Object>> AuthLoginAsyncWithHttpInfo(Credentials credentials)
+        protected async System.Threading.Tasks.Task<ApiResponse<object>> AuthLoginAsyncWithHttpInfo(Credentials credentials)
         {
             // verify the required parameter 'credentials' is set
             if (credentials == null)
@@ -388,7 +387,7 @@ namespace Acumatica.Auth.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
-        protected ApiResponse<Object> AuthLogoutWithHttpInfo()
+        protected ApiResponse<object> AuthLogoutWithHttpInfo()
         {
             var localVarPath = "/entity/auth/logout";
 
@@ -407,7 +406,7 @@ namespace Acumatica.Auth.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
-        protected async System.Threading.Tasks.Task<ApiResponse<Object>> AuthLogoutAsyncWithHttpInfo()
+        protected async System.Threading.Tasks.Task<ApiResponse<object>> AuthLogoutAsyncWithHttpInfo()
         {
             var localVarPath = "/entity/auth/logout";
 

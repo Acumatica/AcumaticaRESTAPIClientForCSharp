@@ -1,9 +1,6 @@
-using Newtonsoft.Json;
-using System;
 using System.Runtime.Serialization;
-using System.Text;
 
-namespace Acumatica.RESTClient.Model
+namespace Acumatica.RESTClient.Customization.Model
 {
     /// <summary>
     /// CustomizationImport
@@ -16,7 +13,7 @@ namespace Acumatica.RESTClient.Model
         }
 
 
-        [DataMember(Name= "projectLevel", EmitDefaultValue=false)]
+        [DataMember(Name = "projectLevel", EmitDefaultValue = false)]
         public int? ProjectLevel { get; set; }
 
         [DataMember(Name = "isReplaceIfExists", EmitDefaultValue = false)]
