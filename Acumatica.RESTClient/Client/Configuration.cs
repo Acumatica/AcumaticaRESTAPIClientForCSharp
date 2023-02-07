@@ -16,7 +16,7 @@ namespace Acumatica.RESTClient.Client
     /// <summary>
     /// Represents a set of configuration settings
     /// </summary>
-    public class Configuration : IReadableConfiguration
+    public class Configuration
     {
         #region Constants
 

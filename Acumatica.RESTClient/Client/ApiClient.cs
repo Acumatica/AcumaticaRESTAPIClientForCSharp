@@ -47,7 +47,7 @@ namespace Acumatica.RESTClient.Client
         /// configuration values from within a given client. It does not guarantee thread-safety
         /// of the <see cref="Configuration"/> instance in any way.
         /// </remarks>
-        public IReadableConfiguration Configuration { get; set; }
+        public Configuration Configuration { get; set; }
 
         /// <summary>
         /// Gets or sets the RestClient.

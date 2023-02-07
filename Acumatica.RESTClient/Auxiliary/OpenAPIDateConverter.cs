@@ -6,7 +6,7 @@
 
 using Newtonsoft.Json.Converters;
 
-namespace Acumatica.RESTClient.Client
+namespace Acumatica.RESTClient.Auxiliary
 {
     /// <summary>
     /// Formatter for 'date' openapi formats ss defined by full-date - RFC3339

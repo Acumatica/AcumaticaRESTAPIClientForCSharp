@@ -9,7 +9,7 @@ namespace Acumatica.RESTClient.Client
     /// <summary>
     /// Represents a base class with common logic for all Api classes.
     /// </summary>
-    public abstract class BaseApi : IApiAccessor
+    public abstract class BaseApi 
     {
         #region Constructor
 
