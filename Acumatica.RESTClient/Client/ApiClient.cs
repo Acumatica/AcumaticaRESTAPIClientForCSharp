@@ -74,6 +74,10 @@ namespace Acumatica.RESTClient.Client
         {
             if (Session.Token != null)
             {
+                if (headerParams == null)
+                {
+                    headerParams = new Dictionary<String, String>();
+                }
                 headerParams.Add("Authorization", Session.Token.Token_type + " " + Session.Token.Access_token);
             }
 
