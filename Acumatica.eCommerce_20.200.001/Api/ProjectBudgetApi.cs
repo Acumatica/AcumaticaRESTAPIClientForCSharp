@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ProjectBudgetApi : BaseEndpointApi<ProjectBudget>
 	{
-		public ProjectBudgetApi(Configuration configuration) : base(configuration)
+		public ProjectBudgetApi(Session session) : base(session)
 		{ }
 	}
 }

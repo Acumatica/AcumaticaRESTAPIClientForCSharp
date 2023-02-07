@@ -22,9 +22,9 @@ namespace Acumatica.RESTClient.Root
         /// Initializes a new instance of the <see cref="RootApi"/> class
         /// using Configuration object
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="Session">An API session</param>
         /// <returns></returns>
-        public RootApi(Configuration configuration) : base(configuration)
+        public RootApi(Session Session) : base(Session)
         { }
         #endregion
 
@@ -67,7 +67,7 @@ namespace Acumatica.RESTClient.Root
             var localVarPath = "/entity";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -87,7 +87,7 @@ namespace Acumatica.RESTClient.Root
             var localVarPath = "/entity";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 

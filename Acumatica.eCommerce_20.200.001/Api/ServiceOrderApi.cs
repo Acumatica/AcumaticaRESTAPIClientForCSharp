@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ServiceOrderApi : BaseEndpointApi<ServiceOrder>
 	{
-		public ServiceOrderApi(Configuration configuration) : base(configuration)
+		public ServiceOrderApi(Session session) : base(session)
 		{ }
 	}
 }

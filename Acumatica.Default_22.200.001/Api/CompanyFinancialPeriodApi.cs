@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class CompanyFinancialPeriodApi : BaseEndpointApi<CompanyFinancialPeriod>
 	{
-		public CompanyFinancialPeriodApi(Configuration configuration) : base(configuration)
+		public CompanyFinancialPeriodApi(Session session) : base(session)
 		{ }
 	}
 }

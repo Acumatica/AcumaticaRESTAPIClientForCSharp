@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ExpenseClaimApi : BaseEndpointApi<ExpenseClaim>
 	{
-		public ExpenseClaimApi(Configuration configuration) : base(configuration)
+		public ExpenseClaimApi(Session session) : base(session)
 		{ }
 	}
 }

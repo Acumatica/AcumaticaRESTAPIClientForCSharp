@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class UnitsOfMeasureApi : BaseEndpointApi<UnitsOfMeasure>
 	{
-		public UnitsOfMeasureApi(Configuration configuration) : base(configuration)
+		public UnitsOfMeasureApi(Session session) : base(session)
 		{ }
 	}
 }

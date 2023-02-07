@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class LedgerApi : BaseEndpointApi<Ledger>
 	{
-		public LedgerApi(Configuration configuration) : base(configuration)
+		public LedgerApi(Session session) : base(session)
 		{ }
 	}
 }

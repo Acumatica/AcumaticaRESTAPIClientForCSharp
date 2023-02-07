@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class MachineApi : BaseEndpointApi<Machine>
 	{
-		public MachineApi(Configuration configuration) : base(configuration)
+		public MachineApi(Session session) : base(session)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.DeviceHub_19_200_001.Api
 {
 	public class PrintJobsInquiryApi : BaseEndpointApi<PrintJobsInquiry>
 	{
-		public PrintJobsInquiryApi(Configuration configuration) : base(configuration)
+		public PrintJobsInquiryApi(Session session) : base(session)
 		{ }
 	}
 }

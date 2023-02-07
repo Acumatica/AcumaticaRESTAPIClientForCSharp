@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class ShipViaApi : BaseEndpointApi<ShipVia>
 	{
-		public ShipViaApi(Configuration configuration) : base(configuration)
+		public ShipViaApi(Session session) : base(session)
 		{ }
 	}
 }

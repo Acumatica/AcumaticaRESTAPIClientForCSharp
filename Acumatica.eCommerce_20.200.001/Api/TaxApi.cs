@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class TaxApi : BaseEndpointApi<Tax>
 	{
-		public TaxApi(Configuration configuration) : base(configuration)
+		public TaxApi(Session session) : base(session)
 		{ }
 	}
 }

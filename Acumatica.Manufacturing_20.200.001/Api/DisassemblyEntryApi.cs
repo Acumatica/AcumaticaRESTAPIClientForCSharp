@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class DisassemblyEntryApi : BaseEndpointApi<DisassemblyEntry>
 	{
-		public DisassemblyEntryApi(Configuration configuration) : base(configuration)
+		public DisassemblyEntryApi(Session session) : base(session)
 		{ }
 	}
 }

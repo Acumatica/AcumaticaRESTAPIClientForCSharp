@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class ExpenseReceiptApi : BaseEndpointApi<ExpenseReceipt>
 	{
-		public ExpenseReceiptApi(Configuration configuration) : base(configuration)
+		public ExpenseReceiptApi(Session session) : base(session)
 		{ }
 	}
 }

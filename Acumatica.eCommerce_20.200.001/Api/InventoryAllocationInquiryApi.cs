@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class InventoryAllocationInquiryApi : BaseEndpointApi<InventoryAllocationInquiry>
 	{
-		public InventoryAllocationInquiryApi(Configuration configuration) : base(configuration)
+		public InventoryAllocationInquiryApi(Session session) : base(session)
 		{ }
 	}
 }

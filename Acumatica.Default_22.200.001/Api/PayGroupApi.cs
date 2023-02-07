@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class PayGroupApi : BaseEndpointApi<PayGroup>
 	{
-		public PayGroupApi(Configuration configuration) : base(configuration)
+		public PayGroupApi(Session session) : base(session)
 		{ }
 	}
 }

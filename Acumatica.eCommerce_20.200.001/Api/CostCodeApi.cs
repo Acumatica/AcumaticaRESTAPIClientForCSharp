@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class CostCodeApi : BaseEndpointApi<CostCode>
 	{
-		public CostCodeApi(Configuration configuration) : base(configuration)
+		public CostCodeApi(Session session) : base(session)
 		{ }
 	}
 }

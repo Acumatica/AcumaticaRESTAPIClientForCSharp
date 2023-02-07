@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class ConfigurationMaintenanceApi : BaseEndpointApi<ConfigurationMaintenance>
 	{
-		public ConfigurationMaintenanceApi(Configuration configuration) : base(configuration)
+		public ConfigurationMaintenanceApi(Session session) : base(session)
 		{ }
 	}
 }

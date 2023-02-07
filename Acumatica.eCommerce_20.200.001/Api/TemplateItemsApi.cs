@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class TemplateItemsApi : BaseEndpointApi<TemplateItems>
 	{
-		public TemplateItemsApi(Configuration configuration) : base(configuration)
+		public TemplateItemsApi(Session session) : base(session)
 		{ }
 	}
 }

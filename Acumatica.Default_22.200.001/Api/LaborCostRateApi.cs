@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class LaborCostRateApi : BaseEndpointApi<LaborCostRate>
 	{
-		public LaborCostRateApi(Configuration configuration) : base(configuration)
+		public LaborCostRateApi(Session session) : base(session)
 		{ }
 	}
 }

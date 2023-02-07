@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class BillOfMaterialApi : BaseEndpointApi<BillOfMaterial>
 	{
-		public BillOfMaterialApi(Configuration configuration) : base(configuration)
+		public BillOfMaterialApi(Session session) : base(session)
 		{ }
 	}
 }

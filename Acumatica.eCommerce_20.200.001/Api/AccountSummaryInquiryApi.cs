@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class AccountSummaryInquiryApi : BaseEndpointApi<AccountSummaryInquiry>
 	{
-		public AccountSummaryInquiryApi(Configuration configuration) : base(configuration)
+		public AccountSummaryInquiryApi(Session session) : base(session)
 		{ }
 	}
 }

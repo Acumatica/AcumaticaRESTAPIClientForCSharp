@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class InvoiceApi : BaseEndpointApi<Invoice>
 	{
-		public InvoiceApi(Configuration configuration) : base(configuration)
+		public InvoiceApi(Session session) : base(session)
 		{ }
 	}
 }

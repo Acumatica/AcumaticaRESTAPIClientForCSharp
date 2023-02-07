@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class MasterProductionScheduleApi : BaseEndpointApi<MasterProductionSchedule>
 	{
-		public MasterProductionScheduleApi(Configuration configuration) : base(configuration)
+		public MasterProductionScheduleApi(Session session) : base(session)
 		{ }
 	}
 }

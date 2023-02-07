@@ -27,35 +27,29 @@ namespace Acumatica.RESTClient.Client
         /// Initializes a new instance of the <see cref="ApiClient" /> class
         /// with default base path.
         /// </summary>
-        /// <param name="config">An instance of Configuration.</param>
-        public ApiClient(Configuration config)
+        /// <param name="session">An open API session.</param>
+        public ApiClient(Session session)
         {
-            Configuration = config ?? Client.Configuration.Default;
+            Session = session;
 
-            var options = new RestClientOptions(Configuration.BasePath)
+            var options = new RestClientOptions(Session.BasePath)
             {
-                MaxTimeout = Configuration.Timeout,
+                MaxTimeout = Session.Timeout,
             };
 
             RestClient = new RestClient(options);
         }
 
         /// <summary>
-        /// Gets or sets an instance of the IReadableConfiguration.
+        /// Currently open API Session.
         /// </summary>
-        /// <value>An instance of the IReadableConfiguration.</value>
-        /// <remarks>
-        /// <see cref="IReadableConfiguration"/> helps us to avoid modifying possibly global
-        /// configuration values from within a given client. It does not guarantee thread-safety
-        /// of the <see cref="Configuration"/> instance in any way.
-        /// </remarks>
-        public Configuration Configuration { get; set; }
+        public Session Session { get; set; }
 
         /// <summary>
         /// Gets or sets the RestClient.
         /// </summary>
         /// <value>An instance of the RestClient</value>
-        public RestClient RestClient { get; set; }
+        internal RestClient RestClient { get; set; }
         #endregion
 
         #region Public Methods
@@ -78,20 +72,20 @@ namespace Acumatica.RESTClient.Client
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
             String contentType)
         {
-            if (Configuration.Token != null)
+            if (Session.Token != null)
             {
-                headerParams.Add("Authorization", Configuration.Token.Token_type + " " + Configuration.Token.Access_token);
+                headerParams.Add("Authorization", Session.Token.Token_type + " " + Session.Token.Access_token);
             }
 
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
-                pathParams, contentType, Configuration.Timeout);
+                pathParams, contentType, Session.Timeout);
 
-            if (Configuration.RequestInterceptor != null)
-                Configuration.RequestInterceptor(request, this.RestClient);
+            if (Session.RequestInterceptor != null)
+                Session.RequestInterceptor(request, this.RestClient);
             var response = await RestClient.ExecuteAsync(request);
-            if (Configuration.ResponseInterceptor != null)
-                Configuration.ResponseInterceptor(request, response, this.RestClient);
+            if (Session.ResponseInterceptor != null)
+                Session.ResponseInterceptor(request, response, this.RestClient);
 
             return (Object)response;
         }
@@ -110,13 +104,13 @@ namespace Acumatica.RESTClient.Client
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTime)obj).ToString(Configuration.DateTimeFormat);
+                return ((DateTime)obj).ToString(Session.DateTimeFormat);
             else if (obj is DateTimeOffset)
                 // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTimeOffset)obj).ToString(Configuration.DateTimeFormat);
+                return ((DateTimeOffset)obj).ToString(Session.DateTimeFormat);
             if (obj is string str)
                 return str;
             else if (obj is IEnumerable enumerable)
@@ -205,7 +199,7 @@ namespace Acumatica.RESTClient.Client
 
             foreach (var contentType in contentTypes)
             {
-                if (IsJsonMime(contentType.ToLower()))
+                if (ApiClientHelpers.IsJsonMime(contentType.ToLower()))
                     return contentType;
             }
 
@@ -241,7 +235,7 @@ namespace Acumatica.RESTClient.Client
         {
             var parameters = new List<KeyValuePair<string, string>>();
 
-            if (IsCollection(value) && collectionFormat == "multi")
+            if (ApiClientHelpers.IsCollection(value) && collectionFormat == "multi")
             {
                 var valueCollection = value as IEnumerable;
                 parameters.AddRange(from object item in valueCollection select new KeyValuePair<string, string>(name, ParameterToString(item)));
@@ -256,7 +250,7 @@ namespace Acumatica.RESTClient.Client
         #endregion
 
         #region Implementation
-      
+
         // Creates and sets up a RestRequest prior to a call.
         private RestRequest PrepareRequest(
             String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
@@ -266,26 +260,44 @@ namespace Acumatica.RESTClient.Client
         {
             var request = new RestRequest(path, method);
 
-            // add path parameter, if any
-            foreach (var param in pathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-
-            // add header parameter, if any
-            foreach (var param in headerParams)
-                request.AddHeader(param.Key, param.Value);
-
-            // add query parameter, if any
-            foreach (var param in queryParams)
-                request.AddQueryParameter(param.Key, param.Value);
-
-            // add form parameter, if any
-            foreach (var param in formParams)
-                request.AddParameter(param.Key, param.Value);
-
-            // add file parameter, if any
-            foreach (var param in fileParams)
+            if (pathParams != null)
             {
-                request.AddFile(param.Value.Name, param.Value.GetFile, param.Value.FileName, param.Value.ContentType);
+                foreach (var param in pathParams)
+                {
+                    request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
+                }
+            }
+
+            if (headerParams != null)
+            {
+                foreach (var param in headerParams)
+                {
+                    request.AddHeader(param.Key, param.Value);
+                }
+            }
+
+            if (queryParams != null)
+            {
+                foreach (var param in queryParams)
+                {
+                    request.AddQueryParameter(param.Key, param.Value);
+                }
+            }
+
+            if (formParams != null)
+            {
+                foreach (var param in formParams)
+                {
+                    request.AddParameter(param.Key, param.Value);
+                }
+            }
+
+            if (fileParams != null)
+            {
+                foreach (var param in fileParams)
+                {
+                    request.AddFile(param.Value.Name, param.Value.GetFile, param.Value.FileName, param.Value.ContentType);
+                }
             }
 
             if (postBody != null) // http body (model or byte[]) parameter

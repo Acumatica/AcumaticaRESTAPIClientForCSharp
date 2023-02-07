@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class ShopifyStoreApi : BaseEndpointApi<ShopifyStore>
 	{
-		public ShopifyStoreApi(Configuration configuration) : base(configuration)
+		public ShopifyStoreApi(Session session) : base(session)
 		{ }
 	}
 }

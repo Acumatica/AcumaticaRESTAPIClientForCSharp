@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class CapableToPromiseApi : BaseEndpointApi<CapableToPromise>
 	{
-		public CapableToPromiseApi(Configuration configuration) : base(configuration)
+		public CapableToPromiseApi(Session session) : base(session)
 		{ }
 	}
 }

@@ -7,7 +7,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
 		where EntityType : Entity
 	{
-		public BaseEndpointApi(Configuration configuration) : base(configuration)
+		public BaseEndpointApi(Session session) : base(session)
 		{ }
 		public override string GetEndpointPath()
 		{

@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class CostTransactionApi : BaseEndpointApi<CostTransaction>
 	{
-		public CostTransactionApi(Configuration configuration) : base(configuration)
+		public CostTransactionApi(Session session) : base(session)
 		{ }
 	}
 }

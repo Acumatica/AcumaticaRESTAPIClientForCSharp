@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class MPSTypeApi : BaseEndpointApi<MPSType>
 	{
-		public MPSTypeApi(Configuration configuration) : base(configuration)
+		public MPSTypeApi(Session session) : base(session)
 		{ }
 	}
 }

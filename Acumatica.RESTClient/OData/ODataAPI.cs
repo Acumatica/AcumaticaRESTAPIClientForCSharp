@@ -14,7 +14,7 @@ namespace Acumatica.RESTClient.OData
         protected ODataVersion Version;
         protected string Tenant;
 
-        public ODataAPI(Configuration configuration, ODataVersion version, string tenant = null) : base(configuration)
+        public ODataAPI(Session session, ODataVersion version, string tenant = null) : base(session)
         {
             Version = version;
             Tenant = tenant;
@@ -25,19 +25,19 @@ namespace Acumatica.RESTClient.OData
         {
             var path = ConfigureResourcePath(ConfigurePath(), resource);
 
-            if (Configuration.Token == null && Configuration.Username == null && Configuration.Password == null)
+            if (Session.Token == null && Session.Username == null && Session.Password == null)
             {
                 throw new Exception("Either token or username/password  pair have to be provided");
             }
 
             //Basic authentication
-            if (Configuration.Token == null)
+            if (Session.Token == null)
             {
-                BasicAuthentication(Configuration.ApiClient.RestClient);
+                BasicAuthentication(Session.ApiClient.RestClient);
             }
 
             //Oauth authentication
-            RestResponse response = (RestResponse)Configuration.ApiClient.CallApiAsync(path, Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
+            RestResponse response = (RestResponse)Session.ApiClient.CallApiAsync(path, Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
             return DeserializeResponse<string>(response);
         }
 
@@ -52,7 +52,7 @@ namespace Acumatica.RESTClient.OData
             string path;
             if (Tenant == null)
             {
-                path = Configuration.BasePath + "/" + Version;
+                path = Session.BasePath + "/" + Version;
             }
             else
             {
@@ -72,7 +72,7 @@ namespace Acumatica.RESTClient.OData
 
         private void BasicAuthentication(RestClient client)
         {
-            client.Authenticator = new HttpBasicAuthenticator(Configuration.Username, Configuration.Password);
+            client.Authenticator = new HttpBasicAuthenticator(Session.Username, Session.Password);
         }
 
 

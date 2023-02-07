@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class BomAttributesApi : BaseEndpointApi<BomAttributes>
 	{
-		public BomAttributesApi(Configuration configuration) : base(configuration)
+		public BomAttributesApi(Session session) : base(session)
 		{ }
 	}
 }

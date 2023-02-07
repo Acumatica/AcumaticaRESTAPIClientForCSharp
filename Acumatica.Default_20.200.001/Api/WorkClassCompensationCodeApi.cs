@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class WorkClassCompensationCodeApi : BaseEndpointApi<WorkClassCompensationCode>
 	{
-		public WorkClassCompensationCodeApi(Configuration configuration) : base(configuration)
+		public WorkClassCompensationCodeApi(Session session) : base(session)
 		{ }
 	}
 }

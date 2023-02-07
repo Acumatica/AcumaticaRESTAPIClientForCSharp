@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class AllocationRuleApi : BaseEndpointApi<AllocationRule>
 	{
-		public AllocationRuleApi(Configuration configuration) : base(configuration)
+		public AllocationRuleApi(Session session) : base(session)
 		{ }
 	}
 }

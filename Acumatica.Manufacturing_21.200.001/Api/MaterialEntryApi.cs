@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class MaterialEntryApi : BaseEndpointApi<MaterialEntry>
 	{
-		public MaterialEntryApi(Configuration configuration) : base(configuration)
+		public MaterialEntryApi(Session session) : base(session)
 		{ }
 	}
 }

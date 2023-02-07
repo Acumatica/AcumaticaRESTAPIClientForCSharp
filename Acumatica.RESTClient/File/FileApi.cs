@@ -10,7 +10,7 @@ namespace Acumatica.RESTClient.File
 {
 	public class FileApi : BaseApi
 	{
-		public FileApi(Configuration configuration) : base(configuration)
+		public FileApi(Session session) : base(session)
 		{
 		}
 
@@ -25,7 +25,7 @@ namespace Acumatica.RESTClient.File
 		public System.IO.Stream GetFile(string href)
         {
 			// make the HTTP request
-			RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+			RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
 				href,
                 Method.Get, 
 				ComposeEmptyQueryParams(), 

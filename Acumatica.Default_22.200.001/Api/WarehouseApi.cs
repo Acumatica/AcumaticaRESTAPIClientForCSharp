@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class WarehouseApi : BaseEndpointApi<Warehouse>
 	{
-		public WarehouseApi(Configuration configuration) : base(configuration)
+		public WarehouseApi(Session session) : base(session)
 		{ }
 	}
 }

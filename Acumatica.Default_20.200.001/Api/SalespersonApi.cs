@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class SalespersonApi : BaseEndpointApi<Salesperson>
 	{
-		public SalespersonApi(Configuration configuration) : base(configuration)
+		public SalespersonApi(Session session) : base(session)
 		{ }
 	}
 }

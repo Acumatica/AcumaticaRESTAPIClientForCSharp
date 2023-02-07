@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class JournalTransactionApi : BaseEndpointApi<JournalTransaction>
 	{
-		public JournalTransactionApi(Configuration configuration) : base(configuration)
+		public JournalTransactionApi(Session session) : base(session)
 		{ }
 	}
 }

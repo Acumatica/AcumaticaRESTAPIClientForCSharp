@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class BudgetApi : BaseEndpointApi<Budget>
 	{
-		public BudgetApi(Configuration configuration) : base(configuration)
+		public BudgetApi(Session session) : base(session)
 		{ }
 	}
 }

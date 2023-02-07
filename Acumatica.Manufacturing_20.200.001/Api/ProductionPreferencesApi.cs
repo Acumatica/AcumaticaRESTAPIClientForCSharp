@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class ProductionPreferencesApi : BaseEndpointApi<ProductionPreferences>
 	{
-		public ProductionPreferencesApi(Configuration configuration) : base(configuration)
+		public ProductionPreferencesApi(Session session) : base(session)
 		{ }
 	}
 }

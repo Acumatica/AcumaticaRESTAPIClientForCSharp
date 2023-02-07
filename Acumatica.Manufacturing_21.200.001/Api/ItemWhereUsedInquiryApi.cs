@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class ItemWhereUsedInquiryApi : BaseEndpointApi<ItemWhereUsedInquiry>
 	{
-		public ItemWhereUsedInquiryApi(Configuration configuration) : base(configuration)
+		public ItemWhereUsedInquiryApi(Session session) : base(session)
 		{ }
 	}
 }

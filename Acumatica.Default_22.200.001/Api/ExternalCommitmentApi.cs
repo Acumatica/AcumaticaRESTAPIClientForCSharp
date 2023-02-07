@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class ExternalCommitmentApi : BaseEndpointApi<ExternalCommitment>
 	{
-		public ExternalCommitmentApi(Configuration configuration) : base(configuration)
+		public ExternalCommitmentApi(Session session) : base(session)
 		{ }
 	}
 }

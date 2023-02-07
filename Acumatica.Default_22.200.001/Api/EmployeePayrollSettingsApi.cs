@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class EmployeePayrollSettingsApi : BaseEndpointApi<EmployeePayrollSettings>
 	{
-		public EmployeePayrollSettingsApi(Configuration configuration) : base(configuration)
+		public EmployeePayrollSettingsApi(Session session) : base(session)
 		{ }
 	}
 }

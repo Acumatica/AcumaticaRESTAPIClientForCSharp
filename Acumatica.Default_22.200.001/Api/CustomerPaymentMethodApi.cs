@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class CustomerPaymentMethodApi : BaseEndpointApi<CustomerPaymentMethod>
 	{
-		public CustomerPaymentMethodApi(Configuration configuration) : base(configuration)
+		public CustomerPaymentMethodApi(Session session) : base(session)
 		{ }
 	}
 }

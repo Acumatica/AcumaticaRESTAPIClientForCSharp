@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ShippingZonesApi : BaseEndpointApi<ShippingZones>
 	{
-		public ShippingZonesApi(Configuration configuration) : base(configuration)
+		public ShippingZonesApi(Session session) : base(session)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ProjectTemplateApi : BaseEndpointApi<ProjectTemplate>
 	{
-		public ProjectTemplateApi(Configuration configuration) : base(configuration)
+		public ProjectTemplateApi(Session session) : base(session)
 		{ }
 	}
 }

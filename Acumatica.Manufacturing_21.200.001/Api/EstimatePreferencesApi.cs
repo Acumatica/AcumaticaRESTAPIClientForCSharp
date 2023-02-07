@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class EstimatePreferencesApi : BaseEndpointApi<EstimatePreferences>
 	{
-		public EstimatePreferencesApi(Configuration configuration) : base(configuration)
+		public EstimatePreferencesApi(Session session) : base(session)
 		{ }
 	}
 }

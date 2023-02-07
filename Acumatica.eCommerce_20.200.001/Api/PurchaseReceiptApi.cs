@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class PurchaseReceiptApi : BaseEndpointApi<PurchaseReceipt>
 	{
-		public PurchaseReceiptApi(Configuration configuration) : base(configuration)
+		public PurchaseReceiptApi(Session session) : base(session)
 		{ }
 	}
 }

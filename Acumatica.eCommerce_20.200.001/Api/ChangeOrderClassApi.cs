@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ChangeOrderClassApi : BaseEndpointApi<ChangeOrderClass>
 	{
-		public ChangeOrderClassApi(Configuration configuration) : base(configuration)
+		public ChangeOrderClassApi(Session session) : base(session)
 		{ }
 	}
 }

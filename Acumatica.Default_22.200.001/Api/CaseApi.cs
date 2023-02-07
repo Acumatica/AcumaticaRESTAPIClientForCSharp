@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class CaseApi : BaseEndpointApi<Case>
 	{
-		public CaseApi(Configuration configuration) : base(configuration)
+		public CaseApi(Session session) : base(session)
 		{ }
 	}
 }

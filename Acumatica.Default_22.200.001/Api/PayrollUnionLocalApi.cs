@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class PayrollUnionLocalApi : BaseEndpointApi<PayrollUnionLocal>
 	{
-		public PayrollUnionLocalApi(Configuration configuration) : base(configuration)
+		public PayrollUnionLocalApi(Session session) : base(session)
 		{ }
 	}
 }

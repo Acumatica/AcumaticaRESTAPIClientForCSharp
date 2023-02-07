@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class WorkCalendarApi : BaseEndpointApi<WorkCalendar>
 	{
-		public WorkCalendarApi(Configuration configuration) : base(configuration)
+		public WorkCalendarApi(Session session) : base(session)
 		{ }
 	}
 }

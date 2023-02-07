@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class EmployeeApi : BaseEndpointApi<Employee>
 	{
-		public EmployeeApi(Configuration configuration) : base(configuration)
+		public EmployeeApi(Session session) : base(session)
 		{ }
 	}
 }

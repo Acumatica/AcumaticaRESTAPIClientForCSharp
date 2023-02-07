@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class PayrollWCCCodeApi : BaseEndpointApi<PayrollWCCCode>
 	{
-		public PayrollWCCCodeApi(Configuration configuration) : base(configuration)
+		public PayrollWCCCodeApi(Session session) : base(session)
 		{ }
 	}
 }

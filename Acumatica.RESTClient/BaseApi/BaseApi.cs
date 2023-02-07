@@ -21,26 +21,25 @@ namespace Acumatica.RESTClient.Client
             Action<RestRequest, RestClient> requestInterceptor = null,
             Action<RestRequest, RestResponse, RestClient> responseInterceptor = null)
         {
-            Configuration = new Configuration(basePath, timeout, requestInterceptor, responseInterceptor);
+            Session = new Session(basePath, timeout, requestInterceptor, responseInterceptor);
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Session.DefaultExceptionFactory;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseApi"/> class
-        /// using Configuration object
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="session">An API session</param>
         /// <returns></returns>
-        public BaseApi(Configuration configuration)
+        public BaseApi(Session session)
         {
-            if (configuration == null)
+            if (session == null)
             {
-                throw new ArgumentNullException(nameof(configuration));
+                throw new ArgumentNullException(nameof(session));
             }
-            Configuration = configuration;
+            Session = session;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Session.DefaultExceptionFactory;
         }
         #endregion
 
@@ -51,7 +50,7 @@ namespace Acumatica.RESTClient.Client
         /// <value>The base path</value>
         public String GetBasePath()
         {
-            return this.Configuration.BasePath.ToString();
+            return this.Session.BasePath.ToString();
         }
         private const string ApplicationJsonAcceptContentType = "application/json";
         private const string TextJsonAcceptContentType = "text/json";
@@ -74,14 +73,14 @@ namespace Acumatica.RESTClient.Client
         {
             // to determine the Content-Type header
             string[] localVarHttpContentTypes = ComposeHeadersArray(contentTypes);
-            return this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            return this.Session.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
         }
         protected Dictionary<string, string> ComposeAcceptHeaders(HeaderContentType contentTypes)
         {
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Session.DefaultHeader);
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = ComposeHeadersArray(contentTypes);
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Session.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             return localVarHeaderParams;
@@ -121,7 +120,7 @@ namespace Acumatica.RESTClient.Client
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
+        public Session Session { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -166,12 +165,12 @@ namespace Acumatica.RESTClient.Client
         protected List<KeyValuePair<string, string>> ComposeQueryParams(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
             var queryParameters = ComposeEmptyQueryParams();
-            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-            if (skip != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
-            if (top != null) queryParameters.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
+            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(this.Session.ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
+            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(this.Session.ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
+            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(this.Session.ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
+            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(this.Session.ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
+            if (skip != null) queryParameters.AddRange(this.Session.ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
+            if (top != null) queryParameters.AddRange(this.Session.ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
 
             return queryParameters;
         }
@@ -181,7 +180,7 @@ namespace Acumatica.RESTClient.Client
 
             if (objectForRequestBody != null && objectForRequestBody.GetType() != typeof(byte[]))
             {
-                postBody = this.Configuration.ApiClient.Serialize(objectForRequestBody); // http body (model) parameter
+                postBody = this.Session.ApiClient.Serialize(objectForRequestBody); // http body (model) parameter
             }
             else
             {
@@ -196,7 +195,7 @@ namespace Acumatica.RESTClient.Client
 
             return new ApiResponse<T>(localVarStatusCode,
                 GetHeadersExceptCookies(response),
-                (T)this.Configuration.ApiClient.Deserialize<T>(response));
+                (T)this.Session.ApiClient.Deserialize<T>(response));
         }
 
         protected ApiResponse<object> GetResponseHeaders(RestResponse response)

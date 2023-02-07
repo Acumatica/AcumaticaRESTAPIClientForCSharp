@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class TrialBalanceApi : BaseEndpointApi<TrialBalance>
 	{
-		public TrialBalanceApi(Configuration configuration) : base(configuration)
+		public TrialBalanceApi(Session session) : base(session)
 		{ }
 	}
 }

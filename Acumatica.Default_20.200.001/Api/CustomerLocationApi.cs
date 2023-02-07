@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class CustomerLocationApi : BaseEndpointApi<CustomerLocation>
 	{
-		public CustomerLocationApi(Configuration configuration) : base(configuration)
+		public CustomerLocationApi(Session session) : base(session)
 		{ }
 	}
 }

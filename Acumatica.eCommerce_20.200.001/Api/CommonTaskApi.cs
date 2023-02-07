@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class CommonTaskApi : BaseEndpointApi<CommonTask>
 	{
-		public CommonTaskApi(Configuration configuration) : base(configuration)
+		public CommonTaskApi(Session session) : base(session)
 		{ }
 	}
 }

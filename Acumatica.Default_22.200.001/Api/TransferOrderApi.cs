@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class TransferOrderApi : BaseEndpointApi<TransferOrder>
 	{
-		public TransferOrderApi(Configuration configuration) : base(configuration)
+		public TransferOrderApi(Session session) : base(session)
 		{ }
 	}
 }

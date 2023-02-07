@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class CostRollApi : BaseEndpointApi<CostRoll>
 	{
-		public CostRollApi(Configuration configuration) : base(configuration)
+		public CostRollApi(Session session) : base(session)
 		{ }
 	}
 }

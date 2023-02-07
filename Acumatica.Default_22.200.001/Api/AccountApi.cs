@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class AccountApi : BaseEndpointApi<Account>
 	{
-		public AccountApi(Configuration configuration) : base(configuration)
+		public AccountApi(Session session) : base(session)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class StorageDetailsApi : BaseEndpointApi<StorageDetails>
 	{
-		public StorageDetailsApi(Configuration configuration) : base(configuration)
+		public StorageDetailsApi(Session session) : base(session)
 		{ }
 	}
 }

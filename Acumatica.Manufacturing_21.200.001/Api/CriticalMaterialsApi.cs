@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class CriticalMaterialsApi : BaseEndpointApi<CriticalMaterials>
 	{
-		public CriticalMaterialsApi(Configuration configuration) : base(configuration)
+		public CriticalMaterialsApi(Session session) : base(session)
 		{ }
 	}
 }

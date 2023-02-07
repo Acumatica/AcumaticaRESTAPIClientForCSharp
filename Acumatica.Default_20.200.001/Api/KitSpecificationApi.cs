@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class KitSpecificationApi : BaseEndpointApi<KitSpecification>
 	{
-		public KitSpecificationApi(Configuration configuration) : base(configuration)
+		public KitSpecificationApi(Session session) : base(session)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class StatementCycleApi : BaseEndpointApi<StatementCycle>
 	{
-		public StatementCycleApi(Configuration configuration) : base(configuration)
+		public StatementCycleApi(Session session) : base(session)
 		{ }
 	}
 }

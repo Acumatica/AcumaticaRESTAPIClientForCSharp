@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class BillApi : BaseEndpointApi<Bill>
 	{
-		public BillApi(Configuration configuration) : base(configuration)
+		public BillApi(Session session) : base(session)
 		{ }
 	}
 }

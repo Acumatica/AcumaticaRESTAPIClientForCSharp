@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class EarningTypeCodeApi : BaseEndpointApi<EarningTypeCode>
 	{
-		public EarningTypeCodeApi(Configuration configuration) : base(configuration)
+		public EarningTypeCodeApi(Session session) : base(session)
 		{ }
 	}
 }

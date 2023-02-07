@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class PhysicalInventoryReviewApi : BaseEndpointApi<PhysicalInventoryReview>
 	{
-		public PhysicalInventoryReviewApi(Configuration configuration) : base(configuration)
+		public PhysicalInventoryReviewApi(Session session) : base(session)
 		{ }
 	}
 }

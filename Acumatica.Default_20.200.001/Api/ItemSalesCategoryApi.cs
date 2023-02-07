@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class ItemSalesCategoryApi : BaseEndpointApi<ItemSalesCategory>
 	{
-		public ItemSalesCategoryApi(Configuration configuration) : base(configuration)
+		public ItemSalesCategoryApi(Session session) : base(session)
 		{ }
 	}
 }

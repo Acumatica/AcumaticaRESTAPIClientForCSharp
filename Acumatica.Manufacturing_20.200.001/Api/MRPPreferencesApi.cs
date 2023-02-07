@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class MRPPreferencesApi : BaseEndpointApi<MRPPreferences>
 	{
-		public MRPPreferencesApi(Configuration configuration) : base(configuration)
+		public MRPPreferencesApi(Session session) : base(session)
 		{ }
 	}
 }

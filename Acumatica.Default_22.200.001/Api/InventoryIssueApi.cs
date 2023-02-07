@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class InventoryIssueApi : BaseEndpointApi<InventoryIssue>
 	{
-		public InventoryIssueApi(Configuration configuration) : base(configuration)
+		public InventoryIssueApi(Session session) : base(session)
 		{ }
 	}
 }

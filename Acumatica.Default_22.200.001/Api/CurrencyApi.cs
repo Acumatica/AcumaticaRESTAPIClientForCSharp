@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class CurrencyApi : BaseEndpointApi<Currency>
 	{
-		public CurrencyApi(Configuration configuration) : base(configuration)
+		public CurrencyApi(Session session) : base(session)
 		{ }
 	}
 }

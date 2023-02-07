@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class WipAdjustmentEntryApi : BaseEndpointApi<WipAdjustmentEntry>
 	{
-		public WipAdjustmentEntryApi(Configuration configuration) : base(configuration)
+		public WipAdjustmentEntryApi(Session session) : base(session)
 		{ }
 	}
 }

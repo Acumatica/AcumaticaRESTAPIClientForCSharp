@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class CarrierApi : BaseEndpointApi<Carrier>
 	{
-		public CarrierApi(Configuration configuration) : base(configuration)
+		public CarrierApi(Session session) : base(session)
 		{ }
 	}
 }

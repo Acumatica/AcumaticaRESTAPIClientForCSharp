@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class LeadApi : BaseEndpointApi<Lead>
 	{
-		public LeadApi(Configuration configuration) : base(configuration)
+		public LeadApi(Session session) : base(session)
 		{ }
 	}
 }

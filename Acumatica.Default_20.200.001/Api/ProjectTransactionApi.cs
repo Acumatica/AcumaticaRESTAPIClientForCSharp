@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class ProjectTransactionApi : BaseEndpointApi<ProjectTransaction>
 	{
-		public ProjectTransactionApi(Configuration configuration) : base(configuration)
+		public ProjectTransactionApi(Session session) : base(session)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class FinancialYearApi : BaseEndpointApi<FinancialYear>
 	{
-		public FinancialYearApi(Configuration configuration) : base(configuration)
+		public FinancialYearApi(Session session) : base(session)
 		{ }
 	}
 }

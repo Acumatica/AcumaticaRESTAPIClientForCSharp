@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class ForecastApi : BaseEndpointApi<Forecast>
 	{
-		public ForecastApi(Configuration configuration) : base(configuration)
+		public ForecastApi(Session session) : base(session)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class TimeEntryApi : BaseEndpointApi<TimeEntry>
 	{
-		public TimeEntryApi(Configuration configuration) : base(configuration)
+		public TimeEntryApi(Session session) : base(session)
 		{ }
 	}
 }

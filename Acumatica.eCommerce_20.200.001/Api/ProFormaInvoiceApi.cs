@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ProFormaInvoiceApi : BaseEndpointApi<ProFormaInvoice>
 	{
-		public ProFormaInvoiceApi(Configuration configuration) : base(configuration)
+		public ProFormaInvoiceApi(Session session) : base(session)
 		{ }
 	}
 }

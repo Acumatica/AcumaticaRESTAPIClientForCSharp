@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class ProjectTemplateTaskApi : BaseEndpointApi<ProjectTemplateTask>
 	{
-		public ProjectTemplateTaskApi(Configuration configuration) : base(configuration)
+		public ProjectTemplateTaskApi(Session session) : base(session)
 		{ }
 	}
 }

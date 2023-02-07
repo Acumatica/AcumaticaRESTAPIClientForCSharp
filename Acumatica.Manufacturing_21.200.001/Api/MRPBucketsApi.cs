@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class MRPBucketsApi : BaseEndpointApi<MRPBuckets>
 	{
-		public MRPBucketsApi(Configuration configuration) : base(configuration)
+		public MRPBucketsApi(Session session) : base(session)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class MRPDisplayApi : BaseEndpointApi<MRPDisplay>
 	{
-		public MRPDisplayApi(Configuration configuration) : base(configuration)
+		public MRPDisplayApi(Session session) : base(session)
 		{ }
 	}
 }

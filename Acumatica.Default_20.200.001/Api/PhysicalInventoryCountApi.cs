@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class PhysicalInventoryCountApi : BaseEndpointApi<PhysicalInventoryCount>
 	{
-		public PhysicalInventoryCountApi(Configuration configuration) : base(configuration)
+		public PhysicalInventoryCountApi(Session session) : base(session)
 		{ }
 	}
 }

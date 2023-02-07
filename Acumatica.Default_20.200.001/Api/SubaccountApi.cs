@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class SubaccountApi : BaseEndpointApi<Subaccount>
 	{
-		public SubaccountApi(Configuration configuration) : base(configuration)
+		public SubaccountApi(Session session) : base(session)
 		{ }
 	}
 }

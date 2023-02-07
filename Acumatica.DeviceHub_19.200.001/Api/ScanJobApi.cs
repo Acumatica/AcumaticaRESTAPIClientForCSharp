@@ -6,7 +6,7 @@ namespace Acumatica.DeviceHub_19_200_001.Api
 {
 	public class ScanJobApi : BaseEndpointApi<ScanJob>
 	{
-		public ScanJobApi(Configuration configuration) : base(configuration)
+		public ScanJobApi(Session session) : base(session)
 		{ }
 	}
 }

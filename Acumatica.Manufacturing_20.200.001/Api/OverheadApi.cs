@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class OverheadApi : BaseEndpointApi<Overhead>
 	{
-		public OverheadApi(Configuration configuration) : base(configuration)
+		public OverheadApi(Session session) : base(session)
 		{ }
 	}
 }

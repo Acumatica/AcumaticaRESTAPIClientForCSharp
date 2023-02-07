@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class EventApi : BaseEndpointApi<Event>
 	{
-		public EventApi(Configuration configuration) : base(configuration)
+		public EventApi(Session session) : base(session)
 		{ }
 	}
 }

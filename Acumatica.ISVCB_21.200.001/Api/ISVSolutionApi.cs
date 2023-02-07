@@ -6,7 +6,7 @@ namespace Acumatica.ISVCB_21_200_001.Api
 {
 	public class ISVSolutionApi : BaseEndpointApi<ISVSolution>
 	{
-		public ISVSolutionApi(Configuration configuration) : base(configuration)
+		public ISVSolutionApi(Session session) : base(session)
 		{ }
 	}
 }

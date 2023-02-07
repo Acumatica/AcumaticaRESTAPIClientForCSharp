@@ -13,7 +13,7 @@ namespace Acumatica.RESTClient.Customization
 {
     public class CustomizationApi : BaseApi
     {
-        public CustomizationApi(Configuration configuration) : base(configuration)
+        public CustomizationApi(Session session) : base(session)
         {
 
         }
@@ -39,7 +39,7 @@ namespace Acumatica.RESTClient.Customization
             customizationImport.ProjectContentBase64 = ConvertToBase64(customizationPackageContent);
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -166,7 +166,7 @@ namespace Acumatica.RESTClient.Customization
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -185,7 +185,7 @@ namespace Acumatica.RESTClient.Customization
             var localVarPath = "/CustomizationApi/PublishEnd";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),

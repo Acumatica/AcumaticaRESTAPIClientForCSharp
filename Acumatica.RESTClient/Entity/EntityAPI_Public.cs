@@ -16,19 +16,12 @@ namespace Acumatica.RESTClient.Api
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EntityAPI"/> class.
-        /// </summary>
-        /// <returns></returns>
-        public EntityAPI(String basePath) : base(basePath)
-        { }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="EntityAPI"/> class
         /// using Configuration object
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="session">An API session</param>
         /// <returns></returns>
-        public EntityAPI(Configuration configuration) : base(configuration)
+        public EntityAPI(Session session) : base(session)
         { }
         #endregion
 

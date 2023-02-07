@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class VendorPricesInquiryApi : BaseEndpointApi<VendorPricesInquiry>
 	{
-		public VendorPricesInquiryApi(Configuration configuration) : base(configuration)
+		public VendorPricesInquiryApi(Session session) : base(session)
 		{ }
 	}
 }

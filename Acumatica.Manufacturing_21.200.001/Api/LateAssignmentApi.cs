@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class LateAssignmentApi : BaseEndpointApi<LateAssignment>
 	{
-		public LateAssignmentApi(Configuration configuration) : base(configuration)
+		public LateAssignmentApi(Session session) : base(session)
 		{ }
 	}
 }

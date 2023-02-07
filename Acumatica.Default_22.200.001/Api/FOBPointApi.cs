@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class FOBPointApi : BaseEndpointApi<FOBPoint>
 	{
-		public FOBPointApi(Configuration configuration) : base(configuration)
+		public FOBPointApi(Session session) : base(session)
 		{ }
 	}
 }

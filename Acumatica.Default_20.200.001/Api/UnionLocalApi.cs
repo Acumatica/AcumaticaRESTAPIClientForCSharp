@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class UnionLocalApi : BaseEndpointApi<UnionLocal>
 	{
-		public UnionLocalApi(Configuration configuration) : base(configuration)
+		public UnionLocalApi(Session session) : base(session)
 		{ }
 	}
 }

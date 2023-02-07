@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ContractUsageApi : BaseEndpointApi<ContractUsage>
 	{
-		public ContractUsageApi(Configuration configuration) : base(configuration)
+		public ContractUsageApi(Session session) : base(session)
 		{ }
 	}
 }

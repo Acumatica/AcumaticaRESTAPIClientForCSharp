@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class OrderTypesApi : BaseEndpointApi<OrderTypes>
 	{
-		public OrderTypesApi(Configuration configuration) : base(configuration)
+		public OrderTypesApi(Session session) : base(session)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class VendorShipmentApi : BaseEndpointApi<VendorShipment>
 	{
-		public VendorShipmentApi(Configuration configuration) : base(configuration)
+		public VendorShipmentApi(Session session) : base(session)
 		{ }
 	}
 }

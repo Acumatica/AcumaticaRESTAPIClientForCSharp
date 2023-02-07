@@ -71,7 +71,7 @@ namespace Acumatica.RESTClient.Api
             var localVarFileParams = new Dictionary<String, FileParameter>();
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), localVarFileParams,
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -85,7 +85,7 @@ namespace Acumatica.RESTClient.Api
         {
             Dictionary<string, string> pathParams = ComposeEmptyPathParams();
 
-            if (id != null) pathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (id != null) pathParams.Add("id", this.Session.ApiClient.ParameterToString(id)); // path parameter
             return pathParams;
         }
 
@@ -93,8 +93,8 @@ namespace Acumatica.RESTClient.Api
         {
             var pathParams = ComposeEmptyPathParams();
 
-            if (ids != null) pathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
-            if (filename != null) pathParams.Add("filename", this.Configuration.ApiClient.ParameterToString(filename)); // path parameter
+            if (ids != null) pathParams.Add("ids", this.Session.ApiClient.ParameterToString(ids)); // path parameter
+            if (filename != null) pathParams.Add("filename", this.Session.ApiClient.ParameterToString(filename)); // path parameter
             return pathParams;
         }
         #endregion
@@ -122,7 +122,7 @@ namespace Acumatica.RESTClient.Api
             fileParams.Add(filename, FileParameter.Create(filename, content, filename));
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Put, ComposeEmptyQueryParams(), content, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), fileParams,
                 ComposeIDsPathParams(ids, filename), ComposeContentHeaders(HeaderContentType.None)).Result ;
 
@@ -153,7 +153,7 @@ namespace Acumatica.RESTClient.Api
             fileParams.Add(filename, FileParameter.Create(filename, content, filename));
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Put, ComposeEmptyQueryParams(), content, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), fileParams,
                 ComposeIDsPathParams(ids, filename), ComposeContentHeaders(HeaderContentType.None));
 
@@ -178,7 +178,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/" + action.GetType().Name;
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, ComposeEmptyQueryParams(), ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
 
@@ -202,7 +202,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/" + action.GetType().Name;
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, ComposeEmptyQueryParams(), ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
 
@@ -239,7 +239,7 @@ namespace Acumatica.RESTClient.Api
             Dictionary<string, string> headers = ComposePutHeaders(method, businessDate, branch);
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Put, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), headers, ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
 
@@ -271,7 +271,7 @@ namespace Acumatica.RESTClient.Api
 			Dictionary<string, string> headers = ComposePutHeaders(method, businessDate, branch);
 
 			// make the HTTP request
-			RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+			RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
 				Method.Put, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), headers, ComposeEmptyFormParams(), ComposeEmptyFileParams(),
 				ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
 
@@ -324,7 +324,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/{ids}";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None));
 
@@ -352,7 +352,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/{ids}";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -377,7 +377,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName();
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
@@ -402,7 +402,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName();
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -430,7 +430,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/{id}";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None));
 
@@ -458,7 +458,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/{id}";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -479,7 +479,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/$adHocSchema";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
@@ -499,7 +499,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/$adHocSchema";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -525,7 +525,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/{ids}";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Delete, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None));
 
@@ -549,7 +549,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/{ids}";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Delete, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -572,7 +572,7 @@ namespace Acumatica.RESTClient.Api
 
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/{id}";
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Delete, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None));
 
@@ -596,7 +596,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/{id}";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Delete, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None)).Result;
 
