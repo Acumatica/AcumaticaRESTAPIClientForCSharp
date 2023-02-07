@@ -39,7 +39,7 @@ namespace Acumatica.RESTClient.Customization
             customizationImport.ProjectContentBase64 = ConvertToBase64(customizationPackageContent);
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = Session.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -166,7 +166,7 @@ namespace Acumatica.RESTClient.Customization
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = Session.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),

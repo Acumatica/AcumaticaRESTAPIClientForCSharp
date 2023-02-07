@@ -40,7 +40,7 @@ namespace Acumatica.RESTClient.Client
         public Action<RestRequest, RestResponse, RestClient> ResponseInterceptor { get; set; }
 
 
-        private ApiClient _apiClient = null;
+        internal ApiClient _apiClient = null;
         /// <summary>
         /// Gets an instance of an ApiClient for this configuration
         /// </summary>

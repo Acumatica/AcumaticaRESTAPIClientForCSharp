@@ -194,7 +194,7 @@ namespace Acumatica.RESTClient.Client
                             .ToDictionary(x => x.Name, x => x.Value.ToString());
         }
 
-        protected void VerifyResponse(RestResponse response, string methodName)
+        protected virtual void VerifyResponse(RestResponse response, string methodName)
         {
             if (!response.IsSuccessStatusCode)
                 throw new ApiException((int)response.StatusCode, methodName);

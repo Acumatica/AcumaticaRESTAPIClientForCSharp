@@ -1,11 +1,13 @@
-using Acumatica.RESTClient.Auth.Model;
-using Acumatica.RESTClient.Auxiliary;
-using Acumatica.RESTClient.Client;
-using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using Acumatica.RESTClient.Auth.Model;
+using Acumatica.RESTClient.Auxiliary;
+using Acumatica.RESTClient.Client;
+
+using RestSharp;
 
 namespace Acumatica.RESTClient.Auth
 {
@@ -194,7 +196,7 @@ namespace Acumatica.RESTClient.Auth
             var localVarPath = "/identity/connect/token";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = Session.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -221,7 +223,7 @@ namespace Acumatica.RESTClient.Auth
             var localVarPath = "/identity/connect/token";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = Session.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -245,6 +247,11 @@ namespace Acumatica.RESTClient.Auth
             return DeserializeResponse<Token>(localVarResponse);
         }
 
+        protected override void VerifyResponse(RestResponse response, string methodName)
+        {
+            base.VerifyResponse(response, methodName);
+        }
+
         protected RestResponse AuthorizeWithHttpInfo(string clientID, string redirectUrl, OAuthScope scope)
         {
             var localVarPath = "/identity/connect/authorize";
@@ -255,7 +262,7 @@ namespace Acumatica.RESTClient.Auth
             queryParameters.Add(new KeyValuePair<string, string>("scope", PrepareScopeParameter(scope)));
             queryParameters.Add(new KeyValuePair<string, string>("redirect_uri", redirectUrl));
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = Session.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Get,
                 queryParameters,
@@ -276,7 +283,7 @@ namespace Acumatica.RESTClient.Auth
             var localVarPath = "/identity/connect/token";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = Session.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -328,7 +335,7 @@ namespace Acumatica.RESTClient.Auth
             var localVarPath = "/entity/auth/login";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, ComposeEmptyQueryParams(), ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm)).Result;
 
@@ -352,7 +359,7 @@ namespace Acumatica.RESTClient.Auth
             var localVarPath = "/entity/auth/login";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = await Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, ComposeEmptyQueryParams(), ComposeBody(credentials), ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
 
@@ -371,7 +378,7 @@ namespace Acumatica.RESTClient.Auth
             var localVarPath = "/entity/auth/logout";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -390,7 +397,7 @@ namespace Acumatica.RESTClient.Auth
             var localVarPath = "/entity/auth/logout";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = await Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.None), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 

@@ -25,7 +25,7 @@ namespace Acumatica.RESTClient.File
 		public System.IO.Stream GetFile(string href)
         {
 			// make the HTTP request
-			RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(
+			RestResponse localVarResponse = Session.ApiClient.CallApiAsync(
 				href,
                 Method.Get, 
 				ComposeEmptyQueryParams(), 

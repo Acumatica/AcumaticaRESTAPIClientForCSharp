@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 using Acumatica.RESTClient.Auxiliary;
@@ -9,6 +10,8 @@ using Acumatica.RESTClient.Auxiliary;
 using Newtonsoft.Json;
 
 using RestSharp;
+
+[assembly: InternalsVisibleTo("RESTClientTests")]
 
 namespace Acumatica.RESTClient.Client
 {
@@ -66,7 +69,7 @@ namespace Acumatica.RESTClient.Client
         /// <param name="pathParams">Path parameters.</param>
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
-        public async System.Threading.Tasks.Task<Object> CallApiAsync(
+        public virtual async System.Threading.Tasks.Task<RestResponse> CallApiAsync(
             String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
@@ -91,7 +94,7 @@ namespace Acumatica.RESTClient.Client
             if (Session.ResponseInterceptor != null)
                 Session.ResponseInterceptor(request, response, this.RestClient);
 
-            return (Object)response;
+            return response;
         }
 
         /// <summary>

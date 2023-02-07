@@ -67,7 +67,7 @@ namespace Acumatica.RESTClient.Root
             var localVarPath = "/entity";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Session.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -87,7 +87,7 @@ namespace Acumatica.RESTClient.Root
             var localVarPath = "/entity";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await this.Session.ApiClient.CallApiAsync(localVarPath,
+            RestResponse localVarResponse = await Session.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
