@@ -3,6 +3,8 @@ using Acumatica.Default_20_200_001.Api;
 using Acumatica.Default_20_200_001.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
 namespace AcumaticaRestApiExample
 {
@@ -10,49 +12,59 @@ namespace AcumaticaRestApiExample
 	{
 		public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
-			var authApi = new AuthApi(siteURL,
-				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
+			List<Thread> threadpool = new List<Thread>();
+			for (int i = 0; i < 55; i++)
+			{
+				var thread = new Thread(() =>
+				{
+					Thread.CurrentThread.IsBackground = true;
 
-			try
+					ReadThings(username, password, tenant, branch, locale, siteURL, i);
+				});
+				thread.Start();
+				threadpool.Add(thread);
+			}
+			while (threadpool.Any(_ => _.IsAlive))
+			{
+				Console.WriteLine($"{threadpool.Count(_ => _.IsAlive)} sessions running");
+                Thread.Sleep(5000);
+            }
+			Console.WriteLine("All threads completed");
+		}
+
+		private static void ReadThings(string username, string password, string tenant, string branch, string locale, string siteURL, int i)
+		{
+            var authApi = new AuthApi(siteURL,
+				//requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse,
+				timeout: 20000000);
+            try
 			{
 				var configuration = authApi.LogIn(username, password, tenant, branch, locale);
 
-				Console.WriteLine("Reading Accounts...");
+				Console.WriteLine($"Thread #{i} - Reading Accounts...");
 				var accountApi = new AccountApi(configuration);
-				var accounts = accountApi.GetList(top: 5);
-				foreach (var account in accounts)
-				{
-					Console.WriteLine("Account Nbr: " + account.AccountCD.Value + ";");
-				}
+				var accounts = accountApi.GetList();
 
-				Console.WriteLine("Reading Sales Order by Keys...");
+
+				Console.WriteLine($"Thread #{i} - Reading Sales Orders...");
 				var salesOrderApi = new SalesOrderApi(configuration);
-				var order = salesOrderApi.GetByKeys(new List<string>() { "SO", "SO005207" });
-				Console.WriteLine("Order Total: " + order.OrderTotal.Value);
-
-
-				var shipmentApi = new ShipmentApi(configuration);
-				var shipment = shipmentApi.GetByKeys(new List<string>() { "002805" });
-				Console.WriteLine("ConfirmShipment");
-				shipmentApi.WaitActionCompletion(shipmentApi.InvokeAction(new ConfirmShipment(shipment)));
-
-				Console.WriteLine("CorrectShipment");
-				shipmentApi.WaitActionCompletion(shipmentApi.InvokeAction(new CorrectShipment(shipment)));
+				var order = salesOrderApi.GetList();
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e.Message);
-			}
+				Console.WriteLine($"Thread #{i} - " + e.Message);
+
+            }
 			finally
 			{
 				//we use logout in finally block because we need to always logout, even if the request failed for some reason
 				if (authApi.TryLogout())
 				{
-					Console.WriteLine("Logged out successfully.");
+					Console.WriteLine($"Thread #{i} - Logged out successfully.");
 				}
 				else
 				{
-					Console.WriteLine("An error occured during logout.");
+					 Console.WriteLine($"Thread #{i} - An error occured during logout.");
 				}
 			}
 		}

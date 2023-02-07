@@ -37,7 +37,7 @@ namespace Acumatica.RESTClient.File
 				ComposeContentHeaders(HeaderContentType.Json)
 				).Result;
 
-            VerifyResponse<FileLink>(localVarResponse, "GetFile");
+            VerifyResponse(localVarResponse, "GetFile");
 			MemoryStream stream = new MemoryStream(localVarResponse.RawBytes);
 			return stream;
         }

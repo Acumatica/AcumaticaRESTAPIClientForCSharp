@@ -58,6 +58,14 @@ namespace Acumatica.RESTClient.Api
             return typeof(EntityType).Name;
         }
 
+        protected void VerifyResponse(RestResponse response, string methodName)
+        {
+            if (!response.IsSuccessStatusCode)
+                throw new ApiException<EntityType>((int)response.StatusCode, methodName);
+            if (!response.IsSuccessful)
+                throw new ApiException((int)response.StatusCode, methodName);
+        }
+
         protected int GetProcessStatusWithHttpInfo(string locationRaw)
         {
             if (locationRaw == null)
@@ -75,7 +83,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), localVarFileParams,
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "GetProcessStatus");
+            VerifyResponse(localVarResponse, "GetProcessStatus");
 
             return (int)localVarResponse.StatusCode;
         }
@@ -126,7 +134,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Put, ComposeEmptyQueryParams(), content, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), fileParams,
                 ComposeIDsPathParams(ids, filename), ComposeContentHeaders(HeaderContentType.None)).Result ;
 
-            VerifyResponse<EntityType>(localVarResponse, "PutFile");
+            VerifyResponse(localVarResponse, "PutFile");
 
             return GetResponseHeaders(localVarResponse);
         }
@@ -157,7 +165,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Put, ComposeEmptyQueryParams(), content, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), fileParams,
                 ComposeIDsPathParams(ids, filename), ComposeContentHeaders(HeaderContentType.None));
 
-            VerifyResponse<EntityType>(localVarResponse, "PutFile");
+            VerifyResponse(localVarResponse, "PutFile");
 
             return GetResponseHeaders(localVarResponse);
         }
@@ -182,7 +190,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Post, ComposeEmptyQueryParams(), ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "InvokeAction");
+            VerifyResponse(localVarResponse, "InvokeAction");
 
             return GetResponseHeaders(localVarResponse);
         }
@@ -206,7 +214,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Post, ComposeEmptyQueryParams(), ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
 
-            VerifyResponse<EntityType>(localVarResponse, "InvokeAction");
+            VerifyResponse(localVarResponse, "InvokeAction");
 
             return GetResponseHeaders(localVarResponse);
         }
@@ -243,7 +251,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Put, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), headers, ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "PutEntity");
+            VerifyResponse(localVarResponse, "PutEntity");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -275,7 +283,7 @@ namespace Acumatica.RESTClient.Api
 				Method.Put, ComposeQueryParams(select, filter, expand, custom), ComposeBody(entity), headers, ComposeEmptyFormParams(), ComposeEmptyFileParams(),
 				ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
 
-			VerifyResponse<EntityType>(localVarResponse, "PutEntity");
+			VerifyResponse(localVarResponse, "PutEntity");
 
 			return DeserializeResponse<EntityType>(localVarResponse);
 		}
@@ -328,7 +336,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Get, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None));
 
-            VerifyResponse<EntityType>(localVarResponse, "GetByKeys");
+            VerifyResponse(localVarResponse, "GetByKeys");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -356,7 +364,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Get, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "GetByKeys");
+            VerifyResponse(localVarResponse, "GetByKeys");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -381,7 +389,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            VerifyResponse<EntityType>(localVarResponse, "GetList");
+            VerifyResponse(localVarResponse, "GetList");
 
             return DeserializeResponse<List<EntityType>>(localVarResponse);
         }
@@ -406,7 +414,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "GetList");
+            VerifyResponse(localVarResponse, "GetList");
 
             return DeserializeResponse<List<EntityType>>(localVarResponse);
         }
@@ -434,7 +442,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Get, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None));
 
-            VerifyResponse<EntityType>(localVarResponse, "GetById");
+            VerifyResponse(localVarResponse, "GetById");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -462,7 +470,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Get, ComposeQueryParams(select, filter, expand, custom), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "GetById");
+            VerifyResponse(localVarResponse, "GetById");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -483,7 +491,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
 
-            VerifyResponse<EntityType>(localVarResponse, "GetAdHocSchema");
+            VerifyResponse(localVarResponse, "GetAdHocSchema");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -503,7 +511,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "GetAdHocSchema");
+            VerifyResponse(localVarResponse, "GetAdHocSchema");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -529,7 +537,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Delete, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None));
 
-            VerifyResponse<EntityType>(localVarResponse, "DeleteByKeys");
+            VerifyResponse(localVarResponse, "DeleteByKeys");
 
             return GetResponseHeaders(localVarResponse);
         }
@@ -553,7 +561,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Delete, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDsPathParams(ids), ComposeContentHeaders(HeaderContentType.None)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "DeleteByKeys");
+            VerifyResponse(localVarResponse, "DeleteByKeys");
 
             return GetResponseHeaders(localVarResponse);
         }
@@ -576,7 +584,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Delete, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None));
 
-            VerifyResponse<EntityType>(localVarResponse, "DeleteById");
+            VerifyResponse(localVarResponse, "DeleteById");
 
             return GetResponseHeaders(localVarResponse);
         }
@@ -600,7 +608,7 @@ namespace Acumatica.RESTClient.Api
                 Method.Delete, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Any), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
                 ComposeIDPathParams(id), ComposeContentHeaders(HeaderContentType.None)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "DeleteById");
+            VerifyResponse(localVarResponse, "DeleteById");
 
             return GetResponseHeaders(localVarResponse);
         }
