@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-using RestSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +5,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+using Newtonsoft.Json;
+
+using RestSharp;
 
 namespace Acumatica.RESTClient.Client
 {
@@ -69,8 +72,8 @@ namespace Acumatica.RESTClient.Client
         /// <param name="fileParams">File parameters.</param>
         /// <param name="pathParams">Path parameters.</param>
         /// <param name="contentType">Content type.</param>
-        /// <returns>The Task instance.</returns>
-        public async System.Threading.Tasks.Task<Object> CallApiAsync(
+        /// <returns>RestResponse object.</returns>
+        public async Task<RestResponse> CallApiAsync(
             String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
@@ -91,7 +94,44 @@ namespace Acumatica.RESTClient.Client
             if (Configuration.ResponseInterceptor != null)
                 Configuration.ResponseInterceptor(request, response, this.RestClient);
 
-            return (Object)response;
+            return response;
+        }
+
+        /// <summary>
+        /// Makes the asynchronous HTTP request.
+        /// </summary>
+        /// <param name="path">URL path.</param>
+        /// <param name="method">HTTP method.</param>
+        /// <param name="queryParams">Query parameters.</param>
+        /// <param name="postBody">HTTP body (POST request).</param>
+        /// <param name="headerParams">Header parameters.</param>
+        /// <param name="formParams">Form parameters.</param>
+        /// <param name="fileParams">File parameters.</param>
+        /// <param name="pathParams">Path parameters.</param>
+        /// <param name="contentType">Content type.</param>
+        /// <returns>RestResponse object.</returns>
+        public RestResponse CallApi(
+            String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
+            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
+            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
+            String contentType)
+        {
+            if (Configuration.Token != null)
+            {
+                headerParams.Add("Authorization", Configuration.Token.Token_type + " " + Configuration.Token.Access_token);
+            }
+
+            var request = PrepareRequest(
+                path, method, queryParams, postBody, headerParams, formParams, fileParams,
+                pathParams, contentType, Configuration.Timeout);
+
+            if (Configuration.RequestInterceptor != null)
+                Configuration.RequestInterceptor(request, this.RestClient);
+            var response = RestClient.Execute(request);
+            if (Configuration.ResponseInterceptor != null)
+                Configuration.ResponseInterceptor(request, response, this.RestClient);
+
+            return response;
         }
 
         /// <summary>

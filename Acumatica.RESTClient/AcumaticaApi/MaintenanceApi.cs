@@ -1,4 +1,6 @@
-﻿using Acumatica.RESTClient.Client;
+﻿using System.Threading.Tasks;
+
+using Acumatica.RESTClient.Client;
 
 using RestSharp;
 
@@ -10,13 +12,23 @@ namespace Acumatica.RESTClient.Api
         {
 
         }
-     
         public void PutSchema(string endpointXML)
+        {
+               PutSchemaAsync(endpointXML)
+            .GetAwaiter().GetResult();
+        }
+        public string GetSchema(string endpointName, string endpointVersion)
+        {
+            return 
+               GetSchemaAsync(endpointName, endpointVersion)
+            .GetAwaiter().GetResult();
+        }
+        public async Task PutSchemaAsync(string endpointXML)
         {
             var localVarPath = "/entity/maintenance/23.200/";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -25,17 +37,17 @@ namespace Acumatica.RESTClient.Api
                 ComposeEmptyFormParams(),
                 ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(),
-                ComposeContentHeaders(HeaderContentType.Xml)).Result;
+                ComposeContentHeaders(HeaderContentType.Xml));
 
             VerifyResponse(localVarResponse, "PutSchema");
         }
 
-        public string GetSchema(string endpointName, string endpointVersion)
+        public async Task<string> GetSchemaAsync(string endpointName, string endpointVersion)
         {
             var localVarPath = $"/entity/maintenance/23.200/{endpointName}/{endpointVersion}";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Get,
                 ComposeEmptyQueryParams(),
@@ -44,7 +56,7 @@ namespace Acumatica.RESTClient.Api
                 ComposeEmptyFormParams(),
                 ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(),
-                ComposeContentHeaders(HeaderContentType.Xml)).Result;
+                ComposeContentHeaders(HeaderContentType.Xml));
 
             VerifyResponse(localVarResponse, "GetSchema"); 
             return DeserializeResponse<string>(localVarResponse).Data;

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+
 using Acumatica.RESTClient.Client;
-using System.Threading;
-using Acumatica.RESTClient.Model;
+
+using RestSharp;
 
 namespace Acumatica.RESTClient.Api
 {
@@ -202,11 +201,11 @@ namespace Acumatica.RESTClient.Api
                 (T)this.Configuration.ApiClient.Deserialize<T>(response));
         }
 
-        protected ApiResponse<object> GetResponseHeaders(RestResponse response)
+        protected ApiResponse<Dictionary<string, string>> GetResponseHeaders(RestResponse response)
         {
             int localVarStatusCode = (int)response.StatusCode;
 
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<Dictionary<string, string>>(localVarStatusCode,
                 GetHeadersExceptCookies(response),
                 null);
         }

@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.Model;
-using RestSharp;
 
-using static System.Net.WebRequestMethods;
+using RestSharp;
 
 namespace Acumatica.RESTClient.Api
 {
@@ -21,7 +19,24 @@ namespace Acumatica.RESTClient.Api
         {
 
         }
+
         public CustomizationPublishLog Import(Stream customizationPackageContent,
+             string projectName,
+             string projectDescription = "",
+             bool replaceIfExists = true,
+             int? level = null)
+        {
+            return 
+               ImportAsync(
+                customizationPackageContent,
+                projectName,
+                projectDescription,
+                replaceIfExists,
+                level
+                )
+            .GetAwaiter().GetResult();
+        }
+        public async Task<CustomizationPublishLog> ImportAsync(Stream customizationPackageContent,
             string projectName,
             string projectDescription = "",
             bool replaceIfExists = true,
@@ -43,7 +58,7 @@ namespace Acumatica.RESTClient.Api
             customizationImport.ProjectContentBase64 = ConvertToBase64(customizationPackageContent);
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -52,7 +67,7 @@ namespace Acumatica.RESTClient.Api
                 ComposeEmptyFormParams(),
                 ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(),
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
+                ComposeContentHeaders(HeaderContentType.Json));
 
             VerifyResponse(localVarResponse, "Import");
             return DeserializeResponse<CustomizationPublishLog>(localVarResponse).Data;
@@ -69,6 +84,7 @@ namespace Acumatica.RESTClient.Api
 
             return Convert.ToBase64String(bytes);
         }
+
 
         /// <summary>
         /// Starts publishing of a customization package.
@@ -96,7 +112,54 @@ namespace Acumatica.RESTClient.Api
         /// If sucessfull, returns log record with the following message: 
         /// "Publishing has started."
         /// </returns>
-        public CustomizationPublishLog PublishBegin(string projectName,
+        public CustomizationPublishLog PublishBegin(
+            string projectName,
+            bool isMergeWithExistingPackages = true,
+            bool isOnlyValidation = false,
+            bool isOnlyDbUpdates = false,
+            bool isReplayPreviouslyExecutedScripts = false,
+            TenantMode tenantMode = TenantMode.Current
+            )
+        {
+            return 
+               PublishBeginAsync(
+                projectName,
+                isMergeWithExistingPackages,
+                isOnlyValidation,
+                isOnlyDbUpdates,
+                isReplayPreviouslyExecutedScripts,
+                tenantMode
+                )
+            .GetAwaiter().GetResult();
+        }
+        /// <summary>
+        /// Starts publishing of a customization package.
+        /// </summary>
+        /// <param name="projectName">Name of the customization project to publish.</param>
+        /// <param name="isMergeWithExistingPackages">
+        /// Indicator of whether the currently published projects should be merged 
+        /// with the customization projects listed in the projectNames parameter. 
+        /// If true, the projects will be merged and published together. 
+        /// If false, only the project specified in the projectNames parameter 
+        /// will be the published projects.
+        /// Default value is <c>true</c></param>
+        /// <param name="isOnlyValidation">
+        /// Indicator of whether only project validation should be performed.</param>
+        /// <param name="isOnlyDbUpdates">
+        /// Indicator of whether the changes should be applied only to the database. 
+        /// Corresponds to the Apply Changes Only to Database check box in the UI.</param>
+        /// <param name="isReplayPreviouslyExecutedScripts">
+        /// Indicator of whether database scripts that were previously applied 
+        /// should be executed again. Corresponds to the 
+        /// Execute All Database Scripts (Including Prevously Executed) check box 
+        /// and Publish with Clean Up menu command in the UI.</param>
+        /// <param name="tenantMode">
+        /// <returns>
+        /// If sucessfull, returns log record with the following message: 
+        /// "Publishing has started."
+        /// </returns>
+        public async Task<CustomizationPublishLog> PublishBeginAsync(
+            string projectName,
             bool isMergeWithExistingPackages = true,
             bool isOnlyValidation = false,
             bool isOnlyDbUpdates = false,
@@ -106,14 +169,14 @@ namespace Acumatica.RESTClient.Api
         {
             if (projectName == null)
                 ThrowMissingParameter("PublishBegin", nameof(projectName));
-            var list = new List<string >();
+            var list = new List<string>();
             list.Add(projectName);
-           return PublishBegin(list, 
-               isMergeWithExistingPackages, 
-               isOnlyValidation,
-               isOnlyDbUpdates,
-               isReplayPreviouslyExecutedScripts,
-               tenantMode);
+            return await PublishBeginAsync(list,
+                isMergeWithExistingPackages,
+                isOnlyValidation,
+                isOnlyDbUpdates,
+                isReplayPreviouslyExecutedScripts,
+                tenantMode);
         }
 
         /// <summary>
@@ -150,6 +213,52 @@ namespace Acumatica.RESTClient.Api
            TenantMode tenantMode = TenantMode.Current
             )
         {
+            return 
+               PublishBeginAsync(
+                projectNames,
+                isMergeWithExistingPackages,
+                isOnlyValidation,
+                isOnlyDbUpdates,
+                isReplayPreviouslyExecutedScripts,
+                tenantMode
+                )
+            .GetAwaiter().GetResult();
+        }
+        /// <summary>
+        /// Starts publishing of multiple customization packages.
+        /// </summary>
+        /// <param name="projectName">Name of the customization project to publish.</param>
+        /// <param name="isMergeWithExistingPackages">
+        /// Indicator of whether the currently published projects should be merged 
+        /// with the customization projects listed in the projectNames parameter. 
+        /// If true, the projects will be merged and published together. 
+        /// If false, only the project specified in the projectNames parameter 
+        /// will be the published projects.
+        /// Default value is <c>false</c></param>
+        /// <param name="isOnlyValidation">
+        /// Indicator of whether only project validation should be performed.</param>
+        /// <param name="isOnlyDbUpdates">
+        /// Indicator of whether the changes should be applied only to the database. 
+        /// Corresponds to the Apply Changes Only to Database check box in the UI.</param>
+        /// <param name="isReplayPreviouslyExecutedScripts">
+        /// Indicator of whether database scripts that were previously applied 
+        /// should be executed again. Corresponds to the 
+        /// Execute All Database Scripts (Including Prevously Executed) check box 
+        /// and Publish with Clean Up menu command in the UI.</param>
+        /// <param name="tenantMode">
+        /// <returns>
+        /// If sucessfull, returns log record with the following message: 
+        /// "Publishing has started."
+        /// </returns>
+        public async Task<CustomizationPublishLog> PublishBeginAsync(
+            List<string> projectNames,
+            bool isMergeWithExistingPackages = false,
+            bool isOnlyValidation = false,
+            bool isOnlyDbUpdates = false,
+            bool isReplayPreviouslyExecutedScripts = false,
+            TenantMode tenantMode = TenantMode.Current
+        )
+        {
             if (projectNames == null)
                 ThrowMissingParameter("PublishBegin", nameof(projectNames));
 
@@ -170,7 +279,7 @@ namespace Acumatica.RESTClient.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -179,17 +288,24 @@ namespace Acumatica.RESTClient.Api
                 ComposeEmptyFormParams(),
                 ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(),
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
+                ComposeContentHeaders(HeaderContentType.Json));
 
             VerifyResponse(localVarResponse, "PublishBegin");
             return DeserializeResponse<CustomizationPublishLog>(localVarResponse).Data;
         }
+
         public CustomizationPublishEnd CustomizationPublishEnd()
+        {
+            return 
+               CustomizationPublishEndAsync()
+            .GetAwaiter().GetResult();
+        }
+        public async Task<CustomizationPublishEnd> CustomizationPublishEndAsync()
         {
             var localVarPath = "/CustomizationApi/PublishEnd";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -198,7 +314,7 @@ namespace Acumatica.RESTClient.Api
                 ComposeEmptyFormParams(),
                 ComposeEmptyFileParams(),
                 ComposeEmptyPathParams(),
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
+                ComposeContentHeaders(HeaderContentType.Json));
 
             VerifyResponse(localVarResponse, "PublishEnd");
             return DeserializeResponse<CustomizationPublishEnd>(localVarResponse).Data;
@@ -206,9 +322,14 @@ namespace Acumatica.RESTClient.Api
 
         public void WaitPublishingCompletion(int millisecondsInterval = 1000)
         {
+               WaitPublishingCompletionAsync(millisecondsInterval)
+            .GetAwaiter().GetResult();
+        }
+        public async Task WaitPublishingCompletionAsync(int millisecondsInterval = 1000)
+        {
             while (true)
             {
-                var processResult = CustomizationPublishEnd();
+                var processResult = await CustomizationPublishEndAsync();
                 if (processResult.IsCompleted)
                 {
                     return;
