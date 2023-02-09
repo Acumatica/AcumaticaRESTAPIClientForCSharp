@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Acumatica.RESTClient.Client
 {
@@ -65,7 +66,7 @@ namespace Acumatica.RESTClient.Client
         /// <param name="pathParams">Path parameters.</param>
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
-        public async System.Threading.Tasks.Task<Object> CallApiAsync(
+        public async Task<RestResponse> CallApiAsync(
             String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
@@ -86,7 +87,7 @@ namespace Acumatica.RESTClient.Client
             if (Configuration.ResponseInterceptor != null)
                 Configuration.ResponseInterceptor(request, response, this.RestClient);
 
-            return (Object)response;
+            return response;
         }
 
         /// <summary>

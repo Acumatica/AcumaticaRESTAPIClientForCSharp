@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
+
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.Model;
 
@@ -86,7 +88,7 @@ namespace Acumatica.RESTClient.Api
         /// <returns>Returns HTTP status code of the running operation.</returns>
         public int GetProcessStatus(string locationRaw)
         {
-            return GetProcessStatusWithHttpInfo(locationRaw);
+            return GetProcessStatusWithHttpInfo(locationRaw).StatusCode;
         }
 
         /// <summary>
@@ -100,7 +102,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
         /// <returns>Task of List&lt;Entity&gt;</returns>
-        public async System.Threading.Tasks.Task<List<EntityType>> GetListAsync(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        public async Task<List<EntityType>> GetListAsync(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
             ApiResponse<List<EntityType>> localVarResponse = await GetListAsyncWithHttpInfo(select, filter, expand, custom, skip, top);
             return localVarResponse.Data;
@@ -177,8 +179,8 @@ namespace Acumatica.RESTClient.Api
         /// The branch should be specified as a branch name. 
         /// If you omit this header, the branch that you specified when signing in is used as the current branch.
         /// </param>
-        /// <returns><see cref="System.Threading.Tasks.Task"/> of <typeparamref name="EntityType"/></returns>
-        public async System.Threading.Tasks.Task<EntityType> PutEntityAsync(EntityType entity, 
+        /// <returns><see cref="Task"/> of <typeparamref name="EntityType"/></returns>
+        public async Task<EntityType> PutEntityAsync(EntityType entity, 
             string select = null, string filter = null, string expand = null, string custom = null, 
             PutMethod method = PutMethod.Any, DateTime? businessDate = null, string branch=null)
         {
@@ -255,7 +257,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of Entity</returns>
-        public async System.Threading.Tasks.Task<EntityType> GetByKeysAsync(IEnumerable<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
+        public async Task<EntityType> GetByKeysAsync(IEnumerable<string> ids, string select = null, string filter = null, string expand = null, string custom = null)
         {
             ApiResponse<EntityType> localVarResponse = await GetByKeysAsyncWithHttpInfo(ids, select, filter, expand, custom);
             return localVarResponse.Data;
@@ -305,7 +307,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of Entity</returns>
-        public async System.Threading.Tasks.Task<EntityType> GetByIdAsync(Guid? id, string select = null, string filter = null, string expand = null, string custom = null)
+        public async Task<EntityType> GetByIdAsync(Guid? id, string select = null, string filter = null, string expand = null, string custom = null)
         {
             ApiResponse<EntityType> localVarResponse = await GetByIdAsyncWithHttpInfo(id, select, filter, expand, custom);
             return localVarResponse.Data;
@@ -316,7 +318,7 @@ namespace Acumatica.RESTClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of Entity</returns>
-        public async System.Threading.Tasks.Task<EntityType> GetAdHocSchemaAsync()
+        public async Task<EntityType> GetAdHocSchemaAsync()
         {
             ApiResponse<EntityType> localVarResponse = await GetAdHocSchemaAsyncWithHttpInfo();
             return localVarResponse.Data;

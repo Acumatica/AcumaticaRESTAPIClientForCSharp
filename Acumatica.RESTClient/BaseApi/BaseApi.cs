@@ -199,10 +199,9 @@ namespace Acumatica.RESTClient.Api
 
             return new ApiResponse<T>(localVarStatusCode,
                 GetHeadersExceptCookies(response),
-                (T)this.Configuration.ApiClient.Deserialize<T>(response));
+                (T)Configuration.ApiClient.Deserialize<T>(response));
         }
-
-        protected ApiResponse<object> GetResponseHeaders(RestResponse response)
+        protected ApiResponse ConvertRestResponeToApiResponse(RestResponse response)
         {
             int localVarStatusCode = (int)response.StatusCode;
 
