@@ -13,13 +13,13 @@ using System;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Acumatica.RESTClient.Model
+namespace Acumatica.RESTClient.FileApi.Model
 {
     /// <summary>
     /// FileLink
     /// </summary>
     [DataContract]
-    public partial class FileLink :  IEquatable<FileLink>
+    public partial class FileLink : IEquatable<FileLink>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FileLink" /> class.
@@ -27,29 +27,29 @@ namespace Acumatica.RESTClient.Model
         /// <param name="id">id.</param>
         /// <param name="filename">filename.</param>
         /// <param name="href">href.</param>
-        public FileLink(Guid? id = default(Guid?), string filename = default(string), string href = default(string))
+        public FileLink(Guid? id = default, string filename = default, string href = default)
         {
-            this.Id = id;
-            this.Filename = filename;
-            this.Href = href;
+            Id = id;
+            Filename = filename;
+            Href = href;
         }
-        
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Filename
         /// </summary>
-        [DataMember(Name="filename", EmitDefaultValue=false)]
+        [DataMember(Name = "filename", EmitDefaultValue = false)]
         public string Filename { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
         /// </summary>
-        [DataMember(Name="href", EmitDefaultValue=false)]
+        [DataMember(Name = "href", EmitDefaultValue = false)]
         public string Href { get; set; }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace Acumatica.RESTClient.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -83,7 +83,7 @@ namespace Acumatica.RESTClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FileLink);
+            return Equals(input as FileLink);
         }
 
         /// <summary>
@@ -96,21 +96,21 @@ namespace Acumatica.RESTClient.Model
             if (input == null)
                 return false;
 
-            return 
+            return
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
+                    Id == input.Id ||
+                    Id != null &&
+                    Id.Equals(input.Id)
+                ) &&
                 (
-                    this.Filename == input.Filename ||
-                    (this.Filename != null &&
-                    this.Filename.Equals(input.Filename))
-                ) && 
+                    Filename == input.Filename ||
+                    Filename != null &&
+                    Filename.Equals(input.Filename)
+                ) &&
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
+                    Href == input.Href ||
+                    Href != null &&
+                    Href.Equals(input.Href)
                 );
         }
 
@@ -123,12 +123,12 @@ namespace Acumatica.RESTClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Filename != null)
-                    hashCode = hashCode * 59 + this.Filename.GetHashCode();
-                if (this.Href != null)
-                    hashCode = hashCode * 59 + this.Href.GetHashCode();
+                if (Id != null)
+                    hashCode = hashCode * 59 + Id.GetHashCode();
+                if (Filename != null)
+                    hashCode = hashCode * 59 + Filename.GetHashCode();
+                if (Href != null)
+                    hashCode = hashCode * 59 + Href.GetHashCode();
                 return hashCode;
             }
         }

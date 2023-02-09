@@ -1,7 +1,4 @@
-using Newtonsoft.Json;
-using System;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace Acumatica.RESTClient.Model
 {

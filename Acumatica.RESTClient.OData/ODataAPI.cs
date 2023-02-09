@@ -1,9 +1,9 @@
-﻿using Acumatica.Auth.Model;
+﻿using System;
+
 using Acumatica.RESTClient.Client;
 
 using RestSharp;
 using RestSharp.Authenticators;
-using System;
 
 namespace Acumatica.RESTClient.Api
 {

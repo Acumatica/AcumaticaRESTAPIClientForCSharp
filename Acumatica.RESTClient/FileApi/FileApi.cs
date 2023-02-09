@@ -1,5 +1,5 @@
 ﻿using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Model;
+using Acumatica.RESTClient.FileApi.Model;
 using RestSharp;
 using System;
 using System.Collections.Generic;

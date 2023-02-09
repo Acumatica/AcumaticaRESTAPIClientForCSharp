@@ -29,6 +29,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.ISVCB_21.200.001"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_22.200.001", "Acumatica.Default_22.200.001\Acumatica.Default_22.200.001.csproj", "{4641CA94-9314-4FB3-BC8C-6F9DA5A9EDEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient.OData", "Acumatica.RESTClient.OData\Acumatica.RESTClient.OData.csproj", "{48EA91F8-F5D2-4396-BEAF-5E17AC8CAEF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient.Customization", "Acumatica.RESTClient.Customization\Acumatica.RESTClient.Customization.csproj", "{6E13ECEF-A126-491A-84F8-518A7CA448F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient.Maintenance", "Acumatica.RESTClient.Maintenance\Acumatica.RESTClient.Maintenance.csproj", "{F1EDE2FE-635D-4D22-8E65-2B7D8022A2A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +89,18 @@ Global
 		{4641CA94-9314-4FB3-BC8C-6F9DA5A9EDEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4641CA94-9314-4FB3-BC8C-6F9DA5A9EDEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4641CA94-9314-4FB3-BC8C-6F9DA5A9EDEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48EA91F8-F5D2-4396-BEAF-5E17AC8CAEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48EA91F8-F5D2-4396-BEAF-5E17AC8CAEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48EA91F8-F5D2-4396-BEAF-5E17AC8CAEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48EA91F8-F5D2-4396-BEAF-5E17AC8CAEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E13ECEF-A126-491A-84F8-518A7CA448F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E13ECEF-A126-491A-84F8-518A7CA448F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E13ECEF-A126-491A-84F8-518A7CA448F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E13ECEF-A126-491A-84F8-518A7CA448F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1EDE2FE-635D-4D22-8E65-2B7D8022A2A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1EDE2FE-635D-4D22-8E65-2B7D8022A2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1EDE2FE-635D-4D22-8E65-2B7D8022A2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1EDE2FE-635D-4D22-8E65-2B7D8022A2A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

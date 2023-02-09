@@ -14,7 +14,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Acumatica.Auth.Model
+namespace Acumatica.RESTClient.Auth.Model
 {
     /// <summary>
     /// Credentials
@@ -25,7 +25,7 @@ namespace Acumatica.Auth.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Credentials" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
+        [JsonConstructor]
         protected Credentials() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="Credentials" /> class.
@@ -36,7 +36,7 @@ namespace Acumatica.Auth.Model
         /// <param name="tenant">Defines the tenant to log in.</param>
         /// <param name="branch">Defines the branch to log in.</param>
         /// <param name="locale">Defines the locale to use for localizable data.</param>
-        public Credentials(string name = default(string), string password = default(string), string company = default(string), string tenant = default(string), string branch = default(string), string locale = default(string))
+        public Credentials(string name = default, string password = default, string company = default, string tenant = default, string branch = default, string locale = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -45,7 +45,7 @@ namespace Acumatica.Auth.Model
             }
             else
             {
-                this.Name = name;
+                Name = name;
             }
             // to ensure "password" is required (not null)
             if (password == null)
@@ -54,18 +54,18 @@ namespace Acumatica.Auth.Model
             }
             else
             {
-                this.Password = password;
+                Password = password;
             }
 
-            if (!String.IsNullOrEmpty(company) && !String.IsNullOrEmpty(tenant))
+            if (!string.IsNullOrEmpty(company) && !string.IsNullOrEmpty(tenant))
             {
                 throw new InvalidDataException($"Both {nameof(company)} and {nameof(tenant)} cannot be defined in the same request. Please use {nameof(tenant)}.");
             }
 
-            this.Company = null;
-            this.Tenant = String.IsNullOrEmpty(tenant) ? company : tenant;
-            this.Branch = branch;
-            this.Locale = locale;
+            Company = null;
+            Tenant = string.IsNullOrEmpty(tenant) ? company : tenant;
+            Branch = branch;
+            Locale = locale;
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace Acumatica.Auth.Model
         /// </summary>
         [DataMember(Name = "locale", EmitDefaultValue = false)]
         public string Locale { get; set; }
-       
+
     }
 
 }

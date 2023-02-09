@@ -10,47 +10,41 @@
 
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Acumatica.Auth.Model
+namespace Acumatica.RESTClient.Root.Model
 {
     /// <summary>
-    /// Endpoint
+    /// VersionAndEndpoints
     /// </summary>
     [DataContract]
-    public partial class Endpoint :  IEquatable<Endpoint>
+    public partial class VersionAndEndpoints : IEquatable<VersionAndEndpoints>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Endpoint" /> class.
+        /// Initializes a new instance of the <see cref="VersionAndEndpoints" /> class.
         /// </summary>
-        /// <param name="name">name.</param>
         /// <param name="version">version.</param>
-        /// <param name="href">href.</param>
-        public Endpoint(string name = default(string), string version = default(string), string href = default(string))
+        /// <param name="endpoints">endpoints.</param>
+        public VersionAndEndpoints(Version version = default, List<Endpoint> endpoints = default)
         {
-            this.Name = name;
-            this.Version = version;
-            this.Href = href;
+            Version = version;
+            Endpoints = endpoints;
         }
-        
-        /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Version
         /// </summary>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public string Version { get; set; }
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public Version Version { get; set; }
 
         /// <summary>
-        /// Gets or Sets Href
+        /// Gets or Sets Endpoints
         /// </summary>
-        [DataMember(Name="href", EmitDefaultValue=false)]
-        public string Href { get; set; }
+        [DataMember(Name = "endpoints", EmitDefaultValue = false)]
+        public List<Endpoint> Endpoints { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,14 +53,13 @@ namespace Acumatica.Auth.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Endpoint {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("class VersionAndEndpoints {\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  Endpoints: ").Append(Endpoints).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -83,34 +76,29 @@ namespace Acumatica.Auth.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Endpoint);
+            return Equals(input as VersionAndEndpoints);
         }
 
         /// <summary>
-        /// Returns true if Endpoint instances are equal
+        /// Returns true if VersionAndEndpoints instances are equal
         /// </summary>
-        /// <param name="input">Instance of Endpoint to be compared</param>
+        /// <param name="input">Instance of VersionAndEndpoints to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Endpoint input)
+        public bool Equals(VersionAndEndpoints input)
         {
             if (input == null)
                 return false;
 
-            return 
+            return
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
+                    Version == input.Version ||
+                    Version != null &&
+                    Version.Equals(input.Version)
+                ) &&
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
-                ) && 
-                (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
+                    Endpoints == input.Endpoints ||
+                    Endpoints != null &&
+                    Endpoints.SequenceEqual(input.Endpoints)
                 );
         }
 
@@ -123,12 +111,10 @@ namespace Acumatica.Auth.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
-                if (this.Href != null)
-                    hashCode = hashCode * 59 + this.Href.GetHashCode();
+                if (Version != null)
+                    hashCode = hashCode * 59 + Version.GetHashCode();
+                if (Endpoints != null)
+                    hashCode = hashCode * 59 + Endpoints.GetHashCode();
                 return hashCode;
             }
         }

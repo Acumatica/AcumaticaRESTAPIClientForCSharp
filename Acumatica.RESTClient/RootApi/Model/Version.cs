@@ -14,13 +14,13 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Acumatica.Auth.Model
+namespace Acumatica.RESTClient.Root.Model
 {
     /// <summary>
     /// Version
     /// </summary>
     [DataContract]
-    public partial class Version :  IEquatable<Version>
+    public partial class Version : IEquatable<Version>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Version" /> class.
@@ -28,29 +28,29 @@ namespace Acumatica.Auth.Model
         /// <param name="acumaticaBuildVersion">acumaticaBuildVersion.</param>
         /// <param name="oemBuildVersion">oemBuildVersion.</param>
         /// <param name="databaseVersion">databaseVersion.</param>
-        public Version(string acumaticaBuildVersion = default(string), string oemBuildVersion = default(string), string databaseVersion = default(string))
+        public Version(string acumaticaBuildVersion = default, string oemBuildVersion = default, string databaseVersion = default)
         {
-            this.AcumaticaBuildVersion = acumaticaBuildVersion;
-            this.OemBuildVersion = oemBuildVersion;
-            this.DatabaseVersion = databaseVersion;
+            AcumaticaBuildVersion = acumaticaBuildVersion;
+            OemBuildVersion = oemBuildVersion;
+            DatabaseVersion = databaseVersion;
         }
-        
+
         /// <summary>
         /// Gets or Sets AcumaticaBuildVersion
         /// </summary>
-        [DataMember(Name="acumaticaBuildVersion", EmitDefaultValue=false)]
+        [DataMember(Name = "acumaticaBuildVersion", EmitDefaultValue = false)]
         public string AcumaticaBuildVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets OemBuildVersion
         /// </summary>
-        [DataMember(Name="oemBuildVersion", EmitDefaultValue=false)]
+        [DataMember(Name = "oemBuildVersion", EmitDefaultValue = false)]
         public string OemBuildVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets DatabaseVersion
         /// </summary>
-        [DataMember(Name="databaseVersion", EmitDefaultValue=false)]
+        [DataMember(Name = "databaseVersion", EmitDefaultValue = false)]
         public string DatabaseVersion { get; set; }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Acumatica.Auth.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -84,7 +84,7 @@ namespace Acumatica.Auth.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Version);
+            return Equals(input as Version);
         }
 
         /// <summary>
@@ -97,21 +97,21 @@ namespace Acumatica.Auth.Model
             if (input == null)
                 return false;
 
-            return 
+            return
                 (
-                    this.AcumaticaBuildVersion == input.AcumaticaBuildVersion ||
-                    (this.AcumaticaBuildVersion != null &&
-                    this.AcumaticaBuildVersion.Equals(input.AcumaticaBuildVersion))
-                ) && 
+                    AcumaticaBuildVersion == input.AcumaticaBuildVersion ||
+                    AcumaticaBuildVersion != null &&
+                    AcumaticaBuildVersion.Equals(input.AcumaticaBuildVersion)
+                ) &&
                 (
-                    this.OemBuildVersion == input.OemBuildVersion ||
-                    (this.OemBuildVersion != null &&
-                    this.OemBuildVersion.Equals(input.OemBuildVersion))
-                ) && 
+                    OemBuildVersion == input.OemBuildVersion ||
+                    OemBuildVersion != null &&
+                    OemBuildVersion.Equals(input.OemBuildVersion)
+                ) &&
                 (
-                    this.DatabaseVersion == input.DatabaseVersion ||
-                    (this.DatabaseVersion != null &&
-                    this.DatabaseVersion.Equals(input.DatabaseVersion))
+                    DatabaseVersion == input.DatabaseVersion ||
+                    DatabaseVersion != null &&
+                    DatabaseVersion.Equals(input.DatabaseVersion)
                 );
         }
 
@@ -124,12 +124,12 @@ namespace Acumatica.Auth.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AcumaticaBuildVersion != null)
-                    hashCode = hashCode * 59 + this.AcumaticaBuildVersion.GetHashCode();
-                if (this.OemBuildVersion != null)
-                    hashCode = hashCode * 59 + this.OemBuildVersion.GetHashCode();
-                if (this.DatabaseVersion != null)
-                    hashCode = hashCode * 59 + this.DatabaseVersion.GetHashCode();
+                if (AcumaticaBuildVersion != null)
+                    hashCode = hashCode * 59 + AcumaticaBuildVersion.GetHashCode();
+                if (OemBuildVersion != null)
+                    hashCode = hashCode * 59 + OemBuildVersion.GetHashCode();
+                if (DatabaseVersion != null)
+                    hashCode = hashCode * 59 + DatabaseVersion.GetHashCode();
                 return hashCode;
             }
         }
