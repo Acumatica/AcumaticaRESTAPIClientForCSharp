@@ -171,8 +171,11 @@ namespace Acumatica.RESTClient.Api
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
-		/// <returns>ApiResponse of Object(void)</returns>
-		protected ApiResponse InvokeActionWithHttpInfo(EntityAction<EntityType> action)
+		/// <returns>ApiResponse</returns>
+		protected ApiResponse InvokeActionWithHttpInfo(
+            EntityAction<EntityType> action,
+            DateTime? businessDate = null,
+            string branch = null)
         {            // verify the required parameter 'action' is set
             if (action == null)
                 ThrowMissingParameter("InvokeAction", nameof(action));
@@ -180,9 +183,16 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/" + action.GetType().Name;
 
             // make the HTTP request
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, ComposeEmptyQueryParams(), ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
+            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+                localVarPath,
+                Method.Post, 
+                ComposeEmptyQueryParams(), 
+                ComposeBody(action), 
+                ComposePutHeaders(HeaderContentType.Json, PutMethod.Any, businessDate, branch),
+                ComposeEmptyFormParams(), 
+                ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), 
+                ComposeContentHeaders(HeaderContentType.Json)).Result;
 
             VerifyResponse<EntityType>(localVarResponse, "InvokeAction");
 
@@ -195,7 +205,10 @@ namespace Acumatica.RESTClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
         /// <returns>Task of ApiResponse</returns>
-        protected async Task<ApiResponse> InvokeActionAsyncWithHttpInfo(EntityAction<EntityType> action)
+        protected async Task<ApiResponse> InvokeActionAsyncWithHttpInfo(
+            EntityAction<EntityType> action,
+            DateTime? businessDate = null, 
+            string branch = null)
         {
             // verify the required parameter 'action' is set
             if (action == null)
@@ -204,9 +217,16 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/" + action.GetType().Name;
 
             // make the HTTP request
-            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, ComposeEmptyQueryParams(), ComposeBody(action), ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json));
+            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
+                localVarPath,
+                Method.Post, 
+                ComposeEmptyQueryParams(), 
+                ComposeBody(action),
+                ComposePutHeaders(HeaderContentType.Json, PutMethod.Any, businessDate, branch),
+                ComposeEmptyFormParams(), 
+                ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), 
+                ComposeContentHeaders(HeaderContentType.Json));
 
             VerifyResponse<EntityType>(localVarResponse, "InvokeAction");
 
@@ -238,7 +258,7 @@ namespace Acumatica.RESTClient.Api
                 ThrowMissingParameter("PutEntity", nameof(entity));
 
             var localVarPath = GetEndpointPath() + "/" + GetEntityName();
-            Dictionary<string, string> headers = ComposePutHeaders(method, businessDate, branch);
+            Dictionary<string, string> headers = ComposePutHeaders(HeaderContentType.Json, method, businessDate, branch);
 
             // make the HTTP request
             RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -270,7 +290,7 @@ namespace Acumatica.RESTClient.Api
 				ThrowMissingParameter("PutEntity", nameof(entity));
 
 			var localVarPath = GetEndpointPath() + "/" + GetEntityName();
-			Dictionary<string, string> headers = ComposePutHeaders(method, businessDate, branch);
+			Dictionary<string, string> headers = ComposePutHeaders(HeaderContentType.Json, method, businessDate, branch);
 
 			// make the HTTP request
 			RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -282,9 +302,9 @@ namespace Acumatica.RESTClient.Api
 			return DeserializeResponse<EntityType>(localVarResponse);
 		}
 
-		private Dictionary<string, string> ComposePutHeaders(PutMethod method, DateTime? businessDate, string branch)
+		private Dictionary<string, string> ComposePutHeaders(HeaderContentType acceptType, PutMethod method, DateTime? businessDate, string branch)
 		{
-			var headers = ComposeAcceptHeaders(HeaderContentType.Json);
+			var headers = ComposeAcceptHeaders(acceptType);
 			if (method == PutMethod.Insert)
 			{
 				headers.Add(PutMethodInsertHeader, "*");

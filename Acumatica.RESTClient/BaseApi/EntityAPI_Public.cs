@@ -230,9 +230,9 @@ namespace Acumatica.RESTClient.Api
         /// Returns value of Location header. The value can be used to 
         /// query the status of running operation using <see cref="GetProcessStatus(string)"/>
         /// </returns>
-        public string InvokeAction(EntityAction<EntityType> action)
+        public string InvokeAction(EntityAction<EntityType> action, DateTime? businessDate = null, string branch = null)
         {
-            var result = InvokeActionWithHttpInfo(action);
+            var result = InvokeActionWithHttpInfo(action, businessDate, branch);
             return result.Headers["Location"];
         }
 
@@ -242,9 +242,10 @@ namespace Acumatica.RESTClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task InvokeActionAsync(EntityAction<EntityType> action)
+        public async Task<string> InvokeActionAsync(EntityAction<EntityType> action, DateTime? businessDate = null, string branch = null)
         {
-            await InvokeActionAsyncWithHttpInfo(action);
+            var result = await InvokeActionAsyncWithHttpInfo(action, businessDate, branch);
+            return result.Headers["Location"];
         }
 
         /// <summary>
