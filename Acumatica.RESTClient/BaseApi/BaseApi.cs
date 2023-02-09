@@ -12,7 +12,7 @@ namespace Acumatica.RESTClient.Api
     /// <summary>
     /// Represents a base class with common logic for all Api classes.
     /// </summary>
-    public abstract class BaseApi : IApiAccessor
+    public abstract class BaseApi
     {
         #region Constructor
 
@@ -81,7 +81,7 @@ namespace Acumatica.RESTClient.Api
         }
         protected Dictionary<string, string> ComposeAcceptHeaders(HeaderContentType contentTypes)
         {
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>();
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = ComposeHeadersArray(contentTypes);
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
@@ -199,10 +199,9 @@ namespace Acumatica.RESTClient.Api
 
             return new ApiResponse<T>(localVarStatusCode,
                 GetHeadersExceptCookies(response),
-                (T)this.Configuration.ApiClient.Deserialize<T>(response));
+                (T)Configuration.ApiClient.Deserialize<T>(response));
         }
-
-        protected ApiResponse<object> GetResponseHeaders(RestResponse response)
+        protected ApiResponse ConvertRestResponeToApiResponse(RestResponse response)
         {
             int localVarStatusCode = (int)response.StatusCode;
 
