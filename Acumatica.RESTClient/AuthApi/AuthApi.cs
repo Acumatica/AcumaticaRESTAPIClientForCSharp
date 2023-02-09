@@ -143,12 +143,6 @@ namespace Acumatica.RESTClient.Auth
             configuration.ApiClient.RestClient.CookieContainer.Add(Configuration.ApiClient.RestClient.CookieContainer.GetCookies(new Uri(Configuration.BasePath)));
             return configuration;
         }
-
-        [Obsolete("Use LogIn method instead.")]
-        public Configuration AuthLogIn(Credentials credentials)
-        {
-            return LogIn(credentials);
-        }
         #endregion
 
         #region Logout
@@ -158,12 +152,6 @@ namespace Acumatica.RESTClient.Auth
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void Logout()
-        {
-            AuthLogoutWithHttpInfo();
-        }
-
-        [Obsolete("Use Logout or TryLogout instead.")]
-        public void AuthLogout()
         {
             AuthLogoutWithHttpInfo();
         }
@@ -194,11 +182,6 @@ namespace Acumatica.RESTClient.Auth
             await AuthLogoutAsyncWithHttpInfo();
         }
 
-        [Obsolete("Use LogoutAsync instead.")]
-        public async System.Threading.Tasks.Task AuthLogoutAsync()
-        {
-            await AuthLogoutAsyncWithHttpInfo();
-        }
         #endregion
         #endregion
 

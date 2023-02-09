@@ -28,7 +28,7 @@ namespace Acumatica.RESTClient.Client
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? Client.Configuration.Default;
+            Configuration = config;
 
             var options = new RestClientOptions(Configuration.BasePath)
             {
@@ -39,15 +39,10 @@ namespace Acumatica.RESTClient.Client
         }
 
         /// <summary>
-        /// Gets or sets an instance of the IReadableConfiguration.
+        /// Gets or sets an instance of the <see cref="Configuration"/>.
         /// </summary>
         /// <value>An instance of the IReadableConfiguration.</value>
-        /// <remarks>
-        /// <see cref="IReadableConfiguration"/> helps us to avoid modifying possibly global
-        /// configuration values from within a given client. It does not guarantee thread-safety
-        /// of the <see cref="Configuration"/> instance in any way.
-        /// </remarks>
-        public IReadableConfiguration Configuration { get; set; }
+        public Configuration Configuration { get; set; }
 
         /// <summary>
         /// Gets or sets the RestClient.
@@ -168,30 +163,6 @@ namespace Acumatica.RESTClient.Client
             if (typeof(T) == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
-            }
-
-            // TODO: ? if (type.IsAssignableFrom(typeof(Stream)))
-            if (typeof(T) == typeof(Stream))
-            {
-                if (headers != null)
-                {
-                    var filePath = String.IsNullOrEmpty(Configuration.TempFolderPath)
-                        ? Path.GetTempPath()
-                        : Configuration.TempFolderPath;
-                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$");
-                    foreach (var header in headers)
-                    {
-                        var match = regex.Match(header.ToString());
-                        if (match.Success)
-                        {
-                            string fileName = filePath + SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
-                            File.WriteAllBytes(fileName, response.RawBytes);
-                            return new FileStream(fileName, FileMode.Open);
-                        }
-                    }
-                }
-                var stream = new MemoryStream(response.RawBytes);
-                return stream;
             }
 
             if (typeof(T).Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
