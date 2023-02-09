@@ -14,7 +14,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Acumatica.RESTClient.Auth.Model
+namespace Acumatica.Auth.Model
 {
     /// <summary>
     /// Credentials

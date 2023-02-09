@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Acumatica.Acumatica.Auth.Api
+namespace Acumatica.Auth.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the Authorization endpoint
