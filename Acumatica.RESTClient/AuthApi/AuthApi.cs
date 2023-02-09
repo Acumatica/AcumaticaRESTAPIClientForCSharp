@@ -204,7 +204,7 @@ namespace Acumatica.RESTClient.Auth
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
-                FormUrlEncodedConverter.ToFormUrlEncoded(new Dictionary<string, string>()
+                ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>()
                 {
                     {"grant_type", "refresh_token" },
                     {"client_id", clientID },
@@ -231,7 +231,7 @@ namespace Acumatica.RESTClient.Auth
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
-                FormUrlEncodedConverter.ToFormUrlEncoded(new Dictionary<string, string>
+                ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
                 {
                     {"grant_type", "password" },
                     {"client_id", clientID },
@@ -286,7 +286,7 @@ namespace Acumatica.RESTClient.Auth
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
-                FormUrlEncodedConverter.ToFormUrlEncoded(new Dictionary<string, string>
+                ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
                 {
                     {"grant_type", "authorization_code" },
                     {"code", code },
