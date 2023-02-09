@@ -1,13 +1,15 @@
-using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Auth.Model;
-using Acumatica.RESTClient.Auxiliary;
-using Acumatica.RESTClient.Client;
-using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Acumatica.Auth.Model;
+using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.Auxiliary;
+using Acumatica.RESTClient.Client;
+
+using RestSharp;
 
 namespace Acumatica.Auth.Api
 {
