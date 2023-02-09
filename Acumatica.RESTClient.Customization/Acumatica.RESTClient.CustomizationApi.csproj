@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Title>Acumatica REST API for Publishing Customization Packages</Title>
+    <Version>3.0.0-alpha</Version>
+    <Company>Acumatica</Company>
+    <Description>An extension for Acumatica REST API client for C# allowing interaction with Customization packages via API</Description>
+    <Copyright>Acumatica</Copyright>
+    <PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
+    <PackageTags>Acumatica;REST;client;</PackageTags>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Authors>Dmitrii-Naumov</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+  </ItemGroup>
+
+</Project>

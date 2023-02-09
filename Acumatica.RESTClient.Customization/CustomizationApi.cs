@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 
+using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Model;
+using Acumatica.RESTClient.CustomizationApi.Model;
+
 using RestSharp;
 
-using static System.Net.WebRequestMethods;
-
-namespace Acumatica.RESTClient.Api
+namespace Acumatica.RESTClient.CustomizationApi
 {
     public class CustomizationApi : BaseApi
     {

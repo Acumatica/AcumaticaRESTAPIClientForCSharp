@@ -1,10 +1,10 @@
 ﻿using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Root.Model;
+using Acumatica.RESTClient.RootApi.Model;
 
 using RestSharp;
 
-namespace Acumatica.RESTClient.Root
+namespace Acumatica.RESTClient.RootApi
 {
 
     /// <summary>

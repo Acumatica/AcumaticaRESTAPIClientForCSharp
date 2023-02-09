@@ -1,8 +1,9 @@
-﻿using Acumatica.RESTClient.Client;
+﻿using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.Client;
 
 using RestSharp;
 
-namespace Acumatica.RESTClient.Api
+namespace Acumatica.RESTClient.MaintenanceApi
 {
     public class MaintenanceApi : BaseApi
     {
@@ -16,7 +17,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = "/entity/maintenance/23.200/";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
@@ -35,7 +36,7 @@ namespace Acumatica.RESTClient.Api
             var localVarPath = $"/entity/maintenance/23.200/{endpointName}/{endpointVersion}";
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Get,
                 ComposeEmptyQueryParams(),
