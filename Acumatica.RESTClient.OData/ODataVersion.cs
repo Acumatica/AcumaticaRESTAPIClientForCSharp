@@ -1,4 +1,4 @@
-﻿namespace Acumatica.RESTClient
+﻿namespace Acumatica.RESTClient.ODataApi
 {
     public enum ODataVersion
     {

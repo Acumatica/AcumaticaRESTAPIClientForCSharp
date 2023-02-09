@@ -1,11 +1,12 @@
 ﻿using System;
 
+using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 
 using RestSharp;
 using RestSharp.Authenticators;
 
-namespace Acumatica.RESTClient.Api
+namespace Acumatica.RESTClient.ODataApi
 {
 
     public class ODataAPI : BaseApi

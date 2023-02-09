@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Acumatica.RESTClient.Model
+namespace Acumatica.RESTClient.CustomizationApi.Model
 {
     /// <summary>
     /// CustomizationImport

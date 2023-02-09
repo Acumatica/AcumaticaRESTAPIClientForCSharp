@@ -1,4 +1,4 @@
-﻿namespace Acumatica.RESTClient.Auxiliary
+﻿namespace Acumatica.RESTClient.CustomizationApi
 {
     /// <summary>
     /// The mode for customization publishing. 
