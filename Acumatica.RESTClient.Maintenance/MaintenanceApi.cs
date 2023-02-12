@@ -40,7 +40,7 @@ namespace Acumatica.RESTClient.MaintenanceApi
                 localVarPath,
                 Method.Get,
                 ComposeEmptyQueryParams(),
-                "",
+                null,
                 ComposeAcceptHeaders(HeaderContentType.Xml),
                 ComposeEmptyFormParams(),
                 ComposeEmptyFileParams(),

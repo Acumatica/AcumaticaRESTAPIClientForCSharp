@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>Acumatica REST API for Managing Endpoint Schemas</Title>
-    <Version>3.0.0-alpha</Version>
+    <Version>3.0.1-alpha</Version>
     <Authors>Dmitrii-Naumov</Authors>
     <Company>Acumatica</Company>
     <Description>An extension for Acumatica REST API client for C# allowing interaction with Endpoints API</Description>
