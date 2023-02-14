@@ -39,6 +39,6 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+    <ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
   </ItemGroup>
 </Project>

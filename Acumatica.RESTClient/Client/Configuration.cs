@@ -28,37 +28,6 @@ namespace Acumatica.RESTClient.Client
 
         #endregion Constants
 
-        #region Static Members
-        /// <summary>
-        /// Default creation of exceptions for a given method name and response object
-        /// </summary>
-        public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response, objectType) =>
-        {
-            var status = (int)response.StatusCode;
-            if (status >= 400)
-            {
-                return GetGenericApiException(status, "Error calling " + methodName, response.Content, objectType);
-            }
-            if (status == 0)
-            {
-                return GetGenericApiException(status,
-                    string.Format("Error calling {0}", methodName, response.ErrorMessage),
-                    null, objectType);
-            }
-            return null;
-        };
-
-        public static ApiException GetGenericApiException(int status, string message, string content, Type genericType)
-        {
-            if (genericType == null || genericType.IsAbstract)
-                return new ApiException(status, message, content);
-            return (ApiException)Activator.CreateInstance(
-                typeof(ApiException<>).MakeGenericType(genericType),
-                status, message, content);
-        }
-
-        #endregion Static Members
-
         #region Private Members
         private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
         #endregion Private Members

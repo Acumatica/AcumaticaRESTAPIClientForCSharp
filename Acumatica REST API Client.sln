@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoints", "Endpoints", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.DeviceHub_19.200.001", "Acumatica.DeviceHub_19.200.001\Acumatica.DeviceHub_19.200.001.csproj", "{638D4F3F-4496-44DC-8BAA-6C0F05516A22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTClientTests", "RESTClientTests\RESTClientTests.csproj", "{C56AC405-E788-41DF-B530-D964B55625E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContractBasedApiTests", "RESTClientTests\ContractBasedApiTests.csproj", "{C56AC405-E788-41DF-B530-D964B55625E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_20.200.001", "Acumatica.Default_20.200.001\Acumatica.Default_20.200.001.csproj", "{CF6F7377-7A11-4D88-AD4D-6440E6994826}"
 EndProject
@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.Custom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.MaintenanceApi", "Acumatica.RESTClient.Maintenance\Acumatica.RESTClient.MaintenanceApi.csproj", "{F1EDE2FE-635D-4D22-8E65-2B7D8022A2A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient.ContractBasedApi", "Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj", "{D10E20AB-3A7C-4423-BD41-E4733AEABCCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.ContractBasedApi", "Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj", "{D10E20AB-3A7C-4423-BD41-E4733AEABCCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

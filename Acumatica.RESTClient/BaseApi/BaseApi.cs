@@ -24,8 +24,6 @@ namespace Acumatica.RESTClient.Api
             Action<RestRequest, RestResponse, RestClient> responseInterceptor = null)
         {
             Configuration = new Configuration(basePath, timeout, requestInterceptor, responseInterceptor);
-
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -41,8 +39,6 @@ namespace Acumatica.RESTClient.Api
                 throw new ArgumentNullException(nameof(configuration));
             }
             Configuration = configuration;
-
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
         }
         #endregion
 
@@ -125,21 +121,6 @@ namespace Acumatica.RESTClient.Api
         /// <value>An instance of the Configuration</value>
         public Configuration Configuration { get; set; }
 
-        /// <summary>
-        /// Provides a factory method hook for the creation of exceptions.
-        /// </summary>
-        public ExceptionFactory ExceptionFactory
-        {
-            get
-            {
-                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
-                {
-                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
-                }
-                return _exceptionFactory;
-            }
-            set { _exceptionFactory = value; }
-        }
         protected Dictionary<string, FileParameter> ComposeEmptyFileParams()
         {
             return new Dictionary<String, FileParameter>();
@@ -216,21 +197,16 @@ namespace Acumatica.RESTClient.Api
                             .ToDictionary(x => x.Name, x => x.Value.ToString());
         }
 
-        protected void VerifyResponse<T>(RestResponse response, string methodName)
+        protected virtual void VerifyResponse(RestResponse response, string methodName)
         {
-            if (ExceptionFactory != null)
+            if (!response.IsSuccessStatusCode)
             {
-                Exception exception = ExceptionFactory(methodName, response, typeof(T));
-                if (exception != null) throw exception;
+                throw new ApiException((int)response.StatusCode, $"Error calling {methodName}", response.Content);
             }
-        }
 
-        protected void VerifyResponse(RestResponse response, string methodName)
-        {
-            if (ExceptionFactory != null)
+            if (!response.IsSuccessful)
             {
-                Exception exception = ExceptionFactory(methodName, response, null);
-                if (exception != null) throw exception;
+                throw new ApiException((int)response.StatusCode, $"Error in {methodName}", response.Content);
             }
         }
 
@@ -238,9 +214,6 @@ namespace Acumatica.RESTClient.Api
         {
             throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");
         }
-
-        protected ExceptionFactory _exceptionFactory = (name, response, type) => null;
-
         #endregion
     }
 }

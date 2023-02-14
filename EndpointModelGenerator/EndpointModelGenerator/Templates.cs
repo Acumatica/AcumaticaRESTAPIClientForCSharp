@@ -48,7 +48,7 @@
 		//{1} = Endpoint Path
 		public static string BaseEndpointApiTemplate = "using Acumatica.RESTClient.Api;\r\nusing Acumatica.RESTClient.Client;\r\nusing Acumatica.RESTClient.Model;\r\n\r\nnamespace {0}.Api\r\n{{\r\n\tpublic abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>\r\n\t\twhere EntityType : Entity\r\n\t{{\r\n\t\tpublic BaseEndpointApi(Configuration configuration) : base(configuration)\r\n\t\t{{ }}\r\n\t\tpublic override string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{1}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
-		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version=\"13.0.2\" />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n  </ItemGroup >\r\n\r\n</Project >\r\n";
+		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version=\"13.0.2\" />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n <ProjectReference Include = \"..\\Acumatica.RESTClient.ContractBasedApi\\Acumatica.RESTClient.ContractBasedApi.csproj\" />\r\n </ItemGroup >\r\n\r\n</Project >\r\n";
 
 
 	}
