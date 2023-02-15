@@ -212,8 +212,13 @@ namespace Acumatica.RESTClient.Api
         private static Dictionary<string, string> GetHeadersExceptCookies(RestResponse response)
         {
             return response.Headers
-                            .Where(x => x.Name != "Set-Cookie")
-                            .ToDictionary(x => x.Name, x => x.Value.ToString());
+                            .Where(header => header.Name != "Set-Cookie")
+                            .GroupBy(header => header.Name, StringComparer.OrdinalIgnoreCase)
+                            //Accodring to HTTP RFC2616 standard, we need to combine values of the same headers into comma separated list
+                            .ToDictionary(
+                                g => g.Key,
+                                g => string.Join(",", g.Select(header => header.Value)),
+                                StringComparer.OrdinalIgnoreCase);
         }
 
         protected void VerifyResponse<T>(RestResponse response, string methodName)
