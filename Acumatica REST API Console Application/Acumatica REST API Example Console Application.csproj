@@ -7,9 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="Acumatica.Default_20.200.001" Version="2.0.0" />
-    <PackageReference Include="Acumatica.RESTClient" Version="2.5.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp" Version="108.0.2" />
+    <PackageReference Include="Acumatica.RESTClient" Version="3.2.0" />
+    <PackageReference Include="Acumatica.RESTClient.CustomizationApi" Version="3.2.0" />
+    <PackageReference Include="Acumatica.RESTClient.ODataApi" Version="3.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="RestSharp" Version="108.0.3" />
 	  <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
   </ItemGroup>
 

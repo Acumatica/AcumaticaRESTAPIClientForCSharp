@@ -1,20 +1,15 @@
 ﻿using System;
 
 using Acumatica.Auth.Api;
-using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient;
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ODataApi;
 
 using static Acumatica.Auth.Api.AuthApi;
 
-using Version = Acumatica.RESTClient.ODataVersion;
-using Acumatica.RESTClient.Client;
-
 namespace AcumaticaRestApiExample
 {
-    public class ODataExample
-		
+	public class ODataExample
 	{
-		
 		public static void OauthExample(string siteURL, string username, string password, string clientSecret, string clientID, string tenant = null)
 		{
 			Console.WriteLine("OData with Oauth authentication");
@@ -22,7 +17,7 @@ namespace AcumaticaRestApiExample
 				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
 			var configuration = authApi.ReceiveAccessToken(clientID, clientSecret, username, password, OAuthScope.API);
 			
-			ODataAPI ODataOauthExample = new ODataAPI(configuration, Version.OData);
+			ODataAPI ODataOauthExample = new ODataAPI(configuration, ODataVersion.OData);
 			var response = ODataOauthExample.Get();
 			Console.WriteLine(response);
 		}

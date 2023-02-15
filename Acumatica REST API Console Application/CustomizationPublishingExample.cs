@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient;
-using AcumaticaRestApiExample;
-using Acumatica.Auth.Api;
 using System.IO;
-using Acumatica.Auth.Model;
+
+using Acumatica.Auth.Api;
+using Acumatica.RESTClient.CustomizationApi;
+
+using AcumaticaRestApiExample;
 
 namespace Acumatica_REST_API_Example_Console_Application
 {
