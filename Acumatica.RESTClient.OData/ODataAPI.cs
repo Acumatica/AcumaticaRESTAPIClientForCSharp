@@ -8,37 +8,66 @@ using RestSharp.Authenticators;
 
 namespace Acumatica.RESTClient.ODataApi
 {
-
     public class ODataAPI : BaseApi
     {
-      
         protected ODataVersion Version;
         protected string Tenant;
-        
-        public ODataAPI(Configuration configuration, ODataVersion version, string tenant=null): base(configuration)
+
+        public ODataAPI(Configuration configuration, ODataVersion version, string tenant = null) : base(configuration)
         {
             Version = version;
             Tenant = tenant;
         }
-      
-       
-        public ApiResponse<string> Get(string resource = null, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        public ApiResponse<string> GetMetadata()
         {
-            var path = ConfigureResourcePath(ConfigurePath(), resource);
-
-            if(this.Configuration.Token==null && (this.Configuration.Username == null && this.Configuration.Password == null))
+            return GetOData("$metadata");
+        }
+        public ApiResponse<string> GetOData(string resource, string select = null, string filter = null, string expand = null, int? skip = null, int? top = null)
+        {
+            if (Configuration.Token == null && (Configuration.Username == null && Configuration.Password == null))
             {
                 throw new Exception("Either token or username/password  pair have to be provided");
             }
 
             //Basic authentication
-            if (this.Configuration.Token == null)
+            if (Configuration.Token == null)
+            {
+                BasicAuthentication(Configuration.ApiClient.RestClient);
+            }
+
+            //Oauth authentication
+            RestResponse response = Configuration.ApiClient.CallApiAsync(
+                ConfigurePath(resource), 
+                Method.Get, 
+                ComposeQueryParams(select, filter, expand, null, skip, top), 
+                null, 
+                ComposeAcceptHeaders(HeaderContentType.Json), 
+                ComposeEmptyFormParams(), 
+                ComposeEmptyFileParams(), 
+                ComposeEmptyPathParams(), 
+                ComposeContentHeaders(HeaderContentType.Json)
+            ).Result;
+
+            VerifyResponse(response, nameof(GetOData));
+            return DeserializeResponse<string>(response);
+        }
+
+        [Obsolete("Use GetOdata and GetMetadata methods instead" )]
+        public ApiResponse<string> Get(string resource = null, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        {
+            if(Configuration.Token==null && (Configuration.Username == null && Configuration.Password == null))
+            {
+                throw new Exception("Either token or username/password  pair have to be provided");
+            }
+
+            //Basic authentication
+            if (Configuration.Token == null)
             {
                 BasicAuthentication(Configuration.ApiClient.RestClient);
             }
             
             //Oauth authentication
-            RestResponse response = Configuration.ApiClient.CallApiAsync(path, Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
+            RestResponse response = Configuration.ApiClient.CallApiAsync(ConfigurePath(resource), Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
             VerifyResponse(response, nameof(Get));
             return DeserializeResponse<string>(response);
         }
@@ -49,32 +78,18 @@ namespace Acumatica.RESTClient.ODataApi
         /// <summary>
 		/// Configures the base path according to version of OData and tenant, if exists.
 		/// </summary>
-        private string ConfigurePath()
+        private string ConfigurePath(string resource)
         {
-            string path;
-            if (Tenant == null)
-            {
-                path = this.Configuration.BasePath + "/" + Version;
-            }
-            else
-            {;
-                path = GetBasePath() + "/" + Version + "/" + Tenant;
-            }
-            return path;
-        }
-
-        private string ConfigureResourcePath(string path, string resource = null)
-        {
-            if (resource != null)
-            {
-                path = path + "/" + resource;
-            }
-            return path;
+            return string.IsNullOrEmpty(Tenant) 
+                 ?
+                 $"{Configuration.BasePath}/{Version}/{resource}" 
+                 : 
+                 $"{Configuration.BasePath}/{Version}/{Tenant}/{resource}";
         }
  
         private void BasicAuthentication(RestClient client)
         {
-            client.Authenticator = new HttpBasicAuthenticator(this.Configuration.Username, this.Configuration.Password);
+            client.Authenticator = new HttpBasicAuthenticator(Configuration.Username, Configuration.Password);
         }
         
 
