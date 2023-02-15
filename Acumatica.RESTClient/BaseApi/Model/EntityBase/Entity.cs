@@ -22,13 +22,16 @@ namespace Acumatica.RESTClient.Model
             get
             {
                 List<CustomField> customFields = new List<CustomField>();
-                foreach (var view in Custom)
+                if (Custom != null)
                 {
-                    foreach (var field in view.Value)
+                    foreach (var view in Custom)
                     {
-                        field.Value.fieldName = field.Key;
-                        field.Value.viewName = view.Key;
-                        customFields.Add(field.Value);
+                        foreach (var field in view.Value)
+                        {
+                            field.Value.fieldName = field.Key;
+                            field.Value.viewName = view.Key;
+                            customFields.Add(field.Value);
+                        }
                     }
                 }
                 return customFields.ToArray();
