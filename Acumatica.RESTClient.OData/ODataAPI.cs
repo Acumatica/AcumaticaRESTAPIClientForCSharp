@@ -34,11 +34,12 @@ namespace Acumatica.RESTClient.ODataApi
             //Basic authentication
             if (this.Configuration.Token == null)
             {
-                BasicAuthentication(this.Configuration.ApiClient.RestClient);
+                BasicAuthentication(Configuration.ApiClient.RestClient);
             }
             
             //Oauth authentication
-            RestResponse response = (RestResponse)Configuration.ApiClient.CallApiAsync(path, Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;         
+            RestResponse response = Configuration.ApiClient.CallApiAsync(path, Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
+            VerifyResponse(response, nameof(Get));
             return DeserializeResponse<string>(response);
         }
 
