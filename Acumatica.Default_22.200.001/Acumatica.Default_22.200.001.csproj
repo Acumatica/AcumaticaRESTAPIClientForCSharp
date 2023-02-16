@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
-	<Version>2.0.0</Version>
+	<Version>3.2.1</Version>
 	<Company>Acumatica</Company>
 	<Description>C# classes generated based on Acumatica Default endpoint version 22.200.001</Description>
 	<Copyright>Acumatica</Copyright>
@@ -12,6 +12,7 @@
 	<PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
 	<IncludeSymbols>True</IncludeSymbols>
 	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<PackageReleaseNotes>Updated dependencies versions</PackageReleaseNotes>
   </PropertyGroup>
 
    <ItemGroup>

@@ -2,14 +2,14 @@
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
-	<Version>2.0.0</Version>
+	<Version>3.2.1</Version>
 	<Company>Acumatica</Company>
 	<Description>C# classes generated based on Acumatica Default endpoint version 20.200.001</Description>
 	<Copyright>Acumatica</Copyright>
 	<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
 	<PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
-	<PackageReleaseNotes>Update .net version to .net standard 2.0</PackageReleaseNotes>
+	<PackageReleaseNotes>Updated dependencies versions</PackageReleaseNotes>
 	<PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
   </PropertyGroup>
 

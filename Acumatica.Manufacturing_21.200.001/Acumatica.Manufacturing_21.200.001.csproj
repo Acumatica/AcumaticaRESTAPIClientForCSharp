@@ -3,13 +3,13 @@
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	<PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-	<Version>2.0.0</Version>
+	<Version>3.2.1</Version>
 	<Company>Acumatica</Company>
 	<Copyright>Acumatica</Copyright>
 	<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
 	<PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
-	<PackageReleaseNotes>Updated .Net version to .net standard 2.0</PackageReleaseNotes>
+	<PackageReleaseNotes>Updated dependencies versions</PackageReleaseNotes>
 	<Description>C# classes generated based on Acumatica Manufacturing endpoint version 21.200.001</Description>
   </PropertyGroup>
 
