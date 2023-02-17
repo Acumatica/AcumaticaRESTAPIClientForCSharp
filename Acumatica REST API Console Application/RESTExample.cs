@@ -38,6 +38,39 @@ namespace AcumaticaRestApiExample
 
 				Console.WriteLine("CorrectShipment");
 				shipmentApi.WaitActionCompletion(shipmentApi.InvokeAction(new CorrectShipment(shipment)));
+
+                Console.WriteLine("File Uploade/Download");
+                order = salesOrderApi.GetByKeys(new List<string>() { "SO", "SO005207"}, expand: "files");
+
+                byte[] initialData = Encoding.UTF8.GetBytes("Acumatica is awesome");
+                string fileName = "TestFile.txt";
+                salesOrderApi.PutFile("SO/SO005207", fileName, initialData);
+                
+                order = salesOrderApi.GetByKeys(new List<string>() { "SO", "SO005207" }, expand: "files");
+
+                if (order.Files.Any(fl => fl.Filename.EndsWith(@"\" + fileName))){
+                    Console.WriteLine($"The file {fileName} was uploaded sucessfully");
+                }
+
+                Uri basePath = new Uri(siteURL);
+
+                foreach (FileLink fileLink in order.Files)
+                {
+                    var test = configuration.BasePath + fileLink.Href;
+                    var content = authApi.Configuration.ApiClient.RestClient.DownloadData(new RestRequest(basePath.Scheme+ "://" + basePath.Authority + fileLink.Href));
+                    if (content != null && fileLink.Filename.EndsWith(@"\" + fileName))
+                    {
+                        if (content.SequenceEqual(initialData))
+                        {
+                            Console.WriteLine("The data is valid: " + Encoding.UTF8.GetString(content));
+                        }
+                        else
+                        {
+                            Console.WriteLine($"The file was corrupted: \r\n Intial \r\n {Encoding.UTF8.GetString(initialData)} \r\n  vs Current: \r\n {Encoding.UTF8.GetString(content)}");
+                        }
+                    }
+                }
+
 			}
 			catch (Exception e)
 			{

@@ -118,15 +118,12 @@ namespace Acumatica.RESTClient.Api
             if (filename == null)
                 ThrowMissingParameter("PutFile", nameof(filename));
 
-            var localVarPath = GetEndpointPath() + "/" + GetEntityName() + "/{ids}/files/{filename}";
-
-            var fileParams = ComposeEmptyFileParams();
-            fileParams.Add(filename, FileParameter.Create(filename, content, filename));
+            var localVarPath = GetEndpointPath() + "/" + GetEntityName() + $"/{string.Join("/", ids)}/files/{filename}";
 
             // make the HTTP request
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, ComposeEmptyQueryParams(), content, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), fileParams,
-                ComposeIDsPathParams(ids, filename), ComposeContentHeaders(HeaderContentType.None)).Result ;
+            RestRequest request = new RestRequest(new Uri(Configuration.BasePath +"/"+ localVarPath));
+            request.AddParameter("application/json", content, ParameterType.RequestBody, false);
+            RestResponse localVarResponse = Configuration.ApiClient.RestClient.PutAsync(request).Result;
 
             VerifyResponse<EntityType>(localVarResponse, "PutFile");
 
