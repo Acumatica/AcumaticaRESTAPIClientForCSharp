@@ -394,18 +394,39 @@ namespace Acumatica.RESTClient.Api
         /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Entity&gt;)</returns>
-        protected async Task<ApiResponse<List<EntityType>>> GetListAsyncWithHttpInfo(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        protected async Task<ApiResponse<List<EntityType>>> GetListAsyncWithHttpInfo(
+            string select = null, string filter = null, string expand = null, string custom = null,
+            int? skip = null, int? top = null, Dictionary<string, string> customHeaders = null)
         {
             var localVarPath = GetEndpointPath() + "/" + GetEntityName();
 
             // make the HTTP request
-            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
+            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
+                localVarPath,
+                Method.Get,
+                ComposeQueryParams(select, filter, expand, custom, skip, top),
+                null,
+                ConcatNullableDictionaries(ComposeAcceptHeaders(HeaderContentType.Json), customHeaders),
+                ComposeEmptyFormParams(),
+                ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(),
+                ComposeContentHeaders(HeaderContentType.None));
 
             VerifyResponse<EntityType>(localVarResponse, "GetList");
 
             return DeserializeResponse<List<EntityType>>(localVarResponse);
+        }
+
+        private Dictionary<string, string> ConcatNullableDictionaries(Dictionary<string, string> dictionaryA, Dictionary<string, string> dictionaryB)
+        {
+            if (dictionaryA == null && dictionaryB == null)
+                return null;
+            else if (dictionaryA == null)
+                return dictionaryB;
+            else if (dictionaryB == null)
+                return dictionaryA;
+            else
+                return dictionaryB.Concat(dictionaryA).ToDictionary(_ => _.Key, _ => _.Value);
         }
 
         /// <summary>
@@ -419,14 +440,23 @@ namespace Acumatica.RESTClient.Api
         /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
         /// <returns>ApiResponse of List&lt;Entity&gt;</returns>
-        protected ApiResponse<List<EntityType>> GetListWithHttpInfo(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        protected ApiResponse<List<EntityType>> GetListWithHttpInfo(
+            string select = null, string filter = null, string expand = null, string custom = null, 
+            int? skip = null, int? top = null, Dictionary<string, string> customHeaders = null)
         {
             var localVarPath = GetEndpointPath() + "/" + GetEntityName();
 
             // make the HTTP request
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
+            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+                localVarPath,
+                Method.Get,
+                ComposeQueryParams(select, filter, expand, custom, skip, top), 
+                null,
+                ConcatNullableDictionaries(ComposeAcceptHeaders(HeaderContentType.Json), customHeaders),
+                ComposeEmptyFormParams(), 
+                ComposeEmptyFileParams(),
+                ComposeEmptyPathParams(), 
+                ComposeContentHeaders(HeaderContentType.None)).Result;
 
             VerifyResponse<EntityType>(localVarResponse, "GetList");
 

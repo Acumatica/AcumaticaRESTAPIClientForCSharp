@@ -102,9 +102,11 @@ namespace Acumatica.RESTClient.Api
         /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
         /// <returns>Task of List&lt;Entity&gt;</returns>
-        public async Task<List<EntityType>> GetListAsync(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        public async Task<List<EntityType>> GetListAsync(
+            string select = null, string filter = null, string expand = null, string custom = null, 
+            int? skip = null, int? top = null, Dictionary<string, string> customHeaders = null)
         {
-            ApiResponse<List<EntityType>> localVarResponse = await GetListAsyncWithHttpInfo(select, filter, expand, custom, skip, top);
+            ApiResponse<List<EntityType>> localVarResponse = await GetListAsyncWithHttpInfo(select, filter, expand, custom, skip, top, customHeaders);
             return localVarResponse.Data;
 
         }
@@ -275,9 +277,11 @@ namespace Acumatica.RESTClient.Api
         /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
         /// <returns>List&lt;Entity&gt;</returns>
-        public List<EntityType> GetList(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        public List<EntityType> GetList(
+            string select = null, string filter = null, string expand = null, string custom = null, 
+            int? skip = null, int? top = null, Dictionary<string, string> customHeaders = null)
         {
-            ApiResponse<List<EntityType>> localVarResponse = GetListWithHttpInfo(select, filter, expand, custom, skip, top);
+            ApiResponse<List<EntityType>> localVarResponse = GetListWithHttpInfo(select, filter, expand, custom, skip, top, customHeaders);
             return localVarResponse.Data;
         }
 
