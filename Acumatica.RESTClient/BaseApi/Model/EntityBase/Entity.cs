@@ -77,7 +77,9 @@ namespace Acumatica.RESTClient.Model
         public string Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets Custom
+        /// Dictionary containing ViewName as a key. 
+        /// The value in the Dictionary is another Dictionary that contains 
+        /// FieldName as Key.
         /// </summary>
         [DataMember(Name="custom", EmitDefaultValue=false)]
         public Dictionary<string, Dictionary<string, CustomField>> Custom { get; set; }
