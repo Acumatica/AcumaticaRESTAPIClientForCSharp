@@ -14,12 +14,12 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="CustomDoubleField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomDoubleField() { }
+        protected CustomDoubleField() : base(nameof(CustomDoubleField)) { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomDoubleField" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public CustomDoubleField(double? value = default(double?), string type = default(string)) : base(type)
+        public CustomDoubleField(double? value = default(double?), string type = nameof(CustomDoubleField)) : base(nameof(CustomDoubleField))
         {
             this.Value = value;
         }

@@ -14,12 +14,12 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="CustomShortField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomShortField() { }
+        protected CustomShortField() : base(nameof(CustomShortField)) { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomShortField" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public CustomShortField(short? value = default(short?), string type = default(string)) : base(type)
+        public CustomShortField(short? value = default(short?), string type = nameof(CustomShortField)) : base(nameof(CustomShortField))
         {
             this.Value = value;
         }

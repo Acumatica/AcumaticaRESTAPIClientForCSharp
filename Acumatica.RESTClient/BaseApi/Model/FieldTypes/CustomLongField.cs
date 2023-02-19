@@ -14,12 +14,12 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="CustomLongField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomLongField() { }
+        protected CustomLongField(): base(nameof(CustomLongField)) { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomLongField" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public CustomLongField(long? value = default(long?), string type = default(string)) : base(type)
+        public CustomLongField(long? value = default(long?), string type = nameof(CustomLongField)) : base(nameof(CustomLongField))
         {
             this.Value = value;
         }

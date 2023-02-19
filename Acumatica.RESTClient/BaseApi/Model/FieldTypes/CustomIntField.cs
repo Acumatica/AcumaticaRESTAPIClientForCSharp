@@ -14,12 +14,12 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="CustomIntField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomIntField() { }
+        protected CustomIntField() : base(nameof(CustomIntField)) { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomIntField" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public CustomIntField(int? value = default(int?), string type = default(string)) : base(type)
+        public CustomIntField(int? value = default(int?), string type = nameof(CustomIntField)) : base(nameof(CustomIntField))
         {
             this.Value = value;
         }

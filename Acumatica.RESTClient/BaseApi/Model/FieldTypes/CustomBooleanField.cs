@@ -14,12 +14,12 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="CustomBooleanField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomBooleanField() { }
+        protected CustomBooleanField() : base(nameof(CustomBooleanField)) { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomBooleanField" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public CustomBooleanField(bool? value = default(bool?), string type = default(string)) : base(type)
+        public CustomBooleanField(bool? value = default(bool?), string type = nameof(CustomBooleanField)) : base(nameof(CustomBooleanField))
         {
             this.Value = value;
         }

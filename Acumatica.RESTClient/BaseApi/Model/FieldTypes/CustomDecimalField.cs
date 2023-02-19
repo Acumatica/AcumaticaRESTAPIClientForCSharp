@@ -14,12 +14,12 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="CustomDecimalField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomDecimalField() { }
+        protected CustomDecimalField() : base(nameof(CustomDecimalField)) { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomDecimalField" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public CustomDecimalField(decimal? value = default(decimal?), string type = default(string)) : base(type)
+        public CustomDecimalField(decimal? value = default(decimal?), string type = nameof(CustomDecimalField)) : base(nameof(CustomDecimalField))
         {
             this.Value = value;
         }

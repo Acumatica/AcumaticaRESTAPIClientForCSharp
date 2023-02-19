@@ -14,12 +14,12 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="CustomDateTimeField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomDateTimeField() { }
+        protected CustomDateTimeField() : base(nameof(CustomDateTimeField)) { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomDateTimeField" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public CustomDateTimeField(DateTime? value = default(DateTime?), string type = default(string)) : base(type)
+        public CustomDateTimeField(DateTime? value = default(DateTime?), string type = nameof(CustomDateTimeField)) : base(nameof(CustomDateTimeField))
         {
             this.Value = value;
         }

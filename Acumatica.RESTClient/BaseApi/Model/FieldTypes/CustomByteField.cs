@@ -14,12 +14,12 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="CustomByteField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomByteField() { }
+        protected CustomByteField() : base(nameof(CustomByteField)) { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomByteField" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public CustomByteField(byte? value = default(byte?), string type = default(string)) : base(type)
+        public CustomByteField(byte? value = default(byte?), string type = nameof(CustomByteField)) : base(nameof(CustomByteField))
         {
             this.Value = value;
         }

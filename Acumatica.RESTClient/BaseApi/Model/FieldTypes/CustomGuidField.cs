@@ -14,12 +14,12 @@ namespace Acumatica.RESTClient.Model
         /// Initializes a new instance of the <see cref="CustomGuidField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomGuidField() { }
+        protected CustomGuidField() : base(nameof(CustomGuidField)) { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomGuidField" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        public CustomGuidField(Guid? value = default(Guid?), string type = default(string)) : base(type)
+        public CustomGuidField(Guid? value = default(Guid?), string type = nameof(CustomGuidField)) : base(nameof(CustomGuidField))
         {
             this.Value = value;
         }
