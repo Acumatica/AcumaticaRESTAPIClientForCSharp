@@ -187,7 +187,7 @@ namespace Acumatica.RESTClient.CustomizationApi
                 "/CustomizationApi/PublishEnd",
                 Method.Post,
                 ComposeEmptyQueryParams(),
-                "",
+                null,
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeEmptyFormParams(),
                 null,
