@@ -15,32 +15,37 @@ namespace Acumatica.RESTClient.FileApi
 		{
 		}
 
-		public System.IO.Stream GetFile(FileLink fileLink)
+		public Stream GetFile(FileLink fileLink)
 		{
 			return GetFile(fileLink.Href);
 		}
-		public System.IO.Stream GetFile(Guid fileID, string endpointName, string endpointVersion)
-		{
-			throw new NotImplementedException();
-		}
-		public System.IO.Stream GetFile(string href)
+        public Stream GetFile(string href)
         {
-			// make the HTTP request
-			RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
-				href,
-                Method.Get, 
-				ComposeEmptyQueryParams(), 
-				null, 
-				ComposeAcceptHeaders(HeaderContentType.OctetStream), 
-				ComposeEmptyFormParams(),
-				ComposeEmptyFileParams(),
-				ComposeEmptyPathParams(),
-				ComposeContentHeaders(HeaderContentType.Json)
-				).Result;
-
-            VerifyResponse<FileLink>(localVarResponse, "GetFile");
-			MemoryStream stream = new MemoryStream(localVarResponse.RawBytes);
-			return stream;
+            var parsedLocation = UrlParser.ParseFileLocation(href);
+            return GetFile(parsedLocation.ID, parsedLocation.EndpointName, parsedLocation.EndpointVersion);
         }
+        public Stream GetFile(Guid fileID, string endpointName, string endpointVersion)
+        {
+            return GetFile(fileID.ToString(), endpointName, endpointVersion);
+        }
+        public Stream GetFile(string fileID, string endpointName, string endpointVersion)
+		{
+            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+                $"/entity/{endpointName}/{endpointVersion}/files/{fileID}",
+                Method.Get,
+                ComposeEmptyQueryParams(),
+                null,
+                ComposeAcceptHeaders(HeaderContentType.OctetStream),
+                ComposeEmptyFormParams(),
+                ComposeEmptyFileParams(),
+                null,
+                ComposeContentHeaders(HeaderContentType.Json)
+                ).Result;
+
+            VerifyResponse(localVarResponse, nameof(GetFile));
+            MemoryStream stream = new MemoryStream(localVarResponse.RawBytes);
+            return stream;
+        }
+
     }
 }

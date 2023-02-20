@@ -66,12 +66,16 @@ namespace Acumatica.RESTClient.RootApi
         /// <returns>ApiResponse of VersionAndEndpoints</returns>
         protected ApiResponse<VersionAndEndpoints> RootGetWithHttpInfo()
         {
-            var localVarPath = "/entity";
-
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None)).Result;
+            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+                "/entity",
+                Method.Get, 
+                ComposeEmptyQueryParams(), 
+                null, 
+                ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), 
+                ComposeEmptyFormParams(),
+                ComposeEmptyFileParams(),
+                null, 
+                ComposeContentHeaders(HeaderContentType.None)).Result;
 
             VerifyResponse(localVarResponse, "RootGet");
 
@@ -86,12 +90,16 @@ namespace Acumatica.RESTClient.RootApi
         /// <returns>Task of ApiResponse (VersionAndEndpoints)</returns>
         protected async System.Threading.Tasks.Task<ApiResponse<VersionAndEndpoints>> RootGetAsyncWithHttpInfo()
         {
-            var localVarPath = "/entity";
-
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, ComposeEmptyQueryParams(), null, ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), ComposeEmptyFormParams(), ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.None));
+            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
+                "/entity",
+                Method.Get, 
+                ComposeEmptyQueryParams(), 
+                null, 
+                ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), 
+                ComposeEmptyFormParams(), 
+                ComposeEmptyFileParams(),
+                null, 
+                ComposeContentHeaders(HeaderContentType.None));
 
             VerifyResponse(localVarResponse, "RootGet");
 

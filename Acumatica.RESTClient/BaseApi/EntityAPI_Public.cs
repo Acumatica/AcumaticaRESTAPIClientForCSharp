@@ -196,7 +196,7 @@ namespace Acumatica.RESTClient.Api
         {
             PutFileWithHttpInfo(new List<string>() { id }, filename, content);
         }
-        public async System.Threading.Tasks.Task PutFileAsync(string id, string filename, byte[] content)
+        public async Task PutFileAsync(string id, string filename, byte[] content)
         {
             await PutFileAsyncWithHttpInfo(new List<string>() { id }, filename, content);
         }
@@ -218,7 +218,7 @@ namespace Acumatica.RESTClient.Api
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PutFileAsync(IEnumerable<string> ids, string filename, byte[] content)
+        public async Task PutFileAsync(IEnumerable<string> ids, string filename, byte[] content)
         {
             await PutFileAsyncWithHttpInfo(ids, filename, content);
         }

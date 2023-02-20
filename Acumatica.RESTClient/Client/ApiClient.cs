@@ -267,26 +267,47 @@ namespace Acumatica.RESTClient.Client
         {
             var request = new RestRequest(path, method);
 
-            // add path parameter, if any
-            foreach (var param in pathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-
-            // add header parameter, if any
-            foreach (var param in headerParams)
-                request.AddHeader(param.Key, param.Value);
-
-            // add query parameter, if any
-            foreach (var param in queryParams)
-                request.AddQueryParameter(param.Key, param.Value);
-
-            // add form parameter, if any
-            foreach (var param in formParams)
-                request.AddParameter(param.Key, param.Value);
-
-            // add file parameter, if any
-            foreach (var param in fileParams)
+            if (pathParams != null)
             {
-                request.AddFile(param.Value.Name, param.Value.GetFile, param.Value.FileName, param.Value.ContentType);
+                // add path parameter, if any
+                foreach (var param in pathParams)
+                {
+                    request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
+                }
+            }
+
+            if (headerParams != null)
+            {
+                // add header parameter, if any
+                foreach (var param in headerParams)
+                {
+                    request.AddHeader(param.Key, param.Value);
+                }
+            }
+
+            if (queryParams != null)
+            {
+                // add query parameter, if any
+                foreach (var param in queryParams)
+                {
+                    request.AddQueryParameter(param.Key, param.Value);
+                }
+            }
+
+            if (formParams != null)
+            {
+                // add form parameter, if any
+                foreach (var param in formParams)
+                    request.AddParameter(param.Key, param.Value);
+            }
+
+            if (fileParams != null)
+            {
+                // add file parameter, if any
+                foreach (var param in fileParams)
+                {
+                    request.AddFile(param.Value.Name, param.Value.GetFile, param.Value.FileName, param.Value.ContentType);
+                }
             }
 
             if (postBody != null) // http body (model or byte[]) parameter

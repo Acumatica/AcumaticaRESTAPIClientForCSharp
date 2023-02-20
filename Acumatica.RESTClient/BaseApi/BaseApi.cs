@@ -148,6 +148,7 @@ namespace Acumatica.RESTClient.Api
         {
             return new List<KeyValuePair<String, String>>();
         }
+        [Obsolete ("You can just send null")]
         protected Dictionary<string, string> ComposeEmptyPathParams()
         {
             return new Dictionary<String, String>();

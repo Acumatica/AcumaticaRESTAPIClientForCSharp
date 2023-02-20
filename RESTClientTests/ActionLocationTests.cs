@@ -33,7 +33,7 @@ namespace RESTClientTests
 			string expectedAction,
 			string inputLocation)
 		{
-			var parsedLocation = EntityAPI<Entity>.ParseLocation(
+			var parsedLocation = UrlParser.ParseActionLocation(
 				string.Format(inputLocation, expectedSite, expectedEndpoint, expectedEdnpointVersion, expectedAction));
 			parsedLocation.EndpointName.Should().Be(expectedEndpoint);
 			parsedLocation.EndpointVersion.Should().Be(expectedEdnpointVersion);
@@ -50,7 +50,7 @@ namespace RESTClientTests
 		[InlineData("https://int.acumatica.com/TestsSite", "Default", "{0}/entity/{1}/18.200.001/Bill")]
 		public void ParseLocationTestWithoutAction(string expectedSite, string expectedEndpoint, string inputLocation)
 		{
-			var parsedLocation = EntityAPI<Entity>.ParseLocation(string.Format(inputLocation, expectedSite, expectedEndpoint));
+			var parsedLocation = UrlParser.ParseActionLocation(string.Format(inputLocation, expectedSite, expectedEndpoint));
 			parsedLocation.EndpointName.Should().Be(expectedEndpoint);
 			parsedLocation.EndpointVersion.Should().Be("18.200.001");
 			parsedLocation.ActionName.Should().BeNull();
