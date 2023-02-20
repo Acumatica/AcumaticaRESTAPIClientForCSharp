@@ -43,8 +43,8 @@ namespace Acumatica.RESTClient.ODataApi
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(), 
-                ComposeEmptyPathParams(), 
+                null, 
+                null, 
                 ComposeContentHeaders(HeaderContentType.Json)
             ).Result;
 
@@ -67,7 +67,16 @@ namespace Acumatica.RESTClient.ODataApi
             }
             
             //Oauth authentication
-            RestResponse response = Configuration.ApiClient.CallApiAsync(ConfigurePath(resource), Method.Get, ComposeQueryParams(select, filter, expand, custom, skip, top), null, ComposeAcceptHeaders(HeaderContentType.Json), ComposeEmptyFormParams(), ComposeEmptyFileParams(), ComposeEmptyPathParams(), ComposeContentHeaders(HeaderContentType.Json)).Result;
+            RestResponse response = Configuration.ApiClient.CallApiAsync(
+                ConfigurePath(resource), 
+                Method.Get, 
+                ComposeQueryParams(select, filter, expand, custom, skip, top), 
+                null, 
+                ComposeAcceptHeaders(HeaderContentType.Json), 
+                ComposeEmptyFormParams(), 
+                ComposeEmptyFileParams(), 
+                ComposeEmptyPathParams(), 
+                ComposeContentHeaders(HeaderContentType.Json)).Result;
             VerifyResponse(response, nameof(Get));
             return DeserializeResponse<string>(response);
         }

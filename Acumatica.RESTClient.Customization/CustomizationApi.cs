@@ -40,16 +40,15 @@ namespace Acumatica.RESTClient.CustomizationApi
             customizationImport.IsReplaceIfExists = replaceIfExists;
             customizationImport.ProjectContentBase64 = ConvertToBase64(customizationPackageContent);
 
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
                 ComposeBody(customizationImport),
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(),
+                null,
+                null,
                 ComposeContentHeaders(HeaderContentType.Json)).Result;
 
             VerifyResponse(localVarResponse, "Import");
@@ -167,16 +166,16 @@ namespace Acumatica.RESTClient.CustomizationApi
                 case TenantMode.All: publishParams.TenantMode = "All"; break;
             }
 
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
+
+            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
                 localVarPath,
                 Method.Post,
                 ComposeEmptyQueryParams(),
                 ComposeBody(publishParams),
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(),
+                null,
+                null,
                 ComposeContentHeaders(HeaderContentType.Json)).Result;
 
             VerifyResponse(localVarResponse, "PublishBegin");
@@ -184,18 +183,15 @@ namespace Acumatica.RESTClient.CustomizationApi
         }
         public CustomizationPublishEnd CustomizationPublishEnd()
         {
-            var localVarPath = "/CustomizationApi/PublishEnd";
-
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)this.Configuration.ApiClient.CallApiAsync(
-                localVarPath,
+            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+                "/CustomizationApi/PublishEnd",
                 Method.Post,
                 ComposeEmptyQueryParams(),
                 "",
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(),
+                null,
+                null,
                 ComposeContentHeaders(HeaderContentType.Json)).Result;
 
             VerifyResponse(localVarResponse, "PublishEnd");

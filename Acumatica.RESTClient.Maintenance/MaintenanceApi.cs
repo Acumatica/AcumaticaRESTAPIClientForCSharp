@@ -14,18 +14,15 @@ namespace Acumatica.RESTClient.MaintenanceApi
      
         public void PutSchema(string endpointXML)
         {
-            var localVarPath = "/entity/maintenance/23.200/";
-
-            // make the HTTP request
             RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
-                localVarPath,
+                "/entity/maintenance/23.200/",
                 Method.Post,
                 ComposeEmptyQueryParams(),
                 endpointXML,
                 ComposeAcceptHeaders(HeaderContentType.Xml),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(),
+                null,
+                null,
                 ComposeContentHeaders(HeaderContentType.Xml)).Result;
 
             VerifyResponse(localVarResponse, "PutSchema");
@@ -33,18 +30,16 @@ namespace Acumatica.RESTClient.MaintenanceApi
 
         public string GetSchema(string endpointName, string endpointVersion)
         {
-            var localVarPath = $"/entity/maintenance/23.200/{endpointName}/{endpointVersion}";
 
-            // make the HTTP request
             RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
-                localVarPath,
+                $"/entity/maintenance/23.200/{endpointName}/{endpointVersion}",
                 Method.Get,
                 ComposeEmptyQueryParams(),
                 null,
                 ComposeAcceptHeaders(HeaderContentType.Xml),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
-                ComposeEmptyPathParams(),
+                null,
+                null,
                 ComposeContentHeaders(HeaderContentType.Xml)).Result;
 
             VerifyResponse(localVarResponse, "GetSchema"); 
