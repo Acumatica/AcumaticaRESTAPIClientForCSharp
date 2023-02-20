@@ -49,9 +49,6 @@ namespace Acumatica.RESTClient.Api
             if (filename == null)
                 ThrowMissingParameter("PutFile", nameof(filename));
 
-            var fileParams = ComposeEmptyFileParams();
-            fileParams.Add(filename, FileParameter.Create(filename, content, filename));
-
             RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{string.Join("/", ids)}/files/{filename}",
                 Method.Put, 
@@ -59,9 +56,9 @@ namespace Acumatica.RESTClient.Api
                 content, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeEmptyFormParams(), 
-                fileParams,
+                null,
                 null, 
-                ComposeContentHeaders(HeaderContentType.None)).Result ;
+                ComposeContentHeaders(HeaderContentType.OctetStream)).Result ;
 
             VerifyResponse<EntityType>(localVarResponse, "PutFile");
 
@@ -82,10 +79,6 @@ namespace Acumatica.RESTClient.Api
             if (filename == null)
                 ThrowMissingParameter("PutFile", nameof(filename));
 
-
-            var fileParams = ComposeEmptyFileParams();
-            fileParams.Add(filename, FileParameter.Create(filename, content, filename));
-
             RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{string.Join("/", ids)}/files/{filename}",
                 Method.Put, 
@@ -93,9 +86,9 @@ namespace Acumatica.RESTClient.Api
                 content, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeEmptyFormParams(), 
-                fileParams,
+                null,
                 null, 
-                ComposeContentHeaders(HeaderContentType.None));
+                ComposeContentHeaders(HeaderContentType.OctetStream));
 
             VerifyResponse<EntityType>(localVarResponse, "PutFile");
 
@@ -125,7 +118,7 @@ namespace Acumatica.RESTClient.Api
                 ComposeBody(action), 
                 ComposePutHeaders(HeaderContentType.Json, PutMethod.Any, businessDate, branch),
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.Json)).Result;
 
@@ -155,7 +148,7 @@ namespace Acumatica.RESTClient.Api
                 ComposeBody(action),
                 ComposePutHeaders(HeaderContentType.Json, PutMethod.Any, businessDate, branch),
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.Json));
 
@@ -179,7 +172,7 @@ namespace Acumatica.RESTClient.Api
                 null,
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
+                null,
                 null,
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -219,7 +212,7 @@ namespace Acumatica.RESTClient.Api
                 ComposeBody(entity),
                 ComposePutHeaders(HeaderContentType.Json, method, businessDate, branch), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.Json)).Result;
 
@@ -253,7 +246,7 @@ namespace Acumatica.RESTClient.Api
                 ComposeBody(entity),
                 ComposePutHeaders(HeaderContentType.Json, method, businessDate, branch), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
 				null, 
                 ComposeContentHeaders(HeaderContentType.Json));
 
@@ -310,7 +303,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None));
 
@@ -341,7 +334,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -372,7 +365,7 @@ namespace Acumatica.RESTClient.Api
                 null,
                 ConcatNullableDictionaries(ComposeAcceptHeaders(HeaderContentType.Json), customHeaders),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
+                null,
                 null,
                 ComposeContentHeaders(HeaderContentType.None));
 
@@ -404,7 +397,7 @@ namespace Acumatica.RESTClient.Api
                 null,
                 ConcatNullableDictionaries(ComposeAcceptHeaders(HeaderContentType.Json), customHeaders),
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -435,7 +428,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None));
 
@@ -466,7 +459,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -492,7 +485,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None));
 
@@ -515,7 +508,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -544,7 +537,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Any), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None));
 
@@ -571,7 +564,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Any), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -598,7 +591,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Any), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None));
 
@@ -625,7 +618,7 @@ namespace Acumatica.RESTClient.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Any), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 

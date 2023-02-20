@@ -140,6 +140,7 @@ namespace Acumatica.RESTClient.Api
             }
             set { _exceptionFactory = value; }
         }
+        [Obsolete("You can just send null")]
         protected Dictionary<string, FileParameter> ComposeEmptyFileParams()
         {
             return new Dictionary<String, FileParameter>();

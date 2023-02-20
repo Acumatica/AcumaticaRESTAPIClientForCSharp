@@ -37,7 +37,7 @@ namespace Acumatica.RESTClient.FileApi
                 null,
                 ComposeAcceptHeaders(HeaderContentType.OctetStream),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
+                null,
                 null,
                 ComposeContentHeaders(HeaderContentType.Json)
                 ).Result;

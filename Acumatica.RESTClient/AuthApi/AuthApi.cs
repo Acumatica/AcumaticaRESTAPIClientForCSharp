@@ -215,7 +215,7 @@ namespace Acumatica.Auth.Api
                 }),
                 ComposeAcceptHeaders(HeaderContentType.None),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
+                null,
                 null,
                 ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
 
@@ -244,7 +244,7 @@ namespace Acumatica.Auth.Api
                 }),
                 ComposeAcceptHeaders(HeaderContentType.None),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
+                null,
                 null,
                 ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
 
@@ -270,7 +270,7 @@ namespace Acumatica.Auth.Api
                 string.Empty,
                 ComposeAcceptHeaders(HeaderContentType.None),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
+                null,
                 null,
                 ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
 
@@ -299,7 +299,7 @@ namespace Acumatica.Auth.Api
                 }),
                 ComposeAcceptHeaders(HeaderContentType.None),
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
+                null,
                 null,
                 ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
 
@@ -339,7 +339,7 @@ namespace Acumatica.Auth.Api
                 ComposeBody(credentials), 
                 ComposeAcceptHeaders(HeaderContentType.None), 
                 null, 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm)).Result;
 
@@ -366,7 +366,7 @@ namespace Acumatica.Auth.Api
                 ComposeBody(credentials), 
                 ComposeAcceptHeaders(HeaderContentType.None), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
 
@@ -390,7 +390,7 @@ namespace Acumatica.Auth.Api
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.None), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -414,7 +414,7 @@ namespace Acumatica.Auth.Api
                 null,
                 ComposeAcceptHeaders(HeaderContentType.None),
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None));
 

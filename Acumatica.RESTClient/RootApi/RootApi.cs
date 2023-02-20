@@ -73,7 +73,7 @@ namespace Acumatica.RESTClient.RootApi
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), 
                 ComposeEmptyFormParams(),
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 
@@ -97,7 +97,7 @@ namespace Acumatica.RESTClient.RootApi
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), 
                 ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(),
+                null,
                 null, 
                 ComposeContentHeaders(HeaderContentType.None));
 
