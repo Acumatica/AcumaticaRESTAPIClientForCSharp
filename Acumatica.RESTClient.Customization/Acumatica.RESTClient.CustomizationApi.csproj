@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>Acumatica REST API for Publishing Customization Packages</Title>
-    <Version>3.3.5</Version>
+    <Version>3.5.0</Version>
     <Company>Acumatica</Company>
     <Description>An extension for Acumatica REST API client for C# allowing interaction with Customization packages via API</Description>
     <Copyright>Acumatica</Copyright>
@@ -15,7 +15,7 @@
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <Authors>Dmitrii-Naumov</Authors>
-    <PackageReleaseNotes>Fixed bug in PublishEnd</PackageReleaseNotes>
+    <PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

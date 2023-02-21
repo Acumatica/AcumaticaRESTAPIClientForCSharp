@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>Acumatica REST API for Accessing OData</Title>
-    <Version>3.3.0</Version>
+    <Version>3.5.0</Version>
     <Authors>Dmitrii-Naumov</Authors>
     <Company>Acumatica</Company>
     <Description>An extension for Acumatica REST API client for C# allowing interaction with OData API</Description>
@@ -15,7 +15,7 @@
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-    <PackageReleaseNotes>Changed the way tenants are composed for URL</PackageReleaseNotes>
+    <PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
