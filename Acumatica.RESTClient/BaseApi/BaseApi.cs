@@ -27,7 +27,7 @@ namespace Acumatica.RESTClient.Api
 
         }
 
-        protected ApiClient ApiClient { get; set; }
+        public ApiClient ApiClient { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseApi"/> class
         /// using Configuration object
