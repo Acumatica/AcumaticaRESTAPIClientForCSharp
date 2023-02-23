@@ -29,7 +29,7 @@ namespace Acumatica.RESTClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public EntityAPI(Configuration configuration) : base(configuration)
+        public EntityAPI(ApiClient configuration) : base(configuration)
         { }
         #endregion
 

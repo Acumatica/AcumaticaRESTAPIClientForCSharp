@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class CheckApi : BaseEndpointApi<Check>
 	{
-		public CheckApi(Configuration configuration) : base(configuration)
+		public CheckApi(ApiClient client) : base(client)
 		{ }
 	}
 }

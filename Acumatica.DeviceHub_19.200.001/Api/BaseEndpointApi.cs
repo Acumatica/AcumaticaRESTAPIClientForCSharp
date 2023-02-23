@@ -7,7 +7,7 @@ namespace Acumatica.DeviceHub_19_200_001.Api
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
 		where EntityType : Entity
 	{
-		public BaseEndpointApi(Configuration configuration) : base(configuration)
+		public BaseEndpointApi(ApiClient client) : base(client)
 		{ }
 		public override string GetEndpointPath()
 		{

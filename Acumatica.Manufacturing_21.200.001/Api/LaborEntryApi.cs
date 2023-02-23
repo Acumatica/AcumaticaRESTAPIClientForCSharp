@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class LaborEntryApi : BaseEndpointApi<LaborEntry>
 	{
-		public LaborEntryApi(Configuration configuration) : base(configuration)
+		public LaborEntryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

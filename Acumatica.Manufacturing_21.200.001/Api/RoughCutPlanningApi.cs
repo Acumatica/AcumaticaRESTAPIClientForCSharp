@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class RoughCutPlanningApi : BaseEndpointApi<RoughCutPlanning>
 	{
-		public RoughCutPlanningApi(Configuration configuration) : base(configuration)
+		public RoughCutPlanningApi(ApiClient client) : base(client)
 		{ }
 	}
 }

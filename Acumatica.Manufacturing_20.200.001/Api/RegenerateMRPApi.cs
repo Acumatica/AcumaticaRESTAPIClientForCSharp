@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class RegenerateMRPApi : BaseEndpointApi<RegenerateMRP>
 	{
-		public RegenerateMRPApi(Configuration configuration) : base(configuration)
+		public RegenerateMRPApi(ApiClient client) : base(client)
 		{ }
 	}
 }

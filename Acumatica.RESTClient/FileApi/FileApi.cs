@@ -1,17 +1,17 @@
 ﻿using System;
 using System.IO;
+using System.Net.Http;
 
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.FileApi.Model;
 
-using RestSharp;
 
 namespace Acumatica.RESTClient.FileApi
 {
 	public class FileApi : BaseApi
 	{
-		public FileApi(Configuration configuration) : base(configuration)
+		public FileApi(ApiClient configuration) : base(configuration)
 		{
 		}
 
@@ -30,21 +30,16 @@ namespace Acumatica.RESTClient.FileApi
         }
         public Stream GetFile(string fileID, string endpointName, string endpointVersion)
 		{
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"/entity/{endpointName}/{endpointVersion}/files/{fileID}",
-                Method.Get,
-                ComposeEmptyQueryParams(),
+                HttpMethod.Get,
                 null,
                 ComposeAcceptHeaders(HeaderContentType.OctetStream),
-                ComposeEmptyFormParams(),
-                null,
-                null,
                 ComposeContentHeaders(HeaderContentType.Json)
                 ).Result;
 
             VerifyResponse(localVarResponse, nameof(GetFile));
-            MemoryStream stream = new MemoryStream(localVarResponse.RawBytes);
-            return stream;
+            return localVarResponse.Content.ReadAsStreamAsync().Result;
         }
 
     }

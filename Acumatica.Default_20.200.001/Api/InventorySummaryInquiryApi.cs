@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class InventorySummaryInquiryApi : BaseEndpointApi<InventorySummaryInquiry>
 	{
-		public InventorySummaryInquiryApi(Configuration configuration) : base(configuration)
+		public InventorySummaryInquiryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

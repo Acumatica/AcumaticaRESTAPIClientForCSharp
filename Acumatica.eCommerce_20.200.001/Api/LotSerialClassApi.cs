@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class LotSerialClassApi : BaseEndpointApi<LotSerialClass>
 	{
-		public LotSerialClassApi(Configuration configuration) : base(configuration)
+		public LotSerialClassApi(ApiClient client) : base(client)
 		{ }
 	}
 }

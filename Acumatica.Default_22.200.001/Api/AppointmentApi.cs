@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class AppointmentApi : BaseEndpointApi<Appointment>
 	{
-		public AppointmentApi(Configuration configuration) : base(configuration)
+		public AppointmentApi(ApiClient client) : base(client)
 		{ }
 	}
 }

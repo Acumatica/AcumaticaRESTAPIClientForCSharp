@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class ContractUsageApi : BaseEndpointApi<ContractUsage>
 	{
-		public ContractUsageApi(Configuration configuration) : base(configuration)
+		public ContractUsageApi(ApiClient client) : base(client)
 		{ }
 	}
 }

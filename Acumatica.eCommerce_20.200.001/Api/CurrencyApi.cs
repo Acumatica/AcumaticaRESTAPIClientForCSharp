@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class CurrencyApi : BaseEndpointApi<Currency>
 	{
-		public CurrencyApi(Configuration configuration) : base(configuration)
+		public CurrencyApi(ApiClient client) : base(client)
 		{ }
 	}
 }

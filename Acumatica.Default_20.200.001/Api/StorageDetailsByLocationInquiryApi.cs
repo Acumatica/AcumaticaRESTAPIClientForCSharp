@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class StorageDetailsByLocationInquiryApi : BaseEndpointApi<StorageDetailsByLocationInquiry>
 	{
-		public StorageDetailsByLocationInquiryApi(Configuration configuration) : base(configuration)
+		public StorageDetailsByLocationInquiryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

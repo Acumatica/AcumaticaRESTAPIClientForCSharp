@@ -6,7 +6,7 @@ namespace Acumatica.DeviceHub_19_200_001.Api
 {
 	public class ScannerApi : BaseEndpointApi<Scanner>
 	{
-		public ScannerApi(Configuration configuration) : base(configuration)
+		public ScannerApi(ApiClient client) : base(client)
 		{ }
 	}
 }

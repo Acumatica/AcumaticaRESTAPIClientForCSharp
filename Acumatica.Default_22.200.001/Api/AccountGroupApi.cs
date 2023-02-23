@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class AccountGroupApi : BaseEndpointApi<AccountGroup>
 	{
-		public AccountGroupApi(Configuration configuration) : base(configuration)
+		public AccountGroupApi(ApiClient client) : base(client)
 		{ }
 	}
 }

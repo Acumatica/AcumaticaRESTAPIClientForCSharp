@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class EmailApi : BaseEndpointApi<Email>
 	{
-		public EmailApi(Configuration configuration) : base(configuration)
+		public EmailApi(ApiClient client) : base(client)
 		{ }
 	}
 }

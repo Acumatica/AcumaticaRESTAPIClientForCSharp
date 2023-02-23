@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class StorageDetailsInquiryApi : BaseEndpointApi<StorageDetailsInquiry>
 	{
-		public StorageDetailsInquiryApi(Configuration configuration) : base(configuration)
+		public StorageDetailsInquiryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

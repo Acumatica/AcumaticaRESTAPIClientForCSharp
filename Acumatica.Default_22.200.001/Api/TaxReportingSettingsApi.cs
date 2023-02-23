@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class TaxReportingSettingsApi : BaseEndpointApi<TaxReportingSettings>
 	{
-		public TaxReportingSettingsApi(Configuration configuration) : base(configuration)
+		public TaxReportingSettingsApi(ApiClient client) : base(client)
 		{ }
 	}
 }

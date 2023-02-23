@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class ProductionAttributesApi : BaseEndpointApi<ProductionAttributes>
 	{
-		public ProductionAttributesApi(Configuration configuration) : base(configuration)
+		public ProductionAttributesApi(ApiClient client) : base(client)
 		{ }
 	}
 }

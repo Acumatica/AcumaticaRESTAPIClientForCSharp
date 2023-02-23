@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class PTOBankApi : BaseEndpointApi<PTOBank>
 	{
-		public PTOBankApi(Configuration configuration) : base(configuration)
+		public PTOBankApi(ApiClient client) : base(client)
 		{ }
 	}
 }

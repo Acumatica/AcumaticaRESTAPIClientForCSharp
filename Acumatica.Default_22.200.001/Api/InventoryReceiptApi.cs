@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class InventoryReceiptApi : BaseEndpointApi<InventoryReceipt>
 	{
-		public InventoryReceiptApi(Configuration configuration) : base(configuration)
+		public InventoryReceiptApi(ApiClient client) : base(client)
 		{ }
 	}
 }

@@ -7,7 +7,6 @@ using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.FileApi.Model;
 using Acumatica.RESTClient.Model;
 
-using RestSharp;
 
 
 namespace Acumatica.RESTClient.Api
@@ -43,26 +42,6 @@ namespace Acumatica.RESTClient.Api
                 ActionName = locationParsed.ActionName,
                 EntityName = locationParsed.EntityName
             };
-        }
-        //TODO remove
-        [Obsolete]
-        protected Dictionary<string, string> ComposeIDPathParams(Guid? id = null)
-        {
-            Dictionary<string, string> pathParams = ComposeEmptyPathParams();
-
-            if (id != null) pathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            return pathParams;
-        }
-
-        //TODO remove
-        [Obsolete]
-        protected Dictionary<string, string> ComposeIDsPathParams(IEnumerable<string> ids, string filename = null)
-        {
-            var pathParams = ComposeEmptyPathParams();
-
-            if (ids != null) pathParams.Add("ids", this.Configuration.ApiClient.ParameterToString(ids)); // path parameter
-            if (filename != null) pathParams.Add("filename", this.Configuration.ApiClient.ParameterToString(filename)); // path parameter
-            return pathParams;
         }
         #endregion
     }

@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class TaxCategoryApi : BaseEndpointApi<TaxCategory>
 	{
-		public TaxCategoryApi(Configuration configuration) : base(configuration)
+		public TaxCategoryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

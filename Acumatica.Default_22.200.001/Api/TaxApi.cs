@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class TaxApi : BaseEndpointApi<Tax>
 	{
-		public TaxApi(Configuration configuration) : base(configuration)
+		public TaxApi(ApiClient client) : base(client)
 		{ }
 	}
 }

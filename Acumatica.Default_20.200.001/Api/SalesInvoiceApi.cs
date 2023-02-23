@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class SalesInvoiceApi : BaseEndpointApi<SalesInvoice>
 	{
-		public SalesInvoiceApi(Configuration configuration) : base(configuration)
+		public SalesInvoiceApi(ApiClient client) : base(client)
 		{ }
 	}
 }

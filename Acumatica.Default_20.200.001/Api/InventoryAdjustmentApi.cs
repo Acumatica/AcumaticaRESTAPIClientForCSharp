@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class InventoryAdjustmentApi : BaseEndpointApi<InventoryAdjustment>
 	{
-		public InventoryAdjustmentApi(Configuration configuration) : base(configuration)
+		public InventoryAdjustmentApi(ApiClient client) : base(client)
 		{ }
 	}
 }

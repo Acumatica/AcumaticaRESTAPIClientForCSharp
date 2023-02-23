@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class PhysicalInventoryCountApi : BaseEndpointApi<PhysicalInventoryCount>
 	{
-		public PhysicalInventoryCountApi(Configuration configuration) : base(configuration)
+		public PhysicalInventoryCountApi(ApiClient client) : base(client)
 		{ }
 	}
 }

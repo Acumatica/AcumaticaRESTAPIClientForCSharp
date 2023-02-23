@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class CarrierApi : BaseEndpointApi<Carrier>
 	{
-		public CarrierApi(Configuration configuration) : base(configuration)
+		public CarrierApi(ApiClient client) : base(client)
 		{ }
 	}
 }

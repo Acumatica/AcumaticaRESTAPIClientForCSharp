@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ProjectBillingRulesApi : BaseEndpointApi<ProjectBillingRules>
 	{
-		public ProjectBillingRulesApi(Configuration configuration) : base(configuration)
+		public ProjectBillingRulesApi(ApiClient client) : base(client)
 		{ }
 	}
 }

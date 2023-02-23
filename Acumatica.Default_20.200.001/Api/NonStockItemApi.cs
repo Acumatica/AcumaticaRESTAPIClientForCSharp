@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class NonStockItemApi : BaseEndpointApi<NonStockItem>
 	{
-		public NonStockItemApi(Configuration configuration) : base(configuration)
+		public NonStockItemApi(ApiClient client) : base(client)
 		{ }
 	}
 }

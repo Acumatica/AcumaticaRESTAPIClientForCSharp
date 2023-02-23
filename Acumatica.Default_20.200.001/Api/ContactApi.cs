@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class ContactApi : BaseEndpointApi<Contact>
 	{
-		public ContactApi(Configuration configuration) : base(configuration)
+		public ContactApi(ApiClient client) : base(client)
 		{ }
 	}
 }

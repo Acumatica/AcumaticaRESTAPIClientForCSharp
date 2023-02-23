@@ -1,15 +1,15 @@
-using Acumatica.RESTClient.Auxiliary;
-
-using Newtonsoft.Json;
-using RestSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+
+using Acumatica.Auth.Model;
+using Acumatica.RESTClient.Auxiliary;
+
+using Newtonsoft.Json;
 
 namespace Acumatica.RESTClient.Client
 {
@@ -18,9 +18,17 @@ namespace Acumatica.RESTClient.Client
     /// </summary>
     public partial class ApiClient
     {
+        /// <summary>
+        /// Identifier for ISO 8601 DateTime Format
+        /// </summary>
+        /// <remarks>See https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8 for more information.</remarks>
+        // ReSharper disable once InconsistentNaming
+        public const string ISO8601_DATETIME_FORMAT = "o";
         #region State & ctor
 
-		private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+        private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
+
+        private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
         };
@@ -28,112 +36,140 @@ namespace Acumatica.RESTClient.Client
         /// Initializes a new instance of the <see cref="ApiClient" /> class
         /// with default base path.
         /// </summary>
-        /// <param name="config">An instance of Configuration.</param>
-        public ApiClient(Configuration config)
+        /// <param name="timeout">
+        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
+        /// </param>
+        public ApiClient(string basePath, 
+            int timeout = 100000,
+             Action<HttpRequestMessage, HttpClient> requestInterceptor = null,
+             Action<HttpRequestMessage, HttpResponseMessage, HttpClient> responseInterceptor = null)
         {
-            Configuration = config;
+            BasePath = basePath;
+            RequestInterceptor = requestInterceptor;
+            ResponseInterceptor = responseInterceptor;
 
-            var options = new RestClientOptions(Configuration.BasePath)
-            {
-                MaxTimeout = Configuration.Timeout,
-            };
-
-            RestClient = new RestClient(options);
+            Client = new HttpClient();
+            Client.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
         }
 
         /// <summary>
-        /// Gets or sets an instance of the <see cref="Configuration"/>.
+        /// Method that is executed before request. May be used for loggin the request body.
         /// </summary>
-        /// <value>An instance of the IReadableConfiguration.</value>
-        public Configuration Configuration { get; set; }
+        public Action<HttpRequestMessage, HttpClient> RequestInterceptor { get; set; }
 
         /// <summary>
-        /// Gets or sets the RestClient.
+        /// Method that is executed after receiving response. May be used for loggin the response.
         /// </summary>
-        /// <value>An instance of the RestClient</value>
-        public RestClient RestClient { get; set; }
+        public Action<HttpRequestMessage, HttpResponseMessage, HttpClient> ResponseInterceptor { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets the HttpClient.
+        /// </summary>
+        /// <value>An instance of the HttpClient</value>
+        public HttpClient Client { get; set; }
+        /// <summary>
+        /// Gets or sets the base path for API access.
+        /// </summary>
+        public virtual string BasePath
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// Gets or sets the username (HTTP basic authentication).
+        /// </summary>
+        /// <value>The username.</value>
+        public virtual string Username { get; set; }
+
+        /// <summary>
+        /// Gets or sets the password (HTTP basic authentication).
+        /// </summary>
+        /// <value>The password.</value>
+        public virtual string Password { get; set; }
+
+        /// <summary>
+        /// Gets or sets the access token for OAuth2 authentication.
+        /// </summary>
+        /// <value>The access token.</value>
+        public virtual Token Token { get; set; }
+
+        /// <summary>
+        /// Gets or sets the the date time format used when serializing in the ApiClient
+        /// By default, it's set to ISO 8601 - "o", for others see:
+        /// https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
+        /// and https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx
+        /// No validation is done to ensure that the string you're providing is valid
+        /// </summary>
+        /// <value>The DateTimeFormat string</value>
+        public virtual string DateTimeFormat
+        {
+            get { return _dateTimeFormat; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    // Never allow a blank or null string, go back to the default
+                    _dateTimeFormat = ISO8601_DATETIME_FORMAT;
+                    return;
+                }
+
+                // Caution, no validation when you choose date time format other than ISO 8601
+                // Take a look at the above links
+                _dateTimeFormat = value;
+            }
+        }
         #endregion
 
         #region Public Methods
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>
-        /// <param name="path">URL path.</param>
+        /// <param name="resourcePath">URL path.</param>
         /// <param name="method">HTTP method.</param>
         /// <param name="queryParams">Query parameters.</param>
         /// <param name="postBody">HTTP body (POST request).</param>
-        /// <param name="headerParams">Header parameters.</param>
-        /// <param name="formParams">Form parameters.</param>
-        /// <param name="fileParams">File parameters.</param>
+        /// <param name="customHeaders">Header parameters.</param>
         /// <param name="pathParams">Path parameters.</param>
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
-        public async Task<RestResponse> CallApiAsync(
-            String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
-            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
-            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType)
+        public async Task<HttpResponseMessage> CallApiAsync(
+            String resourcePath, 
+            HttpMethod method, 
+            Object postBody,
+            string acceptType, 
+            string contentType,
+            Dictionary<String, String> customHeaders = null)
         {
-            if (Configuration.Token != null)
+            if (Token != null)
             {
-                if (headerParams == null)
+                if (customHeaders == null)
                 {
-                    headerParams = new Dictionary<String, String>();
+                    customHeaders = new Dictionary<String, String>();
                 }
-                headerParams.Add("Authorization", Configuration.Token.Token_type + " " + Configuration.Token.Access_token);
+                customHeaders.Add("Authorization", Token.Token_type + " " + Token.Access_token);
             }
 
             var request = PrepareRequest(
-                path, method, queryParams, postBody, headerParams, formParams, fileParams,
-                pathParams, contentType, Configuration.Timeout);
+                resourcePath,
+                method, 
+                postBody,
+                customHeaders, 
+                contentType);
 
-            if (Configuration.RequestInterceptor != null)
-                Configuration.RequestInterceptor(request, this.RestClient);
-            var response = await RestClient.ExecuteAsync(request);
-            if (Configuration.ResponseInterceptor != null)
-                Configuration.ResponseInterceptor(request, response, this.RestClient);
+            if (RequestInterceptor != null)
+            {
+                RequestInterceptor(request, Client);
+            }
+            var response = await Client.SendAsync(request);
+            if (ResponseInterceptor != null)
+            {
+                ResponseInterceptor(request, response, Client);
+            }
 
             return response;
         }
 
-
-        /// <summary>
-        /// If parameter is DateTime, output in a formatted string (default ISO 8601), customizable with Configuration.DateTime.
-        /// If parameter is a list, join the list with ",".
-        /// Otherwise just return the string.
-        /// </summary>
-        /// <param name="obj">The parameter (header, path, query, form).</param>
-        /// <returns>Formatted string.</returns>
-        public string ParameterToString(object obj)
-        {
-            if (obj is DateTime)
-                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
-                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
-                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
-                // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTime)obj).ToString(Configuration.DateTimeFormat);
-            else if (obj is DateTimeOffset)
-                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
-                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
-                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
-                // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTimeOffset)obj).ToString(Configuration.DateTimeFormat);
-            if (obj is string str)
-                return str;
-            else if (obj is IEnumerable enumerable)
-            {
-                var flattenedString = new StringBuilder();
-                foreach (var param in enumerable)
-                {
-                    if (flattenedString.Length > 0)
-                        flattenedString.Append("/");
-                    flattenedString.Append(param);
-                }
-                return flattenedString.ToString();
-            }
-            else
-                return Convert.ToString(obj);
-        }
 
         /// <summary>
         /// Deserialize the JSON string into a proper object.
@@ -141,22 +177,22 @@ namespace Acumatica.RESTClient.Client
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public object Deserialize<T>(RestResponse response)
+        public object Deserialize<T>(HttpResponseMessage response)
         {
-            IReadOnlyCollection<Parameter> headers = response.Headers;
+            var headers = response.Headers;
             if (typeof(T) == typeof(byte[])) // return byte array
             {
-                return response.RawBytes;
+                return response.Content.ReadAsByteArrayAsync().Result;
             }
 
             if (typeof(T).Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
             {
-                return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
+                return DateTime.Parse(response.Content.ReadAsStringAsync().Result, null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
 
             if (typeof(T) == typeof(String)) // return primitive type
             {
-                return (String)response.Content;
+                return (String)response.Content.ReadAsStringAsync().Result;
             }
 
             if (typeof(T).Name.StartsWith("System.Nullable"))
@@ -167,7 +203,7 @@ namespace Acumatica.RESTClient.Client
             // at this point, it must be a model (json)
             try
             {
-                return JsonConvert.DeserializeObject(response.Content, typeof(T), serializerSettings);
+                return JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result, typeof(T), serializerSettings);
             }
             catch (Exception e)
             {
@@ -230,92 +266,42 @@ namespace Acumatica.RESTClient.Client
 
             return String.Join(",", accepts);
         }
-
-        /// <summary>
-        /// Convert params to key/value pairs. 
-        /// Use collectionFormat to properly format lists and collections.
-        /// </summary>
-        /// <param name="name">Key name.</param>
-        /// <param name="value">Value object.</param>
-        /// <returns>A list of KeyValuePairs</returns>
-        public IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
-        {
-            var parameters = new List<KeyValuePair<string, string>>();
-
-            if (IsCollection(value) && collectionFormat == "multi")
-            {
-                var valueCollection = value as IEnumerable;
-                parameters.AddRange(from object item in valueCollection select new KeyValuePair<string, string>(name, ParameterToString(item)));
-            }
-            else
-            {
-                parameters.Add(new KeyValuePair<string, string>(name, ParameterToString(value)));
-            }
-
-            return parameters;
-        }
         #endregion
 
         #region Implementation
       
         // Creates and sets up a RestRequest prior to a call.
-        private RestRequest PrepareRequest(
-            String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
-            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
-            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType, int timeout)
+        private HttpRequestMessage PrepareRequest(
+            String resourcePath, HttpMethod method, Object postBody,
+            Dictionary<String, String> headerParams, 
+            String contentType)
         {
-            var request = new RestRequest(path, method);
+            var url = BasePath + resourcePath;
 
-            if (pathParams != null)
-            {
-                // add path parameter, if any
-                foreach (var param in pathParams)
-                {
-                    request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-                }
-            }
+            var request = new HttpRequestMessage(method, url);
 
             if (headerParams != null)
             {
                 // add header parameter, if any
                 foreach (var param in headerParams)
                 {
-                    request.AddHeader(param.Key, param.Value);
+                    request.Headers.Add(param.Key, param.Value);
                 }
             }
 
-            if (queryParams != null)
-            {
-                // add query parameter, if any
-                foreach (var param in queryParams)
-                {
-                    request.AddQueryParameter(param.Key, param.Value);
-                }
-            }
-
-            if (formParams != null)
-            {
-                // add form parameter, if any
-                foreach (var param in formParams)
-                    request.AddParameter(param.Key, param.Value);
-            }
-
-            if (fileParams != null)
-            {
-                // add file parameter, if any
-                foreach (var param in fileParams)
-                {
-                    request.AddFile(param.Value.Name, param.Value.GetFile, param.Value.FileName, param.Value.ContentType);
-                }
-            }
 
             if (postBody != null) // http body (model or byte[]) parameter
             {
-                request.AddBody(postBody, contentType);
+                if (postBody is string)
+                {
+                    request.Content = new StringContent(postBody as string, Encoding.UTF8, contentType);
+                }
+                else if (postBody is byte[])
+                {
+                    request.Content = new ByteArrayContent(postBody as byte[]);
+                }
             }
 
-            request.Timeout = timeout;
 
             return request;
         }

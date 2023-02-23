@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class ShiftApi : BaseEndpointApi<Shift>
 	{
-		public ShiftApi(Configuration configuration) : base(configuration)
+		public ShiftApi(ApiClient client) : base(client)
 		{ }
 	}
 }

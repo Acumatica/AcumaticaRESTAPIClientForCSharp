@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class AccountDetailsForPeriodInquiryApi : BaseEndpointApi<AccountDetailsForPeriodInquiry>
 	{
-		public AccountDetailsForPeriodInquiryApi(Configuration configuration) : base(configuration)
+		public AccountDetailsForPeriodInquiryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

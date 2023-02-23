@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class MRPDetailInquiryApi : BaseEndpointApi<MRPDetailInquiry>
 	{
-		public MRPDetailInquiryApi(Configuration configuration) : base(configuration)
+		public MRPDetailInquiryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

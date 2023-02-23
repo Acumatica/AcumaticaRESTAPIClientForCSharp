@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class TimeEntryApi : BaseEndpointApi<TimeEntry>
 	{
-		public TimeEntryApi(Configuration configuration) : base(configuration)
+		public TimeEntryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

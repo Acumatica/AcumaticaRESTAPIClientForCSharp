@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class ConfigurationFeatureApi : BaseEndpointApi<ConfigurationFeature>
 	{
-		public ConfigurationFeatureApi(Configuration configuration) : base(configuration)
+		public ConfigurationFeatureApi(ApiClient client) : base(client)
 		{ }
 	}
 }

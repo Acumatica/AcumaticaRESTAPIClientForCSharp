@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class CostRollApi : BaseEndpointApi<CostRoll>
 	{
-		public CostRollApi(Configuration configuration) : base(configuration)
+		public CostRollApi(ApiClient client) : base(client)
 		{ }
 	}
 }

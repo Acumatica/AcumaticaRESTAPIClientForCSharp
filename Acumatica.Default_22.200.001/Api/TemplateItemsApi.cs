@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class TemplateItemsApi : BaseEndpointApi<TemplateItems>
 	{
-		public TemplateItemsApi(Configuration configuration) : base(configuration)
+		public TemplateItemsApi(ApiClient client) : base(client)
 		{ }
 	}
 }

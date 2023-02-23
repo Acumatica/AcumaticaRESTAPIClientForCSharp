@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class PayrollBatchApi : BaseEndpointApi<PayrollBatch>
 	{
-		public PayrollBatchApi(Configuration configuration) : base(configuration)
+		public PayrollBatchApi(ApiClient client) : base(client)
 		{ }
 	}
 }

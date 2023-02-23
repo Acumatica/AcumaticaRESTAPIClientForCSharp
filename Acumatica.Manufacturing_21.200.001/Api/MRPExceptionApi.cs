@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class MRPExceptionApi : BaseEndpointApi<MRPException>
 	{
-		public MRPExceptionApi(Configuration configuration) : base(configuration)
+		public MRPExceptionApi(ApiClient client) : base(client)
 		{ }
 	}
 }

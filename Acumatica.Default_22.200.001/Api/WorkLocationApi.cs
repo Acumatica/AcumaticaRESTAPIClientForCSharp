@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class WorkLocationApi : BaseEndpointApi<WorkLocation>
 	{
-		public WorkLocationApi(Configuration configuration) : base(configuration)
+		public WorkLocationApi(ApiClient client) : base(client)
 		{ }
 	}
 }

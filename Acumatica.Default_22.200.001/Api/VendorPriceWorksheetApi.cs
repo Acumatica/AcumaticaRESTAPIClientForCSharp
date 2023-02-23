@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class VendorPriceWorksheetApi : BaseEndpointApi<VendorPriceWorksheet>
 	{
-		public VendorPriceWorksheetApi(Configuration configuration) : base(configuration)
+		public VendorPriceWorksheetApi(ApiClient client) : base(client)
 		{ }
 	}
 }

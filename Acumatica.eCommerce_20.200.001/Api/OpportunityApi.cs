@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class OpportunityApi : BaseEndpointApi<Opportunity>
 	{
-		public OpportunityApi(Configuration configuration) : base(configuration)
+		public OpportunityApi(ApiClient client) : base(client)
 		{ }
 	}
 }

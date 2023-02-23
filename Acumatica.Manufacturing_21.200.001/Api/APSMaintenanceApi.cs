@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class APSMaintenanceApi : BaseEndpointApi<APSMaintenance>
 	{
-		public APSMaintenanceApi(Configuration configuration) : base(configuration)
+		public APSMaintenanceApi(ApiClient client) : base(client)
 		{ }
 	}
 }

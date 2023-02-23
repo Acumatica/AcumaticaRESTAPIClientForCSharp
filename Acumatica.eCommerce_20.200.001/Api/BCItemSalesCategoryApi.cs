@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class BCItemSalesCategoryApi : BaseEndpointApi<BCItemSalesCategory>
 	{
-		public BCItemSalesCategoryApi(Configuration configuration) : base(configuration)
+		public BCItemSalesCategoryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

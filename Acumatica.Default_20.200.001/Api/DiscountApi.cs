@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class DiscountApi : BaseEndpointApi<Discount>
 	{
-		public DiscountApi(Configuration configuration) : base(configuration)
+		public DiscountApi(ApiClient client) : base(client)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class WipAdjustmentEntryApi : BaseEndpointApi<WipAdjustmentEntry>
 	{
-		public WipAdjustmentEntryApi(Configuration configuration) : base(configuration)
+		public WipAdjustmentEntryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

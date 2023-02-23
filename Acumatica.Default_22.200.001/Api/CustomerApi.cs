@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class CustomerApi : BaseEndpointApi<Customer>
 	{
-		public CustomerApi(Configuration configuration) : base(configuration)
+		public CustomerApi(ApiClient client) : base(client)
 		{ }
 	}
 }

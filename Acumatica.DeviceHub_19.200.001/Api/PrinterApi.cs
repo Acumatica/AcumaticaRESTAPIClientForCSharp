@@ -6,7 +6,7 @@ namespace Acumatica.DeviceHub_19_200_001.Api
 {
 	public class PrinterApi : BaseEndpointApi<Printer>
 	{
-		public PrinterApi(Configuration configuration) : base(configuration)
+		public PrinterApi(ApiClient client) : base(client)
 		{ }
 	}
 }

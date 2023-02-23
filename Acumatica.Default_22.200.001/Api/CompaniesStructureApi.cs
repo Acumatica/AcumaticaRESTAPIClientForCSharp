@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class CompaniesStructureApi : BaseEndpointApi<CompaniesStructure>
 	{
-		public CompaniesStructureApi(Configuration configuration) : base(configuration)
+		public CompaniesStructureApi(ApiClient client) : base(client)
 		{ }
 	}
 }

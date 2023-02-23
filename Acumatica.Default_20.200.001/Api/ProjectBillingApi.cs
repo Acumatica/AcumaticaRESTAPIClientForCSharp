@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class ProjectBillingApi : BaseEndpointApi<ProjectBilling>
 	{
-		public ProjectBillingApi(Configuration configuration) : base(configuration)
+		public ProjectBillingApi(ApiClient client) : base(client)
 		{ }
 	}
 }

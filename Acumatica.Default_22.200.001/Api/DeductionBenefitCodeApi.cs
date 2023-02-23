@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class DeductionBenefitCodeApi : BaseEndpointApi<DeductionBenefitCode>
 	{
-		public DeductionBenefitCodeApi(Configuration configuration) : base(configuration)
+		public DeductionBenefitCodeApi(ApiClient client) : base(client)
 		{ }
 	}
 }

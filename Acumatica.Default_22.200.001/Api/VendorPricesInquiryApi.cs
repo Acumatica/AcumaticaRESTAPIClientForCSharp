@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class VendorPricesInquiryApi : BaseEndpointApi<VendorPricesInquiry>
 	{
-		public VendorPricesInquiryApi(Configuration configuration) : base(configuration)
+		public VendorPricesInquiryApi(ApiClient client) : base(client)
 		{ }
 	}
 }

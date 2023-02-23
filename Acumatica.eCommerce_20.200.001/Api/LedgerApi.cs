@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class LedgerApi : BaseEndpointApi<Ledger>
 	{
-		public LedgerApi(Configuration configuration) : base(configuration)
+		public LedgerApi(ApiClient client) : base(client)
 		{ }
 	}
 }

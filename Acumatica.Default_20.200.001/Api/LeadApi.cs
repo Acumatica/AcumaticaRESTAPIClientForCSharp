@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class LeadApi : BaseEndpointApi<Lead>
 	{
-		public LeadApi(Configuration configuration) : base(configuration)
+		public LeadApi(ApiClient client) : base(client)
 		{ }
 	}
 }

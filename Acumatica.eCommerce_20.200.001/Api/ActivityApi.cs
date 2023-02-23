@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ActivityApi : BaseEndpointApi<Activity>
 	{
-		public ActivityApi(Configuration configuration) : base(configuration)
+		public ActivityApi(ApiClient client) : base(client)
 		{ }
 	}
 }

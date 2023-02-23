@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class PayPeriodApi : BaseEndpointApi<PayPeriod>
 	{
-		public PayPeriodApi(Configuration configuration) : base(configuration)
+		public PayPeriodApi(ApiClient client) : base(client)
 		{ }
 	}
 }

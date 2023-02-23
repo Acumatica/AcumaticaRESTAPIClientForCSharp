@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class ServiceOrderApi : BaseEndpointApi<ServiceOrder>
 	{
-		public ServiceOrderApi(Configuration configuration) : base(configuration)
+		public ServiceOrderApi(ApiClient client) : base(client)
 		{ }
 	}
 }

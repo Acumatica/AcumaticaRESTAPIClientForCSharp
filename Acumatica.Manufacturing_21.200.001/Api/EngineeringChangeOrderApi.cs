@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class EngineeringChangeOrderApi : BaseEndpointApi<EngineeringChangeOrder>
 	{
-		public EngineeringChangeOrderApi(Configuration configuration) : base(configuration)
+		public EngineeringChangeOrderApi(ApiClient client) : base(client)
 		{ }
 	}
 }

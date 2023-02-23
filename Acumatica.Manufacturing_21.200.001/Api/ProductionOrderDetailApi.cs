@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class ProductionOrderDetailApi : BaseEndpointApi<ProductionOrderDetail>
 	{
-		public ProductionOrderDetailApi(Configuration configuration) : base(configuration)
+		public ProductionOrderDetailApi(ApiClient client) : base(client)
 		{ }
 	}
 }

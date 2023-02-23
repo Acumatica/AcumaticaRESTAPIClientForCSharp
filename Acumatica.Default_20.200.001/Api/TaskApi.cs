@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class TaskApi : BaseEndpointApi<Task>
 	{
-		public TaskApi(Configuration configuration) : base(configuration)
+		public TaskApi(ApiClient client) : base(client)
 		{ }
 	}
 }

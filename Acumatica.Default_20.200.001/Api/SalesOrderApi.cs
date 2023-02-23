@@ -6,7 +6,7 @@ namespace Acumatica.Default_20_200_001.Api
 {
 	public class SalesOrderApi : BaseEndpointApi<SalesOrder>
 	{
-		public SalesOrderApi(Configuration configuration) : base(configuration)
+		public SalesOrderApi(ApiClient client) : base(client)
 		{ }
 	}
 }

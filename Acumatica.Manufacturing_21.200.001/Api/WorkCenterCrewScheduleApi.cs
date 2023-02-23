@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class WorkCenterCrewScheduleApi : BaseEndpointApi<WorkCenterCrewSchedule>
 	{
-		public WorkCenterCrewScheduleApi(Configuration configuration) : base(configuration)
+		public WorkCenterCrewScheduleApi(ApiClient client) : base(client)
 		{ }
 	}
 }

@@ -1,8 +1,9 @@
-﻿using Acumatica.RESTClient.Api;
+﻿using System.Net.Http;
+
+using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.RootApi.Model;
 
-using RestSharp;
 
 namespace Acumatica.RESTClient.RootApi
 {
@@ -26,7 +27,7 @@ namespace Acumatica.RESTClient.RootApi
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public RootApi(Configuration configuration) : base(configuration)
+        public RootApi(ApiClient configuration) : base(configuration)
         { }
         #endregion
 
@@ -66,15 +67,11 @@ namespace Acumatica.RESTClient.RootApi
         /// <returns>ApiResponse of VersionAndEndpoints</returns>
         protected ApiResponse<VersionAndEndpoints> RootGetWithHttpInfo()
         {
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 "/entity",
-                Method.Get, 
-                ComposeEmptyQueryParams(), 
+                HttpMethod.Get, 
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), 
-                ComposeEmptyFormParams(),
-                null,
-                null, 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
 
             VerifyResponse(localVarResponse, "RootGet");
@@ -90,15 +87,11 @@ namespace Acumatica.RESTClient.RootApi
         /// <returns>Task of ApiResponse (VersionAndEndpoints)</returns>
         protected async System.Threading.Tasks.Task<ApiResponse<VersionAndEndpoints>> RootGetAsyncWithHttpInfo()
         {
-            RestResponse localVarResponse = await Configuration.ApiClient.CallApiAsync(
+            HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 "/entity",
-                Method.Get, 
-                ComposeEmptyQueryParams(), 
+                HttpMethod.Get, 
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml), 
-                ComposeEmptyFormParams(), 
-                null,
-                null, 
+                ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml),     
                 ComposeContentHeaders(HeaderContentType.None));
 
             VerifyResponse(localVarResponse, "RootGet");

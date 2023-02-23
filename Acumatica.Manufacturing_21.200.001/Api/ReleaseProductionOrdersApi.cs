@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class ReleaseProductionOrdersApi : BaseEndpointApi<ReleaseProductionOrders>
 	{
-		public ReleaseProductionOrdersApi(Configuration configuration) : base(configuration)
+		public ReleaseProductionOrdersApi(ApiClient client) : base(client)
 		{ }
 	}
 }

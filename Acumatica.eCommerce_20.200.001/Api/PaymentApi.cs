@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class PaymentApi : BaseEndpointApi<Payment>
 	{
-		public PaymentApi(Configuration configuration) : base(configuration)
+		public PaymentApi(ApiClient client) : base(client)
 		{ }
 	}
 }

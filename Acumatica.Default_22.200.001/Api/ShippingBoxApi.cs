@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class ShippingBoxApi : BaseEndpointApi<ShippingBox>
 	{
-		public ShippingBoxApi(Configuration configuration) : base(configuration)
+		public ShippingBoxApi(ApiClient client) : base(client)
 		{ }
 	}
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 
-using RestSharp;
 
 namespace Acumatica.RESTClient.Client
 {

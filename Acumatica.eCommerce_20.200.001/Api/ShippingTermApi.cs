@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class ShippingTermApi : BaseEndpointApi<ShippingTerm>
 	{
-		public ShippingTermApi(Configuration configuration) : base(configuration)
+		public ShippingTermApi(ApiClient client) : base(client)
 		{ }
 	}
 }

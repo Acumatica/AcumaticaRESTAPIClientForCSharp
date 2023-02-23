@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class EstimateApi : BaseEndpointApi<Estimate>
 	{
-		public EstimateApi(Configuration configuration) : base(configuration)
+		public EstimateApi(ApiClient client) : base(client)
 		{ }
 	}
 }

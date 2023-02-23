@@ -6,7 +6,7 @@ namespace Acumatica.eCommerce_20_200_001.Api
 {
 	public class TaxZoneApi : BaseEndpointApi<TaxZone>
 	{
-		public TaxZoneApi(Configuration configuration) : base(configuration)
+		public TaxZoneApi(ApiClient client) : base(client)
 		{ }
 	}
 }

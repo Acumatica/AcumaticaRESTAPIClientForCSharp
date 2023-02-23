@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_20_200_001.Api
 {
 	public class WorkCenterApi : BaseEndpointApi<WorkCenter>
 	{
-		public WorkCenterApi(Configuration configuration) : base(configuration)
+		public WorkCenterApi(ApiClient client) : base(client)
 		{ }
 	}
 }

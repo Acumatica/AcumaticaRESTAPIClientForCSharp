@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class ToolApi : BaseEndpointApi<Tool>
 	{
-		public ToolApi(Configuration configuration) : base(configuration)
+		public ToolApi(ApiClient client) : base(client)
 		{ }
 	}
 }

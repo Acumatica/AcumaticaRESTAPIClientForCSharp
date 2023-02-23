@@ -6,7 +6,7 @@ namespace Acumatica.Default_22_200_001.Api
 {
 	public class BigCommerceStoresApi : BaseEndpointApi<BigCommerceStores>
 	{
-		public BigCommerceStoresApi(Configuration configuration) : base(configuration)
+		public BigCommerceStoresApi(ApiClient client) : base(client)
 		{ }
 	}
 }

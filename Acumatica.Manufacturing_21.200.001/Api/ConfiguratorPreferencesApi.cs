@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class ConfiguratorPreferencesApi : BaseEndpointApi<ConfiguratorPreferences>
 	{
-		public ConfiguratorPreferencesApi(Configuration configuration) : base(configuration)
+		public ConfiguratorPreferencesApi(ApiClient client) : base(client)
 		{ }
 	}
 }

@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class MRPRequirementsByItemApi : BaseEndpointApi<MRPRequirementsByItem>
 	{
-		public MRPRequirementsByItemApi(Configuration configuration) : base(configuration)
+		public MRPRequirementsByItemApi(ApiClient client) : base(client)
 		{ }
 	}
 }

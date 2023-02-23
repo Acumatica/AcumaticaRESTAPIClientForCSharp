@@ -6,7 +6,7 @@ namespace Acumatica.Manufacturing_21_200_001.Api
 {
 	public class EngineeringChangeRequestApi : BaseEndpointApi<EngineeringChangeRequest>
 	{
-		public EngineeringChangeRequestApi(Configuration configuration) : base(configuration)
+		public EngineeringChangeRequestApi(ApiClient client) : base(client)
 		{ }
 	}
 }
