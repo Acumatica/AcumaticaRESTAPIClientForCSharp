@@ -47,12 +47,6 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		[DataMember(Name="BadgeStatus", EmitDefaultValue=false)]
 		public StringValue BadgeStatus { get; set; }
 
-		[DataMember(Name="BadgeRenewal", EmitDefaultValue=false)]
-		public DateTimeValue BadgeRenewal { get; set; }
-
-		[DataMember(Name="BadgeExpiration", EmitDefaultValue=false)]
-		public DateTimeValue BadgeExpiration { get; set; }
-
 		[DataMember(Name="AddressLine1", EmitDefaultValue=false)]
 		public StringValue AddressLine1 { get; set; }
 
@@ -110,9 +104,6 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		[DataMember(Name="CourseProgress", EmitDefaultValue=false)]
 		public IntValue CourseProgress { get; set; }
 
-		[DataMember(Name="RenewalProgress", EmitDefaultValue=false)]
-		public IntValue RenewalProgress { get; set; }
-
 		[DataMember(Name="AchievementDate", EmitDefaultValue=false)]
 		public DateTimeValue AchievementDate { get; set; }
 
@@ -122,9 +113,6 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		[DataMember(Name="Achieved", EmitDefaultValue=false)]
 		public BooleanValue Achieved { get; set; }
 
-		[DataMember(Name="RenewalAchievement", EmitDefaultValue=false)]
-		public IntValue RenewalAchievement { get; set; }
-
 		[DataMember(Name="PrerequisiteAchievement", EmitDefaultValue=false)]
 		public IntValue PrerequisiteAchievement { get; set; }
 
@@ -133,6 +121,12 @@ namespace Acumatica.ISVCB_21_200_001.Model
 
 		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
 		public DateTimeValue CreatedDate { get; set; }
+
+		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
+		public DateTimeValue ExpirationDate { get; set; }
+
+		[DataMember(Name="LastUCPDate", EmitDefaultValue=false)]
+		public DateTimeValue LastUCPDate { get; set; }
 
 	}
 }
