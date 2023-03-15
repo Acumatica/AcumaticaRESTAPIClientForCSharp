@@ -118,6 +118,28 @@ namespace Acumatica.RESTClient.Api
             return localVarHttpHeaderAccepts;
         }
 
+        /// <summary>
+        /// Composes Query Parameters for API Request. 
+        /// </summary>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
+        /// <param name="top">The number of records to be returned from the system. (optional)</param>
+        protected List<KeyValuePair<string, string>> ComposeQueryParams(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        {
+            var queryParameters = ComposeEmptyQueryParams();
+            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
+            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
+            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
+            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
+            if (skip != null) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
+            if (top != null) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
+
+            return queryParameters;
+        }
+
         protected object ComposeBody(object objectForRequestBody)
         {
             object postBody = null;
@@ -133,6 +155,20 @@ namespace Acumatica.RESTClient.Api
 
             return postBody;
         }
+
+        protected List<KeyValuePair<string, string>> ComposeEmptyQueryParams()
+        {
+            return new List<KeyValuePair<String, String>>();
+        }
+        protected Dictionary<string, string> ComposeEmptyPathParams()
+        {
+            return new Dictionary<String, String>();
+        }
+        protected Dictionary<string, string> ComposeEmptyFormParams()
+        {
+            return new Dictionary<String, String>();
+        }
+
         protected ApiResponse<T> DeserializeResponse<T>(HttpResponseMessage response)
         {
             int localVarStatusCode = (int)response.StatusCode;

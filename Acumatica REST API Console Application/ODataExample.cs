@@ -45,7 +45,9 @@ namespace AcumaticaRestApiExample
 			Console.WriteLine("Retrieve the modified stocks qtys with OData Version 3");
 			string filterParam = "LastModifiedDateTime gt datetime'2022-07-13T00:00:00.000'";
 			response = odatav3.GetOData("DB-StorageDetails", filter: filterParam);
-			Console.WriteLine(response.Data);
+            ///gives this error:
+            ///<m:message>Could not find a property named 'LastModifiedDateTime' on type 'PX.Data.DBStorageDetails'.</m:message>
+            Console.WriteLine(response.Data);
 		}
         
 		public static void ODataGetV4(string siteURL, string username, string password, string tenant)

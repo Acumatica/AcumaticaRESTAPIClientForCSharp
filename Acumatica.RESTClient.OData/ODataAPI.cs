@@ -28,7 +28,8 @@ namespace Acumatica.RESTClient.ODataApi
             //Oauth authentication
             HttpResponseMessage response = ApiClient.CallApiAsync(
                 ConfigurePath(resource),
-                HttpMethod.Get,  
+                HttpMethod.Get,
+                ComposeQueryParams(select, filter, expand, null, skip, top),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeContentHeaders(HeaderContentType.Json),
@@ -52,9 +53,9 @@ namespace Acumatica.RESTClient.ODataApi
         {
             return string.IsNullOrEmpty(Tenant) 
                  ?
-                 $"{ApiClient.BasePath}/{Version}/{resource}" 
+                 $"{Version}/{resource}" 
                  : 
-                 $"{ApiClient.BasePath}/{Version}/{Tenant}/{resource}";
+                 $"{Version}/{Tenant}/{resource}";
         }
 
         private Dictionary<string, string> ComposeAuthenticationHeaders()

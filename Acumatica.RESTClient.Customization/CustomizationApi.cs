@@ -43,6 +43,7 @@ namespace Acumatica.RESTClient.CustomizationApi
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 localVarPath,
                 HttpMethod.Post,
+                ComposeEmptyQueryParams(),
                 ComposeBody(customizationImport),
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.Json)).Result;
@@ -166,6 +167,7 @@ namespace Acumatica.RESTClient.CustomizationApi
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 localVarPath,
                 HttpMethod.Post,
+                ComposeEmptyQueryParams(),
                 ComposeBody(publishParams),
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.Json)).Result;
@@ -178,6 +180,7 @@ namespace Acumatica.RESTClient.CustomizationApi
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 "/CustomizationApi/PublishEnd",
                 HttpMethod.Post,
+                ComposeEmptyQueryParams(),
                 null,
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.Json)).Result;

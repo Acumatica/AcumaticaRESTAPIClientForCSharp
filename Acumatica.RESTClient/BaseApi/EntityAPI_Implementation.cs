@@ -38,7 +38,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{string.Join("/", ids)}/files/{filename}",
-                HttpMethod.Put, 
+                HttpMethod.Put,
+                ComposeEmptyQueryParams(),
                 content, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeContentHeaders(HeaderContentType.OctetStream)).Result ;
@@ -64,7 +65,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{string.Join("/", ids)}/files/{filename}",
-                HttpMethod.Put, 
+                HttpMethod.Put,
+                ComposeEmptyQueryParams(),
                 content, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeContentHeaders(HeaderContentType.OctetStream));
@@ -92,7 +94,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{action.GetType().Name}",
-                HttpMethod.Post, 
+                HttpMethod.Post,
+                ComposeEmptyQueryParams(),
                 ComposeBody(action), 
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.Json),
@@ -119,7 +122,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{action.GetType().Name}",
-                HttpMethod.Post, 
+                HttpMethod.Post,
+                ComposeEmptyQueryParams(),
                 ComposeBody(action),
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.Json),
@@ -141,6 +145,7 @@ namespace Acumatica.RESTClient.Api
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"/{GetEndpointPath()}/{parsedLocation.EntityName}/{parsedLocation.ActionName}/{parsedLocation.Status}/{parsedLocation.ID}",
                 HttpMethod.Get,
+                ComposeEmptyQueryParams(),
                 null,
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.None)).Result;
@@ -176,7 +181,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}",
-                HttpMethod.Put, 
+                HttpMethod.Put,
+                ComposeQueryParams(select, filter, expand, custom),
                 ComposeBody(entity),
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.Json),
@@ -208,6 +214,7 @@ namespace Acumatica.RESTClient.Api
 			HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}",
 				HttpMethod.Put, 
+                ComposeQueryParams(select, filter, expand, custom),
                 ComposeBody(entity),
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.Json),
@@ -261,7 +268,8 @@ namespace Acumatica.RESTClient.Api
             // make the HTTP request
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{string.Join("/", ids)}",
-                HttpMethod.Get, 
+                HttpMethod.Get,
+                ComposeQueryParams(select, filter, expand, custom),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeContentHeaders(HeaderContentType.None));
@@ -288,7 +296,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{string.Join("/", ids)}",
-                HttpMethod.Get, 
+                HttpMethod.Get,
+                ComposeQueryParams(select, filter, expand, custom),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json),     
                 ComposeContentHeaders(HeaderContentType.None)).Result;
@@ -316,6 +325,7 @@ namespace Acumatica.RESTClient.Api
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}",
                 HttpMethod.Get,
+                ComposeQueryParams(select, filter, expand, custom),
                 null,
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.None),
@@ -345,6 +355,7 @@ namespace Acumatica.RESTClient.Api
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}",
                 HttpMethod.Get,
+                ComposeQueryParams(select, filter, expand, custom),
                 null,
                 ComposeAcceptHeaders(HeaderContentType.Json),
                 ComposeContentHeaders(HeaderContentType.None),
@@ -372,7 +383,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{id}",
-                HttpMethod.Get, 
+                HttpMethod.Get,
+                ComposeQueryParams(select, filter, expand, custom),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeContentHeaders(HeaderContentType.None));
@@ -399,7 +411,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{id}",
-                HttpMethod.Get, 
+                HttpMethod.Get,
+                ComposeQueryParams(select, filter, expand, custom),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
@@ -421,7 +434,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/$adHocSchema",
-                HttpMethod.Get, 
+                HttpMethod.Get,
+                ComposeEmptyQueryParams(),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeContentHeaders(HeaderContentType.None));
@@ -440,7 +454,8 @@ namespace Acumatica.RESTClient.Api
         {
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/$adHocSchema",
-                HttpMethod.Get, 
+                HttpMethod.Get,
+                ComposeEmptyQueryParams(),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json), 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
@@ -465,7 +480,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{string.Join("/", ids)}",
-                HttpMethod.Delete, 
+                HttpMethod.Delete,
+                ComposeEmptyQueryParams(),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Any), 
                 ComposeContentHeaders(HeaderContentType.None));
@@ -488,7 +504,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{string.Join("/", ids)}",
-                HttpMethod.Delete, 
+                HttpMethod.Delete,
+                ComposeEmptyQueryParams(),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Any), 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
@@ -511,7 +528,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{id}",
-                HttpMethod.Delete, 
+                HttpMethod.Delete,
+                ComposeEmptyQueryParams(),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Any), 
                 ComposeContentHeaders(HeaderContentType.None));
@@ -534,7 +552,8 @@ namespace Acumatica.RESTClient.Api
 
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{id}",
-                HttpMethod.Delete, 
+                HttpMethod.Delete,
+                ComposeEmptyQueryParams(),
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Any), 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
