@@ -1,6 +1,12 @@
-using Acumatica.RESTClient.Api;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+
+using Newtonsoft.Json;
+
 using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Model;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+using Acumatica.RESTClient.Api;
 
 namespace Acumatica.ISVCB_21_200_001.Api
 {

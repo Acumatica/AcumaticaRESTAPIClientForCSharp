@@ -17,6 +17,7 @@ namespace Acumatica.RESTClient.MaintenanceApi
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 "/entity/maintenance/23.200/",
                 HttpMethod.Post,
+                null,
                 endpointXML,
                 ComposeAcceptHeaders(HeaderContentType.Xml),
                 ComposeContentHeaders(HeaderContentType.Xml)).Result;
@@ -30,6 +31,7 @@ namespace Acumatica.RESTClient.MaintenanceApi
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"/entity/maintenance/23.200/{endpointName}/{endpointVersion}",
                 HttpMethod.Get,
+                null,
                 null,
                 ComposeAcceptHeaders(HeaderContentType.Xml),
                 ComposeContentHeaders(HeaderContentType.Xml)).Result;

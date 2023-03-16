@@ -5,13 +5,15 @@ using System.Net.Http;
 
 using Acumatica.RESTClient.Client;
 
+using static Acumatica.RESTClient.Auxiliary.Constants;
+
 
 namespace Acumatica.RESTClient.Api
 {
     /// <summary>
     /// Represents a base class with common logic for all Api classes.
     /// </summary>
-    public abstract class BaseApi
+    public abstract partial class BaseApi
     {
         #region Constructor
 
@@ -24,7 +26,6 @@ namespace Acumatica.RESTClient.Api
             Action<HttpRequestMessage, HttpResponseMessage, HttpClient> responseInterceptor = null)
         {
             ApiClient = new ApiClient(basePath, timeout, requestInterceptor, responseInterceptor);
-
         }
 
         public ApiClient ApiClient { get; set; }
@@ -32,45 +33,41 @@ namespace Acumatica.RESTClient.Api
         /// Initializes a new instance of the <see cref="BaseApi"/> class
         /// using Configuration object
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="client">An instance of Configuration</param>
         /// <returns></returns>
-        public BaseApi(ApiClient configuration)
+        public BaseApi(ApiClient client)
         {
-            if (configuration == null)
+            if (client == null)
             {
-                throw new ArgumentNullException(nameof(configuration));
+                throw new ArgumentNullException(nameof(client));
             }
-            ApiClient = configuration;
+            ApiClient = client;
 
         }
-        #endregion
 
+        #endregion
         #region Implementation
         /// <summary>
-        /// Gets the base path of the API client.
+        /// Composes Query Parameters for API Request. 
         /// </summary>
-        /// <value>The base path</value>
-        public String GetBasePath()
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
+        /// <param name="top">The number of records to be returned from the system. (optional)</param>
+        protected List<KeyValuePair<string, string>> ComposeQueryParams(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
-            return ApiClient.BasePath.ToString();
+            var queryParameters = new List<KeyValuePair<string, string>>();
+            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
+            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
+            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
+            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
+            if (skip != null) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
+            if (top != null) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
+
+            return queryParameters;
         }
-        private const string ApplicationJsonAcceptContentType = "application/json";
-        private const string TextJsonAcceptContentType = "text/json";
-        private const string ApplicationXmlAcceptContentType = "application/xml";
-        private const string TextXmlAcceptContentType = "text/xml";
-        private const string WwwFormEncoded = "application/x-www-form-urlencoded";
-        private const string OctetStream = "application/octet-stream";
-        private const string AnyAcceptContentType = "*/*";
-        [Flags]
-        protected enum HeaderContentType : short
-        {
-            None = 0,
-            Json = 1,
-            Xml = 2,
-            Any = 4,
-            WwwForm = 8,
-            OctetStream = 16
-        };
         protected string ComposeContentHeaders(HeaderContentType contentTypes)
         {
             // to determine the Content-Type header
@@ -118,27 +115,7 @@ namespace Acumatica.RESTClient.Api
             return localVarHttpHeaderAccepts;
         }
 
-        /// <summary>
-        /// Composes Query Parameters for API Request. 
-        /// </summary>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
-        /// <param name="top">The number of records to be returned from the system. (optional)</param>
-        protected List<KeyValuePair<string, string>> ComposeQueryParams(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
-        {
-            var queryParameters = ComposeEmptyQueryParams();
-            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$select", select)); // query parameter
-            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$filter", filter)); // query parameter
-            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$expand", expand)); // query parameter
-            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$custom", custom)); // query parameter
-            if (skip != null) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$skip", skip)); // query parameter
-            if (top != null) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$top", top)); // query parameter
 
-            return queryParameters;
-        }
 
         protected object ComposeBody(object objectForRequestBody)
         {
@@ -154,19 +131,6 @@ namespace Acumatica.RESTClient.Api
             }
 
             return postBody;
-        }
-
-        protected List<KeyValuePair<string, string>> ComposeEmptyQueryParams()
-        {
-            return new List<KeyValuePair<String, String>>();
-        }
-        protected Dictionary<string, string> ComposeEmptyPathParams()
-        {
-            return new Dictionary<String, String>();
-        }
-        protected Dictionary<string, string> ComposeEmptyFormParams()
-        {
-            return new Dictionary<String, String>();
         }
 
         protected ApiResponse<T> DeserializeResponse<T>(HttpResponseMessage response)

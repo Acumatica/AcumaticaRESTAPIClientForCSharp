@@ -1,4 +1,3 @@
-using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using Acumatica.eCommerce_20_200_001.Model;
 

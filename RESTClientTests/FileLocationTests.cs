@@ -4,7 +4,7 @@ using Xunit;
 using System;
 using System.Globalization;
 
-using Acumatica.RESTClient.Model;
+using Acumatica.RESTClient.ContractBasedApi.Model;
 using Acumatica.RESTClient.Api;
 
 namespace RESTClientTests

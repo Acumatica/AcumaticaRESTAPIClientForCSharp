@@ -1,4 +1,3 @@
-using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using Acumatica.DeviceHub_19_200_001.Model;
 

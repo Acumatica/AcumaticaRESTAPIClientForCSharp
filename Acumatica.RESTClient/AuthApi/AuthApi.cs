@@ -194,7 +194,7 @@ namespace Acumatica.Auth.Api
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 localVarPath,
                 HttpMethod.Post,
-                ComposeEmptyQueryParams(),
+                null,
                 ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>()
                 {
                     {"grant_type", "refresh_token" },
@@ -218,7 +218,7 @@ namespace Acumatica.Auth.Api
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 localVarPath,
                 HttpMethod.Post,
-                ComposeEmptyQueryParams(),
+                null,
                 ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
                 {
                     {"grant_type", "password" },
@@ -248,7 +248,7 @@ namespace Acumatica.Auth.Api
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 localVarPath,
                 HttpMethod.Get,
-                ComposeEmptyQueryParams(),
+                null,
                 null,
                 ComposeAcceptHeaders(HeaderContentType.None),
                 ComposeContentHeaders(HeaderContentType.WwwForm)).Result;
@@ -266,7 +266,7 @@ namespace Acumatica.Auth.Api
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 localVarPath,
                 HttpMethod.Post,
-                ComposeEmptyQueryParams(),
+                null,
                 ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
                 {
                     {"grant_type", "authorization_code" },
@@ -311,7 +311,7 @@ namespace Acumatica.Auth.Api
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 "/entity/auth/login",
                 HttpMethod.Post,
-                ComposeEmptyQueryParams(),
+                null,
                 ComposeBody(credentials), 
                 ComposeAcceptHeaders(HeaderContentType.None), 
                 ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm)).Result;
@@ -335,7 +335,7 @@ namespace Acumatica.Auth.Api
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 "/entity/auth/login",
                 HttpMethod.Post,
-                ComposeEmptyQueryParams(),
+                null,
                 ComposeBody(credentials), 
                 ComposeAcceptHeaders(HeaderContentType.None), 
                 ComposeContentHeaders(HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm));
@@ -356,7 +356,7 @@ namespace Acumatica.Auth.Api
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 "/entity/auth/logout",
                 HttpMethod.Post,
-                ComposeEmptyQueryParams(),
+                null,
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.None), 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
@@ -377,7 +377,7 @@ namespace Acumatica.Auth.Api
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 "/entity/auth/logout",
                 HttpMethod.Post,
-                ComposeEmptyQueryParams(),
+                null,
                 null,
                 ComposeAcceptHeaders(HeaderContentType.None),
                 ComposeContentHeaders(HeaderContentType.None));

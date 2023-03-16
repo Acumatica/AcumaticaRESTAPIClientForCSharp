@@ -70,7 +70,7 @@ namespace Acumatica.RESTClient.RootApi
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 "/entity",
                 HttpMethod.Get,
-                ComposeEmptyQueryParams(),
+                null,
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), 
                 ComposeContentHeaders(HeaderContentType.None)).Result;
@@ -91,7 +91,7 @@ namespace Acumatica.RESTClient.RootApi
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 "/entity",
                 HttpMethod.Get,
-                ComposeEmptyQueryParams(),
+                null,
                 null, 
                 ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml),     
                 ComposeContentHeaders(HeaderContentType.None));
