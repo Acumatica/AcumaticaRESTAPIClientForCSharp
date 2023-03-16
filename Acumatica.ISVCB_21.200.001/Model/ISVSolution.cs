@@ -38,8 +38,8 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		[DataMember(Name="Customers", EmitDefaultValue=false)]
 		public List<Customers> Customers { get; set; }
 
-		[DataMember(Name="Versions", EmitDefaultValue=false)]
-		public List<Versions> Versions { get; set; }
+		[DataMember(Name="Repository", EmitDefaultValue=false)]
+		public List<RepositoryLines> Repository { get; set; }
 
 	}
 }

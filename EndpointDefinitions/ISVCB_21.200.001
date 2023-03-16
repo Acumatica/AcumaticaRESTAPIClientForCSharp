@@ -7,7 +7,7 @@
   "host": "internal.acumatica.com",
   "basePath": "/entity/ISVCB/21.200.001",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/EducatedResources/$adHocSchema": {
@@ -1564,6 +1564,47 @@
         "type": "object"
       }
     },
+    "CancellationToken": {
+      "type": "object",
+      "properties": {
+        "isCancellationRequested": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "canBeCanceled": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "waitHandle": {
+          "$ref": "#/definitions/WaitHandle",
+          "readOnly": true
+        }
+      }
+    },
+    "WaitHandle": {
+      "type": "object",
+      "properties": {
+        "handle": {
+          "type": "object"
+        },
+        "safeWaitHandle": {
+          "$ref": "#/definitions/SafeWaitHandle"
+        }
+      }
+    },
+    "SafeWaitHandle": {
+      "type": "object",
+      "properties": {
+        "isInvalid": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "isClosed": {
+          "type": "boolean",
+          "readOnly": true
+        }
+      }
+    },
     "Customers": {
       "allOf": [
         {
@@ -1605,32 +1646,8 @@
         {
           "type": "object",
           "properties": {
-            "AccountID": {
-              "$ref": "#/definitions/IntValue"
-            },
-            "AccountID_2": {
-              "$ref": "#/definitions/IntValue"
-            },
-            "AccountID_3": {
-              "$ref": "#/definitions/IntValue"
-            },
-            "Type": {
+            "BusinessAccount": {
               "$ref": "#/definitions/StringValue"
-            },
-            "Type_2": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "Class": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "Class_2": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "Class_3": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ContactID": {
-              "$ref": "#/definitions/IntValue"
             },
             "EducatedResourcesDetails": {
               "type": "array",
@@ -1689,12 +1706,6 @@
             "BadgeStatus": {
               "$ref": "#/definitions/StringValue"
             },
-            "BadgeRenewal": {
-              "$ref": "#/definitions/DateTimeValue"
-            },
-            "BadgeExpiration": {
-              "$ref": "#/definitions/DateTimeValue"
-            },
             "AddressLine1": {
               "$ref": "#/definitions/StringValue"
             },
@@ -1752,9 +1763,6 @@
             "CourseProgress": {
               "$ref": "#/definitions/IntValue"
             },
-            "RenewalProgress": {
-              "$ref": "#/definitions/IntValue"
-            },
             "AchievementDate": {
               "$ref": "#/definitions/DateTimeValue"
             },
@@ -1764,9 +1772,6 @@
             "Achieved": {
               "$ref": "#/definitions/BooleanValue"
             },
-            "RenewalAchievement": {
-              "$ref": "#/definitions/IntValue"
-            },
             "PrerequisiteAchievement": {
               "$ref": "#/definitions/IntValue"
             },
@@ -1774,6 +1779,12 @@
               "$ref": "#/definitions/IntValue"
             },
             "CreatedDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "ExpirationDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "LastUCPDate": {
               "$ref": "#/definitions/DateTimeValue"
             }
           }
@@ -1821,17 +1832,17 @@
                 "$ref": "#/definitions/Customers"
               }
             },
-            "Versions": {
+            "Repository": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Versions"
+                "$ref": "#/definitions/RepositoryLines"
               }
             }
           }
         }
       ]
     },
-    "Versions": {
+    "RepositoryLines": {
       "allOf": [
         {
           "$ref": "#/definitions/Entity"
