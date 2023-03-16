@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class PayrollWCCCode : Entity_v4
+	public class PayrollWCCCode : Entity
 	{
 
 		[DataMember(Name="Country", EmitDefaultValue=false)]

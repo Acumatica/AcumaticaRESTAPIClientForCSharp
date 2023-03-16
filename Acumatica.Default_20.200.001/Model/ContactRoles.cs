@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ContactRoles : Entity_v4
+	public class ContactRoles : Entity
 	{
 
 		[DataMember(Name="RoleDescription", EmitDefaultValue=false)]

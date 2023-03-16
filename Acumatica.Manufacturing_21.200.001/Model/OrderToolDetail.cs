@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class OrderToolDetail : Entity_v4
+	public class OrderToolDetail : Entity
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class TaxCodeSetting : Entity_v4
+	public class TaxCodeSetting : Entity
 	{
 
 		[DataMember(Name="AdditionalInformation", EmitDefaultValue=false)]

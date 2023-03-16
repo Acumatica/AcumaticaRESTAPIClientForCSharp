@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class KitAssembly : Entity_v4
+	public class KitAssembly : Entity
 	{
 
 		[DataMember(Name="Allocations", EmitDefaultValue=false)]

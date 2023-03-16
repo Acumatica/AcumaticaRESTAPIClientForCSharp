@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class OpportunityContact : Entity_v4
+	public class OpportunityContact : Entity
 	{
 
 		[DataMember(Name="Attention", EmitDefaultValue=false)]

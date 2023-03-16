@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class InventoryReceipt : Entity_v4
+	public class InventoryReceipt : Entity
 	{
 
 		[DataMember(Name="ControlCost", EmitDefaultValue=false)]

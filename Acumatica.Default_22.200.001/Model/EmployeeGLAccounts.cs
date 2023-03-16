@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class EmployeeGLAccounts : Entity_v4
+	public class EmployeeGLAccounts : Entity
 	{
 
 		[DataMember(Name="BenefitExpenseAccount", EmitDefaultValue=false)]

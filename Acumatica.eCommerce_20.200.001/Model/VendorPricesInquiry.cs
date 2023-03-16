@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class VendorPricesInquiry : Entity_v4
+	public class VendorPricesInquiry : Entity
 	{
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]

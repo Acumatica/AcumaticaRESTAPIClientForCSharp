@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class RoughCutPlanningDetail : Entity_v4
+	public class RoughCutPlanningDetail : Entity
 	{
 
 		[DataMember(Name="Constraint", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class StatementCycle : Entity_v4
+	public class StatementCycle : Entity
 	{
 
 		[DataMember(Name="AgingPeriod1EndDay", EmitDefaultValue=false)]

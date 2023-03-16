@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class ACAInfoDetail : Entity_v4
+	public class ACAInfoDetail : Entity
 	{
 
 		[DataMember(Name="CoverageType", EmitDefaultValue=false)]

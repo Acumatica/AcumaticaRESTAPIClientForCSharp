@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class ConfigurationMaintAttributeRule : Entity_v4
+	public class ConfigurationMaintAttributeRule : Entity
 	{
 
 		[DataMember(Name="Condition", EmitDefaultValue=false)]

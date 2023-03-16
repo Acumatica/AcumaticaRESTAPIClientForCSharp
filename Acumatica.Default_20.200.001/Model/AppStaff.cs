@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class AppStaff : Entity_v4
+	public class AppStaff : Entity
 	{
 
 		[DataMember(Name="AppointmentNbr", EmitDefaultValue=false)]

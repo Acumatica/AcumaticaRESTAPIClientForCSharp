@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class CostTransactionDetail : Entity_v4
+	public class CostTransactionDetail : Entity
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ReplenishmentParameterStockItem : Entity_v4
+	public class ReplenishmentParameterStockItem : Entity
 	{
 
 		[DataMember(Name="DemandForecastModel", EmitDefaultValue=false)]

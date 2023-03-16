@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class DeductionsAndBenefits : Entity_v4
+	public class DeductionsAndBenefits : Entity
 	{
 
 		[DataMember(Name="DeductionAndBenefitUseClassDefaults", EmitDefaultValue=false)]

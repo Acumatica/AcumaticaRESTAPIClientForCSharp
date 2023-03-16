@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class InventoryAdjustmentDetail : Entity_v4
+	public class InventoryAdjustmentDetail : Entity
 	{
 
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]

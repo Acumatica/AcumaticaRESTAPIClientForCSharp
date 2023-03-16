@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class PurchaseOrder : Entity_v4
+	public class PurchaseOrder : Entity
 	{
 
 		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]

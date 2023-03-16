@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class Case : Entity_v4
+	public class Case : Entity
 	{
 
 		[DataMember(Name="Activities", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_20_200_001.Model
 {
 	[DataContract]
-	public class DisassemblyEntryAttribute : Entity_v4
+	public class DisassemblyEntryAttribute : Entity
 	{
 
 		[DataMember(Name="Attribute", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class BCShipmentsResult : Entity_v4
+	public class BCShipmentsResult : Entity
 	{
 
 		[DataMember(Name="ExternalShipmentUpdated", EmitDefaultValue=false)]

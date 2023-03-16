@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class SrvOrdTaxDetails : Entity_v4
+	public class SrvOrdTaxDetails : Entity
 	{
 
 		[DataMember(Name="IncludeinVATExemptTotal", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_20_200_001.Model
 {
 	[DataContract]
-	public class MRPDisplay : Entity_v4
+	public class MRPDisplay : Entity
 	{
 
 		[DataMember(Name="ActionDate", EmitDefaultValue=false)]

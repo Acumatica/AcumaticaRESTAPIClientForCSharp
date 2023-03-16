@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class DisassemblyEntryMaterialAllocation : Entity_v4
+	public class DisassemblyEntryMaterialAllocation : Entity
 	{
 
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class TemplateItems : Entity_v4
+	public class TemplateItems : Entity
 	{
 
 		[DataMember(Name="CurySpecificMSRP", EmitDefaultValue=false)]

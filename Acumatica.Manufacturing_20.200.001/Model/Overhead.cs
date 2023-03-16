@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_20_200_001.Model
 {
 	[DataContract]
-	public class Overhead : Entity_v4
+	public class Overhead : Entity
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]

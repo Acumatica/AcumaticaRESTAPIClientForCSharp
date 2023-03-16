@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class EngineeringChangeRequestOverhead : Entity_v4
+	public class EngineeringChangeRequestOverhead : Entity
 	{
 
 		[DataMember(Name="ChangeStatus", EmitDefaultValue=false)]

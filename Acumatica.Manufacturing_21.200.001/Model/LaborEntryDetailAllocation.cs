@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class LaborEntryDetailAllocation : Entity_v4
+	public class LaborEntryDetailAllocation : Entity
 	{
 
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.DeviceHub_19_200_001.Model
 {
 	[DataContract]
-	public class PrintJobParameter : Entity_v3
+	public class PrintJobParameter : Entity
 	{
 
 		[DataMember(Name="JobID", EmitDefaultValue=false)]

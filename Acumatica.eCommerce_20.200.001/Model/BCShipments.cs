@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class BCShipments : Entity_v4
+	public class BCShipments : Entity
 	{
 
 		[DataMember(Name="LastModified", EmitDefaultValue=false)]

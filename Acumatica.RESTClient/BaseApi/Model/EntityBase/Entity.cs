@@ -83,8 +83,14 @@ namespace Acumatica.RESTClient.Model
         /// </summary>
         [DataMember(Name="custom", EmitDefaultValue=false)]
         public Dictionary<string, Dictionary<string, CustomField>> Custom { get; set; }
-       
-        
+
+        /// <summary>
+        /// Gets or Sets Note
+        /// </summary>
+        [DataMember(Name = "note", EmitDefaultValue = false)]
+        public StringValue Note { get; set; }
+
+
         /// <summary>
         /// Gets or Sets Files
         /// </summary>

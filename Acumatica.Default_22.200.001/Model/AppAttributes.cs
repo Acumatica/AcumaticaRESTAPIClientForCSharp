@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class AppAttributes : Entity_v4
+	public class AppAttributes : Entity
 	{
 
 		[DataMember(Name="Attribute", EmitDefaultValue=false)]

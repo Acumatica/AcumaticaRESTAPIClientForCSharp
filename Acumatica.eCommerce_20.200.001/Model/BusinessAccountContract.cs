@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class BusinessAccountContract : Entity_v4
+	public class BusinessAccountContract : Entity
 	{
 
 		[DataMember(Name="BusinessAccountID", EmitDefaultValue=false)]

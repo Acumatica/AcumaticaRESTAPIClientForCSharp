@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class PhysicalInventoryReview : Entity_v4
+	public class PhysicalInventoryReview : Entity
 	{
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]

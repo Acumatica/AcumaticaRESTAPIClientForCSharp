@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class ShopifyStore : Entity_v4
+	public class ShopifyStore : Entity
 	{
 
 		[DataMember(Name="AccessToken", EmitDefaultValue=false)]

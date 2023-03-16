@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class ECRReferenceDesignator : Entity_v4
+	public class ECRReferenceDesignator : Entity
 	{
 
 		[DataMember(Name="ChangeStatus", EmitDefaultValue=false)]

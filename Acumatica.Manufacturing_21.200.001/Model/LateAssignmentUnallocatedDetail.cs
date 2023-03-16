@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class LateAssignmentUnallocatedDetail : Entity_v4
+	public class LateAssignmentUnallocatedDetail : Entity
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class TaskRelatedTask : Entity_v4
+	public class TaskRelatedTask : Entity
 	{
 
 		[DataMember(Name="CompletedAt", EmitDefaultValue=false)]

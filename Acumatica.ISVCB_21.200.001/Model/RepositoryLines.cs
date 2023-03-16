@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.ISVCB_21_200_001.Model
 {
 	[DataContract]
-	public class RepositoryLines : Entity_v4
+	public class RepositoryLines : Entity
 	{
 
 		[DataMember(Name="AcumaticaBuild", EmitDefaultValue=false)]

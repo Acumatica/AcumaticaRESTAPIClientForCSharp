@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class EmployerTaxesIncreasingApplWage : Entity_v4
+	public class EmployerTaxesIncreasingApplWage : Entity
 	{
 
 		[DataMember(Name="EmployerTaxesIncreasingApplWageDetails", EmitDefaultValue=false)]

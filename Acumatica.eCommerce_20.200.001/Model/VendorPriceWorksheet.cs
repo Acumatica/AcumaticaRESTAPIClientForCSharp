@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class VendorPriceWorksheet : Entity_v4
+	public class VendorPriceWorksheet : Entity
 	{
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]

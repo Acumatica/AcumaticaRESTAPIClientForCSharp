@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class AppFinancialSettings : Entity_v4
+	public class AppFinancialSettings : Entity
 	{
 
 		[DataMember(Name="BillingCustomer", EmitDefaultValue=false)]

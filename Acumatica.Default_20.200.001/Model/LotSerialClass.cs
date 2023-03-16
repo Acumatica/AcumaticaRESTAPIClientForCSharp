@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class LotSerialClass : Entity_v4
+	public class LotSerialClass : Entity
 	{
 
 		[DataMember(Name="AssignmentMethod", EmitDefaultValue=false)]

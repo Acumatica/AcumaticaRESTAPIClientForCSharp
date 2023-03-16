@@ -27,8 +27,7 @@
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_18_200_001)
 		//{1} = EntityName
 		//{2} = Content
-		//{3} = version of System Contract
-		public static string EntityTemplate = "\r\n\r\nnamespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : Entity_v{3}\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
+		public static string EntityTemplate = "\r\n\r\nnamespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : Entity\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_18_200_001)
 		//{1} = EntityName

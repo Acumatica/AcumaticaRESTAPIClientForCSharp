@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_20_200_001.Model
 {
 	[DataContract]
-	public class EstimateOperationDetail : Entity_v4
+	public class EstimateOperationDetail : Entity
 	{
 
 		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_20_200_001.Model
 {
 	[DataContract]
-	public class AttributeDetail : Entity_v4
+	public class AttributeDetail : Entity
 	{
 
 		[DataMember(Name="AttributeBOMID", EmitDefaultValue=false)]

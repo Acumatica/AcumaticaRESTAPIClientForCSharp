@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class TaxAndReportingCA : Entity_v4
+	public class TaxAndReportingCA : Entity
 	{
 
 		[DataMember(Name="ReportingType", EmitDefaultValue=false)]

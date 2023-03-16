@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class KitAssemblyStockComponentAllocation : Entity_v4
+	public class KitAssemblyStockComponentAllocation : Entity
 	{
 
 		[DataMember(Name="DocType", EmitDefaultValue=false)]

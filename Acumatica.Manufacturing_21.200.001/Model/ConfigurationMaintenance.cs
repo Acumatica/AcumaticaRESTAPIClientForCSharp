@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class ConfigurationMaintenance : Entity_v4
+	public class ConfigurationMaintenance : Entity
 	{
 
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]

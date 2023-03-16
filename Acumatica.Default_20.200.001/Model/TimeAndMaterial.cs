@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class TimeAndMaterial : Entity_v4
+	public class TimeAndMaterial : Entity
 	{
 
 		[DataMember(Name="AmountToInvoice", EmitDefaultValue=false)]

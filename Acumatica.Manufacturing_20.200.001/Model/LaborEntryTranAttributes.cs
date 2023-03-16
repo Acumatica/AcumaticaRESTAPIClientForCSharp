@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_20_200_001.Model
 {
 	[DataContract]
-	public class LaborEntryTranAttributes : Entity_v4
+	public class LaborEntryTranAttributes : Entity
 	{
 
 		[DataMember(Name="Attribute", EmitDefaultValue=false)]

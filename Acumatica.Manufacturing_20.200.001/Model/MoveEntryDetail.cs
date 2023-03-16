@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_20_200_001.Model
 {
 	[DataContract]
-	public class MoveEntryDetail : Entity_v4
+	public class MoveEntryDetail : Entity
 	{
 
 		[DataMember(Name="Allocations", EmitDefaultValue=false)]

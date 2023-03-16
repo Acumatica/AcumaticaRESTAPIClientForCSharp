@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class SalesInvoiceApplicationInvoice : Entity_v4
+	public class SalesInvoiceApplicationInvoice : Entity
 	{
 
 		[DataMember(Name="AdjustedDocReferenceNbr", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class OpportunityTaxDetail : Entity_v4
+	public class OpportunityTaxDetail : Entity
 	{
 
 		[DataMember(Name="IncludeInVATExemptTotal", EmitDefaultValue=false)]

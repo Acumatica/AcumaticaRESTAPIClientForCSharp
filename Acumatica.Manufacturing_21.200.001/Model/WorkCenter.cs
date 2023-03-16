@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class WorkCenter : Entity_v4
+	public class WorkCenter : Entity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]

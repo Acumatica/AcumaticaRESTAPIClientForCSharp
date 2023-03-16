@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class ProjectEquipment : Entity_v4
+	public class ProjectEquipment : Entity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]

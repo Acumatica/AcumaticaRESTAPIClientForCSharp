@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.eCommerce_20_200_001.Model
 {
 	[DataContract]
-	public class Invoice : Entity_v4
+	public class Invoice : Entity
 	{
 
 		[DataMember(Name="Amount", EmitDefaultValue=false)]

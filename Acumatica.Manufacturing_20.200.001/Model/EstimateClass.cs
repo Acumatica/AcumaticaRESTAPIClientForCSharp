@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_20_200_001.Model
 {
 	[DataContract]
-	public class EstimateClass : Entity_v4
+	public class EstimateClass : Entity
 	{
 
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]

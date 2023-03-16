@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class PurchasingDetail : Entity_v4
+	public class PurchasingDetail : Entity
 	{
 
 		[DataMember(Name="POOrderLineNbr", EmitDefaultValue=false)]

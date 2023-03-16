@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class EngineeringChangeOrderAttribute : Entity_v4
+	public class EngineeringChangeOrderAttribute : Entity
 	{
 
 		[DataMember(Name="AttributeID", EmitDefaultValue=false)]

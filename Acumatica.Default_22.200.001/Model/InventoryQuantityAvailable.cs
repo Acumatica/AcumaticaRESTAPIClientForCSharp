@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class InventoryQuantityAvailable : Entity_v4
+	public class InventoryQuantityAvailable : Entity
 	{
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class ConfigurationMaintenanceFeature : Entity_v4
+	public class ConfigurationMaintenanceFeature : Entity
 	{
 
 		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
