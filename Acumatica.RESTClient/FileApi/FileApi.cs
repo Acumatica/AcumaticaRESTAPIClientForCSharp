@@ -33,6 +33,7 @@ namespace Acumatica.RESTClient.FileApi
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"/entity/{endpointName}/{endpointVersion}/files/{fileID}",
                 HttpMethod.Get,
+                ComposeEmptyQueryParams(),
                 null,
                 ComposeAcceptHeaders(HeaderContentType.OctetStream),
                 ComposeContentHeaders(HeaderContentType.Json)

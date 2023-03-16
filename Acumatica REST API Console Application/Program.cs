@@ -4,14 +4,14 @@ namespace AcumaticaRestApiExample
 {
 	class Program
 	{
-		const string SiteURL = "http://localhost/22r203/";
+		const string SiteURL = "http://localhost/22r193/";
         const string Username = "admin";
 		const string Password = "123";
-		const string Tenant = "Company";
+		const string Tenant = null;
 		const string Branch = null;
 		const string Locale = null;
-        private const string ClientSecret = "Op0M23KPx8BWvQHWQAvbMg";
-        private const string ClientID = "85D663A7-9BDC-4409-E5A0-D686D28CF4BB@Company";
+        private const string ClientSecret = "Bwe_jPnrRBUjn2Ish1rZ1w";
+        private const string ClientID = "D1734A18-6EBC-A44F-BAD4-E2E5ACC978D6@Company";
         const string RedirectUrl = "https://localhost/urlForOauth/";
 
         static void Main(string[] args)

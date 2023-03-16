@@ -122,6 +122,9 @@ namespace Acumatica.RESTClient.Client
         #endregion
 
         #region Public Methods
+
+     
+
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>
@@ -135,7 +138,8 @@ namespace Acumatica.RESTClient.Client
         /// <returns>The Task instance.</returns>
         public async Task<HttpResponseMessage> CallApiAsync(
             String resourcePath, 
-            HttpMethod method, 
+            HttpMethod method,
+            List<KeyValuePair<String, String>> queryParams,
             Object postBody,
             string acceptType, 
             string contentType,
@@ -153,6 +157,7 @@ namespace Acumatica.RESTClient.Client
             var request = PrepareRequest(
                 resourcePath,
                 method, 
+                queryParams,
                 postBody,
                 customHeaders, 
                 contentType);
@@ -266,19 +271,59 @@ namespace Acumatica.RESTClient.Client
 
             return String.Join(",", accepts);
         }
+
+        /// <summary>
+        /// Convert params to key/value pairs. 
+        /// Use collectionFormat to properly format lists and collections.
+        /// </summary>
+        /// <param name="name">Key name.</param>
+        /// <param name="value">Value object.</param>
+        /// <returns>A list of KeyValuePairs</returns>
+        public IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
+        {
+            var parameters = new List<KeyValuePair<string, string>>();
+
+            if (IsCollection(value) && collectionFormat == "multi")
+            {
+                var valueCollection = value as IEnumerable;
+                parameters.AddRange(from object item in valueCollection select new KeyValuePair<string, string>(name, item.ToString()));
+            }
+            else
+            {
+                parameters.Add(new KeyValuePair<string, string>(name,value.ToString()));
+            }
+
+            return parameters;
+        }
+
         #endregion
 
         #region Implementation
-      
+
         // Creates and sets up a RestRequest prior to a call.
         private HttpRequestMessage PrepareRequest(
-            String resourcePath, HttpMethod method, Object postBody,
+            String resourcePath, HttpMethod method, List<KeyValuePair<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, 
             String contentType)
         {
-            var url = BasePath + resourcePath;
 
-            var request = new HttpRequestMessage(method, url);
+            var url = new UriBuilder(BasePath + resourcePath);
+
+            if (queryParams != null)
+            {
+                // add query parameter, if any
+                foreach (var param in queryParams)
+                {
+                    var query = System.Web.HttpUtility.ParseQueryString(url.Query);
+                    foreach(var kvp in queryParams)
+                    {
+                        query.Set(kvp.Key, kvp.Value);  
+                    }
+                    url.Query = query.ToString();
+                }
+            }
+
+            var request = new HttpRequestMessage(method, url.ToString());
 
             if (headerParams != null)
             {
@@ -288,6 +333,7 @@ namespace Acumatica.RESTClient.Client
                     request.Headers.Add(param.Key, param.Value);
                 }
             }
+            
 
 
             if (postBody != null) // http body (model or byte[]) parameter
