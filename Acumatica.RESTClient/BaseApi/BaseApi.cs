@@ -5,7 +5,6 @@ using System.Net.Http;
 
 using Acumatica.RESTClient.Client;
 
-using static Acumatica.RESTClient.Auxiliary.Constants;
 
 
 namespace Acumatica.RESTClient.Api
@@ -23,10 +22,9 @@ namespace Acumatica.RESTClient.Api
         /// <returns></returns>
         public BaseApi(String basePath, int timeout = 100000,
             Action<HttpRequestMessage, HttpClient> requestInterceptor = null,
-            Action<HttpRequestMessage, HttpResponseMessage, HttpClient> responseInterceptor = null)
-        {
-            ApiClient = new ApiClient(basePath, timeout, requestInterceptor, responseInterceptor);
-        }
+            Action<HttpResponseMessage, HttpClient> responseInterceptor = null) :
+            this(new ApiClient(basePath, timeout, requestInterceptor, responseInterceptor))
+        { }
 
         public ApiClient ApiClient { get; set; }
         /// <summary>
@@ -42,7 +40,6 @@ namespace Acumatica.RESTClient.Api
                 throw new ArgumentNullException(nameof(client));
             }
             ApiClient = client;
-
         }
 
         #endregion
@@ -68,84 +65,16 @@ namespace Acumatica.RESTClient.Api
 
             return queryParameters;
         }
-        protected string ComposeContentHeaders(HeaderContentType contentTypes)
-        {
-            // to determine the Content-Type header
-            string[] localVarHttpContentTypes = ComposeHeadersArray(contentTypes);
-            return ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-        }
-        protected string ComposeAcceptHeaders(HeaderContentType contentTypes)
-        {
-            var localVarHeaderParams = new Dictionary<String, String>();
-            // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = ComposeHeadersArray(contentTypes);
-            String localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            return localVarHttpHeaderAccept;
-        }
-
-        private static string[] ComposeHeadersArray(HeaderContentType contentTypes)
-        {
-            List<string> headers = new List<string>();
-            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Json)
-            {
-                headers.Add(ApplicationJsonAcceptContentType);
-                headers.Add(TextJsonAcceptContentType);
-            }
-            if ((contentTypes & HeaderContentType.Xml) == HeaderContentType.Xml)
-            {
-                headers.Add(ApplicationXmlAcceptContentType);
-                headers.Add(TextXmlAcceptContentType);
-            }
-            if ((contentTypes & HeaderContentType.Any) == HeaderContentType.Any)
-            {
-                headers.Add(AnyAcceptContentType);
-            }
-            if ((contentTypes & HeaderContentType.WwwForm) == HeaderContentType.WwwForm)
-            {
-                headers.Add(WwwFormEncoded);
-            }
-
-            if ((contentTypes & HeaderContentType.OctetStream) == HeaderContentType.OctetStream)
-            {
-                headers.Add(OctetStream);
-            }
-            String[] localVarHttpHeaderAccepts = headers.ToArray();
-            return localVarHttpHeaderAccepts;
-        }
-
-
-
-        protected object ComposeBody(object objectForRequestBody)
-        {
-            object postBody = null;
-
-            if (objectForRequestBody != null && objectForRequestBody.GetType() != typeof(byte[]))
-            {
-                postBody = ApiClient.Serialize(objectForRequestBody); // http body (model) parameter
-            }
-            else
-            {
-                postBody = objectForRequestBody; // byte array
-            }
-
-            return postBody;
-        }
-
+  
         protected ApiResponse<T> DeserializeResponse<T>(HttpResponseMessage response)
         {
-            int localVarStatusCode = (int)response.StatusCode;
-
-            return new ApiResponse<T>(localVarStatusCode,
+            return new ApiResponse<T>((int)response.StatusCode,
                 GetHeadersExceptCookies(response),
                 (T)ApiClient.Deserialize<T>(response));
         }
         protected ApiResponse ConvertRestResponeToApiResponse(HttpResponseMessage response)
         {
-            int localVarStatusCode = (int)response.StatusCode;
-
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<object>((int)response.StatusCode,
                 GetHeadersExceptCookies(response),
                 null);
         }
@@ -162,12 +91,7 @@ namespace Acumatica.RESTClient.Api
                                 StringComparer.OrdinalIgnoreCase);
         }
 
-        protected void VerifyResponse<T>(HttpResponseMessage response, string methodName)
-        {
-            response.EnsureSuccessStatusCode();
-        }
-
-        protected void VerifyResponse(HttpResponseMessage response, string methodName)
+        protected virtual void VerifyResponse(HttpResponseMessage response, string methodName)
         {
             response.EnsureSuccessStatusCode();
         }
@@ -176,8 +100,6 @@ namespace Acumatica.RESTClient.Api
         {
             throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");
         }
-
-        protected ExceptionFactory _exceptionFactory = (name, response, type) => null;
 
         #endregion
     }

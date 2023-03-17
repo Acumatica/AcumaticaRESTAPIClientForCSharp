@@ -72,8 +72,8 @@ namespace Acumatica.RESTClient.RootApi
                 HttpMethod.Get,
                 null,
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Xml | HeaderContentType.Json), 
-                ComposeContentHeaders(HeaderContentType.None)).Result;
+                HeaderContentType.Xml | HeaderContentType.Json, 
+                HeaderContentType.None).Result;
 
             VerifyResponse(localVarResponse, "RootGet");
 
@@ -93,8 +93,8 @@ namespace Acumatica.RESTClient.RootApi
                 HttpMethod.Get,
                 null,
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json | HeaderContentType.Xml),     
-                ComposeContentHeaders(HeaderContentType.None));
+                HeaderContentType.Json | HeaderContentType.Xml,     
+                HeaderContentType.None);
 
             VerifyResponse(localVarResponse, "RootGet");
 

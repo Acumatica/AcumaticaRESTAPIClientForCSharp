@@ -12,12 +12,27 @@ using Acumatica.RESTClient.Api;
 namespace Acumatica.RESTClient.ContractBasedApi
 {
     public abstract partial class EntityAPI<EntityType> : BaseApi
-        where EntityType : Entity
+        where EntityType : Entity, new()
     {
         #region Auxiliary
         protected virtual string GetEntityName()
         {
             return typeof(EntityType).Name;
+        }
+        protected override void VerifyResponse(HttpResponseMessage response, string methodName)
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                var responseMessage = DeserializeResponse<EntityType>(response).Data.Error;
+                // TODO iterate through fields and find all errors
+                if (string.IsNullOrEmpty(responseMessage))
+                {
+                    responseMessage = DeserializeResponse<ErrorMessage>(response).Data.ToString();
+                }
+                throw new ApiException(
+                    (int)response.StatusCode,
+                    $"Error {(int)response.StatusCode} calling {methodName}: {response.ReasonPhrase} \r\n {responseMessage}");
+            }
         }
         #endregion
 
@@ -41,10 +56,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Put,
                 null,
                 content, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeContentHeaders(HeaderContentType.OctetStream)).Result ;
+                HeaderContentType.Json, 
+                HeaderContentType.OctetStream).Result ;
 
-            VerifyResponse<EntityType>(localVarResponse, "PutFile");
+            VerifyResponse(localVarResponse, "PutFile");
 
             return ConvertRestResponeToApiResponse(localVarResponse);
         }
@@ -68,10 +83,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Put,
                 null,
                 content, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeContentHeaders(HeaderContentType.OctetStream));
+                HeaderContentType.Json, 
+                HeaderContentType.OctetStream);
 
-            VerifyResponse<EntityType>(localVarResponse, "PutFile");
+            VerifyResponse(localVarResponse, "PutFile");
 
             return ConvertRestResponeToApiResponse(localVarResponse);
         }
@@ -96,9 +111,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 $"{GetEndpointPath()}/{GetEntityName()}/{action.GetType().Name}",
                 HttpMethod.Post,
                 null,
-                ComposeBody(action), 
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.Json),
+                action, 
+                HeaderContentType.Json,
+                HeaderContentType.Json,
                 ComposePutHeaders(PutMethod.Any, businessDate, branch)).Result;
 
             VerifyResponse(localVarResponse, "InvokeAction");
@@ -124,9 +139,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 $"{GetEndpointPath()}/{GetEntityName()}/{action.GetType().Name}",
                 HttpMethod.Post,
                 null,
-                ComposeBody(action),
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.Json),
+                action,
+                HeaderContentType.Json,
+                HeaderContentType.Json,
                 ComposePutHeaders(PutMethod.Any, businessDate, branch));
 
             VerifyResponse(localVarResponse, "InvokeAction");
@@ -147,8 +162,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Get,
                 null,
                 null,
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.None)).Result;
+                HeaderContentType.Json,
+                HeaderContentType.None).Result;
 
             VerifyResponse(localVarResponse, "GetProcessStatus");
 
@@ -183,12 +198,12 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 $"{GetEndpointPath()}/{GetEntityName()}",
                 HttpMethod.Put,
                 ComposeQueryParams(select, filter, expand, custom),
-                ComposeBody(entity),
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.Json),
+                entity,
+                HeaderContentType.Json,
+                HeaderContentType.Json,
                 ComposePutHeaders(method, businessDate, branch)).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "PutEntity");
+            VerifyResponse(localVarResponse, "PutEntity");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -215,12 +230,12 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 $"{GetEndpointPath()}/{GetEntityName()}",
 				HttpMethod.Put, 
                 ComposeQueryParams(select, filter, expand, custom),
-                ComposeBody(entity),
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.Json),
+                entity,
+                HeaderContentType.Json,
+                HeaderContentType.Json,
                 ComposePutHeaders(method, businessDate, branch));
 
-			VerifyResponse<EntityType>(localVarResponse, "PutEntity");
+			VerifyResponse(localVarResponse, "PutEntity");
 
 			return DeserializeResponse<EntityType>(localVarResponse);
 		}
@@ -265,16 +280,15 @@ namespace Acumatica.RESTClient.ContractBasedApi
             if (ids == null)
                 ThrowMissingParameter("GetByKeys", nameof(ids));
 
-            // make the HTTP request
             HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
                 $"{GetEndpointPath()}/{GetEntityName()}/{string.Join("/", ids)}",
                 HttpMethod.Get,
                 ComposeQueryParams(select, filter, expand, custom),
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeContentHeaders(HeaderContentType.None));
+                HeaderContentType.Json, 
+                HeaderContentType.None);
 
-            VerifyResponse<EntityType>(localVarResponse, "GetByKeys");
+            VerifyResponse(localVarResponse, "GetByKeys");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -299,10 +313,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Get,
                 ComposeQueryParams(select, filter, expand, custom),
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json),     
-                ComposeContentHeaders(HeaderContentType.None)).Result;
+                HeaderContentType.Json,     
+                HeaderContentType.None).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "GetByKeys");
+            VerifyResponse(localVarResponse, "GetByKeys");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -327,11 +341,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Get,
                 ComposeQueryParams(select, filter, expand, custom),
                 null,
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.None),
+                HeaderContentType.Json,
+                HeaderContentType.None,
                 customHeaders);
 
-            VerifyResponse<EntityType>(localVarResponse, "GetList");
+            VerifyResponse(localVarResponse, "GetList");
 
             return DeserializeResponse<List<EntityType>>(localVarResponse);
         }
@@ -357,11 +371,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Get,
                 ComposeQueryParams(select, filter, expand, custom),
                 null,
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.None),
+                HeaderContentType.Json,
+                HeaderContentType.None,
                 customHeaders).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "GetList");
+            VerifyResponse(localVarResponse, "GetList");
 
             return DeserializeResponse<List<EntityType>>(localVarResponse);
         }
@@ -386,10 +400,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Get,
                 ComposeQueryParams(select, filter, expand, custom),
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeContentHeaders(HeaderContentType.None));
+                HeaderContentType.Json, 
+                HeaderContentType.None);
 
-            VerifyResponse<EntityType>(localVarResponse, "GetById");
+            VerifyResponse(localVarResponse, "GetById");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -414,10 +428,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Get,
                 ComposeQueryParams(select, filter, expand, custom),
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeContentHeaders(HeaderContentType.None)).Result;
+                HeaderContentType.Json, 
+                HeaderContentType.None).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "GetById");
+            VerifyResponse(localVarResponse, "GetById");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -437,10 +451,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Get,
                 null,
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeContentHeaders(HeaderContentType.None));
+                HeaderContentType.Json, 
+                HeaderContentType.None);
 
-            VerifyResponse<EntityType>(localVarResponse, "GetAdHocSchema");
+            VerifyResponse(localVarResponse, "GetAdHocSchema");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -457,10 +471,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Get,
                 null,
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeContentHeaders(HeaderContentType.None)).Result;
+                HeaderContentType.Json, 
+                HeaderContentType.None).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "GetAdHocSchema");
+            VerifyResponse(localVarResponse, "GetAdHocSchema");
 
             return DeserializeResponse<EntityType>(localVarResponse);
         }
@@ -483,10 +497,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Delete,
                 null,
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Any), 
-                ComposeContentHeaders(HeaderContentType.None));
+                HeaderContentType.Any, 
+                HeaderContentType.None);
 
-            VerifyResponse<EntityType>(localVarResponse, "DeleteByKeys");
+            VerifyResponse(localVarResponse, "DeleteByKeys");
 
             return ConvertRestResponeToApiResponse(localVarResponse);
         }
@@ -507,10 +521,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Delete,
                 null,
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Any), 
-                ComposeContentHeaders(HeaderContentType.None)).Result;
+                HeaderContentType.Any, 
+                HeaderContentType.None).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "DeleteByKeys");
+            VerifyResponse(localVarResponse, "DeleteByKeys");
 
             return ConvertRestResponeToApiResponse(localVarResponse);
         }
@@ -531,10 +545,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Delete,
                 null,
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Any), 
-                ComposeContentHeaders(HeaderContentType.None));
+                HeaderContentType.Any, 
+                HeaderContentType.None);
 
-            VerifyResponse<EntityType>(localVarResponse, "DeleteById");
+            VerifyResponse(localVarResponse, "DeleteById");
 
             return ConvertRestResponeToApiResponse(localVarResponse);
         }
@@ -555,10 +569,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HttpMethod.Delete,
                 null,
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Any), 
-                ComposeContentHeaders(HeaderContentType.None)).Result;
+                HeaderContentType.Any, 
+                HeaderContentType.None).Result;
 
-            VerifyResponse<EntityType>(localVarResponse, "DeleteById");
+            VerifyResponse(localVarResponse, "DeleteById");
 
             return ConvertRestResponeToApiResponse(localVarResponse);
         }

@@ -31,8 +31,8 @@ namespace Acumatica.RESTClient.ODataApi
                 HttpMethod.Get,
                 ComposeQueryParams(select, filter, expand, null, skip, top),
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeContentHeaders(HeaderContentType.Json),
+                HeaderContentType.Json, 
+                HeaderContentType.Json,
                 ComposeAuthenticationHeaders()
             ).Result;
 

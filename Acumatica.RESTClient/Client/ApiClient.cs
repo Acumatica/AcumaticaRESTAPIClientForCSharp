@@ -7,9 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Acumatica.Auth.Model;
+using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Auxiliary;
 
+
 using Newtonsoft.Json;
+
+using static Acumatica.RESTClient.Auxiliary.Constants;
 
 namespace Acumatica.RESTClient.Client
 {
@@ -18,12 +22,6 @@ namespace Acumatica.RESTClient.Client
     /// </summary>
     public partial class ApiClient
     {
-        /// <summary>
-        /// Identifier for ISO 8601 DateTime Format
-        /// </summary>
-        /// <remarks>See https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8 for more information.</remarks>
-        // ReSharper disable once InconsistentNaming
-        public const string ISO8601_DATETIME_FORMAT = "o";
         #region State & ctor
 
         private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
@@ -42,7 +40,7 @@ namespace Acumatica.RESTClient.Client
         public ApiClient(string basePath, 
             int timeout = 100000,
              Action<HttpRequestMessage, HttpClient> requestInterceptor = null,
-             Action<HttpRequestMessage, HttpResponseMessage, HttpClient> responseInterceptor = null)
+             Action<HttpResponseMessage, HttpClient> responseInterceptor = null)
         {
             BasePath = basePath;
             RequestInterceptor = requestInterceptor;
@@ -60,7 +58,7 @@ namespace Acumatica.RESTClient.Client
         /// <summary>
         /// Method that is executed after receiving response. May be used for loggin the response.
         /// </summary>
-        public Action<HttpRequestMessage, HttpResponseMessage, HttpClient> ResponseInterceptor { get; set; }
+        public Action<HttpResponseMessage, HttpClient> ResponseInterceptor { get; set; }
 
 
         /// <summary>
@@ -123,8 +121,6 @@ namespace Acumatica.RESTClient.Client
 
         #region Public Methods
 
-     
-
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>
@@ -141,26 +137,18 @@ namespace Acumatica.RESTClient.Client
             HttpMethod method,
             List<KeyValuePair<String, String>> queryParams,
             Object postBody,
-            string acceptType, 
-            string contentType,
+            HeaderContentType acceptType,
+            HeaderContentType contentType,
             Dictionary<String, String> customHeaders = null)
         {
-            if (Token != null)
-            {
-                if (customHeaders == null)
-                {
-                    customHeaders = new Dictionary<String, String>();
-                }
-                customHeaders.Add("Authorization", Token.Token_type + " " + Token.Access_token);
-            }
-
             var request = PrepareRequest(
                 resourcePath,
                 method, 
                 queryParams,
                 postBody,
-                customHeaders, 
-                contentType);
+                customHeaders,
+                acceptType: ComposeAcceptHeaders(acceptType),
+                contentType: ComposeContentHeaders(contentType));
 
             if (RequestInterceptor != null)
             {
@@ -169,7 +157,7 @@ namespace Acumatica.RESTClient.Client
             var response = await Client.SendAsync(request);
             if (ResponseInterceptor != null)
             {
-                ResponseInterceptor(request, response, Client);
+                ResponseInterceptor(response, Client);
             }
 
             return response;
@@ -184,7 +172,6 @@ namespace Acumatica.RESTClient.Client
         /// <returns>Object representation of the JSON string.</returns>
         public object Deserialize<T>(HttpResponseMessage response)
         {
-            var headers = response.Headers;
             if (typeof(T) == typeof(byte[])) // return byte array
             {
                 return response.Content.ReadAsByteArrayAsync().Result;
@@ -236,14 +223,17 @@ namespace Acumatica.RESTClient.Client
         /// <summary>
         /// Select the Content-Type header's value from the given content-type array:
         /// if JSON type exists in the given array, use it;
-        /// otherwise use the first one defined in 'consumes'
+        /// otherwise use the first one defined in 'consumes'.
         /// </summary>
+        /// <remarks>
+        /// We need this because only one content type is allowed
+        /// </remarks>
         /// <param name="contentTypes">The Content-Type array to select from.</param>
         /// <returns>The Content-Type header to use.</returns>
-        public String SelectHeaderContentType(String[] contentTypes)
+        private String SelectHeaderContentType(IEnumerable<string> contentTypes)
         {
-            if (contentTypes.Length == 0)
-                return "application/json";
+            if (contentTypes.Count() == 0)
+                return ApplicationJsonAcceptContentType;
 
             foreach (var contentType in contentTypes)
             {
@@ -251,26 +241,43 @@ namespace Acumatica.RESTClient.Client
                     return contentType;
             }
 
-            return contentTypes[0]; // use the first content type specified in 'consumes'
+            return contentTypes.First(); 
         }
 
-        /// <summary>
-        /// Select the Accept header's value from the given accepts array:
-        /// if JSON exists in the given array, use it;
-        /// otherwise use all of them (joining into a string)
-        /// </summary>
-        /// <param name="accepts">The accepts array to select from.</param>
-        /// <returns>The Accept header to use.</returns>
-        public String SelectHeaderAccept(String[] accepts)
+        protected string ComposeAcceptHeaders(HeaderContentType contentTypes)
         {
-            if (accepts.Length == 0)
-                return null;
-
-            if (accepts.Contains("application/json", StringComparer.OrdinalIgnoreCase))
-                return "application/json";
-
-            return String.Join(",", accepts);
+            return string.Join(",", ComposeHeadersArray(contentTypes));
         }
+
+        private static IEnumerable<string> ComposeHeadersArray(HeaderContentType contentTypes)
+        {
+            List<string> headers = new List<string>();
+            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Json)
+            {
+                headers.Add(ApplicationJsonAcceptContentType);
+                headers.Add(TextJsonAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.Xml) == HeaderContentType.Xml)
+            {
+                headers.Add(ApplicationXmlAcceptContentType);
+                headers.Add(TextXmlAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.Any) == HeaderContentType.Any)
+            {
+                headers.Add(AnyAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.WwwForm) == HeaderContentType.WwwForm)
+            {
+                headers.Add(WwwFormEncoded);
+            }
+
+            if ((contentTypes & HeaderContentType.OctetStream) == HeaderContentType.OctetStream)
+            {
+                headers.Add(OctetStream);
+            }
+            return headers;
+        }
+
 
         /// <summary>
         /// Convert params to key/value pairs. 
@@ -299,12 +306,19 @@ namespace Acumatica.RESTClient.Client
         #endregion
 
         #region Implementation
-
+        protected string ComposeContentHeaders(HeaderContentType contentTypes)
+        {
+            return SelectHeaderContentType(ComposeHeadersArray(contentTypes));
+        }
         // Creates and sets up a RestRequest prior to a call.
         private HttpRequestMessage PrepareRequest(
-            String resourcePath, HttpMethod method, List<KeyValuePair<String, String>> queryParams, Object postBody,
-            Dictionary<String, String> headerParams, 
-            String contentType)
+            String resourcePath, 
+            HttpMethod method, 
+            List<KeyValuePair<String, String>> queryParams, 
+            Object postBody,
+            Dictionary<String, String> headerParams,
+            string acceptType, 
+            string contentType)
         {
 
             var url = new UriBuilder(BasePath + resourcePath);
@@ -333,22 +347,33 @@ namespace Acumatica.RESTClient.Client
                     request.Headers.Add(param.Key, param.Value);
                 }
             }
-            
+            if (!String.IsNullOrWhiteSpace(acceptType))
+            {
+                request.Headers.Add("Accept", acceptType);
+            }
 
 
-            if (postBody != null) // http body (model or byte[]) parameter
+            if (Token != null)
+            {
+                request.Headers.Add("Authorization", $"{Token.Token_type} {Token.Access_token}");
+            }
+
+            if (postBody != null)
             {
                 if (postBody is string)
                 {
                     request.Content = new StringContent(postBody as string, Encoding.UTF8, contentType);
                 }
+               
                 else if (postBody is byte[])
                 {
                     request.Content = new ByteArrayContent(postBody as byte[]);
                 }
+                else 
+                {
+                    request.Content = new StringContent(Serialize(postBody), Encoding.UTF8, contentType); 
+                }
             }
-
-
             return request;
         }
 

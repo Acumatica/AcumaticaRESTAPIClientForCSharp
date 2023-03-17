@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.ODataA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.CustomizationApi", "Acumatica.RESTClient.Customization\Acumatica.RESTClient.CustomizationApi.csproj", "{F899BF49-694E-4AB4-9202-20C709E7BF72}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.ContractBasedApi", "Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj", "{B0ED9019-5F24-4297-8121-967E108589FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F899BF49-694E-4AB4-9202-20C709E7BF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F899BF49-694E-4AB4-9202-20C709E7BF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F899BF49-694E-4AB4-9202-20C709E7BF72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0ED9019-5F24-4297-8121-967E108589FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0ED9019-5F24-4297-8121-967E108589FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0ED9019-5F24-4297-8121-967E108589FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0ED9019-5F24-4297-8121-967E108589FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

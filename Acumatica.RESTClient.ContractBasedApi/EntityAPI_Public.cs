@@ -13,7 +13,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 	/// Represents a collection of functions to interact with the API endpoints
 	/// </summary>
 	public abstract partial class EntityAPI<EntityType> : BaseApi
-        where EntityType : Entity
+        where EntityType : Entity, new()
     {
         #region Constructor
 

@@ -30,9 +30,6 @@ namespace Acumatica.RESTClient.CustomizationApi
             if (projectName == null)
                 ThrowMissingParameter("Import", nameof(projectName));
 
-
-            var localVarPath = "/CustomizationApi/Import";
-
             CustomizationImport customizationImport = new CustomizationImport();
             customizationImport.ProjectDescription = projectDescription;
             customizationImport.ProjectName = projectName;
@@ -41,12 +38,12 @@ namespace Acumatica.RESTClient.CustomizationApi
             customizationImport.ProjectContentBase64 = ConvertToBase64(customizationPackageContent);
 
             HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
-                localVarPath,
+                "/CustomizationApi/Import",
                 HttpMethod.Post,
                 null,
-                ComposeBody(customizationImport),
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
+                customizationImport,
+                HeaderContentType.Json,
+                HeaderContentType.Json).Result;
 
             VerifyResponse(localVarResponse, "Import");
             return DeserializeResponse<CustomizationPublishLog>(localVarResponse).Data;
@@ -168,9 +165,9 @@ namespace Acumatica.RESTClient.CustomizationApi
                 localVarPath,
                 HttpMethod.Post,
                 null,
-                ComposeBody(publishParams),
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
+                publishParams,
+                HeaderContentType.Json,
+                HeaderContentType.Json).Result;
 
             VerifyResponse(localVarResponse, "PublishBegin");
             return DeserializeResponse<CustomizationPublishLog>(localVarResponse).Data;
@@ -182,8 +179,8 @@ namespace Acumatica.RESTClient.CustomizationApi
                 HttpMethod.Post,
                 null,
                 null,
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
+                HeaderContentType.Json,
+                HeaderContentType.Json).Result;
 
             VerifyResponse(localVarResponse, "PublishEnd");
             return DeserializeResponse<CustomizationPublishEnd>(localVarResponse).Data;

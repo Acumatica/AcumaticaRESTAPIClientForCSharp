@@ -35,8 +35,8 @@ namespace Acumatica.RESTClient.FileApi
                 HttpMethod.Get,
                 null,
                 null,
-                ComposeAcceptHeaders(HeaderContentType.OctetStream),
-                ComposeContentHeaders(HeaderContentType.Json)
+                HeaderContentType.OctetStream,
+                HeaderContentType.Json
                 ).Result;
 
             VerifyResponse(localVarResponse, nameof(GetFile));

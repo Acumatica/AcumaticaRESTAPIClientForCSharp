@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 using Acumatica.Auth.Api;
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Model;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
 
 using AcumaticaRestApiExample;
 
 namespace AcumaticaRestApiExample
 {
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
-		 where EntityType : Entity
+		 where EntityType : Entity, new()
 	{
 		public BaseEndpointApi(ApiClient client) : base(client)
 		{ }
