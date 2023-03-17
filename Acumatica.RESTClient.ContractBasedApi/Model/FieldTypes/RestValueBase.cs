@@ -4,8 +4,9 @@ using Newtonsoft.Json;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
+    public interface IRestValueMarker { }
     [DataContract]
-    public abstract class RestValueBase<TValue>
+    public abstract class RestValueBase<TValue> : IRestValueMarker
     {
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public TValue Value { get; set; }
