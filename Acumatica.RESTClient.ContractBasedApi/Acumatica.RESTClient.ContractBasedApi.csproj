@@ -2,7 +2,32 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Title>Acumatica Contract Based REST API CLient</Title>
+    <Version>4.0.0-alpha</Version>
+    <Authors>Dmitrii-Naumov</Authors>
+    <Company>Acumatica</Company>
+    <Description>A simple client allowing to use Acumatica Contract Based REST API from C#. </Description>
+    <Copyright>Acumatica</Copyright>
+    <PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
+    <PackageIcon>AcumaticaRESTClientLogo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
+    <PackageTags>Acumatica;REST;client;API;ContractBased</PackageTags>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Acumatica.RESTClient\AcumaticaRESTClientLogo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
