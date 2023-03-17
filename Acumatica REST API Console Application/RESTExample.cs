@@ -15,7 +15,7 @@ namespace AcumaticaRestApiExample
 		{
 			var authApi = new AuthApi(siteURL
     //            ,
-				//requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+				//requestIntercep   tor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
                 );
 
             try
@@ -36,8 +36,6 @@ namespace AcumaticaRestApiExample
                 {
                     Console.WriteLine($"The file {fileName} was uploaded successfully");
                 }
-
-
             }
             catch (Exception e)
             {

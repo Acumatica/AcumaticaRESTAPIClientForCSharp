@@ -39,8 +39,8 @@ namespace Acumatica.Auth.Api
         /// Can be used for logging purposes.
         /// </param>
         public AuthApi(string basePath, int timeout = 100000,
-            Action<HttpRequestMessage, HttpClient> requestInterceptor = null,
-            Action<HttpResponseMessage, HttpClient> responseInterceptor = null) : base(basePath, timeout, requestInterceptor, responseInterceptor)
+            Action<HttpRequestMessage> requestInterceptor = null,
+            Action<HttpResponseMessage> responseInterceptor = null) : base(basePath, timeout, requestInterceptor, responseInterceptor)
         { }
 
         /// <summary>

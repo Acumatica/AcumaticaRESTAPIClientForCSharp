@@ -11,7 +11,7 @@ using Acumatica.RESTClient.Api;
 namespace Acumatica.ISVCB_21_200_001.Api
 {
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
-		where EntityType : Entity
+		where EntityType : Entity, new()
 	{
 		public BaseEndpointApi(ApiClient client) : base(client)
 		{ }

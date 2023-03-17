@@ -39,8 +39,8 @@ namespace Acumatica.RESTClient.Client
         /// </param>
         public ApiClient(string basePath, 
             int timeout = 100000,
-             Action<HttpRequestMessage, HttpClient> requestInterceptor = null,
-             Action<HttpResponseMessage, HttpClient> responseInterceptor = null)
+             Action<HttpRequestMessage> requestInterceptor = null,
+             Action<HttpResponseMessage> responseInterceptor = null)
         {
             BasePath = basePath;
             RequestInterceptor = requestInterceptor;
@@ -53,12 +53,12 @@ namespace Acumatica.RESTClient.Client
         /// <summary>
         /// Method that is executed before request. May be used for loggin the request body.
         /// </summary>
-        public Action<HttpRequestMessage, HttpClient> RequestInterceptor { get; set; }
+        public Action<HttpRequestMessage> RequestInterceptor { get; set; }
 
         /// <summary>
         /// Method that is executed after receiving response. May be used for loggin the response.
         /// </summary>
-        public Action<HttpResponseMessage, HttpClient> ResponseInterceptor { get; set; }
+        public Action<HttpResponseMessage> ResponseInterceptor { get; set; }
 
 
         /// <summary>
@@ -152,12 +152,12 @@ namespace Acumatica.RESTClient.Client
 
             if (RequestInterceptor != null)
             {
-                RequestInterceptor(request, Client);
+                RequestInterceptor(request);
             }
             var response = await Client.SendAsync(request);
             if (ResponseInterceptor != null)
             {
-                ResponseInterceptor(response, Client);
+                ResponseInterceptor(response);
             }
 
             return response;

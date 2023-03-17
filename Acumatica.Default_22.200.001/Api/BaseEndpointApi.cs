@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Api
 {
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
-		where EntityType : Entity
+		where EntityType : Entity, new()
 	{
 		public BaseEndpointApi(ApiClient client) : base(client)
 		{ }

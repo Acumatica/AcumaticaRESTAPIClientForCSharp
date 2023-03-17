@@ -21,8 +21,8 @@ namespace Acumatica.RESTClient.Api
         /// </summary>
         /// <returns></returns>
         public BaseApi(String basePath, int timeout = 100000,
-            Action<HttpRequestMessage, HttpClient> requestInterceptor = null,
-            Action<HttpResponseMessage, HttpClient> responseInterceptor = null) :
+            Action<HttpRequestMessage> requestInterceptor = null,
+            Action<HttpResponseMessage> responseInterceptor = null) :
             this(new ApiClient(basePath, timeout, requestInterceptor, responseInterceptor))
         { }
 

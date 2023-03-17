@@ -19,8 +19,8 @@ namespace Acumatica.RESTClient.MaintenanceApi
                 HttpMethod.Post,
                 null,
                 endpointXML,
-                ComposeAcceptHeaders(HeaderContentType.Xml),
-                ComposeContentHeaders(HeaderContentType.Xml)).Result;
+                HeaderContentType.Xml,
+                HeaderContentType.Xml).Result;
 
             VerifyResponse(localVarResponse, "PutSchema");
         }
@@ -33,8 +33,8 @@ namespace Acumatica.RESTClient.MaintenanceApi
                 HttpMethod.Get,
                 null,
                 null,
-                ComposeAcceptHeaders(HeaderContentType.Xml),
-                ComposeContentHeaders(HeaderContentType.Xml)).Result;
+                HeaderContentType.Xml,
+                HeaderContentType.Xml).Result;
 
             VerifyResponse(localVarResponse, "GetSchema"); 
             return DeserializeResponse<string>(localVarResponse).Data;
