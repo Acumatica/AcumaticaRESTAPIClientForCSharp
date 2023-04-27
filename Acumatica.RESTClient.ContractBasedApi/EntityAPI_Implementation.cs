@@ -23,15 +23,30 @@ namespace Acumatica.RESTClient.ContractBasedApi
         {
             if (!response.IsSuccessStatusCode)
             {
-                var responseMessage = DeserializeResponse<EntityType>(response).Data.Error;
-                // TODO iterate through fields and find all errors
+                string responseMessage = null;
+                try
+                {
+                    responseMessage = DeserializeResponse<EntityType>(response).Data.Error;
+                    // TODO iterate through fields and find all errors
+                }
+                catch (Newtonsoft.Json.JsonReaderException) { }
                 if (string.IsNullOrEmpty(responseMessage))
                 {
-                    responseMessage = DeserializeResponse<ErrorMessage>(response).Data.ToString();
+                    try
+                    {
+                        responseMessage = DeserializeResponse<ErrorMessage>(response).Data.ToString();
+                    }
+                    catch (Newtonsoft.Json.JsonReaderException) { }
+                }
+                if (string.IsNullOrEmpty(responseMessage))
+                {
+                    //it should be html at that point
+                    //remove tags from html
+                    responseMessage = System.Text.RegularExpressions.Regex.Replace(response.Content.ReadAsStringAsync().Result.Replace('\r',' ').Replace('\n', ' '), "<.*?>", string.Empty);
                 }
                 throw new ApiException(
-                    (int)response.StatusCode,
-                    $"Error {(int)response.StatusCode} calling {methodName}: {response.ReasonPhrase} \r\n {responseMessage}");
+                (int)response.StatusCode,
+                $"Error {(int)response.StatusCode} calling {methodName}: {response.ReasonPhrase} \r\n {responseMessage}");
             }
         }
         #endregion
