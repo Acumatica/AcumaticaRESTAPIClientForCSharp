@@ -42,7 +42,8 @@ namespace Acumatica.RESTClient.Client
              Action<HttpRequestMessage> requestInterceptor = null,
              Action<HttpResponseMessage> responseInterceptor = null)
         {
-            BasePath = basePath;
+            BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
+
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
 
@@ -192,8 +193,8 @@ namespace Acumatica.RESTClient.Client
                 return Convert.ChangeType(response.Content, typeof(T));
             }
 
-                return JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result, typeof(T), serializerSettings);
-            }
+            return JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result, typeof(T), serializerSettings);
+        }
 
         /// <summary>
         /// Serialize an input (model) into JSON string
