@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -178,6 +179,19 @@ namespace Acumatica.Auth.Api
         #endregion
 
         #region Implementation
+        protected override void VerifyResponse(HttpResponseMessage response, string methodName)
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                //if content as string contains string "API login limit", report separate error
+                if (response.Content != null && response.Content.ReadAsStringAsync().Result.Contains("API Login Limit"))
+                {
+                    throw new ApiException(429, $"Error when calling {methodName}: API login limit exceeded. Please try again later.");
+                }
+            }
+          
+            base.VerifyResponse(response, methodName);
+        }
         [Flags]
         public enum OAuthScope
         {
