@@ -192,16 +192,8 @@ namespace Acumatica.RESTClient.Client
                 return Convert.ChangeType(response.Content, typeof(T));
             }
 
-            // at this point, it must be a model (json)
-            try
-            {
                 return JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result, typeof(T), serializerSettings);
             }
-            catch (Exception e)
-            {
-                throw new ApiException(500, e.Message);
-            }
-        }
 
         /// <summary>
         /// Serialize an input (model) into JSON string
