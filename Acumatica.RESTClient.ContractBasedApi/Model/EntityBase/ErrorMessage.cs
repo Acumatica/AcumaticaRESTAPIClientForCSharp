@@ -19,6 +19,18 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         [DataMember(Name = "stackTrace", EmitDefaultValue = false)]
         public string StackTrace { get; set; }
 
+        [DataMember(Name = "innerException", EmitDefaultValue = false)]
+        public ErrorMessage innerException { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public virtual string ToStringWithoutStack()
+        {
+            return innerException==null?$"{message} : {exceptionMessage}": $"{message} : {exceptionMessage} : {innerException.ToStringWithoutStack()}";
+        }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

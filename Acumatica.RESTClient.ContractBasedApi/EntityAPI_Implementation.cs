@@ -34,7 +34,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 {
                     try
                     {
-                        responseMessage = DeserializeResponse<ErrorMessage>(response).Data.ToString();
+                        ErrorMessage error = DeserializeResponse<ErrorMessage>(response).Data;
+                        responseMessage = $"{error.message} : {error.exceptionMessage} : {error.innerException}";
                     }
                     catch (Newtonsoft.Json.JsonReaderException) { }
                 }
@@ -44,7 +45,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                     //remove tags from html
                     responseMessage = System.Text.RegularExpressions.Regex.Replace(response.Content.ReadAsStringAsync().Result.Replace('\r',' ').Replace('\n', ' '), "<.*?>", string.Empty);
                 }
-                throw new ApiException(
+              throw new ApiException(
                 (int)response.StatusCode,
                 $"Error {(int)response.StatusCode} calling {methodName}: {response.ReasonPhrase} \r\n {responseMessage}");
             }
