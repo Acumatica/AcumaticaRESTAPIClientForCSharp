@@ -53,8 +53,8 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             return  Value != null ? Value.GetHashCode() : 0;
         }
 
-        public static bool operator ==(RestValueBase<TValue> left, RestValueBase<TValue> right) => left.Value.Equals(right.Value);
-        public static bool operator !=(RestValueBase<TValue> left, RestValueBase<TValue> right) => !left.Value.Equals(right.Value);
+        public static bool operator ==(RestValueBase<TValue> left, RestValueBase<TValue> right) => right is null || left is null ? (right is null && left is null) : left.Value.Equals(right.Value);
+        public static bool operator !=(RestValueBase<TValue> left, RestValueBase<TValue> right) => !(left == right);
 
         /// <summary>
         /// Returns the JSON string presentation of the object
