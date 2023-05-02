@@ -13,9 +13,8 @@ namespace AcumaticaRestApiExample
 	{
 		public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
-			var authApi = new AuthApi(siteURL
-    //            ,
-				//requestIntercep   tor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+			var authApi = new AuthApi(siteURL,
+				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
                 );
 
             try
