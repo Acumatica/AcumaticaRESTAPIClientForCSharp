@@ -67,6 +67,14 @@ namespace Acumatica.Auth.Api
             return configuration;
         }
 
+        /// <summary>
+        /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="scope"></param>
         public void ReceiveAccessToken(string clientID, string clientSecret, string username, string password, OAuthScope scope)
         {
             var result = ConnectWithHttpInfo(
