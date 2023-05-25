@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ApplicationIcon>images\AcumaticaRESTClientLogo.ico</ApplicationIcon>
-    <Version>4.0.2-alpha</Version>
+    <Version>4.0.4-alpha</Version>
     <Company>Acumatica</Company>
     <Description>A simple client allowing to use Acumatica REST API from C#. </Description>
     <Copyright>Acumatica</Copyright>
@@ -14,7 +14,7 @@
     <PackageTags>Acumatica;REST;client;</PackageTags>
     <PackageReleaseNotes>1. Split Contract Based API into separate project
 2. Replaced REST Sharp with httpClient</PackageReleaseNotes>
-    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <OutputType>Library</OutputType>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
