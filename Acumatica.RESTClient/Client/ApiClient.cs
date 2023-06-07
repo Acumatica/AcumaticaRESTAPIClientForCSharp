@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,9 @@ namespace Acumatica.RESTClient.Client
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
         };
+
+        public CookieContainer Cookies { get; protected set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
         /// with default base path.
@@ -47,9 +51,16 @@ namespace Acumatica.RESTClient.Client
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
 
-            Client = new HttpClient();
+
+            Cookies = new CookieContainer();
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.CookieContainer = Cookies;
+
+            Client = new HttpClient(handler);
             Client.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
         }
+
+
 
         /// <summary>
         /// Method that is executed before request. May be used for loggin the request body.
