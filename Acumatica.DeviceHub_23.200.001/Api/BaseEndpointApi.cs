@@ -7,7 +7,7 @@ using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.ContractBasedApi;
 using Acumatica.RESTClient.ContractBasedApi.Model;
 
-namespace Acumatica.DeviceHub_19_200_001.Api
+namespace Acumatica.DeviceHub_23_200_001.Api
 {
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
 		where EntityType : Entity, new()
@@ -16,7 +16,7 @@ namespace Acumatica.DeviceHub_19_200_001.Api
 		{ }
 		public override string GetEndpointPath()
 		{
-			return "entity/DeviceHub/19.200.001";
+			return "entity/DeviceHub/23.200.001";
 		}
 	}
 }

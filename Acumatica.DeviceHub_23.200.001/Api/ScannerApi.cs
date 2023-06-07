@@ -1,7 +1,7 @@
 using Acumatica.RESTClient.Client;
-using Acumatica.DeviceHub_19_200_001.Model;
+using Acumatica.DeviceHub_23_200_001.Model;
 
-namespace Acumatica.DeviceHub_19_200_001.Api
+namespace Acumatica.DeviceHub_23_200_001.Api
 {
 	public class ScannerApi : BaseEndpointApi<Scanner>
 	{
