@@ -8,16 +8,17 @@ using System.Threading.Tasks;
 using Acumatica.Auth.Api;
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Model;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
 
 using AcumaticaRestApiExample;
 
 namespace AcumaticaRestApiExample
 {
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
-		 where EntityType : Entity
+		 where EntityType : Entity, new()
 	{
-		public BaseEndpointApi(Configuration configuration) : base(configuration)
+		public BaseEndpointApi(ApiClient client) : base(client)
 		{ }
 		public override string GetEndpointPath()
 		{
@@ -32,22 +33,24 @@ namespace AcumaticaRestApiExample
 	}
 	public class InvoiceApi : BaseEndpointApi<Invoice>
 	{
-		public InvoiceApi(Configuration configuration) : base(configuration)
+		public InvoiceApi(ApiClient client) : base(client)
 		{ }
 	}
 	public class ExtendedEndpointExample
 	{
 		public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
-			var authApi = new AuthApi(siteURL,
-				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
+			var authApi = new AuthApi(siteURL
+				//,
+				//requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+				);
 
 			try
 			{
-				var configuration = authApi.LogIn(username, password, tenant, branch, locale);
+				authApi.LogIn(username, password, tenant, branch, locale);
 
 				Console.WriteLine("Reading Invoices (extended)...");
-				var extendedInvoiceApi = new InvoiceApi(configuration);
+				var extendedInvoiceApi = new InvoiceApi(authApi.ApiClient);
 				var invoices = extendedInvoiceApi.GetList(top: 5);
 				foreach (var invoice in invoices)
 				{

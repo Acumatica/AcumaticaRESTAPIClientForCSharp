@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 
 using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 
-using RestSharp;
-using RestSharp.Authenticators;
 
 namespace Acumatica.RESTClient.ODataApi
 {
@@ -13,7 +14,7 @@ namespace Acumatica.RESTClient.ODataApi
         protected ODataVersion Version;
         protected string Tenant;
 
-        public ODataAPI(Configuration configuration, ODataVersion version, string tenant = null) : base(configuration)
+        public ODataAPI(ApiClient configuration, ODataVersion version, string tenant = null) : base(configuration)
         {
             Version = version;
             Tenant = tenant;
@@ -24,83 +25,60 @@ namespace Acumatica.RESTClient.ODataApi
         }
         public ApiResponse<string> GetOData(string resource, string select = null, string filter = null, string expand = null, int? skip = null, int? top = null)
         {
-            if (Configuration.Token == null && (Configuration.Username == null && Configuration.Password == null))
-            {
-                throw new Exception("Either token or username/password  pair have to be provided");
-            }
-
-            //Basic authentication
-            if (Configuration.Token == null)
-            {
-                BasicAuthentication(Configuration.ApiClient.RestClient);
-            }
-
             //Oauth authentication
-            RestResponse response = Configuration.ApiClient.CallApiAsync(
-                ConfigurePath(resource), 
-                Method.Get, 
-                ComposeQueryParams(select, filter, expand, null, skip, top), 
+            HttpResponseMessage response = ApiClient.CallApiAsync(
+                ConfigurePath(resource),
+                HttpMethod.Get,
+                ComposeQueryParams(select, filter, expand, null, skip, top),
                 null, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeEmptyFormParams(), 
-                null, 
-                null, 
-                ComposeContentHeaders(HeaderContentType.Json)
+                HeaderContentType.Json, 
+                HeaderContentType.Json,
+                ComposeAuthenticationHeaders()
             ).Result;
 
             VerifyResponse(response, nameof(GetOData));
             return DeserializeResponse<string>(response);
         }
 
-        [Obsolete("Use GetOdata and GetMetadata methods instead" )]
-        public ApiResponse<string> Get(string resource = null, string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
-        {
-            if(Configuration.Token==null && (Configuration.Username == null && Configuration.Password == null))
-            {
-                throw new Exception("Either token or username/password  pair have to be provided");
-            }
 
-            //Basic authentication
-            if (Configuration.Token == null)
-            {
-                BasicAuthentication(Configuration.ApiClient.RestClient);
-            }
-            
-            //Oauth authentication
-            RestResponse response = Configuration.ApiClient.CallApiAsync(
-                ConfigurePath(resource), 
-                Method.Get, 
-                ComposeQueryParams(select, filter, expand, custom, skip, top), 
-                null, 
-                ComposeAcceptHeaders(HeaderContentType.Json), 
-                ComposeEmptyFormParams(), 
-                ComposeEmptyFileParams(), 
-                ComposeEmptyPathParams(), 
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
-            VerifyResponse(response, nameof(Get));
-            return DeserializeResponse<string>(response);
-        }
+ 
 
 
         #region Implementation
 
         /// <summary>
-		/// Configures the base path according to version of OData and tenant, if exists.
-		/// </summary>
+        /// Configures the base path according to version of OData and tenant, if exists.
+        /// </summary>
         private string ConfigurePath(string resource)
         {
             return string.IsNullOrEmpty(Tenant) 
                  ?
-                 $"{Configuration.BasePath}/{Version}/{resource}" 
+                 $"{Version}/{resource}" 
                  : 
-                 $"{Configuration.BasePath}/{Version}/{Tenant}/{resource}";
+                 $"{Version}/{Tenant}/{resource}";
         }
- 
-        private void BasicAuthentication(RestClient client)
+
+        private Dictionary<string, string> ComposeAuthenticationHeaders()
         {
-            client.Authenticator = new HttpBasicAuthenticator(Configuration.Username, Configuration.Password);
+            if (ApiClient.Token == null && (ApiClient.Username == null && ApiClient.Password == null))
+            {
+                throw new Exception("Either token or username/password  pair have to be provided");
+            }
+
+            //Basic authentication
+            if (ApiClient.Token == null)
+            {
+                var customHeaders = new Dictionary<string, string>();
+
+                customHeaders.Add("Authorization", $"Basic {ApiClientHelpers.Base64Encode($"{ApiClient.Username}:{ApiClient.Password}")}");
+                return customHeaders;
+            }
+            else
+            {
+                // ApiClient will take care of Token-based authentication
+                return null;
+            }
         }
-        
 
         #endregion
     }

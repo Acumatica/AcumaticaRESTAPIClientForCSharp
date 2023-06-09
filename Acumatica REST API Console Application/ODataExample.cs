@@ -13,11 +13,13 @@ namespace AcumaticaRestApiExample
 		public static void OauthExample(string siteURL, string username, string password, string clientSecret, string clientID, string tenant = null)
 		{
 			Console.WriteLine("OData with Oauth authentication");
-            var authApi = new AuthApi(siteURL,
-				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
-			var configuration = authApi.ReceiveAccessToken(clientID, clientSecret, username, password, OAuthScope.API);
+            var authApi = new AuthApi(siteURL
+				//,
+				//requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+				);
+			authApi.ReceiveAccessToken(clientID, clientSecret, username, password, OAuthScope.API);
 			
-			ODataAPI ODataOauthExample = new ODataAPI(configuration, ODataVersion.OData, tenant);
+			ODataAPI ODataOauthExample = new ODataAPI(authApi.ApiClient, ODataVersion.OData, tenant);
 			var response = ODataOauthExample.GetMetadata();
 			Console.WriteLine(response.Data);
 		}
@@ -25,7 +27,9 @@ namespace AcumaticaRestApiExample
 		public static void ODataGetV3(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
 			Console.WriteLine("OData version 3 with Basic Authentication");
-			var conf = new Configuration(siteURL, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
+			var conf = new ApiClient(siteURL
+				//, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+				);
 			conf.Username = username;
 			conf.Password = password;
 			ODataAPI odatav3 = new ODataAPI(conf, ODataVersion.OData, tenant);
@@ -41,14 +45,18 @@ namespace AcumaticaRestApiExample
 			Console.WriteLine("Retrieve the modified stocks qtys with OData Version 3");
 			string filterParam = "LastModifiedDateTime gt datetime'2022-07-13T00:00:00.000'";
 			response = odatav3.GetOData("DB-StorageDetails", filter: filterParam);
-			Console.WriteLine(response.Data);
+            ///gives this error:
+            ///<m:message>Could not find a property named 'LastModifiedDateTime' on type 'PX.Data.DBStorageDetails'.</m:message>
+            Console.WriteLine(response.Data);
 		}
         
 		public static void ODataGetV4(string siteURL, string username, string password, string tenant)
         {
 			Console.WriteLine("OData version 4 examples");
 			Console.WriteLine("Testing sign in");
-            var conf = new Configuration(siteURL, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
+            var conf = new ApiClient(siteURL
+			//	, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+				);
             conf.Username = username;
             conf.Password = password;
             ODataAPI oDatav4 = new ODataAPI(conf, ODataVersion.ODatav4, tenant);

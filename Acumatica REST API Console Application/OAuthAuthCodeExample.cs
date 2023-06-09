@@ -18,8 +18,10 @@ namespace AcumaticaRestApiExample
     {
         public static void Example(string siteURL, string clientSecret, string clientID, string redirectUrl)
         {
-            var authApi = new AuthApi(siteURL, 
-                requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
+            var authApi = new AuthApi(siteURL
+                //, 
+                //requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+                );
             var url = authApi.Authorize(
                 clientID,
                 clientSecret,
@@ -29,13 +31,13 @@ namespace AcumaticaRestApiExample
             OpenUrl(url);
             var code = ReadCodeFromRedirectURL(redirectUrl);
 
-            var configuration = authApi.ReceiveAccessTokenAuthCode(
+            authApi.ReceiveAccessTokenAuthCode(
                 clientID,
                 clientSecret,
                 redirectUrl,
                 code);
 
-            foreach (var account in new AccountApi(configuration).GetList(top: 5))
+            foreach (var account in new AccountApi(authApi.ApiClient).GetList(top: 5))
             {
                 Console.WriteLine(account.Description.Value);
             }

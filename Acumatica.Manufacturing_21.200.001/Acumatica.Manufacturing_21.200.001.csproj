@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
-	<PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-	<Version>3.5.0</Version>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<Version>4.0.4-alpha</Version>
 	<Company>Acumatica</Company>
 	<Copyright>Acumatica</Copyright>
 	<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
@@ -14,9 +14,10 @@
   </PropertyGroup>
 
    <ItemGroup>
-	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup> <ItemGroup>
 	<ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+	<ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
   </ItemGroup>
 
 </Project>

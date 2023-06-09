@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 
@@ -9,13 +10,12 @@ using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.CustomizationApi.Model;
 
-using RestSharp;
 
 namespace Acumatica.RESTClient.CustomizationApi
 {
     public class CustomizationApi : BaseApi
     {
-        public CustomizationApi(Configuration configuration) : base(configuration)
+        public CustomizationApi(ApiClient configuration) : base(configuration)
         {
 
         }
@@ -30,9 +30,6 @@ namespace Acumatica.RESTClient.CustomizationApi
             if (projectName == null)
                 ThrowMissingParameter("Import", nameof(projectName));
 
-
-            var localVarPath = "/CustomizationApi/Import";
-
             CustomizationImport customizationImport = new CustomizationImport();
             customizationImport.ProjectDescription = projectDescription;
             customizationImport.ProjectName = projectName;
@@ -40,16 +37,13 @@ namespace Acumatica.RESTClient.CustomizationApi
             customizationImport.IsReplaceIfExists = replaceIfExists;
             customizationImport.ProjectContentBase64 = ConvertToBase64(customizationPackageContent);
 
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
-                localVarPath,
-                Method.Post,
-                ComposeEmptyQueryParams(),
-                ComposeBody(customizationImport),
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeEmptyFormParams(),
+            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
+                "/CustomizationApi/Import",
+                HttpMethod.Post,
                 null,
-                null,
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
+                customizationImport,
+                HeaderContentType.Json,
+                HeaderContentType.Json).Result;
 
             VerifyResponse(localVarResponse, "Import");
             return DeserializeResponse<CustomizationPublishLog>(localVarResponse).Data;
@@ -167,32 +161,26 @@ namespace Acumatica.RESTClient.CustomizationApi
             }
 
 
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 localVarPath,
-                Method.Post,
-                ComposeEmptyQueryParams(),
-                ComposeBody(publishParams),
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeEmptyFormParams(),
+                HttpMethod.Post,
                 null,
-                null,
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
+                publishParams,
+                HeaderContentType.Json,
+                HeaderContentType.Json).Result;
 
             VerifyResponse(localVarResponse, "PublishBegin");
             return DeserializeResponse<CustomizationPublishLog>(localVarResponse).Data;
         }
         public CustomizationPublishEnd CustomizationPublishEnd()
         {
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 "/CustomizationApi/PublishEnd",
-                Method.Post,
-                ComposeEmptyQueryParams(),
-                null,
-                ComposeAcceptHeaders(HeaderContentType.Json),
-                ComposeEmptyFormParams(),
+                HttpMethod.Post,
                 null,
                 null,
-                ComposeContentHeaders(HeaderContentType.Json)).Result;
+                HeaderContentType.Json,
+                HeaderContentType.Json).Result;
 
             VerifyResponse(localVarResponse, "PublishEnd");
             return DeserializeResponse<CustomizationPublishEnd>(localVarResponse).Data;

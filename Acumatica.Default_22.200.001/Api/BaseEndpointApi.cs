@@ -1,13 +1,18 @@
-using Acumatica.RESTClient.Api;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+
+using Newtonsoft.Json;
+
 using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.Model;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_22_200_001.Api
 {
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
-		where EntityType : Entity
+		where EntityType : Entity, new()
 	{
-		public BaseEndpointApi(Configuration configuration) : base(configuration)
+		public BaseEndpointApi(ApiClient client) : base(client)
 		{ }
 		public override string GetEndpointPath()
 		{

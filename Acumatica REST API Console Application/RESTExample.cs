@@ -1,60 +1,57 @@
-﻿using Acumatica.Auth.Api;
-using Acumatica.Default_20_200_001.Api;
-using Acumatica.Default_20_200_001.Model;
+﻿
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Acumatica.Auth.Api;
+using Acumatica.Default_20_200_001.Api;
 
 namespace AcumaticaRestApiExample
 {
-	public class RESTExample
+    public class RESTExample
 	{
 		public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
 			var authApi = new AuthApi(siteURL,
-				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
+				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+                );
 
-			try
-			{
-				var configuration = authApi.LogIn(username, password, tenant, branch, locale);
+            try
+            {
+                authApi.LogIn(username, password, tenant, branch, locale);
 
-				Console.WriteLine("Reading Accounts...");
-				var accountApi = new AccountApi(configuration);
-				var accounts = accountApi.GetList(top: 5);
-				foreach (var account in accounts)
-				{
-					Console.WriteLine("Account Nbr: " + account.AccountCD.Value + ";");
-				}
+                Console.WriteLine("File Upload/Download");
+                var salesOrderApi = new SalesOrderApi(authApi.ApiClient);
+                var order = salesOrderApi.GetByKeys(new List<string>() { "SO", "SO005207" }, expand: "files");
 
-				Console.WriteLine("Reading Sales Order by Keys...");
-				var salesOrderApi = new SalesOrderApi(configuration);
-				var order = salesOrderApi.GetByKeys(new List<string>() { "SO", "SO005207" });
-				Console.WriteLine("Order Total: " + order.OrderTotal.Value);
+                byte[] initialData = Encoding.UTF8.GetBytes("Acumatica is awesome");
+                string fileName = "TestFile.txt";
+                salesOrderApi.PutFile("SO/SO005207", fileName, initialData);
 
+                order = salesOrderApi.GetByKeys(new List<string>() { "SO", "SO005207" }, expand: "files");
 
-				var shipmentApi = new ShipmentApi(configuration);
-				var shipment = shipmentApi.GetByKeys(new List<string>() { "002805" });
-				Console.WriteLine("ConfirmShipment");
-				shipmentApi.WaitActionCompletion(shipmentApi.InvokeAction(new ConfirmShipment(shipment)));
-
-				Console.WriteLine("CorrectShipment");
-				shipmentApi.WaitActionCompletion(shipmentApi.InvokeAction(new CorrectShipment(shipment)));
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.Message);
-			}
-			finally
-			{
-				//we use logout in finally block because we need to always logout, even if the request failed for some reason
-				if (authApi.TryLogout())
-				{
-					Console.WriteLine("Logged out successfully.");
-				}
-				else
-				{
-					Console.WriteLine("An error occured during logout.");
-				}
-			}
+                if (order.Files.Any(fl => fl.Filename.EndsWith(@"\" + fileName)))
+                {
+                    Console.WriteLine($"The file {fileName} was uploaded successfully");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //we use logout in finally block because we need to always logout, even if the request failed for some reason
+                if (authApi.TryLogout())
+                {
+                    Console.WriteLine("Logged out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("An error occured during logout.");
+                }
+            }
 		}
 	}
 }

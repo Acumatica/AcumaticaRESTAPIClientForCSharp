@@ -1,5 +1,5 @@
 using System;
-using RestSharp;
+using System.Net.Http;
 
 namespace Acumatica.RESTClient.Client
 {
@@ -9,5 +9,5 @@ namespace Acumatica.RESTClient.Client
     /// <param name="methodName">Method name</param>
     /// <param name="response">Response</param>
     /// <returns>Exceptions</returns>
-    public delegate Exception ExceptionFactory(string methodName, RestResponse response, Type objectType);
+    public delegate Exception ExceptionFactory(string methodName, HttpResponseMessage response, Type objectType);
 }

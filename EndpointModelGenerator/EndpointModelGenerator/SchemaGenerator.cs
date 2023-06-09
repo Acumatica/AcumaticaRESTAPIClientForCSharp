@@ -65,7 +65,7 @@ namespace EndpointSchemaGenerator
                     }
                     string result = String.Format(Templates.ActionWithParametersTemplate, endpointNamespace, action.Key, action.Value, content.ToString());
 
-                    writer.Write(Templates.ActionUsingsTemplate + result);
+                    writer.Write(result);
                     writer.Close();
 
                     string paramFileName = action.Key + "Parameters.cs";
@@ -89,7 +89,7 @@ namespace EndpointSchemaGenerator
                    
                     string result = String.Format(Templates.ActionTemplate, endpointNamespace, action.Key, action.Value);
                     writeLogDelegate.Invoke("Actions/" + action.Key);
-                    writer.Write(Templates.ActionUsingsTemplate + result);
+                    writer.Write(result);
                     writer.Close();
                 }
             }
@@ -144,9 +144,9 @@ namespace EndpointSchemaGenerator
                     else
                         body.Append(string.Format(Templates.FieldTemplate, field.Key, field.Value));
                 }
-                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString(), schema.Info.Version);
+                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString());
                 writeLogDelegate.Invoke(entity.Key);
-                writer.Write(Templates.EntityUsingsTemplate + result);
+                writer.Write(result);
                 writer.Close();
             }
         }

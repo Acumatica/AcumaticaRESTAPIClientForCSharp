@@ -5,6 +5,16 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica REST API Example Console Application", "Acumatica REST API Console Application\Acumatica REST API Example Console Application.csproj", "{201508E8-B057-4EFB-AD9D-74C777339C42}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient", "Acumatica.RESTClient\Acumatica.RESTClient.csproj", "{A7B8559E-DE04-4762-B2E4-6EE005D85C2D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_20.200.001", "Acumatica.Default_20.200.001\Acumatica.Default_20.200.001.csproj", "{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.ODataApi", "Acumatica.RESTClient.OData\Acumatica.RESTClient.ODataApi.csproj", "{B88CEF24-1C9D-4A92-A8D1-5DDCFCF53C7D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.CustomizationApi", "Acumatica.RESTClient.Customization\Acumatica.RESTClient.CustomizationApi.csproj", "{F899BF49-694E-4AB4-9202-20C709E7BF72}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.ContractBasedApi", "Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj", "{B0ED9019-5F24-4297-8121-967E108589FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{201508E8-B057-4EFB-AD9D-74C777339C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{201508E8-B057-4EFB-AD9D-74C777339C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{201508E8-B057-4EFB-AD9D-74C777339C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B8559E-DE04-4762-B2E4-6EE005D85C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B8559E-DE04-4762-B2E4-6EE005D85C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B8559E-DE04-4762-B2E4-6EE005D85C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B8559E-DE04-4762-B2E4-6EE005D85C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88CEF24-1C9D-4A92-A8D1-5DDCFCF53C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88CEF24-1C9D-4A92-A8D1-5DDCFCF53C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88CEF24-1C9D-4A92-A8D1-5DDCFCF53C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88CEF24-1C9D-4A92-A8D1-5DDCFCF53C7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F899BF49-694E-4AB4-9202-20C709E7BF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F899BF49-694E-4AB4-9202-20C709E7BF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F899BF49-694E-4AB4-9202-20C709E7BF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F899BF49-694E-4AB4-9202-20C709E7BF72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0ED9019-5F24-4297-8121-967E108589FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0ED9019-5F24-4297-8121-967E108589FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0ED9019-5F24-4297-8121-967E108589FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0ED9019-5F24-4297-8121-967E108589FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

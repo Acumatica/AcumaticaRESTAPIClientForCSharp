@@ -1,29 +1,26 @@
-﻿using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Client;
+﻿using System.Net.Http;
 
-using RestSharp;
+using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.Client;
 
 namespace Acumatica.RESTClient.MaintenanceApi
 {
     public class MaintenanceApi : BaseApi
     {
-        public MaintenanceApi(Configuration configuration) : base(configuration)
+        public MaintenanceApi(ApiClient configuration) : base(configuration)
         {
 
         }
      
         public void PutSchema(string endpointXML)
         {
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 "/entity/maintenance/23.200/",
-                Method.Post,
-                ComposeEmptyQueryParams(),
+                HttpMethod.Post,
+                null,
                 endpointXML,
-                ComposeAcceptHeaders(HeaderContentType.Xml),
-                ComposeEmptyFormParams(),
-                null,
-                null,
-                ComposeContentHeaders(HeaderContentType.Xml)).Result;
+                HeaderContentType.Xml,
+                HeaderContentType.Xml).Result;
 
             VerifyResponse(localVarResponse, "PutSchema");
         }
@@ -31,16 +28,13 @@ namespace Acumatica.RESTClient.MaintenanceApi
         public string GetSchema(string endpointName, string endpointVersion)
         {
 
-            RestResponse localVarResponse = Configuration.ApiClient.CallApiAsync(
+            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
                 $"/entity/maintenance/23.200/{endpointName}/{endpointVersion}",
-                Method.Get,
-                ComposeEmptyQueryParams(),
-                null,
-                ComposeAcceptHeaders(HeaderContentType.Xml),
-                ComposeEmptyFormParams(),
+                HttpMethod.Get,
                 null,
                 null,
-                ComposeContentHeaders(HeaderContentType.Xml)).Result;
+                HeaderContentType.Xml,
+                HeaderContentType.Xml).Result;
 
             VerifyResponse(localVarResponse, "GetSchema"); 
             return DeserializeResponse<string>(localVarResponse).Data;
