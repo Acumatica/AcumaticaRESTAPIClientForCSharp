@@ -2,13 +2,24 @@
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
+	<Version>4.1.0</Version>
+	<Authors>Dmitrii-Naumov</Authors>
+	<Company>Acumatica</Company>
+	<Description>C# classes generated based on Acumatica Manufacturing endpoint version 23.100.001</Description>
+	<Copyright>Acumatica</Copyright>
+	<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
+	<PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<IncludeSymbols>True</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
    <ItemGroup>
 	<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup> <ItemGroup>
-	<ProjectReference Include = "..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
-	<ProjectReference Include = "..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
-  </ItemGroup >
+	<ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+	<ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
+  </ItemGroup>
 
-</Project >
+</Project>

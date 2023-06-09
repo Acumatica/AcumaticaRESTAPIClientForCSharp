@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
-	<Version>4.0.4-alpha</Version>
+	<Version>4.1.0</Version>
 	<Company>Acumatica</Company>
 	<Description>C# classes generated based on Acumatica Default endpoint version 20.200.001</Description>
 	<Copyright>Acumatica</Copyright>
@@ -12,6 +12,7 @@
 	<PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<Title>Default Acumatica Contract Based API endpoint v.20.200.001 model </Title>
+	<Authors>Dmitrii-Naumov</Authors>
   </PropertyGroup>
 
    <ItemGroup>
