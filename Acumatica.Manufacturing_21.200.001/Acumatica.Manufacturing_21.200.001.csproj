@@ -3,7 +3,7 @@
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<Version>4.0.4-alpha</Version>
+	<Version>4.1.0</Version>
 	<Company>Acumatica</Company>
 	<Copyright>Acumatica</Copyright>
 	<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
@@ -11,6 +11,7 @@
 	<PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
 	<PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
 	<Description>C# classes generated based on Acumatica Manufacturing endpoint version 21.200.001</Description>
+	<Authors>Dmitrii-Naumov</Authors>
   </PropertyGroup>
 
    <ItemGroup>
