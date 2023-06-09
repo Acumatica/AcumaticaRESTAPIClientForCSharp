@@ -12,7 +12,7 @@
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<IncludeSymbols>True</IncludeSymbols>
 	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-	<PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
+	<PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 12.0.3 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
   </PropertyGroup>
 
    <ItemGroup>

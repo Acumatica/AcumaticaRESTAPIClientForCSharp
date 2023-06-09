@@ -9,10 +9,12 @@
 	<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
 	<PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
-	<PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
+	<PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 12.0.3 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<Title>Default Acumatica Contract Based API endpoint v.20.200.001 model </Title>
 	<Authors>Dmitrii-Naumov</Authors>
+	<IncludeSymbols>True</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
    <ItemGroup>
