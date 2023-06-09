@@ -67,6 +67,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="OrderQty", EmitDefaultValue=false)]
 		public DecimalValue OrderQty { get; set; }
 
+		[DataMember(Name="OrderedQty", EmitDefaultValue=false)]
+		public DecimalValue OrderedQty { get; set; }
+
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue OrderType { get; set; }
 
