@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "info": {
     "version": "4",
-    "title": "Default/22.200.001"
+    "title": "eCommerce/22.200.001"
   },
   "host": "localhost",
-  "basePath": "/23r100/entity/Default/22.200.001",
+  "basePath": "/23r100/entity/eCommerce/22.200.001",
   "schemes": [
     "http"
   ],
@@ -4922,6 +4922,1158 @@
             "description": "The data specified in the request is invalid.",
             "schema": {
               "$ref": "#/definitions/AttributeDefinition"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCItemSalesCategory/$adHocSchema": {
+      "get": {
+        "tags": [
+          "BCItemSalesCategory"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "BCItemSalesCategory_GetAdHocSchema",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/BCItemSalesCategory"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCItemSalesCategory/{ids}": {
+      "get": {
+        "tags": [
+          "BCItemSalesCategory"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "BCItemSalesCategory_GetByKeys",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/BCItemSalesCategory"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BCItemSalesCategory"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "BCItemSalesCategory_DeleteByKeys",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCItemSalesCategory/{id}": {
+      "get": {
+        "tags": [
+          "BCItemSalesCategory"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "BCItemSalesCategory_GetById",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/BCItemSalesCategory"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BCItemSalesCategory"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "BCItemSalesCategory_DeleteById",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCItemSalesCategory/{actionName}": {
+      "post": {
+        "tags": [
+          "BCItemSalesCategory"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "BCItemSalesCategory_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "invocation",
+            "in": "body",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BCItemSalesCategoryCustomAction",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/BCItemSalesCategory"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCItemSalesCategory/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "BCItemSalesCategory"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "BCItemSalesCategory_PutFile",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "filename",
+            "in": "path",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCItemSalesCategory": {
+      "get": {
+        "tags": [
+          "BCItemSalesCategory"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "BCItemSalesCategory_GetList",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "The number of records to be returned from the system.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BCItemSalesCategory"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BCItemSalesCategory"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "BCItemSalesCategory_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "body",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BCItemSalesCategory"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/BCItemSalesCategory"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/BCItemSalesCategory"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCShipments/$adHocSchema": {
+      "get": {
+        "tags": [
+          "BCShipments"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "BCShipments_GetAdHocSchema",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/BCShipments"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCShipments/{ids}": {
+      "get": {
+        "tags": [
+          "BCShipments"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "BCShipments_GetByKeys",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/BCShipments"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BCShipments"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "BCShipments_DeleteByKeys",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCShipments/{id}": {
+      "get": {
+        "tags": [
+          "BCShipments"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "BCShipments_GetById",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/BCShipments"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BCShipments"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "BCShipments_DeleteById",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCShipments/{actionName}": {
+      "post": {
+        "tags": [
+          "BCShipments"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "BCShipments_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "invocation",
+            "in": "body",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BCShipmentsCustomAction",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/BCShipments"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCShipments/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "BCShipments"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "BCShipments_PutFile",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "filename",
+            "in": "path",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/BCShipments": {
+      "get": {
+        "tags": [
+          "BCShipments"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "BCShipments_GetList",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "The number of records to be returned from the system.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BCShipments"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BCShipments"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "BCShipments_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "body",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BCShipments"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/BCShipments"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/BCShipments"
             }
           },
           "500": {
@@ -35875,6 +37027,582 @@
         }
       }
     },
+    "/ItemImages/$adHocSchema": {
+      "get": {
+        "tags": [
+          "ItemImages"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "ItemImages_GetAdHocSchema",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/ItemImages"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ItemImages/{ids}": {
+      "get": {
+        "tags": [
+          "ItemImages"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "ItemImages_GetByKeys",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ItemImages"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ItemImages"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "ItemImages_DeleteByKeys",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ItemImages/{id}": {
+      "get": {
+        "tags": [
+          "ItemImages"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "ItemImages_GetById",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ItemImages"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ItemImages"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "ItemImages_DeleteById",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ItemImages/{actionName}": {
+      "post": {
+        "tags": [
+          "ItemImages"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "ItemImages_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "invocation",
+            "in": "body",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ItemImagesCustomAction",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/ItemImages"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ItemImages/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "ItemImages"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "ItemImages_PutFile",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "filename",
+            "in": "path",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/ItemImages": {
+      "get": {
+        "tags": [
+          "ItemImages"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "ItemImages_GetList",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "The number of records to be returned from the system.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ItemImages"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ItemImages"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "ItemImages_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "body",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ItemImages"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/ItemImages"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/ItemImages"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
     "/ItemSalesCategory/$adHocSchema": {
       "get": {
         "tags": [
@@ -44085,6 +45813,87 @@
             "description": "The user is not logged in to the system.",
             "schema": {
               "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/Payment/RegisterAuthTran": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "Payment_InvokeAction_RegisterAuthTran",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "invocation",
+            "in": "body",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterAuthTran",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/Payment"
             }
           },
           "500": {
@@ -67294,6 +69103,582 @@
         }
       }
     },
+    "/StorageDetails/$adHocSchema": {
+      "get": {
+        "tags": [
+          "StorageDetails"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "StorageDetails_GetAdHocSchema",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/StorageDetails"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/StorageDetails/{ids}": {
+      "get": {
+        "tags": [
+          "StorageDetails"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "StorageDetails_GetByKeys",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/StorageDetails"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "StorageDetails"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "StorageDetails_DeleteByKeys",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/StorageDetails/{id}": {
+      "get": {
+        "tags": [
+          "StorageDetails"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "StorageDetails_GetById",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/StorageDetails"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "StorageDetails"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "StorageDetails_DeleteById",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The record is successfully deleted."
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/StorageDetails/{actionName}": {
+      "post": {
+        "tags": [
+          "StorageDetails"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "StorageDetails_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "invocation",
+            "in": "body",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StorageDetailsCustomAction",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/StorageDetails"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/StorageDetails/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "StorageDetails"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "StorageDetails_PutFile",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "name": "filename",
+            "in": "path",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "/StorageDetails": {
+      "get": {
+        "tags": [
+          "StorageDetails"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "StorageDetails_GetList",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "The number of records to be returned from the system.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StorageDetails"
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "StorageDetails"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "StorageDetails_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "body",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StorageDetails"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "The fields of the entity to be returned from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "The linked and detail entities that should be expanded.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$custom",
+            "in": "query",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/StorageDetails"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/StorageDetails"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          }
+        }
+      }
+    },
     "/StorageDetailsByLocationInquiry/$adHocSchema": {
       "get": {
         "tags": [
@@ -82674,6 +85059,138 @@
         }
       ]
     },
+    "BCItemSalesCategory": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "CategoryID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Description": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "LastModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "NoteID": {
+              "$ref": "#/definitions/GuidValue"
+            },
+            "ParentCategoryID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Path": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "SortOrder": {
+              "$ref": "#/definitions/IntValue"
+            }
+          }
+        }
+      ]
+    },
+    "BCRoleAssignment": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "RoleAssignmentID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "LocationCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Role": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "BCShipments": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "LastModified": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "ShippingNoteID": {
+              "$ref": "#/definitions/GuidValue"
+            },
+            "OrderNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "OrderType": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "BindingID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Results": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BCShipmentsResult"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "BCShipmentsResult": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ExternalShipmentUpdated": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "InvoiceNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "InvoiceType": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Confirmed": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "LastModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "NoteID": {
+              "$ref": "#/definitions/GuidValue"
+            },
+            "OrderNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "OrderNoteID": {
+              "$ref": "#/definitions/GuidValue"
+            },
+            "OrderType": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ShipmentNumber": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ShipmentType": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
     "BenefitIncreasingApplWage": {
       "allOf": [
         {
@@ -85052,6 +87569,12 @@
         {
           "type": "object",
           "properties": {
+            "RoleAssignments": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BCRoleAssignment"
+              }
+            },
             "Active": {
               "$ref": "#/definitions/BooleanValue"
             },
@@ -85658,6 +88181,15 @@
         {
           "type": "object",
           "properties": {
+            "Email": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "CustomerKind": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "PrimaryContactID": {
+              "$ref": "#/definitions/IntValue"
+            },
             "AccountRef": {
               "$ref": "#/definitions/StringValue"
             },
@@ -86063,6 +88595,9 @@
         {
           "type": "object",
           "properties": {
+            "LastModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
             "Contact": {
               "$ref": "#/definitions/Contact"
             },
@@ -86081,6 +88616,12 @@
         {
           "type": "object",
           "properties": {
+            "Default": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "Status": {
+              "$ref": "#/definitions/StringValue"
+            },
             "Active": {
               "$ref": "#/definitions/BooleanValue"
             },
@@ -90675,6 +93216,66 @@
         }
       ]
     },
+    "ItemImageDetails": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Extension": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "FileID": {
+              "$ref": "#/definitions/GuidValue"
+            },
+            "FileName": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "FileNoteID": {
+              "$ref": "#/definitions/GuidValue"
+            },
+            "InventoryID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "InventoryLastModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "InventoryNoteID": {
+              "$ref": "#/definitions/GuidValue"
+            },
+            "IsDefault": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "LastModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "TemplateItemID": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "ItemImages": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Results": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ItemImageDetails"
+              }
+            }
+          }
+        }
+      ]
+    },
     "ItemPriceClassesDetails": {
       "allOf": [
         {
@@ -92497,6 +95098,27 @@
             },
             "TaxType": {
               "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "OrderRisks": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Message": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Recommendation": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Score": {
+              "$ref": "#/definitions/DecimalValue"
             }
           }
         }
@@ -96044,6 +98666,15 @@
         {
           "type": "object",
           "properties": {
+            "MaxRiskScore": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "OrderRisks": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderRisks"
+              }
+            },
             "Approved": {
               "$ref": "#/definitions/BooleanValue"
             },
@@ -99252,6 +101883,33 @@
         }
       ]
     },
+    "StorageDetails": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "BindingID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Results": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StorageDetailsResult"
+              }
+            },
+            "SplitByLocation": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "Warehouse": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
     "StorageDetailsByLocationInquiry": {
       "allOf": [
         {
@@ -99291,6 +101949,108 @@
               }
             },
             "WarehouseID": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "StorageDetailsResult": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ProductExternID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "SiteCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "VariantExternID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Availability": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "IdentifyNoteID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "InventoryDescription": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "InventoryCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "InventoryLastModifiedDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "InventoryNoteID": {
+              "$ref": "#/definitions/GuidValue"
+            },
+            "IsTemplate": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "ItemStatus": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Location": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "LocationAvailable": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "LocationAvailableforIssue": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "LocationAvailableforShipping": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "LocationDescription": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "LocationID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "LocationLastModifiedDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "LocationOnHand": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "LotSerialNbr": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "NotAvailMode": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ParentSyncId": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "SiteAvailable": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "SiteAvailableforIssue": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "SiteAvailableforShipping": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "SiteDescription": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "SiteID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "SiteLastModifiedDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "SiteOnHand": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "TemplateItemID": {
               "$ref": "#/definitions/StringValue"
             }
           }
@@ -102165,6 +104925,58 @@
         }
       }
     },
+    "BCItemSalesCategoryCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/BCItemSalesCategory"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "BCShipmentsCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/BCShipments"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "BigCommerceStoresCustomAction": {
       "required": [
         "entity"
@@ -104057,6 +106869,32 @@
         }
       }
     },
+    "ItemImagesCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/ItemImages"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "ItemSalesCategoryCustomAction": {
       "required": [
         "entity"
@@ -104552,6 +107390,30 @@
                   "$ref": "#/definitions/CustomField"
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    "RegisterAuthTran": {
+      "required": [
+        "entity",
+        "parameters"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/Payment"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "PaymentGatewayCreateProfile": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "PaymentGatewayTranID": {
+              "$ref": "#/definitions/StringValue"
             }
           }
         }
@@ -106160,6 +109022,32 @@
         }
       }
     },
+    "StorageDetailsCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/StorageDetails"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "StorageDetailsByLocationInquiryCustomAction": {
       "required": [
         "entity"
@@ -106829,6 +109717,14 @@
       "description": "Attributes (CS205000)"
     },
     {
+      "name": "BCItemSalesCategory",
+      "description": "Item Sales Categories (IN204060)"
+    },
+    {
+      "name": "BCShipments",
+      "description": "(BC408030)"
+    },
+    {
       "name": "BigCommerceStores",
       "description": "(BC201000)"
     },
@@ -107009,6 +109905,10 @@
       "description": "Item Classes (IN201000)"
     },
     {
+      "name": "ItemImages",
+      "description": "(BC408020)"
+    },
+    {
       "name": "ItemSalesCategory",
       "description": "Item Sales Categories (IN204060)"
     },
@@ -107183,6 +110083,10 @@
     {
       "name": "StockItem",
       "description": "Stock Items (IN202500)"
+    },
+    {
+      "name": "StorageDetails",
+      "description": "(BC408010)"
     },
     {
       "name": "StorageDetailsByLocationInquiry",
