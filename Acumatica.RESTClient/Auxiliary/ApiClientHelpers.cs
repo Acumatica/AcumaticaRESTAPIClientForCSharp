@@ -1,14 +1,66 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
+using Acumatica.RESTClient.Api;
+
+using Acumatica.RESTClient.Client;
+
+using static Acumatica.RESTClient.Auxiliary.Constants;
 
 namespace Acumatica.RESTClient.Auxiliary
 {
     public static class ApiClientHelpers
     {
+        public static void ThrowMissingParameter(string methodName, string paramName)
+        {
+            throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");
+        }
+
+        public static IEnumerable<string> ComposeHeadersArray(HeaderContentType contentTypes)
+        {
+            List<string> headers = new List<string>();
+            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Json)
+            {
+                headers.Add(ApplicationJsonAcceptContentType);
+                headers.Add(TextJsonAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.Xml) == HeaderContentType.Xml)
+            {
+                headers.Add(ApplicationXmlAcceptContentType);
+                headers.Add(TextXmlAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.Any) == HeaderContentType.Any)
+            {
+                headers.Add(AnyAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.WwwForm) == HeaderContentType.WwwForm)
+            {
+                headers.Add(WwwFormEncoded);
+            }
+
+            if ((contentTypes & HeaderContentType.OctetStream) == HeaderContentType.OctetStream)
+            {
+                headers.Add(OctetStream);
+            }
+            return headers;
+        }
+
+        public static Dictionary<string, string> GetHeadersExceptCookies(HttpResponseMessage response)
+        {
+            return response.Headers
+                            .Where(header => header.Key != "Set-Cookie")
+                            .GroupBy(header => header.Key, StringComparer.OrdinalIgnoreCase)
+                            //Accodring to HTTP RFC2616 standard, we need to combine values of the same headers into comma separated list
+                            .ToDictionary(
+                                g => g.Key,
+                                g => string.Join(",", g.Select(header => header.Value)),
+                                StringComparer.OrdinalIgnoreCase);
+        }
+
         /// <summary>
         /// Check if generic object is a collection.
         /// </summary>

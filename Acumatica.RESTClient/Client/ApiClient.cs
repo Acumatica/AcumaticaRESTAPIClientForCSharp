@@ -35,11 +35,21 @@ namespace Acumatica.RESTClient.Client
         public CookieContainer Cookies { get; protected set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path.
-        /// </summary>
+        /// Initializes a new instance of the <see cref="ApiClient" /> class.
+        /// </summary> 
+        /// <param name="basePath">
+        /// Path to the Acumatica instance e.g. <c>https://example.acumatica.com/</c>
+        /// </param>
+        /// <param name="requestInterceptor">
+        /// An action delegate that will be executed along with sending an API request. 
+        /// Can be used for logging purposes.
+        /// </param>
+        /// <param name="responseInterceptor">
+        /// An action delegate that will be executed along with receiving an API response. 
+        /// Can be used for logging purposes.
+        /// </param>
         /// <param name="timeout">
-        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
+        /// Gets or sets the HTTP timeout (milliseconds) of the ApiClient. Default to 100000 milliseconds.
         /// </param>
         public ApiClient(string basePath, 
             int timeout = 100000,
@@ -182,7 +192,7 @@ namespace Acumatica.RESTClient.Client
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public object Deserialize<T>(HttpResponseMessage response)
+        public static object Deserialize<T>(HttpResponseMessage response, JsonSerializerSettings serializerSettings)
         {
             if (typeof(T) == typeof(byte[])) // return byte array
             {
@@ -250,36 +260,7 @@ namespace Acumatica.RESTClient.Client
 
         protected string ComposeAcceptHeaders(HeaderContentType contentTypes)
         {
-            return string.Join(",", ComposeHeadersArray(contentTypes));
-        }
-
-        private static IEnumerable<string> ComposeHeadersArray(HeaderContentType contentTypes)
-        {
-            List<string> headers = new List<string>();
-            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Json)
-            {
-                headers.Add(ApplicationJsonAcceptContentType);
-                headers.Add(TextJsonAcceptContentType);
-            }
-            if ((contentTypes & HeaderContentType.Xml) == HeaderContentType.Xml)
-            {
-                headers.Add(ApplicationXmlAcceptContentType);
-                headers.Add(TextXmlAcceptContentType);
-            }
-            if ((contentTypes & HeaderContentType.Any) == HeaderContentType.Any)
-            {
-                headers.Add(AnyAcceptContentType);
-            }
-            if ((contentTypes & HeaderContentType.WwwForm) == HeaderContentType.WwwForm)
-            {
-                headers.Add(WwwFormEncoded);
-            }
-
-            if ((contentTypes & HeaderContentType.OctetStream) == HeaderContentType.OctetStream)
-            {
-                headers.Add(OctetStream);
-            }
-            return headers;
+            return string.Join(",", ApiClientHelpers.ComposeHeadersArray(contentTypes));
         }
 
 
@@ -294,7 +275,7 @@ namespace Acumatica.RESTClient.Client
         {
             var parameters = new List<KeyValuePair<string, string>>();
 
-            if (IsCollection(value) && collectionFormat == "multi")
+            if (ApiClientHelpers.IsCollection(value) && collectionFormat == "multi")
             {
                 var valueCollection = value as IEnumerable;
                 parameters.AddRange(from object item in valueCollection select new KeyValuePair<string, string>(name, item.ToString()));
@@ -312,7 +293,7 @@ namespace Acumatica.RESTClient.Client
         #region Implementation
         protected string ComposeContentHeaders(HeaderContentType contentTypes)
         {
-            return SelectHeaderContentType(ComposeHeadersArray(contentTypes));
+            return SelectHeaderContentType(ApiClientHelpers.ComposeHeadersArray(contentTypes));
         }
         // Creates and sets up a RestRequest prior to a call.
         private HttpRequestMessage PrepareRequest(
@@ -380,16 +361,41 @@ namespace Acumatica.RESTClient.Client
             }
             return request;
         }
+        #endregion
 
+
+        #region Implementation
         /// <summary>
-        /// Check if generic object is a collection.
+        /// Composes Query Parameters for API Request. 
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns>True if object is a collection type</returns>
-        private static bool IsCollection(object value)
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
+        /// <param name="top">The number of records to be returned from the system. (optional)</param>
+        protected List<KeyValuePair<string, string>> ComposeQueryParams(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
         {
-            return value is IList || value is ICollection;
+            var queryParameters = new List<KeyValuePair<string, string>>();
+            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$select", select)); 
+            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$filter", filter)); 
+            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$expand", expand)); 
+            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$custom", custom)); 
+            if (skip != null) queryParameters.AddRange(ParameterToKeyValuePairs("", "$skip", skip)); 
+            if (top != null) queryParameters.AddRange(ParameterToKeyValuePairs("", "$top", top)); 
+
+            return queryParameters;
         }
+
+        public T DeserializeResponse<T>(HttpResponseMessage response)
+        {
+            return (T)Deserialize<T>(response, serializerSettings);
+        }
+        public virtual void VerifyResponse(HttpResponseMessage response, string methodName)
+        {
+            response.EnsureSuccessStatusCode();
+        }
+
         #endregion
     }
 }
