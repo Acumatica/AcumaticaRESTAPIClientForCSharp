@@ -10,6 +10,8 @@ using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 
+using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
+
 
 namespace Acumatica.Auth.Api
 {
@@ -179,8 +181,7 @@ namespace Acumatica.Auth.Api
                     throw new ApiException(429, $"Error when calling {methodName}: API login limit exceeded. Please try again later.");
                 }
             }
-
-            client.VerifyResponse(response, methodName);
+            response.EnsureSuccessStatusCode();
         }
 
         [Flags]
@@ -223,9 +224,9 @@ namespace Acumatica.Auth.Api
                 HeaderContentType.None,
                 HeaderContentType.WwwForm);
 
-            client.VerifyResponse(response, "RefreshToken");
+            response.EnsureSuccessStatusCode();
 
-            return client.DeserializeResponse<Token>(response);
+            return (Token)Deserialize<Token>(response);
         }
 
         private static async Task<Token> ConnectAsyncWithHttpInfo(ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
@@ -248,7 +249,7 @@ namespace Acumatica.Auth.Api
 
             VerifyResponse(client, response, "RequestToken");
 
-            return client.DeserializeResponse<Token>(response);
+            return (Token)Deserialize<Token>(response);
         }
 
         private static async Task<HttpResponseMessage> AuthorizeAsyncWithHttpInfo(ApiClient client, string clientID, string redirectUrl, OAuthScope scope)
@@ -286,7 +287,7 @@ namespace Acumatica.Auth.Api
 
             VerifyResponse(client, response, "RequestToken");
 
-            return client.DeserializeResponse<Token>(response);
+            return (Token)Deserialize<Token>(response);
         }
 
         /// <summary>

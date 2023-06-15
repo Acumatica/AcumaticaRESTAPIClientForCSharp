@@ -5,6 +5,7 @@ using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.RootApi.Model;
 
+using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 namespace Acumatica.RESTClient.RootApi
 {
@@ -48,7 +49,7 @@ namespace Acumatica.RESTClient.RootApi
         /// <returns>Task of VersionAndEndpoints</returns>
         private static async Task<VersionAndEndpoints> RootGetAsyncWithHttpInfo(ApiClient client)
         {
-            HttpResponseMessage localVarResponse = await client.CallApiAsync(
+            HttpResponseMessage response = await client.CallApiAsync(
                 "/entity",
                 HttpMethod.Get,
                 null,
@@ -56,9 +57,9 @@ namespace Acumatica.RESTClient.RootApi
                 HeaderContentType.Json | HeaderContentType.Xml,     
                 HeaderContentType.None);
 
-            client.VerifyResponse(localVarResponse, "RootGet");
+            response.EnsureSuccessStatusCode();
 
-            return client.DeserializeResponse<VersionAndEndpoints>(localVarResponse);
+            return (VersionAndEndpoints)Deserialize<VersionAndEndpoints>(response);
         }
         #endregion
     }

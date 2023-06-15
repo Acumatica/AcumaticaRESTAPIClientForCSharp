@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
@@ -9,38 +10,55 @@ using Acumatica.RESTClient.FileApi.Model;
 
 namespace Acumatica.RESTClient.FileApi
 {
-	public class FileApi : BaseApi
+	public static class FileApi 
 	{
-		public FileApi(ApiClient configuration) : base(configuration)
-		{
-		}
 
-		public Stream GetFile(FileLink fileLink)
+		public static Stream GetFile(this ApiClient client, FileLink fileLink)
 		{
-			return GetFile(fileLink.Href);
+			return GetFile(client, fileLink.Href);
 		}
-        public Stream GetFile(string href)
+        public static async Task<Stream> GetFileAsync(this ApiClient client, FileLink fileLink)
+        {
+            return await GetFileAsync(client, fileLink.Href);
+        }
+
+        public static Stream GetFile(this ApiClient client, string href)
         {
             var parsedLocation = UrlParser.ParseFileLocation(href);
-            return GetFile(parsedLocation.ID, parsedLocation.EndpointName, parsedLocation.EndpointVersion);
+            return GetFile(client, parsedLocation.ID, parsedLocation.EndpointName, parsedLocation.EndpointVersion);
         }
-        public Stream GetFile(Guid fileID, string endpointName, string endpointVersion)
+        public static async Task<Stream> GetFileAsync(this ApiClient client, string href)
         {
-            return GetFile(fileID.ToString(), endpointName, endpointVersion);
+            var parsedLocation = UrlParser.ParseFileLocation(href);
+            return await GetFileAsync(client, parsedLocation.ID, parsedLocation.EndpointName, parsedLocation.EndpointVersion);
         }
-        public Stream GetFile(string fileID, string endpointName, string endpointVersion)
+
+        public static Stream GetFile(this ApiClient client, Guid fileID, string endpointName, string endpointVersion)
+        {
+            return GetFile(client, fileID.ToString(), endpointName, endpointVersion);
+        }
+        public static async Task<Stream> GetFileAsync(this ApiClient client, Guid fileID, string endpointName, string endpointVersion)
+        {
+            return await GetFileAsync(client, fileID.ToString(), endpointName, endpointVersion);
+        }
+
+        public static Stream GetFile(this ApiClient client, string fileID, string endpointName, string endpointVersion)
 		{
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
+            return GetFileAsync(client, fileID, endpointName, endpointVersion).Result;
+        }
+        public async static Task<Stream> GetFileAsync(this ApiClient client, string fileID, string endpointName, string endpointVersion)
+        {
+            HttpResponseMessage response = await client.CallApiAsync(
                 $"/entity/{endpointName}/{endpointVersion}/files/{fileID}",
                 HttpMethod.Get,
                 null,
                 null,
                 HeaderContentType.OctetStream,
                 HeaderContentType.Json
-                ).Result;
+                );
 
-            VerifyResponse(localVarResponse, nameof(GetFile));
-            return localVarResponse.Content.ReadAsStreamAsync().Result;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStreamAsync();
         }
 
     }
