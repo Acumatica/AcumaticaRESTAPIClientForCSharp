@@ -2,19 +2,15 @@
 
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
+using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 namespace Acumatica.RESTClient.MaintenanceApi
 {
-    public class MaintenanceApi : BaseApi
+    public static class MaintenanceApi
     {
-        public MaintenanceApi(ApiClient configuration) : base(configuration)
+        public static void PutSchema(this ApiClient client, string endpointXML)
         {
-
-        }
-     
-        public void PutSchema(string endpointXML)
-        {
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
+            HttpResponseMessage response = client.CallApiAsync(
                 "/entity/maintenance/23.200/",
                 HttpMethod.Post,
                 null,
@@ -22,13 +18,13 @@ namespace Acumatica.RESTClient.MaintenanceApi
                 HeaderContentType.Xml,
                 HeaderContentType.Xml).Result;
 
-            VerifyResponse(localVarResponse, "PutSchema");
+            response.EnsureSuccessStatusCode();
         }
 
-        public string GetSchema(string endpointName, string endpointVersion)
+        public static string GetSchema(this ApiClient client, string endpointName, string endpointVersion)
         {
 
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
+            HttpResponseMessage response = client.CallApiAsync(
                 $"/entity/maintenance/23.200/{endpointName}/{endpointVersion}",
                 HttpMethod.Get,
                 null,
@@ -36,8 +32,8 @@ namespace Acumatica.RESTClient.MaintenanceApi
                 HeaderContentType.Xml,
                 HeaderContentType.Xml).Result;
 
-            VerifyResponse(localVarResponse, "GetSchema"); 
-            return DeserializeResponse<string>(localVarResponse).Data;
+            response.EnsureSuccessStatusCode();
+            return (string)Deserialize<string>(response);
         }
     }
 }
