@@ -131,7 +131,7 @@ namespace Acumatica.RESTClient.Auxiliary
         /// <param name="name">Key name.</param>
         /// <param name="value">Value object.</param>
         /// <returns>A list of KeyValuePairs</returns>
-        public static IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
+        private static IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
         {
             var parameters = new List<KeyValuePair<string, string>>();
 
@@ -152,7 +152,7 @@ namespace Acumatica.RESTClient.Auxiliary
             throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");
         }
 
-        public static IEnumerable<string> ComposeHeadersArray(HeaderContentType contentTypes)
+        private static IEnumerable<string> ComposeHeadersArray(HeaderContentType contentTypes)
         {
             List<string> headers = new List<string>();
             if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Json)
@@ -181,24 +181,12 @@ namespace Acumatica.RESTClient.Auxiliary
             return headers;
         }
 
-        public static Dictionary<string, string> GetHeadersExceptCookies(HttpResponseMessage response)
-        {
-            return response.Headers
-                            .Where(header => header.Key != "Set-Cookie")
-                            .GroupBy(header => header.Key, StringComparer.OrdinalIgnoreCase)
-                            //Accodring to HTTP RFC2616 standard, we need to combine values of the same headers into comma separated list
-                            .ToDictionary(
-                                g => g.Key,
-                                g => string.Join(",", g.Select(header => header.Value)),
-                                StringComparer.OrdinalIgnoreCase);
-        }
-
         /// <summary>
         /// Check if generic object is a collection.
         /// </summary>
         /// <param name="value"></param>
         /// <returns>True if object is a collection type</returns>
-        public static bool IsCollection(object value)
+        private static bool IsCollection(object value)
         {
             return value is IList || value is ICollection;
         }
@@ -212,7 +200,7 @@ namespace Acumatica.RESTClient.Auxiliary
         /// </summary>
         /// <param name="mime">MIME</param>
         /// <returns>Returns True if MIME type is json.</returns>
-        public static bool IsJsonMime(String mime)
+        private static bool IsJsonMime(String mime)
         {
             var jsonRegex = new Regex("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
             return mime != null && (jsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json"));
@@ -231,52 +219,6 @@ namespace Acumatica.RESTClient.Auxiliary
         public static string Base64Encode(string text)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(text));
-        }
-
-
-        /// <summary>
-        /// Escape string (url-encoded).
-        /// </summary>
-        /// <param name="str">String to be escaped.</param>
-        /// <returns>Escaped string.</returns>
-        public static string EscapeString(string str)
-        {
-            return UrlEncode(str);
-        }
-
-        /// <summary>
-        /// URL encode a string
-        /// Credit/Ref: https://github.com/restsharp/RestSharp/blob/master/RestSharp/Extensions/StringExtensions.cs#L50
-        /// </summary>
-        /// <param name="input">String to be URL encoded</param>
-        /// <returns>Byte array</returns>
-        public static string UrlEncode(string input)
-        {
-            const int maxLength = 32766;
-
-            if (input == null)
-            {
-                throw new ArgumentNullException(nameof(input));
-            }
-
-            if (input.Length <= maxLength)
-            {
-                return Uri.EscapeDataString(input);
-            }
-
-            StringBuilder sb = new StringBuilder(input.Length * 2);
-            int index = 0;
-
-            while (index < input.Length)
-            {
-                int length = Math.Min(input.Length - index, maxLength);
-                string subString = input.Substring(index, length);
-
-                sb.Append(Uri.EscapeDataString(subString));
-                index += subString.Length;
-            }
-
-            return sb.ToString();
         }
     }
 }
