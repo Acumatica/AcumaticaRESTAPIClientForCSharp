@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class BigCommerceStores : Entity
+	public class BigCommerceStores : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccessToken", EmitDefaultValue=false)]
@@ -46,5 +46,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="WebDAVUsername", EmitDefaultValue=false)]
 		public StringValue WebDAVUsername { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

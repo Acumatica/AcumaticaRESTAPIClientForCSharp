@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ItemSalesCategory : Entity
+	public class ItemSalesCategory : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
@@ -31,5 +31,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Path", EmitDefaultValue=false)]
 		public StringValue Path { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

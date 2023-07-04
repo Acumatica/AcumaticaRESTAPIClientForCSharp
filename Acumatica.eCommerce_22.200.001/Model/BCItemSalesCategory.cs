@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class BCItemSalesCategory : Entity
+	public class BCItemSalesCategory : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
@@ -34,5 +34,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public IntValue SortOrder { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

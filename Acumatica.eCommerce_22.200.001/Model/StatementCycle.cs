@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class StatementCycle : Entity
+	public class StatementCycle : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AgingPeriod1EndDay", EmitDefaultValue=false)]
@@ -70,5 +70,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="RequirePaymentApplicationBeforeStatementProcessing", EmitDefaultValue=false)]
 		public BooleanValue RequirePaymentApplicationBeforeStatementProcessing { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

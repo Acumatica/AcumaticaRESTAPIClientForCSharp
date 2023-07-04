@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.ISVCB_21_200_001.Model
 {
 	[DataContract]
-	public class ISVSolution : Entity
+	public class ISVSolution : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Initials", EmitDefaultValue=false)]
@@ -46,5 +46,9 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		[DataMember(Name="Repository", EmitDefaultValue=false)]
 		public List<RepositoryLines> Repository { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/ISVCB/21.200.001";
+		}
 	}
 }

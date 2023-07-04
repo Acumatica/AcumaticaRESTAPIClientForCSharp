@@ -10,11 +10,15 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class CompaniesStructure : Entity
+	public class CompaniesStructure : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<CompaniesStructureDetail> Results { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

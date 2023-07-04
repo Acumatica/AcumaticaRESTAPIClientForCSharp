@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class RegenerateMRP : Entity
+	public class RegenerateMRP : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="LastCompletedAt", EmitDefaultValue=false)]
@@ -22,5 +22,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="Messages", EmitDefaultValue=false)]
 		public List<RegenerateMRPMessage> Messages { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

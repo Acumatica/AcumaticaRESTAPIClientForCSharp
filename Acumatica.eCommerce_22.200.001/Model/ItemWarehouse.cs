@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ItemWarehouse : Entity
+	public class ItemWarehouse : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
@@ -115,5 +115,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue WarehouseID { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class ConfigurationFeature : Entity
+	public class ConfigurationFeature : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
@@ -37,5 +37,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="PrintResults", EmitDefaultValue=false)]
 		public BooleanValue PrintResults { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

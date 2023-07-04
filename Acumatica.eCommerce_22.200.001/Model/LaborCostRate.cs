@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class LaborCostRate : Entity
+	public class LaborCostRate : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
@@ -37,5 +37,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<LaborRate> Results { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

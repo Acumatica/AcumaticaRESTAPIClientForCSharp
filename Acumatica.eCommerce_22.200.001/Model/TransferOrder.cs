@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class TransferOrder : Entity
+	public class TransferOrder : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
@@ -52,5 +52,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="TransferType", EmitDefaultValue=false)]
 		public StringValue TransferType { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

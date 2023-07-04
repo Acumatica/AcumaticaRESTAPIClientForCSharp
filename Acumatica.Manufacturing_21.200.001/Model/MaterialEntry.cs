@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class MaterialEntry : Entity
+	public class MaterialEntry : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
@@ -52,5 +52,9 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue TotalQty { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

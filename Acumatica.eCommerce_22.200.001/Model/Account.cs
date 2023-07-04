@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class Account : Entity
+	public class Account : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccountCD", EmitDefaultValue=false)]
@@ -70,5 +70,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="UseDefaultSubaccount", EmitDefaultValue=false)]
 		public BooleanValue UseDefaultSubaccount { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

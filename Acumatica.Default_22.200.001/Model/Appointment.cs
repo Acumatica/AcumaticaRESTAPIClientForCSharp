@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class Appointment : Entity
+	public class Appointment : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ActualDuration", EmitDefaultValue=false)]
@@ -157,5 +157,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="WorkflowStage", EmitDefaultValue=false)]
 		public StringValue WorkflowStage { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class SalesPricesInquiry : Entity
+	public class SalesPricesInquiry : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="EffectiveAsOf", EmitDefaultValue=false)]
@@ -49,5 +49,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="TaxCalculationMode", EmitDefaultValue=false)]
 		public StringValue TaxCalculationMode { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

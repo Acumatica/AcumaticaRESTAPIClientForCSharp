@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ItemClass : Entity
+	public class ItemClass : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
@@ -61,5 +61,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="ValuationMethod", EmitDefaultValue=false)]
 		public StringValue ValuationMethod { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

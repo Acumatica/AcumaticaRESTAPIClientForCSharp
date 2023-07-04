@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class BomPreferences : Entity
+	public class BomPreferences : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AllowArchivewithoutUpdatePending", EmitDefaultValue=false)]
@@ -58,5 +58,9 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 		[DataMember(Name="TotalTimeFormat", EmitDefaultValue=false)]
 		public StringValue TotalTimeFormat { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

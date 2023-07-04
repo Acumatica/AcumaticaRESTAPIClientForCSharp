@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class UnitsOfMeasure : Entity
+	public class UnitsOfMeasure : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ConversionFactor", EmitDefaultValue=false)]
@@ -31,5 +31,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="ToUOM", EmitDefaultValue=false)]
 		public StringValue ToUOM { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

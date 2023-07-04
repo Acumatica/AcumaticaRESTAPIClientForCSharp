@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ContractUsage : Entity
+	public class ContractUsage : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BilledTransactions", EmitDefaultValue=false)]
@@ -25,5 +25,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="UnbilledTransactions", EmitDefaultValue=false)]
 		public List<ContractUsageTransactionDetail> UnbilledTransactions { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

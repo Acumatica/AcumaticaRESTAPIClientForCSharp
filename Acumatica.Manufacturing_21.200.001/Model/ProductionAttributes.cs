@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class ProductionAttributes : Entity
+	public class ProductionAttributes : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Detail", EmitDefaultValue=false)]
@@ -28,5 +28,9 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 		[DataMember(Name="TransactionAttributes", EmitDefaultValue=false)]
 		public BooleanValue TransactionAttributes { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

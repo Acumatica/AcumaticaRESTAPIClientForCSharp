@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class InventoryAdjustment : Entity
+	public class InventoryAdjustment : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
@@ -40,5 +40,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue TotalQty { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

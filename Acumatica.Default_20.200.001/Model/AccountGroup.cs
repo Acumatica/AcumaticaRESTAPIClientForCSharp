@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class AccountGroup : Entity
+	public class AccountGroup : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccountGroupID", EmitDefaultValue=false)]
@@ -37,5 +37,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue Type { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

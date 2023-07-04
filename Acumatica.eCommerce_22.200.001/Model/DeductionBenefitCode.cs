@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class DeductionBenefitCode : Entity
+	public class DeductionBenefitCode : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ACAApplicable", EmitDefaultValue=false)]
@@ -79,5 +79,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
 		public DeductionBenefitWCCCode WCCCode { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class TaxReportingSettings : Entity
+	public class TaxReportingSettings : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ReportingGroups", EmitDefaultValue=false)]
@@ -19,5 +19,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="TaxAgency", EmitDefaultValue=false)]
 		public StringValue TaxAgency { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

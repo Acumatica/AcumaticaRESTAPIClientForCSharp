@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class FinancialPeriod : Entity
+	public class FinancialPeriod : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
@@ -34,5 +34,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="UserDefinedPeriods", EmitDefaultValue=false)]
 		public BooleanValue UserDefinedPeriods { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

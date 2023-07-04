@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ExternalCommitment : Entity
+	public class ExternalCommitment : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
@@ -76,5 +76,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue UOM { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

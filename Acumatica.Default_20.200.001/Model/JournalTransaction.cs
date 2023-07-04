@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class JournalTransaction : Entity
+	public class JournalTransaction : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
@@ -52,5 +52,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="TransactionDate", EmitDefaultValue=false)]
 		public DateTimeValue TransactionDate { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

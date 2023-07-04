@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ProFormaInvoice : Entity
+	public class ProFormaInvoice : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AmountDue", EmitDefaultValue=false)]
@@ -88,5 +88,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="TimeAndMaterialTotal", EmitDefaultValue=false)]
 		public DecimalValue TimeAndMaterialTotal { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

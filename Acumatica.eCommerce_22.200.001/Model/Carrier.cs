@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class Carrier : Entity
+	public class Carrier : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CarrierID", EmitDefaultValue=false)]
@@ -52,5 +52,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue WarehouseID { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

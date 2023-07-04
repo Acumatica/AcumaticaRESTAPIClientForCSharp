@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class StockItem : Entity
+	public class StockItem : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ABCCode", EmitDefaultValue=false)]
@@ -289,5 +289,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="NotAvailable", EmitDefaultValue=false)]
 		public StringValue NotAvailable { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class Tool : Entity
+	public class Tool : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
@@ -46,5 +46,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue UnitCost { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

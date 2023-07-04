@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class ConfigurationMaintenance : Entity
+	public class ConfigurationMaintenance : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]
@@ -49,5 +49,9 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue Status { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

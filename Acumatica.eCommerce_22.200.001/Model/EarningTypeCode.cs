@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class EarningTypeCode : Entity
+	public class EarningTypeCode : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccrueTimeOff", EmitDefaultValue=false)]
@@ -55,5 +55,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="TaxAndReportingUS", EmitDefaultValue=false)]
 		public TaxAndReportingUS TaxAndReportingUS { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

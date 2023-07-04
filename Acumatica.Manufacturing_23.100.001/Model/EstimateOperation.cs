@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class EstimateOperation : Entity
+	public class EstimateOperation : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]
@@ -139,5 +139,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
 		public StringValue WorkCenter { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

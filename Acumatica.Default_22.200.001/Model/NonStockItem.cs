@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class NonStockItem : Entity
+	public class NonStockItem : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
@@ -193,5 +193,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="Visibility", EmitDefaultValue=false)]
 		public StringValue Visibility { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

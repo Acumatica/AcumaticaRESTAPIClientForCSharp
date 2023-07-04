@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class TimeEntry : Entity
+	public class TimeEntry : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ApprovalStatus", EmitDefaultValue=false)]
@@ -82,5 +82,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
 		public StringValue WCCCode { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

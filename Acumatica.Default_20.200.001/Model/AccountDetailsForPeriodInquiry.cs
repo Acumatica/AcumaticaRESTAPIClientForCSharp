@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class AccountDetailsForPeriodInquiry : Entity
+	public class AccountDetailsForPeriodInquiry : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="FromPeriod", EmitDefaultValue=false)]
@@ -31,5 +31,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="IncludeUnreleased", EmitDefaultValue=false)]
 		public BooleanValue IncludeUnreleased { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

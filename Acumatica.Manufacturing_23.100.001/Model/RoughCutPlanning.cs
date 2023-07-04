@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class RoughCutPlanning : Entity
+	public class RoughCutPlanning : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Detail", EmitDefaultValue=false)]
@@ -28,5 +28,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="ReleaseOrders", EmitDefaultValue=false)]
 		public BooleanValue ReleaseOrders { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

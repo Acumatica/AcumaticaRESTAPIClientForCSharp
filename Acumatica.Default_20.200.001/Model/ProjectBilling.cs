@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ProjectBilling : Entity
+	public class ProjectBilling : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
@@ -34,5 +34,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="StatementCycle", EmitDefaultValue=false)]
 		public StringValue StatementCycle { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class WorkCenterCrewSchedule : Entity
+	public class WorkCenterCrewSchedule : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
@@ -31,5 +31,9 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
 		public StringValue WorkCenter { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

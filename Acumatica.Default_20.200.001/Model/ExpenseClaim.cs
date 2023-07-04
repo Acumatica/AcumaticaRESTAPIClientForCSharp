@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ExpenseClaim : Entity
+	public class ExpenseClaim : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ApprovalDate", EmitDefaultValue=false)]
@@ -79,5 +79,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
 		public DecimalValue VATTaxableTotal { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

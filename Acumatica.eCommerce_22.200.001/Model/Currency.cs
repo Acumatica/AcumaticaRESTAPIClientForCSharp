@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class Currency : Entity
+	public class Currency : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
@@ -37,5 +37,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="UseForAccounting", EmitDefaultValue=false)]
 		public BooleanValue UseForAccounting { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

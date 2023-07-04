@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ShippingZones : Entity
+	public class ShippingZones : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
@@ -19,5 +19,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="ZoneID", EmitDefaultValue=false)]
 		public StringValue ZoneID { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

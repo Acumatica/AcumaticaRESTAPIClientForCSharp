@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ProjectBudget : Entity
+	public class ProjectBudget : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
@@ -148,5 +148,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="VarianceAmount", EmitDefaultValue=false)]
 		public DecimalValue VarianceAmount { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

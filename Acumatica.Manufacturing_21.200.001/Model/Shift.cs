@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class Shift : Entity
+	public class Shift : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
@@ -28,5 +28,9 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 		[DataMember(Name="ShiftDiff", EmitDefaultValue=false)]
 		public DecimalValue ShiftDiff { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

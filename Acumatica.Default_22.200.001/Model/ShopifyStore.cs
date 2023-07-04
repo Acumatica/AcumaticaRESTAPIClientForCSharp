@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class ShopifyStore : Entity
+	public class ShopifyStore : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccessToken", EmitDefaultValue=false)]
@@ -40,5 +40,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="StoreName", EmitDefaultValue=false)]
 		public StringValue StoreName { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

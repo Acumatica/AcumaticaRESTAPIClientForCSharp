@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class NonStockItem : Entity
+	public class NonStockItem : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
@@ -139,5 +139,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="WeightUOM", EmitDefaultValue=false)]
 		public StringValue WeightUOM { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

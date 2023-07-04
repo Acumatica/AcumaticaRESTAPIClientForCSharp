@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class WorkCalendar : Entity
+	public class WorkCalendar : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CalendarExceptions", EmitDefaultValue=false)]
@@ -28,5 +28,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]
 		public StringValue WorkCalendarID { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

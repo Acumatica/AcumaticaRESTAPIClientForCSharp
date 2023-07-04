@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class InventoryQuantityAvailable : Entity
+	public class InventoryQuantityAvailable : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
@@ -22,5 +22,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue LastModifiedDateTime { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

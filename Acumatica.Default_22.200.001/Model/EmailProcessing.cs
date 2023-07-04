@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class EmailProcessing : Entity
+	public class EmailProcessing : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
@@ -34,5 +34,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue Type { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

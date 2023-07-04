@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class KitSpecification : Entity
+	public class KitSpecification : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
@@ -34,5 +34,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="StockComponents", EmitDefaultValue=false)]
 		public List<KitStockComponent> StockComponents { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

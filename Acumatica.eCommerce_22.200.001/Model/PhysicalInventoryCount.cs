@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class PhysicalInventoryCount : Entity
+	public class PhysicalInventoryCount : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
@@ -31,5 +31,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue Subitem { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

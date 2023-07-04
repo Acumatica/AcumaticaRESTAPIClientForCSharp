@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class TemplateItems : Entity
+	public class TemplateItems : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="SalesUOM", EmitDefaultValue=false)]
@@ -112,5 +112,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="VendorDetails", EmitDefaultValue=false)]
 		public List<TemplateItemVendorDetail> VendorDetails { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

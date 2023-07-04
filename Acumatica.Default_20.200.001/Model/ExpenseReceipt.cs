@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ExpenseReceipt : Entity
+	public class ExpenseReceipt : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
@@ -46,5 +46,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue TaxTotal { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

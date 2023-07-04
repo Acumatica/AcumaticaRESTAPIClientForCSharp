@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class FinancialYear : Entity
+	public class FinancialYear : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AdjustToPeriodStart", EmitDefaultValue=false)]
@@ -61,5 +61,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="YearEndCalculationMethod", EmitDefaultValue=false)]
 		public StringValue YearEndCalculationMethod { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

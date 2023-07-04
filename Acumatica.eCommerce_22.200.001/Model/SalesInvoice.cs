@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class SalesInvoice : Entity
+	public class SalesInvoice : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
@@ -109,5 +109,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
 		public DecimalValue VATTaxableTotal { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

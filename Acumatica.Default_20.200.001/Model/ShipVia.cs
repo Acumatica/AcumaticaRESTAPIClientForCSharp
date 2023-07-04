@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ShipVia : Entity
+	public class ShipVia : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CalculationMethod", EmitDefaultValue=false)]
@@ -49,5 +49,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue TaxCategory { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class MRPDisplay : Entity
+	public class MRPDisplay : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ActionDate", EmitDefaultValue=false)]
@@ -100,5 +100,9 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue Warehouse { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

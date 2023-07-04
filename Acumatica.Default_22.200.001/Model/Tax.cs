@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class Tax : Entity
+	public class Tax : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CalculateOn", EmitDefaultValue=false)]
@@ -88,5 +88,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="Zones", EmitDefaultValue=false)]
 		public List<TaxZoneDetail> Zones { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

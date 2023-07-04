@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class Activity : Entity
+	public class Activity : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Body", EmitDefaultValue=false)]
@@ -64,5 +64,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="RelatedEntityDescription", EmitDefaultValue=false)]
 		public StringValue RelatedEntityDescription { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class ConfiguratorPreferences : Entity
+	public class ConfiguratorPreferences : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Calculate", EmitDefaultValue=false)]
@@ -55,5 +55,9 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 		[DataMember(Name="Rollup", EmitDefaultValue=false)]
 		public StringValue Rollup { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

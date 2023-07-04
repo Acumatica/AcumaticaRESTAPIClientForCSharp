@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class ShippingBox : Entity
+	public class ShippingBox : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ActiveByDefault", EmitDefaultValue=false)]
@@ -49,5 +49,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Width", EmitDefaultValue=false)]
 		public IntValue Width { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

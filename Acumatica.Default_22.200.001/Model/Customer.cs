@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class Customer : Entity
+	public class Customer : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccountRef", EmitDefaultValue=false)]
@@ -196,5 +196,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="IsGuestCustomer", EmitDefaultValue=false)]
 		public BooleanValue IsGuestCustomer { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

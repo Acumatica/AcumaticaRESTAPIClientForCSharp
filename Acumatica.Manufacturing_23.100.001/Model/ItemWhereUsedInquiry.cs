@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class ItemWhereUsedInquiry : Entity
+	public class ItemWhereUsedInquiry : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
@@ -31,5 +31,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue Warehouse { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

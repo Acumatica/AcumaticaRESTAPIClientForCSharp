@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class Case : Entity
+	public class Case : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Activities", EmitDefaultValue=false)]
@@ -127,5 +127,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue NoteID { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

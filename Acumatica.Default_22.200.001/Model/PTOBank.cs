@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class PTOBank : Entity
+	public class PTOBank : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccrualLimit", EmitDefaultValue=false)]
@@ -73,5 +73,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="PTOBankID", EmitDefaultValue=false)]
 		public StringValue PTOBankID { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

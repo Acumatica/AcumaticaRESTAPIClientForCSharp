@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class CustomerClass : Entity
+	public class CustomerClass : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ApplyOverdueCharges", EmitDefaultValue=false)]
@@ -196,5 +196,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="WriteOffLimit", EmitDefaultValue=false)]
 		public DecimalValue WriteOffLimit { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

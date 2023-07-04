@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ServiceOrder : Entity
+	public class ServiceOrder : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Address", EmitDefaultValue=false)]
@@ -136,5 +136,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="WorkflowStage", EmitDefaultValue=false)]
 		public StringValue WorkflowStage { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

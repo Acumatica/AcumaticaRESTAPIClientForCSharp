@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class InventoryReceipt : Entity
+	public class InventoryReceipt : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ControlCost", EmitDefaultValue=false)]
@@ -52,5 +52,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="TransferNbr", EmitDefaultValue=false)]
 		public StringValue TransferNbr { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

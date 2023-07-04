@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class PayGroup : Entity
+	public class PayGroup : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BenefitExpenseAccount", EmitDefaultValue=false)]
@@ -82,5 +82,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="UserRole", EmitDefaultValue=false)]
 		public StringValue UserRole { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

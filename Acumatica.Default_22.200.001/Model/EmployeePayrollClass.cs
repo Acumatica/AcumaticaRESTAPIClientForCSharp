@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class EmployeePayrollClass : Entity
+	public class EmployeePayrollClass : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
@@ -28,5 +28,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="PTODefaults", EmitDefaultValue=false)]
 		public List<EmployeeClassPTOBankDefault> PTODefaults { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

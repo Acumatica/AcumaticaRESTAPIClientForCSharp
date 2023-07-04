@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class Check : Entity
+	public class Check : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ApplicationDate", EmitDefaultValue=false)]
@@ -61,5 +61,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue LastModifiedDateTime { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

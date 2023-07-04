@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class Discount : Entity
+	public class Discount : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
@@ -70,5 +70,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Warehouses", EmitDefaultValue=false)]
 		public List<DiscountWarehouseDetail> Warehouses { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

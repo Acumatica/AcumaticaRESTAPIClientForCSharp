@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class LaborCodes : Entity
+	public class LaborCodes : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
@@ -34,5 +34,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue Type { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

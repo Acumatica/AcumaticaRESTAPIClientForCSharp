@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class BCShipments : Entity
+	public class BCShipments : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="LastModified", EmitDefaultValue=false)]
@@ -31,5 +31,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<BCShipmentsResult> Results { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

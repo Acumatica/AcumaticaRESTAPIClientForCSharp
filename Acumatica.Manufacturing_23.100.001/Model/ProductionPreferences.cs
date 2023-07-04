@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class ProductionPreferences : Entity
+	public class ProductionPreferences : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BlockSize", EmitDefaultValue=false)]
@@ -97,5 +97,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="WipAdjustNumberingSequence", EmitDefaultValue=false)]
 		public StringValue WipAdjustNumberingSequence { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

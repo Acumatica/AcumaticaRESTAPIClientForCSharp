@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class AccountSummaryInquiry : Entity
+	public class AccountSummaryInquiry : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="AccountClass", EmitDefaultValue=false)]
@@ -31,5 +31,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue Subaccount { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

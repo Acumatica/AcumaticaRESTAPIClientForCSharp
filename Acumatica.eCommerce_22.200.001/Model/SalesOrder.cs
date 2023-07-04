@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class SalesOrder : Entity
+	public class SalesOrder : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="MaxRiskScore", EmitDefaultValue=false)]
@@ -214,5 +214,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
 		public DateTimeValue CreatedDate { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

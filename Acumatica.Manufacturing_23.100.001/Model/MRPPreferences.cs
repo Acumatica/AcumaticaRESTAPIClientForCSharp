@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class MRPPreferences : Entity
+	public class MRPPreferences : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="DaysAfter", EmitDefaultValue=false)]
@@ -55,5 +55,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="UseFixedManufacturingTimes", EmitDefaultValue=false)]
 		public BooleanValue UseFixedManufacturingTimes { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

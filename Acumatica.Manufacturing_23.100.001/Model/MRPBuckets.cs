@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_23_100_001.Model
 {
 	[DataContract]
-	public class MRPBuckets : Entity
+	public class MRPBuckets : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
@@ -25,5 +25,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<MRPBucketDetail> Details { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/23.100.001";
+		}
 	}
 }

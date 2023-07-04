@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class VendorPriceWorksheet : Entity
+	public class VendorPriceWorksheet : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
@@ -46,5 +46,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="VendorSalesPrices", EmitDefaultValue=false)]
 		public List<VendorPriceWorksheetDetail> VendorSalesPrices { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

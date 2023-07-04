@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_22_200_001.Model
 {
 	[DataContract]
-	public class PaymentMethod : Entity
+	public class PaymentMethod : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
@@ -58,5 +58,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="SettingsForPR", EmitDefaultValue=false)]
 		public SettingsForPR SettingsForPR { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

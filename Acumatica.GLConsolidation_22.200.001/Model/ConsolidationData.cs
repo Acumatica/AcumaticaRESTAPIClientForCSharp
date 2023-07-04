@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.GLConsolidation_22_200_001.Model
 {
 	[DataContract]
-	public class ConsolidationData : Entity
+	public class ConsolidationData : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BranchCD", EmitDefaultValue=false)]
@@ -22,5 +22,9 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		[DataMember(Name="Result", EmitDefaultValue=false)]
 		public List<ConsolidationItem> Result { get; set; }
 
+		public string GetEndpointPath()
+		{
+			return "entity/GLConsolidation/22.200.001";
+		}
 	}
 }
