@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Acumatica.Auth.Api;
 using Acumatica.Default_20_200_001.Api;
+using Acumatica.Default_20_200_001.Model;
+using Acumatica.RESTClient.Client;
+
+using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
+using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
 
 namespace AcumaticaRestApiExample
 {
@@ -13,23 +17,23 @@ namespace AcumaticaRestApiExample
 	{
 		public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
-			var authApi = new AuthApi(siteURL,
-				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+			var client = new ApiClient(siteURL,
+				requestInterceptor: RequestLogger.LogRequest, 
+                responseInterceptor: RequestLogger.LogResponse
                 );
 
             try
             {
-                authApi.LogIn(username, password, tenant, branch, locale);
+                client.Login(username, password, tenant, branch, locale);
 
                 Console.WriteLine("File Upload/Download");
-                var salesOrderApi = new SalesOrderApi(authApi.ApiClient);
-                var order = salesOrderApi.GetByKeys(new List<string>() { "SO", "SO005207" }, expand: "files");
+                var order = client.GetByKeys<SalesOrder>(new List<string>() { "SO", "SO005207" }, expand: "files");
 
                 byte[] initialData = Encoding.UTF8.GetBytes("Acumatica is awesome");
                 string fileName = "TestFile.txt";
-                salesOrderApi.PutFile("SO/SO005207", fileName, initialData);
+                client.PutFile<SalesOrder>("SO/SO005207", fileName, initialData);
 
-                order = salesOrderApi.GetByKeys(new List<string>() { "SO", "SO005207" }, expand: "files");
+                order = client.GetByKeys<SalesOrder>(new List<string>() { "SO", "SO005207" }, expand: "files");
 
                 if (order.Files.Any(fl => fl.Filename.EndsWith(@"\" + fileName)))
                 {
@@ -43,7 +47,7 @@ namespace AcumaticaRestApiExample
             finally
             {
                 //we use logout in finally block because we need to always logout, even if the request failed for some reason
-                if (authApi.TryLogout())
+                if (client.TryLogout())
                 {
                     Console.WriteLine("Logged out successfully.");
                 }

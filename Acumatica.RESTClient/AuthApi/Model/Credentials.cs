@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Acumatica.Auth.Model
+namespace Acumatica.RESTClient.AuthApi.Model
 {
     [DataContract]
     public partial class Credentials

@@ -7,7 +7,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-using Acumatica.Auth.Model;
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Auxiliary;
 
@@ -16,6 +15,7 @@ using Newtonsoft.Json;
 
 using static Acumatica.RESTClient.Auxiliary.Constants;
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
+using Acumatica.RESTClient.AuthApi.Model;
 
 namespace Acumatica.RESTClient.Client
 {

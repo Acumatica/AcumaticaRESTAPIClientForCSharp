@@ -1,10 +1,13 @@
 ﻿using System;
 using System.IO;
 
-using Acumatica.Auth.Api;
+using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.CustomizationApi;
 
 using AcumaticaRestApiExample;
+
+using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
+using static Acumatica.RESTClient.CustomizationApi.CustomizationApi;
 
 namespace Acumatica_REST_API_Example_Console_Application
 {
@@ -13,29 +16,36 @@ namespace Acumatica_REST_API_Example_Console_Application
         public static void ImportAndPublishCustomization(string siteURL, string username, string password)
         {
             Console.WriteLine("Sign in");
-            var authApi = new AuthApi(siteURL
-                //,
-                //requestInterceptor: RequestLogger.LogRequest,
-                //responseInterceptor: RequestLogger.LogResponse
+            var client = new ApiClient(siteURL,
+                requestInterceptor: RequestLogger.LogRequest,
+                responseInterceptor: RequestLogger.LogResponse
                 );
-            authApi.LogIn(username, password);
-            
-            CustomizationApi customizationApi = new CustomizationApi(authApi.ApiClient);
-
-            Console.WriteLine("Import customization package");
-            customizationApi.Import(new FileStream("endpoint.zip",FileMode.Open),"test");
-
-            Console.WriteLine("Start Publishing");
-            customizationApi.PublishBegin("test");
-
-            Console.WriteLine("Wait");
-            customizationApi.WaitPublishingCompletion();
+            try
+            {
+                client.Login(username, password);
 
 
-            Console.WriteLine("Done!");
+                Console.WriteLine("Import customization package");
+                client.Import(new FileStream("endpoint.zip", FileMode.Open), "test");
 
-            Console.WriteLine("Logging out");
-            authApi.TryLogout();
+                Console.WriteLine("Start Publishing");
+                client.PublishBegin("test");
+
+                Console.WriteLine("Wait");
+                client.WaitPublishingCompletion();
+
+
+                Console.WriteLine("Done!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                Console.WriteLine("Logging out");
+                client.TryLogout();
+            }
 
         }
     }

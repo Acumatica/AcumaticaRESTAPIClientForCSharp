@@ -2,7 +2,7 @@ using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
-namespace Acumatica.Auth.Model
+namespace Acumatica.RESTClient.AuthApi.Model
 {
     [DataContract]
     public partial class Token

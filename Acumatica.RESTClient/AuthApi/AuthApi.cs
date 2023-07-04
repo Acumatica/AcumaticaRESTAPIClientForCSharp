@@ -5,20 +5,20 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-using Acumatica.Auth.Model;
 using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.AuthApi.Model;
 using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 
-namespace Acumatica.Auth.Api
+namespace Acumatica.RESTClient.AuthApi
 {
     /// <summary>
     /// Represents a collection of functions to interact with the Authorization endpoint
     /// </summary>
-    public static class AuthApi
+    public static class AuthApiExtensions
     {
         #region Public Methods
         #region OAuth

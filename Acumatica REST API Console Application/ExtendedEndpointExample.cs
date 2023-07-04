@@ -5,7 +5,6 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-using Acumatica.Auth.Api;
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.ContractBasedApi;
@@ -13,10 +12,13 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 using AcumaticaRestApiExample;
 
+using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
+using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
+
 namespace AcumaticaRestApiExample
 {
 	public abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>
-		 where EntityType : Entity, new()
+		 where EntityType : Entity, ITopLevelEntity, new()
 	{
 		public BaseEndpointApi(ApiClient client) : base(client)
 		{ }
@@ -40,17 +42,15 @@ namespace AcumaticaRestApiExample
 	{
 		public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
-			var authApi = new AuthApi(siteURL
-				//,
-				//requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
-				);
+			ApiClient client = new ApiClient(siteURL, 
+				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
 
 			try
 			{
-				authApi.LogIn(username, password, tenant, branch, locale);
+                client.Login(username, password, tenant, branch, locale);
 
 				Console.WriteLine("Reading Invoices (extended)...");
-				var extendedInvoiceApi = new InvoiceApi(authApi.ApiClient);
+				var extendedInvoiceApi = new InvoiceApi(client);
 				var invoices = extendedInvoiceApi.GetList(top: 5);
 				foreach (var invoice in invoices)
 				{
@@ -65,7 +65,7 @@ namespace AcumaticaRestApiExample
 			finally
 			{
 				//we use logout in finally block because we need to always logout, even if the request failed for some reason
-				if (authApi.TryLogout())
+				if (client.TryLogout())
 				{
 					Console.WriteLine("Logged out successfully.");
 				}
