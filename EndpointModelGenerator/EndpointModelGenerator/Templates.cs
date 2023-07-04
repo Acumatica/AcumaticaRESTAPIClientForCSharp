@@ -34,9 +34,14 @@
 		//{2} = Content
 		public static string EntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : Entity\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
 
-		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
-		//{1} = EntityName
-		public static string ApiTemplate = UsingClientNamespace + "\r\nusing {0}.Model;\r\n\r\nnamespace {0}.Api\r\n{{\r\n\tpublic class {1}Api : BaseEndpointApi<{1}>\r\n\t{{\r\n\t\tpublic {1}Api(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t}}\r\n}}";
+        //{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
+        //{1} = EntityName
+        //{2} = Content
+        public static string TopLevelEntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : Entity, ITopLevelEntity\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
+
+        //{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
+        //{1} = EntityName
+        public static string ApiTemplate = UsingClientNamespace + "\r\nusing {0}.Model;\r\n\r\nnamespace {0}.Api\r\n{{\r\n\tpublic class {1}Api : BaseEndpointApi<{1}>\r\n\t{{\r\n\t\tpublic {1}Api(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t}}\r\n}}";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
@@ -59,7 +64,7 @@
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = Endpoint Path
-		public static string BaseEndpointApiTemplate = Usings + "namespace {0}.Api\r\n{{\r\n\tpublic abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>\r\n\t\twhere EntityType : Entity, new()\r\n\t{{\r\n\t\tpublic BaseEndpointApi(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t\tpublic override string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{1}\";\r\n\t\t}}\r\n\t}}\r\n}}";
+		public static string BaseEndpointApiTemplate = Usings + "namespace {0}.Api\r\n{{\r\n\tpublic abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>\r\n\t\twhere EntityType : Entity, ITopLevelEntity, new()\r\n\t{{\r\n\t\tpublic BaseEndpointApi(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t\tpublic override string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{1}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
 		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version="+NewtonsoftJsonVersion+ " />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n\t<ProjectReference Include = \"..\\Acumatica.RESTClient.ContractBasedApi\\Acumatica.RESTClient.ContractBasedApi.csproj\" />\r\n  </ItemGroup >\r\n\r\n</Project >\r\n";
 

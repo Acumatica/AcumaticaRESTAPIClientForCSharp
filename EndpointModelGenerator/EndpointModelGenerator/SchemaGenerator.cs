@@ -144,7 +144,15 @@ namespace EndpointSchemaGenerator
                     else
                         body.Append(string.Format(Templates.FieldTemplate, field.Key, field.Value));
                 }
-                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString());
+                string result;
+                if (schema.TopLevelEntities.Contains(entity.Key))
+                {
+                    result= String.Format(Templates.TopLevelEntityTemplate, endpointNamespace, entity.Key, body.ToString());
+                }
+                else
+                {
+                    result= String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString());
+                }
                 writeLogDelegate.Invoke(entity.Key);
                 writer.Write(result);
                 writer.Close();
