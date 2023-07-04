@@ -126,10 +126,10 @@ namespace EndpointSchemaGenerator
 			}
 		}
 
-        private static void WriteEntities(Schema schema, 
-            Action<string> writeLogDelegate, 
-            string endpointNamespace, 
-            string modelLocalPath, 
+        private static void WriteEntities(Schema schema,
+            Action<string> writeLogDelegate,
+            string endpointNamespace,
+            string modelLocalPath,
             string modelFilesDirectory)
         {
             foreach (var entity in schema.Entities)
@@ -147,11 +147,11 @@ namespace EndpointSchemaGenerator
                 string result;
                 if (schema.TopLevelEntities.Contains(entity.Key))
                 {
-                    result= String.Format(Templates.TopLevelEntityTemplate, endpointNamespace, entity.Key, body.ToString());
+                    result = String.Format(Templates.TopLevelEntityTemplate, endpointNamespace, entity.Key, body.ToString(), schema.Info.Title);
                 }
                 else
                 {
-                    result= String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString());
+                    result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString());
                 }
                 writeLogDelegate.Invoke(entity.Key);
                 writer.Write(result);
