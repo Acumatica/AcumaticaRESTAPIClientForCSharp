@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.DeviceHub_23_200_001.Model
 {
 	[DataContract]
-	public class PrintJobs : Entity
+	public class PrintJobs : Entity, ITopLevelEntity
 	{
 
 
@@ -34,6 +34,10 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 
         [DataMember(Name = "EndModifiedDateTime", EmitDefaultValue = false)]
         public DateTimeValue EndModifiedDateTime { get; set; }
+        public string GetEndpointPath()
+        {
+            return "entity/DeviceHub/23.200.001";
+        }
 
     }
 }

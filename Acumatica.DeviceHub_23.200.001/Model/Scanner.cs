@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.DeviceHub_23_200_001.Model
 {
 	[DataContract]
-	public class Scanner : Entity
+	public class Scanner : Entity, ITopLevelEntity
 	{
 
         [DataMember(Name = "Description", EmitDefaultValue = false)]
@@ -48,6 +48,10 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 
         [DataMember(Name = "ScannerName", EmitDefaultValue = false)]
         public StringValue ScannerName { get; set; }
+        public string GetEndpointPath()
+        {
+            return "entity/DeviceHub/23.200.001";
+        }
 
     }
 }

@@ -10,7 +10,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.DeviceHub_23_200_001.Model
 {
 	[DataContract]
-	public class Printer : Entity
+	public class Printer : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
@@ -25,5 +25,10 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		[DataMember(Name="PrinterName", EmitDefaultValue=false)]
 		public StringValue PrinterName { get; set; }
 
-	}
+        public string GetEndpointPath()
+        {
+            return "entity/DeviceHub/23.200.001";
+        }
+
+    }
 }
