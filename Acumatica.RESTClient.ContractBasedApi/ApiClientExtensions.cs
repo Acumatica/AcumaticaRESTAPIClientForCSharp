@@ -47,7 +47,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (action == null)
-                ThrowMissingParameter("InvokeAction", nameof(action));
+                ThrowMissingParameter(nameof(InvokeActionAsync), nameof(action));
 
             HttpResponseMessage response = await client.CallApiAsync(
                 $"{GetEndpointPath<EntityType>()}/{GetEntityName(typeof(EntityType))}/{action.GetType().Name}",
@@ -58,7 +58,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 ComposePutHeaders(PutMethod.Any, businessDate, branch));
 
-            VerifyResponse(response, "InvokeAction");
+            VerifyResponse(response, nameof(InvokeActionAsync));
 
             return response.Headers.GetValues("Location").First();
         }
@@ -124,7 +124,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static async Task<HttpStatusCode> GetProcessStatusAsync(this ApiClient client, string locationRaw)
         {
             if (locationRaw == null)
-                ThrowMissingParameter("GetProcessStatus", nameof(locationRaw));
+                ThrowMissingParameter(nameof(GetProcessStatusAsync), nameof(locationRaw));
 
             var parsedLocation = UrlParser.ParseActionLocation(locationRaw);
             if (parsedLocation.ActionName == null)
@@ -138,7 +138,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 HeaderContentType.None);
 
-            VerifyResponse(response, "GetProcessStatus");
+            VerifyResponse(response, nameof(GetProcessStatusAsync));
 
             return response.StatusCode;
         }
@@ -223,7 +223,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             where EntityType : ITopLevelEntity
         {
             if (entity == null)
-                ThrowMissingParameter("PutEntity", nameof(entity));
+                ThrowMissingParameter(nameof(PutAsync), nameof(entity));
 
             HttpResponseMessage response = await client.CallApiAsync(
                 $"{GetEndpointPath(entity)}/{GetEntityName(entity)}",
@@ -234,7 +234,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 ComposePutHeaders(method, businessDate, branch));
 
-            VerifyResponse(response, "PutEntity");
+            VerifyResponse(response, nameof(PutAsync));
 
             return (EntityType)Deserialize<EntityType>(response);
         }
@@ -291,9 +291,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
             where EntityType: ITopLevelEntity, new()
         {
             if (ids == null)
-                ThrowMissingParameter("PutFile", nameof(ids));
+                ThrowMissingParameter(nameof(PutFileAsync), nameof(ids));
             if (filename == null)
-                ThrowMissingParameter("PutFile", nameof(filename));
+                ThrowMissingParameter(nameof(PutFileAsync), nameof(filename));
 
             HttpResponseMessage response = await client.CallApiAsync(
                 $"{GetEndpointPath<EntityType>()}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}/files/{filename}",
@@ -303,7 +303,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 HeaderContentType.OctetStream);
 
-            VerifyResponse(response, "PutFile");
+            VerifyResponse(response, nameof(PutFileAsync));
         }
         #endregion
         #region Get
@@ -322,7 +322,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (ids == null)
-                ThrowMissingParameter("GetByKeys", nameof(ids));
+                ThrowMissingParameter(nameof(GetByKeysAsync), nameof(ids));
 
             HttpResponseMessage response = await client.CallApiAsync(
                 $"{GetEndpointPath<EntityType>()}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}",
@@ -332,7 +332,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 HeaderContentType.None);
 
-            VerifyResponse(response, "GetByKeys");
+            VerifyResponse(response, nameof(GetByKeysAsync));
 
             return (EntityType)Deserialize<EntityType>(response);
         }
@@ -371,7 +371,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (id == null)
-                ThrowMissingParameter("GetById", nameof(id));
+                ThrowMissingParameter(nameof(GetByIdAsync), nameof(id));
 
             HttpResponseMessage response = await client.CallApiAsync(
                 $"{GetEndpointPath<EntityType>()}/{GetEntityName(typeof(EntityType))}/{id}",
@@ -381,7 +381,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 HeaderContentType.None);
 
-            VerifyResponse(response, "GetById");
+            VerifyResponse(response, nameof(GetByIdAsync));
 
             return (EntityType)Deserialize<EntityType>(response);
         }
@@ -429,7 +429,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
               HeaderContentType.None,
               customHeaders);
 
-            VerifyResponse(response, "GetList");
+            VerifyResponse(response, nameof(GetListAsync));
 
             return (List<EntityType>)Deserialize<List<EntityType>>(response);
         }
@@ -470,7 +470,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                HeaderContentType.Json,
                HeaderContentType.None);
 
-            VerifyResponse(response, "GetAdHocSchema");
+            VerifyResponse(response, nameof(GetAdHocSchemaAsync));
 
             return (EntityType)Deserialize<EntityType>(response);
         }
@@ -508,7 +508,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (ids == null)
-                ThrowMissingParameter("DeleteByKeys", nameof(ids));
+                ThrowMissingParameter(nameof(DeleteByKeysAsync), nameof(ids));
 
             HttpResponseMessage localVarResponse = await client.CallApiAsync(
                 $"{GetEndpointPath<EntityType>()}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}",
@@ -518,7 +518,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Any,
                 HeaderContentType.None);
 
-            VerifyResponse(localVarResponse, "DeleteByKeys");
+            VerifyResponse(localVarResponse, nameof(DeleteByKeysAsync));
         }
 
         /// <summary>
@@ -543,7 +543,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (entity == null || entity.ID == null)
-                ThrowMissingParameter("Delete", nameof(entity));
+                ThrowMissingParameter(nameof(DeleteAsync), nameof(entity));
 
             HttpResponseMessage localVarResponse = await client.CallApiAsync(
                 $"{GetEndpointPath(entity)}/{GetEntityName(typeof(EntityType))}/{entity.ID}",
@@ -553,7 +553,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Any,
                 HeaderContentType.None);
 
-            VerifyResponse(localVarResponse, "DeleteById");
+            VerifyResponse(localVarResponse, nameof(DeleteAsync));
         }
 
         /// <summary>
@@ -578,7 +578,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (id == null)
-                ThrowMissingParameter("DeleteById", nameof(id));
+                ThrowMissingParameter(nameof(DeleteByIdAsync), nameof(id));
 
             HttpResponseMessage localVarResponse = await client.CallApiAsync(
                 $"{GetEndpointPath<EntityType>()}/{GetEntityName(typeof(EntityType))}/{id}",
@@ -588,7 +588,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Any,
                 HeaderContentType.None);
 
-            VerifyResponse(localVarResponse, "DeleteById");
+            VerifyResponse(localVarResponse, nameof(DeleteByIdAsync));
         }
         #endregion
         #endregion
