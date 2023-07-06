@@ -485,7 +485,26 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return GetListAsync<EntityType>(client, endpointPath, select, filter, expand, custom, skip, top, customHeaders).Result;
         }
         #endregion
-        #region GetAdHocSchema
+        #region GetSchema
+
+        public static string GetSwagger(this ApiClient client, string endpointPath)
+        {
+            return GetSwaggerAsync(client, endpointPath).Result;
+        }
+        public async static Task<string> GetSwaggerAsync(this ApiClient client, string endpointPath)
+        {
+            HttpResponseMessage response = await client.CallApiAsync(
+            $"{endpointPath}/swagger.json",
+            HttpMethod.Get,
+            null,
+            null,
+            HeaderContentType.Json,
+            HeaderContentType.None);
+
+            VerifyResponse(response, nameof(GetSwaggerAsync));
+
+            return (string)Deserialize<string>(response);
+        }
         /// <summary>
         /// Retrieves the schema of custom fields of the entity from the system. 
         /// </summary>

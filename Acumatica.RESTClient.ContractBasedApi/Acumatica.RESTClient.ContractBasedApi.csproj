@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>Acumatica Contract Based REST API CLient</Title>
-    <Version>5.0.0-alpha</Version>
+    <Version>5.0.2-alpha</Version>
     <Authors>Dmitrii-Naumov</Authors>
     <Company>Acumatica</Company>
     <Description>A simple client allowing to use Acumatica Contract Based REST API from C#. </Description>
