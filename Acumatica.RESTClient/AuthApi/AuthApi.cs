@@ -24,16 +24,32 @@ namespace Acumatica.RESTClient.AuthApi
         #region OAuth
         public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
         {
-            if (client == null || string.IsNullOrEmpty(client.Token?.Refresh_token))
-                ApiClientHelpers.ThrowMissingParameter("RefreshAccessToken", "Refresh_Token");
-
-            client.Token = RefreshAsyncWithHttpInfo(
-                client, 
-                clientID, 
-                clientSecret, 
-                client.Token.Refresh_token).Result;
+            RefreshAccessTokenAsync(client, clientID, clientSecret).Wait();
         }
 
+        public async static Task RefreshAccessTokenAsync(this ApiClient client, string clientID, string clientSecret)
+        {
+            if (client == null || string.IsNullOrEmpty(client.Token?.Refresh_token))
+                ApiClientHelpers.ThrowMissingParameter(nameof(RefreshAccessToken), "Refresh_Token");
+
+            HttpResponseMessage response = await client.CallApiAsync(
+               "/identity/connect/token",
+               HttpMethod.Post,
+               null,
+               ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>()
+               {
+                    {"grant_type", "refresh_token" },
+                    {"client_id", clientID },
+                    {"client_secret", clientSecret },
+                    {"refresh_token", client.Token.Refresh_token },
+               }),
+               HeaderContentType.None,
+               HeaderContentType.WwwForm);
+
+            response.EnsureSuccessStatusCode();
+
+            client.Token = (Token)Deserialize<Token>(response);
+        }
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
         /// </summary>
@@ -44,13 +60,37 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="scope"></param>
         public static void ReceiveAccessToken(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
         {
-            client.Token = ConnectAsyncWithHttpInfo(
-                client,
-                clientID,
-                clientSecret,
-                username,
-                password,
-                scope).Result;
+            ReceiveAccessTokenAsync(client, clientID, clientSecret, username, password, scope).Wait();
+        }
+        /// <summary>
+         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
+         /// </summary>
+         /// <param name="clientID"></param>
+         /// <param name="clientSecret"></param>
+         /// <param name="username"></param>
+         /// <param name="password"></param>
+         /// <param name="scope"></param>
+        public async static Task ReceiveAccessTokenAsync(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
+        {
+            HttpResponseMessage response = await client.CallApiAsync(
+               "identity/connect/token",
+               HttpMethod.Post,
+               null,
+               ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
+               {
+                    {"grant_type", "password" },
+                    {"client_id", clientID },
+                    {"client_secret", clientSecret },
+                    {"username", username },
+                    {"password", password },
+                    {"scope", PrepareScopeParameter(scope) }
+               }),
+               HeaderContentType.None,
+               HeaderContentType.WwwForm);
+
+            VerifyResponse(client, response, nameof(ReceiveAccessTokenAsync));
+
+            client.Token = (Token)Deserialize<Token>(response);
         }
 
         /// <summary>
@@ -62,11 +102,27 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="scope"></param>
         public static string Authorize(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
         {
-            var response = AuthorizeAsyncWithHttpInfo(
-              client,
-              clientID,
-              redirectUrl,
-              scope).Result;
+            return AuthorizeAsync(client, clientID, clientSecret, redirectUrl, scope).Result;
+        }
+        /// <summary>
+         /// 
+         /// </summary>
+         /// <param name="clientID"></param>
+         /// <param name="clientSecret"></param>
+         /// <param name="redirectUrl"></param>
+         /// <param name="scope"></param>
+        public async static Task<string> AuthorizeAsync(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
+        {
+            HttpResponseMessage response = await client.CallApiAsync(
+                "/identity/connect/authorize",
+                HttpMethod.Get,
+                null,
+                null,
+                HeaderContentType.None,
+                HeaderContentType.WwwForm);
+
+            VerifyResponse(client, response, "RequestToken");
+
             var locationHeader = response.Headers.Where(_ => _.Key == "Location").FirstOrDefault();
             if (!response.Headers.Where(_ => _.Key == "Location").Any())
             {
@@ -86,12 +142,38 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="code"></param>
         public static void ReceiveAccessTokenAuthCode(this ApiClient client, string clientID, string clientSecret, string redirectUrl, string code)
         {
-            client.Token = ConnectAsyncWithHttpInfoAuthCode(
-                client,
-                clientID,
-                clientSecret,
-                redirectUrl,
-                code).Result;
+            ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, redirectUrl, code).Wait();
+        }
+
+        /// <summary>
+        /// Receives access token for OAuth 2.0 authentication (Authorization code flow)
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="clientID"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="redirectUrl"></param>
+        /// <param name="code"></param>
+        public static async Task ReceiveAccessTokenAuthCodeAsync(this ApiClient client, string clientID, string clientSecret, string redirectUrl, string code)
+        {
+            HttpResponseMessage response = await client.CallApiAsync(
+               "/identity/connect/token",
+               HttpMethod.Post,
+               null,
+               ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
+               {
+                    {"grant_type", "authorization_code" },
+                    {"code", code },
+                    {"redirect_uri", redirectUrl },
+                    {"client_id", clientID },
+                    {"client_secret", clientSecret }
+                   // ,                    {"scope", PrepareScopeParameter(scope) }
+               }),
+               HeaderContentType.None,
+               HeaderContentType.WwwForm);
+
+            VerifyResponse(client, response, "RequestToken");
+
+            client.Token = (Token)Deserialize<Token>(response);
         }
         #endregion
 
@@ -117,6 +199,23 @@ namespace Acumatica.RESTClient.AuthApi
         /// Logs in to the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">Name of the user that is used to open a new session (required).</param>
+        /// <param name="password">User password (required).</param>
+        /// <param name="tenant">Defines the tenant to log in.</param>
+        /// <param name="branch">Defines the branch to log in.</param>
+        /// <param name="locale">Defines the locale to use for localizable data.</param>
+        /// <returns>
+        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
+        /// </returns>
+        public async static Task LoginAsync(this ApiClient client, string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+           await LoginAsync(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
+        }
+
+        /// <summary>
+        /// Logs in to the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="credentials">
         /// <see cref="Credentials"/> object that provides information required to log into the web service.
         /// </param>
@@ -125,7 +224,32 @@ namespace Acumatica.RESTClient.AuthApi
         /// </returns>
         public static void Login(this ApiClient client, Credentials credentials)
         {
-            AuthLoginAsyncWithHttpInfo(client, credentials).RunSynchronously();
+            LoginAsync(client, credentials).Wait();
+        }
+        /// <summary>
+        /// Logs in to the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="credentials">
+        /// <see cref="Credentials"/> object that provides information required to log into the web service.
+        /// </param>
+        /// <returns>
+        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
+        /// </returns>
+        public async static Task LoginAsync(this ApiClient client, Credentials credentials)
+        {
+            if (credentials == null)
+                ApiClientHelpers.ThrowMissingParameter(nameof(LoginAsync), nameof(credentials));
+
+            HttpResponseMessage response = await client.CallApiAsync(
+                "/entity/auth/login",
+                HttpMethod.Post,
+                null,
+                credentials,
+                HeaderContentType.None,
+                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
+
+            VerifyResponse(client, response, nameof(LoginAsync));
         }
         #endregion
 
@@ -137,7 +261,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <returns></returns>
         public static void Logout(this ApiClient client)
         {
-            AuthLogoutAsyncWithHttpInfo(client).RunSynchronously();
+            LogoutAsync(client).Wait();
         }
 
         /// <summary>
@@ -163,13 +287,20 @@ namespace Acumatica.RESTClient.AuthApi
         /// <returns>Task of void</returns>
         public static async Task LogoutAsync(this ApiClient client)
         {
-            await AuthLogoutAsyncWithHttpInfo(client);
+            HttpResponseMessage response = await client.CallApiAsync(
+               "/entity/auth/logout",
+               HttpMethod.Post,
+               null,
+               null,
+               HeaderContentType.None,
+               HeaderContentType.None);
+
+            VerifyResponse(client, response, nameof(LogoutAsync));
         }
 
         #endregion
         #endregion
 
-        #region Implementation
         #region Auxiliary
         private static void VerifyResponse(ApiClient client, HttpResponseMessage response, string methodName)
         {
@@ -205,129 +336,6 @@ namespace Acumatica.RESTClient.AuthApi
 
             return s.ToString().TrimEnd(' ');
         }
-        #endregion
-
-        #region Api Calls
-        private static async Task<Token> RefreshAsyncWithHttpInfo(ApiClient client, string clientID, string clientSecret, string refreshToken)
-        {
-            HttpResponseMessage response = await client.CallApiAsync(
-                "/identity/connect/token",
-                HttpMethod.Post,
-                null,
-                ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>()
-                {
-                    {"grant_type", "refresh_token" },
-                    {"client_id", clientID },
-                    {"client_secret", clientSecret },
-                    {"refresh_token", refreshToken },
-                }),
-                HeaderContentType.None,
-                HeaderContentType.WwwForm);
-
-            response.EnsureSuccessStatusCode();
-
-            return (Token)Deserialize<Token>(response);
-        }
-
-        private static async Task<Token> ConnectAsyncWithHttpInfo(ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
-        {
-            HttpResponseMessage response = await client.CallApiAsync(
-                "identity/connect/token",
-                HttpMethod.Post,
-                null,
-                ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
-                {
-                    {"grant_type", "password" },
-                    {"client_id", clientID },
-                    {"client_secret", clientSecret },
-                    {"username", username },
-                    {"password", password },
-                    {"scope", PrepareScopeParameter(scope) }
-                }),
-                HeaderContentType.None,
-                HeaderContentType.WwwForm);
-
-            VerifyResponse(client, response, "RequestToken");
-
-            return (Token)Deserialize<Token>(response);
-        }
-
-        private static async Task<HttpResponseMessage> AuthorizeAsyncWithHttpInfo(ApiClient client, string clientID, string redirectUrl, OAuthScope scope)
-        {
-              HttpResponseMessage response = await client.CallApiAsync(
-                "/identity/connect/authorize",
-                HttpMethod.Get,
-                null,
-                null,
-                HeaderContentType.None,
-                HeaderContentType.WwwForm);
-
-            VerifyResponse(client, response, "RequestToken");
-
-            return response;
-        }
-
-        private static async Task<Token> ConnectAsyncWithHttpInfoAuthCode(ApiClient client, string clientID, string clientSecret, string redirectUrl, string code)
-        {
-            HttpResponseMessage response = await client.CallApiAsync(
-                "/identity/connect/token",
-                HttpMethod.Post,
-                null,
-                ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
-                {
-                    {"grant_type", "authorization_code" },
-                    {"code", code },
-                    {"redirect_uri", redirectUrl },
-                    {"client_id", clientID },
-                    {"client_secret", clientSecret }
-                   // ,                    {"scope", PrepareScopeParameter(scope) }
-                }),
-                HeaderContentType.None,
-                HeaderContentType.WwwForm);
-
-            VerifyResponse(client, response, "RequestToken");
-
-            return (Token)Deserialize<Token>(response);
-        }
-
-        /// <summary>
-        /// Logs in to the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="credentials"></param>
-        private static async Task AuthLoginAsyncWithHttpInfo(ApiClient client, Credentials credentials)
-        {
-            if (credentials == null)
-                ApiClientHelpers.ThrowMissingParameter("AuthLogin", nameof(credentials));
-
-            HttpResponseMessage response = await client.CallApiAsync(
-                "/entity/auth/login",
-                HttpMethod.Post,
-                null,
-                credentials,
-                HeaderContentType.None,
-                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
-
-            VerifyResponse(client, response, "AuthLogin");
-        }
-
-        /// <summary>
-        /// Logs out from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        private static async Task AuthLogoutAsyncWithHttpInfo(ApiClient client)
-        {
-            HttpResponseMessage response = await client.CallApiAsync(
-                "/entity/auth/logout",
-                HttpMethod.Post,
-                null,
-                null,
-                HeaderContentType.None,
-                HeaderContentType.None);
-
-            VerifyResponse(client, response, "AuthLogout");
-        }
-        #endregion
         #endregion
     }
 }

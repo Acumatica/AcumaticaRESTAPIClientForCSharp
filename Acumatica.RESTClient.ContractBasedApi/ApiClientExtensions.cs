@@ -260,7 +260,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            PutFileAsync<EntityType>(client, new List<string>() { id }, filename, content, endpointPath).RunSynchronously();
+            PutFileAsync<EntityType>(client, new List<string>() { id }, filename, content, endpointPath).Wait();
         }
         /// <summary>
         /// Attaches a file to a record. 
@@ -288,7 +288,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            PutFileAsync<EntityType>(client, ids, filename, content, endpointPath).RunSynchronously();
+            PutFileAsync<EntityType>(client, ids, filename, content, endpointPath).Wait();
         }
         /// <summary>
         /// Attaches a file to a record. 
@@ -553,7 +553,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            DeleteByKeysAsync<EntityType>(client, ids, endpointPath).RunSynchronously();
+            DeleteByKeysAsync<EntityType>(client, ids, endpointPath).Wait();
         }
 
         /// <summary>
@@ -593,7 +593,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            DeleteAsync(client, entity, endpointPath).RunSynchronously();
+            DeleteAsync(client, entity, endpointPath).Wait();
         }
 
         /// <summary>
@@ -634,7 +634,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            DeleteByIdAsync<EntityType>(client, id, endpointPath).RunSynchronously();
+            DeleteByIdAsync<EntityType>(client, id, endpointPath).Wait();
         }
 
         /// <summary>
