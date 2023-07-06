@@ -18,7 +18,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
     [JsonSubtypes.KnownSubType(typeof(CustomLongField), nameof(CustomLongField))]
     [JsonSubtypes.KnownSubType(typeof(CustomDecimalField), nameof(CustomDecimalField))]
     [JsonSubtypes.KnownSubType(typeof(CustomGuidField), nameof(CustomGuidField))]
-    public class CustomField 
+    public abstract class CustomField 
     {
         [DataMember(Name = "Type", EmitDefaultValue = false)]
         public string Type { get; set; }
