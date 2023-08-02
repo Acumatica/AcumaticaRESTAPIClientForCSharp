@@ -334,7 +334,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static async Task<EntityType> GetByKeysAsync<EntityType>(
             this ApiClient client, IEnumerable<string> ids,
             string endpointPath = null,
-            string select = null, string filter = null, string expand = null, string custom = null)
+            string select = null, string expand = null, string custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (ids == null)
@@ -345,7 +345,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             HttpResponseMessage response = await client.CallApiAsync(
                 $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}",
                 HttpMethod.Get,
-                ComposeQueryParams(select, filter, expand, custom),
+                ComposeQueryParams(select, null , expand, custom),
                 null,
                 HeaderContentType.Json,
                 HeaderContentType.None);
@@ -369,10 +369,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static EntityType GetByKeys<EntityType>(
             this ApiClient client, IEnumerable<string> ids,
             string endpointPath = null,
-            string select = null, string filter = null, string expand = null, string custom = null)
+            string select = null, string expand = null, string custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return GetByKeysAsync<EntityType>(client, ids, endpointPath, select, filter, expand, custom).Result;
+            return GetByKeysAsync<EntityType>(client, ids, endpointPath, select, expand, custom).Result;
         }
 
 
@@ -389,7 +389,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static async Task<EntityType> GetByIdAsync<EntityType>(
             this ApiClient client, Guid? id,
             string endpointPath = null,
-            string select = null, string filter = null, string expand = null, string custom = null)
+            string select = null, string expand = null, string custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (id == null)
@@ -400,7 +400,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             HttpResponseMessage response = await client.CallApiAsync(
                 $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{id}",
                 HttpMethod.Get,
-                ComposeQueryParams(select, filter, expand, custom),
+                ComposeQueryParams(select, null, expand, custom),
                 null,
                 HeaderContentType.Json,
                 HeaderContentType.None);
@@ -422,10 +422,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <returns>Entity</returns>
         public static EntityType GetById<EntityType>(this ApiClient client, Guid? id,
             string endpointPath = null,
-            string select = null, string filter = null, string expand = null, string custom = null)
+            string select = null, string expand = null, string custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return GetByIdAsync<EntityType>(client, id, endpointPath, select, filter, expand, custom).Result;
+            return GetByIdAsync<EntityType>(client, id, endpointPath, select, expand, custom).Result;
         }
         #endregion
         #region GetList
