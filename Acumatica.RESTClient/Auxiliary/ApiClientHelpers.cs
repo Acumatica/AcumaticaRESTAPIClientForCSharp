@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
 using Acumatica.RESTClient.Api;
 
 using Acumatica.RESTClient.Client;
@@ -44,21 +46,21 @@ namespace Acumatica.RESTClient.Auxiliary
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public static object Deserialize<T>(HttpResponseMessage response)
+        public static async Task<object> DeserializeAsync<T>(HttpResponseMessage response)
         {
             if (typeof(T) == typeof(byte[])) // return byte array
             {
-                return response.Content.ReadAsByteArrayAsync().Result;
+                return response.Content.ReadAsByteArrayAsync();
             }
 
             if (typeof(T).Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
             {
-                return DateTime.Parse(response.Content.ReadAsStringAsync().Result, null, System.Globalization.DateTimeStyles.RoundtripKind);
+                return DateTime.Parse(await response.Content.ReadAsStringAsync(), null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
 
             if (typeof(T) == typeof(String)) // return primitive type
             {
-                return (String)response.Content.ReadAsStringAsync().Result;
+                return (String)await response.Content.ReadAsStringAsync();
             }
 
             if (typeof(T).Name.StartsWith("System.Nullable"))
@@ -71,7 +73,7 @@ namespace Acumatica.RESTClient.Auxiliary
                 ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
             };
 
-            return JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result, typeof(T), serializerSettings);
+            return JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync(), typeof(T), serializerSettings);
         }
         public static string ComposeContentHeaders(HeaderContentType contentTypes)
         {

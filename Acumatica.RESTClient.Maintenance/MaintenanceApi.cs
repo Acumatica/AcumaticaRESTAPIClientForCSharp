@@ -33,7 +33,7 @@ namespace Acumatica.RESTClient.MaintenanceApi
                 HeaderContentType.Xml).Result;
 
             response.EnsureSuccessStatusCode();
-            return (string)Deserialize<string>(response);
+            return (string)DeserializeAsync<string>(response).Result;
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 ComposePutHeaders(PutMethod.Any, businessDate, branch));
 
-            VerifyResponse(response, nameof(InvokeActionAsync));
+            await VerifyResponseAsync(response, nameof(InvokeActionAsync));
 
             return response.Headers.GetValues("Location").First();
         }
@@ -141,7 +141,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 HeaderContentType.None);
 
-            VerifyResponse(response, nameof(GetProcessStatusAsync));
+            await VerifyResponseAsync(response, nameof(GetProcessStatusAsync));
 
             return response.StatusCode;
         }
@@ -242,9 +242,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 ComposePutHeaders(method, businessDate, branch));
 
-            VerifyResponse(response, nameof(PutAsync));
+            await VerifyResponseAsync(response, nameof(PutAsync));
 
-            return (EntityType)Deserialize<EntityType>(response);
+            return (EntityType)await DeserializeAsync<EntityType>(response);
         }
         #endregion
         #region PutFile
@@ -317,7 +317,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 HeaderContentType.OctetStream);
 
-            VerifyResponse(response, nameof(PutFileAsync));
+            await VerifyResponseAsync(response, nameof(PutFileAsync));
         }
         #endregion
         #region Get
@@ -350,9 +350,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 HeaderContentType.None);
 
-            VerifyResponse(response, nameof(GetByKeysAsync));
+            await VerifyResponseAsync(response, nameof(GetByKeysAsync));
 
-            return (EntityType)Deserialize<EntityType>(response);
+            return (EntityType)await DeserializeAsync<EntityType>(response);
         }
 
 
@@ -405,9 +405,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 HeaderContentType.None);
 
-            VerifyResponse(response, nameof(GetByIdAsync));
+            await VerifyResponseAsync(response, nameof(GetByIdAsync));
 
-            return (EntityType)Deserialize<EntityType>(response);
+            return (EntityType)await DeserializeAsync<EntityType>(response);
         }
 
         /// <summary>
@@ -460,9 +460,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
               HeaderContentType.None,
               customHeaders);
 
-            VerifyResponse(response, nameof(GetListAsync));
+            await VerifyResponseAsync(response, nameof(GetListAsync));
 
-            return (List<EntityType>)Deserialize<List<EntityType>>(response);
+            return (List<EntityType>)await DeserializeAsync<List<EntityType>>(response);
         }
         /// <summary>
         /// Retrieves records that satisfy the specified conditions from the system. 
@@ -501,9 +501,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
             HeaderContentType.Json,
             HeaderContentType.None);
 
-            VerifyResponse(response, nameof(GetSwaggerAsync));
+            await VerifyResponseAsync(response, nameof(GetSwaggerAsync));
 
-            return (string)Deserialize<string>(response);
+            return (string)await DeserializeAsync<string>(response);
         }
         /// <summary>
         /// Retrieves the schema of custom fields of the entity from the system. 
@@ -526,9 +526,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
                HeaderContentType.Json,
                HeaderContentType.None);
 
-            VerifyResponse(response, nameof(GetAdHocSchemaAsync));
+            await VerifyResponseAsync(response, nameof(GetAdHocSchemaAsync));
 
-            return (EntityType)Deserialize<EntityType>(response);
+            return (EntityType)await DeserializeAsync<EntityType>(response);
         }
         /// <summary>
         /// Retrieves the schema of custom fields of the entity from the system. 
@@ -580,8 +580,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Any,
                 HeaderContentType.None);
 
-            VerifyResponse(localVarResponse, nameof(DeleteByKeysAsync));
-        }
+            await VerifyResponseAsync(localVarResponse, nameof(DeleteByKeysAsync));
+        }   
 
         /// <summary>
         /// Deletes the record. 
@@ -621,7 +621,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Any,
                 HeaderContentType.None);
 
-            VerifyResponse(localVarResponse, nameof(DeleteAsync));
+            await VerifyResponseAsync(localVarResponse, nameof(DeleteAsync));
         }
 
         /// <summary>
@@ -660,7 +660,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Any,
                 HeaderContentType.None);
 
-            VerifyResponse(localVarResponse, nameof(DeleteByIdAsync));
+            await VerifyResponseAsync(localVarResponse, nameof(DeleteByIdAsync));
         }
         #endregion
         #endregion
@@ -686,20 +686,20 @@ namespace Acumatica.RESTClient.ContractBasedApi
         #endregion
 
         #region Error Handling
-        private static void VerifyResponse(HttpResponseMessage response, string methodName)
+        private static async Task VerifyResponseAsync(HttpResponseMessage response, string methodName)
         {
             if (!response.IsSuccessStatusCode)
             {
                 string responseMessage = null;
                 if (string.IsNullOrEmpty(responseMessage))
                 {
-                    responseMessage = GetErrorMessageFromError(response, responseMessage);
+                    responseMessage = await GetErrorMessageFromErrorAsync(response, responseMessage);
                 }
                 if (string.IsNullOrEmpty(responseMessage))
                 {
                     //it should be html at that point
                     //remove tags from html
-                    responseMessage = System.Text.RegularExpressions.Regex.Replace(response.Content.ReadAsStringAsync().Result.Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
+                    responseMessage = System.Text.RegularExpressions.Regex.Replace((await response.Content.ReadAsStringAsync()).Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
                 }
                 throw new ApiException(
                   (int)response.StatusCode,
@@ -707,11 +707,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
             }
         }
 
-        private static string GetErrorMessageFromError(HttpResponseMessage response, string responseMessage)
+        private static async Task<string> GetErrorMessageFromErrorAsync(HttpResponseMessage response, string responseMessage)
         {
             try
             {
-                ErrorMessage error = (ErrorMessage)Deserialize<ErrorMessage>(response);
+                ErrorMessage error = (ErrorMessage)await DeserializeAsync<ErrorMessage>(response);
                 responseMessage = $"{error.message} : {error.exceptionMessage} : {error.innerException}";
             }
             catch (Newtonsoft.Json.JsonReaderException) { }
@@ -719,16 +719,16 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return responseMessage;
         }
 
-        private static void VerifyResponse<EntityType>(HttpResponseMessage response, string methodName)
+        private static async Task VerifyResponseAsync<EntityType>(HttpResponseMessage response, string methodName)
             where EntityType : Entity
         {
             if (!response.IsSuccessStatusCode)
             {
                 string responseMessage = null;
-                responseMessage = GetErrorMessageFromEntity<EntityType>(response, responseMessage);
+                responseMessage = await GetErrorMessageFromEntityAsync<EntityType>(response, responseMessage);
                 if (string.IsNullOrEmpty(responseMessage))
                 {
-                    responseMessage = GetErrorMessageFromError(response, responseMessage);
+                    responseMessage = await GetErrorMessageFromErrorAsync(response, responseMessage);
                 }
                 if (string.IsNullOrEmpty(responseMessage))
                 {
@@ -747,12 +747,12 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return System.Text.RegularExpressions.Regex.Replace(response.Content.ReadAsStringAsync().Result.Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
         }
 
-        private static string GetErrorMessageFromEntity<EntityType>(HttpResponseMessage response, string responseMessage)
+        private static async Task<string> GetErrorMessageFromEntityAsync<EntityType>(HttpResponseMessage response, string responseMessage)
             where EntityType : Entity
         {
             try
             {
-                responseMessage = ((EntityType)Deserialize<EntityType>(response)).Error;
+                responseMessage = ((EntityType)await DeserializeAsync<EntityType>(response)).Error;
                 // TODO iterate through fields and find all errors
             }
             catch (Newtonsoft.Json.JsonReaderException) { }

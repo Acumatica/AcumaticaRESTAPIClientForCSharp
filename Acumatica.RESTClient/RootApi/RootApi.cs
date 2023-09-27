@@ -44,7 +44,7 @@ namespace Acumatica.RESTClient.RootApi
 
             response.EnsureSuccessStatusCode();
 
-            return (VersionAndEndpoints)Deserialize<VersionAndEndpoints>(response);
+            return (VersionAndEndpoints)await DeserializeAsync<VersionAndEndpoints>(response);
         }
         #endregion
     }

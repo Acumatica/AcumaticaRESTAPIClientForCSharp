@@ -43,7 +43,7 @@ namespace Acumatica.RESTClient.CustomizationApi
                 HeaderContentType.Json).Result;
 
             response.EnsureSuccessStatusCode();
-            return (CustomizationPublishLog)Deserialize<CustomizationPublishLog>(response);
+            return (CustomizationPublishLog)DeserializeAsync<CustomizationPublishLog>(response).Result;
         }
 
         private static string ConvertToBase64(Stream stream)
@@ -171,7 +171,7 @@ namespace Acumatica.RESTClient.CustomizationApi
                 HeaderContentType.Json).Result;
 
             response.EnsureSuccessStatusCode();
-            return (CustomizationPublishLog)Deserialize<CustomizationPublishLog>(response);
+            return (CustomizationPublishLog)DeserializeAsync<CustomizationPublishLog>(response).Result;
         }
         public static CustomizationPublishEnd CustomizationPublishEnd(this ApiClient client)
         {
@@ -184,7 +184,7 @@ namespace Acumatica.RESTClient.CustomizationApi
                 HeaderContentType.Json).Result;
 
             response.EnsureSuccessStatusCode();
-            return (CustomizationPublishEnd)Deserialize<CustomizationPublishEnd>(response);
+            return (CustomizationPublishEnd)DeserializeAsync<CustomizationPublishEnd>(response).Result;
         }
 
         public static void WaitPublishingCompletion(this ApiClient client, int millisecondsInterval = 1000)
