@@ -207,11 +207,10 @@ namespace Acumatica.RESTClient.Auxiliary
             var jsonRegex = new Regex("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
             return mime != null && (jsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json"));
         }
-        public static string ToFormUrlEncoded(IDictionary<string, string> keyValueContent)
+        public async static Task<string> ToFormUrlEncodedAsync(IDictionary<string, string> keyValueContent)
         {
             var formUrlEncodedContent = new FormUrlEncodedContent(keyValueContent);
-            var result = formUrlEncodedContent.ReadAsStringAsync().Result;
-            return result;
+            return await formUrlEncodedContent.ReadAsStringAsync();
         }
         /// <summary>
         /// Encode string in base64 format.

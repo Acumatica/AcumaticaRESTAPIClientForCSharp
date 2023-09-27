@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,7 +37,7 @@ namespace Acumatica.RESTClient.AuthApi
                "/identity/connect/token",
                HttpMethod.Post,
                null,
-               ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>()
+               await ApiClientHelpers.ToFormUrlEncodedAsync(new Dictionary<string, string>()
                {
                     {"grant_type", "refresh_token" },
                     {"client_id", clientID },
@@ -76,7 +77,7 @@ namespace Acumatica.RESTClient.AuthApi
                "identity/connect/token",
                HttpMethod.Post,
                null,
-               ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
+               await ApiClientHelpers.ToFormUrlEncodedAsync(new Dictionary<string, string>
                {
                     {"grant_type", "password" },
                     {"client_id", clientID },
@@ -88,7 +89,7 @@ namespace Acumatica.RESTClient.AuthApi
                HeaderContentType.None,
                HeaderContentType.WwwForm);
 
-            VerifyResponse(client, response, nameof(ReceiveAccessTokenAsync));
+            await VerifyResponseAsync(client, response, nameof(ReceiveAccessTokenAsync));
 
             client.Token = (Token)await DeserializeAsync<Token>(response);
         }
@@ -121,7 +122,7 @@ namespace Acumatica.RESTClient.AuthApi
                 HeaderContentType.None,
                 HeaderContentType.WwwForm);
 
-            VerifyResponse(client, response, "RequestToken");
+            await VerifyResponseAsync(client, response, "RequestToken");
 
             var locationHeader = response.Headers.Where(_ => _.Key == "Location").FirstOrDefault();
             if (!response.Headers.Where(_ => _.Key == "Location").Any())
@@ -159,7 +160,7 @@ namespace Acumatica.RESTClient.AuthApi
                "/identity/connect/token",
                HttpMethod.Post,
                null,
-               ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
+               await ApiClientHelpers.ToFormUrlEncodedAsync(new Dictionary<string, string>
                {
                     {"grant_type", "authorization_code" },
                     {"code", code },
@@ -171,7 +172,7 @@ namespace Acumatica.RESTClient.AuthApi
                HeaderContentType.None,
                HeaderContentType.WwwForm);
 
-            VerifyResponse(client, response, "RequestToken");
+            await VerifyResponseAsync(client, response, "RequestToken");
 
             client.Token = (Token)await DeserializeAsync<Token>(response);
         }
@@ -249,7 +250,7 @@ namespace Acumatica.RESTClient.AuthApi
                 HeaderContentType.None,
                 HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
 
-            VerifyResponse(client, response, nameof(LoginAsync));
+            await VerifyResponseAsync(client, response, nameof(LoginAsync));
         }
         #endregion
 
@@ -295,19 +296,19 @@ namespace Acumatica.RESTClient.AuthApi
                HeaderContentType.None,
                HeaderContentType.None);
 
-            VerifyResponse(client, response, nameof(LogoutAsync));
+            await VerifyResponseAsync(client, response, nameof(LogoutAsync));
         }
 
         #endregion
         #endregion
 
         #region Auxiliary
-        private static void VerifyResponse(ApiClient client, HttpResponseMessage response, string methodName)
+        private async static Task  VerifyResponseAsync(ApiClient client, HttpResponseMessage response, string methodName)
         {
             if (!response.IsSuccessStatusCode)
             {
                 //if content as string contains string "API login limit", report separate error
-                if (response.Content != null && response.Content.ReadAsStringAsync().Result.Contains("API Login Limit"))
+                if (response.Content != null && (await response.Content.ReadAsStringAsync()).Contains("API Login Limit"))
                 {
                     throw new ApiException(429, $"Error when calling {methodName}: API login limit exceeded. Please try again later.");
                 }

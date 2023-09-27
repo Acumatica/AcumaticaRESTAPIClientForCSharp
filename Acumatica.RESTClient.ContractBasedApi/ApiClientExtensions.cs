@@ -733,7 +733,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 if (string.IsNullOrEmpty(responseMessage))
                 {
                     //it should be html at that point
-                    responseMessage = GetErrorMessageFromHTML(response);
+                    responseMessage = await GetErrorMessageFromHTMLAsync(response);
                 }
                 throw new ApiException(
                   (int)response.StatusCode,
@@ -741,10 +741,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
             }
         }
 
-        private static string GetErrorMessageFromHTML(HttpResponseMessage response)
+        private static async Task<string> GetErrorMessageFromHTMLAsync(HttpResponseMessage response)
         {
             //remove tags from html
-            return System.Text.RegularExpressions.Regex.Replace(response.Content.ReadAsStringAsync().Result.Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
+            return System.Text.RegularExpressions.Regex.Replace((await response.Content.ReadAsStringAsync()).Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
         }
 
         private static async Task<string> GetErrorMessageFromEntityAsync<EntityType>(HttpResponseMessage response, string responseMessage)
