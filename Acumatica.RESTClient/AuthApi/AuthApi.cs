@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -251,16 +252,24 @@ namespace Acumatica.RESTClient.AuthApi
                 HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
 
             await VerifyResponseAsync(client, response, nameof(LoginAsync));
+            if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
+            {
+                client.Cookies = cookieValues;
+            }              
+            client.SharedCookieContainer = new CookieContainer();
+
+           SetCookiesFromResponse(response, client.SharedCookieContainer);
         }
         #endregion
+    
 
-        #region Logout
-        /// <summary>
-        /// Logs out from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <returns></returns>
-        public static void Logout(this ApiClient client)
+    #region Logout
+    /// <summary>
+    /// Logs out from the system. 
+    /// </summary>
+    /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+    /// <returns></returns>
+    public static void Logout(this ApiClient client)
         {
             Task.Run(() => LogoutAsync(client)).GetAwaiter().GetResult();
         }
@@ -336,6 +345,21 @@ namespace Acumatica.RESTClient.AuthApi
                 s.Append("api:concurrent_access ");
 
             return s.ToString().TrimEnd(' ');
+        }
+
+        private static void SetCookiesFromResponse(HttpResponseMessage response, CookieContainer cookieContainer)
+        {
+            // Check if the response contains any cookies.
+            if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
+            {
+                
+                foreach (var cookieValue in cookieValues)
+                {
+                    // Parse the cookie string.
+                    var cookie = new Cookie();
+                    cookieContainer.SetCookies(response.RequestMessage.RequestUri, cookieValue);
+                }
+            }
         }
         #endregion
     }

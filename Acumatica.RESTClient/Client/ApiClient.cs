@@ -26,7 +26,10 @@ namespace Acumatica.RESTClient.Client
     public partial class ApiClient
     {
         #region State & ctor
-        public CookieContainer Cookies { get; protected set; }
+        public CookieContainer SharedCookieContainer { get; set; }
+
+        public IEnumerable<string> Cookies { get; set; }    
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
@@ -54,12 +57,20 @@ namespace Acumatica.RESTClient.Client
 
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
-
+            if (SharedCookieContainer == null)
+            {
+                SharedCookieContainer = new CookieContainer();
+            }
             var services = new ServiceCollection();
             services.AddHttpClient("HttpClient", c => {
                 c.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
             }
-            );
+            ).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                //CookieContainer = SharedCookieContainer
+                UseCookies = false
+
+            });
             var serviceProvider = services.BuildServiceProvider();
             HttpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
         }
@@ -145,11 +156,12 @@ namespace Acumatica.RESTClient.Client
                 RequestInterceptor(request);
             }
             var response = await HttpClientFactory.CreateClient().SendAsync(request);
+            
             if (ResponseInterceptor != null)
             {
                 ResponseInterceptor(response);
             }
-
+            
             return response;
         }
         #endregion
@@ -184,7 +196,11 @@ namespace Acumatica.RESTClient.Client
             }
 
             var request = new HttpRequestMessage(method, url.ToString());
-
+           if(Cookies != null && !resourcePath.Contains("login"))
+            {
+                string cookieHeader = string.Join("; ", Cookies);
+                request.Headers.Add("Cookie", cookieHeader);
+            }
             if (headerParams != null)
             {
                 // add header parameter, if any
