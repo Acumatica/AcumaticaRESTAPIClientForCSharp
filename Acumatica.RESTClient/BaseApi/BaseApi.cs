@@ -87,7 +87,7 @@ namespace Acumatica.RESTClient.Api
                             //Accodring to HTTP RFC2616 standard, we need to combine values of the same headers into comma separated list
                             .ToDictionary(
                                 g => g.Key,
-                                g => string.Join(",", g.Select(header => header.Value)),
+                                g => string.Join(",", g.SelectMany(header => header.Value)),
                                 StringComparer.OrdinalIgnoreCase);
         }
 

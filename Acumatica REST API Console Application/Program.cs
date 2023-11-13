@@ -4,7 +4,7 @@ namespace AcumaticaRestApiExample
 {
 	class Program
 	{
-		const string SiteURL = "http://localhost/22r193/";
+		const string SiteURL = "http://localhost/2023r200Sales/";
         const string Username = "admin";
 		const string Password = "123";
 		const string Tenant = null;
@@ -17,25 +17,28 @@ namespace AcumaticaRestApiExample
         static void Main(string[] args)
 		{
 
-			Console.WriteLine("REST API example");
-			RESTExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
+			//Console.WriteLine("REST API example");
+			//RESTExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
 
-			//Console.WriteLine("REST API (Extended Endpoint) example");
-			//ExtendedEndpointExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
+            Console.WriteLine("REST API example 2");
+            RESTExample2.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
 
-			//Console.WriteLine("OData V3 example");
-			//ODataExample.ODataGetV3(SiteURL, Username, Password, Tenant);
+            //Console.WriteLine("REST API (Extended Endpoint) example");
+            //ExtendedEndpointExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
 
-			//Console.WriteLine("OData V4 example");
-			//ODataExample.ODataGetV4(SiteURL, Username, Password, Tenant);
+            //Console.WriteLine("OData V3 example");
+            //ODataExample.ODataGetV3(SiteURL, Username, Password, Tenant);
 
-			//Console.WriteLine("OData OAuth 2.0 (Resource Owner Password Credentials flow) example");
-			//ODataExample.OauthExample(SiteURL, Username, Password, ClientSecret, ClientID, Tenant);
+            //Console.WriteLine("OData V4 example");
+            //ODataExample.ODataGetV4(SiteURL, Username, Password, Tenant);
 
-			//Console.WriteLine("OAuth 2.0 (Authorization Code flow)");
-			//OAuthAuthCodeExample.Example(SiteURL, ClientSecret, ClientID, RedirectUrl);
+            //Console.WriteLine("OData OAuth 2.0 (Resource Owner Password Credentials flow) example");
+            //ODataExample.OauthExample(SiteURL, Username, Password, ClientSecret, ClientID, Tenant);
 
-		}
+            //Console.WriteLine("OAuth 2.0 (Authorization Code flow)");
+            //OAuthAuthCodeExample.Example(SiteURL, ClientSecret, ClientID, RedirectUrl);
+
+        }
 
 	}
 }
