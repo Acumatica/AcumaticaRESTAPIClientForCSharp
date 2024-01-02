@@ -22,24 +22,19 @@ namespace Acumatica.RESTClient.Client
         /// Get the error content (body json object).
         /// </summary>
         /// <value>The error content (Http response body).</value>
-        public JToken ErrorContent { get; }
+        public JToken? ErrorContent { get; }
 
         /// <summary>
         /// Get the server exception (if unexpected exception happend and error cannot be presented as part of object).
         /// </summary>
-        public ServerException ServerException { get; }
+        public ServerException? ServerException { get; }
 
         /// <summary>
         /// Get the error message if it presented as part of entity.
         /// </summary>
-        public string Error { get; }
+        public string? Error { get; }
 
         public string MessageText { get; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiException"/> class.
-        /// </summary>
-        public ApiException() { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiException"/> class.
@@ -58,7 +53,7 @@ namespace Acumatica.RESTClient.Client
         /// <param name="errorCode">HTTP status code.</param>
         /// <param name="message">Error message.</param>
         /// <param name="errorContent">Error content.</param>
-        public ApiException(int errorCode, string message, string errorContent = null) : this(errorCode, message)
+        public ApiException(int errorCode, string message, string? errorContent = null) : this(errorCode, message)
         {
             if (errorContent != null)
             {
@@ -90,7 +85,7 @@ namespace Acumatica.RESTClient.Client
         };
 
         // clear from body all fields that doesn't contain "error" field recursively
-        public static JToken GetEntityBodyWithOnlyErrors(JToken token)
+        public static JToken? GetEntityBodyWithOnlyErrors(JToken token)
         {
             switch (token)
             {
@@ -139,29 +134,25 @@ namespace Acumatica.RESTClient.Client
 
     public class ApiException<T> : ApiException where T : class, new()
     {
-        public ApiException()
-        {
-        }
-
         public ApiException(int errorCode, string message) : base(errorCode, message)
         {
         }
 
-        public ApiException(int errorCode, string message, string errorContent = null) : base(errorCode, message, errorContent)
+        public ApiException(int errorCode, string message, string? errorContent = null) : base(errorCode, message, errorContent)
         {
             if (ErrorContent != null)
             {
                 try
                 {
                     Body = ErrorContent?.ToObject<T>();
-                    ErrorBody = GetEntityBodyWithOnlyErrors(ErrorContent);
+                    ErrorBody = GetEntityBodyWithOnlyErrors(ErrorContent!);
                 }
                 catch { }
             }
         }
 
-        public T Body { get; }
-        public JToken ErrorBody { get; }
+        public T? Body { get; }
+        public JToken? ErrorBody { get; }
 
         public override string Message
         {
@@ -177,7 +168,7 @@ namespace Acumatica.RESTClient.Client
     public class ServerException
     {
         [JsonConstructor]
-        public ServerException(string message, string exceptionMessage, string exceptionType, string stackTrace, ServerException innerException = null)
+        public ServerException(string message, string exceptionMessage, string exceptionType, string stackTrace, ServerException? innerException = null)
         {
             Message = message;
             ExceptionMessage = exceptionMessage;
@@ -190,7 +181,7 @@ namespace Acumatica.RESTClient.Client
         public string ExceptionMessage { get; }
         public string ExceptionType { get; }
         public string StackTrace { get; }
-        public ServerException InnerException { get; }
+        public ServerException? InnerException { get; }
 
         public ServerException GetInnermostException() => InnerException?.GetInnermostException() ?? this;
 

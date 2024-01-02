@@ -16,12 +16,8 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		public RegisterAuthTranParameters() { }
 
 		[DataMember(Name="PaymentGatewayCreateProfile", EmitDefaultValue=false)]
-		public StringValue PaymentGatewayCreateProfile { get; set; }
+		public StringValue? PaymentGatewayCreateProfile { get; set; }
 		[DataMember(Name="PaymentGatewayTranID", EmitDefaultValue=false)]
-		public StringValue PaymentGatewayTranID { get; set; }
-		public virtual string ToJson()
-		{
-			return JsonConvert.SerializeObject(this, Formatting.Indented);
-		}
+		public StringValue? PaymentGatewayTranID { get; set; }
 	}
 }

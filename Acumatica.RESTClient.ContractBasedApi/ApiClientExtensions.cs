@@ -53,7 +53,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 endpointPath = GetEndpointPath<EntityType>();
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{action.GetType().Name}",
+                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{action!.GetType().Name}",
                 HttpMethod.Post,
                 null,
                 action,
@@ -608,10 +608,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
 
             if (endpointPath == null)
-                endpointPath = GetEndpointPath(entity);
+                endpointPath = GetEndpointPath(entity!);
 
             HttpResponseMessage localVarResponse = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{entity.ID}",
+                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{entity!.ID}",
                 HttpMethod.Delete,
                 null,
                 null,
@@ -759,7 +759,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         #endregion
 
         #region Put
-        private static Dictionary<string, string> ComposePutHeaders(PutMethod method, DateTime? businessDate, string branch)
+        private static Dictionary<string, string> ComposePutHeaders(PutMethod method, DateTime? businessDate, string? branch)
         {
             var headers = new Dictionary<string, string>();
             if (method == PutMethod.Insert)
@@ -772,11 +772,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
             }
             if (businessDate != null)
             {
-                headers.Add("PX-CbApiBusinessDate", businessDate?.ToString(System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat));
+                headers.Add("PX-CbApiBusinessDate", businessDate.Value.ToString(System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat));
             }
             if (!String.IsNullOrEmpty(branch))
             {
-                headers.Add("PX-CbApiBranch", branch);
+                headers.Add("PX-CbApiBranch", branch!);
             }
 
             return headers;

@@ -193,7 +193,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <returns>
         /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
         /// </returns>
-        public static void Login(this ApiClient client, string username, string password, string tenant = null, string branch = null, string locale = null)
+        public static void Login(this ApiClient client, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
         {
             Login(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
         }
@@ -210,7 +210,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <returns>
         /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
         /// </returns>
-        public async static Task LoginAsync(this ApiClient client, string username, string password, string tenant = null, string branch = null, string locale = null)
+        public async static Task LoginAsync(this ApiClient client, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
         {
             await LoginAsync(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
         }

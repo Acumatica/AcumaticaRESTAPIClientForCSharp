@@ -16,10 +16,6 @@ namespace Acumatica.Default_20_200_001.Model
 		public ChangeBusinessAccountIDParameters() { }
 
 		[DataMember(Name="BusinessAccountID", EmitDefaultValue=false)]
-		public StringValue BusinessAccountID { get; set; }
-		public virtual string ToJson()
-		{
-			return JsonConvert.SerializeObject(this, Formatting.Indented);
-		}
+		public StringValue? BusinessAccountID { get; set; }
 	}
 }

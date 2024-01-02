@@ -9,7 +9,7 @@ namespace Acumatica.RESTClient.ODataApi
         protected string Tenant;
         protected ApiClient Client;
 
-        public ODataAPI(ApiClient client, ODataVersion version, string tenant = null) 
+        public ODataAPI(ApiClient client, ODataVersion version, string? tenant = null) 
         {
             Version = version;
             Tenant = tenant;
@@ -19,7 +19,7 @@ namespace Acumatica.RESTClient.ODataApi
         {
             return ODataAPIHelper.GetOdataMetadata(Client, Version, Tenant);
         }
-        public string GetOData(string resource, string select = null, string filter = null, string expand = null, int? skip = null, int? top = null)
+        public string GetOData(string resource, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null)
         {
             return ODataAPIHelper.GetOData(Client, Version, resource, Tenant, select, filter, expand, skip, top);
         }

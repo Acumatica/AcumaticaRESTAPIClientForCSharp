@@ -16,20 +16,16 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		public VoidCardPaymentParameters() { }
 
 		[DataMember(Name="TranType", EmitDefaultValue=false)]
-		public StringValue TranType { get; set; }
+		public StringValue? TranType { get; set; }
 		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
-		public StringValue TranNbr { get; set; }
+		public StringValue? TranNbr { get; set; }
 		[DataMember(Name="ExtProfileId", EmitDefaultValue=false)]
-		public StringValue ExtProfileId { get; set; }
+		public StringValue? ExtProfileId { get; set; }
 		[DataMember(Name="TranDate", EmitDefaultValue=false)]
-		public DateTimeValue TranDate { get; set; }
+		public DateTimeValue? TranDate { get; set; }
 		[DataMember(Name="NeedValidation", EmitDefaultValue=false)]
-		public BooleanValue NeedValidation { get; set; }
+		public BooleanValue? NeedValidation { get; set; }
 		[DataMember(Name="OrigTranNbr", EmitDefaultValue=false)]
-		public StringValue OrigTranNbr { get; set; }
-		public virtual string ToJson()
-		{
-			return JsonConvert.SerializeObject(this, Formatting.Indented);
-		}
+		public StringValue? OrigTranNbr { get; set; }
 	}
 }

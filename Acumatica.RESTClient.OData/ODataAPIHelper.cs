@@ -13,20 +13,20 @@ namespace Acumatica.RESTClient.ODataApi
 {
     public static class ODataAPIHelper
     {
-        public static string GetOdataMetadata(ApiClient client, ODataVersion version, string tenant = null)
+        public static string GetOdataMetadata(ApiClient client, ODataVersion version, string? tenant = null)
         {
             return GetOdataMetadataAsync(client, version, tenant).Result;
         }
-        public static async Task<string> GetOdataMetadataAsync(this ApiClient client, ODataVersion version, string tenant = null)
+        public static async Task<string> GetOdataMetadataAsync(this ApiClient client, ODataVersion version, string? tenant = null)
         {
             return await GetODataAsync(client, version, "$metadata", tenant);
         }
-        public static string GetOData(this ApiClient client, ODataVersion version, string resource, string tenant = null, string select = null, string filter = null, string expand = null, int? skip = null, int? top = null)
+        public static string GetOData(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null)
         {
             return GetODataAsync(client, version, resource, tenant, select, filter, expand, skip, top).Result;
         }
         
-        public static async Task<string> GetODataAsync(this ApiClient client, ODataVersion version, string resource, string tenant = null, string select = null, string filter = null, string expand = null, int? skip = null, int? top = null)
+        public static async Task<string> GetODataAsync(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null)
         {
             //Oauth authentication
             HttpResponseMessage response = await client.CallApiAsync(
@@ -48,7 +48,7 @@ namespace Acumatica.RESTClient.ODataApi
         /// <summary>
         /// Configures the base path according to version of OData and tenant, if exists.
         /// </summary>
-        private static string ConfigurePath(string resource, string tenant, ODataVersion version)
+        private static string ConfigurePath(string resource, string? tenant, ODataVersion version)
         {
             return string.IsNullOrEmpty(tenant) 
                  ?

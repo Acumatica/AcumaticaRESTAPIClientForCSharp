@@ -54,11 +54,11 @@
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
 		//{2} = Content
-		public static string ActionParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1}Parameters\r\n\t{{\r\n\t\tpublic {1}Parameters() {{ }}\r\n{2}\r\n\t\tpublic virtual string ToJson()\r\n\t\t{{\r\n\t\t\treturn JsonConvert.SerializeObject(this, Formatting.Indented);\r\n\t\t}}\r\n\t}}\r\n}}";
+		public static string ActionParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1}Parameters\r\n\t{{\r\n\t\tpublic {1}Parameters() {{ }}\r\n{2}\r\n\t}}\r\n}}";
 
 		//{0} = Parameter Name
 		//{1} = Parameter Type
-		public static string ParameterTemplate = "\t\t[DataMember(Name=\"{0}\", EmitDefaultValue=false)]\r\n\t\tpublic {1} {0} {{ get; set; }}";
+		public static string ParameterTemplate = "\t\t[DataMember(Name=\"{0}\", EmitDefaultValue=false)]\r\n\t\tpublic {1}? {0} {{ get; set; }}";
 
 		//{0} = Parameter Name
 		//{1} = Parameter Type

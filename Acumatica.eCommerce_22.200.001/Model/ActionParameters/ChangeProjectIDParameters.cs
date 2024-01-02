@@ -16,10 +16,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		public ChangeProjectIDParameters() { }
 
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
-		public StringValue ProjectID { get; set; }
-		public virtual string ToJson()
-		{
-			return JsonConvert.SerializeObject(this, Formatting.Indented);
-		}
+		public StringValue? ProjectID { get; set; }
 	}
 }

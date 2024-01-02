@@ -18,7 +18,7 @@ namespace Acumatica.RESTClient.FileApi.Model
         /// <param name="id">id.</param>
         /// <param name="filename">filename.</param>
         /// <param name="href">href.</param>
-        public FileLink(Guid? id = default, string filename = default, string href = default)
+        public FileLink(Guid? id = default, string? filename = default, string? href = default)
         {
             Id = id;
             Filename = filename;
@@ -35,13 +35,13 @@ namespace Acumatica.RESTClient.FileApi.Model
         /// Gets or Sets Filename
         /// </summary>
         [DataMember(Name = "filename", EmitDefaultValue = false)]
-        public string Filename { get; set; }
+        public string? Filename { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
         /// </summary>
         [DataMember(Name = "href", EmitDefaultValue = false)]
-        public string Href { get; set; }
+        public string? Href { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

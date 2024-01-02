@@ -16,10 +16,6 @@ namespace Acumatica.Default_22_200_001.Model
 		public ChangeEmployeeIDParameters() { }
 
 		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
-		public StringValue EmployeeID { get; set; }
-		public virtual string ToJson()
-		{
-			return JsonConvert.SerializeObject(this, Formatting.Indented);
-		}
+		public StringValue? EmployeeID { get; set; }
 	}
 }
