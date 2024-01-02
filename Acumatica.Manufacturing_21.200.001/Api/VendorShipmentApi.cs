@@ -1,3 +1,4 @@
+using System;
 using Acumatica.RESTClient.Client;
 using Acumatica.Manufacturing_21_200_001.Model;
 

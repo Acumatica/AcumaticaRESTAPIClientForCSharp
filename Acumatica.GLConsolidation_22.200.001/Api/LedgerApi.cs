@@ -1,3 +1,4 @@
+using System;
 using Acumatica.RESTClient.Client;
 using Acumatica.GLConsolidation_22_200_001.Model;
 

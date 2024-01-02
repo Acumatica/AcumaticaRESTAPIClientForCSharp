@@ -41,9 +41,9 @@
         //{3} = EndpointPath
         public static string TopLevelEntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : Entity, ITopLevelEntity\r\n\t{{\r\n{2}\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
-        //{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
-        //{1} = EntityName
-        public static string ApiTemplate = UsingClientNamespace + "\r\nusing {0}.Model;\r\n\r\nnamespace {0}.Api\r\n{{\r\n\t[Obsolete(\"For backward compatibility\")]\r\n\tpublic class {1}Api : BaseEndpointApi<{1}>\r\n\t{{\r\n\t\tpublic {1}Api(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t}}\r\n}}";
+		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
+		//{1} = EntityName
+		public static string ApiTemplate = UsingSystem + "\r\n" + UsingClientNamespace + "\r\nusing {0}.Model;\r\n\r\nnamespace {0}.Api\r\n{{\r\n\t[Obsolete(\"For backward compatibility\")]\r\n\tpublic class {1}Api : BaseEndpointApi<{1}>\r\n\t{{\r\n\t\tpublic {1}Api(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t}}\r\n}}";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName

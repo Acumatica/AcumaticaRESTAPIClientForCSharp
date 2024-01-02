@@ -1,3 +1,4 @@
+using System;
 using Acumatica.RESTClient.Client;
 using Acumatica.eCommerce_22_200_001.Model;
 
