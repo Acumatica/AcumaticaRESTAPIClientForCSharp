@@ -12,9 +12,21 @@ namespace Acumatica_Rest_API_Win_Forms_Application
 
 		private void testConnectionButton_Click(object sender, EventArgs e)
 		{
+			connectionStatusLabel.Text = "Testing...";
 			ApiClient client = new ApiClient(urlBox.Text);
-			client.Login(userBox.Text, passwordBox.Text, tenantBox.Text);
-			client.TryLogout();
+			try
+			{
+				client.Login(userBox.Text, passwordBox.Text, tenantBox.Text);
+				connectionStatusLabel.Text = "Connection successful";
+			}
+			catch (Exception ex)
+			{
+				connectionStatusLabel.Text = "Error: " + ex.Message;
+			}
+			finally
+			{
+				client.TryLogout();
+			}
 		}
 	}
 }

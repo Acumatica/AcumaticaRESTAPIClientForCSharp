@@ -37,6 +37,7 @@
 			label3 = new Label();
 			passwordBox = new TextBox();
 			label4 = new Label();
+			connectionStatusLabel = new Label();
 			SuspendLayout();
 			// 
 			// label1
@@ -50,9 +51,10 @@
 			// 
 			// testConnectionButton
 			// 
+			testConnectionButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			testConnectionButton.Location = new Point(40, 172);
 			testConnectionButton.Name = "testConnectionButton";
-			testConnectionButton.Size = new Size(211, 29);
+			testConnectionButton.Size = new Size(555, 29);
 			testConnectionButton.TabIndex = 1;
 			testConnectionButton.Text = "Test Connection";
 			testConnectionButton.UseVisualStyleBackColor = true;
@@ -60,16 +62,19 @@
 			// 
 			// urlBox
 			// 
+			urlBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			urlBox.Location = new Point(126, 22);
 			urlBox.Name = "urlBox";
-			urlBox.Size = new Size(125, 27);
+			urlBox.Size = new Size(469, 27);
 			urlBox.TabIndex = 2;
+			urlBox.Text = "http://localhost/23r204";
 			// 
 			// tenantBox
 			// 
+			tenantBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			tenantBox.Location = new Point(126, 55);
 			tenantBox.Name = "tenantBox";
-			tenantBox.Size = new Size(125, 27);
+			tenantBox.Size = new Size(469, 27);
 			tenantBox.TabIndex = 5;
 			// 
 			// label2
@@ -83,10 +88,12 @@
 			// 
 			// userBox
 			// 
+			userBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			userBox.Location = new Point(126, 88);
 			userBox.Name = "userBox";
-			userBox.Size = new Size(125, 27);
+			userBox.Size = new Size(469, 27);
 			userBox.TabIndex = 7;
+			userBox.Text = "admin";
 			// 
 			// label3
 			// 
@@ -99,10 +106,12 @@
 			// 
 			// passwordBox
 			// 
+			passwordBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			passwordBox.Location = new Point(126, 121);
 			passwordBox.Name = "passwordBox";
-			passwordBox.Size = new Size(125, 27);
+			passwordBox.Size = new Size(469, 27);
 			passwordBox.TabIndex = 9;
+			passwordBox.Text = "123";
 			// 
 			// label4
 			// 
@@ -113,11 +122,22 @@
 			label4.TabIndex = 8;
 			label4.Text = "Password:";
 			// 
+			// connectionStatusLabel
+			// 
+			connectionStatusLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			connectionStatusLabel.AutoSize = true;
+			connectionStatusLabel.Location = new Point(40, 217);
+			connectionStatusLabel.Name = "connectionStatusLabel";
+			connectionStatusLabel.Size = new Size(128, 20);
+			connectionStatusLabel.TabIndex = 10;
+			connectionStatusLabel.Text = "Connection Status";
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(307, 246);
+			ClientSize = new Size(651, 246);
+			Controls.Add(connectionStatusLabel);
 			Controls.Add(passwordBox);
 			Controls.Add(label4);
 			Controls.Add(userBox);
@@ -144,5 +164,6 @@
 		private Label label3;
 		private TextBox passwordBox;
 		private Label label4;
+		private Label connectionStatusLabel;
 	}
 }
