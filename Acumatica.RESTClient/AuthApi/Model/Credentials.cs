@@ -17,18 +17,18 @@ namespace Acumatica.RESTClient.AuthApi.Model
         public Credentials(string name, string password, string? company = null, string? tenant = null, string? branch = null, string? locale = null)
         {
             // to ensure "name" is required (not null)
-            if (name == null)
+            if (string.IsNullOrEmpty(name))
             {
-                throw new InvalidDataException("name is a required property for Credentials and cannot be null");
+                throw new InvalidDataException($"{nameof(name)} is a required property for {nameof(Credentials)} and cannot be null");
             }
             else
             {
                 Name = name;
             }
             // to ensure "password" is required (not null)
-            if (password == null)
+            if (string.IsNullOrEmpty(password))
             {
-                throw new InvalidDataException("password is a required property for Credentials and cannot be null");
+                throw new InvalidDataException($"{nameof(password)} is a required property for {nameof(Credentials)} and cannot be null");
             }
             else
             {
