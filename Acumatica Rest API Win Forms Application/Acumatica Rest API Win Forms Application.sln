@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica Rest API Win Forms Application", "Acumatica Rest API Win Forms Application\Acumatica Rest API Win Forms Application.csproj", "{CAD37BC0-F945-4920-8F0C-39E4B5AEC5D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient", "..\Acumatica.RESTClient\Acumatica.RESTClient.csproj", "{A2F7A52F-C3D7-4B56-9F9A-1FF940DA2DDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAD37BC0-F945-4920-8F0C-39E4B5AEC5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD37BC0-F945-4920-8F0C-39E4B5AEC5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD37BC0-F945-4920-8F0C-39E4B5AEC5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD37BC0-F945-4920-8F0C-39E4B5AEC5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2F7A52F-C3D7-4B56-9F9A-1FF940DA2DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F7A52F-C3D7-4B56-9F9A-1FF940DA2DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F7A52F-C3D7-4B56-9F9A-1FF940DA2DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F7A52F-C3D7-4B56-9F9A-1FF940DA2DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C7A9ABA-9B32-40EF-9251-1CED4FAB36B1}
+	EndGlobalSection
+EndGlobal
