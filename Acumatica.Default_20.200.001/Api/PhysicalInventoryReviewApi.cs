@@ -3,6 +3,7 @@ using Acumatica.Default_20_200_001.Model;
 
 namespace Acumatica.Default_20_200_001.Api
 {
+	[Obsolete("For backward compatibility")]
 	public class PhysicalInventoryReviewApi : BaseEndpointApi<PhysicalInventoryReview>
 	{
 		public PhysicalInventoryReviewApi(ApiClient client) : base(client)
