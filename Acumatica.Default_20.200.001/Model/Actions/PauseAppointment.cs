@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public PauseAppointment(Appointment entity) : base(entity)
 		{ }
-		public PauseAppointment() : base()
-		{ }
 	}
 }

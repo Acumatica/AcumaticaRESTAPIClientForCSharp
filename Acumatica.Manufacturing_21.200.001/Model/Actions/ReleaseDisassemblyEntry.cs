@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public ReleaseDisassemblyEntry(DisassemblyEntry entity) : base(entity)
 		{ }
-		public ReleaseDisassemblyEntry() : base()
-		{ }
 	}
 }

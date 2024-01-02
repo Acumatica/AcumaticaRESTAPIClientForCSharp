@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CancelSendingEmail(Email entity) : base(entity)
 		{ }
-		public CancelSendingEmail() : base()
-		{ }
 	}
 }

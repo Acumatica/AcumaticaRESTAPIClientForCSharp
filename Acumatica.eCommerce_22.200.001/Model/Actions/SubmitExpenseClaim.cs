@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public SubmitExpenseClaim(ExpenseClaim entity) : base(entity)
 		{ }
-		public SubmitExpenseClaim() : base()
-		{ }
 	}
 }

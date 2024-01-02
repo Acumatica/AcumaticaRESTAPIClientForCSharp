@@ -13,8 +13,6 @@ namespace Acumatica.Default_20_200_001.Model
 	[DataContract]
 	public class SalesOrderCreateReceipt : EntityActionWithParameters<SalesOrder, SalesOrderCreateReceiptParameters>
 	{
-		public SalesOrderCreateReceipt() : base()
-		{ }
 		public SalesOrderCreateReceipt(SalesOrder entity, SalesOrderCreateReceiptParameters parameters) : base(entity, parameters)
 		{ }
 

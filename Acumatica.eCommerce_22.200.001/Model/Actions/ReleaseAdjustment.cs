@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ReleaseAdjustment(InventoryAdjustment entity) : base(entity)
 		{ }
-		public ReleaseAdjustment() : base()
-		{ }
 	}
 }

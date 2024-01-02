@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public CreateContactFromEmail(Email entity) : base(entity)
 		{ }
-		public CreateContactFromEmail() : base()
-		{ }
 	}
 }

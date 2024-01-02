@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public ReleaseLaborEntry(LaborEntry entity) : base(entity)
 		{ }
-		public ReleaseLaborEntry() : base()
-		{ }
 	}
 }

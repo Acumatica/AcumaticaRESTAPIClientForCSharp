@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public APSMaintenanceProcess(APSMaintenance entity) : base(entity)
 		{ }
-		public APSMaintenanceProcess() : base()
-		{ }
 	}
 }

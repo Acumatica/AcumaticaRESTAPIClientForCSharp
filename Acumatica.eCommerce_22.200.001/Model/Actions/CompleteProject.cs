@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CompleteProject(Project entity) : base(entity)
 		{ }
-		public CompleteProject() : base()
-		{ }
 	}
 }

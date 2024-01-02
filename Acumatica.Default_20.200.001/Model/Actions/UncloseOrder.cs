@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public UncloseOrder(ServiceOrder entity) : base(entity)
 		{ }
-		public UncloseOrder() : base()
-		{ }
 	}
 }

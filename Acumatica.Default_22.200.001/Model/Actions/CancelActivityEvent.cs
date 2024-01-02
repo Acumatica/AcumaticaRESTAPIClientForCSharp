@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public CancelActivityEvent(Event entity) : base(entity)
 		{ }
-		public CancelActivityEvent() : base()
-		{ }
 	}
 }

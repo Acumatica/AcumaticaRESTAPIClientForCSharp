@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public RoughCutPlanningProcess(RoughCutPlanning entity) : base(entity)
 		{ }
-		public RoughCutPlanningProcess() : base()
-		{ }
 	}
 }

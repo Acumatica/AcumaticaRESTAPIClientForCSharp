@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ReleaseChangeOrder(ChangeOrder entity) : base(entity)
 		{ }
-		public ReleaseChangeOrder() : base()
-		{ }
 	}
 }

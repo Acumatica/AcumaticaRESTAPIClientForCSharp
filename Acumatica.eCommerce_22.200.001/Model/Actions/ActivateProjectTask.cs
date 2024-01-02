@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ActivateProjectTask(ProjectTask entity) : base(entity)
 		{ }
-		public ActivateProjectTask() : base()
-		{ }
 	}
 }

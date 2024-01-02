@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public CapableToPromiseProcess(CapableToPromise entity) : base(entity)
 		{ }
-		public CapableToPromiseProcess() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public OpenSalesOrder(SalesOrder entity) : base(entity)
 		{ }
-		public OpenSalesOrder() : base()
-		{ }
 	}
 }

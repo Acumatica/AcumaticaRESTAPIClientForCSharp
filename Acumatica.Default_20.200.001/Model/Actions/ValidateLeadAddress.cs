@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ValidateLeadAddress(Lead entity) : base(entity)
 		{ }
-		public ValidateLeadAddress() : base()
-		{ }
 	}
 }

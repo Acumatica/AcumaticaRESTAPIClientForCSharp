@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ValidateContactAddress(Contact entity) : base(entity)
 		{ }
-		public ValidateContactAddress() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public InviteAllEvent(Event entity) : base(entity)
 		{ }
-		public InviteAllEvent() : base()
-		{ }
 	}
 }

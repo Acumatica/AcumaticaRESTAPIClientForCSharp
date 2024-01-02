@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ApproveExpenseClaim(ExpenseClaim entity) : base(entity)
 		{ }
-		public ApproveExpenseClaim() : base()
-		{ }
 	}
 }

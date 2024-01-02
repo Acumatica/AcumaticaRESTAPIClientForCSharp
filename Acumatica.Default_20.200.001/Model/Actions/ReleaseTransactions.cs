@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ReleaseTransactions(ProjectTransaction entity) : base(entity)
 		{ }
-		public ReleaseTransactions() : base()
-		{ }
 	}
 }

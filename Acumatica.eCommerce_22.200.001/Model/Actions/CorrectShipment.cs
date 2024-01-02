@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CorrectShipment(Shipment entity) : base(entity)
 		{ }
-		public CorrectShipment() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public CheckForContactDuplicates(Contact entity) : base(entity)
 		{ }
-		public CheckForContactDuplicates() : base()
-		{ }
 	}
 }

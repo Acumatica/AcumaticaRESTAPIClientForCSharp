@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public RegenerateMRPProcess(RegenerateMRP entity) : base(entity)
 		{ }
-		public RegenerateMRPProcess() : base()
-		{ }
 	}
 }

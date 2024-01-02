@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public RestoreDeletedEmail(Email entity) : base(entity)
 		{ }
-		public RestoreDeletedEmail() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public RestoreArchivedEmail(Email entity) : base(entity)
 		{ }
-		public RestoreArchivedEmail() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ReleaseChangeOrder(ChangeOrder entity) : base(entity)
 		{ }
-		public ReleaseChangeOrder() : base()
-		{ }
 	}
 }

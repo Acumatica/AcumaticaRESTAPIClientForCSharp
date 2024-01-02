@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public AddHistoryComment(Estimate entity) : base(entity)
 		{ }
-		public AddHistoryComment() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public UpdateIN(Shipment entity) : base(entity)
 		{ }
-		public UpdateIN() : base()
-		{ }
 	}
 }

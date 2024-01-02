@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public PutOnHoldExpenseClaim(ExpenseClaim entity) : base(entity)
 		{ }
-		public PutOnHoldExpenseClaim() : base()
-		{ }
 	}
 }

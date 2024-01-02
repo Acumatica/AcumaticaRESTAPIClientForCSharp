@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public PauseAppointment(Appointment entity) : base(entity)
 		{ }
-		public PauseAppointment() : base()
-		{ }
 	}
 }

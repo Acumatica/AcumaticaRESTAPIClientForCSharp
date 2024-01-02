@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public ReleaseJournalTransaction(JournalTransaction entity) : base(entity)
 		{ }
-		public ReleaseJournalTransaction() : base()
-		{ }
 	}
 }

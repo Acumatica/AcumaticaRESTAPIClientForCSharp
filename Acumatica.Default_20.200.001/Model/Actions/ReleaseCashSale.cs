@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ReleaseCashSale(CashSale entity) : base(entity)
 		{ }
-		public ReleaseCashSale() : base()
-		{ }
 	}
 }

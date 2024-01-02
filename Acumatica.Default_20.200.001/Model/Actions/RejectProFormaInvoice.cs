@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public RejectProFormaInvoice(ProFormaInvoice entity) : base(entity)
 		{ }
-		public RejectProFormaInvoice() : base()
-		{ }
 	}
 }

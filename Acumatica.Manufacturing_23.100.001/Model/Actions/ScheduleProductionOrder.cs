@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public ScheduleProductionOrder(ProductionOrder entity) : base(entity)
 		{ }
-		public ScheduleProductionOrder() : base()
-		{ }
 	}
 }

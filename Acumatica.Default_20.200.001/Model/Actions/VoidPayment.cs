@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public VoidPayment(Payment entity) : base(entity)
 		{ }
-		public VoidPayment() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CreateContactFromOpportunity(Opportunity entity) : base(entity)
 		{ }
-		public CreateContactFromOpportunity() : base()
-		{ }
 	}
 }

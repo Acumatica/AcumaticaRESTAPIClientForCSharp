@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public PrepareSalesInvoice(SalesOrder entity) : base(entity)
 		{ }
-		public PrepareSalesInvoice() : base()
-		{ }
 	}
 }

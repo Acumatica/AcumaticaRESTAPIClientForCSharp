@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ConvertLeadToContact(Lead entity) : base(entity)
 		{ }
-		public ConvertLeadToContact() : base()
-		{ }
 	}
 }

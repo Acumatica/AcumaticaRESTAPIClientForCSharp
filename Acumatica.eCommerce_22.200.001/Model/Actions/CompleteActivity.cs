@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CompleteActivity(Activity entity) : base(entity)
 		{ }
-		public CompleteActivity() : base()
-		{ }
 	}
 }

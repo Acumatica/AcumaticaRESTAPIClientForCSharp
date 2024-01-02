@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ValidateContactAddress(Contact entity) : base(entity)
 		{ }
-		public ValidateContactAddress() : base()
-		{ }
 	}
 }

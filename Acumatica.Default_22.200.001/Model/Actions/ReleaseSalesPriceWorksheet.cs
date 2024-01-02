@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public ReleaseSalesPriceWorksheet(SalesPriceWorksheet entity) : base(entity)
 		{ }
-		public ReleaseSalesPriceWorksheet() : base()
-		{ }
 	}
 }

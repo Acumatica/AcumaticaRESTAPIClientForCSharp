@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public ReleaseTransferOrder(TransferOrder entity) : base(entity)
 		{ }
-		public ReleaseTransferOrder() : base()
-		{ }
 	}
 }

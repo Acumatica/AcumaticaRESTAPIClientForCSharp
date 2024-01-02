@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public UpdateStandardCostNonStockItem(NonStockItem entity) : base(entity)
 		{ }
-		public UpdateStandardCostNonStockItem() : base()
-		{ }
 	}
 }

@@ -13,8 +13,6 @@ namespace Acumatica.Default_20_200_001.Model
 	[DataContract]
 	public class ChangeEmployeeID : EntityActionWithParameters<Employee, ChangeEmployeeIDParameters>
 	{
-		public ChangeEmployeeID() : base()
-		{ }
 		public ChangeEmployeeID(Employee entity, ChangeEmployeeIDParameters parameters) : base(entity, parameters)
 		{ }
 

@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public UpdatePending(CostRoll entity) : base(entity)
 		{ }
-		public UpdatePending() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public CompleteTimeEntry(TimeEntry entity) : base(entity)
 		{ }
-		public CompleteTimeEntry() : base()
-		{ }
 	}
 }

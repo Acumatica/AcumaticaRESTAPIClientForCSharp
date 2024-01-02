@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public CancelOrder(ServiceOrder entity) : base(entity)
 		{ }
-		public CancelOrder() : base()
-		{ }
 	}
 }

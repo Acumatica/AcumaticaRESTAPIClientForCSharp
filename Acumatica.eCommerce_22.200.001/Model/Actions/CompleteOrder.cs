@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CompleteOrder(ServiceOrder entity) : base(entity)
 		{ }
-		public CompleteOrder() : base()
-		{ }
 	}
 }

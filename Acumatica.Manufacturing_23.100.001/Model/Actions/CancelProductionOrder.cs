@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public CancelProductionOrder(ProductionOrder entity) : base(entity)
 		{ }
-		public CancelProductionOrder() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public PrepareInvoice(Shipment entity) : base(entity)
 		{ }
-		public PrepareInvoice() : base()
-		{ }
 	}
 }

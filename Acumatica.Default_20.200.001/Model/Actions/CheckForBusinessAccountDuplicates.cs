@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public CheckForBusinessAccountDuplicates(BusinessAccount entity) : base(entity)
 		{ }
-		public CheckForBusinessAccountDuplicates() : base()
-		{ }
 	}
 }

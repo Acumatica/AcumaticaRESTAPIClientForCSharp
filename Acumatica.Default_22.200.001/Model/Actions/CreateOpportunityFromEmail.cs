@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public CreateOpportunityFromEmail(Email entity) : base(entity)
 		{ }
-		public CreateOpportunityFromEmail() : base()
-		{ }
 	}
 }

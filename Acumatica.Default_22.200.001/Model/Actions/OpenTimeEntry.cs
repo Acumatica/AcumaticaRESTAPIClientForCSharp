@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public OpenTimeEntry(TimeEntry entity) : base(entity)
 		{ }
-		public OpenTimeEntry() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public AutoRecalculateDiscounts(SalesOrder entity) : base(entity)
 		{ }
-		public AutoRecalculateDiscounts() : base()
-		{ }
 	}
 }

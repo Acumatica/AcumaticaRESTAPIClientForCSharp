@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CancelActivityTask(Task entity) : base(entity)
 		{ }
-		public CancelActivityTask() : base()
-		{ }
 	}
 }

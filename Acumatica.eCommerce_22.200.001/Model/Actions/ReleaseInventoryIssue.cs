@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ReleaseInventoryIssue(InventoryIssue entity) : base(entity)
 		{ }
-		public ReleaseInventoryIssue() : base()
-		{ }
 	}
 }

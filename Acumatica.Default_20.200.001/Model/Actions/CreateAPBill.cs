@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public CreateAPBill(PurchaseReceipt entity) : base(entity)
 		{ }
-		public CreateAPBill() : base()
-		{ }
 	}
 }

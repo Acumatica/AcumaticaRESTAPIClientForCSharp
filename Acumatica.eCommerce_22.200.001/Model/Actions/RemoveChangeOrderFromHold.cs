@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public RemoveChangeOrderFromHold(ChangeOrder entity) : base(entity)
 		{ }
-		public RemoveChangeOrderFromHold() : base()
-		{ }
 	}
 }

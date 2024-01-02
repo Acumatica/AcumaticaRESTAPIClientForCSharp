@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public CreateContactFromOpportunity(Opportunity entity) : base(entity)
 		{ }
-		public CreateContactFromOpportunity() : base()
-		{ }
 	}
 }

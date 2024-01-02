@@ -192,14 +192,14 @@ namespace Acumatica.RESTClient.CustomizationApi
             while (true)
             {
                 var processResult = CustomizationPublishEnd(client);
-                if (processResult.IsCompleted)
+                if (processResult.IsCompleted == true)
                 {
                     return;
                 }
-                else if (processResult.isFailed)
+                else if (processResult.isFailed == true)
                 {
                     StringBuilder log = new StringBuilder();
-                    processResult.Log.ForEach(_ => log.Append(_.Message).Append(Environment.NewLine));
+                    processResult?.Log?.ForEach(_ => log.Append(_.Message).Append(Environment.NewLine));
                     throw new Exception(log.ToString());
                 }
                 else

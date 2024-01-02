@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ReleaseVendorPriceWorksheet(VendorPriceWorksheet entity) : base(entity)
 		{ }
-		public ReleaseVendorPriceWorksheet() : base()
-		{ }
 	}
 }

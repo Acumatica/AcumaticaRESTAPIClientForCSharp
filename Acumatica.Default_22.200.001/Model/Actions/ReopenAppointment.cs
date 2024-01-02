@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public ReopenAppointment(Appointment entity) : base(entity)
 		{ }
-		public ReopenAppointment() : base()
-		{ }
 	}
 }

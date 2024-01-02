@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public RunProjectBilling(Project entity) : base(entity)
 		{ }
-		public RunProjectBilling() : base()
-		{ }
 	}
 }

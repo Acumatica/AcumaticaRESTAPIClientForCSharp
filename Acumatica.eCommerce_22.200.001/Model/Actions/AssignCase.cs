@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public AssignCase(Case entity) : base(entity)
 		{ }
-		public AssignCase() : base()
-		{ }
 	}
 }

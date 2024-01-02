@@ -13,8 +13,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	[DataContract]
 	public class VoidCardPayment : EntityActionWithParameters<Payment, VoidCardPaymentParameters>
 	{
-		public VoidCardPayment() : base()
-		{ }
 		public VoidCardPayment(Payment entity, VoidCardPaymentParameters parameters) : base(entity, parameters)
 		{ }
 

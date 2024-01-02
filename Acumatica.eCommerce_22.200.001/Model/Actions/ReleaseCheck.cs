@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ReleaseCheck(Check entity) : base(entity)
 		{ }
-		public ReleaseCheck() : base()
-		{ }
 	}
 }

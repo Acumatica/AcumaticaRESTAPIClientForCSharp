@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ApproveProject(Project entity) : base(entity)
 		{ }
-		public ApproveProject() : base()
-		{ }
 	}
 }

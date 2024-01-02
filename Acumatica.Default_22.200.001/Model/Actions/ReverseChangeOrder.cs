@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public ReverseChangeOrder(ChangeOrder entity) : base(entity)
 		{ }
-		public ReverseChangeOrder() : base()
-		{ }
 	}
 }

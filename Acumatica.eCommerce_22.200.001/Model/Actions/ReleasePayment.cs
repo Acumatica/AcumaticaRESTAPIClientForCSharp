@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ReleasePayment(Payment entity) : base(entity)
 		{ }
-		public ReleasePayment() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public EmailProFormaInvoice(ProFormaInvoice entity) : base(entity)
 		{ }
-		public EmailProFormaInvoice() : base()
-		{ }
 	}
 }

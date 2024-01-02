@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public RejectProFormaInvoice(ProFormaInvoice entity) : base(entity)
 		{ }
-		public RejectProFormaInvoice() : base()
-		{ }
 	}
 }

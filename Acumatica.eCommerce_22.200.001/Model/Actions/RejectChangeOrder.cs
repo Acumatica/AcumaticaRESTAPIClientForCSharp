@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public RejectChangeOrder(ChangeOrder entity) : base(entity)
 		{ }
-		public RejectChangeOrder() : base()
-		{ }
 	}
 }

@@ -23,7 +23,7 @@
        	//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
 		//{2} = EntityName
-		public static string ActionTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t\tpublic {1}() : base()\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n";
+		public static string ActionTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n";
 
 	
 		//{0} = FieldName
@@ -49,7 +49,7 @@
 		//{1} = ActionName
 		//{2} = EntityName
 		//{3} = Content
-		public static string ActionWithParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : EntityActionWithParameters<{2}, {1}Parameters>\r\n\t{{\r\n\t\tpublic {1}() : base()\r\n\t\t{{ }}\r\n\t\tpublic {1}({2} entity, {1}Parameters parameters) : base(entity, parameters)\r\n\t\t{{ }}\r\n{3}\r\n\t}}\r\n}}";
+		public static string ActionWithParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : EntityActionWithParameters<{2}, {1}Parameters>\r\n\t{{\r\n\t\tpublic {1}({2} entity, {1}Parameters parameters) : base(entity, parameters)\r\n\t\t{{ }}\r\n{3}\r\n\t}}\r\n}}";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName

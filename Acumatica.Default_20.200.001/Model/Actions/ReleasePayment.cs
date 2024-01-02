@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ReleasePayment(Payment entity) : base(entity)
 		{ }
-		public ReleasePayment() : base()
-		{ }
 	}
 }

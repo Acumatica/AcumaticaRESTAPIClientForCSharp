@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public CompleteAppointment(Appointment entity) : base(entity)
 		{ }
-		public CompleteAppointment() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public UpdateIN(Shipment entity) : base(entity)
 		{ }
-		public UpdateIN() : base()
-		{ }
 	}
 }

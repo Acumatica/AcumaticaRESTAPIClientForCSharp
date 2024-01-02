@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public SetProductionOrderMaterialsCompleted(ProductionOrder entity) : base(entity)
 		{ }
-		public SetProductionOrderMaterialsCompleted() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public Archive(CostRoll entity) : base(entity)
 		{ }
-		public Archive() : base()
-		{ }
 	}
 }

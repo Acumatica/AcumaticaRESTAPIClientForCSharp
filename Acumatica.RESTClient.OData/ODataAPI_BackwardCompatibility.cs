@@ -6,7 +6,7 @@ namespace Acumatica.RESTClient.ODataApi
     public class ODataAPI
     {
         protected ODataVersion Version;
-        protected string Tenant;
+        protected string? Tenant;
         protected ApiClient Client;
 
         public ODataAPI(ApiClient client, ODataVersion version, string? tenant = null) 

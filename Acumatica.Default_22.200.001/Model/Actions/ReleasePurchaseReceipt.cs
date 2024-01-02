@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public ReleasePurchaseReceipt(PurchaseReceipt entity) : base(entity)
 		{ }
-		public ReleasePurchaseReceipt() : base()
-		{ }
 	}
 }

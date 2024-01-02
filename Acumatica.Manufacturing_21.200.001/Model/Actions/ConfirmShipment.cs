@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public ConfirmShipment(VendorShipment entity) : base(entity)
 		{ }
-		public ConfirmShipment() : base()
-		{ }
 	}
 }

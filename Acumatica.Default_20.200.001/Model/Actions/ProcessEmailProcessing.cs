@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ProcessEmailProcessing(EmailProcessing entity) : base(entity)
 		{ }
-		public ProcessEmailProcessing() : base()
-		{ }
 	}
 }

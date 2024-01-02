@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public VoidCheck(Check entity) : base(entity)
 		{ }
-		public VoidCheck() : base()
-		{ }
 	}
 }

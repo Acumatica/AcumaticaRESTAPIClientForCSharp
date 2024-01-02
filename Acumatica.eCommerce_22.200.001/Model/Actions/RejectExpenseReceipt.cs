@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public RejectExpenseReceipt(ExpenseReceipt entity) : base(entity)
 		{ }
-		public RejectExpenseReceipt() : base()
-		{ }
 	}
 }

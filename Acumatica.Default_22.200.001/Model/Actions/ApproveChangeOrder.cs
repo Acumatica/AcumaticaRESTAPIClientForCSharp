@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public ApproveChangeOrder(ChangeOrder entity) : base(entity)
 		{ }
-		public ApproveChangeOrder() : base()
-		{ }
 	}
 }

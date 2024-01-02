@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public CancelAppointment(Appointment entity) : base(entity)
 		{ }
-		public CancelAppointment() : base()
-		{ }
 	}
 }

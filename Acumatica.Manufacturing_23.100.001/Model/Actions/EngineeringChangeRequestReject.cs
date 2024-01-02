@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public EngineeringChangeRequestReject(EngineeringChangeRequest entity) : base(entity)
 		{ }
-		public EngineeringChangeRequestReject() : base()
-		{ }
 	}
 }

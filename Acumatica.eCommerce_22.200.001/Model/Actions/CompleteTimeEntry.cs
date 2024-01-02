@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CompleteTimeEntry(TimeEntry entity) : base(entity)
 		{ }
-		public CompleteTimeEntry() : base()
-		{ }
 	}
 }

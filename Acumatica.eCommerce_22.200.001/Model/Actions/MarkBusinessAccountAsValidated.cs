@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public MarkBusinessAccountAsValidated(BusinessAccount entity) : base(entity)
 		{ }
-		public MarkBusinessAccountAsValidated() : base()
-		{ }
 	}
 }

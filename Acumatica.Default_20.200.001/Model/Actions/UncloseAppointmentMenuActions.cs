@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public UncloseAppointmentMenuActions(Appointment entity) : base(entity)
 		{ }
-		public UncloseAppointmentMenuActions() : base()
-		{ }
 	}
 }

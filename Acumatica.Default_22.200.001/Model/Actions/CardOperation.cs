@@ -13,8 +13,6 @@ namespace Acumatica.Default_22_200_001.Model
 	[DataContract]
 	public class CardOperation : EntityActionWithParameters<Payment, CardOperationParameters>
 	{
-		public CardOperation() : base()
-		{ }
 		public CardOperation(Payment entity, CardOperationParameters parameters) : base(entity, parameters)
 		{ }
 

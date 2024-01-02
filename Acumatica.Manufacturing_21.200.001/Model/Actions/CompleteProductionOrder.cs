@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public CompleteProductionOrder(ProductionOrder entity) : base(entity)
 		{ }
-		public CompleteProductionOrder() : base()
-		{ }
 	}
 }

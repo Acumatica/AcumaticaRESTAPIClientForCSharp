@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public EngineeringChangeOrderSubmit(EngineeringChangeOrder entity) : base(entity)
 		{ }
-		public EngineeringChangeOrderSubmit() : base()
-		{ }
 	}
 }

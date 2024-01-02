@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public ValidateProjectBalance(Project entity) : base(entity)
 		{ }
-		public ValidateProjectBalance() : base()
-		{ }
 	}
 }

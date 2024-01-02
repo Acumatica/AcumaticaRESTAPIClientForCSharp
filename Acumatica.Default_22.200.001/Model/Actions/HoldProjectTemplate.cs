@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public HoldProjectTemplate(ProjectTemplate entity) : base(entity)
 		{ }
-		public HoldProjectTemplate() : base()
-		{ }
 	}
 }

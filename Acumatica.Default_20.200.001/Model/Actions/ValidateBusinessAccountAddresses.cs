@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ValidateBusinessAccountAddresses(BusinessAccount entity) : base(entity)
 		{ }
-		public ValidateBusinessAccountAddresses() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public EmailChangeOrder(ChangeOrder entity) : base(entity)
 		{ }
-		public EmailChangeOrder() : base()
-		{ }
 	}
 }

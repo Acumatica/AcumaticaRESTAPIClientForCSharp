@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public UpdateStandardCostStockItem(StockItem entity) : base(entity)
 		{ }
-		public UpdateStandardCostStockItem() : base()
-		{ }
 	}
 }

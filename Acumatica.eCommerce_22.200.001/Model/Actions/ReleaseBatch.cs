@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ReleaseBatch(PayrollBatch entity) : base(entity)
 		{ }
-		public ReleaseBatch() : base()
-		{ }
 	}
 }

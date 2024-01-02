@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public SetProductionOrderMaterialsOpen(ProductionOrder entity) : base(entity)
 		{ }
-		public SetProductionOrderMaterialsOpen() : base()
-		{ }
 	}
 }

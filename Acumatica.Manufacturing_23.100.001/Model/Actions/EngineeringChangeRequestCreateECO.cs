@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 		public EngineeringChangeRequestCreateECO(EngineeringChangeRequest entity) : base(entity)
 		{ }
-		public EngineeringChangeRequestCreateECO() : base()
-		{ }
 	}
 }

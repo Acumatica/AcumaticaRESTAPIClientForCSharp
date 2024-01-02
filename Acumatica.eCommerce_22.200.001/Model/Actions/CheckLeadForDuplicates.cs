@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CheckLeadForDuplicates(Lead entity) : base(entity)
 		{ }
-		public CheckLeadForDuplicates() : base()
-		{ }
 	}
 }

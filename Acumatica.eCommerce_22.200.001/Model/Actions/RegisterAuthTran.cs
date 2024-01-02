@@ -13,8 +13,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	[DataContract]
 	public class RegisterAuthTran : EntityActionWithParameters<Payment, RegisterAuthTranParameters>
 	{
-		public RegisterAuthTran() : base()
-		{ }
 		public RegisterAuthTran(Payment entity, RegisterAuthTranParameters parameters) : base(entity, parameters)
 		{ }
 

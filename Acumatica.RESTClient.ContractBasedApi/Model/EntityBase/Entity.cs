@@ -28,8 +28,8 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
                     {
                         foreach (var field in view.Value)
                         {
-                            field.Value.fieldName = field.Key;
-                            field.Value.viewName = view.Key;
+                            field.Value.FieldName = field.Key;
+                            field.Value.ViewName = view.Key;
                             customFields.Add(field.Value);
                         }
                     }
@@ -41,11 +41,11 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
                 Custom = new Dictionary<string, Dictionary<string, CustomField>>();
                 foreach (var field in value)
                 {
-                    if (!Custom.ContainsKey(field.viewName))
+                    if (!Custom.ContainsKey(field.ViewName))
                     {
-                        Custom.Add(field.viewName, new Dictionary<string, CustomField>());
+                        Custom.Add(field.ViewName, new Dictionary<string, CustomField>());
                     }
-                    Custom[field.viewName].Add(field.fieldName, field);
+                    Custom[field.ViewName].Add(field.FieldName, field);
                 }
             }
         }

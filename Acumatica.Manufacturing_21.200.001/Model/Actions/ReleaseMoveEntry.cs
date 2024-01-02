@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public ReleaseMoveEntry(MoveEntry entity) : base(entity)
 		{ }
-		public ReleaseMoveEntry() : base()
-		{ }
 	}
 }

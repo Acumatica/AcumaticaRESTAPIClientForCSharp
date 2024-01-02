@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public PutOnHoldExpenseReceipt(ExpenseReceipt entity) : base(entity)
 		{ }
-		public PutOnHoldExpenseReceipt() : base()
-		{ }
 	}
 }

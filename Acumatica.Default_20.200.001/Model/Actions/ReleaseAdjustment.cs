@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ReleaseAdjustment(InventoryAdjustment entity) : base(entity)
 		{ }
-		public ReleaseAdjustment() : base()
-		{ }
 	}
 }

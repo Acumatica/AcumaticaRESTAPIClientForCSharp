@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public MarkLeadAsValidated(Lead entity) : base(entity)
 		{ }
-		public MarkLeadAsValidated() : base()
-		{ }
 	}
 }

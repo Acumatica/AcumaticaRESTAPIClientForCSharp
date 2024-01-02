@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public CancelPhysicalInventory(PhysicalInventoryReview entity) : base(entity)
 		{ }
-		public CancelPhysicalInventory() : base()
-		{ }
 	}
 }

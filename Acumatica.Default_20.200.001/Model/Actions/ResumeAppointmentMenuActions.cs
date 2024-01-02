@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ResumeAppointmentMenuActions(Appointment entity) : base(entity)
 		{ }
-		public ResumeAppointmentMenuActions() : base()
-		{ }
 	}
 }

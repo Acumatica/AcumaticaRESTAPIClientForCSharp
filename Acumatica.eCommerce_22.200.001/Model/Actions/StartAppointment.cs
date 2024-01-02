@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public StartAppointment(Appointment entity) : base(entity)
 		{ }
-		public StartAppointment() : base()
-		{ }
 	}
 }

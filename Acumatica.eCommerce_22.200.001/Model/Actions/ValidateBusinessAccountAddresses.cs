@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ValidateBusinessAccountAddresses(BusinessAccount entity) : base(entity)
 		{ }
-		public ValidateBusinessAccountAddresses() : base()
-		{ }
 	}
 }

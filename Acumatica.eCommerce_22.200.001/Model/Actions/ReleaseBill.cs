@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ReleaseBill(Bill entity) : base(entity)
 		{ }
-		public ReleaseBill() : base()
-		{ }
 	}
 }

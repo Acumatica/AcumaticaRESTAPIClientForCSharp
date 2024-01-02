@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ApproveExpenseReceipt(ExpenseReceipt entity) : base(entity)
 		{ }
-		public ApproveExpenseReceipt() : base()
-		{ }
 	}
 }

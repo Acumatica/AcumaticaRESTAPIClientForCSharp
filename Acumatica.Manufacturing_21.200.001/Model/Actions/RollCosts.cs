@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public RollCosts(CostRoll entity) : base(entity)
 		{ }
-		public RollCosts() : base()
-		{ }
 	}
 }

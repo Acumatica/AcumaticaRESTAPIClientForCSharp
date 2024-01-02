@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public ReleaseWipAdjustmentEntry(WipAdjustmentEntry entity) : base(entity)
 		{ }
-		public ReleaseWipAdjustmentEntry() : base()
-		{ }
 	}
 }

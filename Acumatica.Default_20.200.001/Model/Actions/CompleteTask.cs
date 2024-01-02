@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public CompleteTask(Task entity) : base(entity)
 		{ }
-		public CompleteTask() : base()
-		{ }
 	}
 }

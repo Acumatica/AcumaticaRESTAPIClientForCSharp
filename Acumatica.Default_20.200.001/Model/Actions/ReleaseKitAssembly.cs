@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public ReleaseKitAssembly(KitAssembly entity) : base(entity)
 		{ }
-		public ReleaseKitAssembly() : base()
-		{ }
 	}
 }

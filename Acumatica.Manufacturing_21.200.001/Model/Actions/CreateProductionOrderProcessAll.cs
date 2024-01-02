@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public CreateProductionOrderProcessAll(CreateProductionOrder entity) : base(entity)
 		{ }
-		public CreateProductionOrderProcessAll() : base()
-		{ }
 	}
 }

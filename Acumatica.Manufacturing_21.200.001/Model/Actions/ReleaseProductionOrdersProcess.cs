@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public ReleaseProductionOrdersProcess(ReleaseProductionOrders entity) : base(entity)
 		{ }
-		public ReleaseProductionOrdersProcess() : base()
-		{ }
 	}
 }

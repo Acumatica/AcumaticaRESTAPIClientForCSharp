@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public CompleteEvent(Event entity) : base(entity)
 		{ }
-		public CompleteEvent() : base()
-		{ }
 	}
 }

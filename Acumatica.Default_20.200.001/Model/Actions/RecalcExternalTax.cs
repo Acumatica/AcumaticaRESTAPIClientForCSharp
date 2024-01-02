@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public RecalcExternalTax(ServiceOrder entity) : base(entity)
 		{ }
-		public RecalcExternalTax() : base()
-		{ }
 	}
 }

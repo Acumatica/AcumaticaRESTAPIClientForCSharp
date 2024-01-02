@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public LockProjectCommitments(Project entity) : base(entity)
 		{ }
-		public LockProjectCommitments() : base()
-		{ }
 	}
 }

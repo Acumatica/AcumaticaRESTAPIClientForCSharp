@@ -13,8 +13,6 @@ namespace Acumatica.Default_20_200_001.Model
 	[DataContract]
 	public class SalesOrderCreateShipment : EntityActionWithParameters<SalesOrder, SalesOrderCreateShipmentParameters>
 	{
-		public SalesOrderCreateShipment() : base()
-		{ }
 		public SalesOrderCreateShipment(SalesOrder entity, SalesOrderCreateShipmentParameters parameters) : base(entity, parameters)
 		{ }
 

@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public AllowBilling(ServiceOrder entity) : base(entity)
 		{ }
-		public AllowBilling() : base()
-		{ }
 	}
 }

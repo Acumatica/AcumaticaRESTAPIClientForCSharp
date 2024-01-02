@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public ReleaseInvoice(Invoice entity) : base(entity)
 		{ }
-		public ReleaseInvoice() : base()
-		{ }
 	}
 }

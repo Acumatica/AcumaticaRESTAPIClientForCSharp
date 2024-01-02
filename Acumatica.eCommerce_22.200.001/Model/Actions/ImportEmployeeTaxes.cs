@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ImportEmployeeTaxes(EmployeePayrollSettings entity) : base(entity)
 		{ }
-		public ImportEmployeeTaxes() : base()
-		{ }
 	}
 }

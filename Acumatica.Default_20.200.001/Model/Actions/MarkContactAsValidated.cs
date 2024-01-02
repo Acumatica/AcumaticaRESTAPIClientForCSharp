@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public MarkContactAsValidated(Contact entity) : base(entity)
 		{ }
-		public MarkContactAsValidated() : base()
-		{ }
 	}
 }

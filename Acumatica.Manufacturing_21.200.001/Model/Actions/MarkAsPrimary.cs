@@ -15,7 +15,5 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 		public MarkAsPrimary(Estimate entity) : base(entity)
 		{ }
-		public MarkAsPrimary() : base()
-		{ }
 	}
 }

@@ -15,7 +15,5 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 		public ArchiveEmail(Email entity) : base(entity)
 		{ }
-		public ArchiveEmail() : base()
-		{ }
 	}
 }

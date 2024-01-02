@@ -15,7 +15,5 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 		public LockProjectBudget(Project entity) : base(entity)
 		{ }
-		public LockProjectBudget() : base()
-		{ }
 	}
 }

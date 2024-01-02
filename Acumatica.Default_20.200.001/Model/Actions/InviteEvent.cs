@@ -15,7 +15,5 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 		public InviteEvent(Event entity) : base(entity)
 		{ }
-		public InviteEvent() : base()
-		{ }
 	}
 }
