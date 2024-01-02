@@ -372,12 +372,15 @@ namespace Acumatica.RESTClient.AuthApi
         }
         private static bool HasSessionInfo(HttpResponseMessage response, ApiClient client)
         {
-            foreach (var cookieValue in client.Cookies)
+            if (client?.Cookies != null)
             {
-                var sessionInfo = GetSessionInfoFromResponse(response);
-                if (!string.IsNullOrEmpty(sessionInfo) && !string.IsNullOrEmpty(cookieValue) && cookieValue.Contains(sessionInfo))
+                foreach (var cookieValue in client.Cookies)
                 {
-                    return true;
+                    var sessionInfo = GetSessionInfoFromResponse(response);
+                    if (!string.IsNullOrEmpty(sessionInfo) && !string.IsNullOrEmpty(cookieValue) && cookieValue.Contains(sessionInfo))
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
