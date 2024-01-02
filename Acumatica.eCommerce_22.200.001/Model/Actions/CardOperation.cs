@@ -18,37 +18,37 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		public CardOperation(Payment entity, CardOperationParameters parameters) : base(entity, parameters)
 		{ }
 
-		public StringValue TranType
+		public StringValue? TranType
 		{
 			get { return Parameters.TranType; }
 			set { Parameters.TranType = value; }
 		}
-		public StringValue TranNbr
+		public StringValue? TranNbr
 		{
 			get { return Parameters.TranNbr; }
 			set { Parameters.TranNbr = value; }
 		}
-		public StringValue AuthNumber
+		public StringValue? AuthNumber
 		{
 			get { return Parameters.AuthNumber; }
 			set { Parameters.AuthNumber = value; }
 		}
-		public StringValue ExtProfileId
+		public StringValue? ExtProfileId
 		{
 			get { return Parameters.ExtProfileId; }
 			set { Parameters.ExtProfileId = value; }
 		}
-		public DateTimeValue TranDate
+		public DateTimeValue? TranDate
 		{
 			get { return Parameters.TranDate; }
 			set { Parameters.TranDate = value; }
 		}
-		public StringValue OrigTranNbr
+		public StringValue? OrigTranNbr
 		{
 			get { return Parameters.OrigTranNbr; }
 			set { Parameters.OrigTranNbr = value; }
 		}
-		public DecimalValue Amount
+		public DecimalValue? Amount
 		{
 			get { return Parameters.Amount; }
 			set { Parameters.Amount = value; }

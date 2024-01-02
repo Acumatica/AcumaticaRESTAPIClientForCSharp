@@ -74,7 +74,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// Gets or Sets Error
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
-        public string Error { get; set; }
+        public string? Error { get; set; }
 
         /// <summary>
         /// Dictionary containing ViewName as a key. 
@@ -82,20 +82,20 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// FieldName as Key.
         /// </summary>
         [DataMember(Name="custom", EmitDefaultValue=false)]
-        public Dictionary<string, Dictionary<string, CustomField>> Custom { get; set; }
+        public Dictionary<string, Dictionary<string, CustomField>>? Custom { get; set; }
 
         /// <summary>
         /// Gets or Sets Note
         /// </summary>
         [DataMember(Name = "note", EmitDefaultValue = false)]
-        public StringValue Note { get; set; }
+        public StringValue? Note { get; set; }
 
 
         /// <summary>
         /// Gets or Sets Files
         /// </summary>
         [DataMember(Name="files", EmitDefaultValue=false)]
-        public List<FileLink> Files { get; set; }
+        public List<FileLink>? Files { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -114,7 +114,5 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
-
     }
-
 }

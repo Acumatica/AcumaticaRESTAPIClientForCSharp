@@ -62,7 +62,7 @@
 
 		//{0} = Parameter Name
 		//{1} = Parameter Type
-		public static string InActionParameterTemplate = "\r\n\t\tpublic {1} {0}\r\n\t\t{{\r\n\t\t\tget {{ return Parameters.{0}; }}\r\n\t\t\tset {{ Parameters.{0} = value; }}\r\n\t\t}}";
+		public static string InActionParameterTemplate = "\r\n\t\tpublic {1}? {0}\r\n\t\t{{\r\n\t\t\tget {{ return Parameters.{0}; }}\r\n\t\t\tset {{ Parameters.{0} = value; }}\r\n\t\t}}";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = Endpoint Path

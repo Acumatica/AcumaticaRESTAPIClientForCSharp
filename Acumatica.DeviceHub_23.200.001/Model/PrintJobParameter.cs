@@ -14,13 +14,13 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	{
 
         [DataMember(Name = "JobID", EmitDefaultValue = false)]
-        public IntValue JobID { get; set; }
+        public IntValue? JobID { get; set; }
 
         [DataMember(Name = "ParameterName", EmitDefaultValue = false)]
-        public StringValue ParameterName { get; set; }
+        public StringValue? ParameterName { get; set; }
 
         [DataMember(Name = "ParameterValue", EmitDefaultValue = false)]
-        public StringValue ParameterValue { get; set; }
+        public StringValue? ParameterValue { get; set; }
 
     }
 }

@@ -14,13 +14,13 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	{
 
         [DataMember(Name = "DeviceHub", EmitDefaultValue = false)]
-        public StringValue DeviceHub { get; set; }
+        public StringValue? DeviceHub { get; set; }
 
         [DataMember(Name = "Error", EmitDefaultValue = false)]
-        public StringValue Error { get; set; }
+        public StringValue? Error { get; set; }
 
         [DataMember(Name = "ScanJobID", EmitDefaultValue = false)]
-        public IntValue ScanJobID { get; set; }
+        public IntValue? ScanJobID { get; set; }
 
         [DataMember(Name = "Scanner", EmitDefaultValue = false)]
         public StringValue? Scanner { get; set; }
@@ -29,7 +29,7 @@ namespace Acumatica.DeviceHub_23_200_001.Model
         public StringValue? Status { get; set; }
 
         [DataMember(Name = "ErrorTrace", EmitDefaultValue = false)]
-        public StringValue ErrorTrace { get; set; }
+        public StringValue? ErrorTrace { get; set; }
         public string GetEndpointPath()
         {
             return "entity/DeviceHub/23.200.001";

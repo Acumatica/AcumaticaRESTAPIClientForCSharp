@@ -57,7 +57,7 @@ namespace Acumatica.RESTClient.ODataApi
                  $"{version}/{tenant}/{resource}";
         }
 
-        private static Dictionary<string, string> ComposeAuthenticationHeaders(ApiClient client)
+        private static Dictionary<string, string>? ComposeAuthenticationHeaders(ApiClient client)
         {
             if (client.Token == null && (client.Username == null && client.Password == null))
             {

@@ -18,12 +18,12 @@ namespace Acumatica.Default_22_200_001.Model
 		public CreateOpportunitySalesOrder(Opportunity entity, CreateOpportunitySalesOrderParameters parameters) : base(entity, parameters)
 		{ }
 
-		public StringValue OrderType
+		public StringValue? OrderType
 		{
 			get { return Parameters.OrderType; }
 			set { Parameters.OrderType = value; }
 		}
-		public BooleanValue RecalculatePricesandDiscounts
+		public BooleanValue? RecalculatePricesandDiscounts
 		{
 			get { return Parameters.RecalculatePricesandDiscounts; }
 			set { Parameters.RecalculatePricesandDiscounts = value; }

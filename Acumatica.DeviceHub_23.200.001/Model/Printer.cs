@@ -14,16 +14,16 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
         [DataMember(Name = "DeviceHub", EmitDefaultValue = false)]
-        public StringValue DeviceHub { get; set; }
+        public StringValue? DeviceHub { get; set; }
 
         [DataMember(Name="IsActive", EmitDefaultValue=false)]
-		public BooleanValue IsActive { get; set; }
+		public BooleanValue? IsActive { get; set; }
 
 		[DataMember(Name="PrinterName", EmitDefaultValue=false)]
-		public StringValue PrinterName { get; set; }
+		public StringValue? PrinterName { get; set; }
 
         public string GetEndpointPath()
         {

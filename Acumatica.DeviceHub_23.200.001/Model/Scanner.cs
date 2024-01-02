@@ -14,40 +14,40 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	{
 
         [DataMember(Name = "Description", EmitDefaultValue = false)]
-        public StringValue Description { get; set; }
+        public StringValue? Description { get; set; }
 
         [DataMember(Name = "DeviceHub", EmitDefaultValue = false)]
-        public StringValue DeviceHub { get; set; }
+        public StringValue? DeviceHub { get; set; }
 
         [DataMember(Name = "FileTypeComboValues", EmitDefaultValue = false)]
-        public StringValue FileTypeComboValues { get; set; }
+        public StringValue? FileTypeComboValues { get; set; }
 
         [DataMember(Name = "FileTypeDefValue", EmitDefaultValue = false)]
-        public StringValue FileTypeDefValue { get; set; }
+        public StringValue? FileTypeDefValue { get; set; }
 
         [DataMember(Name = "IsActive", EmitDefaultValue = false)]
-        public BooleanValue IsActive { get; set; }
+        public BooleanValue? IsActive { get; set; }
 
         [DataMember(Name = "PaperSourceComboValues", EmitDefaultValue = false)]
-        public StringValue PaperSourceComboValues { get; set; }
+        public StringValue? PaperSourceComboValues { get; set; }
 
         [DataMember(Name = "PaperSourceDefValue", EmitDefaultValue = false)]
-        public StringValue PaperSourceDefValue { get; set; }
+        public StringValue? PaperSourceDefValue { get; set; }
 
         [DataMember(Name = "PixelTypeComboValues", EmitDefaultValue = false)]
-        public StringValue PixelTypeComboValues { get; set; }
+        public StringValue? PixelTypeComboValues { get; set; }
 
         [DataMember(Name = "PixelTypeDefValue", EmitDefaultValue = false)]
-        public StringValue PixelTypeDefValue { get; set; }
+        public StringValue? PixelTypeDefValue { get; set; }
 
         [DataMember(Name = "ResolutionComboValues", EmitDefaultValue = false)]
-        public StringValue ResolutionComboValues { get; set; }
+        public StringValue? ResolutionComboValues { get; set; }
 
         [DataMember(Name = "ResolutionDefValue", EmitDefaultValue = false)]
-        public StringValue ResolutionDefValue { get; set; }
+        public StringValue? ResolutionDefValue { get; set; }
 
         [DataMember(Name = "ScannerName", EmitDefaultValue = false)]
-        public StringValue ScannerName { get; set; }
+        public StringValue? ScannerName { get; set; }
         public string GetEndpointPath()
         {
             return "entity/DeviceHub/23.200.001";

@@ -105,19 +105,19 @@ namespace Acumatica.RESTClient.Client
         /// Gets or sets the username (HTTP basic authentication).
         /// </summary>
         /// <value>The username.</value>
-        public virtual string Username { get; set; }
+        public virtual string? Username { get; set; }
 
         /// <summary>
         /// Gets or sets the password (HTTP basic authentication).
         /// </summary>
         /// <value>The password.</value>
-        public virtual string Password { get; set; }
+        public virtual string? Password { get; set; }
 
         /// <summary>
         /// Gets or sets the access token for OAuth2 authentication.
         /// </summary>
         /// <value>The access token.</value>
-        public virtual Token Token { get; set; }
+        public virtual Token? Token { get; set; }
         #endregion
 
         #region Public Methods
