@@ -14,34 +14,34 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="Allocations", EmitDefaultValue=false)]
-		public List<KitAssemblyStockComponentAllocation> Allocations { get; set; }
+		public List<KitAssemblyStockComponentAllocation>? Allocations { get; set; }
 
 		[DataMember(Name="ComponentQty", EmitDefaultValue=false)]
-		public DecimalValue ComponentQty { get; set; }
+		public DecimalValue? ComponentQty { get; set; }
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue LocationID { get; set; }
+		public StringValue? LocationID { get; set; }
 
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue Qty { get; set; }
+		public DecimalValue? Qty { get; set; }
 
 		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
-		public StringValue ReasonCode { get; set; }
+		public StringValue? ReasonCode { get; set; }
 
 		[DataMember(Name="StockInventoryID", EmitDefaultValue=false)]
-		public StringValue StockInventoryID { get; set; }
+		public StringValue? StockInventoryID { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
-		public DecimalValue UnitCost { get; set; }
+		public DecimalValue? UnitCost { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 	}
 }

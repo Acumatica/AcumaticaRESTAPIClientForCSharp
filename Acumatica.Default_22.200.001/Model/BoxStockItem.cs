@@ -14,25 +14,25 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="BoxID", EmitDefaultValue=false)]
-		public StringValue BoxID { get; set; }
+		public StringValue? BoxID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
-		public DecimalValue MaxQty { get; set; }
+		public DecimalValue? MaxQty { get; set; }
 
 		[DataMember(Name="MaxVolume", EmitDefaultValue=false)]
-		public DecimalValue MaxVolume { get; set; }
+		public DecimalValue? MaxVolume { get; set; }
 
 		[DataMember(Name="MaxWeight", EmitDefaultValue=false)]
-		public DecimalValue MaxWeight { get; set; }
+		public DecimalValue? MaxWeight { get; set; }
 
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue Qty { get; set; }
+		public DecimalValue? Qty { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 	}
 }

@@ -14,7 +14,7 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="AccountedCampaign", EmitDefaultValue=false)]
-		public StringValue AccountedCampaign { get; set; }
+		public StringValue? AccountedCampaign { get; set; }
 
 	}
 }

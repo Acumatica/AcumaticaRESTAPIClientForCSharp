@@ -14,16 +14,16 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="AllowSupplementalElection", EmitDefaultValue=false)]
-		public BooleanValue AllowSupplementalElection { get; set; }
+		public BooleanValue? AllowSupplementalElection { get; set; }
 
 		[DataMember(Name="CodeType", EmitDefaultValue=false)]
-		public StringValue CodeType { get; set; }
+		public StringValue? CodeType { get; set; }
 
 		[DataMember(Name="ImpactonTaxableWage", EmitDefaultValue=false)]
-		public StringValue ImpactonTaxableWage { get; set; }
+		public StringValue? ImpactonTaxableWage { get; set; }
 
 		[DataMember(Name="TaxDetailsUS", EmitDefaultValue=false)]
-		public List<DeductionOrBenefitTaxDetailUS> TaxDetailsUS { get; set; }
+		public List<DeductionOrBenefitTaxDetailUS>? TaxDetailsUS { get; set; }
 
 	}
 }

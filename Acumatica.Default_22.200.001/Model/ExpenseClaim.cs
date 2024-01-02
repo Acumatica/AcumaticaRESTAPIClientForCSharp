@@ -14,72 +14,72 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="ApprovalDate", EmitDefaultValue=false)]
-		public DateTimeValue ApprovalDate { get; set; }
+		public DateTimeValue? ApprovalDate { get; set; }
 
 		[DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
-		public List<Approval> ApprovalDetails { get; set; }
+		public List<Approval>? ApprovalDetails { get; set; }
 
 		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
-		public StringValue BaseCurrencyID { get; set; }
+		public StringValue? BaseCurrencyID { get; set; }
 
 		[DataMember(Name="ClaimedBy", EmitDefaultValue=false)]
-		public StringValue ClaimedBy { get; set; }
+		public StringValue? ClaimedBy { get; set; }
 
 		[DataMember(Name="ClaimTotal", EmitDefaultValue=false)]
-		public DecimalValue ClaimTotal { get; set; }
+		public DecimalValue? ClaimTotal { get; set; }
 
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
-		public StringValue CurrencyID { get; set; }
+		public StringValue? CurrencyID { get; set; }
 
 		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
-		public DecimalValue CurrencyRate { get; set; }
+		public DecimalValue? CurrencyRate { get; set; }
 
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
-		public StringValue CustomerID { get; set; }
+		public StringValue? CustomerID { get; set; }
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue Date { get; set; }
+		public DateTimeValue? Date { get; set; }
 
 		[DataMember(Name="DepartmentID", EmitDefaultValue=false)]
-		public StringValue DepartmentID { get; set; }
+		public StringValue? DepartmentID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<ExpenseClaimDetails> Details { get; set; }
+		public List<ExpenseClaimDetails>? Details { get; set; }
 
 		[DataMember(Name="FinancialDetails", EmitDefaultValue=false)]
-		public ExpenseClaimFinancialDetail FinancialDetails { get; set; }
+		public ExpenseClaimFinancialDetail? FinancialDetails { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue LocationID { get; set; }
+		public StringValue? LocationID { get; set; }
 
 		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
-		public DecimalValue ReciprocalRate { get; set; }
+		public DecimalValue? ReciprocalRate { get; set; }
 
 		[DataMember(Name="RefNbr", EmitDefaultValue=false)]
-		public StringValue RefNbr { get; set; }
+		public StringValue? RefNbr { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-		public List<ExpenseClaimTaxDetail> TaxDetails { get; set; }
+		public List<ExpenseClaimTaxDetail>? TaxDetails { get; set; }
 
 		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
-		public DecimalValue TaxTotal { get; set; }
+		public DecimalValue? TaxTotal { get; set; }
 
 		[DataMember(Name="VATExemptTotal", EmitDefaultValue=false)]
-		public DecimalValue VATExemptTotal { get; set; }
+		public DecimalValue? VATExemptTotal { get; set; }
 
 		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
-		public DecimalValue VATTaxableTotal { get; set; }
+		public DecimalValue? VATTaxableTotal { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

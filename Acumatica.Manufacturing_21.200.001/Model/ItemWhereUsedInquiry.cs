@@ -14,24 +14,24 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
-		public StringValue ItemClass { get; set; }
+		public StringValue? ItemClass { get; set; }
 
 		[DataMember(Name="MultiLevel", EmitDefaultValue=false)]
-		public BooleanValue MultiLevel { get; set; }
+		public BooleanValue? MultiLevel { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<ItemWhereUsedRow> Results { get; set; }
+		public List<ItemWhereUsedRow>? Results { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/21.200.001";
 		}

@@ -14,13 +14,13 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	{
 
 		[DataMember(Name="AcumaticaBuild", EmitDefaultValue=false)]
-		public StringValue AcumaticaBuild { get; set; }
+		public StringValue? AcumaticaBuild { get; set; }
 
 		[DataMember(Name="Certified", EmitDefaultValue=false)]
-		public BooleanValue Certified { get; set; }
+		public BooleanValue? Certified { get; set; }
 
 		[DataMember(Name="ISVVersion", EmitDefaultValue=false)]
-		public StringValue ISVVersion { get; set; }
+		public StringValue? ISVVersion { get; set; }
 
 	}
 }

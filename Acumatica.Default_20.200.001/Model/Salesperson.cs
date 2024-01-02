@@ -14,27 +14,27 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDateTime { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="DefaultCommission", EmitDefaultValue=false)]
-		public DecimalValue DefaultCommission { get; set; }
+		public DecimalValue? DefaultCommission { get; set; }
 
 		[DataMember(Name="IsActive", EmitDefaultValue=false)]
-		public BooleanValue IsActive { get; set; }
+		public BooleanValue? IsActive { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="Name", EmitDefaultValue=false)]
-		public StringValue Name { get; set; }
+		public StringValue? Name { get; set; }
 
 		[DataMember(Name="SalespersonID", EmitDefaultValue=false)]
-		public StringValue SalespersonID { get; set; }
+		public StringValue? SalespersonID { get; set; }
 
 		[DataMember(Name="SalesSubaccount", EmitDefaultValue=false)]
-		public StringValue SalesSubaccount { get; set; }
+		public StringValue? SalesSubaccount { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/20.200.001";
 		}

@@ -14,49 +14,49 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="DiscountableAmount", EmitDefaultValue=false)]
-		public DecimalValue DiscountableAmount { get; set; }
+		public DecimalValue? DiscountableAmount { get; set; }
 
 		[DataMember(Name="DiscountableQty", EmitDefaultValue=false)]
-		public DecimalValue DiscountableQty { get; set; }
+		public DecimalValue? DiscountableQty { get; set; }
 
 		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
-		public DecimalValue DiscountAmount { get; set; }
+		public DecimalValue? DiscountAmount { get; set; }
 
 		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
-		public StringValue DiscountCode { get; set; }
+		public StringValue? DiscountCode { get; set; }
 
 		[DataMember(Name="DiscountPercent", EmitDefaultValue=false)]
-		public DecimalValue DiscountPercent { get; set; }
+		public DecimalValue? DiscountPercent { get; set; }
 
 		[DataMember(Name="ExternalDiscountCode", EmitDefaultValue=false)]
-		public StringValue ExternalDiscountCode { get; set; }
+		public StringValue? ExternalDiscountCode { get; set; }
 
 		[DataMember(Name="FreeItem", EmitDefaultValue=false)]
-		public StringValue FreeItem { get; set; }
+		public StringValue? FreeItem { get; set; }
 
 		[DataMember(Name="FreeItemQty", EmitDefaultValue=false)]
-		public DecimalValue FreeItemQty { get; set; }
+		public DecimalValue? FreeItemQty { get; set; }
 
 		[DataMember(Name="ManualDiscount", EmitDefaultValue=false)]
-		public BooleanValue ManualDiscount { get; set; }
+		public BooleanValue? ManualDiscount { get; set; }
 
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
-		public StringValue OrderNbr { get; set; }
+		public StringValue? OrderNbr { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="SequenceID", EmitDefaultValue=false)]
-		public StringValue SequenceID { get; set; }
+		public StringValue? SequenceID { get; set; }
 
 		[DataMember(Name="SkipDiscount", EmitDefaultValue=false)]
-		public BooleanValue SkipDiscount { get; set; }
+		public BooleanValue? SkipDiscount { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 	}
 }

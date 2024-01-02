@@ -23,10 +23,10 @@ namespace Acumatica.DeviceHub_23_200_001.Model
         public IntValue ScanJobID { get; set; }
 
         [DataMember(Name = "Scanner", EmitDefaultValue = false)]
-        public StringValue Scanner { get; set; }
+        public StringValue? Scanner { get; set; }
 
         [DataMember(Name = "Status", EmitDefaultValue = false)]
-        public StringValue Status { get; set; }
+        public StringValue? Status { get; set; }
 
         [DataMember(Name = "ErrorTrace", EmitDefaultValue = false)]
         public StringValue ErrorTrace { get; set; }

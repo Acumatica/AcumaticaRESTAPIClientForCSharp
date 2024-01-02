@@ -14,22 +14,22 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	{
 
 		[DataMember(Name="AccountCD", EmitDefaultValue=false)]
-		public StringValue AccountCD { get; set; }
+		public StringValue? AccountCD { get; set; }
 
 		[DataMember(Name="ConsolAmtCredit", EmitDefaultValue=false)]
-		public DecimalValue ConsolAmtCredit { get; set; }
+		public DecimalValue? ConsolAmtCredit { get; set; }
 
 		[DataMember(Name="ConsolAmtDebit", EmitDefaultValue=false)]
-		public DecimalValue ConsolAmtDebit { get; set; }
+		public DecimalValue? ConsolAmtDebit { get; set; }
 
 		[DataMember(Name="FinPeriodID", EmitDefaultValue=false)]
-		public StringValue FinPeriodID { get; set; }
+		public StringValue? FinPeriodID { get; set; }
 
 		[DataMember(Name="MappedValue", EmitDefaultValue=false)]
-		public StringValue MappedValue { get; set; }
+		public StringValue? MappedValue { get; set; }
 
 		[DataMember(Name="MappedValueLength", EmitDefaultValue=false)]
-		public IntValue MappedValueLength { get; set; }
+		public IntValue? MappedValueLength { get; set; }
 
 	}
 }

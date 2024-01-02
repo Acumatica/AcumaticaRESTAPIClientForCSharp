@@ -14,12 +14,12 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CloseProductionOrdersDetail> Details { get; set; }
+		public List<CloseProductionOrdersDetail>? Details { get; set; }
 
 		[DataMember(Name="Period", EmitDefaultValue=false)]
-		public StringValue Period { get; set; }
+		public StringValue? Period { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

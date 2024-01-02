@@ -14,22 +14,22 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="AllowComponentQtyVariance", EmitDefaultValue=false)]
-		public BooleanValue AllowComponentQtyVariance { get; set; }
+		public BooleanValue? AllowComponentQtyVariance { get; set; }
 
 		[DataMember(Name="ComponentQty", EmitDefaultValue=false)]
-		public DecimalValue ComponentQty { get; set; }
+		public DecimalValue? ComponentQty { get; set; }
 
 		[DataMember(Name="MaxComponentQty", EmitDefaultValue=false)]
-		public DecimalValue MaxComponentQty { get; set; }
+		public DecimalValue? MaxComponentQty { get; set; }
 
 		[DataMember(Name="MinComponentQty", EmitDefaultValue=false)]
-		public DecimalValue MinComponentQty { get; set; }
+		public DecimalValue? MinComponentQty { get; set; }
 
 		[DataMember(Name="NonStockInventoryID", EmitDefaultValue=false)]
-		public StringValue NonStockInventoryID { get; set; }
+		public StringValue? NonStockInventoryID { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 	}
 }

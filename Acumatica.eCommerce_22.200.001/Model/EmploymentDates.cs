@@ -14,10 +14,10 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="HireDate", EmitDefaultValue=false)]
-		public DateTimeValue HireDate { get; set; }
+		public DateTimeValue? HireDate { get; set; }
 
 		[DataMember(Name="TerminationDate", EmitDefaultValue=false)]
-		public DateTimeValue TerminationDate { get; set; }
+		public DateTimeValue? TerminationDate { get; set; }
 
 	}
 }

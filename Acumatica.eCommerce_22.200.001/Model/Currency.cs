@@ -14,30 +14,30 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDateTime { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
-		public StringValue CurrencyID { get; set; }
+		public StringValue? CurrencyID { get; set; }
 
 		[DataMember(Name="CurrencySymbol", EmitDefaultValue=false)]
-		public StringValue CurrencySymbol { get; set; }
+		public StringValue? CurrencySymbol { get; set; }
 
 		[DataMember(Name="DecimalPrecision", EmitDefaultValue=false)]
-		public ShortValue DecimalPrecision { get; set; }
+		public ShortValue? DecimalPrecision { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="UseForAccounting", EmitDefaultValue=false)]
-		public BooleanValue UseForAccounting { get; set; }
+		public BooleanValue? UseForAccounting { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

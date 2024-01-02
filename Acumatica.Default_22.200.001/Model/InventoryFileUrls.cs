@@ -14,13 +14,13 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="FileType", EmitDefaultValue=false)]
-		public StringValue FileType { get; set; }
+		public StringValue? FileType { get; set; }
 
 		[DataMember(Name="FileURL", EmitDefaultValue=false)]
-		public StringValue FileURL { get; set; }
+		public StringValue? FileURL { get; set; }
 
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
-		public GuidValue NoteID { get; set; }
+		public GuidValue? NoteID { get; set; }
 
 	}
 }

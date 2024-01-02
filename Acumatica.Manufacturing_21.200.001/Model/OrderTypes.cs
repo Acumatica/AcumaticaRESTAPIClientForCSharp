@@ -14,108 +14,108 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="AllowPreassigningLotSerialNumbers", EmitDefaultValue=false)]
-		public BooleanValue AllowPreassigningLotSerialNumbers { get; set; }
+		public BooleanValue? AllowPreassigningLotSerialNumbers { get; set; }
 
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<OrderTypeAttribute> Attributes { get; set; }
+		public List<OrderTypeAttribute>? Attributes { get; set; }
 
 		[DataMember(Name="CheckforMaterialAvailability", EmitDefaultValue=false)]
-		public BooleanValue CheckforMaterialAvailability { get; set; }
+		public BooleanValue? CheckforMaterialAvailability { get; set; }
 
 		[DataMember(Name="CostingMethod", EmitDefaultValue=false)]
-		public StringValue CostingMethod { get; set; }
+		public StringValue? CostingMethod { get; set; }
 
 		[DataMember(Name="Defaultoperationmoveqty", EmitDefaultValue=false)]
-		public BooleanValue Defaultoperationmoveqty { get; set; }
+		public BooleanValue? Defaultoperationmoveqty { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="ExcludefromMRP", EmitDefaultValue=false)]
-		public BooleanValue ExcludefromMRP { get; set; }
+		public BooleanValue? ExcludefromMRP { get; set; }
 
 		[DataMember(Name="Function", EmitDefaultValue=false)]
-		public StringValue Function { get; set; }
+		public StringValue? Function { get; set; }
 
 		[DataMember(Name="Includeunreleasedbatchqty", EmitDefaultValue=false)]
-		public BooleanValue Includeunreleasedbatchqty { get; set; }
+		public BooleanValue? Includeunreleasedbatchqty { get; set; }
 
 		[DataMember(Name="IssueMaterialNotOnOrder", EmitDefaultValue=false)]
-		public StringValue IssueMaterialNotOnOrder { get; set; }
+		public StringValue? IssueMaterialNotOnOrder { get; set; }
 
 		[DataMember(Name="ItemHeader", EmitDefaultValue=false)]
-		public BooleanValue ItemHeader { get; set; }
+		public BooleanValue? ItemHeader { get; set; }
 
 		[DataMember(Name="Material", EmitDefaultValue=false)]
-		public BooleanValue Material { get; set; }
+		public BooleanValue? Material { get; set; }
 
 		[DataMember(Name="MoveonCompletedOperations", EmitDefaultValue=false)]
-		public StringValue MoveonCompletedOperations { get; set; }
+		public StringValue? MoveonCompletedOperations { get; set; }
 
 		[DataMember(Name="Operation", EmitDefaultValue=false)]
-		public BooleanValue Operation { get; set; }
+		public BooleanValue? Operation { get; set; }
 
 		[DataMember(Name="OrderNumberingSequence", EmitDefaultValue=false)]
-		public StringValue OrderNumberingSequence { get; set; }
+		public StringValue? OrderNumberingSequence { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="OverCompleteOrders", EmitDefaultValue=false)]
-		public StringValue OverCompleteOrders { get; set; }
+		public StringValue? OverCompleteOrders { get; set; }
 
 		[DataMember(Name="Overhead", EmitDefaultValue=false)]
-		public BooleanValue Overhead { get; set; }
+		public BooleanValue? Overhead { get; set; }
 
 		[DataMember(Name="OverIssueMaterial", EmitDefaultValue=false)]
-		public StringValue OverIssueMaterial { get; set; }
+		public StringValue? OverIssueMaterial { get; set; }
 
 		[DataMember(Name="PrintProductionReportID", EmitDefaultValue=false)]
-		public StringValue PrintProductionReportID { get; set; }
+		public StringValue? PrintProductionReportID { get; set; }
 
 		[DataMember(Name="RequireParentLotSerialNumber", EmitDefaultValue=false)]
-		public StringValue RequireParentLotSerialNumber { get; set; }
+		public StringValue? RequireParentLotSerialNumber { get; set; }
 
 		[DataMember(Name="ScrapLocation", EmitDefaultValue=false)]
-		public StringValue ScrapLocation { get; set; }
+		public StringValue? ScrapLocation { get; set; }
 
 		[DataMember(Name="ScrapSource", EmitDefaultValue=false)]
-		public StringValue ScrapSource { get; set; }
+		public StringValue? ScrapSource { get; set; }
 
 		[DataMember(Name="ScrapWarehouse", EmitDefaultValue=false)]
-		public StringValue ScrapWarehouse { get; set; }
+		public StringValue? ScrapWarehouse { get; set; }
 
 		[DataMember(Name="Step", EmitDefaultValue=false)]
-		public BooleanValue Step { get; set; }
+		public BooleanValue? Step { get; set; }
 
 		[DataMember(Name="SubstituteWorkCenters", EmitDefaultValue=false)]
-		public BooleanValue SubstituteWorkCenters { get; set; }
+		public BooleanValue? SubstituteWorkCenters { get; set; }
 
 		[DataMember(Name="Tool", EmitDefaultValue=false)]
-		public BooleanValue Tool { get; set; }
+		public BooleanValue? Tool { get; set; }
 
 		[DataMember(Name="UnderIssueBackflushMaterial", EmitDefaultValue=false)]
-		public StringValue UnderIssueBackflushMaterial { get; set; }
+		public StringValue? UnderIssueBackflushMaterial { get; set; }
 
 		[DataMember(Name="UnderIssueMaterial", EmitDefaultValue=false)]
-		public StringValue UnderIssueMaterial { get; set; }
+		public StringValue? UnderIssueMaterial { get; set; }
 
 		[DataMember(Name="WIPVarianceAccount", EmitDefaultValue=false)]
-		public StringValue WIPVarianceAccount { get; set; }
+		public StringValue? WIPVarianceAccount { get; set; }
 
 		[DataMember(Name="WIPVarianceSubaccount", EmitDefaultValue=false)]
-		public StringValue WIPVarianceSubaccount { get; set; }
+		public StringValue? WIPVarianceSubaccount { get; set; }
 
 		[DataMember(Name="WorkinProcessAccount", EmitDefaultValue=false)]
-		public StringValue WorkinProcessAccount { get; set; }
+		public StringValue? WorkinProcessAccount { get; set; }
 
 		[DataMember(Name="WorkInProcessSubaccount", EmitDefaultValue=false)]
-		public StringValue WorkInProcessSubaccount { get; set; }
+		public StringValue? WorkInProcessSubaccount { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/21.200.001";
 		}

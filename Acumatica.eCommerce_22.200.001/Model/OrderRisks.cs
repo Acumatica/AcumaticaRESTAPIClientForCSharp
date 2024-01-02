@@ -14,13 +14,13 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Message", EmitDefaultValue=false)]
-		public StringValue Message { get; set; }
+		public StringValue? Message { get; set; }
 
 		[DataMember(Name="Recommendation", EmitDefaultValue=false)]
-		public StringValue Recommendation { get; set; }
+		public StringValue? Recommendation { get; set; }
 
 		[DataMember(Name="Score", EmitDefaultValue=false)]
-		public DecimalValue Score { get; set; }
+		public DecimalValue? Score { get; set; }
 
 	}
 }

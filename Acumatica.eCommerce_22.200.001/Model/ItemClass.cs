@@ -14,60 +14,60 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<ItemClassAtrribute> Attributes { get; set; }
+		public List<ItemClassAtrribute>? Attributes { get; set; }
 
 		[DataMember(Name="AvailabilityCalculationRule", EmitDefaultValue=false)]
-		public StringValue AvailabilityCalculationRule { get; set; }
+		public StringValue? AvailabilityCalculationRule { get; set; }
 
 		[DataMember(Name="BaseUOM", EmitDefaultValue=false)]
-		public StringValue BaseUOM { get; set; }
+		public StringValue? BaseUOM { get; set; }
 
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
-		public StringValue ClassID { get; set; }
+		public StringValue? ClassID { get; set; }
 
 		[DataMember(Name="CountryOfOrigin", EmitDefaultValue=false)]
-		public StringValue CountryOfOrigin { get; set; }
+		public StringValue? CountryOfOrigin { get; set; }
 
 		[DataMember(Name="DefaultWarehouseID", EmitDefaultValue=false)]
-		public StringValue DefaultWarehouseID { get; set; }
+		public StringValue? DefaultWarehouseID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="ItemType", EmitDefaultValue=false)]
-		public StringValue ItemType { get; set; }
+		public StringValue? ItemType { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="LotSerialClass", EmitDefaultValue=false)]
-		public StringValue LotSerialClass { get; set; }
+		public StringValue? LotSerialClass { get; set; }
 
 		[DataMember(Name="PostingClass", EmitDefaultValue=false)]
-		public StringValue PostingClass { get; set; }
+		public StringValue? PostingClass { get; set; }
 
 		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
-		public StringValue PriceClass { get; set; }
+		public StringValue? PriceClass { get; set; }
 
 		[DataMember(Name="PurchaseUOM", EmitDefaultValue=false)]
-		public StringValue PurchaseUOM { get; set; }
+		public StringValue? PurchaseUOM { get; set; }
 
 		[DataMember(Name="SalesUOM", EmitDefaultValue=false)]
-		public StringValue SalesUOM { get; set; }
+		public StringValue? SalesUOM { get; set; }
 
 		[DataMember(Name="StockItem", EmitDefaultValue=false)]
-		public BooleanValue StockItem { get; set; }
+		public BooleanValue? StockItem { get; set; }
 
 		[DataMember(Name="TariffCode", EmitDefaultValue=false)]
-		public StringValue TariffCode { get; set; }
+		public StringValue? TariffCode { get; set; }
 
 		[DataMember(Name="TaxCategoryID", EmitDefaultValue=false)]
-		public StringValue TaxCategoryID { get; set; }
+		public StringValue? TaxCategoryID { get; set; }
 
 		[DataMember(Name="ValuationMethod", EmitDefaultValue=false)]
-		public StringValue ValuationMethod { get; set; }
+		public StringValue? ValuationMethod { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

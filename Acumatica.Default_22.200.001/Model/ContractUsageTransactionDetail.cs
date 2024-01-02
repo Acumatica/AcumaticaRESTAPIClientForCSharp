@@ -14,43 +14,43 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="BillingDate", EmitDefaultValue=false)]
-		public DateTimeValue BillingDate { get; set; }
+		public DateTimeValue? BillingDate { get; set; }
 
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue Branch { get; set; }
+		public StringValue? Branch { get; set; }
 
 		[DataMember(Name="CaseID", EmitDefaultValue=false)]
-		public StringValue CaseID { get; set; }
+		public StringValue? CaseID { get; set; }
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue Date { get; set; }
+		public DateTimeValue? Date { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue EndDate { get; set; }
+		public DateTimeValue? EndDate { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue Qty { get; set; }
+		public DecimalValue? Qty { get; set; }
 
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue ReferenceNbr { get; set; }
+		public StringValue? ReferenceNbr { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="TransactionID", EmitDefaultValue=false)]
-		public LongValue TransactionID { get; set; }
+		public LongValue? TransactionID { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 	}
 }

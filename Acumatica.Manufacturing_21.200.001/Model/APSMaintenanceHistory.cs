@@ -14,34 +14,34 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="BlockSizeChangeLastRunBy", EmitDefaultValue=false)]
-		public StringValue BlockSizeChangeLastRunBy { get; set; }
+		public StringValue? BlockSizeChangeLastRunBy { get; set; }
 
 		[DataMember(Name="BlockSizeChangeLastRunDate", EmitDefaultValue=false)]
-		public DateTimeValue BlockSizeChangeLastRunDate { get; set; }
+		public DateTimeValue? BlockSizeChangeLastRunDate { get; set; }
 
 		[DataMember(Name="CurrentBlockSize", EmitDefaultValue=false)]
-		public StringValue CurrentBlockSize { get; set; }
+		public StringValue? CurrentBlockSize { get; set; }
 
 		[DataMember(Name="HistoryCleanupLastRunBy", EmitDefaultValue=false)]
-		public StringValue HistoryCleanupLastRunBy { get; set; }
+		public StringValue? HistoryCleanupLastRunBy { get; set; }
 
 		[DataMember(Name="HistoryCleanupLastRunDate", EmitDefaultValue=false)]
-		public DateTimeValue HistoryCleanupLastRunDate { get; set; }
+		public DateTimeValue? HistoryCleanupLastRunDate { get; set; }
 
 		[DataMember(Name="LastBlockSize", EmitDefaultValue=false)]
-		public StringValue LastBlockSize { get; set; }
+		public StringValue? LastBlockSize { get; set; }
 
 		[DataMember(Name="WorkCalendarLastRunBy", EmitDefaultValue=false)]
-		public StringValue WorkCalendarLastRunBy { get; set; }
+		public StringValue? WorkCalendarLastRunBy { get; set; }
 
 		[DataMember(Name="WorkCalendarLastRunDate", EmitDefaultValue=false)]
-		public DateTimeValue WorkCalendarLastRunDate { get; set; }
+		public DateTimeValue? WorkCalendarLastRunDate { get; set; }
 
 		[DataMember(Name="WorkCenterScheduleLastRunBy", EmitDefaultValue=false)]
-		public StringValue WorkCenterScheduleLastRunBy { get; set; }
+		public StringValue? WorkCenterScheduleLastRunBy { get; set; }
 
 		[DataMember(Name="WorkCenterScheduleLastRunDate", EmitDefaultValue=false)]
-		public DateTimeValue WorkCenterScheduleLastRunDate { get; set; }
+		public DateTimeValue? WorkCenterScheduleLastRunDate { get; set; }
 
 	}
 }

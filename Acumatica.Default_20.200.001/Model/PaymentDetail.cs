@@ -14,31 +14,31 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
-		public DecimalValue AmountPaid { get; set; }
+		public DecimalValue? AmountPaid { get; set; }
 
 		[DataMember(Name="BalanceWriteOff", EmitDefaultValue=false)]
-		public DecimalValue BalanceWriteOff { get; set; }
+		public DecimalValue? BalanceWriteOff { get; set; }
 
 		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
-		public DecimalValue CashDiscountTaken { get; set; }
+		public DecimalValue? CashDiscountTaken { get; set; }
 
 		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
-		public StringValue CustomerOrder { get; set; }
+		public StringValue? CustomerOrder { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
-		public IntValue DocLineNbr { get; set; }
+		public IntValue? DocLineNbr { get; set; }
 
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
-		public StringValue DocType { get; set; }
+		public StringValue? DocType { get; set; }
 
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue ReferenceNbr { get; set; }
+		public StringValue? ReferenceNbr { get; set; }
 
 		[DataMember(Name="WriteOffReasonCode", EmitDefaultValue=false)]
-		public StringValue WriteOffReasonCode { get; set; }
+		public StringValue? WriteOffReasonCode { get; set; }
 
 	}
 }

@@ -14,19 +14,19 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="QtyReq", EmitDefaultValue=false)]
-		public DecimalValue QtyReq { get; set; }
+		public DecimalValue? QtyReq { get; set; }
 
 		[DataMember(Name="ToolID", EmitDefaultValue=false)]
-		public StringValue ToolID { get; set; }
+		public StringValue? ToolID { get; set; }
 
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
-		public DecimalValue UnitCost { get; set; }
+		public DecimalValue? UnitCost { get; set; }
 
 	}
 }

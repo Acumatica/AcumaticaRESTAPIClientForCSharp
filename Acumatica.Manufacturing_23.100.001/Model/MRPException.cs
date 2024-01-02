@@ -14,54 +14,54 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue Branch { get; set; }
+		public StringValue? Branch { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
-		public StringValue ItemClass { get; set; }
+		public StringValue? ItemClass { get; set; }
 
 		[DataMember(Name="ProductManagerID", EmitDefaultValue=false)]
-		public StringValue ProductManagerID { get; set; }
+		public StringValue? ProductManagerID { get; set; }
 
 		[DataMember(Name="PromiseDate", EmitDefaultValue=false)]
-		public DateTimeValue PromiseDate { get; set; }
+		public DateTimeValue? PromiseDate { get; set; }
 
 		[DataMember(Name="Quantity", EmitDefaultValue=false)]
-		public DecimalValue Quantity { get; set; }
+		public DecimalValue? Quantity { get; set; }
 
 		[DataMember(Name="RecordID", EmitDefaultValue=false)]
-		public IntValue RecordID { get; set; }
+		public IntValue? RecordID { get; set; }
 
 		[DataMember(Name="RefType", EmitDefaultValue=false)]
-		public StringValue RefType { get; set; }
+		public StringValue? RefType { get; set; }
 
 		[DataMember(Name="RelatedDocument", EmitDefaultValue=false)]
-		public StringValue RelatedDocument { get; set; }
+		public StringValue? RelatedDocument { get; set; }
 
 		[DataMember(Name="RequiredDate", EmitDefaultValue=false)]
-		public DateTimeValue RequiredDate { get; set; }
+		public DateTimeValue? RequiredDate { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="SupplyQty", EmitDefaultValue=false)]
-		public DecimalValue SupplyQty { get; set; }
+		public DecimalValue? SupplyQty { get; set; }
 
 		[DataMember(Name="SupplyWarehouse", EmitDefaultValue=false)]
-		public StringValue SupplyWarehouse { get; set; }
+		public StringValue? SupplyWarehouse { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

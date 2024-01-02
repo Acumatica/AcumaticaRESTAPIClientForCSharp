@@ -14,46 +14,46 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
-		public StringValue CurrencyID { get; set; }
+		public StringValue? CurrencyID { get; set; }
 
 		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
-		public StringValue CustomerOrder { get; set; }
+		public StringValue? CustomerOrder { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="OrderedQty", EmitDefaultValue=false)]
-		public DecimalValue OrderedQty { get; set; }
+		public DecimalValue? OrderedQty { get; set; }
 
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
-		public StringValue OrderNbr { get; set; }
+		public StringValue? OrderNbr { get; set; }
 
 		[DataMember(Name="OrderTotal", EmitDefaultValue=false)]
-		public DecimalValue OrderTotal { get; set; }
+		public DecimalValue? OrderTotal { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="OrderVolume", EmitDefaultValue=false)]
-		public DecimalValue OrderVolume { get; set; }
+		public DecimalValue? OrderVolume { get; set; }
 
 		[DataMember(Name="OrderWeight", EmitDefaultValue=false)]
-		public DecimalValue OrderWeight { get; set; }
+		public DecimalValue? OrderWeight { get; set; }
 
 		[DataMember(Name="RequestedOn", EmitDefaultValue=false)]
-		public DateTimeValue RequestedOn { get; set; }
+		public DateTimeValue? RequestedOn { get; set; }
 
 		[DataMember(Name="ScheduledShipment", EmitDefaultValue=false)]
-		public DateTimeValue ScheduledShipment { get; set; }
+		public DateTimeValue? ScheduledShipment { get; set; }
 
 		[DataMember(Name="ShippingZone", EmitDefaultValue=false)]
-		public StringValue ShippingZone { get; set; }
+		public StringValue? ShippingZone { get; set; }
 
 		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
-		public StringValue ShipVia { get; set; }
+		public StringValue? ShipVia { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 	}
 }

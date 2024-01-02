@@ -14,21 +14,21 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="EmployeePayrollClassID", EmitDefaultValue=false)]
-		public StringValue EmployeePayrollClassID { get; set; }
+		public StringValue? EmployeePayrollClassID { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="PayrollDefaults", EmitDefaultValue=false)]
-		public EmployeePayrollClassDefaults PayrollDefaults { get; set; }
+		public EmployeePayrollClassDefaults? PayrollDefaults { get; set; }
 
 		[DataMember(Name="PTODefaults", EmitDefaultValue=false)]
-		public List<EmployeeClassPTOBankDefault> PTODefaults { get; set; }
+		public List<EmployeeClassPTOBankDefault>? PTODefaults { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

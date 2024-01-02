@@ -14,31 +14,31 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
-		public StringValue BaseCurrencyID { get; set; }
+		public StringValue? BaseCurrencyID { get; set; }
 
 		[DataMember(Name="BranchCountry", EmitDefaultValue=false)]
-		public StringValue BranchCountry { get; set; }
+		public StringValue? BranchCountry { get; set; }
 
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]
-		public StringValue BranchID { get; set; }
+		public StringValue? BranchID { get; set; }
 
 		[DataMember(Name="BranchName", EmitDefaultValue=false)]
-		public StringValue BranchName { get; set; }
+		public StringValue? BranchName { get; set; }
 
 		[DataMember(Name="BranchStatus", EmitDefaultValue=false)]
-		public BooleanValue BranchStatus { get; set; }
+		public BooleanValue? BranchStatus { get; set; }
 
 		[DataMember(Name="CompanyID", EmitDefaultValue=false)]
-		public StringValue CompanyID { get; set; }
+		public StringValue? CompanyID { get; set; }
 
 		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
-		public StringValue CompanyName { get; set; }
+		public StringValue? CompanyName { get; set; }
 
 		[DataMember(Name="CompanyStatus", EmitDefaultValue=false)]
-		public BooleanValue CompanyStatus { get; set; }
+		public BooleanValue? CompanyStatus { get; set; }
 
 		[DataMember(Name="CompanyType", EmitDefaultValue=false)]
-		public StringValue CompanyType { get; set; }
+		public StringValue? CompanyType { get; set; }
 
 	}
 }

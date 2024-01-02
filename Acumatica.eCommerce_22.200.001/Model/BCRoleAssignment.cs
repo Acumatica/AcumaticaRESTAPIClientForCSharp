@@ -14,13 +14,13 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="RoleAssignmentID", EmitDefaultValue=false)]
-		public IntValue RoleAssignmentID { get; set; }
+		public IntValue? RoleAssignmentID { get; set; }
 
 		[DataMember(Name="LocationCD", EmitDefaultValue=false)]
-		public StringValue LocationCD { get; set; }
+		public StringValue? LocationCD { get; set; }
 
 		[DataMember(Name="Role", EmitDefaultValue=false)]
-		public StringValue Role { get; set; }
+		public StringValue? Role { get; set; }
 
 	}
 }

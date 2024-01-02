@@ -14,40 +14,40 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="BusinessAccountID", EmitDefaultValue=false)]
-		public StringValue BusinessAccountID { get; set; }
+		public StringValue? BusinessAccountID { get; set; }
 
 		[DataMember(Name="BusinessAccountName", EmitDefaultValue=false)]
-		public StringValue BusinessAccountName { get; set; }
+		public StringValue? BusinessAccountName { get; set; }
 
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
-		public StringValue CurrencyID { get; set; }
+		public StringValue? CurrencyID { get; set; }
 
 		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
-		public StringValue DisplayName { get; set; }
+		public StringValue? DisplayName { get; set; }
 
 		[DataMember(Name="Estimation", EmitDefaultValue=false)]
-		public DateTimeValue Estimation { get; set; }
+		public DateTimeValue? Estimation { get; set; }
 
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
-		public StringValue Owner { get; set; }
+		public StringValue? Owner { get; set; }
 
 		[DataMember(Name="Probability", EmitDefaultValue=false)]
-		public IntValue Probability { get; set; }
+		public IntValue? Probability { get; set; }
 
 		[DataMember(Name="Stage", EmitDefaultValue=false)]
-		public StringValue Stage { get; set; }
+		public StringValue? Stage { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
-		public StringValue Subject { get; set; }
+		public StringValue? Subject { get; set; }
 
 		[DataMember(Name="Total", EmitDefaultValue=false)]
-		public DecimalValue Total { get; set; }
+		public DecimalValue? Total { get; set; }
 
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
-		public StringValue Workgroup { get; set; }
+		public StringValue? Workgroup { get; set; }
 
 	}
 }

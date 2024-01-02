@@ -14,64 +14,64 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Backflush", EmitDefaultValue=false)]
-		public BooleanValue Backflush { get; set; }
+		public BooleanValue? Backflush { get; set; }
 
 		[DataMember(Name="BatchSize", EmitDefaultValue=false)]
-		public DecimalValue BatchSize { get; set; }
+		public DecimalValue? BatchSize { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
-		public StringValue ItemClass { get; set; }
+		public StringValue? ItemClass { get; set; }
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="LineOrder", EmitDefaultValue=false)]
-		public IntValue LineOrder { get; set; }
+		public IntValue? LineOrder { get; set; }
 
 		[DataMember(Name="MaterialType", EmitDefaultValue=false)]
-		public StringValue MaterialType { get; set; }
+		public StringValue? MaterialType { get; set; }
 
 		[DataMember(Name="NonInventory", EmitDefaultValue=false)]
-		public BooleanValue NonInventory { get; set; }
+		public BooleanValue? NonInventory { get; set; }
 
 		[DataMember(Name="PhantomRouting", EmitDefaultValue=false)]
-		public StringValue PhantomRouting { get; set; }
+		public StringValue? PhantomRouting { get; set; }
 
 		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
-		public DecimalValue QtyRequired { get; set; }
+		public DecimalValue? QtyRequired { get; set; }
 
 		[DataMember(Name="QtyRoundUp", EmitDefaultValue=false)]
-		public BooleanValue QtyRoundUp { get; set; }
+		public BooleanValue? QtyRoundUp { get; set; }
 
 		[DataMember(Name="ScrapFactor", EmitDefaultValue=false)]
-		public DecimalValue ScrapFactor { get; set; }
+		public DecimalValue? ScrapFactor { get; set; }
 
 		[DataMember(Name="SubcontractSource", EmitDefaultValue=false)]
-		public StringValue SubcontractSource { get; set; }
+		public StringValue? SubcontractSource { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
-		public DecimalValue TotalCost { get; set; }
+		public DecimalValue? TotalCost { get; set; }
 
 		[DataMember(Name="TotalRequired", EmitDefaultValue=false)]
-		public DecimalValue TotalRequired { get; set; }
+		public DecimalValue? TotalRequired { get; set; }
 
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
-		public DecimalValue UnitCost { get; set; }
+		public DecimalValue? UnitCost { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
 	}
 }

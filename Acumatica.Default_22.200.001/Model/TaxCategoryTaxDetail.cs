@@ -14,22 +14,22 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="CalculateOn", EmitDefaultValue=false)]
-		public StringValue CalculateOn { get; set; }
+		public StringValue? CalculateOn { get; set; }
 
 		[DataMember(Name="CashDiscount", EmitDefaultValue=false)]
-		public StringValue CashDiscount { get; set; }
+		public StringValue? CashDiscount { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
-		public StringValue TaxCategory { get; set; }
+		public StringValue? TaxCategory { get; set; }
 
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue TaxID { get; set; }
+		public StringValue? TaxID { get; set; }
 
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
-		public StringValue TaxType { get; set; }
+		public StringValue? TaxType { get; set; }
 
 	}
 }

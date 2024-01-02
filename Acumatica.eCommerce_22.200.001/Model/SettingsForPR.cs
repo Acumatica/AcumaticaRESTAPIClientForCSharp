@@ -14,13 +14,13 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="ExportScenario", EmitDefaultValue=false)]
-		public StringValue ExportScenario { get; set; }
+		public StringValue? ExportScenario { get; set; }
 
 		[DataMember(Name="PRProcessing", EmitDefaultValue=false)]
-		public StringValue PRProcessing { get; set; }
+		public StringValue? PRProcessing { get; set; }
 
 		[DataMember(Name="Report", EmitDefaultValue=false)]
-		public StringValue Report { get; set; }
+		public StringValue? Report { get; set; }
 
 	}
 }

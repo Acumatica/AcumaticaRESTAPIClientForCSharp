@@ -14,12 +14,12 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="StorageDetails", EmitDefaultValue=false)]
-		public List<StorageDetail> StorageDetails { get; set; }
+		public List<StorageDetail>? StorageDetails { get; set; }
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue WarehouseID { get; set; }
+		public StringValue? WarehouseID { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/20.200.001";
 		}

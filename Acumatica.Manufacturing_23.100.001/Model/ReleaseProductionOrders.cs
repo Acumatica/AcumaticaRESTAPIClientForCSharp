@@ -14,66 +14,66 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue Branch { get; set; }
+		public StringValue? Branch { get; set; }
 
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue CostCode { get; set; }
+		public StringValue? CostCode { get; set; }
 
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue Customer { get; set; }
+		public StringValue? Customer { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue EndDate { get; set; }
+		public DateTimeValue? EndDate { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="OrderDate", EmitDefaultValue=false)]
-		public DateTimeValue OrderDate { get; set; }
+		public DateTimeValue? OrderDate { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
-		public StringValue Project { get; set; }
+		public StringValue? Project { get; set; }
 
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
-		public StringValue ProjectTask { get; set; }
+		public StringValue? ProjectTask { get; set; }
 
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
-		public DecimalValue QtytoProduce { get; set; }
+		public DecimalValue? QtytoProduce { get; set; }
 
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
-		public BooleanValue Selected { get; set; }
+		public BooleanValue? Selected { get; set; }
 
 		[DataMember(Name="SOOrderNbr", EmitDefaultValue=false)]
-		public StringValue SOOrderNbr { get; set; }
+		public StringValue? SOOrderNbr { get; set; }
 
 		[DataMember(Name="SOOrderType", EmitDefaultValue=false)]
-		public StringValue SOOrderType { get; set; }
+		public StringValue? SOOrderType { get; set; }
 
 		[DataMember(Name="Source", EmitDefaultValue=false)]
-		public StringValue Source { get; set; }
+		public StringValue? Source { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

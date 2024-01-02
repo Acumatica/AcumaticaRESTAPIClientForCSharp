@@ -14,12 +14,12 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="ZoneID", EmitDefaultValue=false)]
-		public StringValue ZoneID { get; set; }
+		public StringValue? ZoneID { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/20.200.001";
 		}

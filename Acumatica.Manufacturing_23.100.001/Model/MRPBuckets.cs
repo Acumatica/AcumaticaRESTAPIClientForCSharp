@@ -14,18 +14,18 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="BucketID", EmitDefaultValue=false)]
-		public StringValue BucketID { get; set; }
+		public StringValue? BucketID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<MRPBucketDetail> Details { get; set; }
+		public List<MRPBucketDetail>? Details { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

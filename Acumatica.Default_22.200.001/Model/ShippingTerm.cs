@@ -14,15 +14,15 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<ShippingTermDetail> Details { get; set; }
+		public List<ShippingTermDetail>? Details { get; set; }
 
 		[DataMember(Name="TermID", EmitDefaultValue=false)]
-		public StringValue TermID { get; set; }
+		public StringValue? TermID { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

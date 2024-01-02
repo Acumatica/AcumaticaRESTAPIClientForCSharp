@@ -14,144 +14,144 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
-		public StringValue BaseCurrencyID { get; set; }
+		public StringValue? BaseCurrencyID { get; set; }
 
 		[DataMember(Name="ControlQty", EmitDefaultValue=false)]
-		public DecimalValue ControlQty { get; set; }
+		public DecimalValue? ControlQty { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDateTime { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
-		public DecimalValue CurrencyRate { get; set; }
+		public DecimalValue? CurrencyRate { get; set; }
 
 		[DataMember(Name="CurrencyRateTypeID", EmitDefaultValue=false)]
-		public StringValue CurrencyRateTypeID { get; set; }
+		public StringValue? CurrencyRateTypeID { get; set; }
 
 		[DataMember(Name="CurrencyViewState", EmitDefaultValue=false)]
-		public BooleanValue CurrencyViewState { get; set; }
+		public BooleanValue? CurrencyViewState { get; set; }
 
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
-		public StringValue CustomerID { get; set; }
+		public StringValue? CustomerID { get; set; }
 
 		[DataMember(Name="CreateNewShipmentForEveryOrder", EmitDefaultValue=false)]
-		public BooleanValue CreateNewShipmentForEveryOrder { get; set; }
+		public BooleanValue? CreateNewShipmentForEveryOrder { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<ShipmentDetail> Details { get; set; }
+		public List<ShipmentDetail>? Details { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue EffectiveDate { get; set; }
+		public DateTimeValue? EffectiveDate { get; set; }
 
 		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
-		public StringValue FOBPoint { get; set; }
+		public StringValue? FOBPoint { get; set; }
 
 		[DataMember(Name="OverrideFreightPrice", EmitDefaultValue=false)]
-		public BooleanValue OverrideFreightPrice { get; set; }
+		public BooleanValue? OverrideFreightPrice { get; set; }
 
 		[DataMember(Name="FreightAmount", EmitDefaultValue=false)]
-		public DecimalValue FreightAmount { get; set; }
+		public DecimalValue? FreightAmount { get; set; }
 
 		[DataMember(Name="FreightCost", EmitDefaultValue=false)]
-		public DecimalValue FreightCost { get; set; }
+		public DecimalValue? FreightCost { get; set; }
 
 		[DataMember(Name="FreightCurrencyID", EmitDefaultValue=false)]
-		public StringValue FreightCurrencyID { get; set; }
+		public StringValue? FreightCurrencyID { get; set; }
 
 		[DataMember(Name="GroundCollect", EmitDefaultValue=false)]
-		public BooleanValue GroundCollect { get; set; }
+		public BooleanValue? GroundCollect { get; set; }
 
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue Hold { get; set; }
+		public BooleanValue? Hold { get; set; }
 
 		[DataMember(Name="Insurance", EmitDefaultValue=false)]
-		public BooleanValue Insurance { get; set; }
+		public BooleanValue? Insurance { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue LocationID { get; set; }
+		public StringValue? LocationID { get; set; }
 
 		[DataMember(Name="Operation", EmitDefaultValue=false)]
-		public StringValue Operation { get; set; }
+		public StringValue? Operation { get; set; }
 
 		[DataMember(Name="Orders", EmitDefaultValue=false)]
-		public List<ShipmentOrderDetail> Orders { get; set; }
+		public List<ShipmentOrderDetail>? Orders { get; set; }
 
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
-		public StringValue Owner { get; set; }
+		public StringValue? Owner { get; set; }
 
 		[DataMember(Name="PackageCount", EmitDefaultValue=false)]
-		public IntValue PackageCount { get; set; }
+		public IntValue? PackageCount { get; set; }
 
 		[DataMember(Name="Packages", EmitDefaultValue=false)]
-		public List<ShipmentPackage> Packages { get; set; }
+		public List<ShipmentPackage>? Packages { get; set; }
 
 		[DataMember(Name="PackageWeight", EmitDefaultValue=false)]
-		public DecimalValue PackageWeight { get; set; }
+		public DecimalValue? PackageWeight { get; set; }
 
 		[DataMember(Name="Picked", EmitDefaultValue=false)]
-		public BooleanValue Picked { get; set; }
+		public BooleanValue? Picked { get; set; }
 
 		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
-		public DecimalValue ReciprocalRate { get; set; }
+		public DecimalValue? ReciprocalRate { get; set; }
 
 		[DataMember(Name="ResidentialDelivery", EmitDefaultValue=false)]
-		public BooleanValue ResidentialDelivery { get; set; }
+		public BooleanValue? ResidentialDelivery { get; set; }
 
 		[DataMember(Name="SaturdayDelivery", EmitDefaultValue=false)]
-		public BooleanValue SaturdayDelivery { get; set; }
+		public BooleanValue? SaturdayDelivery { get; set; }
 
 		[DataMember(Name="ShipmentDate", EmitDefaultValue=false)]
-		public DateTimeValue ShipmentDate { get; set; }
+		public DateTimeValue? ShipmentDate { get; set; }
 
 		[DataMember(Name="ShipmentNbr", EmitDefaultValue=false)]
-		public StringValue ShipmentNbr { get; set; }
+		public StringValue? ShipmentNbr { get; set; }
 
 		[DataMember(Name="ShippedQty", EmitDefaultValue=false)]
-		public DecimalValue ShippedQty { get; set; }
+		public DecimalValue? ShippedQty { get; set; }
 
 		[DataMember(Name="ShippedVolume", EmitDefaultValue=false)]
-		public DecimalValue ShippedVolume { get; set; }
+		public DecimalValue? ShippedVolume { get; set; }
 
 		[DataMember(Name="ShippedWeight", EmitDefaultValue=false)]
-		public DecimalValue ShippedWeight { get; set; }
+		public DecimalValue? ShippedWeight { get; set; }
 
 		[DataMember(Name="ShippingSettings", EmitDefaultValue=false)]
-		public ShipToSettings ShippingSettings { get; set; }
+		public ShipToSettings? ShippingSettings { get; set; }
 
 		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
-		public StringValue ShippingTerms { get; set; }
+		public StringValue? ShippingTerms { get; set; }
 
 		[DataMember(Name="ShippingZoneID", EmitDefaultValue=false)]
-		public StringValue ShippingZoneID { get; set; }
+		public StringValue? ShippingZoneID { get; set; }
 
 		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
-		public StringValue ShipVia { get; set; }
+		public StringValue? ShipVia { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="ToWarehouseID", EmitDefaultValue=false)]
-		public StringValue ToWarehouseID { get; set; }
+		public StringValue? ToWarehouseID { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 		[DataMember(Name="UseCustomersAccount", EmitDefaultValue=false)]
-		public BooleanValue UseCustomersAccount { get; set; }
+		public BooleanValue? UseCustomersAccount { get; set; }
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue WarehouseID { get; set; }
+		public StringValue? WarehouseID { get; set; }
 
 		[DataMember(Name="WorkgroupID", EmitDefaultValue=false)]
-		public StringValue WorkgroupID { get; set; }
+		public StringValue? WorkgroupID { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/20.200.001";
 		}

@@ -227,8 +227,8 @@ namespace Acumatica.RESTClient.AuthApi
         /// </returns>
         public static void Login(this ApiClient client, Credentials credentials)
         {
-            Task.Run(() => LoginAsync(client, credentials)).GetAwaiter().GetResult();
-        }
+           Task.Run(() => LoginAsync(client, credentials)).GetAwaiter().GetResult();
+		}
         /// <summary>
         /// Logs in to the system. 
         /// </summary>

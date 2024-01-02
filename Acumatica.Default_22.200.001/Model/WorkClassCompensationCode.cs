@@ -14,21 +14,21 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="CostCodeFrom", EmitDefaultValue=false)]
-		public StringValue CostCodeFrom { get; set; }
+		public StringValue? CostCodeFrom { get; set; }
 
 		[DataMember(Name="CostCodeTo", EmitDefaultValue=false)]
-		public StringValue CostCodeTo { get; set; }
+		public StringValue? CostCodeTo { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
-		public StringValue WCCCode { get; set; }
+		public StringValue? WCCCode { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

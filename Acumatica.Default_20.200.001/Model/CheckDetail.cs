@@ -14,22 +14,22 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
-		public DecimalValue AmountPaid { get; set; }
+		public DecimalValue? AmountPaid { get; set; }
 
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
-		public DecimalValue Balance { get; set; }
+		public DecimalValue? Balance { get; set; }
 
 		[DataMember(Name="CashDiscountBalance", EmitDefaultValue=false)]
-		public DecimalValue CashDiscountBalance { get; set; }
+		public DecimalValue? CashDiscountBalance { get; set; }
 
 		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
-		public IntValue DocLineNbr { get; set; }
+		public IntValue? DocLineNbr { get; set; }
 
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
-		public StringValue DocType { get; set; }
+		public StringValue? DocType { get; set; }
 
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue ReferenceNbr { get; set; }
+		public StringValue? ReferenceNbr { get; set; }
 
 	}
 }

@@ -14,13 +14,13 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="IsActive", EmitDefaultValue=false)]
-		public BooleanValue IsActive { get; set; }
+		public BooleanValue? IsActive { get; set; }
 
 		[DataMember(Name="RemindAtDate", EmitDefaultValue=false)]
-		public DateTimeValue RemindAtDate { get; set; }
+		public DateTimeValue? RemindAtDate { get; set; }
 
 		[DataMember(Name="RemindAtTime", EmitDefaultValue=false)]
-		public DateTimeValue RemindAtTime { get; set; }
+		public DateTimeValue? RemindAtTime { get; set; }
 
 	}
 }

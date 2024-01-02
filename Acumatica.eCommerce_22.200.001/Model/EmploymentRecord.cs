@@ -14,31 +14,31 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue EndDate { get; set; }
+		public DateTimeValue? EndDate { get; set; }
 
 		[DataMember(Name="FinalPayment", EmitDefaultValue=false)]
-		public GuidValue FinalPayment { get; set; }
+		public GuidValue? FinalPayment { get; set; }
 
 		[DataMember(Name="Position", EmitDefaultValue=false)]
-		public StringValue Position { get; set; }
+		public StringValue? Position { get; set; }
 
 		[DataMember(Name="RehireEligible", EmitDefaultValue=false)]
-		public BooleanValue RehireEligible { get; set; }
+		public BooleanValue? RehireEligible { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="StartReason", EmitDefaultValue=false)]
-		public StringValue StartReason { get; set; }
+		public StringValue? StartReason { get; set; }
 
 		[DataMember(Name="Terminated", EmitDefaultValue=false)]
-		public BooleanValue Terminated { get; set; }
+		public BooleanValue? Terminated { get; set; }
 
 		[DataMember(Name="TerminationReason", EmitDefaultValue=false)]
-		public StringValue TerminationReason { get; set; }
+		public StringValue? TerminationReason { get; set; }
 
 	}
 }

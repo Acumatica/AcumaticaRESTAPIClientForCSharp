@@ -14,49 +14,49 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
-		public StringValue AccountGroup { get; set; }
+		public StringValue? AccountGroup { get; set; }
 
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue Amount { get; set; }
+		public DecimalValue? Amount { get; set; }
 
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue CostCode { get; set; }
+		public StringValue? CostCode { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="OtherDraftCOAmount", EmitDefaultValue=false)]
-		public DecimalValue OtherDraftCOAmount { get; set; }
+		public DecimalValue? OtherDraftCOAmount { get; set; }
 
 		[DataMember(Name="PreviouslyApprovedCOAmount", EmitDefaultValue=false)]
-		public DecimalValue PreviouslyApprovedCOAmount { get; set; }
+		public DecimalValue? PreviouslyApprovedCOAmount { get; set; }
 
 		[DataMember(Name="PreviouslyApprovedCOQty", EmitDefaultValue=false)]
-		public DecimalValue PreviouslyApprovedCOQty { get; set; }
+		public DecimalValue? PreviouslyApprovedCOQty { get; set; }
 
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
-		public StringValue ProjectTaskID { get; set; }
+		public StringValue? ProjectTaskID { get; set; }
 
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue Qty { get; set; }
+		public DecimalValue? Qty { get; set; }
 
 		[DataMember(Name="RevisedBudgetedAmount", EmitDefaultValue=false)]
-		public DecimalValue RevisedBudgetedAmount { get; set; }
+		public DecimalValue? RevisedBudgetedAmount { get; set; }
 
 		[DataMember(Name="RevisedBudgetedQty", EmitDefaultValue=false)]
-		public DecimalValue RevisedBudgetedQty { get; set; }
+		public DecimalValue? RevisedBudgetedQty { get; set; }
 
 		[DataMember(Name="TotalPotentiallyRevisedAmount", EmitDefaultValue=false)]
-		public DecimalValue TotalPotentiallyRevisedAmount { get; set; }
+		public DecimalValue? TotalPotentiallyRevisedAmount { get; set; }
 
 		[DataMember(Name="UnitRate", EmitDefaultValue=false)]
-		public DecimalValue UnitRate { get; set; }
+		public DecimalValue? UnitRate { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 	}
 }

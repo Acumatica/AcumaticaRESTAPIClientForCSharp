@@ -14,27 +14,27 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public IntValue Account { get; set; }
+		public IntValue? Account { get; set; }
 
 		[DataMember(Name="AccountEmailAccountID", EmitDefaultValue=false)]
-		public StringValue AccountEmailAccountID { get; set; }
+		public StringValue? AccountEmailAccountID { get; set; }
 
 		[DataMember(Name="AssignedToMe", EmitDefaultValue=false)]
-		public BooleanValue AssignedToMe { get; set; }
+		public BooleanValue? AssignedToMe { get; set; }
 
 		[DataMember(Name="AssignedToOwner", EmitDefaultValue=false)]
-		public StringValue AssignedToOwner { get; set; }
+		public StringValue? AssignedToOwner { get; set; }
 
 		[DataMember(Name="IncludeFailed", EmitDefaultValue=false)]
-		public BooleanValue IncludeFailed { get; set; }
+		public BooleanValue? IncludeFailed { get; set; }
 
 		[DataMember(Name="Result", EmitDefaultValue=false)]
-		public List<EmailProcessingRow> Result { get; set; }
+		public List<EmailProcessingRow>? Result { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

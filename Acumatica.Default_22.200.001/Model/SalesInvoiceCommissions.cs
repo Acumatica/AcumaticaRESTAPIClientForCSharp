@@ -14,13 +14,13 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="CommissionAmount", EmitDefaultValue=false)]
-		public DecimalValue CommissionAmount { get; set; }
+		public DecimalValue? CommissionAmount { get; set; }
 
 		[DataMember(Name="SalesPersons", EmitDefaultValue=false)]
-		public List<SalesInvoiceSalesPersonDetail> SalesPersons { get; set; }
+		public List<SalesInvoiceSalesPersonDetail>? SalesPersons { get; set; }
 
 		[DataMember(Name="TotalCommissionableAmount", EmitDefaultValue=false)]
-		public DecimalValue TotalCommissionableAmount { get; set; }
+		public DecimalValue? TotalCommissionableAmount { get; set; }
 
 	}
 }

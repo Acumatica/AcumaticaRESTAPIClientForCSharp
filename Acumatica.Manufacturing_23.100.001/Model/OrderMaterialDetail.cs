@@ -14,109 +14,109 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Backflush", EmitDefaultValue=false)]
-		public BooleanValue Backflush { get; set; }
+		public BooleanValue? Backflush { get; set; }
 
 		[DataMember(Name="BatchSize", EmitDefaultValue=false)]
-		public DecimalValue BatchSize { get; set; }
+		public DecimalValue? BatchSize { get; set; }
 
 		[DataMember(Name="Byproduct", EmitDefaultValue=false)]
-		public BooleanValue Byproduct { get; set; }
+		public BooleanValue? Byproduct { get; set; }
 
 		[DataMember(Name="CompBOMEffDate", EmitDefaultValue=false)]
-		public DateTimeValue CompBOMEffDate { get; set; }
+		public DateTimeValue? CompBOMEffDate { get; set; }
 
 		[DataMember(Name="CompBOMID", EmitDefaultValue=false)]
-		public StringValue CompBOMID { get; set; }
+		public StringValue? CompBOMID { get; set; }
 
 		[DataMember(Name="CompBOMRevision", EmitDefaultValue=false)]
-		public StringValue CompBOMRevision { get; set; }
+		public StringValue? CompBOMRevision { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="LineOrder", EmitDefaultValue=false)]
-		public IntValue LineOrder { get; set; }
+		public IntValue? LineOrder { get; set; }
 
 		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue Location { get; set; }
+		public StringValue? Location { get; set; }
 
 		[DataMember(Name="MarkforPO", EmitDefaultValue=false)]
-		public BooleanValue MarkforPO { get; set; }
+		public BooleanValue? MarkforPO { get; set; }
 
 		[DataMember(Name="MarkforProduction", EmitDefaultValue=false)]
-		public BooleanValue MarkforProduction { get; set; }
+		public BooleanValue? MarkforProduction { get; set; }
 
 		[DataMember(Name="MaterialStatus", EmitDefaultValue=false)]
-		public StringValue MaterialStatus { get; set; }
+		public StringValue? MaterialStatus { get; set; }
 
 		[DataMember(Name="MaterialType", EmitDefaultValue=false)]
-		public StringValue MaterialType { get; set; }
+		public StringValue? MaterialType { get; set; }
 
 		[DataMember(Name="PhantomBomID", EmitDefaultValue=false)]
-		public StringValue PhantomBomID { get; set; }
+		public StringValue? PhantomBomID { get; set; }
 
 		[DataMember(Name="PhantomBOMLineID", EmitDefaultValue=false)]
-		public IntValue PhantomBOMLineID { get; set; }
+		public IntValue? PhantomBOMLineID { get; set; }
 
 		[DataMember(Name="PhantomBOMOperNbr", EmitDefaultValue=false)]
-		public StringValue PhantomBOMOperNbr { get; set; }
+		public StringValue? PhantomBOMOperNbr { get; set; }
 
 		[DataMember(Name="PhantomLevel", EmitDefaultValue=false)]
-		public IntValue PhantomLevel { get; set; }
+		public IntValue? PhantomLevel { get; set; }
 
 		[DataMember(Name="PhantomMatlLineID", EmitDefaultValue=false)]
-		public IntValue PhantomMatlLineID { get; set; }
+		public IntValue? PhantomMatlLineID { get; set; }
 
 		[DataMember(Name="PhantomMatlOperNbr", EmitDefaultValue=false)]
-		public StringValue PhantomMatlOperNbr { get; set; }
+		public StringValue? PhantomMatlOperNbr { get; set; }
 
 		[DataMember(Name="PlannedCost", EmitDefaultValue=false)]
-		public DecimalValue PlannedCost { get; set; }
+		public DecimalValue? PlannedCost { get; set; }
 
 		[DataMember(Name="QtyActual", EmitDefaultValue=false)]
-		public DecimalValue QtyActual { get; set; }
+		public DecimalValue? QtyActual { get; set; }
 
 		[DataMember(Name="QtyRemaining", EmitDefaultValue=false)]
-		public DecimalValue QtyRemaining { get; set; }
+		public DecimalValue? QtyRemaining { get; set; }
 
 		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
-		public DecimalValue QtyRequired { get; set; }
+		public DecimalValue? QtyRequired { get; set; }
 
 		[DataMember(Name="QtyRoundUp", EmitDefaultValue=false)]
-		public BooleanValue QtyRoundUp { get; set; }
+		public BooleanValue? QtyRoundUp { get; set; }
 
 		[DataMember(Name="ScrapFactor", EmitDefaultValue=false)]
-		public DecimalValue ScrapFactor { get; set; }
+		public DecimalValue? ScrapFactor { get; set; }
 
 		[DataMember(Name="SubcontractSource", EmitDefaultValue=false)]
-		public StringValue SubcontractSource { get; set; }
+		public StringValue? SubcontractSource { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="TotalActualCost", EmitDefaultValue=false)]
-		public DecimalValue TotalActualCost { get; set; }
+		public DecimalValue? TotalActualCost { get; set; }
 
 		[DataMember(Name="TotalRequired", EmitDefaultValue=false)]
-		public DecimalValue TotalRequired { get; set; }
+		public DecimalValue? TotalRequired { get; set; }
 
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
-		public DecimalValue UnitCost { get; set; }
+		public DecimalValue? UnitCost { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
 		[DataMember(Name="WarehouseOverride", EmitDefaultValue=false)]
-		public BooleanValue WarehouseOverride { get; set; }
+		public BooleanValue? WarehouseOverride { get; set; }
 
 	}
 }

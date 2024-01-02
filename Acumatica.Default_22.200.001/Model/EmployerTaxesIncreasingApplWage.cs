@@ -14,10 +14,10 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="EmployerTaxesIncreasingApplWageDetails", EmitDefaultValue=false)]
-		public List<EmployerTaxesIncreasingApplWageDetail> EmployerTaxesIncreasingApplWageDetails { get; set; }
+		public List<EmployerTaxesIncreasingApplWageDetail>? EmployerTaxesIncreasingApplWageDetails { get; set; }
 
 		[DataMember(Name="InclusionType", EmitDefaultValue=false)]
-		public StringValue InclusionType { get; set; }
+		public StringValue? InclusionType { get; set; }
 
 	}
 }

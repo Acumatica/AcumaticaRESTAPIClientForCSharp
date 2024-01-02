@@ -14,10 +14,10 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="UnionLocalID", EmitDefaultValue=false)]
-		public StringValue UnionLocalID { get; set; }
+		public StringValue? UnionLocalID { get; set; }
 
 	}
 }

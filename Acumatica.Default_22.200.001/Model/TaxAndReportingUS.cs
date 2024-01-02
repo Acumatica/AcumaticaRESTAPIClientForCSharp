@@ -14,16 +14,16 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="ReportingType", EmitDefaultValue=false)]
-		public StringValue ReportingType { get; set; }
+		public StringValue? ReportingType { get; set; }
 
 		[DataMember(Name="SubjecttoTaxes", EmitDefaultValue=false)]
-		public StringValue SubjecttoTaxes { get; set; }
+		public StringValue? SubjecttoTaxes { get; set; }
 
 		[DataMember(Name="TaxDetailsUS", EmitDefaultValue=false)]
-		public List<EarningCodeTaxDetailUS> TaxDetailsUS { get; set; }
+		public List<EarningCodeTaxDetailUS>? TaxDetailsUS { get; set; }
 
 		[DataMember(Name="WageType", EmitDefaultValue=false)]
-		public StringValue WageType { get; set; }
+		public StringValue? WageType { get; set; }
 
 	}
 }

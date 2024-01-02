@@ -14,79 +14,79 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue Branch { get; set; }
+		public StringValue? Branch { get; set; }
 
 		[DataMember(Name="Constraint", EmitDefaultValue=false)]
-		public DateTimeValue Constraint { get; set; }
+		public DateTimeValue? Constraint { get; set; }
 
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue Customer { get; set; }
+		public StringValue? Customer { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="DispatchPriority", EmitDefaultValue=false)]
-		public ShortValue DispatchPriority { get; set; }
+		public ShortValue? DispatchPriority { get; set; }
 
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue EndDate { get; set; }
+		public DateTimeValue? EndDate { get; set; }
 
 		[DataMember(Name="EndTime", EmitDefaultValue=false)]
-		public DateTimeValue EndTime { get; set; }
+		public DateTimeValue? EndTime { get; set; }
 
 		[DataMember(Name="FirmSchedule", EmitDefaultValue=false)]
-		public BooleanValue FirmSchedule { get; set; }
+		public BooleanValue? FirmSchedule { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="OrderDate", EmitDefaultValue=false)]
-		public DateTimeValue OrderDate { get; set; }
+		public DateTimeValue? OrderDate { get; set; }
 
 		[DataMember(Name="OrderDescription", EmitDefaultValue=false)]
-		public StringValue OrderDescription { get; set; }
+		public StringValue? OrderDescription { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="QtyRemaining", EmitDefaultValue=false)]
-		public DecimalValue QtyRemaining { get; set; }
+		public DecimalValue? QtyRemaining { get; set; }
 
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
-		public DecimalValue QtytoProduce { get; set; }
+		public DecimalValue? QtytoProduce { get; set; }
 
 		[DataMember(Name="ScheduleID", EmitDefaultValue=false)]
-		public IntValue ScheduleID { get; set; }
+		public IntValue? ScheduleID { get; set; }
 
 		[DataMember(Name="ScheduleStatus", EmitDefaultValue=false)]
-		public StringValue ScheduleStatus { get; set; }
+		public StringValue? ScheduleStatus { get; set; }
 
 		[DataMember(Name="SchedulingMethod", EmitDefaultValue=false)]
-		public StringValue SchedulingMethod { get; set; }
+		public StringValue? SchedulingMethod { get; set; }
 
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
-		public BooleanValue Selected { get; set; }
+		public BooleanValue? Selected { get; set; }
 
 		[DataMember(Name="SOOrderNbr", EmitDefaultValue=false)]
-		public StringValue SOOrderNbr { get; set; }
+		public StringValue? SOOrderNbr { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="StartTime", EmitDefaultValue=false)]
-		public DateTimeValue StartTime { get; set; }
+		public DateTimeValue? StartTime { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
 	}
 }

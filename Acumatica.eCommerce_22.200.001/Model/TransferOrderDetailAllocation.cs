@@ -14,19 +14,19 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue LocationID { get; set; }
+		public StringValue? LocationID { get; set; }
 
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue LotSerialNbr { get; set; }
+		public StringValue? LotSerialNbr { get; set; }
 
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue Qty { get; set; }
+		public DecimalValue? Qty { get; set; }
 
 		[DataMember(Name="SplitLineNumber", EmitDefaultValue=false)]
-		public IntValue SplitLineNumber { get; set; }
+		public IntValue? SplitLineNumber { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 	}
 }

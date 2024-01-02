@@ -14,22 +14,22 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="DefaultPrice", EmitDefaultValue=false)]
-		public DecimalValue DefaultPrice { get; set; }
+		public DecimalValue? DefaultPrice { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="MSRP", EmitDefaultValue=false)]
-		public DecimalValue MSRP { get; set; }
+		public DecimalValue? MSRP { get; set; }
 
 		[DataMember(Name="ItemStatus", EmitDefaultValue=false)]
-		public StringValue ItemStatus { get; set; }
+		public StringValue? ItemStatus { get; set; }
 
 		[DataMember(Name="ExportToExternal", EmitDefaultValue=false)]
-		public BooleanValue ExportToExternal { get; set; }
+		public BooleanValue? ExportToExternal { get; set; }
 
 	}
 }

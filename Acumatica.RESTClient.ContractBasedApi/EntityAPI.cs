@@ -29,13 +29,13 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public int GetProcessStatus(string locationRaw)
             => ((int)ApiClientExtensions.GetProcessStatus(Client, locationRaw));
 
-        public async Task<List<EntityType>> GetListAsync(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null, Dictionary<string, string> customHeaders = null)
+        public async Task<List<EntityType>> GetListAsync(string? select = null, string? filter = null, string? expand = null, string? custom = null, int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null)
             => await ApiClientExtensions.GetListAsync<EntityType>(Client, GetEndpointPath(), select, filter, expand, custom, skip, top, customHeaders);
 
-        public EntityType PutEntity(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null, string branch = null)
+        public EntityType PutEntity(EntityType entity, string? select = null, string? filter = null, string? expand = null, string? custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
             => ApiClientExtensions.Put(Client, entity, GetEndpointPath(), select, filter, expand, custom, method, businessDate, branch);
 
-        public async Task<EntityType> PutEntityAsync(EntityType entity, string select = null, string filter = null, string expand = null, string custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null, string branch = null)
+        public async Task<EntityType> PutEntityAsync(EntityType entity, string? select = null, string? filter = null, string? expand = null, string? custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
             => await ApiClientExtensions.PutAsync(Client, entity, GetEndpointPath(), select, filter, expand, custom, method, businessDate, branch);
 
 
@@ -52,28 +52,28 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public async Task PutFileAsync(IEnumerable<string> ids, string filename, byte[] content)
             => await ApiClientExtensions.PutFileAsync<EntityType>(Client, ids, filename, content, GetEndpointPath());
 
-        public string InvokeAction(EntityAction<EntityType> action, DateTime? businessDate = null, string branch = null)
+        public string InvokeAction(EntityAction<EntityType> action, DateTime? businessDate = null, string? branch = null)
             => ApiClientExtensions.InvokeAction(Client, action, GetEndpointPath(), businessDate, branch);
 
-        public async Task<string> InvokeActionAsync(EntityAction<EntityType> action, DateTime? businessDate = null, string branch = null)
+        public async Task<string> InvokeActionAsync(EntityAction<EntityType> action, DateTime? businessDate = null, string? branch = null)
             => await ApiClientExtensions.InvokeActionAsync(Client, action, GetEndpointPath(), businessDate, branch);
 
-        public async Task<EntityType> GetByKeysAsync(IEnumerable<string> ids, string select = null, string expand = null, string custom = null)
+        public async Task<EntityType> GetByKeysAsync(IEnumerable<string> ids, string? select = null, string? expand = null, string? custom = null)
             => await ApiClientExtensions.GetByKeysAsync<EntityType>(Client, ids, GetEndpointPath(), select, expand, custom);
 
-        public List<EntityType> GetList(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null, Dictionary<string, string> customHeaders = null)
+        public List<EntityType> GetList(string? select = null, string? filter = null, string? expand = null, string? custom = null, int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null)
             => ApiClientExtensions.GetList<EntityType>(Client, GetEndpointPath(), select, filter, expand, custom, skip, top, customHeaders);
 
-        public EntityType GetByKeys(IEnumerable<string> ids, string select = null, string expand = null, string custom = null)
+        public EntityType GetByKeys(IEnumerable<string> ids, string? select = null, string? expand = null, string? custom = null)
             => ApiClientExtensions.GetByKeys<EntityType>(Client, ids, GetEndpointPath(), select, expand, custom);
 
-        public async Task<EntityType> GetByIdAsync(Guid? id, string select = null, string expand = null, string custom = null)
+        public async Task<EntityType> GetByIdAsync(Guid? id, string? select = null, string? expand = null, string? custom = null)
             => await ApiClientExtensions.GetByIdAsync<EntityType>(Client, id, GetEndpointPath(), select, expand, custom);
 
         public async Task<EntityType> GetAdHocSchemaAsync()
             => await ApiClientExtensions.GetAdHocSchemaAsync<EntityType>(Client, GetEndpointPath());
 
-        public EntityType GetById(Guid? id, string select = null, string filter = null, string expand = null, string custom = null)
+        public EntityType GetById(Guid? id, string? select = null, string? filter = null, string? expand = null, string? custom = null)
             => ApiClientExtensions.GetById<EntityType>(Client, id, GetEndpointPath(), select,  expand, custom);
 
 

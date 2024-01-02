@@ -14,40 +14,40 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="CaseID", EmitDefaultValue=false)]
-		public StringValue CaseID { get; set; }
+		public StringValue? CaseID { get; set; }
 
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
-		public StringValue ClassID { get; set; }
+		public StringValue? ClassID { get; set; }
 
 		[DataMember(Name="ClosingDate", EmitDefaultValue=false)]
-		public DateTimeValue ClosingDate { get; set; }
+		public DateTimeValue? ClosingDate { get; set; }
 
 		[DataMember(Name="DateReported", EmitDefaultValue=false)]
-		public DateTimeValue DateReported { get; set; }
+		public DateTimeValue? DateReported { get; set; }
 
 		[DataMember(Name="Estimation", EmitDefaultValue=false)]
-		public StringValue Estimation { get; set; }
+		public StringValue? Estimation { get; set; }
 
 		[DataMember(Name="InitialResponse", EmitDefaultValue=false)]
-		public StringValue InitialResponse { get; set; }
+		public StringValue? InitialResponse { get; set; }
 
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
-		public StringValue Owner { get; set; }
+		public StringValue? Owner { get; set; }
 
 		[DataMember(Name="Reason", EmitDefaultValue=false)]
-		public StringValue Reason { get; set; }
+		public StringValue? Reason { get; set; }
 
 		[DataMember(Name="Severity", EmitDefaultValue=false)]
-		public StringValue Severity { get; set; }
+		public StringValue? Severity { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
-		public StringValue Subject { get; set; }
+		public StringValue? Subject { get; set; }
 
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
-		public StringValue Workgroup { get; set; }
+		public StringValue? Workgroup { get; set; }
 
 	}
 }

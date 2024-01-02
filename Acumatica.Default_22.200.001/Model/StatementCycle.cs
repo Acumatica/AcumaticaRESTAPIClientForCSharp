@@ -14,63 +14,63 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="AgingPeriod1EndDay", EmitDefaultValue=false)]
-		public ShortValue AgingPeriod1EndDay { get; set; }
+		public ShortValue? AgingPeriod1EndDay { get; set; }
 
 		[DataMember(Name="AgingPeriod1Message", EmitDefaultValue=false)]
-		public StringValue AgingPeriod1Message { get; set; }
+		public StringValue? AgingPeriod1Message { get; set; }
 
 		[DataMember(Name="AgingPeriod2EndDay", EmitDefaultValue=false)]
-		public ShortValue AgingPeriod2EndDay { get; set; }
+		public ShortValue? AgingPeriod2EndDay { get; set; }
 
 		[DataMember(Name="AgingPeriod2Message", EmitDefaultValue=false)]
-		public StringValue AgingPeriod2Message { get; set; }
+		public StringValue? AgingPeriod2Message { get; set; }
 
 		[DataMember(Name="AgingPeriod3EndDay", EmitDefaultValue=false)]
-		public ShortValue AgingPeriod3EndDay { get; set; }
+		public ShortValue? AgingPeriod3EndDay { get; set; }
 
 		[DataMember(Name="AgingPeriod3Message", EmitDefaultValue=false)]
-		public StringValue AgingPeriod3Message { get; set; }
+		public StringValue? AgingPeriod3Message { get; set; }
 
 		[DataMember(Name="AgingPeriod4Message", EmitDefaultValue=false)]
-		public StringValue AgingPeriod4Message { get; set; }
+		public StringValue? AgingPeriod4Message { get; set; }
 
 		[DataMember(Name="ApplyOverdueCharges", EmitDefaultValue=false)]
-		public BooleanValue ApplyOverdueCharges { get; set; }
+		public BooleanValue? ApplyOverdueCharges { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDateTime { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="CycleID", EmitDefaultValue=false)]
-		public StringValue CycleID { get; set; }
+		public StringValue? CycleID { get; set; }
 
 		[DataMember(Name="DayOfMonth", EmitDefaultValue=false)]
-		public ShortValue DayOfMonth { get; set; }
+		public ShortValue? DayOfMonth { get; set; }
 
 		[DataMember(Name="DayOfMonth1", EmitDefaultValue=false)]
-		public ShortValue DayOfMonth1 { get; set; }
+		public ShortValue? DayOfMonth1 { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="LastStatementDate", EmitDefaultValue=false)]
-		public DateTimeValue LastStatementDate { get; set; }
+		public DateTimeValue? LastStatementDate { get; set; }
 
 		[DataMember(Name="OverdueChargeID", EmitDefaultValue=false)]
-		public StringValue OverdueChargeID { get; set; }
+		public StringValue? OverdueChargeID { get; set; }
 
 		[DataMember(Name="PrepareOn", EmitDefaultValue=false)]
-		public StringValue PrepareOn { get; set; }
+		public StringValue? PrepareOn { get; set; }
 
 		[DataMember(Name="RequireOverdueChargesCalculationBeforeStatement", EmitDefaultValue=false)]
-		public BooleanValue RequireOverdueChargesCalculationBeforeStatement { get; set; }
+		public BooleanValue? RequireOverdueChargesCalculationBeforeStatement { get; set; }
 
 		[DataMember(Name="RequirePaymentApplicationBeforeStatementProcessing", EmitDefaultValue=false)]
-		public BooleanValue RequirePaymentApplicationBeforeStatementProcessing { get; set; }
+		public BooleanValue? RequirePaymentApplicationBeforeStatementProcessing { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

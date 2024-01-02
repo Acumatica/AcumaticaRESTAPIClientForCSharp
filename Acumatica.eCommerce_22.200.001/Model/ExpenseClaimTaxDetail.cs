@@ -14,37 +14,37 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="DeductibleTaxRate", EmitDefaultValue=false)]
-		public DecimalValue DeductibleTaxRate { get; set; }
+		public DecimalValue? DeductibleTaxRate { get; set; }
 
 		[DataMember(Name="ExpenseAmount", EmitDefaultValue=false)]
-		public DecimalValue ExpenseAmount { get; set; }
+		public DecimalValue? ExpenseAmount { get; set; }
 
 		[DataMember(Name="IncludeinVATExemptTotal", EmitDefaultValue=false)]
-		public BooleanValue IncludeinVATExemptTotal { get; set; }
+		public BooleanValue? IncludeinVATExemptTotal { get; set; }
 
 		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
-		public BooleanValue PendingVAT { get; set; }
+		public BooleanValue? PendingVAT { get; set; }
 
 		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
-		public BooleanValue ReverseVAT { get; set; }
+		public BooleanValue? ReverseVAT { get; set; }
 
 		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
-		public BooleanValue StatisticalVAT { get; set; }
+		public BooleanValue? StatisticalVAT { get; set; }
 
 		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
-		public DecimalValue TaxableAmount { get; set; }
+		public DecimalValue? TaxableAmount { get; set; }
 
 		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
-		public DecimalValue TaxAmount { get; set; }
+		public DecimalValue? TaxAmount { get; set; }
 
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue TaxID { get; set; }
+		public StringValue? TaxID { get; set; }
 
 		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
-		public DecimalValue TaxRate { get; set; }
+		public DecimalValue? TaxRate { get; set; }
 
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
-		public StringValue TaxType { get; set; }
+		public StringValue? TaxType { get; set; }
 
 	}
 }

@@ -50,8 +50,8 @@ namespace Acumatica.RESTClient.Client
         /// </param>
         public ApiClient(string basePath,
             int timeout = 100000,
-             Action<HttpRequestMessage> requestInterceptor = null,
-             Action<HttpResponseMessage> responseInterceptor = null)
+             Action<HttpRequestMessage>? requestInterceptor = null,
+             Action<HttpResponseMessage>? responseInterceptor = null)
         {
             BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
 
@@ -80,12 +80,12 @@ namespace Acumatica.RESTClient.Client
         /// <summary>
         /// Method that is executed before request. May be used for loggin the request body.
         /// </summary>
-        public Action<HttpRequestMessage> RequestInterceptor { get; set; }
+        public Action<HttpRequestMessage>? RequestInterceptor { get; set; }
 
         /// <summary>
         /// Method that is executed after receiving response. May be used for loggin the response.
         /// </summary>
-        public Action<HttpResponseMessage> ResponseInterceptor { get; set; }
+        public Action<HttpResponseMessage>? ResponseInterceptor { get; set; }
 
 
         /// <summary>
@@ -136,11 +136,11 @@ namespace Acumatica.RESTClient.Client
         public async Task<HttpResponseMessage> CallApiAsync(
             String resourcePath,
             HttpMethod method,
-            List<KeyValuePair<String, String>> queryParams,
-            Object postBody,
+            List<KeyValuePair<String, String>>? queryParams,
+            Object? postBody,
             HeaderContentType acceptType,
             HeaderContentType contentType,
-            Dictionary<String, String> customHeaders = null)
+            Dictionary<String, String>? customHeaders = null)
         {
             var request = PrepareRequest(
                 resourcePath,
@@ -172,9 +172,9 @@ namespace Acumatica.RESTClient.Client
         private HttpRequestMessage PrepareRequest(
             String resourcePath,
             HttpMethod method,
-            List<KeyValuePair<String, String>> queryParams,
-            Object postBody,
-            Dictionary<String, String> headerParams,
+            List<KeyValuePair<String, String>>? queryParams,
+            Object? postBody,
+            Dictionary<String, String>? headerParams,
             string acceptType,
             string contentType)
         {

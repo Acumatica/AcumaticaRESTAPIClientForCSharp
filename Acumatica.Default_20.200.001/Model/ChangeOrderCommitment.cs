@@ -14,73 +14,73 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue Account { get; set; }
+		public StringValue? Account { get; set; }
 
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue Amount { get; set; }
+		public DecimalValue? Amount { get; set; }
 
 		[DataMember(Name="AmountinBaseCurrency", EmitDefaultValue=false)]
-		public DecimalValue AmountinBaseCurrency { get; set; }
+		public DecimalValue? AmountinBaseCurrency { get; set; }
 
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue CostCode { get; set; }
+		public StringValue? CostCode { get; set; }
 
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
-		public StringValue CurrencyID { get; set; }
+		public StringValue? CurrencyID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LineAmount", EmitDefaultValue=false)]
-		public DecimalValue LineAmount { get; set; }
+		public DecimalValue? LineAmount { get; set; }
 
 		[DataMember(Name="LineDescription", EmitDefaultValue=false)]
-		public StringValue LineDescription { get; set; }
+		public StringValue? LineDescription { get; set; }
 
 		[DataMember(Name="OpenAmount", EmitDefaultValue=false)]
-		public DecimalValue OpenAmount { get; set; }
+		public DecimalValue? OpenAmount { get; set; }
 
 		[DataMember(Name="OpenQty", EmitDefaultValue=false)]
-		public DecimalValue OpenQty { get; set; }
+		public DecimalValue? OpenQty { get; set; }
 
 		[DataMember(Name="OrderDate", EmitDefaultValue=false)]
-		public DateTimeValue OrderDate { get; set; }
+		public DateTimeValue? OrderDate { get; set; }
 
 		[DataMember(Name="OrderQty", EmitDefaultValue=false)]
-		public DecimalValue OrderQty { get; set; }
+		public DecimalValue? OrderQty { get; set; }
 
 		[DataMember(Name="POLineNbr", EmitDefaultValue=false)]
-		public IntValue POLineNbr { get; set; }
+		public IntValue? POLineNbr { get; set; }
 
 		[DataMember(Name="PONbr", EmitDefaultValue=false)]
-		public StringValue PONbr { get; set; }
+		public StringValue? PONbr { get; set; }
 
 		[DataMember(Name="PotentiallyRevisedAmount", EmitDefaultValue=false)]
-		public DecimalValue PotentiallyRevisedAmount { get; set; }
+		public DecimalValue? PotentiallyRevisedAmount { get; set; }
 
 		[DataMember(Name="PotentiallyRevisedQty", EmitDefaultValue=false)]
-		public DecimalValue PotentiallyRevisedQty { get; set; }
+		public DecimalValue? PotentiallyRevisedQty { get; set; }
 
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
-		public StringValue ProjectTaskID { get; set; }
+		public StringValue? ProjectTaskID { get; set; }
 
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue Qty { get; set; }
+		public DecimalValue? Qty { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
-		public DecimalValue UnitCost { get; set; }
+		public DecimalValue? UnitCost { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
-		public StringValue Vendor { get; set; }
+		public StringValue? Vendor { get; set; }
 
 	}
 }

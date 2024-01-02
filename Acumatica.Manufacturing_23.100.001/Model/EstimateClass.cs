@@ -14,45 +14,45 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
-		public StringValue ClassID { get; set; }
+		public StringValue? ClassID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Engineer", EmitDefaultValue=false)]
-		public StringValue Engineer { get; set; }
+		public StringValue? Engineer { get; set; }
 
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
-		public StringValue ItemClass { get; set; }
+		public StringValue? ItemClass { get; set; }
 
 		[DataMember(Name="LaborMarkupPct", EmitDefaultValue=false)]
-		public DecimalValue LaborMarkupPct { get; set; }
+		public DecimalValue? LaborMarkupPct { get; set; }
 
 		[DataMember(Name="LeadTimeDays", EmitDefaultValue=false)]
-		public IntValue LeadTimeDays { get; set; }
+		public IntValue? LeadTimeDays { get; set; }
 
 		[DataMember(Name="MachineMarkupPct", EmitDefaultValue=false)]
-		public DecimalValue MachineMarkupPct { get; set; }
+		public DecimalValue? MachineMarkupPct { get; set; }
 
 		[DataMember(Name="MaterialMarkupPct", EmitDefaultValue=false)]
-		public DecimalValue MaterialMarkupPct { get; set; }
+		public DecimalValue? MaterialMarkupPct { get; set; }
 
 		[DataMember(Name="OrderQty", EmitDefaultValue=false)]
-		public DecimalValue OrderQty { get; set; }
+		public DecimalValue? OrderQty { get; set; }
 
 		[DataMember(Name="OverheadMarkupPct", EmitDefaultValue=false)]
-		public DecimalValue OverheadMarkupPct { get; set; }
+		public DecimalValue? OverheadMarkupPct { get; set; }
 
 		[DataMember(Name="SubcontractMarkupPct", EmitDefaultValue=false)]
-		public DecimalValue SubcontractMarkupPct { get; set; }
+		public DecimalValue? SubcontractMarkupPct { get; set; }
 
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
-		public StringValue TaxCategory { get; set; }
+		public StringValue? TaxCategory { get; set; }
 
 		[DataMember(Name="ToolMarkupPct", EmitDefaultValue=false)]
-		public DecimalValue ToolMarkupPct { get; set; }
+		public DecimalValue? ToolMarkupPct { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

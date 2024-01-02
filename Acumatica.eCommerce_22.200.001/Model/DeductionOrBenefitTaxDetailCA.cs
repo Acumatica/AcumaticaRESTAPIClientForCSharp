@@ -14,16 +14,16 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Benefitincreasestaxablewage", EmitDefaultValue=false)]
-		public BooleanValue Benefitincreasestaxablewage { get; set; }
+		public BooleanValue? Benefitincreasestaxablewage { get; set; }
 
 		[DataMember(Name="Deductiondecreasestaxablewage", EmitDefaultValue=false)]
-		public BooleanValue Deductiondecreasestaxablewage { get; set; }
+		public BooleanValue? Deductiondecreasestaxablewage { get; set; }
 
 		[DataMember(Name="TaxCode", EmitDefaultValue=false)]
-		public StringValue TaxCode { get; set; }
+		public StringValue? TaxCode { get; set; }
 
 		[DataMember(Name="TaxName", EmitDefaultValue=false)]
-		public StringValue TaxName { get; set; }
+		public StringValue? TaxName { get; set; }
 
 	}
 }

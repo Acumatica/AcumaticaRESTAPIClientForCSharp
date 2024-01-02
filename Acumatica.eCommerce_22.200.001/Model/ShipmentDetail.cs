@@ -14,61 +14,61 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Allocations", EmitDefaultValue=false)]
-		public List<ShipmentDetailAllocation> Allocations { get; set; }
+		public List<ShipmentDetailAllocation>? Allocations { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
-		public DateTimeValue ExpirationDate { get; set; }
+		public DateTimeValue? ExpirationDate { get; set; }
 
 		[DataMember(Name="FreeItem", EmitDefaultValue=false)]
-		public BooleanValue FreeItem { get; set; }
+		public BooleanValue? FreeItem { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue LocationID { get; set; }
+		public StringValue? LocationID { get; set; }
 
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue LotSerialNbr { get; set; }
+		public StringValue? LotSerialNbr { get; set; }
 
 		[DataMember(Name="OpenQty", EmitDefaultValue=false)]
-		public DecimalValue OpenQty { get; set; }
+		public DecimalValue? OpenQty { get; set; }
 
 		[DataMember(Name="OrderedQty", EmitDefaultValue=false)]
-		public DecimalValue OrderedQty { get; set; }
+		public DecimalValue? OrderedQty { get; set; }
 
 		[DataMember(Name="OrderLineNbr", EmitDefaultValue=false)]
-		public IntValue OrderLineNbr { get; set; }
+		public IntValue? OrderLineNbr { get; set; }
 
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
-		public StringValue OrderNbr { get; set; }
+		public StringValue? OrderNbr { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="OriginalQty", EmitDefaultValue=false)]
-		public DecimalValue OriginalQty { get; set; }
+		public DecimalValue? OriginalQty { get; set; }
 
 		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
-		public StringValue ReasonCode { get; set; }
+		public StringValue? ReasonCode { get; set; }
 
 		[DataMember(Name="ShippedQty", EmitDefaultValue=false)]
-		public DecimalValue ShippedQty { get; set; }
+		public DecimalValue? ShippedQty { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue WarehouseID { get; set; }
+		public StringValue? WarehouseID { get; set; }
 
 	}
 }

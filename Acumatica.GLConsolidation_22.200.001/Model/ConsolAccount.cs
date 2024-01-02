@@ -14,12 +14,12 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	{
 
 		[DataMember(Name="AccountCD", EmitDefaultValue=false)]
-		public StringValue AccountCD { get; set; }
+		public StringValue? AccountCD { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/GLConsolidation/22.200.001";
 		}

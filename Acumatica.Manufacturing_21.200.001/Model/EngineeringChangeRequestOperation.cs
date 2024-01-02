@@ -14,73 +14,73 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]
-		public BooleanValue BackflushLabor { get; set; }
+		public BooleanValue? BackflushLabor { get; set; }
 
 		[DataMember(Name="ChangeStatus", EmitDefaultValue=false)]
-		public StringValue ChangeStatus { get; set; }
+		public StringValue? ChangeStatus { get; set; }
 
 		[DataMember(Name="DropShippedtoVendor", EmitDefaultValue=false)]
-		public BooleanValue DropShippedtoVendor { get; set; }
+		public BooleanValue? DropShippedtoVendor { get; set; }
 
 		[DataMember(Name="ECRID", EmitDefaultValue=false)]
-		public StringValue ECRID { get; set; }
+		public StringValue? ECRID { get; set; }
 
 		[DataMember(Name="FinishTime", EmitDefaultValue=false)]
-		public StringValue FinishTime { get; set; }
+		public StringValue? FinishTime { get; set; }
 
 		[DataMember(Name="MachineTime", EmitDefaultValue=false)]
-		public StringValue MachineTime { get; set; }
+		public StringValue? MachineTime { get; set; }
 
 		[DataMember(Name="MachineUnits", EmitDefaultValue=false)]
-		public DecimalValue MachineUnits { get; set; }
+		public DecimalValue? MachineUnits { get; set; }
 
 		[DataMember(Name="Material", EmitDefaultValue=false)]
-		public List<EngineeringChangeRequestMaterial> Material { get; set; }
+		public List<EngineeringChangeRequestMaterial>? Material { get; set; }
 
 		[DataMember(Name="OperationID", EmitDefaultValue=false)]
-		public StringValue OperationID { get; set; }
+		public StringValue? OperationID { get; set; }
 
 		[DataMember(Name="OperDesc", EmitDefaultValue=false)]
-		public StringValue OperDesc { get; set; }
+		public StringValue? OperDesc { get; set; }
 
 		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
-		public BooleanValue OutsideProcess { get; set; }
+		public BooleanValue? OutsideProcess { get; set; }
 
 		[DataMember(Name="Overheads", EmitDefaultValue=false)]
-		public List<EngineeringChangeRequestOverhead> Overheads { get; set; }
+		public List<EngineeringChangeRequestOverhead>? Overheads { get; set; }
 
 		[DataMember(Name="QueueTime", EmitDefaultValue=false)]
-		public StringValue QueueTime { get; set; }
+		public StringValue? QueueTime { get; set; }
 
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue Revision { get; set; }
+		public StringValue? Revision { get; set; }
 
 		[DataMember(Name="RunTime", EmitDefaultValue=false)]
-		public StringValue RunTime { get; set; }
+		public StringValue? RunTime { get; set; }
 
 		[DataMember(Name="RunUnits", EmitDefaultValue=false)]
-		public DecimalValue RunUnits { get; set; }
+		public DecimalValue? RunUnits { get; set; }
 
 		[DataMember(Name="ScrapAction", EmitDefaultValue=false)]
-		public StringValue ScrapAction { get; set; }
+		public StringValue? ScrapAction { get; set; }
 
 		[DataMember(Name="SetupTime", EmitDefaultValue=false)]
-		public StringValue SetupTime { get; set; }
+		public StringValue? SetupTime { get; set; }
 
 		[DataMember(Name="Steps", EmitDefaultValue=false)]
-		public List<EngineeringChangeRequestStep> Steps { get; set; }
+		public List<EngineeringChangeRequestStep>? Steps { get; set; }
 
 		[DataMember(Name="Tools", EmitDefaultValue=false)]
-		public List<EngineeringChangeRequestTools> Tools { get; set; }
+		public List<EngineeringChangeRequestTools>? Tools { get; set; }
 
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
-		public StringValue Vendor { get; set; }
+		public StringValue? Vendor { get; set; }
 
 		[DataMember(Name="VendorLocation", EmitDefaultValue=false)]
-		public StringValue VendorLocation { get; set; }
+		public StringValue? VendorLocation { get; set; }
 
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
-		public StringValue WorkCenter { get; set; }
+		public StringValue? WorkCenter { get; set; }
 
 	}
 }

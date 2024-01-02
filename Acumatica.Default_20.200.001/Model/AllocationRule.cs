@@ -14,12 +14,12 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="AllocationRuleID", EmitDefaultValue=false)]
-		public StringValue AllocationRuleID { get; set; }
+		public StringValue? AllocationRuleID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/20.200.001";
 		}

@@ -14,36 +14,36 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="BaseUnit", EmitDefaultValue=false)]
-		public StringValue BaseUnit { get; set; }
+		public StringValue? BaseUnit { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LotQty", EmitDefaultValue=false)]
-		public DecimalValue LotQty { get; set; }
+		public DecimalValue? LotQty { get; set; }
 
 		[DataMember(Name="MaxOrderQty", EmitDefaultValue=false)]
-		public DecimalValue MaxOrderQty { get; set; }
+		public DecimalValue? MaxOrderQty { get; set; }
 
 		[DataMember(Name="MinOrderQty", EmitDefaultValue=false)]
-		public DecimalValue MinOrderQty { get; set; }
+		public DecimalValue? MinOrderQty { get; set; }
 
 		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
-		public DecimalValue QtyOnHand { get; set; }
+		public DecimalValue? QtyOnHand { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<MRPDetailInquiryResult> Results { get; set; }
+		public List<MRPDetailInquiryResult>? Results { get; set; }
 
 		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
-		public DecimalValue SafetyStock { get; set; }
+		public DecimalValue? SafetyStock { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

@@ -28,13 +28,13 @@ namespace Acumatica.RESTClient.Auxiliary
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
-        public static List<KeyValuePair<string, string>> ComposeQueryParams(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null)
+        public static List<KeyValuePair<string, string>> ComposeQueryParams(string? select = null, string? filter = null, string? expand = null, string? custom = null, int? skip = null, int? top = null)
         {
             var queryParameters = new List<KeyValuePair<string, string>>();
-            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$select", select));
-            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$filter", filter));
-            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$expand", expand));
-            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$custom", custom));
+            if (!String.IsNullOrEmpty(select)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$select", select!));
+            if (!String.IsNullOrEmpty(filter)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$filter", filter!));
+            if (!String.IsNullOrEmpty(expand)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$expand", expand!));
+            if (!String.IsNullOrEmpty(custom)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$custom", custom!));
             if (skip != null) queryParameters.AddRange(ParameterToKeyValuePairs("", "$skip", skip));
             if (top != null) queryParameters.AddRange(ParameterToKeyValuePairs("", "$top", top));
 
@@ -46,7 +46,7 @@ namespace Acumatica.RESTClient.Auxiliary
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public static async Task<object> DeserializeAsync<T>(HttpResponseMessage response)
+        public static async Task<object?> DeserializeAsync<T>(HttpResponseMessage response)
         {
             if (typeof(T) == typeof(byte[])) // return byte array
             {
@@ -84,7 +84,7 @@ namespace Acumatica.RESTClient.Auxiliary
         /// </summary>
         /// <param name="obj">Object.</param>
         /// <returns>JSON string.</returns>
-        public static String Serialize(object obj)
+        public static String? Serialize(object obj)
         {
             try
             {

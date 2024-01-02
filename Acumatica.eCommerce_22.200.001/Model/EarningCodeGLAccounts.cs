@@ -14,28 +14,28 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="BenefitExpenseAccount", EmitDefaultValue=false)]
-		public StringValue BenefitExpenseAccount { get; set; }
+		public StringValue? BenefitExpenseAccount { get; set; }
 
 		[DataMember(Name="BenefitExpenseSub", EmitDefaultValue=false)]
-		public StringValue BenefitExpenseSub { get; set; }
+		public StringValue? BenefitExpenseSub { get; set; }
 
 		[DataMember(Name="EarningsAccount", EmitDefaultValue=false)]
-		public StringValue EarningsAccount { get; set; }
+		public StringValue? EarningsAccount { get; set; }
 
 		[DataMember(Name="EarningsSub", EmitDefaultValue=false)]
-		public StringValue EarningsSub { get; set; }
+		public StringValue? EarningsSub { get; set; }
 
 		[DataMember(Name="PTOExpenseAccount", EmitDefaultValue=false)]
-		public StringValue PTOExpenseAccount { get; set; }
+		public StringValue? PTOExpenseAccount { get; set; }
 
 		[DataMember(Name="PTOExpenseSub", EmitDefaultValue=false)]
-		public StringValue PTOExpenseSub { get; set; }
+		public StringValue? PTOExpenseSub { get; set; }
 
 		[DataMember(Name="TaxExpenseAccount", EmitDefaultValue=false)]
-		public StringValue TaxExpenseAccount { get; set; }
+		public StringValue? TaxExpenseAccount { get; set; }
 
 		[DataMember(Name="TaxExpenseSub", EmitDefaultValue=false)]
-		public StringValue TaxExpenseSub { get; set; }
+		public StringValue? TaxExpenseSub { get; set; }
 
 	}
 }

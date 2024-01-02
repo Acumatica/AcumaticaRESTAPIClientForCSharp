@@ -14,51 +14,51 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<EngineeringChangeOrderAttribute> Attributes { get; set; }
+		public List<EngineeringChangeOrderAttribute>? Attributes { get; set; }
 
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]
-		public StringValue BOMID { get; set; }
+		public StringValue? BOMID { get; set; }
 
 		[DataMember(Name="BOMRevision", EmitDefaultValue=false)]
-		public StringValue BOMRevision { get; set; }
+		public StringValue? BOMRevision { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="ECOID", EmitDefaultValue=false)]
-		public StringValue ECOID { get; set; }
+		public StringValue? ECOID { get; set; }
 
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue EffectiveDate { get; set; }
+		public DateTimeValue? EffectiveDate { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="Operations", EmitDefaultValue=false)]
-		public List<EngineeringChangeOrderOperation> Operations { get; set; }
+		public List<EngineeringChangeOrderOperation>? Operations { get; set; }
 
 		[DataMember(Name="Priority", EmitDefaultValue=false)]
-		public IntValue Priority { get; set; }
+		public IntValue? Priority { get; set; }
 
 		[DataMember(Name="RequestDate", EmitDefaultValue=false)]
-		public DateTimeValue RequestDate { get; set; }
+		public DateTimeValue? RequestDate { get; set; }
 
 		[DataMember(Name="Requestor", EmitDefaultValue=false)]
-		public StringValue Requestor { get; set; }
+		public StringValue? Requestor { get; set; }
 
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue Revision { get; set; }
+		public StringValue? Revision { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

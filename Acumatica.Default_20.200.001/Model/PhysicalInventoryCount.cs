@@ -14,24 +14,24 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<PhysicalInventoryCountDetail> Details { get; set; }
+		public List<PhysicalInventoryCountDetail>? Details { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue Location { get; set; }
+		public StringValue? Location { get; set; }
 
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue LotSerialNbr { get; set; }
+		public StringValue? LotSerialNbr { get; set; }
 
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue ReferenceNbr { get; set; }
+		public StringValue? ReferenceNbr { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/20.200.001";
 		}

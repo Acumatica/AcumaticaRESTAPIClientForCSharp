@@ -14,7 +14,7 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue TaxID { get; set; }
+		public StringValue? TaxID { get; set; }
 
 	}
 }

@@ -14,16 +14,16 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="EarningTypeCategory", EmitDefaultValue=false)]
-		public StringValue EarningTypeCategory { get; set; }
+		public StringValue? EarningTypeCategory { get; set; }
 
 		[DataMember(Name="EarningTypeCode", EmitDefaultValue=false)]
-		public StringValue EarningTypeCode { get; set; }
+		public StringValue? EarningTypeCode { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 	}
 }

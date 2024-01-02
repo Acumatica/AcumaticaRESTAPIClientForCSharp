@@ -14,13 +14,13 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="PluginID", EmitDefaultValue=false)]
-		public StringValue PluginID { get; set; }
+		public StringValue? PluginID { get; set; }
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
-		public StringValue Value { get; set; }
+		public StringValue? Value { get; set; }
 
 	}
 }

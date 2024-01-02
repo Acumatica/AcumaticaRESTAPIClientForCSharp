@@ -14,16 +14,16 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="APDocuments", EmitDefaultValue=false)]
-		public List<ExpenseClaimAPDocument> APDocuments { get; set; }
+		public List<ExpenseClaimAPDocument>? APDocuments { get; set; }
 
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue Branch { get; set; }
+		public StringValue? Branch { get; set; }
 
 		[DataMember(Name="PosttoPeriod", EmitDefaultValue=false)]
-		public StringValue PosttoPeriod { get; set; }
+		public StringValue? PosttoPeriod { get; set; }
 
 		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
-		public StringValue TaxZone { get; set; }
+		public StringValue? TaxZone { get; set; }
 
 	}
 }

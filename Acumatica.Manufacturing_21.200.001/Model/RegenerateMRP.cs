@@ -14,15 +14,15 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="LastCompletedAt", EmitDefaultValue=false)]
-		public DateTimeValue LastCompletedAt { get; set; }
+		public DateTimeValue? LastCompletedAt { get; set; }
 
 		[DataMember(Name="LastCompletedBy", EmitDefaultValue=false)]
-		public StringValue LastCompletedBy { get; set; }
+		public StringValue? LastCompletedBy { get; set; }
 
 		[DataMember(Name="Messages", EmitDefaultValue=false)]
-		public List<RegenerateMRPMessage> Messages { get; set; }
+		public List<RegenerateMRPMessage>? Messages { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/21.200.001";
 		}

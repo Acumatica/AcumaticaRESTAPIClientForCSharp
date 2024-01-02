@@ -14,22 +14,22 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="GeneratePassword", EmitDefaultValue=false)]
-		public BooleanValue GeneratePassword { get; set; }
+		public BooleanValue? GeneratePassword { get; set; }
 
 		[DataMember(Name="Login", EmitDefaultValue=false)]
-		public StringValue Login { get; set; }
+		public StringValue? Login { get; set; }
 
 		[DataMember(Name="Password", EmitDefaultValue=false)]
-		public StringValue Password { get; set; }
+		public StringValue? Password { get; set; }
 
 		[DataMember(Name="Roles", EmitDefaultValue=false)]
-		public List<ContactRoles> Roles { get; set; }
+		public List<ContactRoles>? Roles { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="UserType", EmitDefaultValue=false)]
-		public StringValue UserType { get; set; }
+		public StringValue? UserType { get; set; }
 
 	}
 }

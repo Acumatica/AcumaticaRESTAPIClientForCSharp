@@ -14,10 +14,10 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="CodeType", EmitDefaultValue=false)]
-		public StringValue CodeType { get; set; }
+		public StringValue? CodeType { get; set; }
 
 		[DataMember(Name="TaxDetailsCA", EmitDefaultValue=false)]
-		public List<DeductionOrBenefitTaxDetailCA> TaxDetailsCA { get; set; }
+		public List<DeductionOrBenefitTaxDetailCA>? TaxDetailsCA { get; set; }
 
 	}
 }

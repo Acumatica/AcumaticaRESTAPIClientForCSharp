@@ -14,16 +14,16 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Disabled", EmitDefaultValue=false)]
-		public BooleanValue Disabled { get; set; }
+		public BooleanValue? Disabled { get; set; }
 
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
-		public ShortValue SortOrder { get; set; }
+		public ShortValue? SortOrder { get; set; }
 
 		[DataMember(Name="ValueID", EmitDefaultValue=false)]
-		public StringValue ValueID { get; set; }
+		public StringValue? ValueID { get; set; }
 
 	}
 }

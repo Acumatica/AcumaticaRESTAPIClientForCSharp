@@ -14,25 +14,25 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue Location { get; set; }
+		public StringValue? Location { get; set; }
 
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue LotSerialNbr { get; set; }
+		public StringValue? LotSerialNbr { get; set; }
 
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue Qty { get; set; }
+		public DecimalValue? Qty { get; set; }
 
 		[DataMember(Name="ReceiptNbr", EmitDefaultValue=false)]
-		public StringValue ReceiptNbr { get; set; }
+		public StringValue? ReceiptNbr { get; set; }
 
 		[DataMember(Name="SplitLineNbr", EmitDefaultValue=false)]
-		public IntValue SplitLineNbr { get; set; }
+		public IntValue? SplitLineNbr { get; set; }
 
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
-		public DateTimeValue ExpirationDate { get; set; }
+		public DateTimeValue? ExpirationDate { get; set; }
 
 	}
 }

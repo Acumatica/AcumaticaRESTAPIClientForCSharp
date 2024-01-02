@@ -14,54 +14,54 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="ApplicationDate", EmitDefaultValue=false)]
-		public DateTimeValue ApplicationDate { get; set; }
+		public DateTimeValue? ApplicationDate { get; set; }
 
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
-		public StringValue CashAccount { get; set; }
+		public StringValue? CashAccount { get; set; }
 
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
-		public StringValue CurrencyID { get; set; }
+		public StringValue? CurrencyID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CheckDetail> Details { get; set; }
+		public List<CheckDetail>? Details { get; set; }
 
 		[DataMember(Name="History", EmitDefaultValue=false)]
-		public List<CheckHistoryDetail> History { get; set; }
+		public List<CheckHistoryDetail>? History { get; set; }
 
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue Hold { get; set; }
+		public BooleanValue? Hold { get; set; }
 
 		[DataMember(Name="PaymentAmount", EmitDefaultValue=false)]
-		public DecimalValue PaymentAmount { get; set; }
+		public DecimalValue? PaymentAmount { get; set; }
 
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
-		public StringValue PaymentMethod { get; set; }
+		public StringValue? PaymentMethod { get; set; }
 
 		[DataMember(Name="PaymentRef", EmitDefaultValue=false)]
-		public StringValue PaymentRef { get; set; }
+		public StringValue? PaymentRef { get; set; }
 
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue ReferenceNbr { get; set; }
+		public StringValue? ReferenceNbr { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 		[DataMember(Name="UnappliedBalance", EmitDefaultValue=false)]
-		public DecimalValue UnappliedBalance { get; set; }
+		public DecimalValue? UnappliedBalance { get; set; }
 
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
-		public StringValue Vendor { get; set; }
+		public StringValue? Vendor { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

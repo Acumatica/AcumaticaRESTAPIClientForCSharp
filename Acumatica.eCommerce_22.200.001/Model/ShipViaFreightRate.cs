@@ -14,19 +14,19 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="Rate", EmitDefaultValue=false)]
-		public DecimalValue Rate { get; set; }
+		public DecimalValue? Rate { get; set; }
 
 		[DataMember(Name="Volume", EmitDefaultValue=false)]
-		public DecimalValue Volume { get; set; }
+		public DecimalValue? Volume { get; set; }
 
 		[DataMember(Name="Weight", EmitDefaultValue=false)]
-		public DecimalValue Weight { get; set; }
+		public DecimalValue? Weight { get; set; }
 
 		[DataMember(Name="ZoneID", EmitDefaultValue=false)]
-		public StringValue ZoneID { get; set; }
+		public StringValue? ZoneID { get; set; }
 
 	}
 }

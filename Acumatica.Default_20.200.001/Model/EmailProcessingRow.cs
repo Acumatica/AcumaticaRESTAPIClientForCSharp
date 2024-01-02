@@ -14,28 +14,28 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="EmailAccount", EmitDefaultValue=false)]
-		public StringValue EmailAccount { get; set; }
+		public StringValue? EmailAccount { get; set; }
 
 		[DataMember(Name="From", EmitDefaultValue=false)]
-		public StringValue From { get; set; }
+		public StringValue? From { get; set; }
 
 		[DataMember(Name="MailStatus", EmitDefaultValue=false)]
-		public StringValue MailStatus { get; set; }
+		public StringValue? MailStatus { get; set; }
 
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
-		public StringValue Owner { get; set; }
+		public StringValue? Owner { get; set; }
 
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
-		public BooleanValue Selected { get; set; }
+		public BooleanValue? Selected { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
-		public StringValue Subject { get; set; }
+		public StringValue? Subject { get; set; }
 
 		[DataMember(Name="To", EmitDefaultValue=false)]
-		public StringValue To { get; set; }
+		public StringValue? To { get; set; }
 
 	}
 }

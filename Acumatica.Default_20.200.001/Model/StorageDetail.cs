@@ -14,25 +14,25 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="SiteAvailable", EmitDefaultValue=false)]
-		public DecimalValue SiteAvailable { get; set; }
+		public DecimalValue? SiteAvailable { get; set; }
 
 		[DataMember(Name="SiteAvailableforIssue", EmitDefaultValue=false)]
-		public DecimalValue SiteAvailableforIssue { get; set; }
+		public DecimalValue? SiteAvailableforIssue { get; set; }
 
 		[DataMember(Name="SiteAvailableforShipping", EmitDefaultValue=false)]
-		public DecimalValue SiteAvailableforShipping { get; set; }
+		public DecimalValue? SiteAvailableforShipping { get; set; }
 
 		[DataMember(Name="SiteID", EmitDefaultValue=false)]
-		public StringValue SiteID { get; set; }
+		public StringValue? SiteID { get; set; }
 
 		[DataMember(Name="SiteLastModifiedDate", EmitDefaultValue=false)]
-		public DateTimeValue SiteLastModifiedDate { get; set; }
+		public DateTimeValue? SiteLastModifiedDate { get; set; }
 
 		[DataMember(Name="SiteOnHand", EmitDefaultValue=false)]
-		public DecimalValue SiteOnHand { get; set; }
+		public DecimalValue? SiteOnHand { get; set; }
 
 	}
 }

@@ -14,40 +14,40 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
-		public DecimalValue CrewSize { get; set; }
+		public DecimalValue? CrewSize { get; set; }
 
 		[DataMember(Name="CrewSizeShortage", EmitDefaultValue=false)]
-		public DecimalValue CrewSizeShortage { get; set; }
+		public DecimalValue? CrewSizeShortage { get; set; }
 
 		[DataMember(Name="EndTime", EmitDefaultValue=false)]
-		public DateTimeValue EndTime { get; set; }
+		public DateTimeValue? EndTime { get; set; }
 
 		[DataMember(Name="OperationID", EmitDefaultValue=false)]
-		public StringValue OperationID { get; set; }
+		public StringValue? OperationID { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="ScheduleDate", EmitDefaultValue=false)]
-		public DateTimeValue ScheduleDate { get; set; }
+		public DateTimeValue? ScheduleDate { get; set; }
 
 		[DataMember(Name="ScheduledBlocks", EmitDefaultValue=false)]
-		public IntValue ScheduledBlocks { get; set; }
+		public IntValue? ScheduledBlocks { get; set; }
 
 		[DataMember(Name="Shift", EmitDefaultValue=false)]
-		public StringValue Shift { get; set; }
+		public StringValue? Shift { get; set; }
 
 		[DataMember(Name="ShiftCrewSize", EmitDefaultValue=false)]
-		public DecimalValue ShiftCrewSize { get; set; }
+		public DecimalValue? ShiftCrewSize { get; set; }
 
 		[DataMember(Name="StartTime", EmitDefaultValue=false)]
-		public DateTimeValue StartTime { get; set; }
+		public DateTimeValue? StartTime { get; set; }
 
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
-		public StringValue WorkCenter { get; set; }
+		public StringValue? WorkCenter { get; set; }
 
 	}
 }

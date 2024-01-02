@@ -14,58 +14,58 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue Customer { get; set; }
+		public StringValue? Customer { get; set; }
 
 		[DataMember(Name="CustomerLocation", EmitDefaultValue=false)]
-		public StringValue CustomerLocation { get; set; }
+		public StringValue? CustomerLocation { get; set; }
 
 		[DataMember(Name="CustomerName", EmitDefaultValue=false)]
-		public StringValue CustomerName { get; set; }
+		public StringValue? CustomerName { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="ItemDescription", EmitDefaultValue=false)]
-		public StringValue ItemDescription { get; set; }
+		public StringValue? ItemDescription { get; set; }
 
 		[DataMember(Name="PlanID", EmitDefaultValue=false)]
-		public LongValue PlanID { get; set; }
+		public LongValue? PlanID { get; set; }
 
 		[DataMember(Name="PlanType", EmitDefaultValue=false)]
-		public StringValue PlanType { get; set; }
+		public StringValue? PlanType { get; set; }
 
 		[DataMember(Name="ProdOperationID", EmitDefaultValue=false)]
-		public StringValue ProdOperationID { get; set; }
+		public StringValue? ProdOperationID { get; set; }
 
 		[DataMember(Name="ProdOrderType", EmitDefaultValue=false)]
-		public StringValue ProdOrderType { get; set; }
+		public StringValue? ProdOrderType { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="Quantity", EmitDefaultValue=false)]
-		public DecimalValue Quantity { get; set; }
+		public DecimalValue? Quantity { get; set; }
 
 		[DataMember(Name="RequestedOn", EmitDefaultValue=false)]
-		public DateTimeValue RequestedOn { get; set; }
+		public DateTimeValue? RequestedOn { get; set; }
 
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
-		public BooleanValue Selected { get; set; }
+		public BooleanValue? Selected { get; set; }
 
 		[DataMember(Name="SOOrderNbr", EmitDefaultValue=false)]
-		public StringValue SOOrderNbr { get; set; }
+		public StringValue? SOOrderNbr { get; set; }
 
 		[DataMember(Name="SOOrderType", EmitDefaultValue=false)]
-		public StringValue SOOrderType { get; set; }
+		public StringValue? SOOrderType { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
 	}
 }

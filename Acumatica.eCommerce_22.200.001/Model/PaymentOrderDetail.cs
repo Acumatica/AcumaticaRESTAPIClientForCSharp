@@ -14,13 +14,13 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="AppliedToOrder", EmitDefaultValue=false)]
-		public DecimalValue AppliedToOrder { get; set; }
+		public DecimalValue? AppliedToOrder { get; set; }
 
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
-		public StringValue OrderNbr { get; set; }
+		public StringValue? OrderNbr { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 	}
 }

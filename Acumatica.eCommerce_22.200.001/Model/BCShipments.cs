@@ -14,24 +14,24 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="LastModified", EmitDefaultValue=false)]
-		public DateTimeValue LastModified { get; set; }
+		public DateTimeValue? LastModified { get; set; }
 
 		[DataMember(Name="ShippingNoteID", EmitDefaultValue=false)]
-		public GuidValue ShippingNoteID { get; set; }
+		public GuidValue? ShippingNoteID { get; set; }
 
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
-		public StringValue OrderNbr { get; set; }
+		public StringValue? OrderNbr { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="BindingID", EmitDefaultValue=false)]
-		public IntValue BindingID { get; set; }
+		public IntValue? BindingID { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<BCShipmentsResult> Results { get; set; }
+		public List<BCShipmentsResult>? Results { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

@@ -14,70 +14,70 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Calendar", EmitDefaultValue=false)]
-		public StringValue Calendar { get; set; }
+		public StringValue? Calendar { get; set; }
 
 		[DataMember(Name="CalendarClassDefault", EmitDefaultValue=false)]
-		public BooleanValue CalendarClassDefault { get; set; }
+		public BooleanValue? CalendarClassDefault { get; set; }
 
 		[DataMember(Name="CertifiedProjectHoursperYear", EmitDefaultValue=false)]
-		public IntValue CertifiedProjectHoursperYear { get; set; }
+		public IntValue? CertifiedProjectHoursperYear { get; set; }
 
 		[DataMember(Name="DefaultUnion", EmitDefaultValue=false)]
-		public StringValue DefaultUnion { get; set; }
+		public StringValue? DefaultUnion { get; set; }
 
 		[DataMember(Name="DefaultWCCCode", EmitDefaultValue=false)]
-		public StringValue DefaultWCCCode { get; set; }
+		public StringValue? DefaultWCCCode { get; set; }
 
 		[DataMember(Name="ExemptFromCertReporting", EmitDefaultValue=false)]
-		public BooleanValue ExemptFromCertReporting { get; set; }
+		public BooleanValue? ExemptFromCertReporting { get; set; }
 
 		[DataMember(Name="ExemptFromCertReportingClassDefault", EmitDefaultValue=false)]
-		public BooleanValue ExemptFromCertReportingClassDefault { get; set; }
+		public BooleanValue? ExemptFromCertReportingClassDefault { get; set; }
 
 		[DataMember(Name="ExemptFromOvertimeRules", EmitDefaultValue=false)]
-		public BooleanValue ExemptFromOvertimeRules { get; set; }
+		public BooleanValue? ExemptFromOvertimeRules { get; set; }
 
 		[DataMember(Name="ExemptFromOvertimeRulesClassDefault", EmitDefaultValue=false)]
-		public BooleanValue ExemptFromOvertimeRulesClassDefault { get; set; }
+		public BooleanValue? ExemptFromOvertimeRulesClassDefault { get; set; }
 
 		[DataMember(Name="NetPayMinClassDefault", EmitDefaultValue=false)]
-		public BooleanValue NetPayMinClassDefault { get; set; }
+		public BooleanValue? NetPayMinClassDefault { get; set; }
 
 		[DataMember(Name="NetPayMinimum", EmitDefaultValue=false)]
-		public DecimalValue NetPayMinimum { get; set; }
+		public DecimalValue? NetPayMinimum { get; set; }
 
 		[DataMember(Name="OverrideHoursPerYearForCertClassDefault", EmitDefaultValue=false)]
-		public BooleanValue OverrideHoursPerYearForCertClassDefault { get; set; }
+		public BooleanValue? OverrideHoursPerYearForCertClassDefault { get; set; }
 
 		[DataMember(Name="OverrideHrsPerYearForCertProjects", EmitDefaultValue=false)]
-		public BooleanValue OverrideHrsPerYearForCertProjects { get; set; }
+		public BooleanValue? OverrideHrsPerYearForCertProjects { get; set; }
 
 		[DataMember(Name="PayGroup", EmitDefaultValue=false)]
-		public StringValue PayGroup { get; set; }
+		public StringValue? PayGroup { get; set; }
 
 		[DataMember(Name="PayGroupClassDefault", EmitDefaultValue=false)]
-		public BooleanValue PayGroupClassDefault { get; set; }
+		public BooleanValue? PayGroupClassDefault { get; set; }
 
 		[DataMember(Name="UnionClassDefault", EmitDefaultValue=false)]
-		public BooleanValue UnionClassDefault { get; set; }
+		public BooleanValue? UnionClassDefault { get; set; }
 
 		[DataMember(Name="UseClassDefaultValueHoursPerYearForCertifiedUseDflt", EmitDefaultValue=false)]
-		public BooleanValue UseClassDefaultValueHoursPerYearForCertifiedUseDflt { get; set; }
+		public BooleanValue? UseClassDefaultValueHoursPerYearForCertifiedUseDflt { get; set; }
 
 		[DataMember(Name="WCCCodeClassDefault", EmitDefaultValue=false)]
-		public BooleanValue WCCCodeClassDefault { get; set; }
+		public BooleanValue? WCCCodeClassDefault { get; set; }
 
 		[DataMember(Name="WeeksPerYearClassDefault", EmitDefaultValue=false)]
-		public BooleanValue WeeksPerYearClassDefault { get; set; }
+		public BooleanValue? WeeksPerYearClassDefault { get; set; }
 
 		[DataMember(Name="WorkingHoursPerWeek", EmitDefaultValue=false)]
-		public DecimalValue WorkingHoursPerWeek { get; set; }
+		public DecimalValue? WorkingHoursPerWeek { get; set; }
 
 		[DataMember(Name="WorkingHoursPerYear", EmitDefaultValue=false)]
-		public DecimalValue WorkingHoursPerYear { get; set; }
+		public DecimalValue? WorkingHoursPerYear { get; set; }
 
 		[DataMember(Name="WorkingWeeksPerYear", EmitDefaultValue=false)]
-		public ByteValue WorkingWeeksPerYear { get; set; }
+		public ByteValue? WorkingWeeksPerYear { get; set; }
 
 	}
 }

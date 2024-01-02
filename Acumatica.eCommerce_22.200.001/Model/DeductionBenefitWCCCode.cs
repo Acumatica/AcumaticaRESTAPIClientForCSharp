@@ -14,10 +14,10 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="State", EmitDefaultValue=false)]
-		public StringValue State { get; set; }
+		public StringValue? State { get; set; }
 
 		[DataMember(Name="WCCCodeRates", EmitDefaultValue=false)]
-		public List<WCCCodeRateDetail> WCCCodeRates { get; set; }
+		public List<WCCCodeRateDetail>? WCCCodeRates { get; set; }
 
 	}
 }

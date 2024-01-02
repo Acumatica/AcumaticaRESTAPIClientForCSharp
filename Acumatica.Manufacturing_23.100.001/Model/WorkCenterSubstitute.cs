@@ -14,13 +14,13 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="SubstituteWorkCenter", EmitDefaultValue=false)]
-		public StringValue SubstituteWorkCenter { get; set; }
+		public StringValue? SubstituteWorkCenter { get; set; }
 
 		[DataMember(Name="UpdateOperationDescription", EmitDefaultValue=false)]
-		public BooleanValue UpdateOperationDescription { get; set; }
+		public BooleanValue? UpdateOperationDescription { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
 	}
 }

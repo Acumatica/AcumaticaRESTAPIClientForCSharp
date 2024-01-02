@@ -14,28 +14,28 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]
-		public StringValue BOMID { get; set; }
+		public StringValue? BOMID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Factor", EmitDefaultValue=false)]
-		public DecimalValue Factor { get; set; }
+		public DecimalValue? Factor { get; set; }
 
 		[DataMember(Name="LineID", EmitDefaultValue=false)]
-		public IntValue LineID { get; set; }
+		public IntValue? LineID { get; set; }
 
 		[DataMember(Name="OperationID", EmitDefaultValue=false)]
-		public StringValue OperationID { get; set; }
+		public StringValue? OperationID { get; set; }
 
 		[DataMember(Name="OverheadID", EmitDefaultValue=false)]
-		public StringValue OverheadID { get; set; }
+		public StringValue? OverheadID { get; set; }
 
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue Revision { get; set; }
+		public StringValue? Revision { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 	}
 }

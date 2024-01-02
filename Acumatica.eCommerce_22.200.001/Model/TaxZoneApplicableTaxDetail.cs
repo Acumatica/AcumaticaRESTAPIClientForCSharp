@@ -14,7 +14,7 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue TaxID { get; set; }
+		public StringValue? TaxID { get; set; }
 
 	}
 }

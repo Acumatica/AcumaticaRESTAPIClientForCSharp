@@ -14,36 +14,36 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue Account { get; set; }
+		public StringValue? Account { get; set; }
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="AssetID", EmitDefaultValue=false)]
-		public StringValue AssetID { get; set; }
+		public StringValue? AssetID { get; set; }
 
 		[DataMember(Name="CalendarID", EmitDefaultValue=false)]
-		public StringValue CalendarID { get; set; }
+		public StringValue? CalendarID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Down", EmitDefaultValue=false)]
-		public BooleanValue Down { get; set; }
+		public BooleanValue? Down { get; set; }
 
 		[DataMember(Name="Efficiency", EmitDefaultValue=false)]
-		public DecimalValue Efficiency { get; set; }
+		public DecimalValue? Efficiency { get; set; }
 
 		[DataMember(Name="MachineID", EmitDefaultValue=false)]
-		public StringValue MachineID { get; set; }
+		public StringValue? MachineID { get; set; }
 
 		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
-		public DecimalValue StandardCost { get; set; }
+		public DecimalValue? StandardCost { get; set; }
 
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
-		public StringValue Subaccount { get; set; }
+		public StringValue? Subaccount { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/21.200.001";
 		}

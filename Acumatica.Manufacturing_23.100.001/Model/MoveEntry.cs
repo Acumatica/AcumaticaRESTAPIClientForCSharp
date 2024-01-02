@@ -14,33 +14,33 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
-		public StringValue BatchNbr { get; set; }
+		public StringValue? BatchNbr { get; set; }
 
 		[DataMember(Name="ControlQty", EmitDefaultValue=false)]
-		public DecimalValue ControlQty { get; set; }
+		public DecimalValue? ControlQty { get; set; }
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue Date { get; set; }
+		public DateTimeValue? Date { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<MoveEntryDetail> Details { get; set; }
+		public List<MoveEntryDetail>? Details { get; set; }
 
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue Hold { get; set; }
+		public BooleanValue? Hold { get; set; }
 
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
-		public StringValue PostPeriod { get; set; }
+		public StringValue? PostPeriod { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
-		public DecimalValue TotalQty { get; set; }
+		public DecimalValue? TotalQty { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

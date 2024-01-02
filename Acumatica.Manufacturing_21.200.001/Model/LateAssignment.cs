@@ -14,42 +14,42 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="AllocatedDetail", EmitDefaultValue=false)]
-		public List<LateAssignmentAllocatedDetail> AllocatedDetail { get; set; }
+		public List<LateAssignmentAllocatedDetail>? AllocatedDetail { get; set; }
 
 		[DataMember(Name="CompleteQty", EmitDefaultValue=false)]
-		public DecimalValue CompleteQty { get; set; }
+		public DecimalValue? CompleteQty { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue LotSerialNbr { get; set; }
+		public StringValue? LotSerialNbr { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
-		public DecimalValue QtytoProduce { get; set; }
+		public DecimalValue? QtytoProduce { get; set; }
 
 		[DataMember(Name="RemainingQty", EmitDefaultValue=false)]
-		public DecimalValue RemainingQty { get; set; }
+		public DecimalValue? RemainingQty { get; set; }
 
 		[DataMember(Name="ScrappedQty", EmitDefaultValue=false)]
-		public DecimalValue ScrappedQty { get; set; }
+		public DecimalValue? ScrappedQty { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="UnallocatedDetail", EmitDefaultValue=false)]
-		public List<LateAssignmentUnallocatedDetail> UnallocatedDetail { get; set; }
+		public List<LateAssignmentUnallocatedDetail>? UnallocatedDetail { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/21.200.001";
 		}

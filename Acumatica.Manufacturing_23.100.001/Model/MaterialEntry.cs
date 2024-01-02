@@ -14,45 +14,45 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
-		public StringValue BatchNbr { get; set; }
+		public StringValue? BatchNbr { get; set; }
 
 		[DataMember(Name="ControlAmount", EmitDefaultValue=false)]
-		public DecimalValue ControlAmount { get; set; }
+		public DecimalValue? ControlAmount { get; set; }
 
 		[DataMember(Name="ControlQty", EmitDefaultValue=false)]
-		public DecimalValue ControlQty { get; set; }
+		public DecimalValue? ControlQty { get; set; }
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue Date { get; set; }
+		public DateTimeValue? Date { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<MaterialEntryDetail> Details { get; set; }
+		public List<MaterialEntryDetail>? Details { get; set; }
 
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue Hold { get; set; }
+		public BooleanValue? Hold { get; set; }
 
 		[DataMember(Name="OrigBatchNbr", EmitDefaultValue=false)]
-		public StringValue OrigBatchNbr { get; set; }
+		public StringValue? OrigBatchNbr { get; set; }
 
 		[DataMember(Name="OrigDocType", EmitDefaultValue=false)]
-		public StringValue OrigDocType { get; set; }
+		public StringValue? OrigDocType { get; set; }
 
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
-		public StringValue PostPeriod { get; set; }
+		public StringValue? PostPeriod { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="TotalAmount", EmitDefaultValue=false)]
-		public DecimalValue TotalAmount { get; set; }
+		public DecimalValue? TotalAmount { get; set; }
 
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
-		public DecimalValue TotalQty { get; set; }
+		public DecimalValue? TotalQty { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

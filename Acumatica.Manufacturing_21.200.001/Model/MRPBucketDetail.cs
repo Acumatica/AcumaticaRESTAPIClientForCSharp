@@ -14,16 +14,16 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="Bucket", EmitDefaultValue=false)]
-		public IntValue Bucket { get; set; }
+		public IntValue? Bucket { get; set; }
 
 		[DataMember(Name="BucketID", EmitDefaultValue=false)]
-		public StringValue BucketID { get; set; }
+		public StringValue? BucketID { get; set; }
 
 		[DataMember(Name="Interval", EmitDefaultValue=false)]
-		public StringValue Interval { get; set; }
+		public StringValue? Interval { get; set; }
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
-		public IntValue Value { get; set; }
+		public IntValue? Value { get; set; }
 
 	}
 }

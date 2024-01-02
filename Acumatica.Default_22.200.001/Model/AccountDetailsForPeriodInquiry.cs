@@ -14,24 +14,24 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="FromPeriod", EmitDefaultValue=false)]
-		public StringValue FromPeriod { get; set; }
+		public StringValue? FromPeriod { get; set; }
 
 		[DataMember(Name="Ledger", EmitDefaultValue=false)]
-		public StringValue Ledger { get; set; }
+		public StringValue? Ledger { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<AccountDetailsForPeriodInquiryDetail> Results { get; set; }
+		public List<AccountDetailsForPeriodInquiryDetail>? Results { get; set; }
 
 		[DataMember(Name="ToPeriod", EmitDefaultValue=false)]
-		public StringValue ToPeriod { get; set; }
+		public StringValue? ToPeriod { get; set; }
 
 		[DataMember(Name="IncludeUnposted", EmitDefaultValue=false)]
-		public BooleanValue IncludeUnposted { get; set; }
+		public BooleanValue? IncludeUnposted { get; set; }
 
 		[DataMember(Name="IncludeUnreleased", EmitDefaultValue=false)]
-		public BooleanValue IncludeUnreleased { get; set; }
+		public BooleanValue? IncludeUnreleased { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

@@ -14,28 +14,28 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
-		public StringValue CustomerID { get; set; }
+		public StringValue? CustomerID { get; set; }
 
 		[DataMember(Name="CustomerName", EmitDefaultValue=false)]
-		public StringValue CustomerName { get; set; }
+		public StringValue? CustomerName { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="From", EmitDefaultValue=false)]
-		public DateTimeValue From { get; set; }
+		public DateTimeValue? From { get; set; }
 
 		[DataMember(Name="LastBillingDate", EmitDefaultValue=false)]
-		public DateTimeValue LastBillingDate { get; set; }
+		public DateTimeValue? LastBillingDate { get; set; }
 
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
-		public StringValue ProjectID { get; set; }
+		public StringValue? ProjectID { get; set; }
 
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
-		public BooleanValue Selected { get; set; }
+		public BooleanValue? Selected { get; set; }
 
 		[DataMember(Name="To", EmitDefaultValue=false)]
-		public DateTimeValue To { get; set; }
+		public DateTimeValue? To { get; set; }
 
 	}
 }

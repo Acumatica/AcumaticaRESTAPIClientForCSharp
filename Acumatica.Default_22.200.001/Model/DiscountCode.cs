@@ -14,24 +14,24 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="ApplicableTo", EmitDefaultValue=false)]
-		public StringValue ApplicableTo { get; set; }
+		public StringValue? ApplicableTo { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDateTime { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="DiscountCodeID", EmitDefaultValue=false)]
-		public StringValue DiscountCodeID { get; set; }
+		public StringValue? DiscountCodeID { get; set; }
 
 		[DataMember(Name="DiscountType", EmitDefaultValue=false)]
-		public StringValue DiscountType { get; set; }
+		public StringValue? DiscountType { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

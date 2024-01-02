@@ -14,40 +14,40 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="BreakQty", EmitDefaultValue=false)]
-		public DecimalValue BreakQty { get; set; }
+		public DecimalValue? BreakQty { get; set; }
 
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
-		public StringValue CurrencyID { get; set; }
+		public StringValue? CurrencyID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LineID", EmitDefaultValue=false)]
-		public IntValue LineID { get; set; }
+		public IntValue? LineID { get; set; }
 
 		[DataMember(Name="PendingPrice", EmitDefaultValue=false)]
-		public DecimalValue PendingPrice { get; set; }
+		public DecimalValue? PendingPrice { get; set; }
 
 		[DataMember(Name="PriceCode", EmitDefaultValue=false)]
-		public StringValue PriceCode { get; set; }
+		public StringValue? PriceCode { get; set; }
 
 		[DataMember(Name="PriceType", EmitDefaultValue=false)]
-		public StringValue PriceType { get; set; }
+		public StringValue? PriceType { get; set; }
 
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue ReferenceNbr { get; set; }
+		public StringValue? ReferenceNbr { get; set; }
 
 		[DataMember(Name="SourcePrice", EmitDefaultValue=false)]
-		public DecimalValue SourcePrice { get; set; }
+		public DecimalValue? SourcePrice { get; set; }
 
 		[DataMember(Name="Tax", EmitDefaultValue=false)]
-		public StringValue Tax { get; set; }
+		public StringValue? Tax { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 	}
 }

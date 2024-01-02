@@ -14,54 +14,54 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]
-		public BooleanValue BackflushLabor { get; set; }
+		public BooleanValue? BackflushLabor { get; set; }
 
 		[DataMember(Name="BackflushMaterials", EmitDefaultValue=false)]
-		public BooleanValue BackflushMaterials { get; set; }
+		public BooleanValue? BackflushMaterials { get; set; }
 
 		[DataMember(Name="BasisforCapacity", EmitDefaultValue=false)]
-		public StringValue BasisforCapacity { get; set; }
+		public StringValue? BasisforCapacity { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue Location { get; set; }
+		public StringValue? Location { get; set; }
 
 		[DataMember(Name="Machines", EmitDefaultValue=false)]
-		public List<MachineDetail> Machines { get; set; }
+		public List<MachineDetail>? Machines { get; set; }
 
 		[DataMember(Name="OutsideProcessing", EmitDefaultValue=false)]
-		public BooleanValue OutsideProcessing { get; set; }
+		public BooleanValue? OutsideProcessing { get; set; }
 
 		[DataMember(Name="Overheads", EmitDefaultValue=false)]
-		public List<WorkCenterOverheadDetail> Overheads { get; set; }
+		public List<WorkCenterOverheadDetail>? Overheads { get; set; }
 
 		[DataMember(Name="ScrapActionDefault", EmitDefaultValue=false)]
-		public StringValue ScrapActionDefault { get; set; }
+		public StringValue? ScrapActionDefault { get; set; }
 
 		[DataMember(Name="Shifts", EmitDefaultValue=false)]
-		public List<ShiftDetail> Shifts { get; set; }
+		public List<ShiftDetail>? Shifts { get; set; }
 
 		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
-		public DecimalValue StandardCost { get; set; }
+		public DecimalValue? StandardCost { get; set; }
 
 		[DataMember(Name="SubstituteWorkCenters", EmitDefaultValue=false)]
-		public List<WorkCenterSubstitute> SubstituteWorkCenters { get; set; }
+		public List<WorkCenterSubstitute>? SubstituteWorkCenters { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
 		[DataMember(Name="WhereUsed", EmitDefaultValue=false)]
-		public List<WhereUsedDetail> WhereUsed { get; set; }
+		public List<WhereUsedDetail>? WhereUsed { get; set; }
 
 		[DataMember(Name="WorkCenterID", EmitDefaultValue=false)]
-		public StringValue WorkCenterID { get; set; }
+		public StringValue? WorkCenterID { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/21.200.001";
 		}

@@ -14,46 +14,46 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
-		public StringValue AccountGroup { get; set; }
+		public StringValue? AccountGroup { get; set; }
 
 		[DataMember(Name="ActualAmount", EmitDefaultValue=false)]
-		public DecimalValue ActualAmount { get; set; }
+		public DecimalValue? ActualAmount { get; set; }
 
 		[DataMember(Name="ActualOpenCommittedAmount", EmitDefaultValue=false)]
-		public DecimalValue ActualOpenCommittedAmount { get; set; }
+		public DecimalValue? ActualOpenCommittedAmount { get; set; }
 
 		[DataMember(Name="BudgetedCOAmount", EmitDefaultValue=false)]
-		public DecimalValue BudgetedCOAmount { get; set; }
+		public DecimalValue? BudgetedCOAmount { get; set; }
 
 		[DataMember(Name="CommittedCOAmount", EmitDefaultValue=false)]
-		public DecimalValue CommittedCOAmount { get; set; }
+		public DecimalValue? CommittedCOAmount { get; set; }
 
 		[DataMember(Name="CommittedInvoicedAmount", EmitDefaultValue=false)]
-		public DecimalValue CommittedInvoicedAmount { get; set; }
+		public DecimalValue? CommittedInvoicedAmount { get; set; }
 
 		[DataMember(Name="CommittedOpenAmount", EmitDefaultValue=false)]
-		public DecimalValue CommittedOpenAmount { get; set; }
+		public DecimalValue? CommittedOpenAmount { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="OriginalBudgetedAmount", EmitDefaultValue=false)]
-		public DecimalValue OriginalBudgetedAmount { get; set; }
+		public DecimalValue? OriginalBudgetedAmount { get; set; }
 
 		[DataMember(Name="OriginalCommittedAmount", EmitDefaultValue=false)]
-		public DecimalValue OriginalCommittedAmount { get; set; }
+		public DecimalValue? OriginalCommittedAmount { get; set; }
 
 		[DataMember(Name="Performance", EmitDefaultValue=false)]
-		public DecimalValue Performance { get; set; }
+		public DecimalValue? Performance { get; set; }
 
 		[DataMember(Name="RevisedBudgetedAmount", EmitDefaultValue=false)]
-		public DecimalValue RevisedBudgetedAmount { get; set; }
+		public DecimalValue? RevisedBudgetedAmount { get; set; }
 
 		[DataMember(Name="RevisedCommittedAmount", EmitDefaultValue=false)]
-		public DecimalValue RevisedCommittedAmount { get; set; }
+		public DecimalValue? RevisedCommittedAmount { get; set; }
 
 		[DataMember(Name="VarianceAmount", EmitDefaultValue=false)]
-		public DecimalValue VarianceAmount { get; set; }
+		public DecimalValue? VarianceAmount { get; set; }
 
 	}
 }

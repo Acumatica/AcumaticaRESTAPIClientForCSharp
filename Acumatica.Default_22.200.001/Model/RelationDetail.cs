@@ -14,40 +14,40 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue Account { get; set; }
+		public StringValue? Account { get; set; }
 
 		[DataMember(Name="AddToCc", EmitDefaultValue=false)]
-		public BooleanValue AddToCc { get; set; }
+		public BooleanValue? AddToCc { get; set; }
 
 		[DataMember(Name="ContactDisplayName", EmitDefaultValue=false)]
-		public StringValue ContactDisplayName { get; set; }
+		public StringValue? ContactDisplayName { get; set; }
 
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
-		public IntValue ContactID { get; set; }
+		public IntValue? ContactID { get; set; }
 
 		[DataMember(Name="Document", EmitDefaultValue=false)]
-		public GuidValue Document { get; set; }
+		public GuidValue? Document { get; set; }
 
 		[DataMember(Name="DocumentTargetNoteIDDescription", EmitDefaultValue=false)]
-		public StringValue DocumentTargetNoteIDDescription { get; set; }
+		public StringValue? DocumentTargetNoteIDDescription { get; set; }
 
 		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue Email { get; set; }
+		public StringValue? Email { get; set; }
 
 		[DataMember(Name="Name", EmitDefaultValue=false)]
-		public StringValue Name { get; set; }
+		public StringValue? Name { get; set; }
 
 		[DataMember(Name="Primary", EmitDefaultValue=false)]
-		public BooleanValue Primary { get; set; }
+		public BooleanValue? Primary { get; set; }
 
 		[DataMember(Name="RelationID", EmitDefaultValue=false)]
-		public IntValue RelationID { get; set; }
+		public IntValue? RelationID { get; set; }
 
 		[DataMember(Name="Role", EmitDefaultValue=false)]
-		public StringValue Role { get; set; }
+		public StringValue? Role { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 	}
 }

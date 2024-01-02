@@ -14,13 +14,13 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
-		public DecimalValue TaxableAmount { get; set; }
+		public DecimalValue? TaxableAmount { get; set; }
 
 		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
-		public DecimalValue TaxAmount { get; set; }
+		public DecimalValue? TaxAmount { get; set; }
 
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue TaxID { get; set; }
+		public StringValue? TaxID { get; set; }
 
 	}
 }

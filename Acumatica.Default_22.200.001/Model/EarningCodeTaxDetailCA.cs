@@ -14,13 +14,13 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Taxability", EmitDefaultValue=false)]
-		public StringValue Taxability { get; set; }
+		public StringValue? Taxability { get; set; }
 
 		[DataMember(Name="TaxCode", EmitDefaultValue=false)]
-		public StringValue TaxCode { get; set; }
+		public StringValue? TaxCode { get; set; }
 
 		[DataMember(Name="TaxName", EmitDefaultValue=false)]
-		public StringValue TaxName { get; set; }
+		public StringValue? TaxName { get; set; }
 
 	}
 }

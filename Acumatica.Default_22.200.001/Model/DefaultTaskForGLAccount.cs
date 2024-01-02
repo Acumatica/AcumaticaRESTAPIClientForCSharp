@@ -14,10 +14,10 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue Account { get; set; }
+		public StringValue? Account { get; set; }
 
 		[DataMember(Name="DefaultTask", EmitDefaultValue=false)]
-		public StringValue DefaultTask { get; set; }
+		public StringValue? DefaultTask { get; set; }
 
 	}
 }

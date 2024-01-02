@@ -14,25 +14,25 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	{
 
 		[DataMember(Name="InstalledAcumaticaVersion", EmitDefaultValue=false)]
-		public StringValue InstalledAcumaticaVersion { get; set; }
+		public StringValue? InstalledAcumaticaVersion { get; set; }
 
 		[DataMember(Name="PartnerAccountName", EmitDefaultValue=false)]
-		public StringValue PartnerAccountName { get; set; }
+		public StringValue? PartnerAccountName { get; set; }
 
 		[DataMember(Name="ContractID", EmitDefaultValue=false)]
-		public StringValue ContractID { get; set; }
+		public StringValue? ContractID { get; set; }
 
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue Customer { get; set; }
+		public StringValue? Customer { get; set; }
 
 		[DataMember(Name="DateLiveISVSolution", EmitDefaultValue=false)]
-		public DateTimeValue DateLiveISVSolution { get; set; }
+		public DateTimeValue? DateLiveISVSolution { get; set; }
 
 		[DataMember(Name="CustomerName", EmitDefaultValue=false)]
-		public StringValue CustomerName { get; set; }
+		public StringValue? CustomerName { get; set; }
 
 		[DataMember(Name="InstalledISVVersion", EmitDefaultValue=false)]
-		public StringValue InstalledISVVersion { get; set; }
+		public StringValue? InstalledISVVersion { get; set; }
 
 	}
 }

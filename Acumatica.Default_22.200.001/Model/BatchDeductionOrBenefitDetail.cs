@@ -14,43 +14,43 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="BatchNumber", EmitDefaultValue=false)]
-		public StringValue BatchNumber { get; set; }
+		public StringValue? BatchNumber { get; set; }
 
 		[DataMember(Name="BenefitAmount", EmitDefaultValue=false)]
-		public DecimalValue BenefitAmount { get; set; }
+		public DecimalValue? BenefitAmount { get; set; }
 
 		[DataMember(Name="BenefitCalculationMethod", EmitDefaultValue=false)]
-		public StringValue BenefitCalculationMethod { get; set; }
+		public StringValue? BenefitCalculationMethod { get; set; }
 
 		[DataMember(Name="BenefitPercent", EmitDefaultValue=false)]
-		public DecimalValue BenefitPercent { get; set; }
+		public DecimalValue? BenefitPercent { get; set; }
 
 		[DataMember(Name="ContributionType", EmitDefaultValue=false)]
-		public StringValue ContributionType { get; set; }
+		public StringValue? ContributionType { get; set; }
 
 		[DataMember(Name="DeductionAmount", EmitDefaultValue=false)]
-		public DecimalValue DeductionAmount { get; set; }
+		public DecimalValue? DeductionAmount { get; set; }
 
 		[DataMember(Name="DeductionCalculationMethod", EmitDefaultValue=false)]
-		public StringValue DeductionCalculationMethod { get; set; }
+		public StringValue? DeductionCalculationMethod { get; set; }
 
 		[DataMember(Name="DeductionCode", EmitDefaultValue=false)]
-		public StringValue DeductionCode { get; set; }
+		public StringValue? DeductionCode { get; set; }
 
 		[DataMember(Name="DeductionPercent", EmitDefaultValue=false)]
-		public DecimalValue DeductionPercent { get; set; }
+		public DecimalValue? DeductionPercent { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Enabled", EmitDefaultValue=false)]
-		public BooleanValue Enabled { get; set; }
+		public BooleanValue? Enabled { get; set; }
 
 		[DataMember(Name="IsGarnishment", EmitDefaultValue=false)]
-		public BooleanValue IsGarnishment { get; set; }
+		public BooleanValue? IsGarnishment { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 	}
 }

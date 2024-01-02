@@ -14,21 +14,21 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="CalendarExceptions", EmitDefaultValue=false)]
-		public List<WorkCalendarExceptionDetail> CalendarExceptions { get; set; }
+		public List<WorkCalendarExceptionDetail>? CalendarExceptions { get; set; }
 
 		[DataMember(Name="CalendarSettings", EmitDefaultValue=false)]
-		public CalendarSettings CalendarSettings { get; set; }
+		public CalendarSettings? CalendarSettings { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="TimeZone", EmitDefaultValue=false)]
-		public StringValue TimeZone { get; set; }
+		public StringValue? TimeZone { get; set; }
 
 		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]
-		public StringValue WorkCalendarID { get; set; }
+		public StringValue? WorkCalendarID { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

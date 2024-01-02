@@ -14,10 +14,10 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="PaidTimeOffDetails", EmitDefaultValue=false)]
-		public List<EmployeePaidTimeOffDetail> PaidTimeOffDetails { get; set; }
+		public List<EmployeePaidTimeOffDetail>? PaidTimeOffDetails { get; set; }
 
 		[DataMember(Name="UsePTOBanksfromEmployeeClass", EmitDefaultValue=false)]
-		public BooleanValue UsePTOBanksfromEmployeeClass { get; set; }
+		public BooleanValue? UsePTOBanksfromEmployeeClass { get; set; }
 
 	}
 }

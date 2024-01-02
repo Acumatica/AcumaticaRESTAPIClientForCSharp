@@ -14,34 +14,34 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Extension", EmitDefaultValue=false)]
-		public StringValue Extension { get; set; }
+		public StringValue? Extension { get; set; }
 
 		[DataMember(Name="FileID", EmitDefaultValue=false)]
-		public GuidValue FileID { get; set; }
+		public GuidValue? FileID { get; set; }
 
 		[DataMember(Name="FileName", EmitDefaultValue=false)]
-		public StringValue FileName { get; set; }
+		public StringValue? FileName { get; set; }
 
 		[DataMember(Name="FileNoteID", EmitDefaultValue=false)]
-		public GuidValue FileNoteID { get; set; }
+		public GuidValue? FileNoteID { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="InventoryLastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue InventoryLastModifiedDateTime { get; set; }
+		public DateTimeValue? InventoryLastModifiedDateTime { get; set; }
 
 		[DataMember(Name="InventoryNoteID", EmitDefaultValue=false)]
-		public GuidValue InventoryNoteID { get; set; }
+		public GuidValue? InventoryNoteID { get; set; }
 
 		[DataMember(Name="IsDefault", EmitDefaultValue=false)]
-		public BooleanValue IsDefault { get; set; }
+		public BooleanValue? IsDefault { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="TemplateItemID", EmitDefaultValue=false)]
-		public StringValue TemplateItemID { get; set; }
+		public StringValue? TemplateItemID { get; set; }
 
 	}
 }

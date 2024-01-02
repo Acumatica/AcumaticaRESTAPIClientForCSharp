@@ -14,25 +14,25 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="CreatedAt", EmitDefaultValue=false)]
-		public DateTimeValue CreatedAt { get; set; }
+		public DateTimeValue? CreatedAt { get; set; }
 
 		[DataMember(Name="CreatedBy", EmitDefaultValue=false)]
-		public StringValue CreatedBy { get; set; }
+		public StringValue? CreatedBy { get; set; }
 
 		[DataMember(Name="CreatedScreenID", EmitDefaultValue=false)]
-		public StringValue CreatedScreenID { get; set; }
+		public StringValue? CreatedScreenID { get; set; }
 
 		[DataMember(Name="Message", EmitDefaultValue=false)]
-		public StringValue Message { get; set; }
+		public StringValue? Message { get; set; }
 
 		[DataMember(Name="MessageType", EmitDefaultValue=false)]
-		public StringValue MessageType { get; set; }
+		public StringValue? MessageType { get; set; }
 
 		[DataMember(Name="ProcessID", EmitDefaultValue=false)]
-		public GuidValue ProcessID { get; set; }
+		public GuidValue? ProcessID { get; set; }
 
 		[DataMember(Name="Recno", EmitDefaultValue=false)]
-		public IntValue Recno { get; set; }
+		public IntValue? Recno { get; set; }
 
 	}
 }

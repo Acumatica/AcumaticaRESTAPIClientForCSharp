@@ -14,13 +14,13 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="BillableProject", EmitDefaultValue=false)]
-		public BooleanValue BillableProject { get; set; }
+		public BooleanValue? BillableProject { get; set; }
 
 		[DataMember(Name="DefaultProjectCode", EmitDefaultValue=false)]
-		public StringValue DefaultProjectCode { get; set; }
+		public StringValue? DefaultProjectCode { get; set; }
 
 		[DataMember(Name="DefaultProjectTask", EmitDefaultValue=false)]
-		public StringValue DefaultProjectTask { get; set; }
+		public StringValue? DefaultProjectTask { get; set; }
 
 	}
 }

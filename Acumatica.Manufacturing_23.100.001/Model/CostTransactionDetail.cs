@@ -14,52 +14,52 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue Account { get; set; }
+		public StringValue? Account { get; set; }
 
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
-		public StringValue BatchNbr { get; set; }
+		public StringValue? BatchNbr { get; set; }
 
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
-		public StringValue DocType { get; set; }
+		public StringValue? DocType { get; set; }
 
 		[DataMember(Name="ExtCost", EmitDefaultValue=false)]
-		public DecimalValue ExtCost { get; set; }
+		public DecimalValue? ExtCost { get; set; }
 
 		[DataMember(Name="GLBatchLineNbr", EmitDefaultValue=false)]
-		public IntValue GLBatchLineNbr { get; set; }
+		public IntValue? GLBatchLineNbr { get; set; }
 
 		[DataMember(Name="GLBatchNbr", EmitDefaultValue=false)]
-		public StringValue GLBatchNbr { get; set; }
+		public StringValue? GLBatchNbr { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="OperationID", EmitDefaultValue=false)]
-		public StringValue OperationID { get; set; }
+		public StringValue? OperationID { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="Quantity", EmitDefaultValue=false)]
-		public DecimalValue Quantity { get; set; }
+		public DecimalValue? Quantity { get; set; }
 
 		[DataMember(Name="RefCostID", EmitDefaultValue=false)]
-		public StringValue RefCostID { get; set; }
+		public StringValue? RefCostID { get; set; }
 
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
-		public StringValue Subaccount { get; set; }
+		public StringValue? Subaccount { get; set; }
 
 		[DataMember(Name="TranDescription", EmitDefaultValue=false)]
-		public StringValue TranDescription { get; set; }
+		public StringValue? TranDescription { get; set; }
 
 		[DataMember(Name="TranType", EmitDefaultValue=false)]
-		public StringValue TranType { get; set; }
+		public StringValue? TranType { get; set; }
 
 	}
 }

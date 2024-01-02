@@ -14,13 +14,13 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="VendorID", EmitDefaultValue=false)]
-		public StringValue VendorID { get; set; }
+		public StringValue? VendorID { get; set; }
 
 		[DataMember(Name="VendorName", EmitDefaultValue=false)]
-		public StringValue VendorName { get; set; }
+		public StringValue? VendorName { get; set; }
 
 		[DataMember(Name="Default", EmitDefaultValue=false)]
-		public BooleanValue Default { get; set; }
+		public BooleanValue? Default { get; set; }
 
 	}
 }

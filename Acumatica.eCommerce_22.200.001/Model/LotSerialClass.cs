@@ -14,27 +14,27 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="AssignmentMethod", EmitDefaultValue=false)]
-		public StringValue AssignmentMethod { get; set; }
+		public StringValue? AssignmentMethod { get; set; }
 
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
-		public StringValue ClassID { get; set; }
+		public StringValue? ClassID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="IssueMethod", EmitDefaultValue=false)]
-		public StringValue IssueMethod { get; set; }
+		public StringValue? IssueMethod { get; set; }
 
 		[DataMember(Name="Segments", EmitDefaultValue=false)]
-		public List<LotSerialClassSegment> Segments { get; set; }
+		public List<LotSerialClassSegment>? Segments { get; set; }
 
 		[DataMember(Name="TrackExpirationDate", EmitDefaultValue=false)]
-		public BooleanValue TrackExpirationDate { get; set; }
+		public BooleanValue? TrackExpirationDate { get; set; }
 
 		[DataMember(Name="TrackingMethod", EmitDefaultValue=false)]
-		public StringValue TrackingMethod { get; set; }
+		public StringValue? TrackingMethod { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

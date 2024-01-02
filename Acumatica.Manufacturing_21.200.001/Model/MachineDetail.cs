@@ -14,19 +14,19 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="MachineAccount", EmitDefaultValue=false)]
-		public StringValue MachineAccount { get; set; }
+		public StringValue? MachineAccount { get; set; }
 
 		[DataMember(Name="MachineID", EmitDefaultValue=false)]
-		public StringValue MachineID { get; set; }
+		public StringValue? MachineID { get; set; }
 
 		[DataMember(Name="MachineOverride", EmitDefaultValue=false)]
-		public BooleanValue MachineOverride { get; set; }
+		public BooleanValue? MachineOverride { get; set; }
 
 		[DataMember(Name="MachineSubaccount", EmitDefaultValue=false)]
-		public StringValue MachineSubaccount { get; set; }
+		public StringValue? MachineSubaccount { get; set; }
 
 		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
-		public DecimalValue StandardCost { get; set; }
+		public DecimalValue? StandardCost { get; set; }
 
 	}
 }

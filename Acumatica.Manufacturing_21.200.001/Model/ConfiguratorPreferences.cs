@@ -14,48 +14,48 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="Calculate", EmitDefaultValue=false)]
-		public StringValue Calculate { get; set; }
+		public StringValue? Calculate { get; set; }
 
 		[DataMember(Name="CompletionRequiredBeforeProduction", EmitDefaultValue=false)]
-		public BooleanValue CompletionRequiredBeforeProduction { get; set; }
+		public BooleanValue? CompletionRequiredBeforeProduction { get; set; }
 
 		[DataMember(Name="ConfigKeyFormat", EmitDefaultValue=false)]
-		public StringValue ConfigKeyFormat { get; set; }
+		public StringValue? ConfigKeyFormat { get; set; }
 
 		[DataMember(Name="ConfigNumberingSequence", EmitDefaultValue=false)]
-		public StringValue ConfigNumberingSequence { get; set; }
+		public StringValue? ConfigNumberingSequence { get; set; }
 
 		[DataMember(Name="DefaultKeyNumberSequence", EmitDefaultValue=false)]
-		public StringValue DefaultKeyNumberSequence { get; set; }
+		public StringValue? DefaultKeyNumberSequence { get; set; }
 
 		[DataMember(Name="DefaultRevision", EmitDefaultValue=false)]
-		public StringValue DefaultRevision { get; set; }
+		public StringValue? DefaultRevision { get; set; }
 
 		[DataMember(Name="EnableDiscount", EmitDefaultValue=false)]
-		public BooleanValue EnableDiscount { get; set; }
+		public BooleanValue? EnableDiscount { get; set; }
 
 		[DataMember(Name="EnablePrice", EmitDefaultValue=false)]
-		public BooleanValue EnablePrice { get; set; }
+		public BooleanValue? EnablePrice { get; set; }
 
 		[DataMember(Name="EnableSubitem", EmitDefaultValue=false)]
-		public BooleanValue EnableSubitem { get; set; }
+		public BooleanValue? EnableSubitem { get; set; }
 
 		[DataMember(Name="EnableWarehouse", EmitDefaultValue=false)]
-		public BooleanValue EnableWarehouse { get; set; }
+		public BooleanValue? EnableWarehouse { get; set; }
 
 		[DataMember(Name="HidePriceDetails", EmitDefaultValue=false)]
-		public BooleanValue HidePriceDetails { get; set; }
+		public BooleanValue? HidePriceDetails { get; set; }
 
 		[DataMember(Name="OverrideDefaultonConfigurationAllowCalculateOverride", EmitDefaultValue=false)]
-		public BooleanValue OverrideDefaultonConfigurationAllowCalculateOverride { get; set; }
+		public BooleanValue? OverrideDefaultonConfigurationAllowCalculateOverride { get; set; }
 
 		[DataMember(Name="OverrideDefaultonConfigurationAllowRollupOverride", EmitDefaultValue=false)]
-		public BooleanValue OverrideDefaultonConfigurationAllowRollupOverride { get; set; }
+		public BooleanValue? OverrideDefaultonConfigurationAllowRollupOverride { get; set; }
 
 		[DataMember(Name="Rollup", EmitDefaultValue=false)]
-		public StringValue Rollup { get; set; }
+		public StringValue? Rollup { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/21.200.001";
 		}

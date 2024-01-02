@@ -14,61 +14,61 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Allocations", EmitDefaultValue=false)]
-		public List<InventoryReceiptDetailAllocation> Allocations { get; set; }
+		public List<InventoryReceiptDetailAllocation>? Allocations { get; set; }
 
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue CostCode { get; set; }
+		public StringValue? CostCode { get; set; }
 
 		[DataMember(Name="CostLayerType", EmitDefaultValue=false)]
-		public StringValue CostLayerType { get; set; }
+		public StringValue? CostLayerType { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
-		public DateTimeValue ExpirationDate { get; set; }
+		public DateTimeValue? ExpirationDate { get; set; }
 
 		[DataMember(Name="ExtCost", EmitDefaultValue=false)]
-		public DecimalValue ExtCost { get; set; }
+		public DecimalValue? ExtCost { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LineNumber", EmitDefaultValue=false)]
-		public IntValue LineNumber { get; set; }
+		public IntValue? LineNumber { get; set; }
 
 		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue Location { get; set; }
+		public StringValue? Location { get; set; }
 
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue LotSerialNbr { get; set; }
+		public StringValue? LotSerialNbr { get; set; }
 
 		[DataMember(Name="POReceiptNbr", EmitDefaultValue=false)]
-		public StringValue POReceiptNbr { get; set; }
+		public StringValue? POReceiptNbr { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
-		public StringValue Project { get; set; }
+		public StringValue? Project { get; set; }
 
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
-		public StringValue ProjectTask { get; set; }
+		public StringValue? ProjectTask { get; set; }
 
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue Qty { get; set; }
+		public DecimalValue? Qty { get; set; }
 
 		[DataMember(Name="SpecialOrderNbr", EmitDefaultValue=false)]
-		public StringValue SpecialOrderNbr { get; set; }
+		public StringValue? SpecialOrderNbr { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
-		public DecimalValue UnitCost { get; set; }
+		public DecimalValue? UnitCost { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue WarehouseID { get; set; }
+		public StringValue? WarehouseID { get; set; }
 
 	}
 }

@@ -14,33 +14,33 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="AccessToken", EmitDefaultValue=false)]
-		public StringValue AccessToken { get; set; }
+		public StringValue? AccessToken { get; set; }
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="APIKey", EmitDefaultValue=false)]
-		public StringValue APIKey { get; set; }
+		public StringValue? APIKey { get; set; }
 
 		[DataMember(Name="APIPassword", EmitDefaultValue=false)]
-		public StringValue APIPassword { get; set; }
+		public StringValue? APIPassword { get; set; }
 
 		[DataMember(Name="Connector", EmitDefaultValue=false)]
-		public StringValue Connector { get; set; }
+		public StringValue? Connector { get; set; }
 
 		[DataMember(Name="Default", EmitDefaultValue=false)]
-		public BooleanValue Default { get; set; }
+		public BooleanValue? Default { get; set; }
 
 		[DataMember(Name="SharedSecret", EmitDefaultValue=false)]
-		public StringValue SharedSecret { get; set; }
+		public StringValue? SharedSecret { get; set; }
 
 		[DataMember(Name="StoreAdminURL", EmitDefaultValue=false)]
-		public StringValue StoreAdminURL { get; set; }
+		public StringValue? StoreAdminURL { get; set; }
 
 		[DataMember(Name="StoreName", EmitDefaultValue=false)]
-		public StringValue StoreName { get; set; }
+		public StringValue? StoreName { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

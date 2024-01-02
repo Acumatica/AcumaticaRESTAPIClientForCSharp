@@ -14,12 +14,12 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="ReportingGroups", EmitDefaultValue=false)]
-		public List<ReportingGroup> ReportingGroups { get; set; }
+		public List<ReportingGroup>? ReportingGroups { get; set; }
 
 		[DataMember(Name="TaxAgency", EmitDefaultValue=false)]
-		public StringValue TaxAgency { get; set; }
+		public StringValue? TaxAgency { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

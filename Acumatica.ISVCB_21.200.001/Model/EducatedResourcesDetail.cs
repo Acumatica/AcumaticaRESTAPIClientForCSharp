@@ -14,124 +14,124 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	{
 
 		[DataMember(Name="Geography", EmitDefaultValue=false)]
-		public StringValue Geography { get; set; }
+		public StringValue? Geography { get; set; }
 
 		[DataMember(Name="AccountID", EmitDefaultValue=false)]
-		public StringValue AccountID { get; set; }
+		public StringValue? AccountID { get; set; }
 
 		[DataMember(Name="AccountName", EmitDefaultValue=false)]
-		public StringValue AccountName { get; set; }
+		public StringValue? AccountName { get; set; }
 
 		[DataMember(Name="StageID", EmitDefaultValue=false)]
-		public StringValue StageID { get; set; }
+		public StringValue? StageID { get; set; }
 
 		[DataMember(Name="StageName", EmitDefaultValue=false)]
-		public StringValue StageName { get; set; }
+		public StringValue? StageName { get; set; }
 
 		[DataMember(Name="StageStatus", EmitDefaultValue=false)]
-		public StringValue StageStatus { get; set; }
+		public StringValue? StageStatus { get; set; }
 
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
-		public IntValue ContactID { get; set; }
+		public IntValue? ContactID { get; set; }
 
 		[DataMember(Name="Contact", EmitDefaultValue=false)]
-		public StringValue Contact { get; set; }
+		public StringValue? Contact { get; set; }
 
 		[DataMember(Name="FirstName", EmitDefaultValue=false)]
-		public StringValue FirstName { get; set; }
+		public StringValue? FirstName { get; set; }
 
 		[DataMember(Name="LastName", EmitDefaultValue=false)]
-		public StringValue LastName { get; set; }
+		public StringValue? LastName { get; set; }
 
 		[DataMember(Name="BadgeID", EmitDefaultValue=false)]
-		public StringValue BadgeID { get; set; }
+		public StringValue? BadgeID { get; set; }
 
 		[DataMember(Name="BadgeName", EmitDefaultValue=false)]
-		public StringValue BadgeName { get; set; }
+		public StringValue? BadgeName { get; set; }
 
 		[DataMember(Name="BadgeStatus", EmitDefaultValue=false)]
-		public StringValue BadgeStatus { get; set; }
+		public StringValue? BadgeStatus { get; set; }
 
 		[DataMember(Name="AddressLine1", EmitDefaultValue=false)]
-		public StringValue AddressLine1 { get; set; }
+		public StringValue? AddressLine1 { get; set; }
 
 		[DataMember(Name="AddressLine2", EmitDefaultValue=false)]
-		public StringValue AddressLine2 { get; set; }
+		public StringValue? AddressLine2 { get; set; }
 
 		[DataMember(Name="AddressLine3", EmitDefaultValue=false)]
-		public StringValue AddressLine3 { get; set; }
+		public StringValue? AddressLine3 { get; set; }
 
 		[DataMember(Name="City", EmitDefaultValue=false)]
-		public StringValue City { get; set; }
+		public StringValue? City { get; set; }
 
 		[DataMember(Name="State", EmitDefaultValue=false)]
-		public StringValue State { get; set; }
+		public StringValue? State { get; set; }
 
 		[DataMember(Name="StateName", EmitDefaultValue=false)]
-		public StringValue StateName { get; set; }
+		public StringValue? StateName { get; set; }
 
 		[DataMember(Name="PostalCode", EmitDefaultValue=false)]
-		public StringValue PostalCode { get; set; }
+		public StringValue? PostalCode { get; set; }
 
 		[DataMember(Name="Country", EmitDefaultValue=false)]
-		public StringValue Country { get; set; }
+		public StringValue? Country { get; set; }
 
 		[DataMember(Name="CountryName", EmitDefaultValue=false)]
-		public StringValue CountryName { get; set; }
+		public StringValue? CountryName { get; set; }
 
 		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue Email { get; set; }
+		public StringValue? Email { get; set; }
 
 		[DataMember(Name="Phone1", EmitDefaultValue=false)]
-		public StringValue Phone1 { get; set; }
+		public StringValue? Phone1 { get; set; }
 
 		[DataMember(Name="ContractTemplate", EmitDefaultValue=false)]
-		public StringValue ContractTemplate { get; set; }
+		public StringValue? ContractTemplate { get; set; }
 
 		[DataMember(Name="Class", EmitDefaultValue=false)]
-		public StringValue Class { get; set; }
+		public StringValue? Class { get; set; }
 
 		[DataMember(Name="Module", EmitDefaultValue=false)]
-		public StringValue Module { get; set; }
+		public StringValue? Module { get; set; }
 
 		[DataMember(Name="ContactwithBadge", EmitDefaultValue=false)]
-		public StringValue ContactwithBadge { get; set; }
+		public StringValue? ContactwithBadge { get; set; }
 
 		[DataMember(Name="ContactStatus", EmitDefaultValue=false)]
-		public BooleanValue ContactStatus { get; set; }
+		public BooleanValue? ContactStatus { get; set; }
 
 		[DataMember(Name="UserLogin", EmitDefaultValue=false)]
-		public StringValue UserLogin { get; set; }
+		public StringValue? UserLogin { get; set; }
 
 		[DataMember(Name="UserType", EmitDefaultValue=false)]
-		public StringValue UserType { get; set; }
+		public StringValue? UserType { get; set; }
 
 		[DataMember(Name="CourseProgress", EmitDefaultValue=false)]
-		public IntValue CourseProgress { get; set; }
+		public IntValue? CourseProgress { get; set; }
 
 		[DataMember(Name="AchievementDate", EmitDefaultValue=false)]
-		public DateTimeValue AchievementDate { get; set; }
+		public DateTimeValue? AchievementDate { get; set; }
 
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
-		public StringValue Owner { get; set; }
+		public StringValue? Owner { get; set; }
 
 		[DataMember(Name="Achieved", EmitDefaultValue=false)]
-		public BooleanValue Achieved { get; set; }
+		public BooleanValue? Achieved { get; set; }
 
 		[DataMember(Name="PrerequisiteAchievement", EmitDefaultValue=false)]
-		public IntValue PrerequisiteAchievement { get; set; }
+		public IntValue? PrerequisiteAchievement { get; set; }
 
 		[DataMember(Name="CourseAchievement", EmitDefaultValue=false)]
-		public IntValue CourseAchievement { get; set; }
+		public IntValue? CourseAchievement { get; set; }
 
 		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDate { get; set; }
+		public DateTimeValue? CreatedDate { get; set; }
 
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
-		public DateTimeValue ExpirationDate { get; set; }
+		public DateTimeValue? ExpirationDate { get; set; }
 
 		[DataMember(Name="LastUCPDate", EmitDefaultValue=false)]
-		public DateTimeValue LastUCPDate { get; set; }
+		public DateTimeValue? LastUCPDate { get; set; }
 
 	}
 }

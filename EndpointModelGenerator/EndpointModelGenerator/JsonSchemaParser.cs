@@ -24,7 +24,7 @@ namespace EndpointSchemaGenerator
 
         public static Schema ComposeEndpointSchema(string input)
         {
-            Schema schema = JsonConvert.DeserializeObject<Schema>(input);
+            Schema schema = JsonConvert.DeserializeObject<Schema>(input)!;
             foreach (string item in IgnoreList.Union(schema.Definitions.Keys.Where(s => s.EndsWith("CustomAction"))).ToArray())
             {
                 schema.Definitions.Remove(item);

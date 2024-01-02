@@ -14,10 +14,10 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="BenefitIncreasingApplWageDetails", EmitDefaultValue=false)]
-		public List<BenefitIncreasingApplWageDetail> BenefitIncreasingApplWageDetails { get; set; }
+		public List<BenefitIncreasingApplWageDetail>? BenefitIncreasingApplWageDetails { get; set; }
 
 		[DataMember(Name="InclusionType", EmitDefaultValue=false)]
-		public StringValue InclusionType { get; set; }
+		public StringValue? InclusionType { get; set; }
 
 	}
 }

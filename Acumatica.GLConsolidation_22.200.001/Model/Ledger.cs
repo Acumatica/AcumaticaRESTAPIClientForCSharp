@@ -14,15 +14,15 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	{
 
 		[DataMember(Name="BalanceType", EmitDefaultValue=false)]
-		public StringValue BalanceType { get; set; }
+		public StringValue? BalanceType { get; set; }
 
 		[DataMember(Name="Descr", EmitDefaultValue=false)]
-		public StringValue Descr { get; set; }
+		public StringValue? Descr { get; set; }
 
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
-		public StringValue LedgerCD { get; set; }
+		public StringValue? LedgerCD { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/GLConsolidation/22.200.001";
 		}

@@ -14,40 +14,40 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="CurrencyYTDBalance", EmitDefaultValue=false)]
-		public DecimalValue CurrencyYTDBalance { get; set; }
+		public DecimalValue? CurrencyYTDBalance { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="ImportedAccount", EmitDefaultValue=false)]
-		public StringValue ImportedAccount { get; set; }
+		public StringValue? ImportedAccount { get; set; }
 
 		[DataMember(Name="ImportedSubaccount", EmitDefaultValue=false)]
-		public StringValue ImportedSubaccount { get; set; }
+		public StringValue? ImportedSubaccount { get; set; }
 
 		[DataMember(Name="Line", EmitDefaultValue=false)]
-		public IntValue Line { get; set; }
+		public IntValue? Line { get; set; }
 
 		[DataMember(Name="MapNbr", EmitDefaultValue=false)]
-		public StringValue MapNbr { get; set; }
+		public StringValue? MapNbr { get; set; }
 
 		[DataMember(Name="MappedAccount", EmitDefaultValue=false)]
-		public StringValue MappedAccount { get; set; }
+		public StringValue? MappedAccount { get; set; }
 
 		[DataMember(Name="MappedSubaccount", EmitDefaultValue=false)]
-		public StringValue MappedSubaccount { get; set; }
+		public StringValue? MappedSubaccount { get; set; }
 
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
-		public BooleanValue Selected { get; set; }
+		public BooleanValue? Selected { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 		[DataMember(Name="YTDBalance", EmitDefaultValue=false)]
-		public DecimalValue YTDBalance { get; set; }
+		public DecimalValue? YTDBalance { get; set; }
 
 	}
 }

@@ -14,13 +14,13 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="DeductionandBenefitCode", EmitDefaultValue=false)]
-		public StringValue DeductionandBenefitCode { get; set; }
+		public StringValue? DeductionandBenefitCode { get; set; }
 
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue EffectiveDate { get; set; }
+		public DateTimeValue? EffectiveDate { get; set; }
 
 		[DataMember(Name="Wage", EmitDefaultValue=false)]
-		public DecimalValue Wage { get; set; }
+		public DecimalValue? Wage { get; set; }
 
 	}
 }

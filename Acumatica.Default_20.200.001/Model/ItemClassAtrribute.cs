@@ -14,13 +14,13 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
-		public StringValue AttributeID { get; set; }
+		public StringValue? AttributeID { get; set; }
 
 		[DataMember(Name="Required", EmitDefaultValue=false)]
-		public BooleanValue Required { get; set; }
+		public BooleanValue? Required { get; set; }
 
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
-		public ShortValue SortOrder { get; set; }
+		public ShortValue? SortOrder { get; set; }
 
 	}
 }

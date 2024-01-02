@@ -14,72 +14,72 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="Allocations", EmitDefaultValue=false)]
-		public List<DisassemblyEntryAllocation> Allocations { get; set; }
+		public List<DisassemblyEntryAllocation>? Allocations { get; set; }
 
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<DisassemblyEntryAttribute> Attributes { get; set; }
+		public List<DisassemblyEntryAttribute>? Attributes { get; set; }
 
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
-		public StringValue BatchNbr { get; set; }
+		public StringValue? BatchNbr { get; set; }
 
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue Branch { get; set; }
+		public StringValue? Branch { get; set; }
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue Date { get; set; }
+		public DateTimeValue? Date { get; set; }
 
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue Hold { get; set; }
+		public BooleanValue? Hold { get; set; }
 
 		[DataMember(Name="INDocType", EmitDefaultValue=false)]
-		public StringValue INDocType { get; set; }
+		public StringValue? INDocType { get; set; }
 
 		[DataMember(Name="INRefNbr", EmitDefaultValue=false)]
-		public StringValue INRefNbr { get; set; }
+		public StringValue? INRefNbr { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LineDescription", EmitDefaultValue=false)]
-		public StringValue LineDescription { get; set; }
+		public StringValue? LineDescription { get; set; }
 
 		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue Location { get; set; }
+		public StringValue? Location { get; set; }
 
 		[DataMember(Name="Material", EmitDefaultValue=false)]
-		public List<DisassemblyEntryMaterial> Material { get; set; }
+		public List<DisassemblyEntryMaterial>? Material { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
-		public StringValue PostPeriod { get; set; }
+		public StringValue? PostPeriod { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="Quantity", EmitDefaultValue=false)]
-		public DecimalValue Quantity { get; set; }
+		public DecimalValue? Quantity { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="TranDescription", EmitDefaultValue=false)]
-		public StringValue TranDescription { get; set; }
+		public StringValue? TranDescription { get; set; }
 
 		[DataMember(Name="TranType", EmitDefaultValue=false)]
-		public StringValue TranType { get; set; }
+		public StringValue? TranType { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/21.200.001";
 		}

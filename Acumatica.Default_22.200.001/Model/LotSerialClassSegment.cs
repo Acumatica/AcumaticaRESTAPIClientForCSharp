@@ -14,13 +14,13 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="SegmentNbr", EmitDefaultValue=false)]
-		public ShortValue SegmentNbr { get; set; }
+		public ShortValue? SegmentNbr { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
-		public StringValue Value { get; set; }
+		public StringValue? Value { get; set; }
 
 	}
 }

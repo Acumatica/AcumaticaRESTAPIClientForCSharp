@@ -14,30 +14,30 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
-		public IntValue CategoryID { get; set; }
+		public IntValue? CategoryID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="Members", EmitDefaultValue=false)]
-		public List<ItemSalesCategoryMember> Members { get; set; }
+		public List<ItemSalesCategoryMember>? Members { get; set; }
 
 		[DataMember(Name="ParentCategoryID", EmitDefaultValue=false)]
-		public IntValue ParentCategoryID { get; set; }
+		public IntValue? ParentCategoryID { get; set; }
 
 		[DataMember(Name="Path", EmitDefaultValue=false)]
-		public StringValue Path { get; set; }
+		public StringValue? Path { get; set; }
 
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
-		public IntValue SortOrder { get; set; }
+		public IntValue? SortOrder { get; set; }
 
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
-		public GuidValue NoteID { get; set; }
+		public GuidValue? NoteID { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

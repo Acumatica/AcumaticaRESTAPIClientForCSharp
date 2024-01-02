@@ -14,52 +14,52 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="DemandForecastModel", EmitDefaultValue=false)]
-		public StringValue DemandForecastModel { get; set; }
+		public StringValue? DemandForecastModel { get; set; }
 
 		[DataMember(Name="ForecastPeriodType", EmitDefaultValue=false)]
-		public StringValue ForecastPeriodType { get; set; }
+		public StringValue? ForecastPeriodType { get; set; }
 
 		[DataMember(Name="LaunchDate", EmitDefaultValue=false)]
-		public DateTimeValue LaunchDate { get; set; }
+		public DateTimeValue? LaunchDate { get; set; }
 
 		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
-		public DecimalValue MaxQty { get; set; }
+		public DecimalValue? MaxQty { get; set; }
 
 		[DataMember(Name="MaxShelfLifeInDays", EmitDefaultValue=false)]
-		public IntValue MaxShelfLifeInDays { get; set; }
+		public IntValue? MaxShelfLifeInDays { get; set; }
 
 		[DataMember(Name="Method", EmitDefaultValue=false)]
-		public StringValue Method { get; set; }
+		public StringValue? Method { get; set; }
 
 		[DataMember(Name="PeriodsToAnalyze", EmitDefaultValue=false)]
-		public IntValue PeriodsToAnalyze { get; set; }
+		public IntValue? PeriodsToAnalyze { get; set; }
 
 		[DataMember(Name="ReorderPoint", EmitDefaultValue=false)]
-		public DecimalValue ReorderPoint { get; set; }
+		public DecimalValue? ReorderPoint { get; set; }
 
 		[DataMember(Name="ReplenishmentClass", EmitDefaultValue=false)]
-		public StringValue ReplenishmentClass { get; set; }
+		public StringValue? ReplenishmentClass { get; set; }
 
 		[DataMember(Name="ReplenishmentWarehouse", EmitDefaultValue=false)]
-		public StringValue ReplenishmentWarehouse { get; set; }
+		public StringValue? ReplenishmentWarehouse { get; set; }
 
 		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
-		public DecimalValue SafetyStock { get; set; }
+		public DecimalValue? SafetyStock { get; set; }
 
 		[DataMember(Name="Seasonality", EmitDefaultValue=false)]
-		public StringValue Seasonality { get; set; }
+		public StringValue? Seasonality { get; set; }
 
 		[DataMember(Name="ServiceLevel", EmitDefaultValue=false)]
-		public DecimalValue ServiceLevel { get; set; }
+		public DecimalValue? ServiceLevel { get; set; }
 
 		[DataMember(Name="Source", EmitDefaultValue=false)]
-		public StringValue Source { get; set; }
+		public StringValue? Source { get; set; }
 
 		[DataMember(Name="TerminationDate", EmitDefaultValue=false)]
-		public DateTimeValue TerminationDate { get; set; }
+		public DateTimeValue? TerminationDate { get; set; }
 
 		[DataMember(Name="TransferERQ", EmitDefaultValue=false)]
-		public DecimalValue TransferERQ { get; set; }
+		public DecimalValue? TransferERQ { get; set; }
 
 	}
 }

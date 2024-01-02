@@ -14,9 +14,9 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<CompaniesStructureDetail> Results { get; set; }
+		public List<CompaniesStructureDetail>? Results { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/20.200.001";
 		}

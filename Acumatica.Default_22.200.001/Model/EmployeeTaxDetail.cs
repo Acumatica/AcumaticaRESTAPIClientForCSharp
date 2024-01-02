@@ -14,19 +14,19 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="TaxCode", EmitDefaultValue=false)]
-		public StringValue TaxCode { get; set; }
+		public StringValue? TaxCode { get; set; }
 
 		[DataMember(Name="TaxCodeSettings", EmitDefaultValue=false)]
-		public List<TaxCodeSetting> TaxCodeSettings { get; set; }
+		public List<TaxCodeSetting>? TaxCodeSettings { get; set; }
 
 		[DataMember(Name="TaxDescription", EmitDefaultValue=false)]
-		public StringValue TaxDescription { get; set; }
+		public StringValue? TaxDescription { get; set; }
 
 	}
 }

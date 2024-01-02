@@ -14,48 +14,48 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="DaysAfter", EmitDefaultValue=false)]
-		public IntValue DaysAfter { get; set; }
+		public IntValue? DaysAfter { get; set; }
 
 		[DataMember(Name="DaysBefore", EmitDefaultValue=false)]
-		public IntValue DaysBefore { get; set; }
+		public IntValue? DaysBefore { get; set; }
 
 		[DataMember(Name="DefaultType", EmitDefaultValue=false)]
-		public StringValue DefaultType { get; set; }
+		public StringValue? DefaultType { get; set; }
 
 		[DataMember(Name="DemandTimeFence", EmitDefaultValue=false)]
-		public IntValue DemandTimeFence { get; set; }
+		public IntValue? DemandTimeFence { get; set; }
 
 		[DataMember(Name="GracePeriod", EmitDefaultValue=false)]
-		public IntValue GracePeriod { get; set; }
+		public IntValue? GracePeriod { get; set; }
 
 		[DataMember(Name="IncludeOnHoldProductionOrders", EmitDefaultValue=false)]
-		public BooleanValue IncludeOnHoldProductionOrders { get; set; }
+		public BooleanValue? IncludeOnHoldProductionOrders { get; set; }
 
 		[DataMember(Name="IncludeOnHoldPurchaseOrders", EmitDefaultValue=false)]
-		public BooleanValue IncludeOnHoldPurchaseOrders { get; set; }
+		public BooleanValue? IncludeOnHoldPurchaseOrders { get; set; }
 
 		[DataMember(Name="IncludeOnHoldSalesOrders", EmitDefaultValue=false)]
-		public BooleanValue IncludeOnHoldSalesOrders { get; set; }
+		public BooleanValue? IncludeOnHoldSalesOrders { get; set; }
 
 		[DataMember(Name="NumberingSequence", EmitDefaultValue=false)]
-		public StringValue NumberingSequence { get; set; }
+		public StringValue? NumberingSequence { get; set; }
 
 		[DataMember(Name="PlanOrderType", EmitDefaultValue=false)]
-		public StringValue PlanOrderType { get; set; }
+		public StringValue? PlanOrderType { get; set; }
 
 		[DataMember(Name="PurchaseCalendarID", EmitDefaultValue=false)]
-		public StringValue PurchaseCalendarID { get; set; }
+		public StringValue? PurchaseCalendarID { get; set; }
 
 		[DataMember(Name="StockingMethod", EmitDefaultValue=false)]
-		public StringValue StockingMethod { get; set; }
+		public StringValue? StockingMethod { get; set; }
 
 		[DataMember(Name="TimeFence", EmitDefaultValue=false)]
-		public IntValue TimeFence { get; set; }
+		public IntValue? TimeFence { get; set; }
 
 		[DataMember(Name="UseFixedManufacturingTimes", EmitDefaultValue=false)]
-		public BooleanValue UseFixedManufacturingTimes { get; set; }
+		public BooleanValue? UseFixedManufacturingTimes { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

@@ -14,10 +14,10 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="ApplyOvertimeRulesfortheDocument", EmitDefaultValue=false)]
-		public BooleanValue ApplyOvertimeRulesfortheDocument { get; set; }
+		public BooleanValue? ApplyOvertimeRulesfortheDocument { get; set; }
 
 		[DataMember(Name="OvertimeRulesDetails", EmitDefaultValue=false)]
-		public List<BatchOvertimeRulesDetail> OvertimeRulesDetails { get; set; }
+		public List<BatchOvertimeRulesDetail>? OvertimeRulesDetails { get; set; }
 
 	}
 }

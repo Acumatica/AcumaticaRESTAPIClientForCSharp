@@ -14,25 +14,25 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="AdditionalInformation", EmitDefaultValue=false)]
-		public StringValue AdditionalInformation { get; set; }
+		public StringValue? AdditionalInformation { get; set; }
 
 		[DataMember(Name="CompanyNotes", EmitDefaultValue=false)]
-		public StringValue CompanyNotes { get; set; }
+		public StringValue? CompanyNotes { get; set; }
 
 		[DataMember(Name="FormBox", EmitDefaultValue=false)]
-		public StringValue FormBox { get; set; }
+		public StringValue? FormBox { get; set; }
 
 		[DataMember(Name="Name", EmitDefaultValue=false)]
-		public StringValue Name { get; set; }
+		public StringValue? Name { get; set; }
 
 		[DataMember(Name="Required", EmitDefaultValue=false)]
-		public BooleanValue Required { get; set; }
+		public BooleanValue? Required { get; set; }
 
 		[DataMember(Name="UseDefault", EmitDefaultValue=false)]
-		public BooleanValue UseDefault { get; set; }
+		public BooleanValue? UseDefault { get; set; }
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
-		public StringValue Value { get; set; }
+		public StringValue? Value { get; set; }
 
 	}
 }

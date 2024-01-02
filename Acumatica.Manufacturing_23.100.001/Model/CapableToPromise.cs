@@ -14,21 +14,21 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CapableToPromiseDetail> Details { get; set; }
+		public List<CapableToPromiseDetail>? Details { get; set; }
 
 		[DataMember(Name="ProcessAction", EmitDefaultValue=false)]
-		public StringValue ProcessAction { get; set; }
+		public StringValue? ProcessAction { get; set; }
 
 		[DataMember(Name="RegularProductionOrderType", EmitDefaultValue=false)]
-		public StringValue RegularProductionOrderType { get; set; }
+		public StringValue? RegularProductionOrderType { get; set; }
 
 		[DataMember(Name="SONbr", EmitDefaultValue=false)]
-		public StringValue SONbr { get; set; }
+		public StringValue? SONbr { get; set; }
 
 		[DataMember(Name="SOType", EmitDefaultValue=false)]
-		public StringValue SOType { get; set; }
+		public StringValue? SOType { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/23.100.001";
 		}

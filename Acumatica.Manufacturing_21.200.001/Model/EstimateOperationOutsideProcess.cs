@@ -14,16 +14,16 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="DropShippedtoVendor", EmitDefaultValue=false)]
-		public BooleanValue DropShippedtoVendor { get; set; }
+		public BooleanValue? DropShippedtoVendor { get; set; }
 
 		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
-		public BooleanValue OutsideProcess { get; set; }
+		public BooleanValue? OutsideProcess { get; set; }
 
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
-		public StringValue Vendor { get; set; }
+		public StringValue? Vendor { get; set; }
 
 		[DataMember(Name="VendorLocation", EmitDefaultValue=false)]
-		public StringValue VendorLocation { get; set; }
+		public StringValue? VendorLocation { get; set; }
 
 	}
 }

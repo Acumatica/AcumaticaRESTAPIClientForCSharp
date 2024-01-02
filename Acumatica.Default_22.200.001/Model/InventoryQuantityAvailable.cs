@@ -14,15 +14,15 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<InventoryQuantityAvailableDetail> Results { get; set; }
+		public List<InventoryQuantityAvailableDetail>? Results { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

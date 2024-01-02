@@ -14,28 +14,28 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="EarningCode", EmitDefaultValue=false)]
-		public StringValue EarningCode { get; set; }
+		public StringValue? EarningCode { get; set; }
 
 		[DataMember(Name="EarningDescription", EmitDefaultValue=false)]
-		public StringValue EarningDescription { get; set; }
+		public StringValue? EarningDescription { get; set; }
 
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue EndDate { get; set; }
+		public DateTimeValue? EndDate { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public StringValue LastModifiedDateTime { get; set; }
+		public StringValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="PayRate", EmitDefaultValue=false)]
-		public DecimalValue PayRate { get; set; }
+		public DecimalValue? PayRate { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="UnitOfPay", EmitDefaultValue=false)]
-		public StringValue UnitOfPay { get; set; }
+		public StringValue? UnitOfPay { get; set; }
 
 	}
 }

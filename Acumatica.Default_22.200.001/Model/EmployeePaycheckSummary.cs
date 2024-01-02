@@ -14,31 +14,31 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue Amount { get; set; }
+		public DecimalValue? Amount { get; set; }
 
 		[DataMember(Name="Employee", EmitDefaultValue=false)]
-		public StringValue Employee { get; set; }
+		public StringValue? Employee { get; set; }
 
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
-		public StringValue EmployeeName { get; set; }
+		public StringValue? EmployeeName { get; set; }
 
 		[DataMember(Name="EmployeePaycheckEarnings", EmitDefaultValue=false)]
-		public EmployeePaycheckEarnings EmployeePaycheckEarnings { get; set; }
+		public EmployeePaycheckEarnings? EmployeePaycheckEarnings { get; set; }
 
 		[DataMember(Name="Hours", EmitDefaultValue=false)]
-		public DecimalValue Hours { get; set; }
+		public DecimalValue? Hours { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="PaycheckRef", EmitDefaultValue=false)]
-		public StringValue PaycheckRef { get; set; }
+		public StringValue? PaycheckRef { get; set; }
 
 		[DataMember(Name="Rate", EmitDefaultValue=false)]
-		public DecimalValue Rate { get; set; }
+		public DecimalValue? Rate { get; set; }
 
 		[DataMember(Name="VoidPaycheckRef", EmitDefaultValue=false)]
-		public StringValue VoidPaycheckRef { get; set; }
+		public StringValue? VoidPaycheckRef { get; set; }
 
 	}
 }

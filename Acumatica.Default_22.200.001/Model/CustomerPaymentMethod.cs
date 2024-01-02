@@ -14,42 +14,42 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="CardAccountNbr", EmitDefaultValue=false)]
-		public StringValue CardAccountNbr { get; set; }
+		public StringValue? CardAccountNbr { get; set; }
 
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
-		public StringValue CashAccount { get; set; }
+		public StringValue? CashAccount { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDateTime { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
-		public StringValue CustomerID { get; set; }
+		public StringValue? CustomerID { get; set; }
 
 		[DataMember(Name="CustomerProfileID", EmitDefaultValue=false)]
-		public StringValue CustomerProfileID { get; set; }
+		public StringValue? CustomerProfileID { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CustomerPaymentMethodDetail> Details { get; set; }
+		public List<CustomerPaymentMethodDetail>? Details { get; set; }
 
 		[DataMember(Name="InstanceID", EmitDefaultValue=false)]
-		public IntValue InstanceID { get; set; }
+		public IntValue? InstanceID { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
-		public StringValue PaymentMethod { get; set; }
+		public StringValue? PaymentMethod { get; set; }
 
 		[DataMember(Name="ProcCenterID", EmitDefaultValue=false)]
-		public StringValue ProcCenterID { get; set; }
+		public StringValue? ProcCenterID { get; set; }
 
 		[DataMember(Name="CardType", EmitDefaultValue=false)]
-		public StringValue CardType { get; set; }
+		public StringValue? CardType { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

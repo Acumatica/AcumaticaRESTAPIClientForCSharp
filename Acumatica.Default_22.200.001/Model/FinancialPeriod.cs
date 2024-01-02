@@ -14,27 +14,27 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDateTime { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<FinancialPeriodDetail> Details { get; set; }
+		public List<FinancialPeriodDetail>? Details { get; set; }
 
 		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
-		public StringValue FinancialYear { get; set; }
+		public StringValue? FinancialYear { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="NbrOfPeriods", EmitDefaultValue=false)]
-		public ShortValue NbrOfPeriods { get; set; }
+		public ShortValue? NbrOfPeriods { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="UserDefinedPeriods", EmitDefaultValue=false)]
-		public BooleanValue UserDefinedPeriods { get; set; }
+		public BooleanValue? UserDefinedPeriods { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

@@ -14,15 +14,15 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="SplitByLocation", EmitDefaultValue=false)]
-		public BooleanValue SplitByLocation { get; set; }
+		public BooleanValue? SplitByLocation { get; set; }
 
 		[DataMember(Name="StorageDetailsByLocation", EmitDefaultValue=false)]
-		public List<StorageDetailByLocation> StorageDetailsByLocation { get; set; }
+		public List<StorageDetailByLocation>? StorageDetailsByLocation { get; set; }
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue WarehouseID { get; set; }
+		public StringValue? WarehouseID { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

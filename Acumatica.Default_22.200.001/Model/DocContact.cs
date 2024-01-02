@@ -14,16 +14,16 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Attention", EmitDefaultValue=false)]
-		public StringValue Attention { get; set; }
+		public StringValue? Attention { get; set; }
 
 		[DataMember(Name="BusinessName", EmitDefaultValue=false)]
-		public StringValue BusinessName { get; set; }
+		public StringValue? BusinessName { get; set; }
 
 		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue Email { get; set; }
+		public StringValue? Email { get; set; }
 
 		[DataMember(Name="Phone1", EmitDefaultValue=false)]
-		public StringValue Phone1 { get; set; }
+		public StringValue? Phone1 { get; set; }
 
 	}
 }

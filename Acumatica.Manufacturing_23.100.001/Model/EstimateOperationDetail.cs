@@ -14,106 +14,106 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]
-		public BooleanValue BackflushLabor { get; set; }
+		public BooleanValue? BackflushLabor { get; set; }
 
 		[DataMember(Name="ControlPoint", EmitDefaultValue=false)]
-		public BooleanValue ControlPoint { get; set; }
+		public BooleanValue? ControlPoint { get; set; }
 
 		[DataMember(Name="EstimateID", EmitDefaultValue=false)]
-		public StringValue EstimateID { get; set; }
+		public StringValue? EstimateID { get; set; }
 
 		[DataMember(Name="FinishTime", EmitDefaultValue=false)]
-		public IntValue FinishTime { get; set; }
+		public IntValue? FinishTime { get; set; }
 
 		[DataMember(Name="FixedLaborOverride", EmitDefaultValue=false)]
-		public BooleanValue FixedLaborOverride { get; set; }
+		public BooleanValue? FixedLaborOverride { get; set; }
 
 		[DataMember(Name="FixedOvhdOverride", EmitDefaultValue=false)]
-		public BooleanValue FixedOvhdOverride { get; set; }
+		public BooleanValue? FixedOvhdOverride { get; set; }
 
 		[DataMember(Name="FixLaborCost", EmitDefaultValue=false)]
-		public DecimalValue FixLaborCost { get; set; }
+		public DecimalValue? FixLaborCost { get; set; }
 
 		[DataMember(Name="FixOverheadCost", EmitDefaultValue=false)]
-		public DecimalValue FixOverheadCost { get; set; }
+		public DecimalValue? FixOverheadCost { get; set; }
 
 		[DataMember(Name="MachineCost", EmitDefaultValue=false)]
-		public DecimalValue MachineCost { get; set; }
+		public DecimalValue? MachineCost { get; set; }
 
 		[DataMember(Name="MachineOverride", EmitDefaultValue=false)]
-		public BooleanValue MachineOverride { get; set; }
+		public BooleanValue? MachineOverride { get; set; }
 
 		[DataMember(Name="MachineTime", EmitDefaultValue=false)]
-		public IntValue MachineTime { get; set; }
+		public IntValue? MachineTime { get; set; }
 
 		[DataMember(Name="MachineUnits", EmitDefaultValue=false)]
-		public DecimalValue MachineUnits { get; set; }
+		public DecimalValue? MachineUnits { get; set; }
 
 		[DataMember(Name="MaterialCost", EmitDefaultValue=false)]
-		public DecimalValue MaterialCost { get; set; }
+		public DecimalValue? MaterialCost { get; set; }
 
 		[DataMember(Name="MaterialOverride", EmitDefaultValue=false)]
-		public BooleanValue MaterialOverride { get; set; }
+		public BooleanValue? MaterialOverride { get; set; }
 
 		[DataMember(Name="MoveTime", EmitDefaultValue=false)]
-		public IntValue MoveTime { get; set; }
+		public IntValue? MoveTime { get; set; }
 
 		[DataMember(Name="OperationDescription", EmitDefaultValue=false)]
-		public StringValue OperationDescription { get; set; }
+		public StringValue? OperationDescription { get; set; }
 
 		[DataMember(Name="OperationID", EmitDefaultValue=false)]
-		public StringValue OperationID { get; set; }
+		public StringValue? OperationID { get; set; }
 
 		[DataMember(Name="OperationNbr", EmitDefaultValue=false)]
-		public IntValue OperationNbr { get; set; }
+		public IntValue? OperationNbr { get; set; }
 
 		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
-		public BooleanValue OutsideProcess { get; set; }
+		public BooleanValue? OutsideProcess { get; set; }
 
 		[DataMember(Name="QueueTime", EmitDefaultValue=false)]
-		public IntValue QueueTime { get; set; }
+		public IntValue? QueueTime { get; set; }
 
 		[DataMember(Name="RefMaterialCost", EmitDefaultValue=false)]
-		public DecimalValue RefMaterialCost { get; set; }
+		public DecimalValue? RefMaterialCost { get; set; }
 
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue Revision { get; set; }
+		public StringValue? Revision { get; set; }
 
 		[DataMember(Name="RunTime", EmitDefaultValue=false)]
-		public IntValue RunTime { get; set; }
+		public IntValue? RunTime { get; set; }
 
 		[DataMember(Name="RunUnits", EmitDefaultValue=false)]
-		public DecimalValue RunUnits { get; set; }
+		public DecimalValue? RunUnits { get; set; }
 
 		[DataMember(Name="SetupTime", EmitDefaultValue=false)]
-		public IntValue SetupTime { get; set; }
+		public IntValue? SetupTime { get; set; }
 
 		[DataMember(Name="SubcontractCost", EmitDefaultValue=false)]
-		public DecimalValue SubcontractCost { get; set; }
+		public DecimalValue? SubcontractCost { get; set; }
 
 		[DataMember(Name="SubcontractOverride", EmitDefaultValue=false)]
-		public BooleanValue SubcontractOverride { get; set; }
+		public BooleanValue? SubcontractOverride { get; set; }
 
 		[DataMember(Name="ToolCost", EmitDefaultValue=false)]
-		public DecimalValue ToolCost { get; set; }
+		public DecimalValue? ToolCost { get; set; }
 
 		[DataMember(Name="ToolOverride", EmitDefaultValue=false)]
-		public BooleanValue ToolOverride { get; set; }
+		public BooleanValue? ToolOverride { get; set; }
 
 		[DataMember(Name="VariableLaborOverride", EmitDefaultValue=false)]
-		public BooleanValue VariableLaborOverride { get; set; }
+		public BooleanValue? VariableLaborOverride { get; set; }
 
 		[DataMember(Name="VariableOvhdOverride", EmitDefaultValue=false)]
-		public BooleanValue VariableOvhdOverride { get; set; }
+		public BooleanValue? VariableOvhdOverride { get; set; }
 
 		[DataMember(Name="VarLaborCost", EmitDefaultValue=false)]
-		public DecimalValue VarLaborCost { get; set; }
+		public DecimalValue? VarLaborCost { get; set; }
 
 		[DataMember(Name="VarOverheadCost", EmitDefaultValue=false)]
-		public DecimalValue VarOverheadCost { get; set; }
+		public DecimalValue? VarOverheadCost { get; set; }
 
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
-		public StringValue WorkCenter { get; set; }
+		public StringValue? WorkCenter { get; set; }
 
 	}
 }

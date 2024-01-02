@@ -14,18 +14,18 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="BilledTransactions", EmitDefaultValue=false)]
-		public List<ContractUsageTransactionDetail> BilledTransactions { get; set; }
+		public List<ContractUsageTransactionDetail>? BilledTransactions { get; set; }
 
 		[DataMember(Name="ContractID", EmitDefaultValue=false)]
-		public StringValue ContractID { get; set; }
+		public StringValue? ContractID { get; set; }
 
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
-		public StringValue PostPeriod { get; set; }
+		public StringValue? PostPeriod { get; set; }
 
 		[DataMember(Name="UnbilledTransactions", EmitDefaultValue=false)]
-		public List<ContractUsageTransactionDetail> UnbilledTransactions { get; set; }
+		public List<ContractUsageTransactionDetail>? UnbilledTransactions { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";
 		}

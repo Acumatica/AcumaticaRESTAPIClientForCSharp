@@ -14,22 +14,22 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue Amount { get; set; }
+		public DecimalValue? Amount { get; set; }
 
 		[DataMember(Name="Employee", EmitDefaultValue=false)]
-		public StringValue Employee { get; set; }
+		public StringValue? Employee { get; set; }
 
 		[DataMember(Name="EmployeeType", EmitDefaultValue=false)]
-		public StringValue EmployeeType { get; set; }
+		public StringValue? EmployeeType { get; set; }
 
 		[DataMember(Name="Hours", EmitDefaultValue=false)]
-		public DecimalValue Hours { get; set; }
+		public DecimalValue? Hours { get; set; }
 
 		[DataMember(Name="ManualAmount", EmitDefaultValue=false)]
-		public BooleanValue ManualAmount { get; set; }
+		public BooleanValue? ManualAmount { get; set; }
 
 		[DataMember(Name="RegularAmounttoBePaid", EmitDefaultValue=false)]
-		public DecimalValue RegularAmounttoBePaid { get; set; }
+		public DecimalValue? RegularAmounttoBePaid { get; set; }
 
 	}
 }

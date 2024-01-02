@@ -32,14 +32,21 @@ namespace ModelGeneratorConsole
 
         }
 
-        private static DirectoryInfo GetParentDirectory(string currentDirectory, int levels = 1)
+        private static DirectoryInfo? GetParentDirectory(string currentDirectory, int levels = 1)
         {
             if(levels<1)
                 throw new ArgumentOutOfRangeException(nameof(levels), "Number of levels must be grater than 0");
             var parentDirectory = Directory.GetParent(currentDirectory);
-            for (int i = 1; i < levels; i++)
+            if (parentDirectory == null)
             {
-                parentDirectory = parentDirectory.Parent;
+                return null;
+            }
+            else
+            {
+                for (int i = 1; i < levels; i++)
+                {
+                    parentDirectory = parentDirectory!.Parent;
+                }
             }
             return parentDirectory;
         }

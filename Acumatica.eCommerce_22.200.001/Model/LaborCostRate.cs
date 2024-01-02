@@ -14,30 +14,30 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue EffectiveDate { get; set; }
+		public DateTimeValue? EffectiveDate { get; set; }
 
 		[DataMember(Name="Employee", EmitDefaultValue=false)]
-		public StringValue Employee { get; set; }
+		public StringValue? Employee { get; set; }
 
 		[DataMember(Name="LaborItem", EmitDefaultValue=false)]
-		public StringValue LaborItem { get; set; }
+		public StringValue? LaborItem { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
-		public StringValue Project { get; set; }
+		public StringValue? Project { get; set; }
 
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
-		public StringValue ProjectTask { get; set; }
+		public StringValue? ProjectTask { get; set; }
 
 		[DataMember(Name="LaborRateType", EmitDefaultValue=false)]
-		public StringValue LaborRateType { get; set; }
+		public StringValue? LaborRateType { get; set; }
 
 		[DataMember(Name="UnionLocal", EmitDefaultValue=false)]
-		public StringValue UnionLocal { get; set; }
+		public StringValue? UnionLocal { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<LaborRate> Results { get; set; }
+		public List<LaborRate>? Results { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

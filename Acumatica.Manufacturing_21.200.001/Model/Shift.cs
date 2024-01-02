@@ -14,21 +14,21 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
-		public DecimalValue CrewSize { get; set; }
+		public DecimalValue? CrewSize { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="DiffType", EmitDefaultValue=false)]
-		public StringValue DiffType { get; set; }
+		public StringValue? DiffType { get; set; }
 
 		[DataMember(Name="shift", EmitDefaultValue=false)]
-		public StringValue shift { get; set; }
+		public StringValue? shift { get; set; }
 
 		[DataMember(Name="ShiftDiff", EmitDefaultValue=false)]
-		public DecimalValue ShiftDiff { get; set; }
+		public DecimalValue? ShiftDiff { get; set; }
 
-		public string GetEndpointPath()
+		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/21.200.001";
 		}
