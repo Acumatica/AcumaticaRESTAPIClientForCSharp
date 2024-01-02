@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
@@ -269,9 +270,9 @@ namespace Acumatica.RESTClient.AuthApi
     /// </summary>
     /// <exception cref="ApiException">Thrown when fails to make API call</exception>
     /// <returns></returns>
-    public static void Logout(this ApiClient client)
+    public static HttpResponseMessage Logout(this ApiClient client)
         {
-            Task.Run(() => LogoutAsync(client)).GetAwaiter().GetResult();
+            return Task.Run(() => LogoutAsync(client)).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -281,8 +282,12 @@ namespace Acumatica.RESTClient.AuthApi
         public static bool TryLogout(this ApiClient client)
         {
             try
-            {
-                Logout(client);
+            {             
+                var response = Logout(client);
+                if(!HasSessionInfo(response, client))
+                {
+                    return false;
+                }
                 return true;
             }
             catch
@@ -290,12 +295,14 @@ namespace Acumatica.RESTClient.AuthApi
                 return false;
             }
         }
+
+  
         /// <summary>
         /// Logs out from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
-        public static async Task LogoutAsync(this ApiClient client)
+        public static async Task<HttpResponseMessage> LogoutAsync(this ApiClient client)
         {
             HttpResponseMessage response = await client.CallApiAsync(
                "/entity/auth/logout",
@@ -305,7 +312,8 @@ namespace Acumatica.RESTClient.AuthApi
                HeaderContentType.None,
                HeaderContentType.None);
 
-            await VerifyResponseAsync(client, response, nameof(LogoutAsync));
+             await VerifyResponseAsync(client, response, nameof(LogoutAsync));
+            return response;
         }
 
         #endregion
@@ -357,9 +365,40 @@ namespace Acumatica.RESTClient.AuthApi
                 {
                     // Parse the cookie string.
                     var cookie = new Cookie();
+                    Console.WriteLine(cookie.Value);
                     cookieContainer.SetCookies(response.RequestMessage.RequestUri, cookieValue);
                 }
             }
+        }
+        private static bool HasSessionInfo(HttpResponseMessage response, ApiClient client)
+        {
+            foreach (var cookieValue in client.Cookies)
+            {
+                var sessionInfo = GetSessionInfoFromResponse(response);
+                if (!string.IsNullOrEmpty(sessionInfo) && !string.IsNullOrEmpty(cookieValue) && cookieValue.Contains(sessionInfo))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static string GetSessionInfoFromResponse(HttpResponseMessage response)
+        {
+            // Check if the response contains any cookies.
+            if (response.RequestMessage.Headers.TryGetValues("Cookie", out var cookieValues))
+            {
+
+                foreach (var cookieValue in cookieValues)
+                {
+                    if (!string.IsNullOrEmpty(cookieValue) && cookieValue.Contains("ASP.NET_SessionId"))
+                    {
+                        var startIndex = cookieValue.IndexOf("ASP.NET_SessionId=") + "ASP.NET_SessionId=".Length;
+                        return cookieValue.Substring(startIndex).Split(';')[0];
+                    }
+                }
+            }
+            return string.Empty;
         }
         #endregion
     }

@@ -36,7 +36,7 @@ namespace AcumaticaRestApiExample
                 }
                 finally
                 {
-                    client.Logout();
+                    client.TryLogout();
 
                 }
             }
