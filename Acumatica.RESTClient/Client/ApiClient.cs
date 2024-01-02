@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using static Acumatica.RESTClient.Auxiliary.Constants;
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 using Acumatica.RESTClient.AuthApi.Model;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Acumatica.RESTClient.Client
 {
@@ -25,7 +26,10 @@ namespace Acumatica.RESTClient.Client
     public partial class ApiClient
     {
         #region State & ctor
-        public CookieContainer Cookies { get; protected set; }
+        public CookieContainer SharedCookieContainer { get; set; }
+
+        public IEnumerable<string> Cookies { get; set; }    
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
@@ -44,7 +48,7 @@ namespace Acumatica.RESTClient.Client
         /// <param name="timeout">
         /// Gets or sets the HTTP timeout (milliseconds) of the ApiClient. Default to 100000 milliseconds.
         /// </param>
-        public ApiClient(string basePath, 
+        public ApiClient(string basePath,
             int timeout = 100000,
              Action<HttpRequestMessage> requestInterceptor = null,
              Action<HttpResponseMessage> responseInterceptor = null)
@@ -53,14 +57,22 @@ namespace Acumatica.RESTClient.Client
 
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
+            if (SharedCookieContainer == null)
+            {
+                SharedCookieContainer = new CookieContainer();
+            }
+            var services = new ServiceCollection();
+            services.AddHttpClient("HttpClient", c => {
+                c.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
+            }
+            ).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                //CookieContainer = SharedCookieContainer
+                UseCookies = false
 
-
-            Cookies = new CookieContainer();
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.CookieContainer = Cookies;
-
-            Client = new HttpClient(handler);
-            Client.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
+            });
+            var serviceProvider = services.BuildServiceProvider();
+            HttpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
         }
 
 
@@ -80,7 +92,7 @@ namespace Acumatica.RESTClient.Client
         /// Gets or sets the HttpClient.
         /// </summary>
         /// <value>An instance of the HttpClient</value>
-        public HttpClient Client { get; set; }
+        public IHttpClientFactory HttpClientFactory { get; set; }
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
@@ -122,7 +134,7 @@ namespace Acumatica.RESTClient.Client
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
         public async Task<HttpResponseMessage> CallApiAsync(
-            String resourcePath, 
+            String resourcePath,
             HttpMethod method,
             List<KeyValuePair<String, String>> queryParams,
             Object postBody,
@@ -132,7 +144,7 @@ namespace Acumatica.RESTClient.Client
         {
             var request = PrepareRequest(
                 resourcePath,
-                method, 
+                method,
                 queryParams,
                 postBody,
                 customHeaders,
@@ -143,12 +155,13 @@ namespace Acumatica.RESTClient.Client
             {
                 RequestInterceptor(request);
             }
-            var response = await Client.SendAsync(request);
+            var response = await HttpClientFactory.CreateClient().SendAsync(request);
+            
             if (ResponseInterceptor != null)
             {
                 ResponseInterceptor(response);
             }
-
+            
             return response;
         }
         #endregion
@@ -157,12 +170,12 @@ namespace Acumatica.RESTClient.Client
 
         // Creates and sets up a RestRequest prior to a call.
         private HttpRequestMessage PrepareRequest(
-            String resourcePath, 
-            HttpMethod method, 
-            List<KeyValuePair<String, String>> queryParams, 
+            String resourcePath,
+            HttpMethod method,
+            List<KeyValuePair<String, String>> queryParams,
             Object postBody,
             Dictionary<String, String> headerParams,
-            string acceptType, 
+            string acceptType,
             string contentType)
         {
 
@@ -174,16 +187,20 @@ namespace Acumatica.RESTClient.Client
                 foreach (var param in queryParams)
                 {
                     var query = System.Web.HttpUtility.ParseQueryString(url.Query);
-                    foreach(var kvp in queryParams)
+                    foreach (var kvp in queryParams)
                     {
-                        query.Set(kvp.Key, kvp.Value);  
+                        query.Set(kvp.Key, kvp.Value);
                     }
                     url.Query = query.ToString();
                 }
             }
 
             var request = new HttpRequestMessage(method, url.ToString());
-
+           if(Cookies != null && !resourcePath.Contains("login"))
+            {
+                string cookieHeader = string.Join("; ", Cookies);
+                request.Headers.Add("Cookie", cookieHeader);
+            }
             if (headerParams != null)
             {
                 // add header parameter, if any
@@ -209,14 +226,14 @@ namespace Acumatica.RESTClient.Client
                 {
                     request.Content = new StringContent(postBody as string, Encoding.UTF8, contentType);
                 }
-               
+
                 else if (postBody is byte[])
                 {
                     request.Content = new ByteArrayContent(postBody as byte[]);
                 }
-                else 
+                else
                 {
-                    request.Content = new StringContent(Serialize(postBody), Encoding.UTF8, contentType); 
+                    request.Content = new StringContent(Serialize(postBody), Encoding.UTF8, contentType);
                 }
             }
             return request;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -25,7 +26,7 @@ namespace Acumatica.RESTClient.AuthApi
         #region OAuth
         public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
         {
-            RefreshAccessTokenAsync(client, clientID, clientSecret).Wait();
+            Task.Run(() => RefreshAccessTokenAsync(client, clientID, clientSecret)).GetAwaiter().GetResult();
         }
 
         public async static Task RefreshAccessTokenAsync(this ApiClient client, string clientID, string clientSecret)
@@ -61,16 +62,16 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="scope"></param>
         public static void ReceiveAccessToken(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
         {
-            ReceiveAccessTokenAsync(client, clientID, clientSecret, username, password, scope).Wait();
+            Task.Run(() => ReceiveAccessTokenAsync(client, clientID, clientSecret, username, password, scope)).GetAwaiter().GetResult();
         }
         /// <summary>
-         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
-         /// </summary>
-         /// <param name="clientID"></param>
-         /// <param name="clientSecret"></param>
-         /// <param name="username"></param>
-         /// <param name="password"></param>
-         /// <param name="scope"></param>
+        /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="scope"></param>
         public async static Task ReceiveAccessTokenAsync(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
         {
             HttpResponseMessage response = await client.CallApiAsync(
@@ -106,12 +107,12 @@ namespace Acumatica.RESTClient.AuthApi
             return AuthorizeAsync(client, clientID, clientSecret, redirectUrl, scope).Result;
         }
         /// <summary>
-         /// 
-         /// </summary>
-         /// <param name="clientID"></param>
-         /// <param name="clientSecret"></param>
-         /// <param name="redirectUrl"></param>
-         /// <param name="scope"></param>
+        /// 
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="redirectUrl"></param>
+        /// <param name="scope"></param>
         public async static Task<string> AuthorizeAsync(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
         {
             HttpResponseMessage response = await client.CallApiAsync(
@@ -143,7 +144,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="code"></param>
         public static void ReceiveAccessTokenAuthCode(this ApiClient client, string clientID, string clientSecret, string redirectUrl, string code)
         {
-            ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, redirectUrl, code).Wait();
+            Task.Run(() => ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, redirectUrl, code)).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -210,7 +211,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// </returns>
         public async static Task LoginAsync(this ApiClient client, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
-           await LoginAsync(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
+            await LoginAsync(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
         }
 
         /// <summary>
@@ -225,7 +226,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// </returns>
         public static void Login(this ApiClient client, Credentials credentials)
         {
-            LoginAsync(client, credentials).Wait();
+            Task.Run(() => LoginAsync(client, credentials)).GetAwaiter().GetResult();
         }
         /// <summary>
         /// Logs in to the system. 
@@ -251,18 +252,26 @@ namespace Acumatica.RESTClient.AuthApi
                 HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
 
             await VerifyResponseAsync(client, response, nameof(LoginAsync));
+            if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
+            {
+                client.Cookies = cookieValues;
+            }              
+            client.SharedCookieContainer = new CookieContainer();
+
+           SetCookiesFromResponse(response, client.SharedCookieContainer);
         }
         #endregion
+    
 
-        #region Logout
-        /// <summary>
-        /// Logs out from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <returns></returns>
-        public static void Logout(this ApiClient client)
+    #region Logout
+    /// <summary>
+    /// Logs out from the system. 
+    /// </summary>
+    /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+    /// <returns></returns>
+    public static void Logout(this ApiClient client)
         {
-            LogoutAsync(client).Wait();
+            Task.Run(() => LogoutAsync(client)).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -303,7 +312,7 @@ namespace Acumatica.RESTClient.AuthApi
         #endregion
 
         #region Auxiliary
-        private async static Task  VerifyResponseAsync(ApiClient client, HttpResponseMessage response, string methodName)
+        private async static Task VerifyResponseAsync(ApiClient client, HttpResponseMessage response, string methodName)
         {
             if (!response.IsSuccessStatusCode)
             {
@@ -336,6 +345,21 @@ namespace Acumatica.RESTClient.AuthApi
                 s.Append("api:concurrent_access ");
 
             return s.ToString().TrimEnd(' ');
+        }
+
+        private static void SetCookiesFromResponse(HttpResponseMessage response, CookieContainer cookieContainer)
+        {
+            // Check if the response contains any cookies.
+            if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
+            {
+                
+                foreach (var cookieValue in cookieValues)
+                {
+                    // Parse the cookie string.
+                    var cookie = new Cookie();
+                    cookieContainer.SetCookies(response.RequestMessage.RequestUri, cookieValue);
+                }
+            }
         }
         #endregion
     }
