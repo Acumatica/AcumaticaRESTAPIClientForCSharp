@@ -16,6 +16,9 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <Authors>Dmitrii-Naumov</Authors>
     <PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
+
+    <LangVersion>8.0</LangVersion>
+    <nullable>Enable</nullable>
   </PropertyGroup>
 
   <ItemGroup>

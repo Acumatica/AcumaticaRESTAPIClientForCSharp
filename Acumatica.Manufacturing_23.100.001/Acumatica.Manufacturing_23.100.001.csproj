@@ -13,6 +13,8 @@
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<IncludeSymbols>True</IncludeSymbols>
 	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <LangVersion>8.0</LangVersion>
+    <nullable>Enable</nullable>
   </PropertyGroup>
 
    <ItemGroup>

@@ -6,6 +6,8 @@
     <Copyright>Copyright ©  2020</Copyright>
     <OutDir>bin\$(Configuration)\</OutDir>
     <WarningLevel>3</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+    <nullable>Enable</nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
