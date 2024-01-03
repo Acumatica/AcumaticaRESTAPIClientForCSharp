@@ -158,7 +158,7 @@ namespace Acumatica.RESTClient.CustomizationApi
             switch (tenantMode)
             {
                 case TenantMode.Current: publishParams.TenantMode = "Current"; break;
-                case TenantMode.List: throw new NotImplementedException(); break;
+                case TenantMode.List: throw new NotImplementedException(); 
                 case TenantMode.All: publishParams.TenantMode = "All"; break;
             }
 

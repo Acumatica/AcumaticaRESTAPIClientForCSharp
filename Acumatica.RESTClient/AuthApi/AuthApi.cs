@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
@@ -18,14 +16,15 @@ using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 namespace Acumatica.RESTClient.AuthApi
 {
-    /// <summary>
-    /// Represents a collection of functions to interact with the Authorization endpoint
-    /// </summary>
-    public static class AuthApiExtensions
+	/// <summary>
+	/// Represents a collection of functions to interact with the Authorization endpoint
+	/// </summary>
+	public static class AuthApiExtensions
     {
-        #region Public Methods
-        #region OAuth
-        public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
+		private const string SessionCookieName = "ASP.NET_SessionId";
+		#region Public Methods
+		#region OAuth
+		public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
         {
             Task.Run(() => RefreshAccessTokenAsync(client, clientID, clientSecret)).GetAwaiter().GetResult();
         }
@@ -35,7 +34,7 @@ namespace Acumatica.RESTClient.AuthApi
             if (client == null || string.IsNullOrEmpty(client.Token?.Refresh_token))
                 ApiClientHelpers.ThrowMissingParameter(nameof(RefreshAccessToken), "Refresh_Token");
 
-            HttpResponseMessage response = await client.CallApiAsync(
+            HttpResponseMessage response = await client!.CallApiAsync(
                "/identity/connect/token",
                HttpMethod.Post,
                null,
@@ -44,14 +43,14 @@ namespace Acumatica.RESTClient.AuthApi
                     {"grant_type", "refresh_token" },
                     {"client_id", clientID },
                     {"client_secret", clientSecret },
-                    {"refresh_token", client.Token.Refresh_token },
+                    {"refresh_token", client.Token!.Refresh_token! },
                }),
                HeaderContentType.None,
                HeaderContentType.WwwForm);
 
             response.EnsureSuccessStatusCode();
 
-            client.Token = (Token)await DeserializeAsync<Token>(response);
+            client.Token = (Token?)await DeserializeAsync<Token>(response);
         }
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
@@ -93,7 +92,7 @@ namespace Acumatica.RESTClient.AuthApi
 
             await VerifyResponseAsync(client, response, nameof(ReceiveAccessTokenAsync));
 
-            client.Token = (Token)await DeserializeAsync<Token>(response);
+            client.Token = (Token?)await DeserializeAsync<Token>(response);
         }
 
         /// <summary>
@@ -176,7 +175,7 @@ namespace Acumatica.RESTClient.AuthApi
 
             await VerifyResponseAsync(client, response, "RequestToken");
 
-            client.Token = (Token)await DeserializeAsync<Token>(response);
+            client.Token = (Token?)await DeserializeAsync<Token>(response);
         }
         #endregion
 
@@ -253,26 +252,21 @@ namespace Acumatica.RESTClient.AuthApi
                 HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
 
             await VerifyResponseAsync(client, response, nameof(LoginAsync));
-            if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
-            {
-                client.Cookies = cookieValues;
-            }              
-            client.SharedCookieContainer = new CookieContainer();
 
-           SetCookiesFromResponse(response, client.SharedCookieContainer);
+            SetCookiesFromResponse(response, client.Cookies);
         }
         #endregion
-    
 
-    #region Logout
-    /// <summary>
-    /// Logs out from the system. 
-    /// </summary>
-    /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-    /// <returns></returns>
-    public static HttpResponseMessage Logout(this ApiClient client)
+
+        #region Logout
+        /// <summary>
+        /// Logs out from the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        public static void Logout(this ApiClient client)
         {
-            return Task.Run(() => LogoutAsync(client)).GetAwaiter().GetResult();
+            Task.Run(() => LogoutAsync(client)).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -282,13 +276,9 @@ namespace Acumatica.RESTClient.AuthApi
         public static bool TryLogout(this ApiClient client)
         {
             try
-            {             
-                var response = Logout(client);
-                if(!HasSessionInfo(response, client))
-                {
-                    return false;
-                }
-                return true;
+            {
+				Logout(client);
+				return true;
             }
             catch
             {
@@ -302,8 +292,12 @@ namespace Acumatica.RESTClient.AuthApi
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
-        public static async Task<HttpResponseMessage> LogoutAsync(this ApiClient client)
+        public static async Task LogoutAsync(this ApiClient client)
         {
+            if (!HasSessionInfo(client))
+            {
+                throw new Exception("There is no open session to log out.");
+            }
             HttpResponseMessage response = await client.CallApiAsync(
                "/entity/auth/logout",
                HttpMethod.Post,
@@ -313,7 +307,6 @@ namespace Acumatica.RESTClient.AuthApi
                HeaderContentType.None);
 
              await VerifyResponseAsync(client, response, nameof(LogoutAsync));
-            return response;
         }
 
         #endregion
@@ -357,51 +350,39 @@ namespace Acumatica.RESTClient.AuthApi
 
         private static void SetCookiesFromResponse(HttpResponseMessage response, CookieContainer cookieContainer)
         {
-            // Check if the response contains any cookies.
             if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
             {
-                
                 foreach (var cookieValue in cookieValues)
                 {
-                    // Parse the cookie string.
-                    var cookie = new Cookie();
-                    Console.WriteLine(cookie.Value);
                     cookieContainer.SetCookies(response.RequestMessage.RequestUri, cookieValue);
                 }
             }
         }
-        private static bool HasSessionInfo(HttpResponseMessage response, ApiClient client)
+        private static bool HasSessionInfo(ApiClient client)
         {
-            if (client?.Cookies != null)
+            if (client?.Cookies != null
+                && client.Cookies.GetCookies(new Uri(client.BasePath)).Cast<Cookie>()
+                .Any(cookie => cookie.Name == SessionCookieName))
             {
-                foreach (var cookieValue in client.Cookies)
-                {
-                    var sessionInfo = GetSessionInfoFromResponse(response);
-                    if (!string.IsNullOrEmpty(sessionInfo) && !string.IsNullOrEmpty(cookieValue) && cookieValue.Contains(sessionInfo))
-                    {
-                        return true;
-                    }
-                }
+                return true;
             }
             return false;
         }
 
-        private static string GetSessionInfoFromResponse(HttpResponseMessage response)
+        private static string? GetSessionInfoFromResponse(HttpResponseMessage response)
         {
-            // Check if the response contains any cookies.
-            if (response.RequestMessage.Headers.TryGetValues("Cookie", out var cookieValues))
-            {
-
-                foreach (var cookieValue in cookieValues)
-                {
-                    if (!string.IsNullOrEmpty(cookieValue) && cookieValue.Contains("ASP.NET_SessionId"))
-                    {
-                        var startIndex = cookieValue.IndexOf("ASP.NET_SessionId=") + "ASP.NET_SessionId=".Length;
-                        return cookieValue.Substring(startIndex).Split(';')[0];
-                    }
-                }
-            }
-            return string.Empty;
+			if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
+			{
+				foreach (var cookieValue in cookieValues)
+				{
+					if (!string.IsNullOrEmpty(cookieValue) && cookieValue.Contains(SessionCookieName))
+					{
+                        var valueStartIndex = cookieValue.IndexOf(SessionCookieName) + SessionCookieName.Length + 1;
+						return cookieValue.Substring(valueStartIndex).Split(';')[0];
+					}
+				}
+			}
+            return null;
         }
         #endregion
     }

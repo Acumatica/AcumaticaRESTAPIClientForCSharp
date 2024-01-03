@@ -1,36 +1,25 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Auxiliary;
-
-
-using Newtonsoft.Json;
-
-using static Acumatica.RESTClient.Auxiliary.Constants;
-using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
-using Acumatica.RESTClient.AuthApi.Model;
 using Microsoft.Extensions.DependencyInjection;
+
+using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.AuthApi.Model;
+
+using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 namespace Acumatica.RESTClient.Client
 {
-    /// <summary>
-    /// API client is mainly responsible for making the HTTP call to the API backend.
-    /// </summary>
-    public partial class ApiClient
+	/// <summary>
+	/// API client is mainly responsible for making the HTTP call to the API backend.
+	/// </summary>
+	public partial class ApiClient
     {
         #region State & ctor
-        public CookieContainer SharedCookieContainer { get; set; }
-
-        public IEnumerable<string> Cookies { get; set; }    
-
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
         /// </summary> 
@@ -57,9 +46,9 @@ namespace Acumatica.RESTClient.Client
 
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
-            if (SharedCookieContainer == null)
+            if (Cookies == null)
             {
-                SharedCookieContainer = new CookieContainer();
+				Cookies = new CookieContainer();
             }
             var services = new ServiceCollection();
             services.AddHttpClient("HttpClient", c => {
@@ -67,20 +56,18 @@ namespace Acumatica.RESTClient.Client
             }
             ).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
             {
-                //CookieContainer = SharedCookieContainer
                 UseCookies = false
-
             });
             var serviceProvider = services.BuildServiceProvider();
             HttpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
         }
 
+		public CookieContainer Cookies { get; set; }
 
-
-        /// <summary>
-        /// Method that is executed before request. May be used for loggin the request body.
-        /// </summary>
-        public Action<HttpRequestMessage>? RequestInterceptor { get; set; }
+		/// <summary>
+		/// Method that is executed before request. May be used for loggin the request body.
+		/// </summary>
+		public Action<HttpRequestMessage>? RequestInterceptor { get; set; }
 
         /// <summary>
         /// Method that is executed after receiving response. May be used for loggin the response.
@@ -196,7 +183,7 @@ namespace Acumatica.RESTClient.Client
             }
 
             var request = new HttpRequestMessage(method, url.ToString());
-           if(Cookies != null && !resourcePath.Contains("login"))
+            if (Cookies != null && !resourcePath.Contains("login"))
             {
                 string cookieHeader = string.Join("; ", Cookies);
                 request.Headers.Add("Cookie", cookieHeader);
