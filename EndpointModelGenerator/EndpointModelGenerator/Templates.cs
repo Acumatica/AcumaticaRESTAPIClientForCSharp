@@ -17,7 +17,7 @@
 
         public static string Usings = $"{UsingSystem}\r\n{UsingGenericCollections}\r\n{UsingSerialization}\r\n\r\n{UsingNewtonsoftJson}\r\n\r\n{UsingClientNamespace}\r\n{UsingApiNamespace}\r\n{UsingModelNamespace}\r\n\r\n";
 
-        public static string NewtonsoftJsonVersion = "\"12.0.3\"";
+        public static string NewtonsoftJsonVersion = "\"13.0.1\"";
 
 
        	//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)

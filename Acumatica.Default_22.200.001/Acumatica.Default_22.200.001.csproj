@@ -18,10 +18,10 @@
   </PropertyGroup>
 
    <ItemGroup>
-	<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup> <ItemGroup>
-	<ProjectReference Include = "..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
-	<ProjectReference Include = "..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
-  </ItemGroup >
+	<ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+	<ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
+  </ItemGroup>
 
-</Project >
+</Project>
