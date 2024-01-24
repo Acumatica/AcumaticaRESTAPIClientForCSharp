@@ -134,9 +134,12 @@ namespace EndpointSchemaGenerator
                 if (s.AllOf.Count() > 0)
                 {
                     var schema = s.AllOf.First();
-                    foreach (var property in schema.Properties)
+                    if (schema?.Properties != null)
                     {
-                        res.FieldsSchema.Add(property.Key, ParseParentRef(property.Value));
+                        foreach (var property in schema.Properties)
+                        {
+                            res.FieldsSchema.Add(property.Key, ParseParentRef(property.Value));
+                        }
                     }
                 }
                 return res.FieldsSchema;

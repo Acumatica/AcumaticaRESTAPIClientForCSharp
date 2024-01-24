@@ -37,11 +37,11 @@ namespace EndpointSchemaGenerator
 
     public class FieldsSchema
     {
-        public string Type;
-        public JObject Properties;
+        public string? Type;
+        public JObject? Properties;
 
-        public Dictionary<string, object> Parameters;
-        public Dictionary<string, object> Entity;
+        public Dictionary<string, object>? Parameters;
+        public Dictionary<string, object>? Entity;
     }
 
     public class EntitySchemaInternal
