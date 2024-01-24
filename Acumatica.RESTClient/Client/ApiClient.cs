@@ -17,7 +17,7 @@ namespace Acumatica.RESTClient.Client
 	/// <summary>
 	/// API client is mainly responsible for making the HTTP call to the API backend.
 	/// </summary>
-	public partial class ApiClient
+	public partial class ApiClient : IDisposable
     {
         #region State & ctor
         /// <summary>
@@ -150,6 +150,11 @@ namespace Acumatica.RESTClient.Client
             }
             
             return response;
+        }
+
+        public void Dispose()
+        {
+           AuthApi.AuthApiExtensions.TryLogout(this);
         }
         #endregion
 
