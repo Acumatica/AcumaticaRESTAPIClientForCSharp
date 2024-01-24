@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_23.200.00
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_20.200.001", "Acumatica.eCommerce_20.200.001\Acumatica.eCommerce_20.200.001.csproj", "{04715C4B-8CE0-4E3D-9930-2570B35F3C78}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_23.200.001", "Acumatica.eCommerce_23.200.001\Acumatica.eCommerce_23.200.001.csproj", "{36CC9184-F935-425B-9B19-53BE782C10DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,10 @@ Global
 		{04715C4B-8CE0-4E3D-9930-2570B35F3C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04715C4B-8CE0-4E3D-9930-2570B35F3C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04715C4B-8CE0-4E3D-9930-2570B35F3C78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36CC9184-F935-425B-9B19-53BE782C10DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36CC9184-F935-425B-9B19-53BE782C10DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36CC9184-F935-425B-9B19-53BE782C10DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36CC9184-F935-425B-9B19-53BE782C10DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{C971B770-8C90-41E5-895D-079F6FFA847F} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 		{33A648C0-1F8A-4DAB-A914-8A92BAF32D02} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 		{04715C4B-8CE0-4E3D-9930-2570B35F3C78} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
+		{36CC9184-F935-425B-9B19-53BE782C10DC} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3A45447-0EDA-45D2-94CE-C3BFFBFE2717}
