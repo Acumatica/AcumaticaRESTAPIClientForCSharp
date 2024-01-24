@@ -20,6 +20,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
+		[DataMember(Name="RoleAssignments", EmitDefaultValue=false)]
+		public List<BCRoleAssignment>? RoleAssignments { get; set; }
+
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 

@@ -50,5 +50,14 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		[DataMember(Name="OwnerID", EmitDefaultValue=false)]
+		public IntValue? OwnerID { get; set; }
+
 	}
 }

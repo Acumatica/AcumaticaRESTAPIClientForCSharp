@@ -23,9 +23,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Address", EmitDefaultValue=false)]
 		public Address? Address { get; set; }
 
-		[DataMember(Name="OverrideAccountAddress", EmitDefaultValue=false)]
-		public BooleanValue? OverrideAccountAddress { get; set; }
-
 		[DataMember(Name="AddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? AddressValidated { get; set; }
 
@@ -214,6 +211,9 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
+
+		[DataMember(Name="OverrideAccountAddress", EmitDefaultValue=false)]
+		public BooleanValue? OverrideAccountAddress { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

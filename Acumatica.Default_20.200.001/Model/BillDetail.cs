@@ -80,5 +80,8 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
+		[DataMember(Name="POReceiptType", EmitDefaultValue=false)]
+		public StringValue? POReceiptType { get; set; }
+
 	}
 }

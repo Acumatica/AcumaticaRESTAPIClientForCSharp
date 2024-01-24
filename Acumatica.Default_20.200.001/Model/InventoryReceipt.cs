@@ -32,9 +32,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 
@@ -52,6 +49,9 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="TransferNbr", EmitDefaultValue=false)]
 		public StringValue? TransferNbr { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,14 +14,14 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	public class PrintJobParameter : Entity
 	{
 
-        [DataMember(Name = "JobID", EmitDefaultValue = false)]
-        public IntValue? JobID { get; set; }
+		[DataMember(Name="JobID", EmitDefaultValue=false)]
+		public IntValue? JobID { get; set; }
 
-        [DataMember(Name = "ParameterName", EmitDefaultValue = false)]
-        public StringValue? ParameterName { get; set; }
+		[DataMember(Name="ParameterName", EmitDefaultValue=false)]
+		public StringValue? ParameterName { get; set; }
 
-        [DataMember(Name = "ParameterValue", EmitDefaultValue = false)]
-        public StringValue? ParameterValue { get; set; }
+		[DataMember(Name="ParameterValue", EmitDefaultValue=false)]
+		public StringValue? ParameterValue { get; set; }
 
-    }
+	}
 }

@@ -86,6 +86,9 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		[DataMember(Name="IsTaxValid", EmitDefaultValue=false)]
+		public BooleanValue? IsTaxValid { get; set; }
+
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/20.200.001";

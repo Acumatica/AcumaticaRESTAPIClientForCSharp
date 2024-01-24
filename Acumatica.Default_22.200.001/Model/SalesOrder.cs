@@ -80,9 +80,6 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="DisableAutomaticDiscountUpdate", EmitDefaultValue=false)]
 		public BooleanValue? DisableAutomaticDiscountUpdate { get; set; }
 
-		[DataMember(Name="DisableAutomaticTaxCalculation", EmitDefaultValue=false)]
-		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
-
 		[DataMember(Name="DiscountDetails", EmitDefaultValue=false)]
 		public List<SalesOrdersDiscountDetails>? DiscountDetails { get; set; }
 
@@ -208,6 +205,9 @@ namespace Acumatica.Default_22_200_001.Model
 
 		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDate { get; set; }
+
+		[DataMember(Name="DisableAutomaticTaxCalculation", EmitDefaultValue=false)]
+		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

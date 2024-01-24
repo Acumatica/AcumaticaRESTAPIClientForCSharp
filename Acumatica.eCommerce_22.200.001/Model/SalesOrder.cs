@@ -20,6 +20,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="OrderRisks", EmitDefaultValue=false)]
 		public List<OrderRisks>? OrderRisks { get; set; }
 
+		[DataMember(Name="Branch", EmitDefaultValue=false)]
+		public StringValue? Branch { get; set; }
+
 		[DataMember(Name="Approved", EmitDefaultValue=false)]
 		public BooleanValue? Approved { get; set; }
 
@@ -85,9 +88,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 
 		[DataMember(Name="DisableAutomaticDiscountUpdate", EmitDefaultValue=false)]
 		public BooleanValue? DisableAutomaticDiscountUpdate { get; set; }
-
-		[DataMember(Name="DisableAutomaticTaxCalculation", EmitDefaultValue=false)]
-		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
 
 		[DataMember(Name="DiscountDetails", EmitDefaultValue=false)]
 		public List<SalesOrdersDiscountDetails>? DiscountDetails { get; set; }
@@ -214,6 +214,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 
 		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDate { get; set; }
+
+		[DataMember(Name="DisableAutomaticTaxCalculation", EmitDefaultValue=false)]
+		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

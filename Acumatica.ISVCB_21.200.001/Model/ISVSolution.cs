@@ -47,6 +47,9 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		[DataMember(Name="Repository", EmitDefaultValue=false)]
 		public List<RepositoryLines>? Repository { get; set; }
 
+		[DataMember(Name="Attributes", EmitDefaultValue=false)]
+		public List<Attribute>? Attributes { get; set; }
+
 		public virtual string GetEndpointPath()
 		{
 			return "entity/ISVCB/21.200.001";

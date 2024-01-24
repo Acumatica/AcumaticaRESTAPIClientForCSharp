@@ -56,14 +56,8 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<SalesInvoiceDetail>? Details { get; set; }
 
-		[DataMember(Name="DetailTotal", EmitDefaultValue=false)]
-		public DecimalValue? DetailTotal { get; set; }
-
 		[DataMember(Name="DiscountDetails", EmitDefaultValue=false)]
 		public List<SalesInvoiceDiscountDetails>? DiscountDetails { get; set; }
-
-		[DataMember(Name="DiscountTotal", EmitDefaultValue=false)]
-		public DecimalValue? DiscountTotal { get; set; }
 
 		[DataMember(Name="DueDate", EmitDefaultValue=false)]
 		public DateTimeValue? DueDate { get; set; }
@@ -74,14 +68,8 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="FreightDetails", EmitDefaultValue=false)]
 		public List<SalesInvoiceFreightDetail>? FreightDetails { get; set; }
 
-		[DataMember(Name="FreightPrice", EmitDefaultValue=false)]
-		public DecimalValue? FreightPrice { get; set; }
-
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
-
-		[DataMember(Name="PaymentTotal", EmitDefaultValue=false)]
-		public DecimalValue? PaymentTotal { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
@@ -95,9 +83,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
 		public List<SalesInvoiceTaxDetail>? TaxDetails { get; set; }
 
-		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
-		public DecimalValue? TaxTotal { get; set; }
-
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
@@ -106,6 +91,21 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATTaxableTotal { get; set; }
+
+		[DataMember(Name="DetailTotal", EmitDefaultValue=false)]
+		public DecimalValue? DetailTotal { get; set; }
+
+		[DataMember(Name="DiscountTotal", EmitDefaultValue=false)]
+		public DecimalValue? DiscountTotal { get; set; }
+
+		[DataMember(Name="FreightPrice", EmitDefaultValue=false)]
+		public DecimalValue? FreightPrice { get; set; }
+
+		[DataMember(Name="PaymentTotal", EmitDefaultValue=false)]
+		public DecimalValue? PaymentTotal { get; set; }
+
+		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
+		public DecimalValue? TaxTotal { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

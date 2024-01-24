@@ -23,5 +23,17 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="Role", EmitDefaultValue=false)]
 		public StringValue? Role { get; set; }
 
+		[DataMember(Name="BAccountID", EmitDefaultValue=false)]
+		public IntValue? BAccountID { get; set; }
+
+		[DataMember(Name="ContactID", EmitDefaultValue=false)]
+		public IntValue? ContactID { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 	}
 }

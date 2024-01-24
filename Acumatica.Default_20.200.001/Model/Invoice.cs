@@ -29,12 +29,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="BillingPrinted", EmitDefaultValue=false)]
 		public BooleanValue? BillingPrinted { get; set; }
 
-		[DataMember(Name="BillToContact", EmitDefaultValue=false)]
-		public DocContact? BillToContact { get; set; }
-
-		[DataMember(Name="BillToContactOverride", EmitDefaultValue=false)]
-		public BooleanValue? BillToContactOverride { get; set; }
-
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
@@ -86,12 +80,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="ShipToContact", EmitDefaultValue=false)]
-		public DocContact? ShipToContact { get; set; }
-
-		[DataMember(Name="ShipToContactOverride", EmitDefaultValue=false)]
-		public BooleanValue? ShipToContactOverride { get; set; }
-
 		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
 		public List<InvoiceTaxDetail>? TaxDetails { get; set; }
 
@@ -103,6 +91,21 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
+
+		[DataMember(Name="BillToContact", EmitDefaultValue=false)]
+		public DocContact? BillToContact { get; set; }
+
+		[DataMember(Name="BillToContactOverride", EmitDefaultValue=false)]
+		public BooleanValue? BillToContactOverride { get; set; }
+
+		[DataMember(Name="ShipToContact", EmitDefaultValue=false)]
+		public DocContact? ShipToContact { get; set; }
+
+		[DataMember(Name="ShipToContactOverride", EmitDefaultValue=false)]
+		public BooleanValue? ShipToContactOverride { get; set; }
+
+		[DataMember(Name="IsTaxValid", EmitDefaultValue=false)]
+		public BooleanValue? IsTaxValid { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

@@ -41,9 +41,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
-		[DataMember(Name="POReceiptNbr", EmitDefaultValue=false)]
-		public StringValue? POReceiptNbr { get; set; }
-
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
@@ -64,6 +61,9 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
+
+		[DataMember(Name="POReceiptNbr", EmitDefaultValue=false)]
+		public StringValue? POReceiptNbr { get; set; }
 
 	}
 }

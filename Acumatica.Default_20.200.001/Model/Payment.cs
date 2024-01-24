@@ -23,9 +23,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="AppliedToDocuments", EmitDefaultValue=false)]
 		public DecimalValue? AppliedToDocuments { get; set; }
 
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue? Branch { get; set; }
-
 		[DataMember(Name="CardAccountNbr", EmitDefaultValue=false)]
 		public IntValue? CardAccountNbr { get; set; }
 
@@ -82,6 +79,9 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="CreditCardTransactionInfo", EmitDefaultValue=false)]
 		public List<CreditCardTransactionDetail>? CreditCardTransactionInfo { get; set; }
+
+		[DataMember(Name="Branch", EmitDefaultValue=false)]
+		public StringValue? Branch { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

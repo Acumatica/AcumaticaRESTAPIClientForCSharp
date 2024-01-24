@@ -176,6 +176,12 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="QualificationDate", EmitDefaultValue=false)]
 		public DateTimeValue? QualificationDate { get; set; }
 
+		[DataMember(Name="OverrideSalesTerritory", EmitDefaultValue=false)]
+		public BooleanValue? OverrideSalesTerritory { get; set; }
+
+		[DataMember(Name="SalesTerritoryID", EmitDefaultValue=false)]
+		public StringValue? SalesTerritoryID { get; set; }
+
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";

@@ -26,14 +26,8 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="AutoApplyPayments", EmitDefaultValue=false)]
 		public BooleanValue? AutoApplyPayments { get; set; }
 
-		[DataMember(Name="BillingAddressOverride", EmitDefaultValue=false)]
-		public BooleanValue? BillingAddressOverride { get; set; }
-
 		[DataMember(Name="BillingContact", EmitDefaultValue=false)]
 		public Contact? BillingContact { get; set; }
-
-		[DataMember(Name="BillingContactOverride", EmitDefaultValue=false)]
-		public BooleanValue? BillingContactOverride { get; set; }
 
 		[DataMember(Name="Contacts", EmitDefaultValue=false)]
 		public List<CustomerContact>? Contacts { get; set; }
@@ -98,9 +92,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
 		public StringValue? PriceClassID { get; set; }
 
-		[DataMember(Name="PrimaryContact", EmitDefaultValue=false)]
-		public Contact? PrimaryContact { get; set; }
-
 		[DataMember(Name="PrintDunningLetters", EmitDefaultValue=false)]
 		public BooleanValue? PrintDunningLetters { get; set; }
 
@@ -128,17 +119,11 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="SendStatementsbyEmail", EmitDefaultValue=false)]
 		public BooleanValue? SendStatementsbyEmail { get; set; }
 
-		[DataMember(Name="ShippingAddressOverride", EmitDefaultValue=false)]
-		public BooleanValue? ShippingAddressOverride { get; set; }
-
 		[DataMember(Name="ShippingBranch", EmitDefaultValue=false)]
 		public StringValue? ShippingBranch { get; set; }
 
 		[DataMember(Name="ShippingContact", EmitDefaultValue=false)]
 		public Contact? ShippingContact { get; set; }
-
-		[DataMember(Name="ShippingContactOverride", EmitDefaultValue=false)]
-		public BooleanValue? ShippingContactOverride { get; set; }
 
 		[DataMember(Name="ShippingRule", EmitDefaultValue=false)]
 		public StringValue? ShippingRule { get; set; }
@@ -175,6 +160,21 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="WriteOffLimit", EmitDefaultValue=false)]
 		public DecimalValue? WriteOffLimit { get; set; }
+
+		[DataMember(Name="BillingAddressOverride", EmitDefaultValue=false)]
+		public BooleanValue? BillingAddressOverride { get; set; }
+
+		[DataMember(Name="BillingContactOverride", EmitDefaultValue=false)]
+		public BooleanValue? BillingContactOverride { get; set; }
+
+		[DataMember(Name="ShippingAddressOverride", EmitDefaultValue=false)]
+		public BooleanValue? ShippingAddressOverride { get; set; }
+
+		[DataMember(Name="ShippingContactOverride", EmitDefaultValue=false)]
+		public BooleanValue? ShippingContactOverride { get; set; }
+
+		[DataMember(Name="PrimaryContact", EmitDefaultValue=false)]
+		public Contact? PrimaryContact { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

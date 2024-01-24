@@ -29,9 +29,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="BillableQuantity", EmitDefaultValue=false)]
 		public DecimalValue? BillableQuantity { get; set; }
 
-		[DataMember(Name="ExtCost", EmitDefaultValue=false)]
-		public DecimalValue? ExtCost { get; set; }
-
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -64,6 +61,9 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="UnitPrice", EmitDefaultValue=false)]
 		public DecimalValue? UnitPrice { get; set; }
+
+		[DataMember(Name="ExtCost", EmitDefaultValue=false)]
+		public DecimalValue? ExtCost { get; set; }
 
 	}
 }

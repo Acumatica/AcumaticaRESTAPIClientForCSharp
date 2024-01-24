@@ -35,14 +35,8 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
-		[DataMember(Name="CreateNewShipmentForEveryOrder", EmitDefaultValue=false)]
-		public BooleanValue? CreateNewShipmentForEveryOrder { get; set; }
-
 		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<ShipmentDetail>? Details { get; set; }
-
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
 
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
@@ -50,17 +44,11 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
 		public StringValue? FOBPoint { get; set; }
 
-		[DataMember(Name="OverrideFreightPrice", EmitDefaultValue=false)]
-		public BooleanValue? OverrideFreightPrice { get; set; }
-
 		[DataMember(Name="FreightAmount", EmitDefaultValue=false)]
 		public DecimalValue? FreightAmount { get; set; }
 
 		[DataMember(Name="FreightCost", EmitDefaultValue=false)]
 		public DecimalValue? FreightCost { get; set; }
-
-		[DataMember(Name="FreightCurrencyID", EmitDefaultValue=false)]
-		public StringValue? FreightCurrencyID { get; set; }
 
 		[DataMember(Name="GroundCollect", EmitDefaultValue=false)]
 		public BooleanValue? GroundCollect { get; set; }
@@ -94,9 +82,6 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="PackageWeight", EmitDefaultValue=false)]
 		public DecimalValue? PackageWeight { get; set; }
-
-		[DataMember(Name="Picked", EmitDefaultValue=false)]
-		public BooleanValue? Picked { get; set; }
 
 		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
 		public DecimalValue? ReciprocalRate { get; set; }
@@ -151,6 +136,21 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="WorkgroupID", EmitDefaultValue=false)]
 		public StringValue? WorkgroupID { get; set; }
+
+		[DataMember(Name="CreateNewShipmentForEveryOrder", EmitDefaultValue=false)]
+		public BooleanValue? CreateNewShipmentForEveryOrder { get; set; }
+
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		[DataMember(Name="OverrideFreightPrice", EmitDefaultValue=false)]
+		public BooleanValue? OverrideFreightPrice { get; set; }
+
+		[DataMember(Name="FreightCurrencyID", EmitDefaultValue=false)]
+		public StringValue? FreightCurrencyID { get; set; }
+
+		[DataMember(Name="Picked", EmitDefaultValue=false)]
+		public BooleanValue? Picked { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

@@ -23,9 +23,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="AlternateID", EmitDefaultValue=false)]
 		public StringValue? AlternateID { get; set; }
 
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue? Amount { get; set; }
-
 		[DataMember(Name="AutoCreateIssue", EmitDefaultValue=false)]
 		public BooleanValue? AutoCreateIssue { get; set; }
 
@@ -151,6 +148,21 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
+
+		[DataMember(Name="Amount", EmitDefaultValue=false)]
+		public DecimalValue? Amount { get; set; }
+
+		[DataMember(Name="CustomerOrderNbr", EmitDefaultValue=false)]
+		public StringValue? CustomerOrderNbr { get; set; }
+
+		[DataMember(Name="SchedOrderDate", EmitDefaultValue=false)]
+		public DateTimeValue? SchedOrderDate { get; set; }
+
+		[DataMember(Name="ShipToLocation", EmitDefaultValue=false)]
+		public StringValue? ShipToLocation { get; set; }
+
+		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
+		public StringValue? TaxZone { get; set; }
 
 	}
 }

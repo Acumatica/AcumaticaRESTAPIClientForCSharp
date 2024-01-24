@@ -41,9 +41,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
 		public StringValue? ReasonCode { get; set; }
 
@@ -70,6 +67,9 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

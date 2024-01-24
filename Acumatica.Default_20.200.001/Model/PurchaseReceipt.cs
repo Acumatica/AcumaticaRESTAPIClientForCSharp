@@ -14,9 +14,6 @@ namespace Acumatica.Default_20_200_001.Model
 	public class PurchaseReceipt : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
-		public StringValue? BaseCurrencyID { get; set; }
-
 		[DataMember(Name="BillDate", EmitDefaultValue=false)]
 		public DateTimeValue? BillDate { get; set; }
 
@@ -32,18 +29,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
-		[DataMember(Name="CurrencyEffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue? CurrencyEffectiveDate { get; set; }
-
-		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
-		public DecimalValue? CurrencyRate { get; set; }
-
-		[DataMember(Name="CurrencyRateTypeID", EmitDefaultValue=false)]
-		public StringValue? CurrencyRateTypeID { get; set; }
-
-		[DataMember(Name="CurrencyReciprocalRate", EmitDefaultValue=false)]
-		public DecimalValue? CurrencyReciprocalRate { get; set; }
-
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
@@ -53,23 +38,14 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
-		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue? Location { get; set; }
-
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
-
-		[DataMember(Name="ProcessReturnWithOriginalCost", EmitDefaultValue=false)]
-		public BooleanValue? ProcessReturnWithOriginalCost { get; set; }
 
 		[DataMember(Name="ReceiptNbr", EmitDefaultValue=false)]
 		public StringValue? ReceiptNbr { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
-
-		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
-		public DecimalValue? TotalCost { get; set; }
 
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }
@@ -88,6 +64,30 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
+		public StringValue? BaseCurrencyID { get; set; }
+
+		[DataMember(Name="CurrencyEffectiveDate", EmitDefaultValue=false)]
+		public DateTimeValue? CurrencyEffectiveDate { get; set; }
+
+		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
+		public DecimalValue? CurrencyRate { get; set; }
+
+		[DataMember(Name="CurrencyRateTypeID", EmitDefaultValue=false)]
+		public StringValue? CurrencyRateTypeID { get; set; }
+
+		[DataMember(Name="CurrencyReciprocalRate", EmitDefaultValue=false)]
+		public DecimalValue? CurrencyReciprocalRate { get; set; }
+
+		[DataMember(Name="Location", EmitDefaultValue=false)]
+		public StringValue? Location { get; set; }
+
+		[DataMember(Name="ProcessReturnWithOriginalCost", EmitDefaultValue=false)]
+		public BooleanValue? ProcessReturnWithOriginalCost { get; set; }
+
+		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
+		public DecimalValue? TotalCost { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

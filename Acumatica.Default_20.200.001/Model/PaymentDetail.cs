@@ -20,17 +20,11 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="BalanceWriteOff", EmitDefaultValue=false)]
 		public DecimalValue? BalanceWriteOff { get; set; }
 
-		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
-		public DecimalValue? CashDiscountTaken { get; set; }
-
 		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
 		public StringValue? CustomerOrder { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
-
-		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
-		public IntValue? DocLineNbr { get; set; }
 
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
 		public StringValue? DocType { get; set; }
@@ -40,6 +34,12 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="WriteOffReasonCode", EmitDefaultValue=false)]
 		public StringValue? WriteOffReasonCode { get; set; }
+
+		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
+		public DecimalValue? CashDiscountTaken { get; set; }
+
+		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
+		public IntValue? DocLineNbr { get; set; }
 
 	}
 }

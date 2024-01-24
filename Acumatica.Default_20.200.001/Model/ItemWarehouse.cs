@@ -59,9 +59,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="OverrideStandardCost", EmitDefaultValue=false)]
 		public BooleanValue? OverrideStandardCost { get; set; }
 
-		[DataMember(Name="OverrideProductManager", EmitDefaultValue=false)]
-		public BooleanValue? OverrideProductManager { get; set; }
-
 		[DataMember(Name="PreferredLocation", EmitDefaultValue=false)]
 		public StringValue? PreferredLocation { get; set; }
 
@@ -97,6 +94,9 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
+
+		[DataMember(Name="OverrideProductManager", EmitDefaultValue=false)]
+		public BooleanValue? OverrideProductManager { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

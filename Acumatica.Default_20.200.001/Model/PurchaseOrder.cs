@@ -14,9 +14,6 @@ namespace Acumatica.Default_20_200_001.Model
 	public class PurchaseOrder : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
-		public StringValue? BaseCurrencyID { get; set; }
-
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
@@ -25,18 +22,6 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
-
-		[DataMember(Name="CurrencyEffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue? CurrencyEffectiveDate { get; set; }
-
-		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
-		public DecimalValue? CurrencyRate { get; set; }
-
-		[DataMember(Name="CurrencyRateTypeID", EmitDefaultValue=false)]
-		public StringValue? CurrencyRateTypeID { get; set; }
-
-		[DataMember(Name="CurrencyReciprocalRate", EmitDefaultValue=false)]
-		public DecimalValue? CurrencyReciprocalRate { get; set; }
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
@@ -100,6 +85,21 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="VendorTaxZone", EmitDefaultValue=false)]
 		public StringValue? VendorTaxZone { get; set; }
+
+		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
+		public StringValue? BaseCurrencyID { get; set; }
+
+		[DataMember(Name="CurrencyEffectiveDate", EmitDefaultValue=false)]
+		public DateTimeValue? CurrencyEffectiveDate { get; set; }
+
+		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
+		public DecimalValue? CurrencyRate { get; set; }
+
+		[DataMember(Name="CurrencyRateTypeID", EmitDefaultValue=false)]
+		public StringValue? CurrencyRateTypeID { get; set; }
+
+		[DataMember(Name="CurrencyReciprocalRate", EmitDefaultValue=false)]
+		public DecimalValue? CurrencyReciprocalRate { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

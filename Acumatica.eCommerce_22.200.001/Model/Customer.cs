@@ -17,11 +17,11 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
-		[DataMember(Name="CustomerKind", EmitDefaultValue=false)]
-		public StringValue? CustomerKind { get; set; }
-
 		[DataMember(Name="PrimaryContactID", EmitDefaultValue=false)]
 		public IntValue? PrimaryContactID { get; set; }
+
+		[DataMember(Name="CustomerCategory", EmitDefaultValue=false)]
+		public StringValue? CustomerCategory { get; set; }
 
 		[DataMember(Name="AccountRef", EmitDefaultValue=false)]
 		public StringValue? AccountRef { get; set; }

@@ -176,6 +176,9 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
+		[DataMember(Name="LegalName", EmitDefaultValue=false)]
+		public StringValue? LegalName { get; set; }
+
 		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";

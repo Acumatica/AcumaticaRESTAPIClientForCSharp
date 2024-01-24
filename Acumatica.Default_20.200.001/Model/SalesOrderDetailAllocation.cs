@@ -68,5 +68,11 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
+		[DataMember(Name="CustomerOrderNbr", EmitDefaultValue=false)]
+		public StringValue? CustomerOrderNbr { get; set; }
+
+		[DataMember(Name="SchedOrderDate", EmitDefaultValue=false)]
+		public DateTimeValue? SchedOrderDate { get; set; }
+
 	}
 }

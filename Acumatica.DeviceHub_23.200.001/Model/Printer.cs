@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -16,19 +17,18 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-        [DataMember(Name = "DeviceHub", EmitDefaultValue = false)]
-        public StringValue? DeviceHub { get; set; }
+		[DataMember(Name="DeviceHub", EmitDefaultValue=false)]
+		public StringValue? DeviceHub { get; set; }
 
-        [DataMember(Name="IsActive", EmitDefaultValue=false)]
+		[DataMember(Name="IsActive", EmitDefaultValue=false)]
 		public BooleanValue? IsActive { get; set; }
 
 		[DataMember(Name="PrinterName", EmitDefaultValue=false)]
 		public StringValue? PrinterName { get; set; }
 
-        public string GetEndpointPath()
-        {
-            return "entity/DeviceHub/23.200.001";
-        }
-
-    }
+		public virtual string GetEndpointPath()
+		{
+			return "entity/DeviceHub/23.200.001";
+		}
+	}
 }

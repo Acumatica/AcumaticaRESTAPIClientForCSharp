@@ -146,9 +146,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
-		[DataMember(Name="RelatedDocNbr", EmitDefaultValue=false)]
-		public StringValue? RelatedDocNbr { get; set; }
-
 		[DataMember(Name="ServiceContractItem", EmitDefaultValue=false)]
 		public BooleanValue? ServiceContractItem { get; set; }
 
@@ -187,6 +184,9 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="Warranty", EmitDefaultValue=false)]
 		public BooleanValue? Warranty { get; set; }
+
+		[DataMember(Name="RelatedDocNbr", EmitDefaultValue=false)]
+		public StringValue? RelatedDocNbr { get; set; }
 
 	}
 }

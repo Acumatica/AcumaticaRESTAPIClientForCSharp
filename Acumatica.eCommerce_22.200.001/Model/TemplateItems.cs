@@ -14,6 +14,24 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	public class TemplateItems : Entity, ITopLevelEntity
 	{
 
+		[DataMember(Name="ABCCode", EmitDefaultValue=false)]
+		public StringValue? ABCCode { get; set; }
+
+		[DataMember(Name="ItemType", EmitDefaultValue=false)]
+		public StringValue? ItemType { get; set; }
+
+		[DataMember(Name="LastCost", EmitDefaultValue=false)]
+		public DecimalValue? LastCost { get; set; }
+
+		[DataMember(Name="PostingClass", EmitDefaultValue=false)]
+		public StringValue? PostingClass { get; set; }
+
+		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
+		public StringValue? PriceClass { get; set; }
+
+		[DataMember(Name="VolumeUOM", EmitDefaultValue=false)]
+		public StringValue? VolumeUOM { get; set; }
+
 		[DataMember(Name="SalesUOM", EmitDefaultValue=false)]
 		public StringValue? SalesUOM { get; set; }
 

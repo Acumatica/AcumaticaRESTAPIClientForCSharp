@@ -53,5 +53,8 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }
 
+		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
+		public StringValue? CustomerTaxZone { get; set; }
+
 	}
 }

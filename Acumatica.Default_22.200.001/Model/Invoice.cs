@@ -104,6 +104,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
+		[DataMember(Name="IsTaxValid", EmitDefaultValue=false)]
+		public BooleanValue? IsTaxValid { get; set; }
+
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/22.200.001";

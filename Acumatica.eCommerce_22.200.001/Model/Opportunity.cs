@@ -140,6 +140,12 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
+		[DataMember(Name="OverrideSalesTerritory", EmitDefaultValue=false)]
+		public BooleanValue? OverrideSalesTerritory { get; set; }
+
+		[DataMember(Name="SalesTerritoryID", EmitDefaultValue=false)]
+		public StringValue? SalesTerritoryID { get; set; }
+
 		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";

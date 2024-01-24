@@ -30,10 +30,10 @@ namespace Acumatica.Default_20_200_001.Model
 		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Height", EmitDefaultValue=false)]
-		public IntValue? Height { get; set; }
+		public DecimalValue? Height { get; set; }
 
 		[DataMember(Name="Length", EmitDefaultValue=false)]
-		public IntValue? Length { get; set; }
+		public DecimalValue? Length { get; set; }
 
 		[DataMember(Name="MaxVolume", EmitDefaultValue=false)]
 		public DecimalValue? MaxVolume { get; set; }
@@ -48,7 +48,7 @@ namespace Acumatica.Default_20_200_001.Model
 		public StringValue? WeightUOM { get; set; }
 
 		[DataMember(Name="Width", EmitDefaultValue=false)]
-		public IntValue? Width { get; set; }
+		public DecimalValue? Width { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

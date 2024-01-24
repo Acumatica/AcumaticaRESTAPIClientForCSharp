@@ -17,9 +17,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="CarrierID", EmitDefaultValue=false)]
 		public StringValue? CarrierID { get; set; }
 
-		[DataMember(Name="CarrierUnits", EmitDefaultValue=false)]
-		public StringValue? CarrierUnits { get; set; }
-
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
@@ -37,6 +34,9 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="PlugInType", EmitDefaultValue=false)]
 		public StringValue? PlugInType { get; set; }
+
+		[DataMember(Name="CarrierUnits", EmitDefaultValue=false)]
+		public StringValue? CarrierUnits { get; set; }
 
 		[DataMember(Name="Centimeter", EmitDefaultValue=false)]
 		public StringValue? Centimeter { get; set; }

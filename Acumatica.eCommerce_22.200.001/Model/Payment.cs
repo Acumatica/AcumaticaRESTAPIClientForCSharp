@@ -14,6 +14,12 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	public class Payment : Entity, ITopLevelEntity
 	{
 
+		[DataMember(Name="IsCCPayment", EmitDefaultValue=false)]
+		public BooleanValue? IsCCPayment { get; set; }
+
+		[DataMember(Name="Charges", EmitDefaultValue=false)]
+		public List<PaymentCharge>? Charges { get; set; }
+
 		[DataMember(Name="ApplicationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ApplicationDate { get; set; }
 

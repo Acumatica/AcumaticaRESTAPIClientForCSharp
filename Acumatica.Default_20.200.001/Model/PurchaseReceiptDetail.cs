@@ -32,20 +32,11 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="EditableUnitCost", EmitDefaultValue=false)]
-		public BooleanValue? EditableUnitCost { get; set; }
-
-		[DataMember(Name="EstimatedINExtendedCost", EmitDefaultValue=false)]
-		public DecimalValue? EstimatedINExtendedCost { get; set; }
-
-		[DataMember(Name="ExtendedCost", EmitDefaultValue=false)]
-		public DecimalValue? ExtendedCost { get; set; }
-
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
-		[DataMember(Name="FinalINExtendedCost", EmitDefaultValue=false)]
-		public DecimalValue? FinalINExtendedCost { get; set; }
+		[DataMember(Name="ExtendedCost", EmitDefaultValue=false)]
+		public DecimalValue? ExtendedCost { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -77,12 +68,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="POOrderType", EmitDefaultValue=false)]
 		public StringValue? POOrderType { get; set; }
 
-		[DataMember(Name="POReceiptLineNbr", EmitDefaultValue=false)]
-		public IntValue? POReceiptLineNbr { get; set; }
-
-		[DataMember(Name="POReceiptNbr", EmitDefaultValue=false)]
-		public StringValue? POReceiptNbr { get; set; }
-
 		[DataMember(Name="ReceiptQty", EmitDefaultValue=false)]
 		public DecimalValue? ReceiptQty { get; set; }
 
@@ -98,9 +83,6 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="TransferOrderNbr", EmitDefaultValue=false)]
 		public StringValue? TransferOrderNbr { get; set; }
 
-		[DataMember(Name="TransferOrderLineNbr", EmitDefaultValue=false)]
-		public IntValue? TransferOrderLineNbr { get; set; }
-
 		[DataMember(Name="TransferOrderType", EmitDefaultValue=false)]
 		public StringValue? TransferOrderType { get; set; }
 
@@ -115,6 +97,24 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		[DataMember(Name="EditableUnitCost", EmitDefaultValue=false)]
+		public BooleanValue? EditableUnitCost { get; set; }
+
+		[DataMember(Name="EstimatedINExtendedCost", EmitDefaultValue=false)]
+		public DecimalValue? EstimatedINExtendedCost { get; set; }
+
+		[DataMember(Name="FinalINExtendedCost", EmitDefaultValue=false)]
+		public DecimalValue? FinalINExtendedCost { get; set; }
+
+		[DataMember(Name="POReceiptLineNbr", EmitDefaultValue=false)]
+		public IntValue? POReceiptLineNbr { get; set; }
+
+		[DataMember(Name="POReceiptNbr", EmitDefaultValue=false)]
+		public StringValue? POReceiptNbr { get; set; }
+
+		[DataMember(Name="TransferOrderLineNbr", EmitDefaultValue=false)]
+		public IntValue? TransferOrderLineNbr { get; set; }
 
 	}
 }

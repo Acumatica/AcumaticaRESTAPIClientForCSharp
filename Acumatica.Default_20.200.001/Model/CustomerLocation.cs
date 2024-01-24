@@ -17,14 +17,8 @@ namespace Acumatica.Default_20_200_001.Model
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
-		[DataMember(Name="AddressOverride", EmitDefaultValue=false)]
-		public BooleanValue? AddressOverride { get; set; }
-
 		[DataMember(Name="Calendar", EmitDefaultValue=false)]
 		public StringValue? Calendar { get; set; }
-
-		[DataMember(Name="ContactOverride", EmitDefaultValue=false)]
-		public BooleanValue? ContactOverride { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
@@ -100,6 +94,12 @@ namespace Acumatica.Default_20_200_001.Model
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		[DataMember(Name="AddressOverride", EmitDefaultValue=false)]
+		public BooleanValue? AddressOverride { get; set; }
+
+		[DataMember(Name="ContactOverride", EmitDefaultValue=false)]
+		public BooleanValue? ContactOverride { get; set; }
 
 		public virtual string GetEndpointPath()
 		{
