@@ -17,9 +17,6 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
-		[DataMember(Name="AllowClockEntryforMultipleProductionOrders", EmitDefaultValue=false)]
-		public BooleanValue? AllowClockEntryforMultipleProductionOrders { get; set; }
-
 		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]
 		public BooleanValue? BackflushLabor { get; set; }
 
@@ -76,6 +73,9 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 
 		[DataMember(Name="WorkCenterID", EmitDefaultValue=false)]
 		public StringValue? WorkCenterID { get; set; }
+
+		[DataMember(Name="AllowClockEntryforMultipleProductionOrders", EmitDefaultValue=false)]
+		public BooleanValue? AllowClockEntryforMultipleProductionOrders { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

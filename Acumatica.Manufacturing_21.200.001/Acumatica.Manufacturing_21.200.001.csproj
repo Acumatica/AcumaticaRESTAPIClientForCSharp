@@ -1,19 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup> 
+<Version>4.1.0</Version>
+<Company>Acumatica</Company>
+<Description>C# classes generated based on Acumatica Manufacturing endpoint version 21.200.001</Description>
+<Copyright>Acumatica</Copyright>
+<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
+<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
+<PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
+<PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 12.0.3 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
+<PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+<Authors>Dmitrii-Naumov</Authors>
+<IncludeSymbols>True</IncludeSymbols>
+<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+ </PropertyGroup>
+
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<Version>4.1.0</Version>
-	<Company>Acumatica</Company>
-	<Copyright>Acumatica</Copyright>
-	<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
-	<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
-	<PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
-	<PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 12.0.3 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
-	<Description>C# classes generated based on Acumatica Manufacturing endpoint version 21.200.001</Description>
-	<Authors>Dmitrii-Naumov</Authors>
-	<IncludeSymbols>True</IncludeSymbols>
-	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>8.0</LangVersion>
     <nullable>Enable</nullable>
   </PropertyGroup>
@@ -21,8 +26,8 @@
    <ItemGroup>
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup> <ItemGroup>
-	<ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
-	<ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
-  </ItemGroup>
+	<ProjectReference Include = "..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+	<ProjectReference Include = "..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
+  </ItemGroup >
 
-</Project>
+</Project >
