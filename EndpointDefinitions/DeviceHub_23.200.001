@@ -1,22 +1,22 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "GLConsolidation/22.200.001",
+    "title": "DeviceHub/23.200.001",
     "version": "4"
   },
   "host": "internal.acumatica.com",
-  "basePath": "/entity/GLConsolidation/22.200.001",
+  "basePath": "/entity/DeviceHub/23.200.001",
   "schemes": [
     "https"
   ],
   "paths": {
-    "/Organization/{actionName}": {
+    "/Scanner/{actionName}": {
       "post": {
         "tags": [
-          "Organization"
+          "Scanner"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "Organization_InvokeAction_CustomAction",
+        "operationId": "Scanner_InvokeAction_CustomAction",
         "consumes": [
           "application/json",
           "text/json"
@@ -38,7 +38,7 @@
             "description": "The record to which the action should be applied and the parameters of the action.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/OrganizationCustomAction"
+              "$ref": "#/definitions/ScannerCustomAction"
             }
           }
         ],
@@ -90,19 +90,19 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/Scanner"
             }
           }
         }
       }
     },
-    "/Organization/$adHocSchema": {
+    "/Scanner/$adHocSchema": {
       "get": {
         "tags": [
-          "Organization"
+          "Scanner"
         ],
         "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "Organization_GetAdHocSchema",
+        "operationId": "Scanner_GetAdHocSchema",
         "produces": [
           "application/json",
           "text/json"
@@ -123,19 +123,19 @@
           "200": {
             "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/Scanner"
             }
           }
         }
       }
     },
-    "/Organization/{ids}": {
+    "/Scanner/{ids}": {
       "get": {
         "tags": [
-          "Organization"
+          "Scanner"
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Organization_GetByKeys",
+        "operationId": "Scanner_GetByKeys",
         "produces": [
           "application/json",
           "text/json"
@@ -193,17 +193,17 @@
           "200": {
             "description": "The requested record.",
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/Scanner"
             }
           }
         }
       },
       "delete": {
         "tags": [
-          "Organization"
+          "Scanner"
         ],
         "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Organization_DeleteByKeys",
+        "operationId": "Scanner_DeleteByKeys",
         "produces": [
           "application/json",
           "text/json"
@@ -240,13 +240,13 @@
         }
       }
     },
-    "/Organization/{ids}/files/{filename}": {
+    "/Scanner/{ids}/files/{filename}": {
       "put": {
         "tags": [
-          "Organization"
+          "Scanner"
         ],
         "summary": "Attaches a file to a record.",
-        "operationId": "Organization_PutFile",
+        "operationId": "Scanner_PutFile",
         "produces": [
           "application/json",
           "text/json"
@@ -297,13 +297,13 @@
         }
       }
     },
-    "/Organization/{id}": {
+    "/Scanner/{id}": {
       "get": {
         "tags": [
-          "Organization"
+          "Scanner"
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Organization_GetById",
+        "operationId": "Scanner_GetById",
         "produces": [
           "application/json",
           "text/json"
@@ -358,17 +358,17 @@
           "200": {
             "description": "The requested record.",
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/Scanner"
             }
           }
         }
       },
       "delete": {
         "tags": [
-          "Organization"
+          "Scanner"
         ],
         "summary": "Deletes the record by its session identifier.",
-        "operationId": "Organization_DeleteById",
+        "operationId": "Scanner_DeleteById",
         "produces": [
           "application/json",
           "text/json"
@@ -402,13 +402,13 @@
         }
       }
     },
-    "/Organization": {
+    "/Scanner": {
       "get": {
         "tags": [
-          "Organization"
+          "Scanner"
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "Organization_GetList",
+        "operationId": "Scanner_GetList",
         "produces": [
           "application/json",
           "text/json"
@@ -471,7 +471,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Organization"
+                "$ref": "#/definitions/Scanner"
               }
             }
           }
@@ -479,10 +479,10 @@
       },
       "put": {
         "tags": [
-          "Organization"
+          "Scanner"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "Organization_PutEntity",
+        "operationId": "Scanner_PutEntity",
         "consumes": [
           "application/json",
           "text/json"
@@ -522,7 +522,7 @@
             "description": "The record to be passed to the system.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/Scanner"
             }
           }
         ],
@@ -542,7 +542,7 @@
           "200": {
             "description": "The created or updated record.",
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/Scanner"
             }
           },
           "400": {
@@ -560,19 +560,19 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/Scanner"
             }
           }
         }
       }
     },
-    "/Ledger/{actionName}": {
+    "/Printer/{actionName}": {
       "post": {
         "tags": [
-          "Ledger"
+          "Printer"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "Ledger_InvokeAction_CustomAction",
+        "operationId": "Printer_InvokeAction_CustomAction",
         "consumes": [
           "application/json",
           "text/json"
@@ -594,7 +594,7 @@
             "description": "The record to which the action should be applied and the parameters of the action.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LedgerCustomAction"
+              "$ref": "#/definitions/PrinterCustomAction"
             }
           }
         ],
@@ -646,19 +646,19 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/Ledger"
+              "$ref": "#/definitions/Printer"
             }
           }
         }
       }
     },
-    "/Ledger/$adHocSchema": {
+    "/Printer/$adHocSchema": {
       "get": {
         "tags": [
-          "Ledger"
+          "Printer"
         ],
         "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "Ledger_GetAdHocSchema",
+        "operationId": "Printer_GetAdHocSchema",
         "produces": [
           "application/json",
           "text/json"
@@ -679,19 +679,19 @@
           "200": {
             "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
             "schema": {
-              "$ref": "#/definitions/Ledger"
+              "$ref": "#/definitions/Printer"
             }
           }
         }
       }
     },
-    "/Ledger/{ids}": {
+    "/Printer/{ids}": {
       "get": {
         "tags": [
-          "Ledger"
+          "Printer"
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Ledger_GetByKeys",
+        "operationId": "Printer_GetByKeys",
         "produces": [
           "application/json",
           "text/json"
@@ -749,17 +749,17 @@
           "200": {
             "description": "The requested record.",
             "schema": {
-              "$ref": "#/definitions/Ledger"
+              "$ref": "#/definitions/Printer"
             }
           }
         }
       },
       "delete": {
         "tags": [
-          "Ledger"
+          "Printer"
         ],
         "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Ledger_DeleteByKeys",
+        "operationId": "Printer_DeleteByKeys",
         "produces": [
           "application/json",
           "text/json"
@@ -796,13 +796,13 @@
         }
       }
     },
-    "/Ledger/{ids}/files/{filename}": {
+    "/Printer/{ids}/files/{filename}": {
       "put": {
         "tags": [
-          "Ledger"
+          "Printer"
         ],
         "summary": "Attaches a file to a record.",
-        "operationId": "Ledger_PutFile",
+        "operationId": "Printer_PutFile",
         "produces": [
           "application/json",
           "text/json"
@@ -853,13 +853,13 @@
         }
       }
     },
-    "/Ledger/{id}": {
+    "/Printer/{id}": {
       "get": {
         "tags": [
-          "Ledger"
+          "Printer"
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Ledger_GetById",
+        "operationId": "Printer_GetById",
         "produces": [
           "application/json",
           "text/json"
@@ -914,17 +914,17 @@
           "200": {
             "description": "The requested record.",
             "schema": {
-              "$ref": "#/definitions/Ledger"
+              "$ref": "#/definitions/Printer"
             }
           }
         }
       },
       "delete": {
         "tags": [
-          "Ledger"
+          "Printer"
         ],
         "summary": "Deletes the record by its session identifier.",
-        "operationId": "Ledger_DeleteById",
+        "operationId": "Printer_DeleteById",
         "produces": [
           "application/json",
           "text/json"
@@ -958,13 +958,13 @@
         }
       }
     },
-    "/Ledger": {
+    "/Printer": {
       "get": {
         "tags": [
-          "Ledger"
+          "Printer"
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "Ledger_GetList",
+        "operationId": "Printer_GetList",
         "produces": [
           "application/json",
           "text/json"
@@ -1027,7 +1027,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Ledger"
+                "$ref": "#/definitions/Printer"
               }
             }
           }
@@ -1035,10 +1035,10 @@
       },
       "put": {
         "tags": [
-          "Ledger"
+          "Printer"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "Ledger_PutEntity",
+        "operationId": "Printer_PutEntity",
         "consumes": [
           "application/json",
           "text/json"
@@ -1078,7 +1078,7 @@
             "description": "The record to be passed to the system.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Ledger"
+              "$ref": "#/definitions/Printer"
             }
           }
         ],
@@ -1098,7 +1098,7 @@
           "200": {
             "description": "The created or updated record.",
             "schema": {
-              "$ref": "#/definitions/Ledger"
+              "$ref": "#/definitions/Printer"
             }
           },
           "400": {
@@ -1116,19 +1116,19 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/Ledger"
+              "$ref": "#/definitions/Printer"
             }
           }
         }
       }
     },
-    "/ConsolAccount/{actionName}": {
+    "/PrintJobs/{actionName}": {
       "post": {
         "tags": [
-          "ConsolAccount"
+          "PrintJobs"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "ConsolAccount_InvokeAction_CustomAction",
+        "operationId": "PrintJobs_InvokeAction_CustomAction",
         "consumes": [
           "application/json",
           "text/json"
@@ -1150,7 +1150,7 @@
             "description": "The record to which the action should be applied and the parameters of the action.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ConsolAccountCustomAction"
+              "$ref": "#/definitions/PrintJobsCustomAction"
             }
           }
         ],
@@ -1202,19 +1202,19 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/PrintJobs"
             }
           }
         }
       }
     },
-    "/ConsolAccount/$adHocSchema": {
+    "/PrintJobs/$adHocSchema": {
       "get": {
         "tags": [
-          "ConsolAccount"
+          "PrintJobs"
         ],
         "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "ConsolAccount_GetAdHocSchema",
+        "operationId": "PrintJobs_GetAdHocSchema",
         "produces": [
           "application/json",
           "text/json"
@@ -1235,19 +1235,19 @@
           "200": {
             "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/PrintJobs"
             }
           }
         }
       }
     },
-    "/ConsolAccount/{ids}": {
+    "/PrintJobs/{ids}": {
       "get": {
         "tags": [
-          "ConsolAccount"
+          "PrintJobs"
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "ConsolAccount_GetByKeys",
+        "operationId": "PrintJobs_GetByKeys",
         "produces": [
           "application/json",
           "text/json"
@@ -1305,17 +1305,17 @@
           "200": {
             "description": "The requested record.",
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/PrintJobs"
             }
           }
         }
       },
       "delete": {
         "tags": [
-          "ConsolAccount"
+          "PrintJobs"
         ],
         "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "ConsolAccount_DeleteByKeys",
+        "operationId": "PrintJobs_DeleteByKeys",
         "produces": [
           "application/json",
           "text/json"
@@ -1352,13 +1352,13 @@
         }
       }
     },
-    "/ConsolAccount/{ids}/files/{filename}": {
+    "/PrintJobs/{ids}/files/{filename}": {
       "put": {
         "tags": [
-          "ConsolAccount"
+          "PrintJobs"
         ],
         "summary": "Attaches a file to a record.",
-        "operationId": "ConsolAccount_PutFile",
+        "operationId": "PrintJobs_PutFile",
         "produces": [
           "application/json",
           "text/json"
@@ -1409,13 +1409,13 @@
         }
       }
     },
-    "/ConsolAccount/{id}": {
+    "/PrintJobs/{id}": {
       "get": {
         "tags": [
-          "ConsolAccount"
+          "PrintJobs"
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "ConsolAccount_GetById",
+        "operationId": "PrintJobs_GetById",
         "produces": [
           "application/json",
           "text/json"
@@ -1470,17 +1470,17 @@
           "200": {
             "description": "The requested record.",
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/PrintJobs"
             }
           }
         }
       },
       "delete": {
         "tags": [
-          "ConsolAccount"
+          "PrintJobs"
         ],
         "summary": "Deletes the record by its session identifier.",
-        "operationId": "ConsolAccount_DeleteById",
+        "operationId": "PrintJobs_DeleteById",
         "produces": [
           "application/json",
           "text/json"
@@ -1514,13 +1514,13 @@
         }
       }
     },
-    "/ConsolAccount": {
+    "/PrintJobs": {
       "get": {
         "tags": [
-          "ConsolAccount"
+          "PrintJobs"
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "ConsolAccount_GetList",
+        "operationId": "PrintJobs_GetList",
         "produces": [
           "application/json",
           "text/json"
@@ -1583,7 +1583,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ConsolAccount"
+                "$ref": "#/definitions/PrintJobs"
               }
             }
           }
@@ -1591,10 +1591,10 @@
       },
       "put": {
         "tags": [
-          "ConsolAccount"
+          "PrintJobs"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "ConsolAccount_PutEntity",
+        "operationId": "PrintJobs_PutEntity",
         "consumes": [
           "application/json",
           "text/json"
@@ -1634,7 +1634,7 @@
             "description": "The record to be passed to the system.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/PrintJobs"
             }
           }
         ],
@@ -1654,7 +1654,7 @@
           "200": {
             "description": "The created or updated record.",
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/PrintJobs"
             }
           },
           "400": {
@@ -1672,19 +1672,19 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/PrintJobs"
             }
           }
         }
       }
     },
-    "/ConsolidationData/{actionName}": {
+    "/ScanJobs/{actionName}": {
       "post": {
         "tags": [
-          "ConsolidationData"
+          "ScanJobs"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "ConsolidationData_InvokeAction_CustomAction",
+        "operationId": "ScanJobs_InvokeAction_CustomAction",
         "consumes": [
           "application/json",
           "text/json"
@@ -1706,7 +1706,7 @@
             "description": "The record to which the action should be applied and the parameters of the action.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ConsolidationDataCustomAction"
+              "$ref": "#/definitions/ScanJobsCustomAction"
             }
           }
         ],
@@ -1758,19 +1758,19 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/ConsolidationData"
+              "$ref": "#/definitions/ScanJobs"
             }
           }
         }
       }
     },
-    "/ConsolidationData/$adHocSchema": {
+    "/ScanJobs/$adHocSchema": {
       "get": {
         "tags": [
-          "ConsolidationData"
+          "ScanJobs"
         ],
         "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "ConsolidationData_GetAdHocSchema",
+        "operationId": "ScanJobs_GetAdHocSchema",
         "produces": [
           "application/json",
           "text/json"
@@ -1791,19 +1791,19 @@
           "200": {
             "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
             "schema": {
-              "$ref": "#/definitions/ConsolidationData"
+              "$ref": "#/definitions/ScanJobs"
             }
           }
         }
       }
     },
-    "/ConsolidationData/{ids}": {
+    "/ScanJobs/{ids}": {
       "get": {
         "tags": [
-          "ConsolidationData"
+          "ScanJobs"
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "ConsolidationData_GetByKeys",
+        "operationId": "ScanJobs_GetByKeys",
         "produces": [
           "application/json",
           "text/json"
@@ -1861,17 +1861,17 @@
           "200": {
             "description": "The requested record.",
             "schema": {
-              "$ref": "#/definitions/ConsolidationData"
+              "$ref": "#/definitions/ScanJobs"
             }
           }
         }
       },
       "delete": {
         "tags": [
-          "ConsolidationData"
+          "ScanJobs"
         ],
         "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "ConsolidationData_DeleteByKeys",
+        "operationId": "ScanJobs_DeleteByKeys",
         "produces": [
           "application/json",
           "text/json"
@@ -1908,13 +1908,13 @@
         }
       }
     },
-    "/ConsolidationData/{ids}/files/{filename}": {
+    "/ScanJobs/{ids}/files/{filename}": {
       "put": {
         "tags": [
-          "ConsolidationData"
+          "ScanJobs"
         ],
         "summary": "Attaches a file to a record.",
-        "operationId": "ConsolidationData_PutFile",
+        "operationId": "ScanJobs_PutFile",
         "produces": [
           "application/json",
           "text/json"
@@ -1965,13 +1965,13 @@
         }
       }
     },
-    "/ConsolidationData/{id}": {
+    "/ScanJobs/{id}": {
       "get": {
         "tags": [
-          "ConsolidationData"
+          "ScanJobs"
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "ConsolidationData_GetById",
+        "operationId": "ScanJobs_GetById",
         "produces": [
           "application/json",
           "text/json"
@@ -2026,17 +2026,17 @@
           "200": {
             "description": "The requested record.",
             "schema": {
-              "$ref": "#/definitions/ConsolidationData"
+              "$ref": "#/definitions/ScanJobs"
             }
           }
         }
       },
       "delete": {
         "tags": [
-          "ConsolidationData"
+          "ScanJobs"
         ],
         "summary": "Deletes the record by its session identifier.",
-        "operationId": "ConsolidationData_DeleteById",
+        "operationId": "ScanJobs_DeleteById",
         "produces": [
           "application/json",
           "text/json"
@@ -2070,13 +2070,13 @@
         }
       }
     },
-    "/ConsolidationData": {
+    "/ScanJobs": {
       "get": {
         "tags": [
-          "ConsolidationData"
+          "ScanJobs"
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "ConsolidationData_GetList",
+        "operationId": "ScanJobs_GetList",
         "produces": [
           "application/json",
           "text/json"
@@ -2139,7 +2139,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ConsolidationData"
+                "$ref": "#/definitions/ScanJobs"
               }
             }
           }
@@ -2147,10 +2147,10 @@
       },
       "put": {
         "tags": [
-          "ConsolidationData"
+          "ScanJobs"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "ConsolidationData_PutEntity",
+        "operationId": "ScanJobs_PutEntity",
         "consumes": [
           "application/json",
           "text/json"
@@ -2190,7 +2190,7 @@
             "description": "The record to be passed to the system.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ConsolidationData"
+              "$ref": "#/definitions/ScanJobs"
             }
           }
         ],
@@ -2210,7 +2210,7 @@
           "200": {
             "description": "The created or updated record.",
             "schema": {
-              "$ref": "#/definitions/ConsolidationData"
+              "$ref": "#/definitions/ScanJobs"
             }
           },
           "400": {
@@ -2228,563 +2228,7 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/ConsolidationData"
-            }
-          }
-        }
-      }
-    },
-    "/Branch/{actionName}": {
-      "post": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Performs an action in the system.",
-        "operationId": "Branch_InvokeAction_CustomAction",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "actionName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "invocation",
-            "description": "The record to which the action should be applied and the parameters of the action.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/BranchCustomAction"
-            }
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "204": {
-            "description": "The operation that was initiated by the action is completed.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          "202": {
-            "description": "The operation is in progress.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "422": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          }
-        }
-      }
-    },
-    "/Branch/$adHocSchema": {
-      "get": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "Branch_GetAdHocSchema",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          }
-        }
-      }
-    },
-    "/Branch/{ids}": {
-      "get": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Branch_GetByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Branch_DeleteByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "204": {
-            "description": "The record is successfully deleted."
-          }
-        }
-      }
-    },
-    "/Branch/{ids}/files/{filename}": {
-      "put": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Attaches a file to a record.",
-        "operationId": "Branch_PutFile",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "in": "path",
-            "name": "filename",
-            "description": "The name of the file that you are going to attach with the extension.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "204": {
-            "description": "The file is successfully attached.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to retrieve the file from the system.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/Branch/{id}": {
-      "get": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Branch_GetById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Deletes the record by its session identifier.",
-        "operationId": "Branch_DeleteById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "204": {
-            "description": "The record is successfully deleted."
-          }
-        }
-      }
-    },
-    "/Branch": {
-      "get": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "Branch_GetList",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$skip",
-            "description": "The number of records to be skipped from the list of returned records.",
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "in": "query",
-            "name": "$top",
-            "description": "The number of records to be returned from the system.",
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The list of records that satisfy the specified conditions.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Branch"
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Creates a record or updates an existing record.",
-        "operationId": "Branch_PutEntity",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "entity",
-            "description": "The record to be passed to the system.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The created or updated record.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "422": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
+              "$ref": "#/definitions/ScanJobs"
             }
           }
         }
@@ -2803,56 +2247,6 @@
         }
       }
     },
-    "Branch": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "AcctName": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "BranchCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "OrganizationCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "LedgerCD": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "BranchCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/Branch"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "ByteValue": {
       "type": "object",
       "properties": {
@@ -2864,130 +2258,6 @@
           "type": "string"
         }
       }
-    },
-    "ConsolAccount": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "AccountCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "Description": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "ConsolAccountCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/ConsolAccount"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "ConsolidationData": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "BranchCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "LedgerCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "Result": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ConsolidationItem"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "ConsolidationDataCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/ConsolidationData"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "ConsolidationItem": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "AccountCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ConsolAmtCredit": {
-              "$ref": "#/definitions/DecimalValue"
-            },
-            "ConsolAmtDebit": {
-              "$ref": "#/definitions/DecimalValue"
-            },
-            "FinPeriodID": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "MappedValue": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "MappedValueLength": {
-              "$ref": "#/definitions/IntValue"
-            }
-          }
-        }
-      ]
     },
     "CustomBooleanField": {
       "allOf": [
@@ -3331,7 +2601,19 @@
         }
       }
     },
-    "Ledger": {
+    "LongValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "PrintJob": {
       "allOf": [
         {
           "$ref": "#/definitions/Entity"
@@ -3339,27 +2621,114 @@
         {
           "type": "object",
           "properties": {
-            "BalanceType": {
+            "CreatedBy": {
               "$ref": "#/definitions/StringValue"
             },
-            "Descr": {
+            "CreationDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "Description": {
               "$ref": "#/definitions/StringValue"
             },
-            "LedgerCD": {
+            "DeviceHub": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "JobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "ModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "NumberOfCopies": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Parameters": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJobParameter"
+              }
+            },
+            "Printer": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ReportID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Selected": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "Status": {
               "$ref": "#/definitions/StringValue"
             }
           }
         }
       ]
     },
-    "LedgerCustomAction": {
+    "PrintJobParameter": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "JobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "ParameterName": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ParameterValue": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "PrintJobs": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "EndDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "EndModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "HideProcessed": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "JobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Jobs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJob"
+              }
+            },
+            "StartDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "StartModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            }
+          }
+        }
+      ]
+    },
+    "PrintJobsCustomAction": {
       "required": [
         "entity"
       ],
       "type": "object",
       "properties": {
         "entity": {
-          "$ref": "#/definitions/Ledger"
+          "$ref": "#/definitions/PrintJobs"
         },
         "parameters": {
           "description": "The parameters of the action.",
@@ -3378,19 +2747,7 @@
         }
       }
     },
-    "LongValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "Organization": {
+    "Printer": {
       "allOf": [
         {
           "$ref": "#/definitions/Entity"
@@ -3398,27 +2755,160 @@
         {
           "type": "object",
           "properties": {
-            "OrganizationName": {
+            "Description": {
               "$ref": "#/definitions/StringValue"
             },
-            "OrganizationCD": {
+            "DeviceHub": {
               "$ref": "#/definitions/StringValue"
             },
-            "LedgerCD": {
+            "IsActive": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "PrinterName": {
               "$ref": "#/definitions/StringValue"
             }
           }
         }
       ]
     },
-    "OrganizationCustomAction": {
+    "PrinterCustomAction": {
       "required": [
         "entity"
       ],
       "type": "object",
       "properties": {
         "entity": {
-          "$ref": "#/definitions/Organization"
+          "$ref": "#/definitions/Printer"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ScanJobs": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "DeviceHub": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ErrorMessage": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ErrorTrace": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ScanJobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Scanner": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Status": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "ScanJobsCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/ScanJobs"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Scanner": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Description": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "DeviceHub": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "FileTypeComboValues": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "FileTypeDefValue": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "IsActive": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "PaperSourceComboValues": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "PaperSourceDefValue": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "PixelTypeComboValues": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "PixelTypeDefValue": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ResolutionComboValues": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ResolutionDefValue": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ScannerName": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "ScannerCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/Scanner"
         },
         "parameters": {
           "description": "The parameters of the action.",
@@ -3463,24 +2953,20 @@
   },
   "tags": [
     {
-      "name": "Branch",
-      "description": "Consolidation Branches (GL103002)"
+      "name": "Printer",
+      "description": "(SM206510)"
     },
     {
-      "name": "ConsolAccount",
-      "description": "Consolidation Accounts (GL103001)"
+      "name": "PrintJobs",
+      "description": "(SM206500)"
     },
     {
-      "name": "ConsolidationData",
-      "description": "Consolidation Data (GL509001)"
+      "name": "ScanJobs",
+      "description": "(SM206505)"
     },
     {
-      "name": "Ledger",
-      "description": "Consolidation Ledgers (GL103003)"
-    },
-    {
-      "name": "Organization",
-      "description": "Consolidation Companies (GL103004)"
+      "name": "Scanner",
+      "description": "(SM206540)"
     }
   ]
 }
