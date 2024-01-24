@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -213,13 +214,31 @@ namespace Acumatica.RESTClient.Auxiliary
             return await formUrlEncodedContent.ReadAsStringAsync();
         }
         /// <summary>
-        /// Encode string in base64 format.
+        /// Encodes string in base64 format.
         /// </summary>
         /// <param name="text">String to be encoded.</param>
         /// <returns>Encoded string.</returns>
         public static string Base64Encode(string text)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(text));
+        }
+        /// <summary>
+        /// Encodes the given stream to base64 string.
+        /// </summary>
+        /// <param name="stream">
+        /// Stream to be encoded.
+        /// </param>
+        /// <returns>Encoded string.</returns>
+        public static string ConvertToBase64(Stream stream)
+        {
+            byte[] bytes;
+            using (var memoryStream = new MemoryStream())
+            {
+                stream.CopyTo(memoryStream);
+                bytes = memoryStream.ToArray();
+            }
+
+            return Convert.ToBase64String(bytes);
         }
     }
 }

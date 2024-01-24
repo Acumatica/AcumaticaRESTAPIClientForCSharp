@@ -15,7 +15,7 @@ namespace Acumatica.RESTClient.ODataApi
     {
         public static string GetOdataMetadata(ApiClient client, ODataVersion version, string? tenant = null)
         {
-            return GetOdataMetadataAsync(client, version, tenant).Result;
+            return Task.Run(() => GetOdataMetadataAsync(client, version, tenant)).GetAwaiter().GetResult();
         }
         public static async Task<string> GetOdataMetadataAsync(this ApiClient client, ODataVersion version, string? tenant = null)
         {
@@ -23,7 +23,7 @@ namespace Acumatica.RESTClient.ODataApi
         }
         public static string GetOData(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null)
         {
-            return GetODataAsync(client, version, resource, tenant, select, filter, expand, skip, top).Result;
+            return Task.Run(()=>GetODataAsync(client, version, resource, tenant, select, filter, expand, skip, top)).GetAwaiter().GetResult();
         }
         
         public static async Task<string> GetODataAsync(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null)

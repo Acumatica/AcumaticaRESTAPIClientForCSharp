@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
@@ -8,32 +9,40 @@ namespace Acumatica.RESTClient.MaintenanceApi
 {
     public static class MaintenanceApi
     {
-        public static void PutSchema(this ApiClient client, string endpointXML)
+        public static async Task PutSchemaAsync(this ApiClient client, string endpointXML)
         {
-            HttpResponseMessage response = client.CallApiAsync(
+            HttpResponseMessage response = await client.CallApiAsync(
                 "/entity/maintenance/23.200/",
                 HttpMethod.Post,
                 null,
                 endpointXML,
                 HeaderContentType.Xml,
-                HeaderContentType.Xml).Result;
+                HeaderContentType.Xml);
 
             response.EnsureSuccessStatusCode();
         }
-
-        public static string GetSchema(this ApiClient client, string endpointName, string endpointVersion)
+        public static void PutSchema(this ApiClient client, string endpointXML)
         {
+            Task.Run(() => PutSchemaAsync(client, endpointXML)).GetAwaiter().GetResult();
+        }
 
-            HttpResponseMessage response = client.CallApiAsync(
+
+        public static async Task<string> GetSchemaAsync(this ApiClient client, string endpointName, string endpointVersion)
+        {
+            HttpResponseMessage response =await client.CallApiAsync(
                 $"/entity/maintenance/23.200/{endpointName}/{endpointVersion}",
                 HttpMethod.Get,
                 null,
                 null,
                 HeaderContentType.Xml,
-                HeaderContentType.Xml).Result;
+                HeaderContentType.Xml);
 
             response.EnsureSuccessStatusCode();
-            return (string)DeserializeAsync<string>(response).Result;
+            return (string)await DeserializeAsync<string>(response);
+        }
+        public static string GetSchema(this ApiClient client, string endpointName, string endpointVersion)
+        {
+            return Task.Run(() => GetSchemaAsync(client, endpointName, endpointVersion)).GetAwaiter().GetResult();
         }
     }
 }
