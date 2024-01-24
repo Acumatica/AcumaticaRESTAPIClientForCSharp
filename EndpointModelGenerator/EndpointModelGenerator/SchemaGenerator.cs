@@ -38,9 +38,42 @@ namespace EndpointSchemaGenerator
 
         private static void WriteCsProj(string csprojPath)
         {
+            StringBuilder sectionsToPreserve = new StringBuilder();
+            if (File.Exists(csprojPath))
+            {
+                StreamReader reader = new StreamReader(csprojPath);
+                var existingProject = reader.ReadToEnd();
+                reader.Close();
+                sectionsToPreserve.AppendLine(ExtractSection("Version", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Company", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Description", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Copyright", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("PackageProjectUrl", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("RepositoryUrl", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("PackageTags", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("PackageReleaseNotes", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("PackageLicenseExpression", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Title", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Authors", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("IncludeSymbols", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("SymbolPackageFormat", existingProject));
+            }
             StreamWriter writer = new StreamWriter(csprojPath);
-            writer.Write(Templates.ProjectTemplate);
+            writer.Write(Templates.ProjectTemplate, sectionsToPreserve);
             writer.Close();
+        }
+
+        private static string ExtractSection(string tag, string csProjXML)
+        {
+            //find Version xml tag in existing project
+            int versionTagStart = csProjXML.IndexOf($"<{tag}>");
+            int versionTagEnd = csProjXML.IndexOf($"</{tag}>");
+            if (versionTagStart > 0 && versionTagEnd > 0)
+            {
+                return csProjXML.Substring(versionTagStart, versionTagEnd - versionTagStart + tag.Length + 3);
+            }
+
+            return "";
         }
 
         private static void WriteActions(Schema schema, 
