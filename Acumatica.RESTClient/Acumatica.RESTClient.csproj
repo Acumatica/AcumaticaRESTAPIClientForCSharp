@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ApplicationIcon>images\AcumaticaRESTClientLogo.ico</ApplicationIcon>
-    <Version>5.0.3-alpha</Version>
+    <Version>5.1.0-beta</Version>
     <Company>Acumatica</Company>
     <Description>A simple client allowing to use Acumatica REST API from C#. </Description>
     <Copyright>Acumatica</Copyright>
@@ -12,7 +12,8 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
     <PackageTags>Acumatica;REST;client;</PackageTags>
-    <PackageReleaseNotes>1. Added Client.Cookies for cookie sharing with different cients</PackageReleaseNotes>
+    <PackageReleaseNotes>Implement proper wrappers for Async operations
+Newtonsoft.JSON dependency updated to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <OutputType>Library</OutputType>

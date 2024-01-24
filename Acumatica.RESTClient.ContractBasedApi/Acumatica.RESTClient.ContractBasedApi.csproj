@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>Acumatica Contract Based REST API CLient</Title>
-    <Version>5.0.3-alpha</Version>
+    <Version>5.1.0-beta</Version>
     <Authors>Dmitrii-Naumov</Authors>
     <Company>Acumatica</Company>
     <Description>A simple client allowing to use Acumatica Contract Based REST API from C#. </Description>
@@ -18,6 +18,8 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>9.0</LangVersion>
     <nullable>Enable</nullable>
+    <PackageReleaseNotes>Implement proper wrappers for Async operations
+Newtonsoft.JSON dependency updated to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_20.200.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_23.200.001", "Acumatica.eCommerce_23.200.001\Acumatica.eCommerce_23.200.001.csproj", "{36CC9184-F935-425B-9B19-53BE782C10DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.MANUFACTURING_23.200.001", "Acumatica.MANUFACTURING_23.200.001\Acumatica.MANUFACTURING_23.200.001.csproj", "{F0629B4C-9902-43C1-98A1-0DCD37E57069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_23.200.001", "Acumatica.MANUFACTURING_23.200.001\Acumatica.Manufacturing_23.200.001.csproj", "{F0629B4C-9902-43C1-98A1-0DCD37E57069}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
