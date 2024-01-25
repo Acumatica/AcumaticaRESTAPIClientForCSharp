@@ -15,10 +15,6 @@ namespace Acumatica.RESTClient.ODataApi
             Tenant = tenant;
             Client = client;
         }
-        public string GetMetadata()
-        {
-            return ODataAPIHelper.GetOdataMetadata(Client, Version, Tenant);
-        }
         public string GetOData(string resource, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null)
         {
             return ODataAPIHelper.GetOData(Client, Version, resource, Tenant, select, filter, expand, skip, top);

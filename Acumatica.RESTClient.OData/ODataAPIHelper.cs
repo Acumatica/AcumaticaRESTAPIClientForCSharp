@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Xml;
 
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Auxiliary;
@@ -13,13 +16,20 @@ namespace Acumatica.RESTClient.ODataApi
 {
     public static class ODataAPIHelper
     {
-        public static string GetOdataMetadata(ApiClient client, ODataVersion version, string? tenant = null)
+        public static Metadata GetOdataMetadata(this ApiClient client, ODataVersion version, string? tenant = null)
         {
             return Task.Run(() => GetOdataMetadataAsync(client, version, tenant)).GetAwaiter().GetResult();
         }
-        public static async Task<string> GetOdataMetadataAsync(this ApiClient client, ODataVersion version, string? tenant = null)
+        public static async Task<Metadata> GetOdataMetadataAsync(this ApiClient client, ODataVersion version, string? tenant = null)
         {
-            return await GetODataAsync(client, version, "$metadata", tenant);
+            var raw = await GetODataAsync(client, version, "$metadata", tenant);
+            using (XmlReader reader = XmlReader.Create(new StringReader(raw)))
+            {
+                reader.ReadToDescendant("Schema");
+
+                XmlSerializer ser = new XmlSerializer(typeof(Metadata));
+                return (Metadata)ser.Deserialize(reader);
+            }
         }
         public static string GetOData(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null)
         {
