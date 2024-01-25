@@ -6,13 +6,16 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
     public interface IRestValueMarker { }
     [DataContract]
-    public abstract class RestValueBase<TValue> : IRestValueMarker
+    public abstract class RestFieldWithError : IRestValueMarker
+    {
+        [DataMember(Name = "error", EmitDefaultValue = false)]
+        public string? Error { get; set; }
+    }
+    [DataContract]
+    public abstract class RestValueBase<TValue> : RestFieldWithError
     {
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public TValue? Value { get; set; }
-
-        [DataMember(Name = "error", EmitDefaultValue = false)]
-        public string? Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

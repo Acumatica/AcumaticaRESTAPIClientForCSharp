@@ -65,6 +65,44 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             return response.Headers.GetValues("Location").First();
         }
+
+        /// <summary>
+        /// Queries the system with the specified <paramref name="millisecondsInterval"/> 
+        /// to get status of a running operation
+        /// untill the operation status is Completed.
+        /// </summary>
+        /// <param name="location">
+        /// Value of the Location header returned 
+        /// from <see cref="InvokeAction(EntityAction{EntityType})"/> or
+        /// <see cref="InvokeActionAsync(EntityAction{EntityType})"/>
+        /// </param>
+        /// <param name="millisecondsInterval">
+        /// Time that the system waits between querying for the operation status in milliseconds.
+        /// Default value is <c>1000</c>.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// Throws the the exception if the operation finishes with a status code not indicating 
+        /// successful completion.
+        /// </exception>
+        public static async Task WaitActionCompletionAsync(this ApiClient client, string location, int millisecondsInterval = 1000)
+        {
+            while (true)
+            {
+                var processResult = await GetProcessStatusAsync(client, location);
+
+                switch (processResult)
+                {
+                    case HttpStatusCode.NoContent:
+                        return;
+                    case HttpStatusCode.Accepted:
+                        await Task.Delay(millisecondsInterval);
+                        continue;
+                    default:
+                        throw new InvalidOperationException();
+                }
+            }
+        }
+
         /// <summary>
         /// Queries the system with the specified <paramref name="millisecondsInterval"/> 
         /// to get status of a running operation
@@ -85,21 +123,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// </exception>
         public static void WaitActionCompletion(this ApiClient client, string location, int millisecondsInterval = 1000)
         {
-            while (true)
-            {
-                var processResult = GetProcessStatus(client, location);
-
-                switch (processResult)
-                {
-                    case HttpStatusCode.NoContent:
-                        return;
-                    case HttpStatusCode.Accepted:
-                        Thread.Sleep(millisecondsInterval);
-                        continue;
-                    default:
-                        throw new InvalidOperationException();
-                }
-            }
+            Task.Run(() => WaitActionCompletionAsync(client, location, millisecondsInterval)).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -129,12 +153,12 @@ namespace Acumatica.RESTClient.ContractBasedApi
             if (location == null)
                 ThrowMissingParameter(nameof(GetProcessStatusAsync), nameof(location));
 
-            var parsedLocation = UrlParser.ParseActionLocation(location);
+            var parsedLocation = UrlParser.ParseActionLocation(location!);
             if (parsedLocation.ActionName == null)
                 return HttpStatusCode.NoContent;
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/{parsedLocation.EntityName}/{parsedLocation.ActionName}/{parsedLocation.Status}/{parsedLocation.ID}",
+                $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/{parsedLocation.EntityName}/{parsedLocation.ActionName}/{parsedLocation.Status}/{parsedLocation.ID}",
                 HttpMethod.Get,
                 null,
                 null,
@@ -188,7 +212,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? endpointPath = null,
             string? select = null, string? filter = null, string? expand = null, string? custom = null,
             PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
-            where EntityType : ITopLevelEntity
+            where EntityType : Entity, ITopLevelEntity
         {
             return Task.Run(() => PutAsync(client, entity, endpointPath, select, filter, expand, custom, method, businessDate, branch)).GetAwaiter().GetResult();
         }
@@ -223,7 +247,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? endpointPath = null,
             string? select = null, string? filter = null, string? expand = null, string? custom = null,
             PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
-            where EntityType : ITopLevelEntity
+            where EntityType : Entity, ITopLevelEntity
         {
             if (entity == null)
                 ThrowMissingParameter(nameof(PutAsync), nameof(entity));
@@ -239,7 +263,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 HeaderContentType.Json,
                 ComposePutHeaders(method, businessDate, branch));
 
-            await VerifyResponseAsync(response, nameof(PutAsync));
+            await VerifyResponseAsync<EntityType>(response, nameof(PutAsync));
 
             return (EntityType)await DeserializeAsync<EntityType>(response);
         }
@@ -687,10 +711,14 @@ namespace Acumatica.RESTClient.ContractBasedApi
         {
             if (!response.IsSuccessStatusCode)
             {
-                string responseMessage = null;
+                string? responseMessage = null;
                 if (string.IsNullOrEmpty(responseMessage))
                 {
-                    responseMessage = await GetErrorMessageFromErrorAsync(response, responseMessage);
+                    responseMessage = await GetErrorMessageFromErrorAsync(response);
+                }
+                if (string.IsNullOrEmpty(responseMessage))
+                {
+                    responseMessage = await GetErrorMessageFromErrorAsync(response);
                 }
                 if (string.IsNullOrEmpty(responseMessage))
                 {
@@ -704,12 +732,19 @@ namespace Acumatica.RESTClient.ContractBasedApi
             }
         }
 
-        private static async Task<string> GetErrorMessageFromErrorAsync(HttpResponseMessage response, string responseMessage)
+        private static async Task<string?> GetErrorMessageFromErrorAsync(HttpResponseMessage response)
         {
+            string? responseMessage = null;
             try
             {
-                ErrorMessage error = (ErrorMessage)await DeserializeAsync<ErrorMessage>(response);
-                responseMessage = $"{error.message} : {error.exceptionMessage} : {error.innerException}";
+                ErrorMessage? error = (ErrorMessage?)await DeserializeAsync<ErrorMessage>(response);
+                if (error == null || (String.IsNullOrEmpty(error.message) && String.IsNullOrEmpty(error.exceptionMessage)))
+                {
+                }
+                else
+                {
+                    responseMessage = $"{error.message} : {error.exceptionMessage} : {error.innerException}";
+                }
             }
             catch (Newtonsoft.Json.JsonReaderException) { }
 
@@ -721,11 +756,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
         {
             if (!response.IsSuccessStatusCode)
             {
-                string responseMessage = null;
-                responseMessage = await GetErrorMessageFromEntityAsync<EntityType>(response, responseMessage);
+                string? responseMessage = null;
+                responseMessage = await GetErrorMessageFromEntityAsync<EntityType>(response);
                 if (string.IsNullOrEmpty(responseMessage))
                 {
-                    responseMessage = await GetErrorMessageFromErrorAsync(response, responseMessage);
+                    responseMessage = await GetErrorMessageFromErrorAsync(response);
                 }
                 if (string.IsNullOrEmpty(responseMessage))
                 {
@@ -744,13 +779,27 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return System.Text.RegularExpressions.Regex.Replace((await response.Content.ReadAsStringAsync()).Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
         }
 
-        private static async Task<string> GetErrorMessageFromEntityAsync<EntityType>(HttpResponseMessage response, string responseMessage)
+        private static async Task<string?> GetErrorMessageFromEntityAsync<EntityType>(HttpResponseMessage response)
             where EntityType : Entity
         {
+            string? responseMessage = null;
             try
             {
-                responseMessage = ((EntityType)await DeserializeAsync<EntityType>(response)).Error;
-                // TODO iterate through fields and find all errors
+                EntityType? entity = (EntityType?)await DeserializeAsync<EntityType>(response);
+                if(entity!=null)
+                {
+                    responseMessage = entity.Error;
+                    foreach(var field in typeof(EntityType).GetProperties()
+                        .Where(property=> typeof(RestFieldWithError).IsAssignableFrom(property.PropertyType)))
+                    {
+                        string? errorMessage = (field.GetValue(entity) as RestFieldWithError)?.Error;
+                        if(errorMessage != null)
+                        {
+                            responseMessage += $"\r\n{field.Name} : {errorMessage}";
+                        }
+                    }
+                }
+
             }
             catch (Newtonsoft.Json.JsonReaderException) { }
 
