@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Acumatica.Default_20_200_001.Api;
 using Acumatica.Default_20_200_001.Model;
 using Acumatica.RESTClient.Client;
 
@@ -15,7 +14,7 @@ namespace AcumaticaRestApiExample
 {
     public class RESTExample
 	{
-		public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+		public static void TestFileUpload(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
 			var client = new ApiClient(siteURL,
 				requestInterceptor: RequestLogger.LogRequest, 
@@ -57,5 +56,91 @@ namespace AcumaticaRestApiExample
                 }
             }
 		}
-	}
+        public static void TestShipmentRetrieval(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+            var client = new ApiClient(siteURL,
+                requestInterceptor: RequestLogger.LogRequest,
+                responseInterceptor: RequestLogger.LogResponse
+                );
+
+            try
+            {
+                client.Login(username, password, tenant, branch, locale);
+
+                Console.WriteLine("Shipment Retrieval");
+                var shipments = client.GetList<Shipment>();
+
+                Console.WriteLine($"Found {shipments.Count} shipments");
+                var recentShipment = client.GetById<Shipment>(shipments.First().ID, expand: "Details");
+                Console.WriteLine($"Found {recentShipment.Details.Count} shipment details in the Shipment {recentShipment.ShipmentNbr}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //we use logout in finally block because we need to always logout, even if the request failed for some reason
+                if (client.TryLogout())
+                {
+                    Console.WriteLine("Logged out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("An error occured during logout.");
+                }
+            }
+        }
+
+        public static void CreateAndReleaseAPBill(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+            var client = new ApiClient(siteURL,
+                requestInterceptor: RequestLogger.LogRequest,
+                responseInterceptor: RequestLogger.LogResponse
+                );
+
+            try
+            {
+                client.Login(username, password, tenant, branch, locale);
+
+                Console.WriteLine("Creating AP Bill");
+                var bill = client.Put(new Bill()
+                {
+                    Vendor = "AAVENDOR",
+                    VendorRef= new Guid().ToString(),
+                    Hold = false,
+                    Details = new List<BillDetail>()
+                    {
+                        new BillDetail()
+                        {
+                            InventoryID = "ACCOMODATE",
+                            Qty = 1,
+                            UnitCost = 100
+                        }
+                    }
+                });
+                Console.WriteLine($"Created AP Bill {bill.ReferenceNbr}. Releasing...");
+                client.WaitActionCompletion(client.InvokeAction(new ReleaseBill(bill)));
+                bill = client.GetById<Bill>(bill.ID, select: "Status");
+                Console.WriteLine($"Bill {bill.ReferenceNbr} has status {bill.Status}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //we use logout in finally block because we need to always logout, even if the request failed for some reason
+                if (client.TryLogout())
+                {
+                    Console.WriteLine("Logged out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("An error occured during logout.");
+                }
+            }
+        }
+
+    }
 }
