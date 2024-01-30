@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using System.Runtime.Serialization;
+
+using Newtonsoft.Json.Linq;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
@@ -12,5 +15,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         {
             this.Value = value;
         }
+        [DataMember(Name = "Translations", EmitDefaultValue = false)]
+        public Dictionary<string, string>? Translations { get; set; }
     }
 }

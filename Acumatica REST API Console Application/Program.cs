@@ -25,12 +25,13 @@ namespace AcumaticaRestApiExample
         static async Task Main(string[] args)
 		{
 
-            //Console.WriteLine("REST API example");
-            //RESTExample.TestFileUpload(SiteURL, Username, Password, Tenant, Branch, Locale);
-            //RESTExample.TestShipmentRetrieval(SiteURL, Username, Password, Tenant, Branch, Locale);
-            //RESTExample.CreateAndReleaseAPBill(SiteURL, Username, Password, Tenant, Branch, Locale);
-            //Console.WriteLine("Ready to continue...");
-            //Console.ReadLine();
+            Console.WriteLine("REST API example");
+            RESTExample.TestFileUpload(SiteURL, Username, Password, Tenant, Branch, Locale);
+            RESTExample.TestShipmentRetrieval(SiteURL, Username, Password, Tenant, Branch, Locale);
+            RESTExample.CreateAndReleaseAPBill(SiteURL, Username, Password, Tenant, Branch, Locale);
+            RESTExample.ReadStockItemsWithTranslations(SiteURL, Username, Password, Tenant, Branch, Locale);
+            Console.WriteLine("Ready to continue...");
+            Console.ReadLine();
 
             //Console.WriteLine("REST API (Extended Endpoint) example");
             //ExtendedEndpointExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);

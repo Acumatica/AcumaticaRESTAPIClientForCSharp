@@ -142,5 +142,38 @@ namespace AcumaticaRestApiExample
             }
         }
 
+        public static void ReadStockItemsWithTranslations(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+            var client = new ApiClient(siteURL,
+                requestInterceptor: RequestLogger.LogRequest,
+                responseInterceptor: RequestLogger.LogResponse
+                );
+
+            try
+            {
+                client.Login(username, password, tenant, branch, locale);
+
+                Console.WriteLine("Reading Stock Items with translations");
+                var stockItems = client.GetList<StockItem>(top: 10, expand: "Translations");
+                stockItems.ForEach(si => Console.WriteLine($"Stock Item {si.InventoryID} has translations"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //we use logout in finally block because we need to always logout, even if the request failed for some reason
+                if (client.TryLogout())
+                {
+                    Console.WriteLine("Logged out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("An error occured during logout.");
+                }
+            }
+        }
+
     }
 }
