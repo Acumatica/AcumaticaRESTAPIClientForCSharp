@@ -21,7 +21,6 @@ namespace Acumatica.RESTClient.AuthApi
 	/// </summary>
 	public static class AuthApiExtensions
     {
-		private const string SessionCookieName = "ASP.NET_SessionId";
 		#region Public Methods
 		#region OAuth
 		public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
@@ -252,8 +251,6 @@ namespace Acumatica.RESTClient.AuthApi
                 HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
 
             await VerifyResponseAsync(client, response, nameof(LoginAsync));
-
-            SetCookiesFromResponse(response, client.Cookies);
         }
         #endregion
 
@@ -294,7 +291,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <returns>Task of void</returns>
         public static async Task LogoutAsync(this ApiClient client)
         {
-            if (!HasSessionInfo(client))
+            if (!client.HasSessionInfo())
             {
                 throw new Exception("There is no open session to log out.");
             }
@@ -348,42 +345,6 @@ namespace Acumatica.RESTClient.AuthApi
             return s.ToString().TrimEnd(' ');
         }
 
-        private static void SetCookiesFromResponse(HttpResponseMessage response, CookieContainer cookieContainer)
-        {
-            if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
-            {
-                foreach (var cookieValue in cookieValues)
-                {
-                    cookieContainer.SetCookies(response.RequestMessage.RequestUri, cookieValue);
-                }
-            }
-        }
-        private static bool HasSessionInfo(ApiClient client)
-        {
-            if (client?.Cookies != null
-                && client.Cookies.GetCookies(new Uri(client.BasePath)).Cast<Cookie>()
-                .Any(cookie => cookie.Name == SessionCookieName))
-            {
-                return true;
-            }
-            return false;
-        }
-
-        private static string? GetSessionInfoFromResponse(HttpResponseMessage response)
-        {
-			if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
-			{
-				foreach (var cookieValue in cookieValues)
-				{
-					if (!string.IsNullOrEmpty(cookieValue) && cookieValue.Contains(SessionCookieName))
-					{
-                        var valueStartIndex = cookieValue.IndexOf(SessionCookieName) + SessionCookieName.Length + 1;
-						return cookieValue.Substring(valueStartIndex).Split(';')[0];
-					}
-				}
-			}
-            return null;
-        }
         #endregion
     }
 }

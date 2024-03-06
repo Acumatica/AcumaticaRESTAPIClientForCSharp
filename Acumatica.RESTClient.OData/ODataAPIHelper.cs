@@ -69,14 +69,14 @@ namespace Acumatica.RESTClient.ODataApi
 
         private static Dictionary<string, string>? ComposeAuthenticationHeaders(ApiClient client)
         {
-            if (client.Token == null && (client.Username == null && client.Password == null))
+            if (client.HasToken())
             {
-                throw new Exception("Either token or username/password  pair have to be provided");
+                // ApiClient will take care of Token-based authentication
+                return null;
             }
-
-            //Basic authentication
-            if (client.Token == null)
+            else if (client.Username != null && client.Password != null)
             {
+                //Basic authentication
                 var customHeaders = new Dictionary<string, string>
                 {
                     { "Authorization", $"Basic {ApiClientHelpers.Base64Encode($"{client.Username}:{client.Password}")}" }
@@ -84,9 +84,8 @@ namespace Acumatica.RESTClient.ODataApi
                 return customHeaders;
             }
             else
-            {
-                // ApiClient will take care of Token-based authentication
-                return null;
+            { 
+                throw new Exception("Either token or username/password pair have to be provided");
             }
         }
 

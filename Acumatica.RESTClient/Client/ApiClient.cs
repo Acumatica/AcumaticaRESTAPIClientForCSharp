@@ -11,14 +11,19 @@ using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.AuthApi.Model;
 
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
+using System.Linq;
+
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTests")]
 
 namespace Acumatica.RESTClient.Client
 {
-	/// <summary>
-	/// API client is mainly responsible for making the HTTP call to the API backend.
-	/// </summary>
-	public partial class ApiClient : IDisposable
+    /// <summary>
+    /// API client is mainly responsible for making the HTTP call to the API backend.
+    /// </summary>
+    public partial class ApiClient : IDisposable
     {
+        private const string httpClientName = "HttpClient";
+        private const string SessionCookieName = "ASP.NET_SessionId";
         #region State & ctor
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
@@ -49,25 +54,29 @@ namespace Acumatica.RESTClient.Client
             BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
 
             RequestInterceptor = requestInterceptor;
-            ResponseInterceptor = responseInterceptor;            
-            if (Cookies == null)
-            {
-				Cookies = new CookieContainer();
-            }
+            ResponseInterceptor = responseInterceptor;
+
+            Cookies = new CookieContainer();
+
             var services = new ServiceCollection();
-            services.AddHttpClient("HttpClient", c => {
+            services.AddHttpClient(httpClientName, c => {
                 c.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
             }
             ).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
             {
                 UseCookies = true,
+                CookieContainer = Cookies,
                 ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => ignoreSslErrors
             });
             var serviceProvider = services.BuildServiceProvider();
-            HttpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
+            HttpClientFactory = serviceProvider.GetService<IHttpClientFactory>()!;
         }
 
-		public CookieContainer Cookies { get; set; }
+        public CookieContainer Cookies
+        {
+            get; protected set;
+        }
+        
 
 		/// <summary>
 		/// Method that is executed before request. May be used for loggin the request body.
@@ -147,19 +156,35 @@ namespace Acumatica.RESTClient.Client
             {
                 RequestInterceptor(request);
             }
-            var response = await HttpClientFactory.CreateClient("HttpClient").SendAsync(request);
-            
+            var response = await GetHttpClient().SendAsync(request);
+
             if (ResponseInterceptor != null)
             {
                 ResponseInterceptor(response);
             }
-            
+
             return response;
         }
-
+        public bool HasSessionInfo()
+        {
+            if (Cookies != null
+                && Cookies.GetCookies(new Uri(BasePath)).Cast<Cookie>()
+                .Any(cookie => cookie.Name == SessionCookieName))
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool HasToken()
+        {
+            return Token != null;
+        }
         public void Dispose()
         {
-           AuthApi.AuthApiExtensions.TryLogout(this);
+            if (HasToken() || HasSessionInfo())
+            {
+                AuthApi.AuthApiExtensions.TryLogout(this);
+            }
         }
         #endregion
 
@@ -193,11 +218,6 @@ namespace Acumatica.RESTClient.Client
             }
 
             var request = new HttpRequestMessage(method, url.ToString());
-            if (Cookies != null && !resourcePath.Contains("login"))
-            {
-                string cookieHeader = string.Join("; ", Cookies);
-                request.Headers.Add("Cookie", cookieHeader);
-            }
             if (headerParams != null)
             {
                 // add header parameter, if any
@@ -212,9 +232,9 @@ namespace Acumatica.RESTClient.Client
             }
 
 
-            if (Token != null)
+            if (HasToken())
             {
-                request.Headers.Add("Authorization", $"{Token.Token_type} {Token.Access_token}");
+                request.Headers.Add("Authorization", $"{Token!.Token_type} {Token.Access_token}");
             }
 
             if (postBody != null)
@@ -235,6 +255,11 @@ namespace Acumatica.RESTClient.Client
             }
             return request;
         }
+        internal HttpClient GetHttpClient()
+        {
+            return HttpClientFactory.CreateClient(httpClientName);
+        }
+     
         #endregion
     }
 }
