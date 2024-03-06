@@ -35,17 +35,21 @@ namespace Acumatica.RESTClient.Client
         /// Can be used for logging purposes.
         /// </param>
         /// <param name="timeout">
-        /// Gets or sets the HTTP timeout (milliseconds) of the ApiClient. Default to 100000 milliseconds.
+        /// Sets the HTTP timeout (milliseconds) of the ApiClient. Default to 100000 milliseconds.
+        /// </param>
+        /// <param name="ignoreSslErrors">
+        /// Sets whether SSL/TLS related errors should be ignored.
         /// </param>
         public ApiClient(string basePath,
             int timeout = 100000,
+            bool ignoreSslErrors = false,
              Action<HttpRequestMessage>? requestInterceptor = null,
              Action<HttpResponseMessage>? responseInterceptor = null)
         {
             BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
 
             RequestInterceptor = requestInterceptor;
-            ResponseInterceptor = responseInterceptor;
+            ResponseInterceptor = responseInterceptor;            
             if (Cookies == null)
             {
 				Cookies = new CookieContainer();
@@ -56,7 +60,8 @@ namespace Acumatica.RESTClient.Client
             }
             ).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
             {
-                UseCookies = false
+                UseCookies = true,
+                ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => ignoreSslErrors
             });
             var serviceProvider = services.BuildServiceProvider();
             HttpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
@@ -142,7 +147,7 @@ namespace Acumatica.RESTClient.Client
             {
                 RequestInterceptor(request);
             }
-            var response = await HttpClientFactory.CreateClient().SendAsync(request);
+            var response = await HttpClientFactory.CreateClient("HttpClient").SendAsync(request);
             
             if (ResponseInterceptor != null)
             {
