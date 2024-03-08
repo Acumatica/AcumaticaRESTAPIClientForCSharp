@@ -50,7 +50,7 @@ namespace Acumatica.RESTClient.ODataApi
             );
 
             response.EnsureSuccessStatusCode();
-            return  (string)await DeserializeAsync<string>(response);
+            return (string)await DeserializeAsync<string>(response);
         }
 
         #region Implementation

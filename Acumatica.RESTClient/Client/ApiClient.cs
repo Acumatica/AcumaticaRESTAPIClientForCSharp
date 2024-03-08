@@ -62,11 +62,26 @@ namespace Acumatica.RESTClient.Client
             services.AddHttpClient(httpClientName, c => {
                 c.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
             }
-            ).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-            {
-                UseCookies = true,
-                CookieContainer = Cookies,
-                ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => ignoreSslErrors
+            ).ConfigurePrimaryHttpMessageHandler(() => {
+                HttpClientHandler handler;
+                if (ignoreSslErrors)
+                {
+                    handler = new HttpClientHandler
+                    {
+                        UseCookies = true,
+                        CookieContainer = Cookies,
+                        ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => true
+                    };
+                }
+                else 
+                { 
+                    handler = new HttpClientHandler
+                    {
+                        UseCookies = true,
+                        CookieContainer = Cookies
+                    };
+                }
+                return handler;
             });
             var serviceProvider = services.BuildServiceProvider();
             HttpClientFactory = serviceProvider.GetService<IHttpClientFactory>()!;

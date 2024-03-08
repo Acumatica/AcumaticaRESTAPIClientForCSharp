@@ -9,7 +9,7 @@ namespace AcumaticaRestApiExample
 		const string SiteURL = "http://localhost/23r206/";
         const string Username = "admin";
 		const string Password = "123";
-		const string Tenant = null;
+		const string Tenant = "Company";
 		const string Branch = null;
 		const string Locale = null;
         # region Resource Owner Password Credentials flow

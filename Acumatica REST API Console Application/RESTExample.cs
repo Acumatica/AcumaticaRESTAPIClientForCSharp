@@ -16,7 +16,7 @@ namespace AcumaticaRestApiExample
 	{
 		public static void TestFileUpload(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
-			var client = new ApiClient(siteURL,
+            var client = new ApiClient(siteURL,
 				requestInterceptor: RequestLogger.LogRequest, 
                 responseInterceptor: RequestLogger.LogResponse
                 );
@@ -152,7 +152,6 @@ namespace AcumaticaRestApiExample
             try
             {
                 client.Login(username, password, tenant, branch, locale);
-
                 Console.WriteLine("Reading Stock Items with translations");
                 var stockItems = client.GetList<StockItem>(top: 10, expand: "Translations");
                 stockItems.ForEach(si => Console.WriteLine($"Stock Item {si.InventoryID} has translations"));
