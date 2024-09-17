@@ -5,14 +5,15 @@ using System.Text;
 
 namespace EndpointSchemaGenerator
 {
-    public partial class SchemaGenerator
+    public static class SchemaGenerator
     {
         public static void WriteCSharp(string outputPath, 
             Schema schema, 
             Action<string> writeLogDelegate, 
             string endpointNamespace, 
             string csprojPath, 
-            string additionalPath = "")
+            string additionalPath = "", 
+            bool generateApis = true)
         {
             string modelLocalPath = additionalPath + "Model\\";
             string actionsLocalPath = modelLocalPath + "Actions\\";
@@ -29,8 +30,11 @@ namespace EndpointSchemaGenerator
             WriteCsProj(csprojPath);
 
             WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory);
-            WriteBaseApi(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
-            WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
+            if (generateApis)
+            {
+                WriteBaseApi(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
+                WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
+            }
             WriteActions(schema, writeLogDelegate, endpointNamespace, actionsLocalPath, actionParametersLocalPath, modelActionsFilesDirectory, modelParametersFilesDirectory);
 
             writeLogDelegate.Invoke("Done!");
@@ -135,7 +139,6 @@ namespace EndpointSchemaGenerator
         {
             string filename = "BaseEndpointApi.cs";
             StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
-
             string result = String.Format(Templates.BaseEndpointApiTemplate, endpointNamespace, schema.Info.Title);
             writeLogDelegate.Invoke("BaseEndpointApi");
             writer.Write(result);

@@ -25,14 +25,14 @@ namespace EndpointSchemaGenerator
         public static Schema ComposeEndpointSchema(string input)
         {
             Schema schema = JsonConvert.DeserializeObject<Schema>(input)!;
-            foreach (string item in IgnoreList.Union(schema.Definitions.Keys.Where(s => s.EndsWith("CustomAction"))).ToArray())
+            foreach (string item in IgnoreList.Union((schema.Definitions ?? schema.Components.Schemas).Keys.Where(s => s.EndsWith("CustomAction"))).ToArray())
             {
-                schema.Definitions.Remove(item);
+                (schema.Definitions ?? schema.Components.Schemas).Remove(item);
             }
 
             schema.Entities = new Dictionary<string, Dictionary<string, string>>();
             schema.TopLevelEntities = new HashSet<string>();
-            foreach (var item in schema.Definitions)
+            foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
             {
                 var res = ParseObject(item);
                 if (res != null)
@@ -45,7 +45,7 @@ namespace EndpointSchemaGenerator
                 }
             }
             schema.Actions = new Dictionary<string, string>();
-            foreach (var item in schema.Definitions)
+            foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
             {
                 string entityType = ParseAction(item);
                 if (!String.IsNullOrEmpty(entityType))
@@ -54,7 +54,7 @@ namespace EndpointSchemaGenerator
                 }
             }
             schema.Parameters = new Dictionary<string, Dictionary<string, string>>();
-            foreach (var item in schema.Definitions)
+            foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
             {
                 string entityType = ParseActionWithParameters(item);
                 if (!String.IsNullOrEmpty(entityType))
@@ -64,7 +64,7 @@ namespace EndpointSchemaGenerator
                 }
             }
             Dictionary<string, Dictionary<string, string>> parameters = new Dictionary<string, Dictionary<string, string>>();
-            foreach (var item in schema.Definitions)
+            foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
             {
                 //    entities.Add(item.Key, ParseObject(item));
             }
@@ -79,10 +79,21 @@ namespace EndpointSchemaGenerator
 
         public static string ParseParentRef(JToken jsonObject)
         {
+            const string definitions= "definitions/";
+            const string components = "components/schemas/";
             var s = jsonObject.Children().First().Children().First().ToString();
-            if (s.Contains("definitions/"))
+            if (s.Contains(definitions))
             {
-                s = s.Substring(s.IndexOf("definitions/") + 12);
+                s = s.Substring(s.IndexOf(definitions) + definitions.Length);
+                if (s.IndexOf("\"") > 0)
+                {
+                    s = s.Substring(0, s.IndexOf("\""));
+                }
+                return s;
+            }
+            else if (s.Contains(components))
+            {
+                s = s.Substring(s.IndexOf(components) + components.Length);
                 if (s.IndexOf("\"") > 0)
                 {
                     s = s.Substring(0, s.IndexOf("\""));
@@ -92,9 +103,25 @@ namespace EndpointSchemaGenerator
             else if (s.Contains("array"))
             {
                 var k = jsonObject.ToString();
-                if (k.Contains("definitions/"))
+                if (k.Contains(definitions))
                 {
-                    k = k.Substring(k.IndexOf("definitions/") + 12);
+                    k = k.Substring(k.IndexOf(definitions) + definitions.Length);
+                    if (k.IndexOf("\"") > 0)
+                    {
+                        k = k.Substring(0, k.IndexOf("\""));
+                    }
+                    if (GenerateArraysInstedOfLists)
+                    {
+                        return k + "[]";
+                    }
+                    else
+                    {
+                        return "List<" + k + ">";
+                    }
+                }
+                else if (k.Contains(components))
+                {
+                    k = k.Substring(k.IndexOf(components) + components.Length);
                     if (k.IndexOf("\"") > 0)
                     {
                         k = k.Substring(0, k.IndexOf("\""));

@@ -21,14 +21,21 @@ namespace EndpointSchemaGenerator
         public string Name;
         public string Description;
     }
+    public class Components
+    {
+        public Dictionary<string, JObject> Schemas;
+        public Dictionary<string, JObject> Parameters;
+
+    }
     public class Schema
     {
         public Info Info { get; set; }
         public string BasePath { get; set; }
 
-        public List<NameDescrObject> Tags;
-        public Dictionary<string, Dictionary<string, object>> Paths { get; set; }
+        public List<NameDescrObject> Tags { get; set; }
+     //   public Dictionary<string, Dictionary<string, object>> Paths { get; set; }
         public Dictionary<string, JObject> Definitions { get; set; }
+        public Components Components { get; set; }
         public HashSet<string> TopLevelEntities { get; set; }
         public Dictionary<string, Dictionary<string, string>> Entities { get; set; }
         public Dictionary<string, string> Actions { get; set; }

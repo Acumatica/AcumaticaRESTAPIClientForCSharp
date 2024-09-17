@@ -6,13 +6,19 @@ namespace ModelGeneratorConsole
 {
     internal class Program
     {
+
+        #region Settings
+        const bool GenerateArraysInstedOfLists = false;
+        const bool GenerateAPISectionForBackWardCompatibility = true;
+
         const string OutputDirectoryTemplate = @"\Acumatica.{0}";
         const string EndpointSchemaDirectory = @"\EndpointDefinitions\";
         const string DefaultNamespaceTemplate = @"Acumatica.{0}";
+        #endregion
 
         static void Main(string[] args)
         {
-            string solutionFolderPath = GetParentDirectory(Directory.GetCurrentDirectory(), 5).ToString();
+            string? solutionFolderPath = GetParentDirectory(Directory.GetCurrentDirectory(), 5)?.ToString();
 
             foreach (var file in Directory.GetFiles(solutionFolderPath + EndpointSchemaDirectory))
             {
@@ -20,14 +26,15 @@ namespace ModelGeneratorConsole
                 StreamReader reader = new StreamReader(file);
                 string input = reader.ReadToEnd();
                 reader.Close();
-                //JsonSchemaParser.GenerateArraysInstedOfLists = true;
+                JsonSchemaParser.GenerateArraysInstedOfLists = GenerateArraysInstedOfLists;
                 Schema schema = JsonSchemaParser.ComposeEndpointSchema(input);
 
                 WriteCSharp(
                     solutionFolderPath + string.Format(OutputDirectoryTemplate, endpoint),
                      endpoint,
                     schema,
-                   (_) => Console.WriteLine(_));
+                   (_) => Console.WriteLine(_), 
+                   GenerateAPISectionForBackWardCompatibility);
             }
 
         }
@@ -51,14 +58,14 @@ namespace ModelGeneratorConsole
             return parentDirectory;
         }
 
-        private static void WriteCSharp(string outputPath, string endpointName, Schema schema, Action<string> writeLogDelegate)
+        private static void WriteCSharp(string outputPath, string endpointName, Schema schema, Action<string> writeLogDelegate, bool generateApis = true)
         {
             outputPath += "\\";
             string endpointNamespace = string.Format(DefaultNamespaceTemplate, endpointName.Replace(".", "_"));
 
             string csprojPath = outputPath + string.Format(DefaultNamespaceTemplate, endpointName) + ".csproj";
 
-            SchemaGenerator.WriteCSharp(outputPath, schema, writeLogDelegate, endpointNamespace, csprojPath);
+            SchemaGenerator.WriteCSharp(outputPath, schema, writeLogDelegate, endpointNamespace, csprojPath, generateApis: generateApis);
         }
     }
 }
