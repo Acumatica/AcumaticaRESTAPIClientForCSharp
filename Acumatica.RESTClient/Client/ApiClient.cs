@@ -20,9 +20,8 @@ namespace Acumatica.RESTClient.Client
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.
     /// </summary>
-    public partial class ApiClient : IDisposable
+    public class ApiClient : IDisposable
     {
-        private const string httpClientName = "HttpClient";
         private const string SessionCookieName = "ASP.NET_SessionId";
         #region State & ctor
         /// <summary>
@@ -56,47 +55,21 @@ namespace Acumatica.RESTClient.Client
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
 
-            Cookies = new CookieContainer();
-
-            var services = new ServiceCollection();
-            services.AddHttpClient(httpClientName, c => {
-                c.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
-            }
-            ).ConfigurePrimaryHttpMessageHandler(() => {
-                HttpClientHandler handler;
-                if (ignoreSslErrors)
-                {
-                    handler = new HttpClientHandler
-                    {
-                        UseCookies = true,
-                        CookieContainer = Cookies,
-                        ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => true
-                    };
-                }
-                else 
-                { 
-                    handler = new HttpClientHandler
-                    {
-                        UseCookies = true,
-                        CookieContainer = Cookies
-                    };
-                }
-                return handler;
-            });
-            var serviceProvider = services.BuildServiceProvider();
-            HttpClientFactory = serviceProvider.GetService<IHttpClientFactory>()!;
+            HttpClient = new HttpClientHandler(timeout, ignoreSslErrors);
         }
 
-        public CookieContainer Cookies
+        internal ApiClient(string basePath, IHttpClientHandler httpClient)
         {
-            get; protected set;
-        }
-        
+            BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
 
-		/// <summary>
-		/// Method that is executed before request. May be used for loggin the request body.
-		/// </summary>
-		public Action<HttpRequestMessage>? RequestInterceptor { get; set; }
+            HttpClient = httpClient;
+        }
+
+
+        /// <summary>
+        /// Method that is executed before request. May be used for loggin the request body.
+        /// </summary>
+        public Action<HttpRequestMessage>? RequestInterceptor { get; set; }
 
         /// <summary>
         /// Method that is executed after receiving response. May be used for loggin the response.
@@ -108,7 +81,7 @@ namespace Acumatica.RESTClient.Client
         /// Gets or sets the HttpClient.
         /// </summary>
         /// <value>An instance of the HttpClient</value>
-        public IHttpClientFactory HttpClientFactory { get; set; }
+        internal IHttpClientHandler HttpClient { get; set; }
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
@@ -171,7 +144,7 @@ namespace Acumatica.RESTClient.Client
             {
                 RequestInterceptor(request);
             }
-            var response = await GetHttpClient().SendAsync(request);
+            HttpResponseMessage response = await HttpClient.SendRequest(request);
 
             if (ResponseInterceptor != null)
             {
@@ -180,16 +153,9 @@ namespace Acumatica.RESTClient.Client
 
             return response;
         }
-        public bool HasSessionInfo()
-        {
-            if (Cookies != null
-                && Cookies.GetCookies(new Uri(BasePath)).Cast<Cookie>()
-                .Any(cookie => cookie.Name == SessionCookieName))
-            {
-                return true;
-            }
-            return false;
-        }
+
+
+      
         public bool HasToken()
         {
             return Token != null;
@@ -270,11 +236,11 @@ namespace Acumatica.RESTClient.Client
             }
             return request;
         }
-        internal HttpClient GetHttpClient()
+
+        internal bool HasSessionInfo()
         {
-            return HttpClientFactory.CreateClient(httpClientName);
+            return HttpClient.HasSessionCookie(new Uri(BasePath), SessionCookieName);
         }
-     
         #endregion
     }
 }
