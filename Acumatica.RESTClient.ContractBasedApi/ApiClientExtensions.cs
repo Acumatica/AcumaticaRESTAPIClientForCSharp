@@ -12,6 +12,7 @@ using Acumatica.RESTClient.Api;
 using System.Net.Http;
 
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
+using static Acumatica.RESTClient.ContractBasedApi.EntityStructureHelper;
 
 namespace Acumatica.RESTClient.ContractBasedApi
 {
@@ -786,24 +787,54 @@ namespace Acumatica.RESTClient.ContractBasedApi
             try
             {
                 EntityType? entity = (EntityType?)await DeserializeAsync<EntityType>(response);
-                if(entity!=null)
-                {
-                    responseMessage = entity.Error;
-                    foreach(var field in typeof(EntityType).GetProperties()
-                        .Where(property=> typeof(RestFieldWithError).IsAssignableFrom(property.PropertyType)))
-                    {
-                        string? errorMessage = (field.GetValue(entity) as RestFieldWithError)?.Error;
-                        if(errorMessage != null)
-                        {
-                            responseMessage += $"\r\n{field.Name} : {errorMessage}";
-                        }
-                    }
-                }
-
+                responseMessage = CollectErrorsFromEntity(entity);
             }
             catch (Newtonsoft.Json.JsonReaderException) { }
 
             return responseMessage;
+        }
+
+        private static string? CollectErrorsFromEntity(Entity? entity)
+        {
+            if (entity == null)
+            {
+                return null;
+            }
+
+            StringBuilder responseMessage = new StringBuilder();
+            responseMessage.Append(entity.Error);
+            foreach (var field in entity.GetType().GetProperties())
+            {
+                if (typeof(RestFieldWithError).IsAssignableFrom(field.PropertyType))
+                {
+                    string? errorMessage = (field.GetValue(entity) as RestFieldWithError)?.Error;
+                    if (errorMessage != null)
+                    {
+                        responseMessage.Append($"\r\n{field.Name} : {errorMessage}");
+                    }
+                }
+                else if (IsDetail(field))
+                {
+                    if (field.GetValue(entity) is System.Collections.IEnumerable detailList)
+                    {
+                        foreach (var line in detailList)
+                        {
+                            if (line is Entity lineEntity)
+                            {
+                                responseMessage.Append(CollectErrorsFromEntity(lineEntity));
+                            }
+                        }
+                    }
+                }
+                else if (IsLinkedEntity(field))
+                {
+                    if (field.GetValue(entity) is Entity linkedEntity)
+                    {
+                        responseMessage.Append(CollectErrorsFromEntity(linkedEntity));
+                    }
+                }
+            }
+            return responseMessage.ToString();
         }
         #endregion
 
