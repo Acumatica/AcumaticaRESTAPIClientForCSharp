@@ -9,6 +9,7 @@ using Acumatica.RESTClient.Client;
 
 using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
 using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
+using static Acumatica.RESTClient.FileApi.ApiClientExtensions;
 
 namespace AcumaticaRestApiExample
 {
@@ -30,7 +31,9 @@ namespace AcumaticaRestApiExample
 
                 byte[] initialData = Encoding.UTF8.GetBytes("Acumatica is awesome");
                 string fileName = "TestFile.txt";
-                client.PutFile<SalesOrder>("SO/SO005207", fileName, initialData);
+                //Obsolete
+                //client.PutFile<SalesOrder>("SO/SO005207", fileName, initialData);
+                client.PutFile(order, fileName, initialData);
 
                 order = client.GetByKeys<SalesOrder>(new List<string>() { "SO", "SO005207" }, expand: "files");
 

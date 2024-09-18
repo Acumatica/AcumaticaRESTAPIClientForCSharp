@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+
+using Acumatica.RESTClient.ContractBasedApi.FileApi.Model;
 using Acumatica.RESTClient.FileApi.Model;
 using Newtonsoft.Json;
 
@@ -96,6 +98,12 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// </summary>
         [DataMember(Name="files", EmitDefaultValue=false)]
         public List<FileLink>? Files { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        public Links Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

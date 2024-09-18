@@ -275,7 +275,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"> The id of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
-        /// <returns></returns>
+        [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFile method instead")]
         public static void PutFile<EntityType>(
             this ApiClient client, string id, string filename, byte[] content,
             string? endpointPath = null)
@@ -289,7 +289,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
-        /// <returns></returns>
+        [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFileAsync method instead")]
         public static async Task PutFileAsync<EntityType>(
             this ApiClient client, string id, string filename, byte[] content,
             string? endpointPath = null)
@@ -303,7 +303,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
-        /// <returns></returns>
+        [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFile method instead")]
         public static void PutFile<EntityType>(
             this ApiClient client, IEnumerable<string> ids, string filename, byte[] content,
             string? endpointPath = null)
@@ -317,7 +317,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
-        /// <returns>Task of void</returns>
+        [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFileAsync method instead")]
         public static async Task PutFileAsync<EntityType>(
             this ApiClient client, IEnumerable<string> ids, string filename, byte[] content,
             string? endpointPath = null)

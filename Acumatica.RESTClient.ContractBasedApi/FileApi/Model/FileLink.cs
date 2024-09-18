@@ -2,8 +2,6 @@ using System;
 using System.Runtime.Serialization;
 using System.Text;
 
-using Newtonsoft.Json;
-
 namespace Acumatica.RESTClient.FileApi.Model
 {
     /// <summary>
@@ -57,72 +55,5 @@ namespace Acumatica.RESTClient.FileApi.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-
-        /// <summary>
-        /// Returns the JSON string presentation of the object
-        /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return Equals(input as FileLink);
-        }
-
-        /// <summary>
-        /// Returns true if FileLink instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FileLink to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FileLink input)
-        {
-            if (input == null)
-                return false;
-
-            return
-                (
-                    Id == input.Id ||
-                    Id != null &&
-                    Id.Equals(input.Id)
-                ) &&
-                (
-                    Filename == input.Filename ||
-                    Filename != null &&
-                    Filename.Equals(input.Filename)
-                ) &&
-                (
-                    Href == input.Href ||
-                    Href != null &&
-                    Href.Equals(input.Href)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                if (Filename != null)
-                    hashCode = hashCode * 59 + Filename.GetHashCode();
-                if (Href != null)
-                    hashCode = hashCode * 59 + Href.GetHashCode();
-                return hashCode;
-            }
-        }
     }
-
 }

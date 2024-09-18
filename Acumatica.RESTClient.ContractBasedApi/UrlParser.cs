@@ -54,6 +54,26 @@ namespace Acumatica.RESTClient.Api
             return result;
         }
 
+        public static FilePutLocation ParseFilePutLocation(string location)
+        {
+            var result = new FilePutLocation();
+
+            int indexOfEntity = FindEntityKeyword(location);
+            result.Site = location.Substring(0, indexOfEntity);
+
+            string restOfLocation = location.Substring(indexOfEntity);
+            var parts = restOfLocation.Split(pathSeparators, StringSplitOptions.RemoveEmptyEntries);
+
+            result.ID = parts[parts.Length - 2];
+            result.ViewName = parts[parts.Length - 3];
+            result.GraphType = parts[parts.Length - 4];
+            result.EndpointName = parts[1];
+            result.EndpointVersion = parts[2];
+
+            return result;
+        }
+
+
         private static int FindEntityKeyword(string location)
         {
             int indexOfEntity = location.IndexOf(entityKeyword, StringComparison.OrdinalIgnoreCase);
