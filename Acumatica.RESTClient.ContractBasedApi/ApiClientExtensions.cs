@@ -821,7 +821,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
                         {
                             if (line is Entity lineEntity)
                             {
-                                responseMessage.Append(CollectErrorsFromEntity(lineEntity));
+                                var errors = CollectErrorsFromEntity(lineEntity);
+                                if (!String.IsNullOrWhiteSpace(errors))
+                                {
+                                    responseMessage.Append($"\r\n{field.Name}[{lineEntity.ID}]:{{{errors}}}");
+                                }
                             }
                         }
                     }
