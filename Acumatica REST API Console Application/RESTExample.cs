@@ -58,7 +58,85 @@ namespace AcumaticaRestApiExample
                     Console.WriteLine("An error occured during logout.");
                 }
             }
-		}
+        }
+        public static void TestFullSOProcess(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+            var client = new ApiClient(siteURL,
+                requestInterceptor: RequestLogger.LogRequest,
+                responseInterceptor: RequestLogger.LogResponse
+                );
+
+            try
+            {
+                client.Login(username, password, tenant, branch, locale);
+
+                Console.WriteLine("Customer Retrieval");
+                var customer = client.GetList<Customer>(top:1, filter: "Status eq 'Active'", select: "CustomerID").Single();
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.WriteLine("Create SO for the Customer");
+                    var so = client.Put(new SalesOrder()
+                    {
+                        CustomerID = customer.CustomerID,
+                        Date = DateTime.Now.AddDays(-1),
+                        Details = new List<SalesOrderDetail>()
+                    {
+                        new SalesOrderDetail()
+                        {
+                            InventoryID = "AACOMPUT01",
+                            OrderQty = 1, 
+                        }
+                    }
+                    }, expand: "Details");
+
+                    Console.WriteLine("Create Shipment for the SO");
+                    var shipment = client.Put(new Shipment()
+                    {
+                        CustomerID = customer.CustomerID,
+                        WarehouseID = so.Details!.Single().WarehouseID,
+                        Details = new List<ShipmentDetail>()
+                    {
+                        new ShipmentDetail()
+                        {
+                            OrderNbr = so.OrderNbr,
+                            OrderType = so.OrderType,
+                            OrderLineNbr = so.Details!.First().LineNbr,
+                        }
+                    }
+                    });
+                    Console.WriteLine("Confirm Shipment");
+                    client.WaitActionCompletion(client.InvokeAction(new ConfirmShipment(shipment)));
+                    Console.WriteLine("Create Invoice for the Shipment");
+
+                    client.WaitActionCompletion(client.InvokeAction(new PrepareInvoice(shipment)));
+                    shipment = client.GetById<Shipment>(shipment.ID, expand: "Orders");
+
+                    Console.WriteLine("Release Invoice");
+                    client.WaitActionCompletion(client.InvokeAction(new ReleaseSalesInvoice(new SalesInvoice() { ReferenceNbr = shipment.Orders!.Single().InvoiceNbr, Type = shipment.Orders!.Single().InvoiceType })));
+
+                    //check status of the sales order
+                    so = client.GetById<SalesOrder>(so.ID, select: "Status");
+                    Console.WriteLine($"Sales Order {so.OrderNbr} has status {so.Status}");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //we use logout in finally block because we need to always logout, even if the request failed for some reason
+                if (client.TryLogout())
+                {
+                    Console.WriteLine("Logged out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("An error occured during logout.");
+                }
+            }
+        }
+
         public static void TestShipmentRetrieval(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             var client = new ApiClient(siteURL,
@@ -158,6 +236,43 @@ namespace AcumaticaRestApiExample
                 Console.WriteLine("Reading Stock Items with translations");
                 var stockItems = client.GetList<StockItem>(top: 10, expand: "Translations");
                 stockItems.ForEach(si => Console.WriteLine($"Stock Item {si.InventoryID} has translations"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //we use logout in finally block because we need to always logout, even if the request failed for some reason
+                if (client.TryLogout())
+                {
+                    Console.WriteLine("Logged out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("An error occured during logout.");
+                }
+            }
+        }
+
+
+        public static void TryToCreateARInvoiceAndFail(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+            var client = new ApiClient(siteURL,
+                requestInterceptor: RequestLogger.LogRequest,
+                responseInterceptor: RequestLogger.LogResponse
+                );
+
+            try
+            {
+                client.Login(username, password, tenant, branch, locale);
+
+                Console.WriteLine("Creating AR Invoice");
+                var bill = client.Put(new Invoice()
+                {
+                    Customer = "ABARTENDE",
+                    Type = "IN" //it's incorrect. It should be "Invoice"
+                });
             }
             catch (Exception e)
             {

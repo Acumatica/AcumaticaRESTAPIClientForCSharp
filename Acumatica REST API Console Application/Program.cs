@@ -26,10 +26,12 @@ namespace AcumaticaRestApiExample
 		{
 
             Console.WriteLine("REST API example");
+            RESTExample.TestFullSOProcess(SiteURL, Username, Password, Tenant, Branch, Locale);
             RESTExample.TestFileUpload(SiteURL, Username, Password, Tenant, Branch, Locale);
             RESTExample.TestShipmentRetrieval(SiteURL, Username, Password, Tenant, Branch, Locale);
             RESTExample.CreateAndReleaseAPBill(SiteURL, Username, Password, Tenant, Branch, Locale);
             RESTExample.ReadStockItemsWithTranslations(SiteURL, Username, Password, Tenant, Branch, Locale);
+            //RESTExample.TryToCreateARInvoiceAndFail(SiteURL, Username, Password, Tenant, Branch, Locale);
             Console.WriteLine("Ready to continue...");
             Console.ReadLine();
 
