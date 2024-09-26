@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="DeviceHub" version="23.200.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
+	<TopLevelEntity name="Printer" screen="SM206510">
+		<Fields>
+			<Field name="Description" type="StringValue" />
+			<Field name="DeviceHub" type="StringValue" />
+			<Field name="IsActive" type="BooleanValue" />
+			<Field name="PrinterName" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="Description">
+				<To object="Printers" field="Description" />
+			</Mapping>
+			<Mapping field="DeviceHub">
+				<To object="Printers" field="DeviceHubID" />
+			</Mapping>
+			<Mapping field="IsActive">
+				<To object="Printers" field="IsActive" />
+			</Mapping>
+			<Mapping field="PrinterName">
+				<To object="Printers" field="PrinterName" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="PrintJob">
+		<Fields>
+			<Field name="CreatedBy" type="StringValue" />
+			<Field name="CreationDateTime" type="DateTimeValue" />
+			<Field name="Description" type="StringValue" />
+			<Field name="DeviceHub" type="StringValue" />
+			<Field name="JobID" type="IntValue" />
+			<Field name="ModifiedDateTime" type="DateTimeValue" />
+			<Field name="NumberOfCopies" type="IntValue" />
+			<Field name="Parameters" type="PrintJobParameter[]" />
+			<Field name="Printer" type="StringValue" />
+			<Field name="ReportID" type="StringValue" />
+			<Field name="Selected" type="BooleanValue" />
+			<Field name="Status" type="StringValue" />
+		</Fields>
+	</Detail>
+	<Detail name="PrintJobParameter">
+		<Fields>
+			<Field name="JobID" type="IntValue" />
+			<Field name="ParameterName" type="StringValue" />
+			<Field name="ParameterValue" type="StringValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="PrintJobs" screen="SM206500">
+		<Fields>
+			<Field name="EndDate" type="DateTimeValue" />
+			<Field name="EndModifiedDateTime" type="DateTimeValue" />
+			<Field name="HideProcessed" type="BooleanValue" />
+			<Field name="JobID" type="IntValue" />
+			<Field name="Jobs" type="PrintJob[]" />
+			<Field name="StartDate" type="DateTimeValue" />
+			<Field name="StartModifiedDateTime" type="DateTimeValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="Jobs">
+				<Mapping field="CreatedBy">
+					<To object="Job" field="CreatedByID" />
+				</Mapping>
+				<Mapping field="Status">
+					<To object="Job" field="Status" />
+				</Mapping>
+				<Mapping field="ModifiedDateTime">
+					<To object="Job" field="LastModifiedDateTime" />
+				</Mapping>
+				<Mapping field="Parameters">
+					<Mapping field="JobID">
+						<To object="Parameters" field="JobID" />
+					</Mapping>
+					<Mapping field="ParameterName">
+						<To object="Parameters" field="ParameterName" />
+					</Mapping>
+					<Mapping field="ParameterValue">
+						<To object="Parameters" field="Parametervalue" />
+					</Mapping>
+				</Mapping>
+				<Mapping field="CreationDateTime">
+					<To object="Job" field="CreatedDateTime" />
+				</Mapping>
+				<Mapping field="Description">
+					<To object="Job" field="Description" />
+				</Mapping>
+				<Mapping field="DeviceHub">
+					<To object="Job" field="DeviceHubID" />
+				</Mapping>
+				<Mapping field="JobID">
+					<To object="Job" field="JobID" />
+				</Mapping>
+				<Mapping field="NumberOfCopies">
+					<To object="Job" field="NumberOfCopies" />
+				</Mapping>
+				<Mapping field="Printer">
+					<To object="Job" field="PrinterName" />
+				</Mapping>
+				<Mapping field="ReportID">
+					<To object="Job" field="ReportID" />
+				</Mapping>
+				<Mapping field="Selected">
+					<To object="Job" field="Selected" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="EndDate">
+				<To object="Filter" field="EndDate" />
+			</Mapping>
+			<Mapping field="HideProcessed">
+				<To object="Filter" field="HideProcessed" />
+			</Mapping>
+			<Mapping field="StartDate">
+				<To object="Filter" field="StartDate" />
+			</Mapping>
+			<Mapping field="JobID">
+				<To object="Filter" field="JobID" />
+			</Mapping>
+			<Mapping field="StartModifiedDateTime">
+				<To object="Filter" field="StartModifiedDateTime" />
+			</Mapping>
+			<Mapping field="EndModifiedDateTime">
+				<To object="Filter" field="EndModifiedDateTime" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="ScanJobs" screen="SM206505">
+		<Fields>
+			<Field name="DeviceHub" type="StringValue" />
+			<Field name="ErrorMessage" type="StringValue" />
+			<Field name="ErrorTrace" type="StringValue" />
+			<Field name="ScanJobID" type="IntValue" />
+			<Field name="Scanner" type="StringValue" />
+			<Field name="Status" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="DeviceHub">
+				<To object="ScanJob" field="DeviceHubID" />
+			</Mapping>
+			<Mapping field="ErrorMessage">
+				<To object="ScanJob" field="Error" />
+			</Mapping>
+			<Mapping field="ScanJobID">
+				<To object="ScanJob" field="ScanJobID" />
+			</Mapping>
+			<Mapping field="Scanner">
+				<To object="ScanJob" field="ScannerName" />
+			</Mapping>
+			<Mapping field="Status">
+				<To object="ScanJob" field="Status" />
+			</Mapping>
+			<Mapping field="ErrorTrace">
+				<To object="ScanJob" field="ErrorTrace" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="Scanner" screen="SM206540">
+		<Fields>
+			<Field name="Description" type="StringValue" />
+			<Field name="DeviceHub" type="StringValue" />
+			<Field name="FileTypeComboValues" type="StringValue" />
+			<Field name="FileTypeDefValue" type="StringValue" />
+			<Field name="IsActive" type="BooleanValue" />
+			<Field name="PaperSourceComboValues" type="StringValue" />
+			<Field name="PaperSourceDefValue" type="StringValue" />
+			<Field name="PixelTypeComboValues" type="StringValue" />
+			<Field name="PixelTypeDefValue" type="StringValue" />
+			<Field name="ResolutionComboValues" type="StringValue" />
+			<Field name="ResolutionDefValue" type="StringValue" />
+			<Field name="ScannerName" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="Description">
+				<To object="Scanners" field="Description" />
+			</Mapping>
+			<Mapping field="ResolutionComboValues">
+				<To object="Scanners" field="ResolutionComboValues" />
+			</Mapping>
+			<Mapping field="ResolutionDefValue">
+				<To object="Scanners" field="ResolutionDefValue" />
+			</Mapping>
+			<Mapping field="ScannerName">
+				<To object="Scanners" field="ScannerName" />
+			</Mapping>
+			<Mapping field="DeviceHub">
+				<To object="Scanners" field="DeviceHubID" />
+			</Mapping>
+			<Mapping field="FileTypeComboValues">
+				<To object="Scanners" field="FileTypeComboValues" />
+			</Mapping>
+			<Mapping field="FileTypeDefValue">
+				<To object="Scanners" field="FileTypeDefValue" />
+			</Mapping>
+			<Mapping field="IsActive">
+				<To object="Scanners" field="IsActive" />
+			</Mapping>
+			<Mapping field="PaperSourceComboValues">
+				<To object="Scanners" field="PaperSourceComboValues" />
+			</Mapping>
+			<Mapping field="PaperSourceDefValue">
+				<To object="Scanners" field="PaperSourceDefValue" />
+			</Mapping>
+			<Mapping field="PixelTypeComboValues">
+				<To object="Scanners" field="PixelTypeComboValues" />
+			</Mapping>
+			<Mapping field="PixelTypeDefValue">
+				<To object="Scanners" field="PixelTypeDefValue" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+</Endpoint>

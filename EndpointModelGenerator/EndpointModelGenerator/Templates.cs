@@ -26,20 +26,36 @@
 		public static string ActionTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n";
 
 	
-		//{0} = FieldName
-		//{1} = FieldType
-		public static string FieldTemplate = "\r\n\t\t[DataMember(Name=\"{0}\", EmitDefaultValue=false)]\r\n\t\tpublic {1}? {0} {{ get; set; }}\r\n";
+		public static string GenerateFieldCode(string fieldName, string fieldType, string? dacName, string? dacField)
+		{
+			return (string.IsNullOrEmpty(dacName) ? "" : $"\r\n\t\t/// <summary>\r\n\t\t/// \r\n\t\t/// Display Name:\r\n\t\t/// DAC Field Name: {dacField} \r\n\t\t/// DAC: {dacName} \r\n\t\t/// </summary>\r\n\t\t/// <remarks>\r\n\t\t/// \r\n\t\t/// </remarks>") +
+				$"\r\n\t\t[DataMember(Name=\"{fieldName}\", EmitDefaultValue=false)]\r\n\t\tpublic {fieldType}? {fieldName} {{ get; set; }}\r\n";
+		}
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = EntityName
 		//{2} = Content
-		public static string EntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : Entity\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
+		public static string EntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : {3}\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
 
-        //{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
-        //{1} = EntityName
-        //{2} = Content
-        //{3} = EndpointPath
-        public static string TopLevelEntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : Entity, ITopLevelEntity\r\n\t{{\r\n{2}\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t}}\r\n}}";
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="endpointNamespace">e.g. Acumatica.Default_22_200_001</param>
+		/// <param name="entityName"></param>
+		/// <param name="content"></param>
+		/// <param name="endpointPath"></param>
+		/// <param name="parentReference"></param>
+		/// <param name="virtualModifier"></param>
+		/// <param name="screenID"></param>
+		/// <returns></returns>
+		public static string GenerateTopLevelEntityCode(string endpointNamespace, string entityName, string content, string endpointPath, string parentReference, bool isDerived, string? screenID)
+		{
+			string virtualModifier = isDerived ? "override" : "virtual";
+			return Usings + $"namespace {endpointNamespace}.Model\r\n{{"
+				+ (string.IsNullOrEmpty(screenID) ? "" : $"\r\n\t/// <summary>\r\n\t/// Corresponds to the screen {screenID} in the Acumatica ERP\r\n\t/// </summary>")
+				+ $"\r\n\t[DataContract]\r\n\tpublic class {entityName} : {parentReference}, ITopLevelEntity\r\n\t{{\r\n{content}\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}\r\n\t}}\r\n}}";
+
+		}
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = EntityName
@@ -68,7 +84,7 @@
 		//{1} = Endpoint Path
 		public static string BaseEndpointApiTemplate = Usings + "namespace {0}.Api\r\n{{\r\n\t[Obsolete(\"For backward compatibility\")]\r\n\tpublic abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>\r\n\t\twhere EntityType : Entity, ITopLevelEntity, new()\r\n\t{{\r\n\t\tpublic BaseEndpointApi(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t\tpublic override string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{1}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
-		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup> \r\n{0}\r\n </PropertyGroup>\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n    <LangVersion>8.0</LangVersion>\r\n    <nullable>Enable</nullable>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version=" + NewtonsoftJsonVersion+ " />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n\t<ProjectReference Include = \"..\\Acumatica.RESTClient.ContractBasedApi\\Acumatica.RESTClient.ContractBasedApi.csproj\" />\r\n  </ItemGroup >\r\n\r\n</Project >\r\n";
+		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup> \r\n{0}\r\n </PropertyGroup>\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n    <LangVersion>8.0</LangVersion>\r\n    <nullable>Enable</nullable>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version=" + NewtonsoftJsonVersion+ " />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n\t{1}\r\n\t<ProjectReference Include = \"..\\Acumatica.RESTClient.ContractBasedApi\\Acumatica.RESTClient.ContractBasedApi.csproj\" />\r\n  </ItemGroup >\r\n\r\n</Project >\r\n";
 
 
 	}

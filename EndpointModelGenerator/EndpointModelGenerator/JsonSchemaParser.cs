@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EndpointSchemaGenerator
 {
-	public class JsonSchemaParser
+	public static class JsonSchemaParser
 	{
         #region setting
         public static bool GenerateArraysInstedOfLists = false;
@@ -30,18 +30,13 @@ namespace EndpointSchemaGenerator
                 (schema.Definitions ?? schema.Components.Schemas).Remove(item);
             }
 
-            schema.Entities = new Dictionary<string, Dictionary<string, string>>();
-            schema.TopLevelEntities = new HashSet<string>();
+            schema.Entities = new Dictionary<string, EntityDefinition>();
             foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
             {
-                var res = ParseObject(item);
-                if (res != null)
+                var fieldsSchema = ParseFieldsSchema(item);
+                if (fieldsSchema != null)
                 {
-                    schema.Entities.Add(item.Key, res);
-                    if (IsTopLevelEntity(schema, item.Key))
-                    {
-                        schema.TopLevelEntities.Add(item.Key);
-                    }
+                    schema.Entities.Add(item.Key, new EntityDefinition(IsTopLevelEntity(schema, item.Key), fieldsSchema));
                 }
             }
             schema.Actions = new Dictionary<string, string>();
@@ -63,11 +58,11 @@ namespace EndpointSchemaGenerator
                     schema.Parameters.Add(item.Key, ParseParameters(item));
                 }
             }
-            Dictionary<string, Dictionary<string, string>> parameters = new Dictionary<string, Dictionary<string, string>>();
-            foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
-            {
-                //    entities.Add(item.Key, ParseObject(item));
-            }
+            //Dictionary<string, Dictionary<string, string>> parameters = new Dictionary<string, Dictionary<string, string>>();
+            //foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
+            //{
+            //    //    entities.Add(item.Key, ParseObject(item));
+            //}
 
             return schema;
         }
@@ -142,7 +137,7 @@ namespace EndpointSchemaGenerator
                 return "";
             }
         }
-        public static string TryParseParentRef(JObject jsonObject)
+        public static string? TryParseParentRef(JObject jsonObject)
         {
             try
             {
@@ -150,12 +145,11 @@ namespace EndpointSchemaGenerator
             }
             catch { return null; }
         }
-        private static Dictionary<string, string> ParseObject(KeyValuePair<string, JObject> item)
+        private static HashSet<EntityField>? ParseFieldsSchema(KeyValuePair<string, JObject> item)
         {
             var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
-            var res = new EntitySchema();
-            res.ParentReference = TryParseParentRef(item.Value);
-            if (res?.ParentReference == "Entity")
+            var fieldsSchema = new HashSet<EntityField>();
+            if (TryParseParentRef(item.Value) == "Entity")
             {
                 s.AllOf.Remove(null);
                 if (s.AllOf.Count() > 0)
@@ -165,16 +159,16 @@ namespace EndpointSchemaGenerator
                     {
                         foreach (var property in schema.Properties)
                         {
-                            res.FieldsSchema.Add(property.Key, ParseParentRef(property.Value));
+                            fieldsSchema.Add(new EntityField(property.Key, ParseParentRef(property.Value)));
                         }
                     }
                 }
-                return res.FieldsSchema;
+                return fieldsSchema;
             }
             else return null;
         }
 
-        private static string ParseAction(KeyValuePair<string, JObject> item)
+        private static string? ParseAction(KeyValuePair<string, JObject> item)
         {
             var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
             var k = JsonConvert.DeserializeObject<EntitySchemaInternal2>(item.Value.ToString());
@@ -185,7 +179,7 @@ namespace EndpointSchemaGenerator
             }
             else return null;
         }
-        private static string ParseActionWithParameters(KeyValuePair<string, JObject> item)
+        private static string? ParseActionWithParameters(KeyValuePair<string, JObject> item)
         {
             var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
             var k = JsonConvert.DeserializeObject<EntitySchemaInternal2>(item.Value.ToString());
@@ -197,7 +191,7 @@ namespace EndpointSchemaGenerator
             }
             else return null;
         }
-        private static Dictionary<string, string> ParseParameters(KeyValuePair<string, JObject> item)
+        private static Dictionary<string, string>? ParseParameters(KeyValuePair<string, JObject> item)
         {
             var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
             var k = JsonConvert.DeserializeObject<EntitySchemaInternal2>(item.Value.ToString());
