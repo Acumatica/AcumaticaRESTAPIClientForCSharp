@@ -10,13 +10,34 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen AR209500 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class Discount : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: IsActive 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: BreakBy 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="BreakBy", EmitDefaultValue=false)]
 		public StringValue? BreakBy { get; set; }
 
@@ -29,21 +50,66 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="Customers", EmitDefaultValue=false)]
 		public List<DiscountCustomerDetail>? Customers { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Description 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		[DataMember(Name="DiscountBreakpoints", EmitDefaultValue=false)]
 		public List<DiscountBreakpointDetail>? DiscountBreakpoints { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: DiscountedFor 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="DiscountBy", EmitDefaultValue=false)]
 		public StringValue? DiscountBy { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: DiscountID 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: StartDate 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: EndDate 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
@@ -56,15 +122,51 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: IsPromotion 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Promotional", EmitDefaultValue=false)]
 		public BooleanValue? Promotional { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Prorate 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ProrateDiscount", EmitDefaultValue=false)]
 		public BooleanValue? ProrateDiscount { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: DiscountSequenceID 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Sequence", EmitDefaultValue=false)]
 		public StringValue? Sequence { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: ShowFreeItem 
+		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ShowFreeItem", EmitDefaultValue=false)]
 		public BooleanValue? ShowFreeItem { get; set; }
 

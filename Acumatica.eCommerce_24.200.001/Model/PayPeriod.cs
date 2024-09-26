@@ -11,31 +11,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class PayPeriod : Entity, ITopLevelEntity
+	public class PayPeriod : Acumatica.Default_24_200_001.Model.PayPeriod, ITopLevelEntity
 	{
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="NumberofPeriods", EmitDefaultValue=false)]
-		public ShortValue? NumberofPeriods { get; set; }
-
-		[DataMember(Name="Override", EmitDefaultValue=false)]
-		public BooleanValue? Override { get; set; }
-
-		[DataMember(Name="PayGroup", EmitDefaultValue=false)]
-		public StringValue? PayGroup { get; set; }
-
-		[DataMember(Name="PaymentPeriods", EmitDefaultValue=false)]
-		public List<PaymentPeriod>? PaymentPeriods { get; set; }
-
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue? StartDate { get; set; }
-
-		[DataMember(Name="Year", EmitDefaultValue=false)]
-		public StringValue? Year { get; set; }
-
-		public virtual string GetEndpointPath()
+		public override string GetEndpointPath()
 		{
 			return "entity/eCommerce/24.200.001";
 		}

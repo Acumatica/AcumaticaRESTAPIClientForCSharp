@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class CustomerContact : Entity
+	public class CustomerContact : Acumatica.Default_24_200_001.Model.CustomerContact
 	{
-
-		[DataMember(Name="Contact", EmitDefaultValue=false)]
-		public Contact? Contact { get; set; }
-
-		[DataMember(Name="ContactID", EmitDefaultValue=false)]
-		public IntValue? ContactID { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 	}
 }

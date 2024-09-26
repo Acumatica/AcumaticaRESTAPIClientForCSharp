@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class LotSerialClassSegment : Entity
+	public class LotSerialClassSegment : Acumatica.Default_23_200_001.Model.LotSerialClassSegment
 	{
-
-		[DataMember(Name="SegmentNbr", EmitDefaultValue=false)]
-		public ShortValue? SegmentNbr { get; set; }
-
-		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue? Type { get; set; }
-
-		[DataMember(Name="Value", EmitDefaultValue=false)]
-		public StringValue? Value { get; set; }
 
 	}
 }

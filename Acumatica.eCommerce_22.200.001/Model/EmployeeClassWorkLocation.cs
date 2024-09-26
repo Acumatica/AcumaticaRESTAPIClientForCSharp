@@ -11,20 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class EmployeeClassWorkLocation : Entity
+	public class EmployeeClassWorkLocation : Acumatica.Default_22_200_001.Model.EmployeeClassWorkLocation
 	{
-
-		[DataMember(Name="DefaultWorkLocation", EmitDefaultValue=false)]
-		public BooleanValue? DefaultWorkLocation { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue? LocationID { get; set; }
-
-		[DataMember(Name="LocationName", EmitDefaultValue=false)]
-		public StringValue? LocationName { get; set; }
 
 	}
 }

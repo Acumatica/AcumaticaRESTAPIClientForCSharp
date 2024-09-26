@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen SC301000 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class Subcontract : Entity, ITopLevelEntity
 	{

@@ -11,29 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class SubcontractTaxDetail : Entity
+	public class SubcontractTaxDetail : Acumatica.Default_23_200_001.Model.SubcontractTaxDetail
 	{
-
-		[DataMember(Name="RetainedTax", EmitDefaultValue=false)]
-		public DecimalValue? RetainedTax { get; set; }
-
-		[DataMember(Name="RetainedTaxable", EmitDefaultValue=false)]
-		public DecimalValue? RetainedTaxable { get; set; }
-
-		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
-		public DecimalValue? TaxableAmount { get; set; }
-
-		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
-		public DecimalValue? TaxAmount { get; set; }
-
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue? TaxID { get; set; }
-
-		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
-		public DecimalValue? TaxRate { get; set; }
-
-		[DataMember(Name="TaxType", EmitDefaultValue=false)]
-		public StringValue? TaxType { get; set; }
 
 	}
 }

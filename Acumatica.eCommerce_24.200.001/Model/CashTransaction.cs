@@ -11,31 +11,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class CashTransaction : Entity, ITopLevelEntity
+	public class CashTransaction : Acumatica.Default_24_200_001.Model.CashTransaction, ITopLevelEntity
 	{
 
-		[DataMember(Name="Approved", EmitDefaultValue=false)]
-		public BooleanValue? Approved { get; set; }
-
-		[DataMember(Name="CashAccountCD", EmitDefaultValue=false)]
-		public StringValue? CashAccountCD { get; set; }
-
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CashTransactionDetail>? Details { get; set; }
-
-		[DataMember(Name="EntryTypeCD", EmitDefaultValue=false)]
-		public StringValue? EntryTypeCD { get; set; }
-
-		[DataMember(Name="ExternalReferenceNumber", EmitDefaultValue=false)]
-		public StringValue? ExternalReferenceNumber { get; set; }
-
-		[DataMember(Name="PostedDate", EmitDefaultValue=false)]
-		public DateTimeValue? PostedDate { get; set; }
-
-		public virtual string GetEndpointPath()
+		public override string GetEndpointPath()
 		{
 			return "entity/eCommerce/24.200.001";
 		}

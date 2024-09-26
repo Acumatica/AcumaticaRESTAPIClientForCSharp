@@ -10,10 +10,22 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen PR101040 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class WorkLocation : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: IsActive 
+		/// DAC: PX.Objects.PR.PRLocation 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -23,12 +35,39 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: BranchID 
+		/// DAC: PX.Objects.PR.PRLocation 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="UseAddressfromBranchID", EmitDefaultValue=false)]
 		public StringValue? UseAddressfromBranchID { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: LocationCD 
+		/// DAC: PX.Objects.PR.PRLocation 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="WorkLocationID", EmitDefaultValue=false)]
 		public StringValue? WorkLocationID { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Description 
+		/// DAC: PX.Objects.PR.PRLocation 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="WorkLocationName", EmitDefaultValue=false)]
 		public StringValue? WorkLocationName { get; set; }
 

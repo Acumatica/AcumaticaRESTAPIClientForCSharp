@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen AR208000 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class CustomerPriceClass : Entity, ITopLevelEntity
 	{
@@ -17,12 +20,30 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Description 
+		/// DAC: PX.Objects.AR.ARPriceClass 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: PriceClassID 
+		/// DAC: PX.Objects.AR.ARPriceClass 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
 		public StringValue? PriceClassID { get; set; }
 

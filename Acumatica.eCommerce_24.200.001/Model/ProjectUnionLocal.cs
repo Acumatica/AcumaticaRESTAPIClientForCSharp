@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class ProjectUnionLocal : Entity
+	public class ProjectUnionLocal : Acumatica.Default_24_200_001.Model.ProjectUnionLocal
 	{
-
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="UnionLocalID", EmitDefaultValue=false)]
-		public StringValue? UnionLocalID { get; set; }
 
 	}
 }

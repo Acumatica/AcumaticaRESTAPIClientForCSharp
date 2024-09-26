@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen PM301000 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class Project : Entity, ITopLevelEntity
 	{
@@ -35,9 +38,27 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="BillToSettings", EmitDefaultValue=false)]
 		public BillToSettings? BillToSettings { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: CustomerID 
+		/// DAC: PX.Objects.PM.PMProject 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Description 
+		/// DAC: PX.Objects.PM.PMProject 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -47,18 +68,54 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Equipments", EmitDefaultValue=false)]
 		public List<ProjectEquipment>? Equipments { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: CuryExpense 
+		/// DAC: PX.Objects.PM.PMTaskTotal 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Expenses", EmitDefaultValue=false)]
 		public DecimalValue? Expenses { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: ExtRefNbr 
+		/// DAC: PX.Objects.PM.PMChangeOrder 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExternalRefNbr { get; set; }
 
 		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
 		public ProjectGLAccount? GLAccounts { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Hold 
+		/// DAC: PX.Objects.PM.PMProject 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: CuryIncome 
+		/// DAC: PX.Objects.PM.PMTaskTotal 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Income", EmitDefaultValue=false)]
 		public DecimalValue? Income { get; set; }
 
@@ -71,15 +128,42 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Liabilities", EmitDefaultValue=false)]
 		public DecimalValue? Liabilities { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: ContractCD 
+		/// DAC: PX.Objects.PM.PMProject 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
 		[DataMember(Name="ProjectProperties", EmitDefaultValue=false)]
 		public ProjectProperties? ProjectProperties { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: TemplateID 
+		/// DAC: PX.Objects.PM.PMProject 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateID { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Status 
+		/// DAC: PX.Objects.PM.PMProject 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

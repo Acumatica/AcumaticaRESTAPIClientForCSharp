@@ -11,16 +11,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class FOBPoint : Entity, ITopLevelEntity
+	public class FOBPoint : Acumatica.Default_22_200_001.Model.FOBPoint, ITopLevelEntity
 	{
 
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="FOBPointID", EmitDefaultValue=false)]
-		public StringValue? FOBPointID { get; set; }
-
-		public virtual string GetEndpointPath()
+		public override string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

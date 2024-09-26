@@ -11,23 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class SubcontractVendorContactInfo : Entity
+	public class SubcontractVendorContactInfo : Acumatica.Default_23_200_001.Model.SubcontractVendorContactInfo
 	{
-
-		[DataMember(Name="AccountName", EmitDefaultValue=false)]
-		public StringValue? AccountName { get; set; }
-
-		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue? Email { get; set; }
-
-		[DataMember(Name="JobTitle", EmitDefaultValue=false)]
-		public StringValue? JobTitle { get; set; }
-
-		[DataMember(Name="VendorContactOverride", EmitDefaultValue=false)]
-		public BooleanValue? VendorContactOverride { get; set; }
-
-		[DataMember(Name="Phone", EmitDefaultValue=false)]
-		public StringValue? Phone { get; set; }
 
 	}
 }

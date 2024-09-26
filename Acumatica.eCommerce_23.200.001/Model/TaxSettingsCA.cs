@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class TaxSettingsCA : Entity
+	public class TaxSettingsCA : Acumatica.Default_23_200_001.Model.TaxSettingsCA
 	{
-
-		[DataMember(Name="CodeType", EmitDefaultValue=false)]
-		public StringValue? CodeType { get; set; }
-
-		[DataMember(Name="TaxDetailsCA", EmitDefaultValue=false)]
-		public List<DeductionOrBenefitTaxDetailCA>? TaxDetailsCA { get; set; }
 
 	}
 }

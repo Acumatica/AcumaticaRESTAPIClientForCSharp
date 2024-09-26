@@ -27,6 +27,7 @@
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup> <ItemGroup>
 	<ProjectReference Include = "..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+	<ProjectReference Include="..\Acumatica.Default_23.200.001\Acumatica.Default_23.200.001.csproj" />
 	<ProjectReference Include = "..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
   </ItemGroup >
 

@@ -11,19 +11,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ShippingTerm : Entity, ITopLevelEntity
+	public class ShippingTerm : Acumatica.Default_22_200_001.Model.ShippingTerm, ITopLevelEntity
 	{
 
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<ShippingTermDetail>? Details { get; set; }
-
-		[DataMember(Name="TermID", EmitDefaultValue=false)]
-		public StringValue? TermID { get; set; }
-
-		public virtual string GetEndpointPath()
+		public override string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

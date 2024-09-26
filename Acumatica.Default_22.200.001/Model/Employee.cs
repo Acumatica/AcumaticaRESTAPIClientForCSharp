@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_22_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen EP203000 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class Employee : Entity, ITopLevelEntity
 	{
@@ -23,9 +26,27 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="Delegates", EmitDefaultValue=false)]
 		public List<EmployeeDelegate>? Delegates { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: AcctCD 
+		/// DAC: PX.Objects.EP.EPEmployee 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
 		public StringValue? EmployeeID { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: AcctName 
+		/// DAC: PX.Objects.EP.EPEmployee 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
@@ -41,6 +62,15 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: VStatus 
+		/// DAC: PX.Objects.EP.EPEmployee 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

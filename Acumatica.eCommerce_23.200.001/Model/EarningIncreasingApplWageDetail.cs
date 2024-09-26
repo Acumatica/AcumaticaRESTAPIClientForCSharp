@@ -11,20 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class EarningIncreasingApplWageDetail : Entity
+	public class EarningIncreasingApplWageDetail : Acumatica.Default_23_200_001.Model.EarningIncreasingApplWageDetail
 	{
-
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="EarningTypeCategory", EmitDefaultValue=false)]
-		public StringValue? EarningTypeCategory { get; set; }
-
-		[DataMember(Name="EarningTypeCode", EmitDefaultValue=false)]
-		public StringValue? EarningTypeCode { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 	}
 }

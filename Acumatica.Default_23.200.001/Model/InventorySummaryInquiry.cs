@@ -10,25 +10,73 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen IN401000 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class InventorySummaryInquiry : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: ExpandByLotSerialNbr 
+		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ExpandByLotSerialNbr", EmitDefaultValue=false)]
 		public BooleanValue? ExpandByLotSerialNbr { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: InventoryID 
+		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: LocationID 
+		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<InventorySummaryRow>? Results { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: SubItemCD 
+		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: SiteID 
+		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 

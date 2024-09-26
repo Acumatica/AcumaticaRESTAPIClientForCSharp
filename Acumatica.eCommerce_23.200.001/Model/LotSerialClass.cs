@@ -11,31 +11,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class LotSerialClass : Entity, ITopLevelEntity
+	public class LotSerialClass : Acumatica.Default_23_200_001.Model.LotSerialClass, ITopLevelEntity
 	{
 
-		[DataMember(Name="AssignmentMethod", EmitDefaultValue=false)]
-		public StringValue? AssignmentMethod { get; set; }
-
-		[DataMember(Name="ClassID", EmitDefaultValue=false)]
-		public StringValue? ClassID { get; set; }
-
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="IssueMethod", EmitDefaultValue=false)]
-		public StringValue? IssueMethod { get; set; }
-
-		[DataMember(Name="Segments", EmitDefaultValue=false)]
-		public List<LotSerialClassSegment>? Segments { get; set; }
-
-		[DataMember(Name="TrackExpirationDate", EmitDefaultValue=false)]
-		public BooleanValue? TrackExpirationDate { get; set; }
-
-		[DataMember(Name="TrackingMethod", EmitDefaultValue=false)]
-		public StringValue? TrackingMethod { get; set; }
-
-		public virtual string GetEndpointPath()
+		public override string GetEndpointPath()
 		{
 			return "entity/eCommerce/23.200.001";
 		}

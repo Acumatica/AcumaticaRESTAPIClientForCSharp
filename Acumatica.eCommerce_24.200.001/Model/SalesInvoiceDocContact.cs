@@ -11,20 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class SalesInvoiceDocContact : Entity
+	public class SalesInvoiceDocContact : Acumatica.Default_24_200_001.Model.SalesInvoiceDocContact
 	{
-
-		[DataMember(Name="Attention", EmitDefaultValue=false)]
-		public StringValue? Attention { get; set; }
-
-		[DataMember(Name="BusinessName", EmitDefaultValue=false)]
-		public StringValue? BusinessName { get; set; }
-
-		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue? Email { get; set; }
-
-		[DataMember(Name="Phone1", EmitDefaultValue=false)]
-		public StringValue? Phone1 { get; set; }
 
 	}
 }

@@ -11,29 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class TaskTimeActivity : Entity
+	public class TaskTimeActivity : Acumatica.Default_24_200_001.Model.TaskTimeActivity
 	{
-
-		[DataMember(Name="BillableOvertime", EmitDefaultValue=false)]
-		public StringValue? BillableOvertime { get; set; }
-
-		[DataMember(Name="BillableTime", EmitDefaultValue=false)]
-		public StringValue? BillableTime { get; set; }
-
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue? CostCode { get; set; }
-
-		[DataMember(Name="Overtime", EmitDefaultValue=false)]
-		public StringValue? Overtime { get; set; }
-
-		[DataMember(Name="Project", EmitDefaultValue=false)]
-		public StringValue? Project { get; set; }
-
-		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
-		public StringValue? ProjectTask { get; set; }
-
-		[DataMember(Name="TimeSpent", EmitDefaultValue=false)]
-		public StringValue? TimeSpent { get; set; }
 
 	}
 }

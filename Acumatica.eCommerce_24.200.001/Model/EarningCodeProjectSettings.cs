@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class EarningCodeProjectSettings : Entity
+	public class EarningCodeProjectSettings : Acumatica.Default_24_200_001.Model.EarningCodeProjectSettings
 	{
-
-		[DataMember(Name="BillableProject", EmitDefaultValue=false)]
-		public BooleanValue? BillableProject { get; set; }
-
-		[DataMember(Name="DefaultProjectCode", EmitDefaultValue=false)]
-		public StringValue? DefaultProjectCode { get; set; }
-
-		[DataMember(Name="DefaultProjectTask", EmitDefaultValue=false)]
-		public StringValue? DefaultProjectTask { get; set; }
 
 	}
 }

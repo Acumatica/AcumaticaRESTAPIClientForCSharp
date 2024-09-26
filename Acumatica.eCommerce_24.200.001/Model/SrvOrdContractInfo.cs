@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class SrvOrdContractInfo : Entity
+	public class SrvOrdContractInfo : Acumatica.Default_24_200_001.Model.SrvOrdContractInfo
 	{
-
-		[DataMember(Name="ContractPeriod", EmitDefaultValue=false)]
-		public StringValue? ContractPeriod { get; set; }
-
-		[DataMember(Name="ServiceContract", EmitDefaultValue=false)]
-		public StringValue? ServiceContract { get; set; }
 
 	}
 }

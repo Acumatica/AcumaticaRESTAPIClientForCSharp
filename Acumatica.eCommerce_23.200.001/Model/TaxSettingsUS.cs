@@ -11,20 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class TaxSettingsUS : Entity
+	public class TaxSettingsUS : Acumatica.Default_23_200_001.Model.TaxSettingsUS
 	{
-
-		[DataMember(Name="AllowSupplementalElection", EmitDefaultValue=false)]
-		public BooleanValue? AllowSupplementalElection { get; set; }
-
-		[DataMember(Name="CodeType", EmitDefaultValue=false)]
-		public StringValue? CodeType { get; set; }
-
-		[DataMember(Name="ImpactonTaxableWage", EmitDefaultValue=false)]
-		public StringValue? ImpactonTaxableWage { get; set; }
-
-		[DataMember(Name="TaxDetailsUS", EmitDefaultValue=false)]
-		public List<DeductionOrBenefitTaxDetailUS>? TaxDetailsUS { get; set; }
 
 	}
 }

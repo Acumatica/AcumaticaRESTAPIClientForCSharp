@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ACAInfoDetail : Entity
+	public class ACAInfoDetail : Acumatica.Default_22_200_001.Model.ACAInfoDetail
 	{
-
-		[DataMember(Name="CoverageType", EmitDefaultValue=false)]
-		public StringValue? CoverageType { get; set; }
-
-		[DataMember(Name="HealthPlanType", EmitDefaultValue=false)]
-		public StringValue? HealthPlanType { get; set; }
 
 	}
 }

@@ -11,20 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class ExpenseClaimFinancialDetail : Entity
+	public class ExpenseClaimFinancialDetail : Acumatica.Default_24_200_001.Model.ExpenseClaimFinancialDetail
 	{
-
-		[DataMember(Name="APDocuments", EmitDefaultValue=false)]
-		public List<ExpenseClaimAPDocument>? APDocuments { get; set; }
-
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue? Branch { get; set; }
-
-		[DataMember(Name="PosttoPeriod", EmitDefaultValue=false)]
-		public StringValue? PosttoPeriod { get; set; }
-
-		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
-		public StringValue? TaxZone { get; set; }
 
 	}
 }

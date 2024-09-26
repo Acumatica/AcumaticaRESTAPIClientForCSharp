@@ -10,19 +10,58 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_22_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen AP302000 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class Check : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: AdjDate 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ApplicationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ApplicationDate { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: CashAccountID 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: CuryID 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: DocDesc 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -35,27 +74,99 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: CuryOrigDocAmt 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="PaymentAmount", EmitDefaultValue=false)]
 		public DecimalValue? PaymentAmount { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: PaymentMethodID 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: ExtRefNbr 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="PaymentRef", EmitDefaultValue=false)]
 		public StringValue? PaymentRef { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: RefNbr 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Status 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: DocType 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: CuryUnappliedBal 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="UnappliedBalance", EmitDefaultValue=false)]
 		public DecimalValue? UnappliedBalance { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: VendorID 
+		/// DAC: PX.Objects.AP.APPayment 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 

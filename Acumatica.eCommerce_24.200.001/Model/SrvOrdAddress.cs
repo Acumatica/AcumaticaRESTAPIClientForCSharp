@@ -11,26 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class SrvOrdAddress : Entity
+	public class SrvOrdAddress : Acumatica.Default_24_200_001.Model.SrvOrdAddress
 	{
-
-		[DataMember(Name="AddressLine1", EmitDefaultValue=false)]
-		public StringValue? AddressLine1 { get; set; }
-
-		[DataMember(Name="AddressLine2", EmitDefaultValue=false)]
-		public StringValue? AddressLine2 { get; set; }
-
-		[DataMember(Name="City", EmitDefaultValue=false)]
-		public StringValue? City { get; set; }
-
-		[DataMember(Name="Country", EmitDefaultValue=false)]
-		public StringValue? Country { get; set; }
-
-		[DataMember(Name="PostalCode", EmitDefaultValue=false)]
-		public StringValue? PostalCode { get; set; }
-
-		[DataMember(Name="State", EmitDefaultValue=false)]
-		public StringValue? State { get; set; }
 
 	}
 }

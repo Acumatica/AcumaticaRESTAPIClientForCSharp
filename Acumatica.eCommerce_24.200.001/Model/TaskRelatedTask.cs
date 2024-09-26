@@ -11,26 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class TaskRelatedTask : Entity
+	public class TaskRelatedTask : Acumatica.Default_24_200_001.Model.TaskRelatedTask
 	{
-
-		[DataMember(Name="CompletedAt", EmitDefaultValue=false)]
-		public DateTimeValue? CompletedAt { get; set; }
-
-		[DataMember(Name="DueDate", EmitDefaultValue=false)]
-		public DateTimeValue? DueDate { get; set; }
-
-		[DataMember(Name="RecordID", EmitDefaultValue=false)]
-		public IntValue? RecordID { get; set; }
-
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue? StartDate { get; set; }
-
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
-
-		[DataMember(Name="Subject", EmitDefaultValue=false)]
-		public StringValue? Subject { get; set; }
 
 	}
 }

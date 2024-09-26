@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class PTOBankBandingRule : Entity
+	public class PTOBankBandingRule : Acumatica.Default_24_200_001.Model.PTOBankBandingRule
 	{
-
-		[DataMember(Name="BandingRuleDetails", EmitDefaultValue=false)]
-		public List<PTOBankBandingRuleDetail>? BandingRuleDetails { get; set; }
-
-		[DataMember(Name="RoundingMethodforYearsofService", EmitDefaultValue=false)]
-		public StringValue? RoundingMethodforYearsofService { get; set; }
 
 	}
 }

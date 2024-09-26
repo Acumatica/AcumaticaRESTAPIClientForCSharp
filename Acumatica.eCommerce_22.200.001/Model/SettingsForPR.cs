@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class SettingsForPR : Entity
+	public class SettingsForPR : Acumatica.Default_22_200_001.Model.SettingsForPR
 	{
-
-		[DataMember(Name="ExportScenario", EmitDefaultValue=false)]
-		public StringValue? ExportScenario { get; set; }
-
-		[DataMember(Name="PRProcessing", EmitDefaultValue=false)]
-		public StringValue? PRProcessing { get; set; }
-
-		[DataMember(Name="Report", EmitDefaultValue=false)]
-		public StringValue? Report { get; set; }
 
 	}
 }

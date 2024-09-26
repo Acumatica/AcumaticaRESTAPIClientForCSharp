@@ -11,26 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class PTOBankGLAccounts : Entity
+	public class PTOBankGLAccounts : Acumatica.Default_22_200_001.Model.PTOBankGLAccounts
 	{
-
-		[DataMember(Name="AssetAccount", EmitDefaultValue=false)]
-		public StringValue? AssetAccount { get; set; }
-
-		[DataMember(Name="AssetSub", EmitDefaultValue=false)]
-		public StringValue? AssetSub { get; set; }
-
-		[DataMember(Name="ExpenseAccount", EmitDefaultValue=false)]
-		public StringValue? ExpenseAccount { get; set; }
-
-		[DataMember(Name="ExpenseSub", EmitDefaultValue=false)]
-		public StringValue? ExpenseSub { get; set; }
-
-		[DataMember(Name="LiabilityAccount", EmitDefaultValue=false)]
-		public StringValue? LiabilityAccount { get; set; }
-
-		[DataMember(Name="LiabilitySub", EmitDefaultValue=false)]
-		public StringValue? LiabilitySub { get; set; }
 
 	}
 }

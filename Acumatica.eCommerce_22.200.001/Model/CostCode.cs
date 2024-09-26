@@ -11,19 +11,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class CostCode : Entity, ITopLevelEntity
+	public class CostCode : Acumatica.Default_22_200_001.Model.CostCode, ITopLevelEntity
 	{
 
-		[DataMember(Name="CostCodeID", EmitDefaultValue=false)]
-		public StringValue? CostCodeID { get; set; }
-
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		public virtual string GetEndpointPath()
+		public override string GetEndpointPath()
 		{
 			return "entity/eCommerce/22.200.001";
 		}

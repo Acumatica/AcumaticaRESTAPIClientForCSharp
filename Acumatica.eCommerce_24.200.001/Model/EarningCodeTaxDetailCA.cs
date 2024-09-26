@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class EarningCodeTaxDetailCA : Entity
+	public class EarningCodeTaxDetailCA : Acumatica.Default_24_200_001.Model.EarningCodeTaxDetailCA
 	{
-
-		[DataMember(Name="Taxability", EmitDefaultValue=false)]
-		public StringValue? Taxability { get; set; }
-
-		[DataMember(Name="TaxCode", EmitDefaultValue=false)]
-		public StringValue? TaxCode { get; set; }
-
-		[DataMember(Name="TaxName", EmitDefaultValue=false)]
-		public StringValue? TaxName { get; set; }
 
 	}
 }

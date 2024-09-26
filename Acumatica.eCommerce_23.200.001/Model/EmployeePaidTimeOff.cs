@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class EmployeePaidTimeOff : Entity
+	public class EmployeePaidTimeOff : Acumatica.Default_23_200_001.Model.EmployeePaidTimeOff
 	{
-
-		[DataMember(Name="PaidTimeOffDetails", EmitDefaultValue=false)]
-		public List<EmployeePaidTimeOffDetail>? PaidTimeOffDetails { get; set; }
-
-		[DataMember(Name="UsePTOBanksfromEmployeeClass", EmitDefaultValue=false)]
-		public BooleanValue? UsePTOBanksfromEmployeeClass { get; set; }
 
 	}
 }

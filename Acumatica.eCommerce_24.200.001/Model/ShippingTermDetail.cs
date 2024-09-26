@@ -11,26 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class ShippingTermDetail : Entity
+	public class ShippingTermDetail : Acumatica.Default_24_200_001.Model.ShippingTermDetail
 	{
-
-		[DataMember(Name="BreakAmount", EmitDefaultValue=false)]
-		public DecimalValue? BreakAmount { get; set; }
-
-		[DataMember(Name="FreightCost", EmitDefaultValue=false)]
-		public DecimalValue? FreightCost { get; set; }
-
-		[DataMember(Name="InvoiceAmount", EmitDefaultValue=false)]
-		public DecimalValue? InvoiceAmount { get; set; }
-
-		[DataMember(Name="LineHandling", EmitDefaultValue=false)]
-		public DecimalValue? LineHandling { get; set; }
-
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
-
-		[DataMember(Name="ShippingandHandling", EmitDefaultValue=false)]
-		public DecimalValue? ShippingandHandling { get; set; }
 
 	}
 }

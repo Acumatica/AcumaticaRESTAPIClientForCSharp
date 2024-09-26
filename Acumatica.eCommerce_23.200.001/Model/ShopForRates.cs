@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class ShopForRates : Entity
+	public class ShopForRates : Acumatica.Default_23_200_001.Model.ShopForRates
 	{
-
-		[DataMember(Name="IsManualPackage", EmitDefaultValue=false)]
-		public BooleanValue? IsManualPackage { get; set; }
-
-		[DataMember(Name="OrderWeight", EmitDefaultValue=false)]
-		public DecimalValue? OrderWeight { get; set; }
-
-		[DataMember(Name="PackageWeight", EmitDefaultValue=false)]
-		public DecimalValue? PackageWeight { get; set; }
 
 	}
 }

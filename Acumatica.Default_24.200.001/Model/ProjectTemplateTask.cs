@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen PM208010 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class ProjectTemplateTask : Entity, ITopLevelEntity
 	{
@@ -23,15 +26,42 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="DefaultValues", EmitDefaultValue=false)]
 		public ProjectTaskDefaultValues? DefaultValues { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Description 
+		/// DAC: PX.Objects.PM.PMTask 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: ProjectID 
+		/// DAC: PX.Objects.PM.PMTask 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateID { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: TaskCD 
+		/// DAC: PX.Objects.PM.PMTask 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ProjectTemplateTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateTaskID { get; set; }
 

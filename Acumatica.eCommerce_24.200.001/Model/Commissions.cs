@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class Commissions : Entity
+	public class Commissions : Acumatica.Default_24_200_001.Model.Commissions
 	{
-
-		[DataMember(Name="DefaultSalesperson", EmitDefaultValue=false)]
-		public StringValue? DefaultSalesperson { get; set; }
-
-		[DataMember(Name="SalesPersons", EmitDefaultValue=false)]
-		public List<SalesPersonDetail>? SalesPersons { get; set; }
 
 	}
 }

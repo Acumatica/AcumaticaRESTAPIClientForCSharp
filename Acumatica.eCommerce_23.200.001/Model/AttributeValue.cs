@@ -11,26 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class AttributeValue : Entity
+	public class AttributeValue : Acumatica.Default_23_200_001.Model.AttributeValue
 	{
-
-		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
-		public StringValue? AttributeID { get; set; }
-
-		[DataMember(Name="AttributeDescription", EmitDefaultValue=false)]
-		public StringValue? AttributeDescription { get; set; }
-
-		[DataMember(Name="RefNoteID", EmitDefaultValue=false)]
-		public GuidValue? RefNoteID { get; set; }
-
-		[DataMember(Name="Required", EmitDefaultValue=false)]
-		public BooleanValue? Required { get; set; }
-
-		[DataMember(Name="Value", EmitDefaultValue=false)]
-		public StringValue? Value { get; set; }
-
-		[DataMember(Name="ValueDescription", EmitDefaultValue=false)]
-		public StringValue? ValueDescription { get; set; }
 
 	}
 }

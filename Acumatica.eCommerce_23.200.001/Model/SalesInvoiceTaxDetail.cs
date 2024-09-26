@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class SalesInvoiceTaxDetail : Entity
+	public class SalesInvoiceTaxDetail : Acumatica.Default_23_200_001.Model.SalesInvoiceTaxDetail
 	{
-
-		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
-		public DecimalValue? TaxableAmount { get; set; }
-
-		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
-		public DecimalValue? TaxAmount { get; set; }
-
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue? TaxID { get; set; }
 
 	}
 }

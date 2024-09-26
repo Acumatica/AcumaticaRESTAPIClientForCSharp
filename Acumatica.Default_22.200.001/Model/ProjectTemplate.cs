@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_22_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen PM208000 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class ProjectTemplate : Entity, ITopLevelEntity
 	{
@@ -20,6 +23,15 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
 		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Description 
+		/// DAC: PX.Objects.PM.PMProject 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -38,9 +50,27 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="ProjectProperties", EmitDefaultValue=false)]
 		public ProjectProperties? ProjectProperties { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: ContractCD 
+		/// DAC: PX.Objects.PM.PMProject 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateID { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Status 
+		/// DAC: PX.Objects.PM.PMProject 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

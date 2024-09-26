@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class DeductionBenefitWCCCode : Entity
+	public class DeductionBenefitWCCCode : Acumatica.Default_23_200_001.Model.DeductionBenefitWCCCode
 	{
-
-		[DataMember(Name="State", EmitDefaultValue=false)]
-		public StringValue? State { get; set; }
-
-		[DataMember(Name="WCCCodeRates", EmitDefaultValue=false)]
-		public List<WCCCodeRateDetail>? WCCCodeRates { get; set; }
 
 	}
 }

@@ -11,28 +11,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class VendorPricesInquiry : Entity, ITopLevelEntity
+	public class VendorPricesInquiry : Acumatica.Default_23_200_001.Model.VendorPricesInquiry, ITopLevelEntity
 	{
 
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
-		public StringValue? ItemClass { get; set; }
-
-		[DataMember(Name="ProductManager", EmitDefaultValue=false)]
-		public StringValue? ProductManager { get; set; }
-
-		[DataMember(Name="ProductWorkgroup", EmitDefaultValue=false)]
-		public StringValue? ProductWorkgroup { get; set; }
-
-		[DataMember(Name="Vendor", EmitDefaultValue=false)]
-		public StringValue? Vendor { get; set; }
-
-		[DataMember(Name="VendorPriceDetails", EmitDefaultValue=false)]
-		public List<VendorPriceDetail>? VendorPriceDetails { get; set; }
-
-		public virtual string GetEndpointPath()
+		public override string GetEndpointPath()
 		{
 			return "entity/eCommerce/23.200.001";
 		}

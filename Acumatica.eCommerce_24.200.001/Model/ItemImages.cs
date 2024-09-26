@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.eCommerce_24_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen BC408020 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class ItemImages : Entity, ITopLevelEntity
 	{

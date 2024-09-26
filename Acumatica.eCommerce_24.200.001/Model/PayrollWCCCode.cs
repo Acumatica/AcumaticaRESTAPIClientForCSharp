@@ -11,16 +11,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class PayrollWCCCode : Entity, ITopLevelEntity
+	public class PayrollWCCCode : Acumatica.Default_24_200_001.Model.PayrollWCCCode, ITopLevelEntity
 	{
 
-		[DataMember(Name="Country", EmitDefaultValue=false)]
-		public StringValue? Country { get; set; }
-
-		[DataMember(Name="WCCCodes", EmitDefaultValue=false)]
-		public List<WCCCode>? WCCCodes { get; set; }
-
-		public virtual string GetEndpointPath()
+		public override string GetEndpointPath()
 		{
 			return "entity/eCommerce/24.200.001";
 		}

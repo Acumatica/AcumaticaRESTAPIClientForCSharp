@@ -11,23 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class SrvOrdContact : Entity
+	public class SrvOrdContact : Acumatica.Default_22_200_001.Model.SrvOrdContact
 	{
-
-		[DataMember(Name="Attention", EmitDefaultValue=false)]
-		public StringValue? Attention { get; set; }
-
-		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
-		public StringValue? CompanyName { get; set; }
-
-		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue? Email { get; set; }
-
-		[DataMember(Name="Phone1", EmitDefaultValue=false)]
-		public StringValue? Phone1 { get; set; }
-
-		[DataMember(Name="Phone1Type", EmitDefaultValue=false)]
-		public StringValue? Phone1Type { get; set; }
 
 	}
 }

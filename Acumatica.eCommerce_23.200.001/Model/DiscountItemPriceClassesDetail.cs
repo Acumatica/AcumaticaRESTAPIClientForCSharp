@@ -11,11 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class DiscountItemPriceClassesDetail : Entity
+	public class DiscountItemPriceClassesDetail : Acumatica.Default_23_200_001.Model.DiscountItemPriceClassesDetail
 	{
-
-		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
-		public StringValue? PriceClassID { get; set; }
 
 	}
 }

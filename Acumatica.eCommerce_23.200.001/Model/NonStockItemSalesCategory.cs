@@ -11,11 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class NonStockItemSalesCategory : Entity
+	public class NonStockItemSalesCategory : Acumatica.Default_23_200_001.Model.NonStockItemSalesCategory
 	{
-
-		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
-		public IntValue? CategoryID { get; set; }
 
 	}
 }

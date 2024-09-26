@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class CustomerPaymentMethodDetail : Entity
+	public class CustomerPaymentMethodDetail : Acumatica.Default_23_200_001.Model.CustomerPaymentMethodDetail
 	{
-
-		[DataMember(Name="Name", EmitDefaultValue=false)]
-		public StringValue? Name { get; set; }
-
-		[DataMember(Name="Value", EmitDefaultValue=false)]
-		public StringValue? Value { get; set; }
 
 	}
 }

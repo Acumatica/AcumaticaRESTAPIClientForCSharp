@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen CS209000 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class WorkCalendar : Entity, ITopLevelEntity
 	{
@@ -20,12 +23,39 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="CalendarSettings", EmitDefaultValue=false)]
 		public CalendarSettings? CalendarSettings { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Description 
+		/// DAC: PX.Objects.CS.CSCalendar 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: TimeZone 
+		/// DAC: PX.Objects.CS.CSCalendar 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="TimeZone", EmitDefaultValue=false)]
 		public StringValue? TimeZone { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: CalendarID 
+		/// DAC: PX.Objects.CS.CSCalendar 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]
 		public StringValue? WorkCalendarID { get; set; }
 

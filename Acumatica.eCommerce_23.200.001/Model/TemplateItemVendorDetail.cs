@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class TemplateItemVendorDetail : Entity
+	public class TemplateItemVendorDetail : Acumatica.Default_23_200_001.Model.TemplateItemVendorDetail
 	{
-
-		[DataMember(Name="VendorID", EmitDefaultValue=false)]
-		public StringValue? VendorID { get; set; }
-
-		[DataMember(Name="VendorName", EmitDefaultValue=false)]
-		public StringValue? VendorName { get; set; }
-
-		[DataMember(Name="Default", EmitDefaultValue=false)]
-		public BooleanValue? Default { get; set; }
 
 	}
 }

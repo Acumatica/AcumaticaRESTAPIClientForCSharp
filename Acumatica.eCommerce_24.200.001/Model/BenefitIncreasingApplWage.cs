@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class BenefitIncreasingApplWage : Entity
+	public class BenefitIncreasingApplWage : Acumatica.Default_24_200_001.Model.BenefitIncreasingApplWage
 	{
-
-		[DataMember(Name="BenefitIncreasingApplWageDetails", EmitDefaultValue=false)]
-		public List<BenefitIncreasingApplWageDetail>? BenefitIncreasingApplWageDetails { get; set; }
-
-		[DataMember(Name="InclusionType", EmitDefaultValue=false)]
-		public StringValue? InclusionType { get; set; }
 
 	}
 }

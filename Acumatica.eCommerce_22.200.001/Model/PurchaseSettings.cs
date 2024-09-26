@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class PurchaseSettings : Entity
+	public class PurchaseSettings : Acumatica.Default_22_200_001.Model.PurchaseSettings
 	{
-
-		[DataMember(Name="POSiteID", EmitDefaultValue=false)]
-		public StringValue? POSiteID { get; set; }
-
-		[DataMember(Name="POSource", EmitDefaultValue=false)]
-		public StringValue? POSource { get; set; }
-
-		[DataMember(Name="VendorID", EmitDefaultValue=false)]
-		public StringValue? VendorID { get; set; }
 
 	}
 }

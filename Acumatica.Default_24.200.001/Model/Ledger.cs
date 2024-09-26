@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen GL201500 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class Ledger : Entity, ITopLevelEntity
 	{
@@ -20,21 +23,66 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Companies", EmitDefaultValue=false)]
 		public List<LedgerCompanies>? Companies { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: ConsolAllowed 
+		/// DAC: PX.Objects.GL.Ledger 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="ConsolidationSource", EmitDefaultValue=false)]
 		public BooleanValue? ConsolidationSource { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: BaseCuryID 
+		/// DAC: PX.Objects.GL.Ledger 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Currency", EmitDefaultValue=false)]
 		public StringValue? Currency { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: Descr 
+		/// DAC: PX.Objects.GL.Ledger 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: LedgerCD 
+		/// DAC: PX.Objects.GL.Ledger 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="LedgerID", EmitDefaultValue=false)]
 		public StringValue? LedgerID { get; set; }
 
+		/// <summary>
+		/// 
+		/// Display Name:
+		/// DAC Field Name: BalanceType 
+		/// DAC: PX.Objects.GL.Ledger 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 

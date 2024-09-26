@@ -11,11 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class TaxZoneApplicableTaxDetail : Entity
+	public class TaxZoneApplicableTaxDetail : Acumatica.Default_23_200_001.Model.TaxZoneApplicableTaxDetail
 	{
-
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue? TaxID { get; set; }
 
 	}
 }

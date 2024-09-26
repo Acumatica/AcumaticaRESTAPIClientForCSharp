@@ -11,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	[DataContract]
-	public class CreditCardProcessingDetail : Entity
+	public class CreditCardProcessingDetail : Acumatica.Default_24_200_001.Model.CreditCardProcessingDetail
 	{
-
-		[DataMember(Name="TransactionAmount", EmitDefaultValue=false)]
-		public DecimalValue? TransactionAmount { get; set; }
-
-		[DataMember(Name="TransactionStatus", EmitDefaultValue=false)]
-		public StringValue? TransactionStatus { get; set; }
 
 	}
 }

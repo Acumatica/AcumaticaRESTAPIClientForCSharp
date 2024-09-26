@@ -11,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	[DataContract]
-	public class WCCCodeMaxInsurableWageDetail : Entity
+	public class WCCCodeMaxInsurableWageDetail : Acumatica.Default_23_200_001.Model.WCCCodeMaxInsurableWageDetail
 	{
-
-		[DataMember(Name="DeductionandBenefitCode", EmitDefaultValue=false)]
-		public StringValue? DeductionandBenefitCode { get; set; }
-
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue? EffectiveDate { get; set; }
-
-		[DataMember(Name="Wage", EmitDefaultValue=false)]
-		public DecimalValue? Wage { get; set; }
 
 	}
 }
