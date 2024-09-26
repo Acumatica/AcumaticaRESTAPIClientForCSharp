@@ -18,7 +18,7 @@ namespace EndpointModelGenerator
     {
         public static void EnrichSchema(Schema endpointSchema, string endpointMetadata, string? screensMetadata)
         {
-           var parsedScreenMetadata =  new Dictionary<string, ScreenMetadata> ();
+            var parsedScreenMetadata = new Dictionary<string, ScreenMetadata>();
             if (!String.IsNullOrEmpty(screensMetadata))
             {
                 foreach (var line in screensMetadata.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries))
@@ -45,14 +45,19 @@ namespace EndpointModelGenerator
             if (parsedEndpointMetadata.ExtendsEndpoint != null)
             {
                 endpointSchema.BaseEndpoint = $"{parsedEndpointMetadata.ExtendsEndpoint.name}_{parsedEndpointMetadata.ExtendsEndpoint.version}";
-               
+
             }
+            DetectDerivedEntities(endpointSchema, parsedEndpointMetadata);
+            FillDescriptions(endpointSchema, parsedScreenMetadata, parsedEndpointMetadata);
+        }
+        private static void DetectDerivedEntities(Schema endpointSchema, Endpoint? parsedEndpointMetadata)
+        {
             foreach (var entity in endpointSchema.Entities)
             {
                 if (parsedEndpointMetadata.TopLevelEntity?.Any(_ => _.name == entity.Key) ?? false)
                 {
                     var topLevelEntityMetadata = parsedEndpointMetadata.TopLevelEntity.First(_ => _.name == entity.Key);
-                    entity.Value.ScreenID = topLevelEntityMetadata.screen;
+                   
                     // We need to only keep fields that are in the metadata. If we remove any fields, we need to add a parent reference to the entity.
                     foreach (var field in entity.Value.Fields)
                     {
@@ -61,49 +66,12 @@ namespace EndpointModelGenerator
                             endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
                             endpointSchema.Entities[entity.Key].Fields.Remove(field);
                         }
-                        else
-                        {
-                            // fill mappings and view name here from metadata
-                            var mappingInfo = topLevelEntityMetadata.Mappings.FirstOrDefault(mapping => mapping.@field == field.Name)?.To?.FirstOrDefault();
-                            if (mappingInfo != null)
-                            {
-                                field.DACFieldName = mappingInfo.field;
-                                field.View = mappingInfo.@object;
-                                if (parsedScreenMetadata.ContainsKey(topLevelEntityMetadata.screen))
-                                {
-                                    FieldMetadata? val = null;
-                                    parsedScreenMetadata[topLevelEntityMetadata.screen].Fields.TryGetValue(field.DACFieldName, out val);
-                                    if (val != null)
-                                    {
-                                        field.DAC = val.DACName;
-                                    }
-                                }
-                            }
-                        }
                     }
                 }
                 else if (parsedEndpointMetadata.Detail?.Any(_ => _.name == entity.Key) ?? false)
                 {
-
                     var detailEntityMetadata = parsedEndpointMetadata.Detail.First(_ => _.name == entity.Key);
-
-                    //find corresponding top level entity
-                    var childOfAll = endpointSchema.Entities.Where(_ => _.Value.Fields.Any(f => f.Type == $"List<{entity.Key}>"));
-                    KeyValuePair<string, EntityDefinition>? childOf = null;
-                    string? parentFieldName = null;
-                    Mapping? mappingInfo = null;
-                    EndpointTopLevelEntity? topLevelEntityMetadata = null;
-                    if (childOfAll.Count() == 1)
-                    {
-                        childOf = childOfAll.First();
-                        parentFieldName = childOfAll.First().Value.Fields.Where(f => f.Type == $"List<{entity.Key}>").First().Name;
-                        mappingInfo = parsedEndpointMetadata.TopLevelEntity?.FirstOrDefault(_ => _.name == childOf?.Key)?.Mappings?.First(_ => _.field == parentFieldName);
-                        topLevelEntityMetadata = parsedEndpointMetadata.TopLevelEntity?.FirstOrDefault(_ => _.name == childOf?.Key);
-                    }
-                    else
-                    { 
-                    }
-                    
+                   
                     // We need to only keep fields that are in the metadata. If we remove any fields, we need to add a parent reference to the entity.
                     foreach (var field in entity.Value.Fields)
                     {
@@ -111,28 +79,6 @@ namespace EndpointModelGenerator
                         {
                             endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
                             endpointSchema.Entities[entity.Key].Fields.Remove(field);
-                        }
-                        else
-                        {
-                            if (!string.IsNullOrEmpty(childOf?.Key))
-                            {
-                                // fill mappings and view name here from metadata
-                                if (mappingInfo != null)
-                                {
-                                    var fieldMapping = mappingInfo.Mapping1.FirstOrDefault(_ => _.field == field.Name)?.To?.FirstOrDefault();
-                                    field.DACFieldName = fieldMapping?.field;
-                                    field.View = fieldMapping?.@object;
-                                    if (parsedScreenMetadata.ContainsKey(topLevelEntityMetadata!.screen) && (!string.IsNullOrEmpty(field.DACFieldName)))
-                                    {
-                                        FieldMetadata? val = null;
-                                        parsedScreenMetadata[topLevelEntityMetadata.screen].Fields.TryGetValue(field.DACFieldName, out val);
-                                        if (val != null)
-                                        {
-                                            field.DAC = val.DACName;
-                                        }
-                                    }
-                                }
-                            }
                         }
                     }
                 }
@@ -146,10 +92,6 @@ namespace EndpointModelGenerator
                             endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
                             endpointSchema.Entities[entity.Key].Fields.Remove(field);
                         }
-                        else
-                        {
-                            // TODO: fill mappings and view name here from metadata
-                        }
                     }
                 }
                 else
@@ -160,14 +102,94 @@ namespace EndpointModelGenerator
             }
         }
 
+        private static void FillDescriptions(Schema endpointSchema, Dictionary<string, ScreenMetadata> parsedScreenMetadata, Endpoint? parsedEndpointMetadata)
+        {
+            foreach (var entity in endpointSchema.Entities)
+            {
+                var topLevelEntityMetadata = parsedEndpointMetadata.TopLevelEntity.FirstOrDefault(_ => _.name == entity.Key);
+                if (topLevelEntityMetadata != null)
+                {
+                    entity.Value.ScreenID = topLevelEntityMetadata.screen;
+                    foreach (var field in entity.Value.Fields)
+                    {
+                        FillFieldDescription(parsedScreenMetadata, topLevelEntityMetadata.screen, field, topLevelEntityMetadata.Mappings);
+                    }
+                }
+                var detailEntityMetadata = parsedEndpointMetadata.Detail.FirstOrDefault(_ => _.name == entity.Key);
+                if (detailEntityMetadata != null)
+                {
+                    //find corresponding top level entity
+                    var childOfAll = endpointSchema.Entities.Where(_ => _.Value.Fields.Any(f => f.Type == $"List<{entity.Key}>"));
+
+                    if (childOfAll.Count() == 1) // we don't want to deal with ambiguous entities
+                    {
+                        var childOf = childOfAll.First();
+                        var parentFieldName = childOf.Value.Fields.Where(f => f.Type == $"List<{entity.Key}>").First().Name;
+                        var parentTopLevelEntityMetadata = parsedEndpointMetadata.TopLevelEntity?.FirstOrDefault(_ => _.name == childOf.Key);
+                        if (parentTopLevelEntityMetadata != null)
+                        {
+                            entity.Value.ScreenID = parentTopLevelEntityMetadata.screen;
+
+                            foreach (var field in entity.Value.Fields)
+                            {
+                                FillFieldDescription(parsedScreenMetadata, parentTopLevelEntityMetadata.screen, field, parentTopLevelEntityMetadata.Mappings.FirstOrDefault(_ => _.field == parentFieldName).Mapping1);
+                            }
+                        }
+                    }
+                }
+                var linkedEntityMetadata = parsedEndpointMetadata.LinkedEntity?.FirstOrDefault(_ => _.name == entity.Key);
+                if (linkedEntityMetadata != null)
+                {
+                    //find corresponding top level entity
+                    var childOfAll = endpointSchema.Entities.Where(_ => _.Value.Fields.Any(f => f.Type == $"{entity.Key}"));
+
+                    if (childOfAll.Count() == 1) // we don't want to deal with ambiguous entities
+                    {
+                        var childOf = childOfAll.First();
+                        var parentFieldName = childOf.Value.Fields.Where(f => f.Type == $"{entity.Key}").First().Name;
+                        var parentTopLevelEntityMetadata = parsedEndpointMetadata.TopLevelEntity?.FirstOrDefault(_ => _.name == childOf.Key);
+                        if (parentTopLevelEntityMetadata != null)
+                        {
+                            entity.Value.ScreenID = parentTopLevelEntityMetadata.screen;
+
+                            foreach (var field in entity.Value.Fields)
+                            {
+                                FillFieldDescription(parsedScreenMetadata, parentTopLevelEntityMetadata.screen, field, parentTopLevelEntityMetadata.Mappings.FirstOrDefault(_ => _.field == parentFieldName).Mapping1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private static void FillFieldDescription(Dictionary<string, ScreenMetadata> parsedScreenMetadata, string screenID, EntityField field, Mapping[] mappings)
+        {
+            var mappingInfo = mappings.FirstOrDefault(mapping => mapping.@field == field.Name)?.To?.FirstOrDefault();
+            if (mappingInfo != null)
+            {
+                field.DACFieldName = mappingInfo.field;
+                field.View = mappingInfo.@object;
+                if (parsedScreenMetadata.ContainsKey(screenID))
+                {
+                    FieldMetadata? val = null;
+                    parsedScreenMetadata[screenID].Fields.TryGetValue(field.DACFieldName, out val);
+                    if (val != null)
+                    {
+                        field.DAC = val.DACName;
+                    }
+                }
+            }
+        }
+
         public static void AddFieldDescriptions(Schema endpointSchema, string acumaticaUrl, string acumaticaUsername, string acumaticaPassword)
         {
             var client = new ApiClient(acumaticaUrl, ignoreSslErrors: true);
             client.Login(acumaticaUsername, acumaticaPassword);
-            try { 
+            try
+            {
                 foreach (var entity in endpointSchema.Entities)
                 {
-                    foreach(var field in entity.Value.Fields)
+                    foreach (var field in entity.Value.Fields)
                     {
                         if (!string.IsNullOrEmpty(field.DAC))
                         {
@@ -187,9 +209,11 @@ namespace EndpointModelGenerator
                     }
                 }
             }
-            finally { 
-                client.Logout(); }
-            
+            finally
+            {
+                client.Logout();
+            }
+
         }
     }
 

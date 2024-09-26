@@ -49,6 +49,7 @@ namespace ModelGeneratorConsole
                 }
                 try
                 {
+                    Console.WriteLine("Getting field descriptions for " + endpoint);
                     SchemaEnricher.AddFieldDescriptions(endpointSchema, "https://localhost/24r200", "admin", "123");
                 }
                 catch (Exception e)
