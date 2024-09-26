@@ -45,7 +45,7 @@ namespace Acumatica.RESTClient.CustomizationApi
                 HeaderContentType.Json);
 
             response.EnsureSuccessStatusCode();
-            return (CustomizationPublishLog)await DeserializeAsync<CustomizationPublishLog>(response);
+            return await DeserializeAsync<CustomizationPublishLog>(response);
         }
         public static CustomizationPublishLog Import(this ApiClient client, 
             Stream customizationPackageContent,
@@ -180,7 +180,7 @@ namespace Acumatica.RESTClient.CustomizationApi
                 HeaderContentType.Json);
 
             response.EnsureSuccessStatusCode();
-            return (CustomizationPublishLog)await DeserializeAsync<CustomizationPublishLog>(response);
+            return await DeserializeAsync<CustomizationPublishLog>(response);
         }
 
         public static CustomizationPublishLog PublishBegin(this ApiClient client,
@@ -208,7 +208,7 @@ namespace Acumatica.RESTClient.CustomizationApi
                 HeaderContentType.Json);
 
             response.EnsureSuccessStatusCode();
-            return (CustomizationPublishEnd)await DeserializeAsync<CustomizationPublishEnd>(response);
+            return await DeserializeAsync<CustomizationPublishEnd>(response);
         }
         public static CustomizationPublishEnd CustomizationPublishEnd(this ApiClient client)
         {

@@ -49,7 +49,7 @@ namespace Acumatica.RESTClient.AuthApi
 
             response.EnsureSuccessStatusCode();
 
-            client.Token = (Token?)await DeserializeAsync<Token>(response);
+            client.Token = await DeserializeAsync<Token>(response);
         }
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
@@ -91,7 +91,7 @@ namespace Acumatica.RESTClient.AuthApi
 
             await VerifyResponseAsync(client, response, nameof(ReceiveAccessTokenAsync));
 
-            client.Token = (Token?)await DeserializeAsync<Token>(response);
+            client.Token = await DeserializeAsync<Token>(response);
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace Acumatica.RESTClient.AuthApi
 
             await VerifyResponseAsync(client, response, "RequestToken");
 
-            client.Token = (Token?)await DeserializeAsync<Token>(response);
+            client.Token = await DeserializeAsync<Token>(response);
         }
         #endregion
 

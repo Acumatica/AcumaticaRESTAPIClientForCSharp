@@ -47,34 +47,15 @@ namespace Acumatica.RESTClient.Auxiliary
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public static async Task<object?> DeserializeAsync<T>(HttpResponseMessage response)
+        public static async Task<T?> DeserializeAsync<T>(HttpResponseMessage response)
+            where T : class
         {
-            if (typeof(T) == typeof(byte[])) // return byte array
-            {
-                return response.Content.ReadAsByteArrayAsync();
-            }
-
-            if (typeof(T).Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
-            {
-                return DateTime.Parse(await response.Content.ReadAsStringAsync(), null, System.Globalization.DateTimeStyles.RoundtripKind);
-            }
-
-            if (typeof(T) == typeof(String)) // return primitive type
-            {
-                return (String)await response.Content.ReadAsStringAsync();
-            }
-
-            if (typeof(T).Name.StartsWith("System.Nullable"))
-            {
-                return Convert.ChangeType(response.Content, typeof(T));
-            }
-
             JsonSerializerSettings serializerSettings = new JsonSerializerSettings
             {
                 ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
             };
 
-            return JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync(), typeof(T), serializerSettings);
+            return (T?)JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync(), typeof(T), serializerSettings);
         }
         public static string ComposeContentHeaders(HeaderContentType contentTypes)
         {

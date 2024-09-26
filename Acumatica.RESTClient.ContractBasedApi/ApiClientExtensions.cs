@@ -266,7 +266,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync<EntityType>(response, nameof(PutAsync));
 
-            return (EntityType)await DeserializeAsync<EntityType>(response);
+            return await DeserializeAsync<EntityType>(response);
         }
         #endregion
         #region PutFile
@@ -374,7 +374,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(GetByKeysAsync));
 
-            return (EntityType)await DeserializeAsync<EntityType>(response);
+            return await DeserializeAsync<EntityType>(response);
         }
 
 
@@ -429,7 +429,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(GetByIdAsync));
 
-            return (EntityType)await DeserializeAsync<EntityType>(response);
+            return await DeserializeAsync<EntityType>(response);
         }
 
         /// <summary>
@@ -484,7 +484,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(GetListAsync));
 
-            return (List<EntityType>)await DeserializeAsync<List<EntityType>>(response);
+            return await DeserializeAsync<List<EntityType>>(response);
         }
         /// <summary>
         /// Retrieves records that satisfy the specified conditions from the system. 
@@ -525,7 +525,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(GetSwaggerAsync));
 
-            return (string)await DeserializeAsync<string>(response);
+            return await response.Content.ReadAsStringAsync();
         }
         /// <summary>
         /// Retrieves the schema of custom fields of the entity from the system. 
@@ -550,7 +550,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(GetAdHocSchemaAsync));
 
-            return (EntityType)await DeserializeAsync<EntityType>(response);
+            return await DeserializeAsync<EntityType>(response);
         }
         /// <summary>
         /// Retrieves the schema of custom fields of the entity from the system. 
@@ -738,7 +738,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? responseMessage = null;
             try
             {
-                ErrorMessage? error = (ErrorMessage?)await DeserializeAsync<ErrorMessage>(response);
+                ErrorMessage? error = await DeserializeAsync<ErrorMessage>(response);
                 if (error == null || (String.IsNullOrEmpty(error.message) && String.IsNullOrEmpty(error.exceptionMessage)))
                 {
                 }
@@ -786,7 +786,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? responseMessage = null;
             try
             {
-                EntityType? entity = (EntityType?)await DeserializeAsync<EntityType>(response);
+                EntityType? entity = await DeserializeAsync<EntityType>(response);
                 responseMessage = CollectErrorsFromEntity(entity);
             }
             catch (Newtonsoft.Json.JsonReaderException) { }

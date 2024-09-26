@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
@@ -38,7 +39,7 @@ namespace Acumatica.RESTClient.MaintenanceApi
                 HeaderContentType.Xml);
 
             response.EnsureSuccessStatusCode();
-            return (string)await DeserializeAsync<string>(response);
+            return await response.Content.ReadAsStringAsync(); 
         }
         public static string GetSchema(this ApiClient client, string endpointName, string endpointVersion)
         {
