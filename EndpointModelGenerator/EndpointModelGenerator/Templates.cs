@@ -39,7 +39,7 @@
 					(string.IsNullOrEmpty(field.DACFieldName) || field.DACFieldName == field.Name ? "" : $"/// DAC Field Name: {field.DACFieldName} ") +
 					$"\r\n\t\t/// DAC: {field.DAC} " +
 					(string.IsNullOrEmpty(field.DisplayName) || field.DisplayName == field.Name ? "" : $"\r\n\t\t/// Display Name: {field.DisplayName} ") +
-					(field.SqlType.Contains("char") ? $"\r\n\t\t/// SQL Type: {field.SqlType} " : "") +
+					((!string.IsNullOrEmpty(field.SqlType)) && field.SqlType.Contains("char") ? $"\r\n\t\t/// SQL Type: {field.SqlType} " : "") +
 					$"\r\n\t\t/// Is Key: {field.IsKey} " +
 					$"\r\n\t\t/// </summary>" +
 					(string.IsNullOrEmpty(field.Remarks) ? "" : $"\r\n\t\t/// <remarks>\r\n\t\t/// {field.Remarks?.Replace("\n", "")}\r\n\t\t/// </remarks>");
