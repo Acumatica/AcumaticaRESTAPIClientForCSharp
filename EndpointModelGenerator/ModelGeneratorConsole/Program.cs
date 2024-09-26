@@ -47,6 +47,14 @@ namespace ModelGeneratorConsole
                         SchemaEnricher.EnrichSchema(endpointSchema, endpointMetadata, screensMetadata);
                     }
                 }
+                try
+                {
+                    SchemaEnricher.AddFieldDescriptions(endpointSchema, "https://localhost/24r200", "admin", "123");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Failed to get field descriptions: " + e.Message);
+                }
                 //write toplevelntites to a file
                 //StreamWriter writer = new StreamWriter(solutionFolderPath + @"\TopLevelEntities.csv", true);
                 //foreach (var item in endpointSchema.TopLevelEntities)

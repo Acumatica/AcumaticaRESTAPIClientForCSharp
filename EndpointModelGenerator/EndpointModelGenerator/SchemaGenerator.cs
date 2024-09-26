@@ -189,7 +189,7 @@ namespace EndpointSchemaGenerator
                 StringBuilder body = new StringBuilder();
                 foreach (var field in entity.Value.Fields)
                 {
-                    body.Append(Templates.GenerateFieldCode(field.Name == entity.Key ? field.Name.ToLowerInvariant() : field.Name, field.Type, field.DAC, field.DACFieldName));
+                    body.Append(Templates.GenerateFieldCode(entity.Key, field));
                 }
                 string result;
                 bool isNotDerived = string.IsNullOrEmpty(schema.BaseEndpoint) || string.IsNullOrEmpty(entity.Value.ParentReference);

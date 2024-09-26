@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Diagnostics;
 using System.Xml.Serialization;
 
 // 
@@ -43,6 +44,7 @@ public partial class Fields
 }
 
 /// <remarks/>
+[DebuggerDisplay("{nameField}")]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -111,7 +113,7 @@ public partial class Mappings
     }
 }
 
-/// <remarks/>
+[DebuggerDisplay("{fieldField}")]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -171,6 +173,7 @@ public partial class Mapping
 }
 
 /// <remarks/>
+[DebuggerDisplay("{objectField}.{fieldField}")]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -378,6 +381,7 @@ public partial class Endpoint
 }
 
 /// <remarks/>
+[DebuggerDisplay("{nameField} - {screenField}")]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]

@@ -10,4 +10,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Acumatica.RESTClient.DACBrowserApi\Acumatica.RESTClient.DACBrowserApi.csproj" />
+    <ProjectReference Include="..\..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+  </ItemGroup>
+
 </Project>

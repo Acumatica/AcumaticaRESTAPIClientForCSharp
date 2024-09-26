@@ -25,11 +25,27 @@
 		//{2} = EntityName
 		public static string ActionTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n";
 
-	
-		public static string GenerateFieldCode(string fieldName, string fieldType, string? dacName, string? dacField)
+
+		public static string GenerateFieldCode(string className, EntityField field)
 		{
-			return (string.IsNullOrEmpty(dacName) ? "" : $"\r\n\t\t/// <summary>\r\n\t\t/// \r\n\t\t/// Display Name:\r\n\t\t/// DAC Field Name: {dacField} \r\n\t\t/// DAC: {dacName} \r\n\t\t/// </summary>\r\n\t\t/// <remarks>\r\n\t\t/// \r\n\t\t/// </remarks>") +
-				$"\r\n\t\t[DataMember(Name=\"{fieldName}\", EmitDefaultValue=false)]\r\n\t\tpublic {fieldType}? {fieldName} {{ get; set; }}\r\n";
+			string fieldName = (field.Name == className ? field.Name.ToLowerInvariant() : field.Name);
+
+			string fieldCode = $"\r\n\t\t[DataMember(Name=\"{fieldName}\", EmitDefaultValue=false)]\r\n\t\tpublic {field.Type}? {fieldName} {{ get; set; }}\r\n";
+
+			if (!string.IsNullOrEmpty(field.DAC))
+			{
+				string documentation = $"\r\n\t\t/// <summary>\r\n\t\t/// {field.Summary?.Replace("\n", "")}" +
+					$"\r\n\t\t/// Display Name:\r\n\t\t" +
+					(string.IsNullOrEmpty(field.DisplayName) || field.DisplayName == field.Name ? "" : $"/// DAC Field Name: {field.DACFieldName} ") +
+					$"\r\n\t\t/// DAC: {field.DAC} " +
+					(string.IsNullOrEmpty(field.DisplayName) || field.DisplayName == field.Name ? "" : $"\r\n\t\t/// Display Name: {field.DisplayName} ") +
+					$"\r\n\t\t/// SQL Type: {field.SqlType} " +
+					$"\r\n\t\t/// Is Key: {field.IsKey} " +
+					$"\r\n\t\t/// </summary>" +
+					(string.IsNullOrEmpty(field.Remarks) ? "" : $"\r\n\t\t/// <remarks>\r\n\t\t/// {field.Remarks?.Replace("\n", "")}\r\n\t\t/// </remarks>");
+				return documentation + fieldCode;
+			}
+			return fieldCode;
 		}
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)

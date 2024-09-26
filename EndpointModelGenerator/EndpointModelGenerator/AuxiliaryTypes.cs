@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,7 @@ namespace EndpointSchemaGenerator
             IsTopLevel = isTopLevel;
         }
     }
+    [DebuggerDisplay("{Name} {Type}")]
     public class EntityField
     {
         public string Type;
@@ -61,6 +63,11 @@ namespace EndpointSchemaGenerator
         public string? View;
         public string? DACFieldName;
         public string? DAC;
+        public string? DisplayName;
+        public string? SqlType;
+        public string? Summary;
+        public string? Remarks;
+        public bool? IsKey;
 
         public EntityField(string name, string type)
         {

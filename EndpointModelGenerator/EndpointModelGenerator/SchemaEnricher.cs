@@ -8,6 +8,9 @@ using System.Xml.Serialization;
 using System.Xml;
 
 using EndpointSchemaGenerator;
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.AuthApi;
+using static Acumatica.RESTClient.DACBrowserApi.DACBrowserApiExtensions;
 
 namespace EndpointModelGenerator
 {
@@ -83,6 +86,24 @@ namespace EndpointModelGenerator
                 {
 
                     var detailEntityMetadata = parsedEndpointMetadata.Detail.First(_ => _.name == entity.Key);
+
+                    //find corresponding top level entity
+                    var childOfAll = endpointSchema.Entities.Where(_ => _.Value.Fields.Any(f => f.Type == $"List<{entity.Key}>"));
+                    KeyValuePair<string, EntityDefinition>? childOf = null;
+                    string? parentFieldName = null;
+                    Mapping? mappingInfo = null;
+                    EndpointTopLevelEntity? topLevelEntityMetadata = null;
+                    if (childOfAll.Count() == 1)
+                    {
+                        childOf = childOfAll.First();
+                        parentFieldName = childOfAll.First().Value.Fields.Where(f => f.Type == $"List<{entity.Key}>").First().Name;
+                        mappingInfo = parsedEndpointMetadata.TopLevelEntity?.FirstOrDefault(_ => _.name == childOf?.Key)?.Mappings?.First(_ => _.field == parentFieldName);
+                        topLevelEntityMetadata = parsedEndpointMetadata.TopLevelEntity?.FirstOrDefault(_ => _.name == childOf?.Key);
+                    }
+                    else
+                    { 
+                    }
+                    
                     // We need to only keep fields that are in the metadata. If we remove any fields, we need to add a parent reference to the entity.
                     foreach (var field in entity.Value.Fields)
                     {
@@ -93,7 +114,25 @@ namespace EndpointModelGenerator
                         }
                         else
                         {
-                            // TODO: fill mappings and view name here from metadata
+                            if (!string.IsNullOrEmpty(childOf?.Key))
+                            {
+                                // fill mappings and view name here from metadata
+                                if (mappingInfo != null)
+                                {
+                                    var fieldMapping = mappingInfo.Mapping1.FirstOrDefault(_ => _.field == field.Name)?.To?.FirstOrDefault();
+                                    field.DACFieldName = fieldMapping?.field;
+                                    field.View = fieldMapping?.@object;
+                                    if (parsedScreenMetadata.ContainsKey(topLevelEntityMetadata!.screen) && (!string.IsNullOrEmpty(field.DACFieldName)))
+                                    {
+                                        FieldMetadata? val = null;
+                                        parsedScreenMetadata[topLevelEntityMetadata.screen].Fields.TryGetValue(field.DACFieldName, out val);
+                                        if (val != null)
+                                        {
+                                            field.DAC = val.DACName;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -119,6 +158,38 @@ namespace EndpointModelGenerator
                     endpointSchema.Entities[entity.Key].Fields.Clear();
                 }
             }
+        }
+
+        public static void AddFieldDescriptions(Schema endpointSchema, string acumaticaUrl, string acumaticaUsername, string acumaticaPassword)
+        {
+            var client = new ApiClient(acumaticaUrl, ignoreSslErrors: true);
+            client.Login(acumaticaUsername, acumaticaPassword);
+            try { 
+                foreach (var entity in endpointSchema.Entities)
+                {
+                    foreach(var field in entity.Value.Fields)
+                    {
+                        if (!string.IsNullOrEmpty(field.DAC))
+                        {
+                            try
+                            {
+                                string dacName = field.DAC.Split('.').Last();
+                                string dacNamespace = field.DAC.Substring(0, field.DAC.LastIndexOf('.'));
+                                var fieldDescr = client.GetField(dacNamespace, dacName, field.DACFieldName!);
+                                field.DisplayName = fieldDescr.DisplayName;
+                                field.SqlType = fieldDescr.SqlType;
+                                field.Summary = fieldDescr.Documentation.Summary;
+                                field.Remarks = fieldDescr.Documentation.Remarks;
+                                field.IsKey = fieldDescr.IsKey;
+                            }
+                            catch { }
+                        }
+                    }
+                }
+            }
+            finally { 
+                client.Logout(); }
+            
         }
     }
 
