@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup> 
-<Version>5.1.0-beta</Version>
+<Version>5.2.0-beta</Version>
 <Company>Acumatica</Company>
 <Description>C# classes generated based on Acumatica Default endpoint version 22.200.001</Description>
 <Copyright>Acumatica</Copyright>
 <PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
 <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
 <PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
-<PackageReleaseNotes>Newtonsoft.JSON dependency updated to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
+<PackageReleaseNotes>Added field documentation</PackageReleaseNotes>
 <PackageLicenseExpression>MIT</PackageLicenseExpression>
 <Title>Default Acumatica Contract Based API endpoint v.22.200.001 model </Title>
 <Authors>Dmitrii-Naumov</Authors>
@@ -26,9 +26,9 @@
    <ItemGroup>
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup> <ItemGroup>
-	<ProjectReference Include = "..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+	<ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
 	
-	<ProjectReference Include = "..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
-  </ItemGroup >
+	<ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
+  </ItemGroup>
 
-</Project >
+</Project>
