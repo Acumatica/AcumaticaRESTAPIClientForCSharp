@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Acumatica.Default_20_200_001.Model;
+using Acumatica.Default_23_200_001.Model;
 using Acumatica.RESTClient.Client;
 
 using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
