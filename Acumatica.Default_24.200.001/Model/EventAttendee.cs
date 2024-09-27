@@ -14,15 +14,30 @@ namespace Acumatica.Default_24_200_001.Model
 	public class EventAttendee : Entity
 	{
 
+		/// <summary>
+		/// The comment of the event owner for the attendee.
+		/// DAC: PX.Objects.EP.EPAttendee 
+		/// SQL Type: nvarchar(255) 
+		/// </summary>
 		[DataMember(Name="Comment", EmitDefaultValue=false)]
 		public StringValue? Comment { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.EP.SendCardFilter 
+		/// SQL Type: nvarchar(255) 
+		/// </summary>
 		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
 		[DataMember(Name="EventNoteID", EmitDefaultValue=false)]
 		public GuidValue? EventNoteID { get; set; }
 
+		/// <summary>
+		/// The invitation status of the attendee.
+		/// DAC Field Name: Invitation 
+		/// DAC: PX.Objects.EP.EPAttendee 
+		/// Display Name: Invitation 
+		/// </summary>
 		[DataMember(Name="InvitationStatus", EmitDefaultValue=false)]
 		public StringValue? InvitationStatus { get; set; }
 

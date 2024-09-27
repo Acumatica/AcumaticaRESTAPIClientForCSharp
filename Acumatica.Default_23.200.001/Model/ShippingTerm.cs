@@ -18,14 +18,9 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.CS.ShipTerms 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -33,14 +28,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<ShippingTermDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ShipTermsID 
 		/// DAC: PX.Objects.CS.ShipTerms 
+		/// Display Name: Term ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TermID", EmitDefaultValue=false)]
 		public StringValue? TermID { get; set; }
 

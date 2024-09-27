@@ -21,38 +21,27 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: FinPeriods 
 		/// DAC: PX.Objects.PR.PRPayGroupYear 
+		/// Display Name: Number of Periods 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="NumberofPeriods", EmitDefaultValue=false)]
 		public ShortValue? NumberofPeriods { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OverrideFinPeriods 
 		/// DAC: PX.Objects.PR.PRPayGroupYear 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Override", EmitDefaultValue=false)]
 		public BooleanValue? Override { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PayGroupID 
 		/// DAC: PX.Objects.PR.PRPayGroupYear 
+		/// Display Name: Pay Group 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PayGroup", EmitDefaultValue=false)]
 		public StringValue? PayGroup { get; set; }
 
@@ -60,26 +49,17 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<PaymentPeriod>? PaymentPeriods { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: StartDate 
 		/// DAC: PX.Objects.PR.PRPayGroupYear 
+		/// Display Name: Start Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Year 
 		/// DAC: PX.Objects.PR.PRPayGroupYear 
+		/// SQL Type: char(4) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Year", EmitDefaultValue=false)]
 		public StringValue? Year { get; set; }
 

@@ -14,9 +14,20 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class EstimateStepDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC: PX.Objects.AM.AMEstimateOper 
+		/// Display Name: Operation Desc 
+		/// SQL Type: nvarchar(256) 
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: LineID 
+		/// DAC: PX.Objects.AM.AMEstimateMatl 
+		/// Display Name: Line Nbr. 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 

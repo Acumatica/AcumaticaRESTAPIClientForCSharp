@@ -27,14 +27,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public ProjectTaskDefaultValues? DefaultValues { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the task.
 		/// DAC: PX.Objects.PM.PMTask 
+		/// SQL Type: nvarchar(250) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -42,26 +38,22 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProjectID 
 		/// DAC: PX.Objects.PM.PMTask 
+		/// Display Name: Project ID 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The unique identifier of the task. This is a segmented key, which format is configured on the Segmented Keys (CS202000) form.
 		/// DAC Field Name: TaskCD 
 		/// DAC: PX.Objects.PM.PMTask 
+		/// Display Name: Task ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectTemplateTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateTaskID { get; set; }
 

@@ -18,38 +18,27 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrganizationName 
+		/// The name of the organization.
 		/// DAC: PX.Objects.GL.DAC.Organization 
+		/// Display Name: Company Name 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrganizationName", EmitDefaultValue=false)]
 		public StringValue? OrganizationName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrganizationCD 
 		/// DAC: PX.Objects.GL.DAC.Organization 
+		/// Display Name: Company ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrganizationCD", EmitDefaultValue=false)]
 		public StringValue? OrganizationCD { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Ledger__LedgerCD 
 		/// DAC: PX.Objects.GL.DAC.Organization 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }
 

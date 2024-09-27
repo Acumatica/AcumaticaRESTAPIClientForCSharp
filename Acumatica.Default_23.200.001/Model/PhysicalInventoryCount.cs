@@ -21,62 +21,42 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<PhysicalInventoryCountDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
 		/// DAC: PX.Objects.IN.PICountFilter 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LocationID 
 		/// DAC: PX.Objects.IN.PICountFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LotSerialNbr 
 		/// DAC: PX.Objects.IN.PICountFilter 
+		/// Display Name: Lot/Serial Nbr. 
+		/// SQL Type: nvarchar(100) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PIID 
 		/// DAC: PX.Objects.IN.INPIHeader 
+		/// Display Name: Reference Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SubItem 
 		/// DAC: PX.Objects.IN.PICountFilter 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 

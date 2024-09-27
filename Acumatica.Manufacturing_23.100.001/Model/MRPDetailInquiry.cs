@@ -18,74 +18,52 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// U o m
 		/// DAC Field Name: UOM 
 		/// DAC: PX.Objects.AM.InvLookup 
+		/// Display Name: Base Unit 
+		/// SQL Type: nvarchar(MAX) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BaseUnit", EmitDefaultValue=false)]
 		public StringValue? BaseUnit { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
+		/// Inventory ID
 		/// DAC: PX.Objects.AM.InvLookup 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LotQty 
+		/// Lot qty
 		/// DAC: PX.Objects.AM.InvLookup 
+		/// Display Name: Lot Qty 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LotQty", EmitDefaultValue=false)]
 		public DecimalValue? LotQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: MaxOrderQty 
+		/// Max order qty
 		/// DAC: PX.Objects.AM.InvLookup 
+		/// Display Name: Max. Order Qty 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="MaxOrderQty", EmitDefaultValue=false)]
 		public DecimalValue? MaxOrderQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: MinOrderQty 
+		/// Min order qty
 		/// DAC: PX.Objects.AM.InvLookup 
+		/// Display Name: Min. Order Qty 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="MinOrderQty", EmitDefaultValue=false)]
 		public DecimalValue? MinOrderQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: QtyOnHand 
+		/// Qty on hand
 		/// DAC: PX.Objects.AM.InvLookup 
+		/// Display Name: Qty On Hand 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
 		public DecimalValue? QtyOnHand { get; set; }
 
@@ -93,38 +71,26 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		public List<MRPDetailInquiryResult>? Results { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SafetyStock 
+		/// Safety stock
 		/// DAC: PX.Objects.AM.InvLookup 
+		/// Display Name: Safety Stock 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
 		public DecimalValue? SafetyStock { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Sub item ID
 		/// DAC Field Name: SubItemID 
 		/// DAC: PX.Objects.AM.InvLookup 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Warehouse
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.AM.InvLookup 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 

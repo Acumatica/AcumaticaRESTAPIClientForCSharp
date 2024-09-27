@@ -21,14 +21,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<ReportingGroup>? ReportingGroups { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: VendorID 
 		/// DAC: PX.Objects.TX.TaxReport 
+		/// Display Name: Tax Agency 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxAgency", EmitDefaultValue=false)]
 		public StringValue? TaxAgency { get; set; }
 

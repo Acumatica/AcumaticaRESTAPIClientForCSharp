@@ -18,26 +18,18 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.CS.ShippingZone 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ZoneID 
 		/// DAC: PX.Objects.CS.ShippingZone 
+		/// Display Name: Zone ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ZoneID", EmitDefaultValue=false)]
 		public StringValue? ZoneID { get; set; }
 

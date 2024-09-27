@@ -18,62 +18,49 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SalesTerritoryID 
+		/// The primary key. 
 		/// DAC: PX.Objects.CS.SalesTerritory 
+		/// Display Name: Sales Territory 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SalesTerritoryID", EmitDefaultValue=false)]
 		public StringValue? SalesTerritoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The name of Sales territory. 
 		/// DAC Field Name: Name 
 		/// DAC: PX.Objects.CS.SalesTerritory 
+		/// Display Name: Territory Name 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SalesTerritoryName", EmitDefaultValue=false)]
 		public StringValue? SalesTerritoryName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Indicates (if set to true) that the sales territory is active.
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.CS.SalesTerritory 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Type of sales territory SalesTerritoryTypeAttribute.
 		/// DAC Field Name: SalesTerritoryType 
 		/// DAC: PX.Objects.CS.SalesTerritory 
+		/// Display Name: Territory Type 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TerritoryType", EmitDefaultValue=false)]
 		public StringValue? TerritoryType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The CountryID identifier for Sales Territories of type byState 
 		/// DAC Field Name: CountryID 
 		/// DAC: PX.Objects.CS.SalesTerritory 
+		/// SQL Type: nvarchar(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Country", EmitDefaultValue=false)]
 		public StringValue? Country { get; set; }
 

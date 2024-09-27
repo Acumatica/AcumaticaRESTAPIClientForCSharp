@@ -18,26 +18,16 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ActiveFlg 
 		/// DAC: PX.Objects.AM.AMFeature 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: AllowNonInventoryOptions 
 		/// DAC: PX.Objects.AM.AMFeature 
+		/// Display Name: Allow Non-Inventory Options 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AllowNonInventoryOptions", EmitDefaultValue=false)]
 		public BooleanValue? AllowNonInventoryOptions { get; set; }
 
@@ -48,50 +38,34 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public List<FeatureOptions>? ConfigurationFeatureOption { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.AM.AMFeature 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: DisplayOptionAttributes 
 		/// DAC: PX.Objects.AM.AMFeature 
+		/// Display Name: Display Option Attributes 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DisplayOptionAttributes", EmitDefaultValue=false)]
 		public BooleanValue? DisplayOptionAttributes { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: FeatureID 
 		/// DAC: PX.Objects.AM.AMFeature 
+		/// Display Name: Feature ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FeatureID", EmitDefaultValue=false)]
 		public StringValue? FeatureID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: PrintResults 
+		/// Flag used for reporting
 		/// DAC: PX.Objects.AM.AMFeature 
+		/// Display Name: Print Results 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PrintResults", EmitDefaultValue=false)]
 		public BooleanValue? PrintResults { get; set; }
 

@@ -18,50 +18,38 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LotSerAssign 
 		/// DAC: PX.Objects.IN.INLotSerClass 
+		/// Display Name: Assignment Method 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AssignmentMethod", EmitDefaultValue=false)]
 		public StringValue? AssignmentMethod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LotSerClassID 
 		/// DAC: PX.Objects.IN.INLotSerClass 
+		/// Display Name: Class ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.IN.INLotSerClass 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LotSerIssueMethod 
 		/// DAC: PX.Objects.IN.INLotSerClass 
+		/// Display Name: Issue Method 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="IssueMethod", EmitDefaultValue=false)]
 		public StringValue? IssueMethod { get; set; }
 
@@ -69,26 +57,19 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<LotSerialClassSegment>? Segments { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LotSerTrackExpiration 
 		/// DAC: PX.Objects.IN.INLotSerClass 
+		/// Display Name: Track Expiration Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TrackExpirationDate", EmitDefaultValue=false)]
 		public BooleanValue? TrackExpirationDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LotSerTrack 
 		/// DAC: PX.Objects.IN.INLotSerClass 
+		/// Display Name: Tracking Method 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TrackingMethod", EmitDefaultValue=false)]
 		public StringValue? TrackingMethod { get; set; }
 

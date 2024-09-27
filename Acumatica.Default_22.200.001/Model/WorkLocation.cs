@@ -18,14 +18,10 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A boolean value that specifies (if set to true) that the location is used.
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.PR.PRLocation 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -36,38 +32,32 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The unique identifier of the branch to which the work location belongs.The field is included in Branch.
 		/// DAC Field Name: BranchID 
 		/// DAC: PX.Objects.PR.PRLocation 
+		/// Display Name: Use Address from Branch ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UseAddressfromBranchID", EmitDefaultValue=false)]
 		public StringValue? UseAddressfromBranchID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The user-friendly unique identifier of the work location.
 		/// DAC Field Name: LocationCD 
 		/// DAC: PX.Objects.PR.PRLocation 
+		/// Display Name: Location ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WorkLocationID", EmitDefaultValue=false)]
 		public StringValue? WorkLocationID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The description.
 		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.PR.PRLocation 
+		/// Display Name: Location Name 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WorkLocationName", EmitDefaultValue=false)]
 		public StringValue? WorkLocationName { get; set; }
 

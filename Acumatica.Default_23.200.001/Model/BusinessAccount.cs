@@ -18,13 +18,14 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The external reference number of the business account.
 		/// DAC Field Name: AcctReferenceNbr 
 		/// DAC: PX.Objects.CR.BAccount 
+		/// Display Name: Ext Ref Nbr 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// It can be an additional number of the business account used in external integration.            
 		/// </remarks>
 		[DataMember(Name="AccountRef", EmitDefaultValue=false)]
 		public StringValue? AccountRef { get; set; }
@@ -36,14 +37,13 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<AttributeValue>? Attributes { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The human-readable identifier of the business account that isspecified by the user or defined by the auto-numbering sequence during thecreation of the account. This field is a natural key, as opposedto the surrogate key BAccountID.
 		/// DAC Field Name: AcctCD 
 		/// DAC: PX.Objects.CR.BAccount 
+		/// Display Name: Account ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BusinessAccountID", EmitDefaultValue=false)]
 		public StringValue? BusinessAccountID { get; set; }
 
@@ -54,14 +54,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<BusinessAccountCaseDetail>? Cases { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ClassID 
+		/// Identifier of the business acccount class to which the business account belongs.
 		/// DAC: PX.Objects.CR.BAccount 
+		/// Display Name: Class 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
@@ -81,38 +78,26 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<DuplicateDetail>? Duplicates { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LastIncomingActivityDate 
 		/// DAC: PX.Objects.CR.CRActivityStatistics 
+		/// Display Name: Last Incoming Activity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastIncomingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastIncomingActivity { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LastModifiedDateTime 
+		/// The date and time when the record was last modified.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Last Modified On 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LastOutgoingActivityDate 
 		/// DAC: PX.Objects.CR.CRActivityStatistics 
+		/// Display Name: Last Outgoing Activity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastOutgoingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastOutgoingActivity { get; set; }
 
@@ -123,14 +108,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public Address? MainAddress { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, this field indicates that the address has been successfully validated by Acumatica ERP.
 		/// DAC Field Name: IsValidated 
 		/// DAC: PX.Objects.CR.Address 
+		/// Display Name: Validated 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="MainAddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? MainAddressValidated { get; set; }
 
@@ -141,14 +123,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<MarketingListDetail>? MarketingLists { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The full business account name (as opposed to theshort identifier AcctCD).
 		/// DAC Field Name: AcctName 
 		/// DAC: PX.Objects.CR.BAccount 
+		/// Display Name: Account Name 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Name", EmitDefaultValue=false)]
 		public StringValue? Name { get; set; }
 
@@ -159,38 +139,26 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<BusinessAccountOrder>? Orders { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
 		/// DAC Field Name: OwnerID 
 		/// DAC: PX.Objects.CR.BAccount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OwnerID_description 
 		/// DAC: PX.Objects.CR.BAccount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OwnerEmployeeName", EmitDefaultValue=false)]
 		public StringValue? OwnerEmployeeName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the parent business account.
 		/// DAC Field Name: ParentBAccountID 
 		/// DAC: PX.Objects.CR.BAccount 
+		/// Display Name: Parent Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ParentAccount", EmitDefaultValue=false)]
 		public StringValue? ParentAccount { get; set; }
 
@@ -204,26 +172,20 @@ namespace Acumatica.Default_23_200_001.Model
 		public Address? ShippingAddress { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
 		/// DAC Field Name: OverrideAddress 
 		/// DAC: PX.Objects.CR.Standalone.Location 
+		/// Display Name: Override 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShippingAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShippingAddressOverride { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, this field indicates that the address has been successfully validated by Acumatica ERP.
 		/// DAC Field Name: IsValidated 
 		/// DAC: PX.Objects.CR.Address 
+		/// Display Name: Validated 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShippingAddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? ShippingAddressValidated { get; set; }
 
@@ -231,62 +193,43 @@ namespace Acumatica.Default_23_200_001.Model
 		public BusinessAccountShippingContact? ShippingContact { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the marketing or sales campaign that resulted in creation of the business account.
 		/// DAC Field Name: CampaignSourceID 
 		/// DAC: PX.Objects.CR.BAccount 
+		/// Display Name: Source Campaign 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SourceCampaign", EmitDefaultValue=false)]
 		public StringValue? SourceCampaign { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.Objects.CR.BAccount 
+		/// Display Name: Customer Status 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Type 
+		/// Represents the type of the business account.
 		/// DAC: PX.Objects.CR.BAccount 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the workgroup responsible for the current document.
 		/// DAC Field Name: WorkgroupID 
 		/// DAC: PX.Objects.CR.BAccount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: WorkgroupID_description 
 		/// DAC: PX.Objects.CR.BAccount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WorkgroupDescription", EmitDefaultValue=false)]
 		public StringValue? WorkgroupDescription { get; set; }
 
@@ -294,26 +237,21 @@ namespace Acumatica.Default_23_200_001.Model
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the Currency,which is applied to the documents of the business account.
 		/// DAC Field Name: CuryID 
 		/// DAC: PX.Objects.CR.BAccount 
+		/// Display Name: Currency ID 
+		/// SQL Type: nvarchar(5) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, indicates that the currencyof business account documents (which is specified by CuryID)can be overridden by a user during document entry.
 		/// DAC Field Name: AllowOverrideCury 
 		/// DAC: PX.Objects.CR.BAccount 
+		/// Display Name: Enable Currency Override 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EnableCurrencyOverride", EmitDefaultValue=false)]
 		public BooleanValue? EnableCurrencyOverride { get; set; }
 

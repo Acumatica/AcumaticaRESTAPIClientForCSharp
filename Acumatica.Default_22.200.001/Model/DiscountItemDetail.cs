@@ -14,9 +14,18 @@ namespace Acumatica.Default_22_200_001.Model
 	public class DiscountItemDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: InventoryItem__Descr 
+		/// DAC: PX.Objects.AR.DiscountItem 
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.AR.DiscountItem 
+		/// Display Name: Inventory ID 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 

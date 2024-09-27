@@ -30,14 +30,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public ProjectTaskToCRMLink? CRMLink { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Specifies (if set to true) that the task is default.
 		/// DAC Field Name: IsDefault 
 		/// DAC: PX.Objects.PM.PMTask 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
@@ -45,14 +41,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public ProjectTaskDefaultValues? DefaultValues { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the task.
 		/// DAC: PX.Objects.PM.PMTask 
+		/// SQL Type: nvarchar(250) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -63,26 +55,21 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ProjectID 
 		/// DAC: PX.Objects.PM.PMTask 
+		/// Display Name: Project ID 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The unique identifier of the task. This is a segmented key, which format is configured on the Segmented Keys (CS202000) form.
 		/// DAC Field Name: TaskCD 
 		/// DAC: PX.Objects.PM.PMTask 
+		/// Display Name: Task ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
 
@@ -90,14 +77,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public ProjectTaskProperties? Properties { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
+		/// The task status.
 		/// DAC: PX.Objects.PM.PMTask 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

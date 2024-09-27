@@ -18,14 +18,9 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ActiveInPayroll 
 		/// DAC: PX.Objects.PR.PREmployee 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -33,26 +28,19 @@ namespace Acumatica.Default_23_200_001.Model
 		public Address? AddressInfo { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CashAccountID 
 		/// DAC: PX.Objects.PR.PREmployee 
+		/// Display Name: Cash Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: EmployeeClassID 
 		/// DAC: PX.Objects.PR.PREmployee 
+		/// Display Name: Class ID 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
@@ -66,38 +54,31 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<DirectDepositDetail>? DirectDepositDetails { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: AcctCD 
 		/// DAC: PX.Objects.PR.PREmployee 
+		/// Display Name: Employee ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
 		public StringValue? EmployeeID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The employee name, which is usually a concatenation of thefirst and last nameof the appropriate contact.
 		/// DAC Field Name: AcctName 
 		/// DAC: PX.Objects.PR.PREmployee 
+		/// Display Name: Employee Name 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: EmpType 
 		/// DAC: PX.Objects.PR.PREmployee 
+		/// Display Name: Employee Type 
+		/// SQL Type: char(3) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EmployeeType", EmitDefaultValue=false)]
 		public StringValue? EmployeeType { get; set; }
 
@@ -120,14 +101,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public EmployeePaidTimeOff? PaidTimeOff { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PaymentMethodID 
 		/// DAC: PX.Objects.PR.PREmployee 
+		/// Display Name: Payment Method 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
@@ -138,14 +116,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<TaxSettingDetail>? TaxSettings { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: EmpTypeUseDflt 
 		/// DAC: PX.Objects.PR.PREmployee 
+		/// Display Name: Use Default 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EmployeeTypeClassDefault", EmitDefaultValue=false)]
 		public BooleanValue? EmployeeTypeClassDefault { get; set; }
 

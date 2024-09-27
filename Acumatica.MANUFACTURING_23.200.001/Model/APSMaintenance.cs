@@ -18,14 +18,11 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Cleanup History
 		/// DAC Field Name: IsHistoryCleanupProcess 
 		/// DAC: PX.Objects.AM.AMAPSMaintenanceFilter 
+		/// Display Name: Cleanup History 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CleanupHistory", EmitDefaultValue=false)]
 		public BooleanValue? CleanupHistory { get; set; }
 
@@ -33,14 +30,11 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public APSMaintenanceHistory? History { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Update Work Center Schedule from Calendar
 		/// DAC Field Name: IsWorkCenterCalendarProcess 
 		/// DAC: PX.Objects.AM.AMAPSMaintenanceFilter 
+		/// Display Name: Update Work Center Schedule from Calendar 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UpdateWorkCenterSchedulefromCalendar", EmitDefaultValue=false)]
 		public BooleanValue? UpdateWorkCenterSchedulefromCalendar { get; set; }
 

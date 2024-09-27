@@ -14,6 +14,12 @@ namespace Acumatica.Default_24_200_001.Model
 	public class Commissions : Entity
 	{
 
+		/// <summary>
+		/// The identifier of the salesperson to be used by defaultfor each sales order line.The field is included in the SalesPerson foreign key.
+		/// DAC Field Name: SalesPersonID 
+		/// DAC: PX.Objects.SO.SOOrder 
+		/// Display Name: Default Salesperson 
+		/// </summary>
 		[DataMember(Name="DefaultSalesperson", EmitDefaultValue=false)]
 		public StringValue? DefaultSalesperson { get; set; }
 

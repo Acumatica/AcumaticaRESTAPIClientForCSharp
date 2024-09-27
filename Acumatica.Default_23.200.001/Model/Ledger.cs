@@ -24,38 +24,29 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<LedgerCompanies>? Companies { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// When set to true, indicates that the system must use the Ledger as a source Ledger for consolidation.
 		/// DAC Field Name: ConsolAllowed 
 		/// DAC: PX.Objects.GL.Ledger 
+		/// Display Name: Consolidation Source 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ConsolidationSource", EmitDefaultValue=false)]
 		public BooleanValue? ConsolidationSource { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Base Currency of the Ledger.
 		/// DAC Field Name: BaseCuryID 
 		/// DAC: PX.Objects.GL.Ledger 
+		/// SQL Type: nvarchar(5) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Currency", EmitDefaultValue=false)]
 		public StringValue? Currency { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The description of the Ledger.
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.GL.Ledger 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -63,26 +54,22 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Key field.Unique user-friendly identifier of the Ledger.
 		/// DAC Field Name: LedgerCD 
 		/// DAC: PX.Objects.GL.Ledger 
+		/// Display Name: Ledger ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LedgerID", EmitDefaultValue=false)]
 		public StringValue? LedgerID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The type of the balance of the ledger.
 		/// DAC Field Name: BalanceType 
 		/// DAC: PX.Objects.GL.Ledger 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 

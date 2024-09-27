@@ -18,50 +18,34 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: AccountClassID 
 		/// DAC: PX.Objects.GL.GLHistoryEnqFilter 
+		/// Display Name: Account Class 
+		/// SQL Type: nvarchar(20) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AccountClass", EmitDefaultValue=false)]
 		public StringValue? AccountClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OrgBAccountID 
 		/// DAC: PX.Objects.GL.GLHistoryEnqFilter 
+		/// Display Name: Company/Branch 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LedgerID 
 		/// DAC: PX.Objects.GL.GLHistoryEnqFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Ledger", EmitDefaultValue=false)]
 		public StringValue? Ledger { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: FinPeriodID 
 		/// DAC: PX.Objects.GL.GLHistoryEnqFilter 
+		/// SQL Type: char(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Period", EmitDefaultValue=false)]
 		public StringValue? Period { get; set; }
 
@@ -69,14 +53,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<AccountSummaryRow>? Results { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SubCD 
 		/// DAC: PX.Objects.GL.GLHistoryEnqFilter 
+		/// SQL Type: varchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 

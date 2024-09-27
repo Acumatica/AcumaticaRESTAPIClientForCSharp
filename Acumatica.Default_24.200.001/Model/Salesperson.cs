@@ -21,26 +21,19 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The default commission percentage of the salesperson.
 		/// DAC Field Name: CommnPct 
 		/// DAC: PX.Objects.AR.SalesPerson 
+		/// Display Name: Default Commission % 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DefaultCommission", EmitDefaultValue=false)]
 		public DecimalValue? DefaultCommission { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: IsActive 
+		/// Indicates (if set to true) that the salesperson is active and can be used for recording sales in invoice lines or sales order lines.
 		/// DAC: PX.Objects.AR.SalesPerson 
+		/// Display Name: Is Active 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="IsActive", EmitDefaultValue=false)]
 		public BooleanValue? IsActive { get; set; }
 
@@ -48,38 +41,31 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The name of the salesperson.
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.AR.SalesPerson 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Name", EmitDefaultValue=false)]
 		public StringValue? Name { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The unique identifier of the salesperson. This field is the key field.
 		/// DAC Field Name: SalesPersonCD 
 		/// DAC: PX.Objects.AR.SalesPerson 
+		/// Display Name: Salesperson ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SalespersonID", EmitDefaultValue=false)]
 		public StringValue? SalespersonID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The default sales subaccount associated with the salesperson.The value of this field can be used to construct the sales subaccount in the invoice line that references the salesperson according to the rules defined by SalesSubMask.
 		/// DAC Field Name: SalesSubID 
 		/// DAC: PX.Objects.AR.SalesPerson 
+		/// Display Name: Sales Sub. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SalesSubaccount", EmitDefaultValue=false)]
 		public StringValue? SalesSubaccount { get; set; }
 

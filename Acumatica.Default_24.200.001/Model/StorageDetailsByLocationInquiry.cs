@@ -18,14 +18,9 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SplitLocations 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SplitByLocation", EmitDefaultValue=false)]
 		public BooleanValue? SplitByLocation { get; set; }
 
@@ -33,14 +28,9 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<StorageDetailByLocation>? StorageDetailsByLocation { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Warehouse 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 

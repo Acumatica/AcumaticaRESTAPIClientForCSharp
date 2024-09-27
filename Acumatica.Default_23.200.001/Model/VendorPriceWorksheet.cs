@@ -21,38 +21,24 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.AP.APPriceWorksheet 
+		/// SQL Type: nvarchar(150) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: EffectiveDate 
 		/// DAC: PX.Objects.AP.APPriceWorksheet 
+		/// Display Name: Effective Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ExpirationDate 
 		/// DAC: PX.Objects.AP.APPriceWorksheet 
+		/// Display Name: Expiration Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
@@ -63,50 +49,34 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OverwriteOverlapping 
 		/// DAC: PX.Objects.AP.APPriceWorksheet 
+		/// Display Name: Overwrite Overlapping Prices 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OverwriteOverlappingPrices", EmitDefaultValue=false)]
 		public BooleanValue? OverwriteOverlappingPrices { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsPromotional 
 		/// DAC: PX.Objects.AP.APPriceWorksheet 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Promotional", EmitDefaultValue=false)]
 		public BooleanValue? Promotional { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: RefNbr 
 		/// DAC: PX.Objects.AP.APPriceWorksheet 
+		/// Display Name: Reference Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.Objects.AP.APPriceWorksheet 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

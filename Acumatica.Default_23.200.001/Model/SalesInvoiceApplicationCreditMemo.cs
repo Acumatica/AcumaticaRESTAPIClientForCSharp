@@ -17,6 +17,11 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
 		public DecimalValue? AmountPaid { get; set; }
 
+		/// <summary>
+		/// The open balance of the document.Given in the currency of the document.
+		/// DAC Field Name: CuryDocBal 
+		/// DAC: PX.Objects.AR.ARInvoice 
+		/// </summary>
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
@@ -26,6 +31,10 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARInvoice__InvoiceNbr 
+		/// DAC: PX.Objects.AR.ARAdjust 
+		/// </summary>
 		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
 		public StringValue? CustomerOrder { get; set; }
 

@@ -21,14 +21,10 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the document.
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -39,98 +35,77 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Module 
+		/// The identifier of the functional area, to which the batch belongs.
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// SQL Type: char(2) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Module", EmitDefaultValue=false)]
 		public StringValue? Module { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The reference number of the original document.
 		/// DAC Field Name: OrigDocNbr 
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// Display Name: Orig. Doc. Nbr. 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OriginalDocNbr", EmitDefaultValue=false)]
 		public StringValue? OriginalDocNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The type of the original document.
 		/// DAC Field Name: OrigDocType 
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// Display Name: Orig. Doc. Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OriginalDocType", EmitDefaultValue=false)]
 		public StringValue? OriginalDocType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The reference number of the document.
 		/// DAC Field Name: RefNbr 
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// Display Name: Ref. Number 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
+		/// The read-only status of the document.
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The total amount for the project transactions in the base currency.
 		/// DAC Field Name: AmtTotal 
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// Display Name: Total Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TotalAmount", EmitDefaultValue=false)]
 		public DecimalValue? TotalAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The total billable quantity for the project transactions.
 		/// DAC Field Name: BillableQtyTotal 
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// Display Name: Total Billable Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TotalBillableQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalBillableQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The total quantity of items in the project transactions.
 		/// DAC Field Name: QtyTotal 
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// Display Name: Total Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }
 

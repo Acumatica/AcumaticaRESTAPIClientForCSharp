@@ -18,26 +18,18 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: AttributeID 
 		/// DAC: PX.Objects.CS.CSAttribute 
+		/// Display Name: Attribute ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
 		public StringValue? AttributeID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ControlType 
 		/// DAC: PX.Objects.CS.CSAttribute 
+		/// Display Name: Control Type 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ControlType", EmitDefaultValue=false)]
 		public StringValue? ControlType { get; set; }
 
@@ -45,38 +37,24 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.CS.CSAttribute 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: EntryMask 
 		/// DAC: PX.Objects.CS.CSAttribute 
+		/// Display Name: Entry Mask 
+		/// SQL Type: varchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EntryMask", EmitDefaultValue=false)]
 		public StringValue? EntryMask { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsInternal 
 		/// DAC: PX.Objects.CS.CSAttribute 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Internal", EmitDefaultValue=false)]
 		public BooleanValue? Internal { get; set; }
 
@@ -84,14 +62,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: RegExp 
 		/// DAC: PX.Objects.CS.CSAttribute 
+		/// Display Name: Reg. Exp. 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RegExp", EmitDefaultValue=false)]
 		public StringValue? RegExp { get; set; }
 

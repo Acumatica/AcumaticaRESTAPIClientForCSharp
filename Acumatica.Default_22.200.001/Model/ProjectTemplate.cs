@@ -24,14 +24,10 @@ namespace Acumatica.Default_22_200_001.Model
 		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The project description.
 		/// DAC: PX.Objects.PM.PMProject 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -51,26 +47,21 @@ namespace Acumatica.Default_22_200_001.Model
 		public ProjectProperties? ProjectProperties { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The project CD. This is a segmented key. Its format is configured on the Segmented Keys (CS202000) form.
 		/// DAC Field Name: ContractCD 
 		/// DAC: PX.Objects.PM.PMProject 
+		/// Display Name: Project ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
+		/// The status of the project.
 		/// DAC: PX.Objects.PM.PMProject 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

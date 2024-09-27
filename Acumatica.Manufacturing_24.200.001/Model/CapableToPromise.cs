@@ -21,50 +21,29 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<CapableToPromiseDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ProcessAction 
 		/// DAC: PX.Objects.AM.CTPProcess+CTPFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProcessAction", EmitDefaultValue=false)]
 		public StringValue? ProcessAction { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DefaultOrderType 
 		/// DAC: PX.Objects.AM.CTPProcess+CTPFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RegularProductionOrderType", EmitDefaultValue=false)]
 		public StringValue? RegularProductionOrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SOOrderNbr 
 		/// DAC: PX.Objects.AM.CTPProcess+CTPFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SONbr", EmitDefaultValue=false)]
 		public StringValue? SONbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SOOrderType 
 		/// DAC: PX.Objects.AM.CTPProcess+CTPFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SOType", EmitDefaultValue=false)]
 		public StringValue? SOType { get; set; }
 

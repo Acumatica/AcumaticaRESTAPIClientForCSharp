@@ -18,26 +18,17 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.AR.DiscountSequence 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BreakBy 
 		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// Display Name: Break By 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BreakBy", EmitDefaultValue=false)]
 		public StringValue? BreakBy { get; set; }
 
@@ -51,14 +42,9 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<DiscountCustomerDetail>? Customers { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// SQL Type: nvarchar(250) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -66,50 +52,37 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<DiscountBreakpointDetail>? DiscountBreakpoints { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DiscountedFor 
 		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// Display Name: Discount By 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DiscountBy", EmitDefaultValue=false)]
 		public StringValue? DiscountBy { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DiscountID 
 		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// Display Name: Discount Code 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: StartDate 
 		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// Display Name: Effective Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: EndDate 
 		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// Display Name: Expiration Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
@@ -123,50 +96,32 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsPromotion 
 		/// DAC: PX.Objects.AR.DiscountSequence 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Promotional", EmitDefaultValue=false)]
 		public BooleanValue? Promotional { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Prorate 
 		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// Display Name: Prorate Discount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProrateDiscount", EmitDefaultValue=false)]
 		public BooleanValue? ProrateDiscount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DiscountSequenceID 
 		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Sequence", EmitDefaultValue=false)]
 		public StringValue? Sequence { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ShowFreeItem 
 		/// DAC: PX.Objects.AR.DiscountSequence 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShowFreeItem", EmitDefaultValue=false)]
 		public BooleanValue? ShowFreeItem { get; set; }
 

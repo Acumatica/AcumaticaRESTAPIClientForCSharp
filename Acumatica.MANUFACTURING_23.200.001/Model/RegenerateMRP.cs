@@ -18,26 +18,18 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LastMrpRegenCompletedDateTime 
 		/// DAC: PX.Objects.AM.MrpProcessingSetup 
+		/// Display Name: Last Completed At 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastCompletedAt", EmitDefaultValue=false)]
 		public DateTimeValue? LastCompletedAt { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LastMrpRegenCompletedByID 
 		/// DAC: PX.Objects.AM.MrpProcessingSetup 
+		/// Display Name: Last Completed By 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastCompletedBy", EmitDefaultValue=false)]
 		public StringValue? LastCompletedBy { get; set; }
 

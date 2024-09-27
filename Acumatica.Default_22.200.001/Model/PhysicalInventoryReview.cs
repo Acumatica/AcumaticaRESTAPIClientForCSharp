@@ -21,14 +21,10 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.IN.INPIHeader 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -36,74 +32,50 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<PhysicalInventoryReviewDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CountDate 
 		/// DAC: PX.Objects.IN.INPIHeader 
+		/// Display Name: Freeze Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FreezeDate", EmitDefaultValue=false)]
 		public DateTimeValue? FreezeDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PIID 
 		/// DAC: PX.Objects.IN.INPIHeader 
+		/// Display Name: Reference Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.Objects.IN.INPIHeader 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: TotalPhysicalQty 
 		/// DAC: PX.Objects.IN.INPIHeader 
+		/// Display Name: Total Physical Qty. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TotalPhysicalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalPhysicalQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: TotalVarCost 
 		/// DAC: PX.Objects.IN.INPIHeader 
+		/// Display Name: Total Variance Cost 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TotalVarianceCost", EmitDefaultValue=false)]
 		public DecimalValue? TotalVarianceCost { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: TotalVarQty 
 		/// DAC: PX.Objects.IN.INPIHeader 
+		/// Display Name: Total Variance Qty. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TotalVarianceQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalVarianceQty { get; set; }
 
@@ -111,14 +83,10 @@ namespace Acumatica.Default_22_200_001.Model
 		public StringValue? TypeID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.IN.INPIHeader 
+		/// Display Name: Warehouse 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 

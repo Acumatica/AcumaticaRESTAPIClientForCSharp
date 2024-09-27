@@ -18,26 +18,20 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the FOB Point.
 		/// DAC: PX.Objects.CS.FOBPoint 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: FOBPointID 
+		/// The unique identifier of the FOB Point.
 		/// DAC: PX.Objects.CS.FOBPoint 
+		/// Display Name: FOB Point ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FOBPointID", EmitDefaultValue=false)]
 		public StringValue? FOBPointID { get; set; }
 

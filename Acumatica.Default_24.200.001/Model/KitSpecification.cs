@@ -18,50 +18,32 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.IN.INKitSpecHdr 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.IN.INKitSpecHdr 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: IsNonStock 
 		/// DAC: PX.Objects.IN.INKitSpecHdr 
+		/// Display Name: Non-Stock 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="IsNonStock", EmitDefaultValue=false)]
 		public BooleanValue? IsNonStock { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: KitInventoryID 
 		/// DAC: PX.Objects.IN.INKitSpecHdr 
+		/// Display Name: Kit Inventory ID 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="KitInventoryID", EmitDefaultValue=false)]
 		public StringValue? KitInventoryID { get; set; }
 
@@ -72,14 +54,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<KitNonStockComponent>? NonStockComponents { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: RevisionID 
 		/// DAC: PX.Objects.IN.INKitSpecHdr 
+		/// Display Name: Revision 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RevisionID", EmitDefaultValue=false)]
 		public StringValue? RevisionID { get; set; }
 

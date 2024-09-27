@@ -18,14 +18,10 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: UnitRate 
 		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: Conversion Factor 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ConversionFactor", EmitDefaultValue=false)]
 		public DecimalValue? ConversionFactor { get; set; }
 
@@ -33,14 +29,12 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: FromUnit 
 		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: From Unit 
+		/// SQL Type: nvarchar(6) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FromUOM", EmitDefaultValue=false)]
 		public StringValue? FromUOM { get; set; }
 
@@ -48,26 +42,21 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: UnitMultDiv 
 		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: Multiply/Divide 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="MultiplyOrDivide", EmitDefaultValue=false)]
 		public StringValue? MultiplyOrDivide { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ToUnit 
 		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: To Unit 
+		/// SQL Type: nvarchar(6) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ToUOM", EmitDefaultValue=false)]
 		public StringValue? ToUOM { get; set; }
 

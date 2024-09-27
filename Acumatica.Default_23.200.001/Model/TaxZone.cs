@@ -24,14 +24,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The description of the tax zone, which can be specified by the user.
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.TX.TaxZone 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -39,14 +36,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: TaxZoneID 
+		/// A key field, which can be specified by the user.
 		/// DAC: PX.Objects.TX.TaxZone 
+		/// Display Name: Tax Zone ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxZoneID", EmitDefaultValue=false)]
 		public StringValue? TaxZoneID { get; set; }
 

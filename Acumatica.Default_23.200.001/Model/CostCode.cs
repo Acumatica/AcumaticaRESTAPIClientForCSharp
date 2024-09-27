@@ -18,26 +18,21 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Get or sets unique identifier.This is a segmented key and format is configured under segmented key maintenance screen in CS module.
 		/// DAC Field Name: CostCodeCD 
 		/// DAC: PX.Objects.PM.PMCostCode 
+		/// Display Name: Cost Code 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CostCodeID", EmitDefaultValue=false)]
 		public StringValue? CostCodeID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// Gets or sets description
 		/// DAC: PX.Objects.PM.PMCostCode 
+		/// SQL Type: nvarchar(250) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 

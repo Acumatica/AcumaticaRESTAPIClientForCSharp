@@ -14,15 +14,35 @@ namespace Acumatica.Default_23_200_001.Model
 	public class MatrixItems : Entity
 	{
 
+		/// <summary>
+		/// The price used as the default price, if there are no other prices defined for this item in any price list in the Accounts Receivable module.
+		/// DAC Field Name: BasePrice 
+		/// DAC: PX.Objects.IN.InventoryItemCurySettings 
+		/// Display Name: Default Price 
+		/// </summary>
 		[DataMember(Name="DefaultPrice", EmitDefaultValue=false)]
 		public DecimalValue? DefaultPrice { get; set; }
 
+		/// <summary>
+		/// The description of the Inventory Item.
+		/// DAC Field Name: Descr 
+		/// DAC: PX.Objects.IN.InventoryItem 
+		/// SQL Type: nvarchar(256) 
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.IN.Matrix.GraphExtensions.ItemsGridExt+MatrixInventoryItem 
+		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
+		/// <summary>
+		/// The manufacturer's suggested retail price of the item.
+		/// DAC Field Name: RecPrice 
+		/// DAC: PX.Objects.IN.InventoryItemCurySettings 
+		/// </summary>
 		[DataMember(Name="MSRP", EmitDefaultValue=false)]
 		public DecimalValue? MSRP { get; set; }
 

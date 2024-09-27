@@ -18,38 +18,29 @@ namespace Acumatica.eCommerce_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BindingName 
+		/// A user-friendly name of the store.
 		/// DAC: PX.Commerce.Core.BCBinding 
+		/// Display Name: Store Name 
+		/// SQL Type: nvarchar(20) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BindingName", EmitDefaultValue=false)]
 		public StringValue? BindingName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LocaleName 
+		/// The name of the locale for this binding.
 		/// DAC: PX.Commerce.Core.BCBinding 
+		/// Display Name: Locale 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LocaleName", EmitDefaultValue=false)]
 		public StringValue? LocaleName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Marketplace 
+		/// Marketplace where selling partners authorizes the application            
 		/// DAC: PX.Commerce.Amazon.BCBindingAmazon 
+		/// SQL Type: nvarchar(100) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Marketplace", EmitDefaultValue=false)]
 		public StringValue? Marketplace { get; set; }
 
@@ -57,50 +48,35 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		public StringValue? RefreshToken { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Region 
+		/// AWS region
 		/// DAC: PX.Commerce.Amazon.BCBindingAmazon 
+		/// SQL Type: nvarchar(100) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Region", EmitDefaultValue=false)]
 		public StringValue? Region { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SellerPartnerId 
+		/// The identifier of the selling partner who is authorizing your application.
 		/// DAC: PX.Commerce.Amazon.BCBindingAmazon 
+		/// Display Name: Seller Partner ID 
+		/// SQL Type: nvarchar(14) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SellerPartnerId", EmitDefaultValue=false)]
 		public StringValue? SellerPartnerId { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Determines whether the store is accessible through other Commerce forms.
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Commerce.Core.BCBinding 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Determines whether the store will be chosen as default through other Commerce screens.
 		/// DAC Field Name: IsDefault 
 		/// DAC: PX.Commerce.Core.BCBinding 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 

@@ -18,38 +18,22 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Unit 
 		/// DAC: PX.Objects.Localizations.CA.CS.UnitOfMeasure 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UnitID", EmitDefaultValue=false)]
 		public StringValue? UnitID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.Localizations.CA.CS.UnitOfMeasure 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: L3Code 
 		/// DAC: PX.Objects.Localizations.CA.CS.UnitOfMeasure 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="L3Code", EmitDefaultValue=false)]
 		public StringValue? L3Code { get; set; }
 

@@ -24,38 +24,27 @@ namespace Acumatica.Default_23_200_001.Model
 		public CalendarSettings? CalendarSettings { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.CS.CSCalendar 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: TimeZone 
 		/// DAC: PX.Objects.CS.CSCalendar 
+		/// Display Name: Time Zone 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TimeZone", EmitDefaultValue=false)]
 		public StringValue? TimeZone { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CalendarID 
 		/// DAC: PX.Objects.CS.CSCalendar 
+		/// Display Name: Calendar ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]
 		public StringValue? WorkCalendarID { get; set; }
 

@@ -21,38 +21,24 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.AR.ARPriceWorksheet 
+		/// SQL Type: nvarchar(150) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: EffectiveDate 
 		/// DAC: PX.Objects.AR.ARPriceWorksheet 
+		/// Display Name: Effective Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ExpirationDate 
 		/// DAC: PX.Objects.AR.ARPriceWorksheet 
+		/// Display Name: Expiration Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
@@ -63,26 +49,20 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OverwriteOverlapping 
 		/// DAC: PX.Objects.AR.ARPriceWorksheet 
+		/// Display Name: Overwrite Overlapping Prices 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OverwriteOverlappingPrices", EmitDefaultValue=false)]
 		public BooleanValue? OverwriteOverlappingPrices { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: RefNbr 
 		/// DAC: PX.Objects.AR.ARPriceWorksheet 
+		/// Display Name: Reference Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
@@ -90,14 +70,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<SalesPricesWorksheetDetail>? SalesPrices { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.Objects.AR.ARPriceWorksheet 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

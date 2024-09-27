@@ -18,14 +18,9 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.CM.CurrencyList 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -33,50 +28,36 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CuryID 
 		/// DAC: PX.Objects.CM.CurrencyList 
+		/// Display Name: Currency ID 
+		/// SQL Type: nvarchar(5) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CurySymbol 
 		/// DAC: PX.Objects.CM.CurrencyList 
+		/// Display Name: Currency Symbol 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CurrencySymbol", EmitDefaultValue=false)]
 		public StringValue? CurrencySymbol { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DecimalPlaces 
 		/// DAC: PX.Objects.CM.CurrencyList 
+		/// Display Name: Decimal Precision 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DecimalPrecision", EmitDefaultValue=false)]
 		public ShortValue? DecimalPrecision { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.CM.CurrencyList 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -84,14 +65,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsFinancial 
 		/// DAC: PX.Objects.CM.CurrencyList 
+		/// Display Name: Use for Accounting 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UseForAccounting", EmitDefaultValue=false)]
 		public BooleanValue? UseForAccounting { get; set; }
 

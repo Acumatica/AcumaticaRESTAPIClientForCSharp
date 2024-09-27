@@ -18,26 +18,21 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the Account Group associated with the budget line.
 		/// DAC Field Name: AccountGroupID 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Account Group 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
 		public StringValue? AccountGroup { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The total amount of the lines of the released accounts receivable invoices that correspond to the budget line.The amount is shown in the project currency.
 		/// DAC Field Name: CuryActualAmount 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Actual Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ActualAmount", EmitDefaultValue=false)]
 		public DecimalValue? ActualAmount { get; set; }
 
@@ -45,14 +40,10 @@ namespace Acumatica.Default_22_200_001.Model
 		public DecimalValue? ActualPlusOpenCommittedAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ActualQty 
+		/// The total quantity of the lines of the released accounts receivable invoices that correspond to the budget line.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Actual Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ActualQty", EmitDefaultValue=false)]
 		public DecimalValue? ActualQty { get; set; }
 
@@ -72,62 +63,44 @@ namespace Acumatica.Default_22_200_001.Model
 		public DecimalValue? CommittedCOQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The total invoiced amount of the commitments in the project currency.
 		/// DAC Field Name: CuryCommittedInvoicedAmount 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Committed Invoiced Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedInvoicedAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommittedInvoicedAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CommittedInvoicedQty 
+		/// The total invoiced quantity of the commitments.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Committed Invoiced Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedInvoicedQty", EmitDefaultValue=false)]
 		public DecimalValue? CommittedInvoicedQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The total open amount of the commitments in the project currency.
 		/// DAC Field Name: CuryCommittedOpenAmount 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Committed Open Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedOpenAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommittedOpenAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CommittedOpenQty 
+		/// The total open quantity of the commitments.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Committed Open Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedOpenQty", EmitDefaultValue=false)]
 		public DecimalValue? CommittedOpenQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CommittedReceivedQty 
+		/// The total received quantity of the commitments.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Committed Received Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedReceivedQty", EmitDefaultValue=false)]
 		public DecimalValue? CommittedReceivedQty { get; set; }
 
@@ -138,14 +111,12 @@ namespace Acumatica.Default_22_200_001.Model
 		public DecimalValue? CostAtCompletion { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the Cost Code associated with the budget line.
 		/// DAC Field Name: CostCodeID 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Cost Code 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
@@ -153,14 +124,10 @@ namespace Acumatica.Default_22_200_001.Model
 		public DecimalValue? CostToComplete { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the budget line.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -168,14 +135,11 @@ namespace Acumatica.Default_22_200_001.Model
 		public DecimalValue? DraftInvoicesAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
+		/// The identifier of the inventory item associated with the budget line.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Inventory ID 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
@@ -192,26 +156,20 @@ namespace Acumatica.Default_22_200_001.Model
 		public DecimalValue? LastPercentageOfCompletion { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The budgeted amount of the budget line in the project currency.
 		/// DAC Field Name: CuryAmount 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Original Budgeted Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OriginalBudgetedAmount", EmitDefaultValue=false)]
 		public DecimalValue? OriginalBudgetedAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The budgeted quantity of the budget line.
 		/// DAC Field Name: Qty 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Original Budgeted Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OriginalBudgetedQty", EmitDefaultValue=false)]
 		public DecimalValue? OriginalBudgetedQty { get; set; }
 
@@ -231,26 +189,18 @@ namespace Acumatica.Default_22_200_001.Model
 		public DecimalValue? Performance { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ProjectID 
+		/// The identifier of the project associated with the budget line.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ProjectTaskID 
+		/// The identifier of the project task associated with the budget line.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
 
@@ -261,50 +211,38 @@ namespace Acumatica.Default_22_200_001.Model
 		public IntValue? RevenueTask { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The revised budgeted amount in the project currency.
 		/// DAC Field Name: CuryRevisedAmount 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Revised Budgeted Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RevisedBudgetedAmount", EmitDefaultValue=false)]
 		public DecimalValue? RevisedBudgetedAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The revised budgeted quantity.
 		/// DAC Field Name: RevisedQty 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Revised Budgeted Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RevisedBudgetedQty", EmitDefaultValue=false)]
 		public DecimalValue? RevisedBudgetedQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The total amount of the commitments in the project currency.
 		/// DAC Field Name: CuryCommittedAmount 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Revised Committed Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RevisedCommittedAmount", EmitDefaultValue=false)]
 		public DecimalValue? RevisedCommittedAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The total quantity of the commitments.
 		/// DAC Field Name: CommittedQty 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Revised Committed Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RevisedCommittedQty", EmitDefaultValue=false)]
 		public DecimalValue? RevisedCommittedQty { get; set; }
 
@@ -312,38 +250,27 @@ namespace Acumatica.Default_22_200_001.Model
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Type 
+		/// The type of the budget line.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The price or cost of the specified unit of the budget line in the project currency.
 		/// DAC Field Name: CuryUnitRate 
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// Display Name: Unit Rate 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UnitRate", EmitDefaultValue=false)]
 		public DecimalValue? UnitRate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: UOM 
+		/// The unit of measure of the budget line.
 		/// DAC: PX.Objects.PM.PMBudget 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 

@@ -14,6 +14,11 @@ namespace Acumatica.Default_22_200_001.Model
 	public class BatchOvertimeRules : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: ApplyOvertimeRules 
+		/// DAC: PX.Objects.PR.PRBatch 
+		/// Display Name: Apply Overtime Rules for the Document 
+		/// </summary>
 		[DataMember(Name="ApplyOvertimeRulesfortheDocument", EmitDefaultValue=false)]
 		public BooleanValue? ApplyOvertimeRulesfortheDocument { get; set; }
 

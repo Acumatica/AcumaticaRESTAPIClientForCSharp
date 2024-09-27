@@ -18,98 +18,74 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: AccountCD 
+		/// Key field.The user-friendly unique identifier of the account.
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Account 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AccountCD", EmitDefaultValue=false)]
 		public StringValue? AccountCD { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the account class, to which the account is assigned.
 		/// DAC Field Name: AccountClassID 
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Account Class 
+		/// SQL Type: nvarchar(20) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AccountClass", EmitDefaultValue=false)]
 		public StringValue? AccountClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the Account Group, that includes this account.Used only if the Projects module has been activated.
 		/// DAC Field Name: AccountGroupID 
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Account Group 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
 		public StringValue? AccountGroup { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: AccountID 
+		/// Unique identifier of the account. Database identity.
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Account ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AccountID", EmitDefaultValue=false)]
 		public IntValue? AccountID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Active 
+		/// Indicates whether the Account is active.
 		/// DAC: PX.Objects.GL.Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Indicates whether the accounts has on or several Cash Accounts associated with it.
 		/// DAC Field Name: IsCashAccount 
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Cash Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public BooleanValue? CashAccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The relative order of the account in the chart of accounts.
 		/// DAC Field Name: COAOrder 
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: COA Order 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ChartOfAccountsOrder", EmitDefaultValue=false)]
 		public IntValue? ChartOfAccountsOrder { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the external General Ledger account in the chart of accounts of the parent company,to which the balance of this account will be exported in the process of consolidation.This field is relevant only if the company is a consolidation unit in the parent company.
 		/// DAC Field Name: GLConsolAccountCD 
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Consolidation Account 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ConsolidationAccount", EmitDefaultValue=false)]
 		public StringValue? ConsolidationAccount { get; set; }
 
@@ -117,26 +93,20 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the Currency of the account.
 		/// DAC Field Name: CuryID 
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Currency 
+		/// SQL Type: nvarchar(5) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the account.
 		/// DAC: PX.Objects.GL.Account 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -144,86 +114,62 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: PostOption 
+		/// Defines how the transactions created in other modules are posted to this account.In the scope of the account overrides the APSetup.SummaryPost,ARSetup.SummaryPost and similar settings in other modules.
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Post Option 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PostOption", EmitDefaultValue=false)]
 		public StringValue? PostOption { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: RequireUnits 
+		/// When set to true, indicates that every transaction posted to this account must haveQunatity and Units of Measure specified.
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Require Units 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RequireUnits", EmitDefaultValue=false)]
 		public BooleanValue? RequireUnits { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the Exchange Rate Typethat is used for the account in the process of revaluation.This field is required only for the accounts denominated to a foreign currency.
 		/// DAC Field Name: RevalCuryRateTypeId 
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Revaluation Rate Type 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RevaluationRateType", EmitDefaultValue=false)]
 		public StringValue? RevaluationRateType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Secured 
 		/// DAC: PX.Objects.GL.Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Secured", EmitDefaultValue=false)]
 		public BooleanValue? Secured { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the Tax Category associated with the account.
 		/// DAC Field Name: TaxCategoryID 
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Tax Category 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Type 
+		/// The type of the account.
 		/// DAC: PX.Objects.GL.Account 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, indicates that the system must set the subaccount to the default subaccount,when this account is selected for a document or transaction.
 		/// DAC Field Name: NoSubDetail 
 		/// DAC: PX.Objects.GL.Account 
+		/// Display Name: Use Default Subaccount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UseDefaultSubaccount", EmitDefaultValue=false)]
 		public BooleanValue? UseDefaultSubaccount { get; set; }
 

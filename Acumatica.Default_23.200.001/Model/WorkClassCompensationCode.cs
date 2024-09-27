@@ -18,62 +18,42 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.PM.PMWorkCode 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CostCodeFrom 
 		/// DAC: PX.Objects.PM.PMWorkCodeCostCodeRange 
+		/// Display Name: Cost Code From 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CostCodeFrom", EmitDefaultValue=false)]
 		public StringValue? CostCodeFrom { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CostCodeTo 
 		/// DAC: PX.Objects.PM.PMWorkCodeCostCodeRange 
+		/// Display Name: Cost Code To 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CostCodeTo", EmitDefaultValue=false)]
 		public StringValue? CostCodeTo { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.PM.PMWorkCode 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: WorkCodeID 
 		/// DAC: PX.Objects.PM.PMWorkCode 
+		/// Display Name: WCC Code 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
 		public StringValue? WCCCode { get; set; }
 

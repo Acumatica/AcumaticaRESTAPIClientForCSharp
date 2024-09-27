@@ -21,14 +21,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? AdjustToPeriodStart { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BelongsToNextYear 
+		/// When set to true, indicates that the system must set the financial year to the one,following the year of the selected start date of the year.
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: Belongs to Next Year 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BelongsToNextYear", EmitDefaultValue=false)]
 		public BooleanValue? BelongsToNextYear { get; set; }
 
@@ -36,14 +32,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The day of the week of the last day of the financial year.Relevant ony for the period types based on weeks andif the EndYearCalcMethod is not "CA" - Last day of the financial year.
 		/// DAC Field Name: YearLastDayOfWeek 
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: Day of Week 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DayOfWeek", EmitDefaultValue=false)]
 		public StringValue? DayOfWeek { get; set; }
 
@@ -51,50 +44,38 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<FinancialYearPeriodDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The start date of the financial year.
 		/// DAC Field Name: BegFinYear 
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: Financial Year Starts On 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FinancialYearStartsOn", EmitDefaultValue=false)]
 		public DateTimeValue? FinancialYearStartsOn { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// First financial year, for which data is stored in the system.
 		/// DAC Field Name: FirstFinYear 
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: First Financial Year 
+		/// SQL Type: char(4) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FirstFinancialYear", EmitDefaultValue=false)]
 		public StringValue? FirstFinancialYear { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The start date of the first period of the year.
 		/// DAC Field Name: PeriodsStartDate 
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: First Period Start Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FirstPeriodStartDate", EmitDefaultValue=false)]
 		public DateTimeValue? FirstPeriodStartDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: HasAdjustmentPeriod 
+		/// When set to true, indicates that the system generates an additional period for posting adjustments.The adjustment period has the same start and end date and is the last period of the year.No date in the year corresponds to the adjustment period, so it can be selected for a particular document or batch only manually.See also the IsAdjustment field.
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: Has Adjustment Period 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="HasAdjustmentPeriod", EmitDefaultValue=false)]
 		public BooleanValue? HasAdjustmentPeriod { get; set; }
 
@@ -102,74 +83,57 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Obsolete field.The length of periods of the year in days.
 		/// DAC Field Name: PeriodLength 
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: Length of Financial Period (days) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LengthOfFinancialPeriodInDays", EmitDefaultValue=false)]
 		public ShortValue? LengthOfFinancialPeriodInDays { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The number of financial periods in the year.
 		/// DAC Field Name: FinPeriods 
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: Number of Financial Periods  
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="NbrOfFinancialPeriods", EmitDefaultValue=false)]
 		public ShortValue? NbrOfFinancialPeriods { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The day of the week when period starts.Relevant only for the period types based on weeks.
 		/// DAC Field Name: EndYearDayOfWeek 
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: Periods Start Day of Week 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PeriodsStartDayOfWeek", EmitDefaultValue=false)]
 		public StringValue? PeriodsStartDayOfWeek { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: PeriodType 
+		/// The type of financial periods that make up the year.
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: Period Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PeriodType", EmitDefaultValue=false)]
 		public StringValue? PeriodType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The read-only field indicating whether the periods of the year can be modified by user.
 		/// DAC Field Name: UserDefined 
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: User-Defined Periods 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UserDefinedPeriods", EmitDefaultValue=false)]
 		public BooleanValue? UserDefinedPeriods { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The method used to determine the end date of a year with week-long periods.
 		/// DAC Field Name: EndYearCalcMethod 
 		/// DAC: PX.Objects.GL.FinYearSetup 
+		/// Display Name: Year End Calculation Method 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="YearEndCalculationMethod", EmitDefaultValue=false)]
 		public StringValue? YearEndCalculationMethod { get; set; }
 

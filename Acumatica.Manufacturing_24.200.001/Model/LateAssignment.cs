@@ -21,110 +21,78 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<LateAssignmentAllocatedDetail>? AllocatedDetail { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: QtyComplete 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// Display Name: Complete Qty. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CompleteQty", EmitDefaultValue=false)]
 		public DecimalValue? CompleteQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LotSerialNbr 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// Display Name: Lot/Serial Nbr. 
+		/// SQL Type: nvarchar(100) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrderType 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// Display Name: Order Type 
+		/// SQL Type: char(2) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProdOrdID 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// Display Name: Production Nbr. 
+		/// SQL Type: nvarchar(19) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Qty 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// Display Name: Qty. to Produce 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
 		public DecimalValue? QtytoProduce { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Quantity remaining to be completed on the production order
 		/// DAC Field Name: QtyRemaining 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// Display Name: Remaining Qty. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RemainingQty", EmitDefaultValue=false)]
 		public DecimalValue? RemainingQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: QtyScrapped 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// Display Name: Scrapped Qty. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ScrappedQty", EmitDefaultValue=false)]
 		public DecimalValue? ScrappedQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: StatusID 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
@@ -132,14 +100,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<LateAssignmentUnallocatedDetail>? UnallocatedDetail { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteId 
 		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 

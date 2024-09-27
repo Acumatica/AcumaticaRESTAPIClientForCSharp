@@ -18,38 +18,27 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BatchNbr 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// Display Name: Batch Number 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
 		public StringValue? BatchNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A reference to the BAccountAn integer identifier of the organizational entity.BAccountID of the Organization if OrganizationType != OrganizationTypes.WithBranchesBalancingBAccountID of the Branch if OrganizationType = OrganizationTypes.WithBranchesBalancing
 		/// DAC Field Name: OrgBAccountID 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// Display Name: Company/Branch 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: TotalBalance 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// Display Name: Control Total 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ControlTotal", EmitDefaultValue=false)]
 		public DecimalValue? ControlTotal { get; set; }
 
@@ -57,38 +46,25 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CreditTotalBalance 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// Display Name: Credit Total 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CreditTotal", EmitDefaultValue=false)]
 		public DecimalValue? CreditTotal { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DebitTotalBalance 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// Display Name: Debit Total 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DebitTotal", EmitDefaultValue=false)]
 		public DecimalValue? DebitTotal { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -99,26 +75,19 @@ namespace Acumatica.Default_22_200_001.Model
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ImportDate 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// Display Name: Import Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ImportDate", EmitDefaultValue=false)]
 		public DateTimeValue? ImportDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Number 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// Display Name: Import Number 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ImportNbr", EmitDefaultValue=false)]
 		public StringValue? ImportNbr { get; set; }
 
@@ -126,38 +95,24 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LedgerID 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Ledger", EmitDefaultValue=false)]
 		public StringValue? Ledger { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: FinPeriodID 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// SQL Type: char(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Period", EmitDefaultValue=false)]
 		public StringValue? Period { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.Objects.GL.GLTrialBalanceImportMap 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

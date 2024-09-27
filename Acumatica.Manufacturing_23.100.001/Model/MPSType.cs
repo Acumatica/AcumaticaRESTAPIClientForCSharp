@@ -18,50 +18,35 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Dependent 
 		/// DAC: PX.Objects.AM.AMMPSType 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Dependent", EmitDefaultValue=false)]
 		public BooleanValue? Dependent { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.AM.AMMPSType 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: MPSNumberingID 
 		/// DAC: PX.Objects.AM.AMMPSType 
+		/// Display Name: Numbering Sequence 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="NumberingSequence", EmitDefaultValue=false)]
 		public StringValue? NumberingSequence { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: MPSTypeID 
 		/// DAC: PX.Objects.AM.AMMPSType 
+		/// Display Name: Type ID 
+		/// SQL Type: nvarchar(20) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TypeID", EmitDefaultValue=false)]
 		public StringValue? TypeID { get; set; }
 

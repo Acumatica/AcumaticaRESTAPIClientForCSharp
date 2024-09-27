@@ -21,14 +21,11 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		public SalesInvoiceAddress? BillToAddress { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by CustomerAddressID. This field is the inverse of IsDefaultBillAddress.
 		/// DAC Field Name: OverrideAddress 
 		/// DAC: PX.Objects.AR.ARShippingAddress 
+		/// Display Name: Override Address 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BillToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillToAddressOverride { get; set; }
 
@@ -36,26 +33,20 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		public SalesInvoiceDocContact? BillToContact { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
 		/// DAC Field Name: OverrideContact 
 		/// DAC: PX.Objects.AR.ARShippingContact 
+		/// Display Name: Override Contact 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BillToContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillToContactOverride { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The date and time when the record was created.
 		/// DAC Field Name: CreatedDateTime 
 		/// DAC: PX.Objects.EP.EPApproval 
+		/// Display Name: Assignment Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDate { get; set; }
 
@@ -69,14 +60,11 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		public SalesInvoiceAddress? ShipToAddress { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by CustomerAddressID. This field is the inverse of IsDefaultBillAddress.
 		/// DAC Field Name: OverrideAddress 
 		/// DAC: PX.Objects.AR.ARShippingAddress 
+		/// Display Name: Override Address 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShipToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressOverride { get; set; }
 
@@ -84,26 +72,19 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		public SalesInvoiceDocContact? ShipToContact { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
 		/// DAC Field Name: OverrideContact 
 		/// DAC: PX.Objects.AR.ARShippingContact 
+		/// Display Name: Override Contact 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShipToContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToContactOverride { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: TaxCalcMode 
 		/// DAC: PX.Objects.AR.ARInvoice 
+		/// Display Name: Tax Calculation Mode 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxCalcMode", EmitDefaultValue=false)]
 		public StringValue? TaxCalcMode { get; set; }
 

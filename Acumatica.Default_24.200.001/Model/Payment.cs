@@ -18,14 +18,10 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: AdjDate 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Application Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ApplicationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ApplicationDate { get; set; }
 
@@ -33,50 +29,34 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<PaymentApplicationHistoryDetail>? ApplicationHistory { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CuryApplAmt 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Applied to Documents 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AppliedToDocuments", EmitDefaultValue=false)]
 		public DecimalValue? AppliedToDocuments { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the branch to which the document belongs.
 		/// DAC Field Name: BranchID 
 		/// DAC: PX.Objects.AR.ARPayment 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PMInstanceID 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Card/Account Nbr. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CardAccountNbr", EmitDefaultValue=false)]
 		public IntValue? CardAccountNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CashAccountID 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Cash Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
@@ -87,38 +67,28 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<CreditCardProcessingDetail>? CreditCardProcessingInfo { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The code of the Currency of the document.
 		/// DAC Field Name: CuryID 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Currency 
+		/// SQL Type: nvarchar(5) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CustomerID 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Customer 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The description of the document.
 		/// DAC Field Name: DocDesc 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// SQL Type: nvarchar(512) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -135,74 +105,55 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<PaymentOrderDetail>? OrdersToApply { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CuryOrigDocAmt 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Payment Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PaymentAmount", EmitDefaultValue=false)]
 		public DecimalValue? PaymentAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PaymentMethodID 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Payment Method 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ExtRefNbr 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Payment Ref. 
+		/// SQL Type: nvarchar(40) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PaymentRef", EmitDefaultValue=false)]
 		public StringValue? PaymentRef { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: RefNbr 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Reference Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
+		/// The status of the document.The value of the field is determined by the values of the status flags,such as Hold, Released, Voided, Scheduled.
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DocType 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// SQL Type: char(3) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
@@ -210,26 +161,17 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ProcessingCenterID 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Proc. Center ID 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProcessingCenterID", EmitDefaultValue=false)]
 		public StringValue? ProcessingCenterID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SaveCard 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Save Card 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SaveCard", EmitDefaultValue=false)]
 		public BooleanValue? SaveCard { get; set; }
 
@@ -240,50 +182,35 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? ExternalRef { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: RefTranExtNbr 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Orig. Transaction 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrigTransaction", EmitDefaultValue=false)]
 		public StringValue? OrigTransaction { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BranchID 
+		/// The identifier of the branch to which the document belongs.
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Branch 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CustomerLocationID 
+		/// Identifier of the Location of the Customer.
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Location 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CustomerLocationID", EmitDefaultValue=false)]
 		public StringValue? CustomerLocationID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: NewCard 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: New Card 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="IsNewCard", EmitDefaultValue=false)]
 		public BooleanValue? IsNewCard { get; set; }
 
@@ -291,26 +218,18 @@ namespace Acumatica.Default_24_200_001.Model
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CuryUnappliedBal 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Available Balance 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AvailableBalance", EmitDefaultValue=false)]
 		public DecimalValue? AvailableBalance { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CurySOApplAmt 
 		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Applied to Orders 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AppliedToOrders", EmitDefaultValue=false)]
 		public DecimalValue? AppliedToOrders { get; set; }
 

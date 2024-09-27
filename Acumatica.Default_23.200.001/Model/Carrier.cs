@@ -18,26 +18,21 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CarrierPluginID 
 		/// DAC: PX.Objects.CS.CarrierPlugin 
+		/// Display Name: Carrier ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CarrierID", EmitDefaultValue=false)]
 		public StringValue? CarrierID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: UnitType 
 		/// DAC: PX.Objects.CS.CarrierPlugin 
+		/// Display Name: Carrier Units 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CarrierUnits", EmitDefaultValue=false)]
 		public StringValue? CarrierUnits { get; set; }
 
@@ -48,14 +43,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<CarrierCustomerAccount>? CustomerAccounts { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.CS.CarrierPlugin 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -66,74 +56,51 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<CarrierPluginParameter>? PlugInParameters { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PluginTypeName 
 		/// DAC: PX.Objects.CS.CarrierPlugin 
+		/// Display Name: Plug-In 
+		/// SQL Type: varchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PlugInType", EmitDefaultValue=false)]
 		public StringValue? PlugInType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CentimeterUOM 
 		/// DAC: PX.Objects.CS.CarrierPlugin 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Centimeter", EmitDefaultValue=false)]
 		public StringValue? Centimeter { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: InchUOM 
 		/// DAC: PX.Objects.CS.CarrierPlugin 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Inch", EmitDefaultValue=false)]
 		public StringValue? Inch { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: KilogramUOM 
 		/// DAC: PX.Objects.CS.CarrierPlugin 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Kilogram", EmitDefaultValue=false)]
 		public StringValue? Kilogram { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PoundUOM 
 		/// DAC: PX.Objects.CS.CarrierPlugin 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Pound", EmitDefaultValue=false)]
 		public StringValue? Pound { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.CS.CarrierPlugin 
+		/// Display Name: Warehouse 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 

@@ -24,14 +24,13 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<FinancialPeriodDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Key field.The financial year.
 		/// DAC Field Name: Year 
 		/// DAC: PX.Objects.GL.FinPeriods.MasterFinYear 
+		/// Display Name: Financial Year 
+		/// SQL Type: char(4) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
 		public StringValue? FinancialYear { get; set; }
 
@@ -39,38 +38,28 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The number of periods in the year.
 		/// DAC Field Name: FinPeriods 
 		/// DAC: PX.Objects.GL.FinPeriods.MasterFinYear 
+		/// Display Name: Number of Periods 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="NbrOfPeriods", EmitDefaultValue=false)]
 		public ShortValue? NbrOfPeriods { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: StartDate 
+		/// The start date of the year.
 		/// DAC: PX.Objects.GL.FinPeriods.MasterFinYear 
+		/// Display Name: Start Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Indicates whether the periods of the year can be modified by user.
 		/// DAC Field Name: CustomPeriods 
 		/// DAC: PX.Objects.GL.FinPeriods.MasterFinYear 
+		/// Display Name: User-Defined Periods 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UserDefinedPeriods", EmitDefaultValue=false)]
 		public BooleanValue? UserDefinedPeriods { get; set; }
 

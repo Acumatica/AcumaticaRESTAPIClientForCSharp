@@ -18,14 +18,10 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ApplicableTo 
 		/// DAC: PX.Objects.AR.ARDiscount 
+		/// Display Name: Applicable To 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ApplicableTo", EmitDefaultValue=false)]
 		public StringValue? ApplicableTo { get; set; }
 
@@ -33,38 +29,28 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.AR.ARDiscount 
+		/// SQL Type: nvarchar(250) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DiscountID 
 		/// DAC: PX.Objects.AR.ARDiscount 
+		/// Display Name: Discount Code 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DiscountCodeID", EmitDefaultValue=false)]
 		public StringValue? DiscountCodeID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Type 
 		/// DAC: PX.Objects.AR.ARDiscount 
+		/// Display Name: Discount Type 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DiscountType", EmitDefaultValue=false)]
 		public StringValue? DiscountType { get; set; }
 

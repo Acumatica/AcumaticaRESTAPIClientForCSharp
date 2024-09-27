@@ -18,14 +18,10 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: AcaApplicable 
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: ACA Applicable 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ACAApplicable", EmitDefaultValue=false)]
 		public BooleanValue? ACAApplicable { get; set; }
 
@@ -33,26 +29,19 @@ namespace Acumatica.Default_24_200_001.Model
 		public ACAInformation? ACAInformation { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A boolean value that specifies (if set to true) that the code is available for use.
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.PR.PRDeductCode 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A boolean value that specifies (if set to true) that the code affects the tax calculation.
 		/// DAC Field Name: AffectsTaxes 
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Affects Tax Calculation 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AffectsTaxCalculation", EmitDefaultValue=false)]
 		public BooleanValue? AffectsTaxCalculation { get; set; }
 
@@ -60,50 +49,40 @@ namespace Acumatica.Default_24_200_001.Model
 		public ApplicableWage? ApplicableWage { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: AssociatedSource 
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Associated With 
+		/// SQL Type: nchar(3) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AssociatedWith", EmitDefaultValue=false)]
 		public StringValue? AssociatedWith { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The type of a code that defines how the code affects employee earnings.
 		/// DAC Field Name: ContribType 
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Contribution Type 
+		/// SQL Type: char(3) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ContributionType", EmitDefaultValue=false)]
 		public StringValue? ContributionType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The user-friendly unique identifier of the code.
 		/// DAC Field Name: CodeCD 
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Code 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DeductionBenefitCodeID", EmitDefaultValue=false)]
 		public StringValue? DeductionBenefitCodeID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the code to appear in such places as box selectors and pay stubs.
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -117,26 +96,20 @@ namespace Acumatica.Default_24_200_001.Model
 		public DeductionOrBenefitCodeGLAccounts? GLAccounts { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The way the description of the vendor invoice is generated.
 		/// DAC Field Name: DedInvDescrType 
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Invoice Description Source 
+		/// SQL Type: char(3) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InvoiceDescrSource", EmitDefaultValue=false)]
 		public StringValue? InvoiceDescrSource { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: IsGarnishment 
+		/// A boolean value that specifies (if set to true) that the code is to be used for a garnishment.
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Garnishment 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="IsGarnishment", EmitDefaultValue=false)]
 		public BooleanValue? IsGarnishment { get; set; }
 
@@ -144,26 +117,17 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A boolean value that specifies (if set to true) that the code may contribute to gross calculation.
 		/// DAC Field Name: IsPayableBenefit 
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Payable Benefit 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PayableBenefit", EmitDefaultValue=false)]
 		public BooleanValue? PayableBenefit { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ShowApplicableWageTab 
 		/// DAC: PX.Objects.PR.PRDeductCode 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShowApplicableWageTab", EmitDefaultValue=false)]
 		public BooleanValue? ShowApplicableWageTab { get; set; }
 
@@ -174,26 +138,20 @@ namespace Acumatica.Default_24_200_001.Model
 		public TaxSettingsUS? TaxSettingsUS { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The unique identifier of the vendor that will be owed the liability resulting from the deduction or benefit.The field is included in Vendor.
 		/// DAC Field Name: BAccountID 
 		/// DAC: PX.Objects.PR.PRDeductCode 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The description that you enter for the vendor invoice.
 		/// DAC Field Name: VndInvDescr 
 		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Vendor Invoice Description 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="VendorInvoiceDescription", EmitDefaultValue=false)]
 		public StringValue? VendorInvoiceDescription { get; set; }
 

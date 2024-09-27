@@ -18,14 +18,10 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The amount to be paid for the document in the currency of the document. (See CuryID)
 		/// DAC Field Name: CuryOrigDocAmt 
 		/// DAC: PX.Objects.AP.APInvoice 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
@@ -33,86 +29,63 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<BillApplicationDetail>? Applications { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// When set to true indicates that the document is approved for payment.
 		/// DAC Field Name: PaySel 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Approved for Payment 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ApprovedForPayment", EmitDefaultValue=false)]
 		public BooleanValue? ApprovedForPayment { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The balance of the Accounts Payable document after tax (if inclusive) and the discount in the currency of the document. (See CuryID)
 		/// DAC Field Name: CuryDocBal 
 		/// DAC: PX.Objects.AP.APInvoice 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BranchID 
+		/// Identifier of the Branch, to which the document belongs.
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Branch 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The cash account used for the payment.
 		/// DAC Field Name: PayAccountID 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Cash Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Code of the Currency of the document.
 		/// DAC Field Name: CuryID 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Currency 
+		/// SQL Type: nvarchar(5) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Date of the document.
 		/// DAC Field Name: DocDate 
 		/// DAC: PX.Objects.AP.APInvoice 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Description of the document.
 		/// DAC Field Name: DocDesc 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// SQL Type: nvarchar(512) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -120,14 +93,10 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<BillDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: DueDate 
+		/// The date when payment for the document is due in accordance with the credit terms.
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Due Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DueDate", EmitDefaultValue=false)]
 		public DateTimeValue? DueDate { get; set; }
 
@@ -135,62 +104,46 @@ namespace Acumatica.Default_22_200_001.Model
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: VendorLocationID 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Location 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Financial Period of the document.
 		/// DAC Field Name: FinPeriodID 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Post Period 
+		/// SQL Type: char(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProjectID 
 		/// DAC: PX.Objects.AP.APInvoice 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Reference number of the document.
 		/// DAC Field Name: RefNbr 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Reference Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
+		/// The status of the document. The field is calculatedbased on the values of the status flag. It can't be changed directly.The following fields determine the status of the document: Hold,Released, Voided, Scheduled,Prebooked, Printed, Approved, Rejected.
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
@@ -198,62 +151,48 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<BillTaxDetail>? TaxDetails { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The total amount of taxes associated with the document. (Presented in the currency of the document, see CuryID)
 		/// DAC Field Name: CuryTaxTotal 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Tax Total 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The credit terms associated with the document (unavailable for prepayments and debit adjustments).\Defaults to the credit terms of the vendor.
 		/// DAC Field Name: TermsID 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Terms", EmitDefaultValue=false)]
 		public StringValue? Terms { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Type of the document.
 		/// DAC Field Name: DocType 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// SQL Type: char(3) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the Vendor, whom the document belongs to.
 		/// DAC Field Name: VendorID 
 		/// DAC: PX.Objects.AP.APInvoice 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The document’s original reference number as assigned by the vendor (for informational purposes).The reference to the vendor document is required if RequireVendorRef is set to true.The reference should also be unique if RaiseErrorOnDoubleInvoiceNbr is set to true.
 		/// DAC Field Name: InvoiceNbr 
 		/// DAC: PX.Objects.AP.APInvoice 
+		/// Display Name: Vendor Ref. 
+		/// SQL Type: nvarchar(40) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="VendorRef", EmitDefaultValue=false)]
 		public StringValue? VendorRef { get; set; }
 

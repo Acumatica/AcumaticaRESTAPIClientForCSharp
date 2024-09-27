@@ -18,14 +18,10 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ControlQty 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// Display Name: Control Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ControlQuantity", EmitDefaultValue=false)]
 		public DecimalValue? ControlQuantity { get; set; }
 
@@ -36,62 +32,41 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: VendorLocationID 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: EmployeeID 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ShipmentDate 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// Display Name: Shipment Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShipmentDate", EmitDefaultValue=false)]
 		public DateTimeValue? ShipmentDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ShipmentNbr 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// Display Name: Shipment ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShipmentID", EmitDefaultValue=false)]
 		public StringValue? ShipmentID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ShipmentQty 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// Display Name: Shipped Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShippedQuantity", EmitDefaultValue=false)]
 		public DecimalValue? ShippedQuantity { get; set; }
 
@@ -99,62 +74,38 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public ShipToSettings? ShippingSettings { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ShipmentType 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: VendorID 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: WorkgroupID 
 		/// DAC: PX.Objects.AM.AMVendorShipment 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 

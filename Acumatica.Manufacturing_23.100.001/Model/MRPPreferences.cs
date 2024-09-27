@@ -18,170 +18,125 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Exception days afterPreviously AMRPDefaults.EXWin1
 		/// DAC Field Name: ExceptionDaysAfter 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Days After 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DaysAfter", EmitDefaultValue=false)]
 		public IntValue? DaysAfter { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Exception days beforePreviously AMRPDefaults.EXWin
 		/// DAC Field Name: ExceptionDaysBefore 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Days Before 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DaysBefore", EmitDefaultValue=false)]
 		public IntValue? DaysBefore { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Default MPS Type ID when creating new MPS entires
 		/// DAC Field Name: DefaultMPSTypeID 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Default Type 
+		/// SQL Type: nvarchar(20) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DefaultType", EmitDefaultValue=false)]
 		public StringValue? DefaultType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Demand Time Fence (days)
 		/// DAC Field Name: ForecastPlanHorizon 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Demand Time Fence 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DemandTimeFence", EmitDefaultValue=false)]
 		public IntValue? DemandTimeFence { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: GracePeriod 
+		/// MRP Grace Period (days)Previously AMRPDefaults.PlnH
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Grace Period 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="GracePeriod", EmitDefaultValue=false)]
 		public IntValue? GracePeriod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Defines if a production order on hold should be included as supply (Item) and demand (material) in MRP
 		/// DAC Field Name: IncludeOnHoldProductionOrder 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Include On-Hold Production Orders 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="IncludeOnHoldProductionOrders", EmitDefaultValue=false)]
 		public BooleanValue? IncludeOnHoldProductionOrders { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Defines if a purchase order on hold should be included as Supply in MRP
 		/// DAC Field Name: IncludeOnHoldPurchaseOrder 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Include On-Hold Purchase Orders 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="IncludeOnHoldPurchaseOrders", EmitDefaultValue=false)]
 		public BooleanValue? IncludeOnHoldPurchaseOrders { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Defines if a sales order on hold should be included as Demand in MRPPreviously AMRPDefaults.Admin
 		/// DAC Field Name: IncludeOnHoldSalesOrder 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Include On-Hold Sales Orders 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="IncludeOnHoldSalesOrders", EmitDefaultValue=false)]
 		public BooleanValue? IncludeOnHoldSalesOrders { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ForecastNumberingID 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Numbering Sequence 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="NumberingSequence", EmitDefaultValue=false)]
 		public StringValue? NumberingSequence { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: PlanOrderType 
+		/// Plan order type
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Plan Order Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PlanOrderType", EmitDefaultValue=false)]
 		public StringValue? PlanOrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: PurchaseCalendarID 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Purchase Calendar ID 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PurchaseCalendarID", EmitDefaultValue=false)]
 		public StringValue? PurchaseCalendarID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: StockingMethod 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Stocking Method 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="StockingMethod", EmitDefaultValue=false)]
 		public StringValue? StockingMethod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// MPS Time Fence (days)
 		/// DAC Field Name: MPSFence 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: MPS Time Fence 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TimeFence", EmitDefaultValue=false)]
 		public IntValue? TimeFence { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Flag indicating if the MRP regen process should use fixed manufacturing lead times if checkedPreviously AMRPDefaults.MFGLead
 		/// DAC Field Name: UseFixMfgLeadTime 
 		/// DAC: PX.Objects.AM.AMRPSetup 
+		/// Display Name: Use Fixed Manufacturing Times 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UseFixedManufacturingTimes", EmitDefaultValue=false)]
 		public BooleanValue? UseFixedManufacturingTimes { get; set; }
 

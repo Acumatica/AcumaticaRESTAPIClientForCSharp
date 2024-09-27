@@ -18,86 +18,55 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CuryOrigDocAmt 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// Display Name: Payment Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CuryDocBal 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CashAccountID 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// Display Name: Cash Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CreatedDateTime 
+		/// The date and time when the record was created.
 		/// DAC: PX.Objects.EP.EPApproval 
+		/// Display Name: Assignment Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CustomerID 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// Display Name: Customer 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: AdjDate 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DocDesc 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// SQL Type: nvarchar(512) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -111,26 +80,20 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PaymentMethodID 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// Display Name: Payment Method 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ExtRefNbr 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// Display Name: Payment Ref. 
+		/// SQL Type: nvarchar(40) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PaymentRef", EmitDefaultValue=false)]
 		public StringValue? PaymentRef { get; set; }
 
@@ -138,50 +101,36 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: RefNbr 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// Display Name: Reference Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CuryTaxTotal 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// Display Name: Tax Total 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DocType 
 		/// DAC: PX.Objects.AR.Standalone.ARCashSale 
+		/// SQL Type: char(3) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 

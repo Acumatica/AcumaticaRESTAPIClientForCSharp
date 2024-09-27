@@ -14,12 +14,29 @@ namespace Acumatica.Default_24_200_001.Model
 	public class CreditCardTransactionDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: PCTranNumber 
+		/// DAC: PX.Objects.AR.CCProcTran 
+		/// Display Name: Proc. Center Tran. Nbr. 
+		/// SQL Type: nvarchar(50) 
+		/// </summary>
 		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
 		public StringValue? TranNbr { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.AR.CCProcTran 
+		/// Display Name: Tran. Type 
+		/// SQL Type: char(3) 
+		/// </summary>
 		[DataMember(Name="TranType", EmitDefaultValue=false)]
 		public StringValue? TranType { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: AuthNumber 
+		/// DAC: PX.Objects.AR.CCProcTran 
+		/// Display Name: Proc. Center Auth. Nbr. 
+		/// SQL Type: nvarchar(50) 
+		/// </summary>
 		[DataMember(Name="AuthNbr", EmitDefaultValue=false)]
 		public StringValue? AuthNbr { get; set; }
 

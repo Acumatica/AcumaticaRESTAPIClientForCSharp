@@ -27,26 +27,23 @@ namespace Acumatica.Default_23_200_001.Model
 		public Address? Address { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Specifies whether the address information of this contact differs from the address informationof the business account associated with this contact.IF it is so, the address information is synchronized with the associatedbusiness account.
 		/// DAC Field Name: OverrideAddress 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Override 
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The behavior is controlled by the ContactBAccountSharedAddressOverrideGraphExtgraph extension.
 		/// </remarks>
 		[DataMember(Name="OverrideAccountAddress", EmitDefaultValue=false)]
 		public BooleanValue? OverrideAccountAddress { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// If set to true, this field indicates that the address has been successfully validated by Acumatica ERP.
 		/// DAC Field Name: IsValidated 
 		/// DAC: PX.Objects.CR.Address 
+		/// Display Name: Validated 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? AddressValidated { get; set; }
 
@@ -57,14 +54,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<AttributeValue>? Attributes { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the related business account.
 		/// DAC Field Name: BAccountID 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Business Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BusinessAccount", EmitDefaultValue=false)]
 		public StringValue? BusinessAccount { get; set; }
 
@@ -75,50 +69,41 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<CaseDetail>? Cases { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The name of the company the contact works for.
 		/// DAC Field Name: FullName 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Account Name 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
 		public StringValue? CompanyName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the class.
 		/// DAC Field Name: ClassID 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Class ID 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ContactClass", EmitDefaultValue=false)]
 		public StringValue? ContactClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ContactID 
+		/// The identifier of the contact.This field is the key field.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Contact ID 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public IntValue? ContactID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The person's preferred method of contact.
 		/// DAC Field Name: Method 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Contact Method 
+		/// SQL Type: varchar(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ContactMethod", EmitDefaultValue=false)]
 		public StringValue? ContactMethod { get; set; }
 
@@ -126,50 +111,36 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ConvertedBy { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: DateOfBirth 
+		/// The date of birth.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Date Of Birth 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DateOfBirth", EmitDefaultValue=false)]
 		public DateTimeValue? DateOfBirth { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: DisplayName 
 		/// DAC: PX.Objects.CR.Extensions.CRCreateActions.PopupAttributes 
+		/// Display Name: Name 
+		/// SQL Type: nvarchar(MAX) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
 		public StringValue? DisplayName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Specifies (if set to true) that the contact should not be called.
 		/// DAC Field Name: NoCall 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Do Not Call 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DoNotCall", EmitDefaultValue=false)]
 		public BooleanValue? DoNotCall { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Specifies (if set to true) that the email of the contact will not be involved in the mass email process.This contact will not receive any notification emails.
 		/// DAC Field Name: NoEMail 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Do Not Email 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DoNotEmail", EmitDefaultValue=false)]
 		public BooleanValue? DoNotEmail { get; set; }
 
@@ -180,26 +151,19 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? DoNotMail { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The duplicate status of the contact.
 		/// DAC Field Name: DuplicateStatus 
 		/// DAC: PX.Objects.CR.Contact 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Duplicate", EmitDefaultValue=false)]
 		public StringValue? Duplicate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: DuplicateFound 
+		/// Specifies whether DuplicateStatus is equal to PossibleDuplicatedwhen the ContactDuplicate feature is enabled.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Duplicate Found 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DuplicateFound", EmitDefaultValue=false)]
 		public BooleanValue? DuplicateFound { get; set; }
 
@@ -207,158 +171,116 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<ContactDuplicateDetail>? Duplicates { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The email address of the contact.
 		/// DAC Field Name: EMail 
 		/// DAC: PX.Objects.CR.Contact 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Fax 
+		/// The fax number.
 		/// DAC: PX.Objects.CR.Contact 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Fax", EmitDefaultValue=false)]
 		public StringValue? Fax { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: FaxType 
+		/// The phone type for the Fax field.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Fax Type 
+		/// SQL Type: varchar(3) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FaxType", EmitDefaultValue=false)]
 		public StringValue? FaxType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: FirstName 
+		/// The first name of the person.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: First Name 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FirstName", EmitDefaultValue=false)]
 		public StringValue? FirstName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Gender 
+		/// The gender of the contact.
 		/// DAC: PX.Objects.CR.Contact 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Gender", EmitDefaultValue=false)]
 		public StringValue? Gender { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The image attached to the contact.
 		/// DAC Field Name: Img 
 		/// DAC: PX.Objects.CR.Contact 
+		/// SQL Type: nvarchar(MAX) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Image", EmitDefaultValue=false)]
 		public StringValue? Image { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The job title of the person.
 		/// DAC Field Name: Salutation 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Job Title 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="JobTitle", EmitDefaultValue=false)]
 		public StringValue? JobTitle { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The language in which the contact prefers to communicate.
 		/// DAC Field Name: LanguageID 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Language/Locale 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LanguageOrLocale", EmitDefaultValue=false)]
 		public StringValue? LanguageOrLocale { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LastIncomingActivityDate 
 		/// DAC: PX.Objects.CR.CRActivityStatistics 
+		/// Display Name: Last Incoming Activity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastIncomingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastIncomingActivity { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LastModifiedDateTime 
+		/// The date and time when the record was last modified.
 		/// DAC: PX.Objects.CR.CRLead 
+		/// Display Name: Last Modified On 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LastName 
+		/// The last name of the person.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Last Name 
+		/// SQL Type: nvarchar(100) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastName", EmitDefaultValue=false)]
 		public StringValue? LastName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LastOutgoingActivityDate 
 		/// DAC: PX.Objects.CR.CRActivityStatistics 
+		/// Display Name: Last Outgoing Activity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastOutgoingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastOutgoingActivity { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: MaritalStatus 
+		/// The marital status of the contact.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Marital Status 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="MaritalStatus", EmitDefaultValue=false)]
 		public StringValue? MaritalStatus { get; set; }
 
@@ -369,26 +291,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? MiddleName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: NoMarketing 
+		/// Specifies (if set to true) that the email of the contact will not be involved in the mass email process.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: No Marketing 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="NoMarketing", EmitDefaultValue=false)]
 		public BooleanValue? NoMarketing { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: NoMassMail 
+		/// Specifies (if set to true) that the email of the contact will not be involved in the mass email process.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: No Mass Mail 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="NoMassMail", EmitDefaultValue=false)]
 		public BooleanValue? NoMassMail { get; set; }
 
@@ -399,110 +313,83 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<OpportunityDetail>? Opportunities { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
 		/// DAC Field Name: OwnerID 
 		/// DAC: PX.Objects.CR.Contact 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OwnerID_description 
 		/// DAC: PX.Objects.CR.Contact 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OwnerEmployeeName", EmitDefaultValue=false)]
 		public StringValue? OwnerEmployeeName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the account that is considered as parent for the current account (BAccountID).
 		/// DAC Field Name: ParentBAccountID 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Parent Account 
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// There is no business logic in the application for this field.
 		/// </remarks>
 		[DataMember(Name="ParentAccount", EmitDefaultValue=false)]
 		public StringValue? ParentAccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Phone1 
+		/// The phone number.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Phone 1 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Phone1", EmitDefaultValue=false)]
 		public StringValue? Phone1 { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Phone1Type 
+		/// The phone type for the Phone1 field.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Phone 1 Type 
+		/// SQL Type: varchar(3) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Phone1Type", EmitDefaultValue=false)]
 		public StringValue? Phone1Type { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Phone2 
+		/// The second phone number.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Phone 2 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Phone2", EmitDefaultValue=false)]
 		public StringValue? Phone2 { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Phone2Type 
+		/// The phone type for the Phone2 field.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Phone 2 Type 
+		/// SQL Type: varchar(3) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Phone2Type", EmitDefaultValue=false)]
 		public StringValue? Phone2Type { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Phone3 
+		/// The third phone number.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Phone 3 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Phone3", EmitDefaultValue=false)]
 		public StringValue? Phone3 { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Phone3Type 
+		/// The phone type for the Phone3 field.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Phone 3 Type 
+		/// SQL Type: varchar(3) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Phone3Type", EmitDefaultValue=false)]
 		public StringValue? Phone3Type { get; set; }
 
@@ -510,14 +397,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? QualificationDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The reason why the case has been changed to the current status.
 		/// DAC Field Name: Resolution 
 		/// DAC: PX.Objects.CR.CRCase 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Reason", EmitDefaultValue=false)]
 		public StringValue? Reason { get; set; }
 
@@ -528,62 +412,46 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<BCRoleAssignment>? RoleAssignments { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Source 
+		/// The source of the contact. If a contact was created from a lead,the value is copied from the lead related to the contact.
 		/// DAC: PX.Objects.CR.Contact 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Source", EmitDefaultValue=false)]
 		public StringValue? Source { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the campaign that resulted in creation of the contact.
 		/// DAC Field Name: CampaignID 
 		/// DAC: PX.Objects.CR.CRLead 
+		/// Display Name: Source Campaign 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SourceCampaign", EmitDefaultValue=false)]
 		public StringValue? SourceCampaign { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The name of the spouse or partner of the contact.
 		/// DAC Field Name: Spouse 
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Spouse/Partner Name 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SpouseOrPartnerName", EmitDefaultValue=false)]
 		public StringValue? SpouseOrPartnerName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
+		/// The status of the contact.
 		/// DAC: PX.Objects.CR.Contact 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Synchronize 
+		/// Specifies whether the contact should be included in exchange synchronization.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Synchronize to Exchange 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Synchronize", EmitDefaultValue=false)]
 		public BooleanValue? Synchronize { get; set; }
 
@@ -597,38 +465,26 @@ namespace Acumatica.Default_23_200_001.Model
 		public ContactUserInfo? UserInfo { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: WebSite 
+		/// The URL of the contact website.
 		/// DAC: PX.Objects.CR.Contact 
+		/// Display Name: Web 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WebSite", EmitDefaultValue=false)]
 		public StringValue? WebSite { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the workgroup responsible for the current document.
 		/// DAC Field Name: WorkgroupID 
 		/// DAC: PX.Objects.CR.Contact 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: WorkgroupID_description 
 		/// DAC: PX.Objects.CR.Contact 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WorkgroupDescription", EmitDefaultValue=false)]
 		public StringValue? WorkgroupDescription { get; set; }
 

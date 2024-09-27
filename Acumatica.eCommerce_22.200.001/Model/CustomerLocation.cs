@@ -18,26 +18,18 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// This field indicates whether the location is default for the corresponding business account.
 		/// DAC Field Name: IsDefault 
 		/// DAC: PX.Objects.CR.Location 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
+		/// The current status of the location.
 		/// DAC: PX.Objects.CR.Location 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

@@ -21,86 +21,63 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<ItemClassAtrribute>? Attributes { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: AvailabilitySchemeID 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Availability Calculation Rule 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AvailabilityCalculationRule", EmitDefaultValue=false)]
 		public StringValue? AvailabilityCalculationRule { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: BaseUnit 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Base Unit 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BaseUOM", EmitDefaultValue=false)]
 		public StringValue? BaseUOM { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ItemClassCD 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Class ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CountryOfOrigin 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Country Of Origin 
+		/// SQL Type: nvarchar(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CountryOfOrigin", EmitDefaultValue=false)]
 		public StringValue? CountryOfOrigin { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The default Warehouse used to store the items of this kind.Applicable only for Stock Items (see StkItem) and when the Warehouses feature is enabled.
 		/// DAC Field Name: DfltSiteID 
 		/// DAC: PX.Objects.IN.INItemClassCurySettings 
+		/// Display Name: Default Warehouse 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DefaultWarehouseID", EmitDefaultValue=false)]
 		public StringValue? DefaultWarehouseID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ItemType 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Item Type 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ItemType", EmitDefaultValue=false)]
 		public StringValue? ItemType { get; set; }
 
@@ -108,110 +85,81 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LotSerClassID 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Lot/Serial Class 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LotSerialClass", EmitDefaultValue=false)]
 		public StringValue? LotSerialClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PostClassID 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Posting Class 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PostingClass", EmitDefaultValue=false)]
 		public StringValue? PostingClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PriceClassID 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Price Class 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
 		public StringValue? PriceClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: PurchaseUnit 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Purchase Unit 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PurchaseUOM", EmitDefaultValue=false)]
 		public StringValue? PurchaseUOM { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SalesUnit 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Sales Unit 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SalesUOM", EmitDefaultValue=false)]
 		public StringValue? SalesUOM { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: StkItem 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Stock Item 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="StockItem", EmitDefaultValue=false)]
 		public BooleanValue? StockItem { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: HSTariffCode 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Commodity Code 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TariffCode", EmitDefaultValue=false)]
 		public StringValue? TariffCode { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: TaxCategoryID 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Tax Category 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxCategoryID", EmitDefaultValue=false)]
 		public StringValue? TaxCategoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ValMethod 
 		/// DAC: PX.Objects.IN.INItemClass 
+		/// Display Name: Valuation Method 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ValuationMethod", EmitDefaultValue=false)]
 		public StringValue? ValuationMethod { get; set; }
 

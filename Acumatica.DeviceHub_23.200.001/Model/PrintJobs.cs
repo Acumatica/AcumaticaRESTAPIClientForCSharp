@@ -18,14 +18,9 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: EndDate 
 		/// DAC: PX.SM.SMPrintJobFilter 
+		/// Display Name: End Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
@@ -33,26 +28,17 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		public DateTimeValue? EndModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: HideProcessed 
 		/// DAC: PX.SM.SMPrintJobFilter 
+		/// Display Name: Hide Processed 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="HideProcessed", EmitDefaultValue=false)]
 		public BooleanValue? HideProcessed { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: JobID 
 		/// DAC: PX.SM.SMPrintJob 
+		/// Display Name: Job ID 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="JobID", EmitDefaultValue=false)]
 		public IntValue? JobID { get; set; }
 
@@ -60,14 +46,9 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		public List<PrintJob>? Jobs { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: StartDate 
 		/// DAC: PX.SM.SMPrintJobFilter 
+		/// Display Name: Start Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 

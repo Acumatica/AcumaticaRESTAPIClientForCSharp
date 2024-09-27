@@ -18,50 +18,40 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The ABC code, to which the item is assigned for the purpose of physical inventories.The field is relevant only for Stock Items (see StkItem).
 		/// DAC Field Name: ABCCodeID 
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: ABC Code 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ABCCode", EmitDefaultValue=false)]
 		public StringValue? ABCCode { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ItemType 
+		/// The type of the Inventory Item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Type 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ItemType", EmitDefaultValue=false)]
 		public StringValue? ItemType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The standard cost assigned to the item before the current standard cost was set.
 		/// DAC Field Name: LastStdCost 
 		/// DAC: PX.Objects.IN.Matrix.DAC.Unbound.MatrixInventoryItem 
+		/// Display Name: Last Cost 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastCost", EmitDefaultValue=false)]
 		public DecimalValue? LastCost { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the Posting Class associated with the item.
 		/// DAC Field Name: PostClassID 
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Posting Class 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PostingClass", EmitDefaultValue=false)]
 		public StringValue? PostingClass { get; set; }
 
@@ -69,14 +59,11 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		public StringValue? PriceClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: VolumeUOM 
+		/// The Unit of Measure used for the Volume of the item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Volume UOM 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="VolumeUOM", EmitDefaultValue=false)]
 		public StringValue? VolumeUOM { get; set; }
 

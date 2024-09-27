@@ -18,50 +18,34 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: BranchID 
 		/// DAC: PX.Objects.GL.BudgetFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CompareToBranchID 
 		/// DAC: PX.Objects.GL.BudgetFilter 
+		/// Display Name: Compare to Branch 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ComparetoBranch", EmitDefaultValue=false)]
 		public StringValue? ComparetoBranch { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CompareToLedgerID 
 		/// DAC: PX.Objects.GL.BudgetFilter 
+		/// Display Name: Compare to Ledger 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ComparetoLedger", EmitDefaultValue=false)]
 		public StringValue? ComparetoLedger { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CompareToFinYear 
 		/// DAC: PX.Objects.GL.BudgetFilter 
+		/// Display Name: Compare to Year 
+		/// SQL Type: varchar(4) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ComparetoYear", EmitDefaultValue=false)]
 		public StringValue? ComparetoYear { get; set; }
 
@@ -69,50 +53,35 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<BudgetDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: FinYear 
 		/// DAC: PX.Objects.GL.BudgetFilter 
+		/// Display Name: Financial Year 
+		/// SQL Type: varchar(4) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
 		public StringValue? FinancialYear { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LedgerId 
 		/// DAC: PX.Objects.GL.BudgetFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Ledger", EmitDefaultValue=false)]
 		public StringValue? Ledger { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SubIDFilter 
 		/// DAC: PX.Objects.GL.BudgetFilter 
+		/// Display Name: Subaccount Filter 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SubaccountFilter", EmitDefaultValue=false)]
 		public StringValue? SubaccountFilter { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: TreeNodeFilter 
 		/// DAC: PX.Objects.GL.BudgetFilter 
+		/// Display Name: Tree Node Filter 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TreeNodeFilter", EmitDefaultValue=false)]
 		public StringValue? TreeNodeFilter { get; set; }
 

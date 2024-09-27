@@ -18,158 +18,100 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: EstimateClassID 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Class ID 
+		/// SQL Type: nvarchar(20) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: EngineerID 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Engineer", EmitDefaultValue=false)]
 		public StringValue? Engineer { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ItemClassID 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Item Class 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LaborMarkupPct 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Labor Markup (%) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LaborMarkupPct", EmitDefaultValue=false)]
 		public DecimalValue? LaborMarkupPct { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LeadTime 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Lead Time (Days) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LeadTimeDays", EmitDefaultValue=false)]
 		public IntValue? LeadTimeDays { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: MachineMarkupPct 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Machine Markup (%) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="MachineMarkupPct", EmitDefaultValue=false)]
 		public DecimalValue? MachineMarkupPct { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: MaterialMarkupPct 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Material Markup (%) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="MaterialMarkupPct", EmitDefaultValue=false)]
 		public DecimalValue? MaterialMarkupPct { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrderQty 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Order Qty 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderQty", EmitDefaultValue=false)]
 		public DecimalValue? OrderQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OverheadMarkupPct 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Overhead Markup (%) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OverheadMarkupPct", EmitDefaultValue=false)]
 		public DecimalValue? OverheadMarkupPct { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SubcontractMarkupPct 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Subcontract Markup (%) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SubcontractMarkupPct", EmitDefaultValue=false)]
 		public DecimalValue? SubcontractMarkupPct { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: TaxCategoryID 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Tax Category 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ToolMarkupPct 
 		/// DAC: PX.Objects.AM.AMEstimateClass 
+		/// Display Name: Tool Markup (%) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ToolMarkupPct", EmitDefaultValue=false)]
 		public DecimalValue? ToolMarkupPct { get; set; }
 

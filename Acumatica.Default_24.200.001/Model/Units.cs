@@ -14,6 +14,11 @@ namespace Acumatica.Default_24_200_001.Model
 	public class Units : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: UnitRate 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: Conversion Factor 
+		/// </summary>
 		[DataMember(Name="ConversionFactor", EmitDefaultValue=false)]
 		public DecimalValue? ConversionFactor { get; set; }
 
@@ -26,9 +31,22 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: UnitMultDiv 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: Multiply/Divide 
+		/// SQL Type: char(1) 
+		/// </summary>
 		[DataMember(Name="MultiplyOrDivide", EmitDefaultValue=false)]
 		public StringValue? MultiplyOrDivide { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ToUnit 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: To Unit 
+		/// SQL Type: nvarchar(6) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="ToUOM", EmitDefaultValue=false)]
 		public StringValue? ToUOM { get; set; }
 

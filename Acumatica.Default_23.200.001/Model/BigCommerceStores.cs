@@ -18,134 +18,109 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The access token of the BigCommerce store.
 		/// DAC Field Name: StoreXAuthToken 
 		/// DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce 
+		/// Display Name: Access Token 
+		/// SQL Type: nvarchar(MAX) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AccessToken", EmitDefaultValue=false)]
 		public StringValue? AccessToken { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Determines whether the store is accessible through other Commerce forms.
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Commerce.Core.BCBinding 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The base URL of the BigCommerce store.
 		/// DAC Field Name: StoreBaseURL 
 		/// DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce 
+		/// Display Name: API Path 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="APIPath", EmitDefaultValue=false)]
 		public StringValue? APIPath { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The client ID of the BigCommerce store.
 		/// DAC Field Name: StoreXAuthClient 
 		/// DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce 
+		/// Display Name: Client ID 
+		/// SQL Type: nvarchar(MAX) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ClientID", EmitDefaultValue=false)]
 		public StringValue? ClientID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Represents a connector to which the store belongs.The property is a key field.
 		/// DAC Field Name: ConnectorType 
 		/// DAC: PX.Commerce.Core.BCBinding 
+		/// SQL Type: char(3) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Connector", EmitDefaultValue=false)]
 		public StringValue? Connector { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Determines whether the store will be chosen as default through other Commerce screens.
 		/// DAC Field Name: IsDefault 
 		/// DAC: PX.Commerce.Core.BCBinding 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The admin URL of the BigCommerce store.
 		/// DAC Field Name: StoreAdminUrl 
 		/// DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce 
+		/// Display Name: Store Admin URL 
+		/// SQL Type: nvarchar(200) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="StoreAdminPath", EmitDefaultValue=false)]
 		public StringValue? StoreAdminPath { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A user-friendly name of the store.
 		/// DAC Field Name: BindingName 
 		/// DAC: PX.Commerce.Core.BCBinding 
+		/// Display Name: Store Name 
+		/// SQL Type: nvarchar(20) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="StoreName", EmitDefaultValue=false)]
 		public StringValue? StoreName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The password for the DAV server of the BigCommerce store.
 		/// DAC Field Name: StoreWDAVClientPass 
 		/// DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce 
+		/// Display Name: WebDAV Password 
+		/// SQL Type: nvarchar(MAX) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WebDAVPassword", EmitDefaultValue=false)]
 		public StringValue? WebDAVPassword { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The URL of the DAV server of the BigCommerce store.
 		/// DAC Field Name: StoreWDAVServerUrl 
 		/// DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce 
+		/// Display Name: WebDAV Path 
+		/// SQL Type: nvarchar(100) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WebDAVPath", EmitDefaultValue=false)]
 		public StringValue? WebDAVPath { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The username for the DAV server of the BigCommerce store.
 		/// DAC Field Name: StoreWDAVClientUser 
 		/// DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce 
+		/// Display Name: WebDAV Username 
+		/// SQL Type: nvarchar(50) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WebDAVUsername", EmitDefaultValue=false)]
 		public StringValue? WebDAVUsername { get; set; }
 

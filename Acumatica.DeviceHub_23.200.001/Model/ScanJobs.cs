@@ -18,26 +18,20 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DeviceHubID 
 		/// DAC: PX.SM.SMScanJob 
+		/// Display Name: DeviceHub ID 
+		/// SQL Type: varchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DeviceHub", EmitDefaultValue=false)]
 		public StringValue? DeviceHub { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Error 
 		/// DAC: PX.SM.SMScanJob 
+		/// Display Name: Error 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ErrorMessage", EmitDefaultValue=false)]
 		public StringValue? ErrorMessage { get; set; }
 
@@ -45,38 +39,26 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		public StringValue? ErrorTrace { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ScanJobID 
 		/// DAC: PX.SM.SMScanJob 
+		/// Display Name: Job ID 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ScanJobID", EmitDefaultValue=false)]
 		public IntValue? ScanJobID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ScannerName 
 		/// DAC: PX.SM.SMScanJob 
+		/// Display Name: Scanner ID 
+		/// SQL Type: varchar(20) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Scanner", EmitDefaultValue=false)]
 		public StringValue? Scanner { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.SM.SMScanJob 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

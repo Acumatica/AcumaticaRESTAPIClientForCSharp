@@ -18,62 +18,32 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LastModified 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastModified", EmitDefaultValue=false)]
 		public DateTimeValue? LastModified { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ShippingNoteID 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShippingNoteID", EmitDefaultValue=false)]
 		public GuidValue? ShippingNoteID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrderNbr 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrderType 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BindingID 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BindingID", EmitDefaultValue=false)]
 		public IntValue? BindingID { get; set; }
 

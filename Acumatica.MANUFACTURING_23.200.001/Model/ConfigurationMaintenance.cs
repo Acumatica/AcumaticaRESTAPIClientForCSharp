@@ -18,38 +18,27 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BOMID 
 		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// Display Name: BOM ID 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]
 		public StringValue? BOMID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: BOMRevisionID 
 		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// Display Name: BOM Revision 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BOMRevision", EmitDefaultValue=false)]
 		public StringValue? BOMRevision { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsCompletionRequired 
 		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// Display Name: Completion Required Before Production 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CompletionRequiredBeforeProduction", EmitDefaultValue=false)]
 		public BooleanValue? CompletionRequiredBeforeProduction { get; set; }
 
@@ -57,26 +46,19 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public List<ConfigurationMaintAttribute>? ConfigAttributes { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ConfigurationID 
 		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// Display Name: Configuration ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
 		public StringValue? ConfigurationID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -84,14 +66,9 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public List<ConfigurationMaintenanceFeature>? Features { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
 		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
@@ -102,26 +79,17 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public ConfigurationMaintPrice? Price { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Revision 
 		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

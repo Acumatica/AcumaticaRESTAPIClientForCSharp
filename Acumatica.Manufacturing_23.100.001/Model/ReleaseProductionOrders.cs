@@ -18,242 +18,157 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: BranchID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CostCodeID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Cost Code 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CustomerID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: InventoryID_InventoryItem_descr 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: EndDate 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: End Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProdDate 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Order Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderDate", EmitDefaultValue=false)]
 		public DateTimeValue? OrderDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrderType 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Order Type 
+		/// SQL Type: char(2) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProdOrdID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Production Nbr. 
+		/// SQL Type: nvarchar(19) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Selected Project fot the Production Order
 		/// DAC Field Name: ProjectID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: TaskID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Project Task 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: QtytoProd 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Qty. to Produce 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
 		public DecimalValue? QtytoProduce { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Selected 
+		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
 		public BooleanValue? Selected { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OrdNbr 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: SO Order Nbr 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SOOrderNbr", EmitDefaultValue=false)]
 		public StringValue? SOOrderNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OrdTypeRef 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: SO Order Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SOOrderType", EmitDefaultValue=false)]
 		public StringValue? SOOrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Indicates where the production detail source comes from.
 		/// DAC Field Name: DetailSource 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Source", EmitDefaultValue=false)]
 		public StringValue? Source { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: StartDate 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Start Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SubItemID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: UOM 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteId 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 

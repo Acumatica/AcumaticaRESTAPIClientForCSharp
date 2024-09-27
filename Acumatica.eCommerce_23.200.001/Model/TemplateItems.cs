@@ -18,14 +18,10 @@ namespace Acumatica.eCommerce_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LastModifiedDateTime 
+		/// The date and time when the record was last modified.
 		/// DAC: PX.Objects.IN.Matrix.DAC.Unbound.MatrixInventoryItem 
+		/// Display Name: Last Modified On 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 

@@ -18,110 +18,77 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: AutoNumberRevisionID 
 		/// DAC: PX.Objects.AM.AMEstimateSetup 
+		/// Display Name: Auto Number Revisions 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AutoNumberRevisions", EmitDefaultValue=false)]
 		public BooleanValue? AutoNumberRevisions { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DefaultEstimateClassID 
 		/// DAC: PX.Objects.AM.AMEstimateSetup 
+		/// Display Name: Default Estimate Class 
+		/// SQL Type: nvarchar(20) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DefaultEstimateClass", EmitDefaultValue=false)]
 		public StringValue? DefaultEstimateClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DefaultOrderType 
 		/// DAC: PX.Objects.AM.AMEstimateSetup 
+		/// Display Name: Default Prod. Order Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DefaultProdOrderType", EmitDefaultValue=false)]
 		public StringValue? DefaultProdOrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DefaultRevisionID 
 		/// DAC: PX.Objects.AM.AMEstimateSetup 
+		/// Display Name: Default Revision 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DefaultRevision", EmitDefaultValue=false)]
 		public StringValue? DefaultRevision { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DefaultWorkCenterID 
 		/// DAC: PX.Objects.AM.AMEstimateSetup 
+		/// Display Name: Default Work Center 
+		/// SQL Type: nvarchar(20) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DefaultWorkCenter", EmitDefaultValue=false)]
 		public StringValue? DefaultWorkCenter { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: EstimateNumberingID 
 		/// DAC: PX.Objects.AM.AMEstimateSetup 
+		/// Display Name: Estimate Number Sequence 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EstimateNumberSequence", EmitDefaultValue=false)]
 		public StringValue? EstimateNumberSequence { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: NewRevisionIsPrimary 
+		/// During new revision of an estimate, should the new revision automatically be marked as the primary revision
 		/// DAC: PX.Objects.AM.AMEstimateSetup 
+		/// Display Name: New Revision Is Primary 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="NewRevisionIsPrimary", EmitDefaultValue=false)]
 		public BooleanValue? NewRevisionIsPrimary { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: UpdateAllRevisions 
 		/// DAC: PX.Objects.AM.AMEstimateSetup 
+		/// Display Name: Update All Revisions 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UpdateAllRevisions", EmitDefaultValue=false)]
 		public BooleanValue? UpdateAllRevisions { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: UpdatePriceInfo 
 		/// DAC: PX.Objects.AM.AMEstimateSetup 
+		/// Display Name: Update Price Info 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UpdatePriceInfo", EmitDefaultValue=false)]
 		public BooleanValue? UpdatePriceInfo { get; set; }
 

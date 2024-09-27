@@ -18,14 +18,10 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A Boolean value that indicates (if set to true) that the change order class is available for selection on the Change Orders (PM308000) form.
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.PM.PMChangeOrderClass 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -33,50 +29,37 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<BusinessAccountClassAttributeDetail>? Attributes { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ClassID 
+		/// The identifier of the change order class.
 		/// DAC: PX.Objects.PM.PMChangeOrderClass 
+		/// Display Name: Class ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A Boolean value that indicates (if set to true) that the user can modify existing commitments and add new ones with change orders of this class.
 		/// DAC Field Name: IsPurchaseOrderEnabled 
 		/// DAC: PX.Objects.PM.PMChangeOrderClass 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Commitments", EmitDefaultValue=false)]
 		public BooleanValue? Commitments { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A Boolean value that indicates (if set to true) that the user can modify existing cost budget lines and add new ones with change orders of this class.
 		/// DAC Field Name: IsCostBudgetEnabled 
 		/// DAC: PX.Objects.PM.PMChangeOrderClass 
+		/// Display Name: Cost Budget 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CostBudget", EmitDefaultValue=false)]
 		public BooleanValue? CostBudget { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the change order class.
 		/// DAC: PX.Objects.PM.PMChangeOrderClass 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -84,14 +67,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A Boolean value that indicates (if set to true) that the user can modify existing revenue budget lines and add new ones with change orders of this class.
 		/// DAC Field Name: IsRevenueBudgetEnabled 
 		/// DAC: PX.Objects.PM.PMChangeOrderClass 
+		/// Display Name: Revenue Budget 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RevenueBudget", EmitDefaultValue=false)]
 		public BooleanValue? RevenueBudget { get; set; }
 

@@ -18,146 +18,102 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: MailBcc 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: BCC 
+		/// SQL Type: nvarchar(3000) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Bcc", EmitDefaultValue=false)]
 		public StringValue? Bcc { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Body 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: Activity Details 
+		/// SQL Type: nvarchar(MAX) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Body", EmitDefaultValue=false)]
 		public StringValue? Body { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: MailCc 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: CC 
+		/// SQL Type: nvarchar(3000) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Cc", EmitDefaultValue=false)]
 		public StringValue? Cc { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Returns either additional information about the related entity or the last error message. The property isused by the CREmailActivityMaint graph to show additional infomation about the SMEmail status.
 		/// DAC Field Name: EntityDescription 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: Entity 
+		/// SQL Type: nvarchar(MAX) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: MailFrom 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// SQL Type: nvarchar(500) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="From", EmitDefaultValue=false)]
 		public StringValue? From { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: MailAccountID_description 
 		/// DAC: PX.Objects.CR.CRSMEmail 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FromEmailAccountDisplayName", EmitDefaultValue=false)]
 		public StringValue? FromEmailAccountDisplayName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: MailAccountID 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: From 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FromEmailAccountID", EmitDefaultValue=false)]
 		public IntValue? FromEmailAccountID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsIncome 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: Is Income 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Incoming", EmitDefaultValue=false)]
 		public BooleanValue? Incoming { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
 		/// DAC Field Name: IsPrivate 
 		/// DAC: PX.Objects.CR.CRSMEmail 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Internal", EmitDefaultValue=false)]
 		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: MPStatus 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: Email Status 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="MailStatus", EmitDefaultValue=false)]
 		public StringValue? MailStatus { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
 		/// DAC Field Name: OwnerID 
 		/// DAC: PX.Objects.CR.CRSMEmail 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ParentNoteID 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: Task 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Parent", EmitDefaultValue=false)]
 		public GuidValue? Parent { get; set; }
 
@@ -168,14 +124,11 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Subject 
+		/// The summary description of the activity.
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: Summary 
+		/// SQL Type: nvarchar(998) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }
 
@@ -183,26 +136,18 @@ namespace Acumatica.Default_22_200_001.Model
 		public TimeActivity? TimeActivity { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: MailTo 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// SQL Type: nvarchar(3000) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="To", EmitDefaultValue=false)]
 		public StringValue? To { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the workgroup responsible for the current document.
 		/// DAC Field Name: WorkgroupID 
 		/// DAC: PX.Objects.CR.CRSMEmail 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
@@ -216,37 +161,31 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: NoteID 
+		/// The identifier of the Note object associated with the document.
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Contains the type of the related entity, that is specified in RefNoteID.
 		/// DAC Field Name: RefNoteIDType 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: Related Entity Type 
+		/// SQL Type: nvarchar(MAX) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RelatedEntityType", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Contains the NoteID value of the related entity.This activity is displayed on the Activities tab of the entity's form.
 		/// DAC Field Name: RefNoteID 
 		/// DAC: PX.Objects.CR.CRSMEmail 
+		/// Display Name: Related Entity 
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The related document may or may not implement the INotable interface,            but it must have a field marked with the PXNoteAttribute attribute            with the ShowInReferenceSelector property set to true.            
 		/// </remarks>
 		[DataMember(Name="RelatedEntityNoteID", EmitDefaultValue=false)]
 		public GuidValue? RelatedEntityNoteID { get; set; }

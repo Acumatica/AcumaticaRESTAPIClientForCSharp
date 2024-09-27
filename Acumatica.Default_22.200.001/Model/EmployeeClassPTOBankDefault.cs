@@ -41,12 +41,23 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: EmployeeClassID 
+		/// DAC: PX.Objects.PR.PREmployeeClass 
+		/// Display Name: Payroll Class ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="EmployeeClass", EmitDefaultValue=false)]
 		public StringValue? EmployeeClass { get; set; }
 
 		[DataMember(Name="FrontLoadingAmount", EmitDefaultValue=false)]
 		public DecimalValue? FrontLoadingAmount { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.PR.PREmployeeClass 
+		/// Display Name: Working Hours per Year 
+		/// </summary>
 		[DataMember(Name="HoursPerYear", EmitDefaultValue=false)]
 		public DecimalValue? HoursPerYear { get; set; }
 

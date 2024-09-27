@@ -18,62 +18,41 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
 		/// DAC: PX.Objects.AP.APVendorPriceFilter 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ItemClassCD 
 		/// DAC: PX.Objects.AP.APVendorPriceFilter 
+		/// Display Name: Item Class 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OwnerID 
 		/// DAC: PX.Objects.AP.APVendorPriceFilter 
+		/// Display Name: Product Manager 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductManager", EmitDefaultValue=false)]
 		public StringValue? ProductManager { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: WorkGroupID 
 		/// DAC: PX.Objects.AP.APVendorPriceFilter 
+		/// Display Name: Product Workgroup 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductWorkgroup", EmitDefaultValue=false)]
 		public StringValue? ProductWorkgroup { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: VendorID 
 		/// DAC: PX.Objects.AP.APVendorPriceFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 

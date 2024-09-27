@@ -21,26 +21,15 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<ContractUsageTransactionDetail>? BilledTransactions { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ContractID 
 		/// DAC: PX.Objects.CT.UsageMaint+UsageFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ContractID", EmitDefaultValue=false)]
 		public StringValue? ContractID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: InvFinPeriodID 
 		/// DAC: PX.Objects.CT.UsageMaint+UsageFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 

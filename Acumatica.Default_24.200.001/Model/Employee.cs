@@ -27,26 +27,23 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<EmployeeDelegate>? Delegates { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The human-readable identifier of the employee that isspecified by the user or defined by the EMPLOYEE auto-numbering sequence during thecreation of the employee. This field is a natural key, as opposedto the surrogate key BAccountID.
 		/// DAC Field Name: AcctCD 
 		/// DAC: PX.Objects.EP.EPEmployee 
+		/// Display Name: Employee ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
 		public StringValue? EmployeeID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The employee name, which is usually a concatenation of thefirst and last nameof the appropriate contact.
 		/// DAC Field Name: AcctName 
 		/// DAC: PX.Objects.EP.EPEmployee 
+		/// Display Name: Employee Name 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
@@ -63,14 +60,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The status of the employee.
 		/// DAC Field Name: VStatus 
 		/// DAC: PX.Objects.EP.EPEmployee 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

@@ -21,50 +21,34 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public List<RoughCutPlanningDetail>? Detail { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ExcludeFirmOrders 
+		/// Show/hide orders which are schedule status Firm
 		/// DAC: PX.Objects.AM.APSRoughCutProcessFilter 
+		/// Display Name: Exclude Firm Orders 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExcludeFirmOrders", EmitDefaultValue=false)]
 		public BooleanValue? ExcludeFirmOrders { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ExcludePlanningOrders 
+		/// Show/hide planning type orders
 		/// DAC: PX.Objects.AM.APSRoughCutProcessFilter 
+		/// Display Name: Exclude Planning Orders 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExcludePlanningOrders", EmitDefaultValue=false)]
 		public BooleanValue? ExcludePlanningOrders { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ProcessAction 
 		/// DAC: PX.Objects.AM.APSRoughCutProcessFilter 
+		/// Display Name: Action 
+		/// SQL Type: nchar(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProcessAction", EmitDefaultValue=false)]
 		public StringValue? ProcessAction { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ReleaseOrders 
+		/// During processing, should the selected orders be released (true)
 		/// DAC: PX.Objects.AM.APSRoughCutProcessFilter 
+		/// Display Name: Release Orders 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReleaseOrders", EmitDefaultValue=false)]
 		public BooleanValue? ReleaseOrders { get; set; }
 

@@ -18,50 +18,35 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.SM.SMPrinter 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: DeviceHubID 
 		/// DAC: PX.SM.SMPrinter 
+		/// Display Name: DeviceHub ID 
+		/// SQL Type: varchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DeviceHub", EmitDefaultValue=false)]
 		public StringValue? DeviceHub { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: IsActive 
 		/// DAC: PX.SM.SMPrinter 
+		/// Display Name: Active 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="IsActive", EmitDefaultValue=false)]
 		public BooleanValue? IsActive { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: PrinterName 
 		/// DAC: PX.SM.SMPrinter 
+		/// Display Name: Printer 
+		/// SQL Type: varchar(20) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PrinterName", EmitDefaultValue=false)]
 		public StringValue? PrinterName { get; set; }
 

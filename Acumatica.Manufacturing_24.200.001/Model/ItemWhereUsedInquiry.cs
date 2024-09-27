@@ -18,38 +18,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
 		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ItemClassID 
 		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
+		/// Display Name: Item Class 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: MultiLevel 
 		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
+		/// Display Name: Show Multilevel Results 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="MultiLevel", EmitDefaultValue=false)]
 		public BooleanValue? MultiLevel { get; set; }
 
@@ -57,26 +43,17 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<ItemWhereUsedRow>? Results { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SubItemID 
 		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
+		/// Display Name: BOM Warehouse 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 

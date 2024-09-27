@@ -18,26 +18,14 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BranchCD 
 		/// DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BranchCD", EmitDefaultValue=false)]
 		public StringValue? BranchCD { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LedgerCD 
 		/// DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }
 

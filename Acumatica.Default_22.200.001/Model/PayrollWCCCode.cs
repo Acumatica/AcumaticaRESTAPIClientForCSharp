@@ -18,14 +18,9 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CountryID 
 		/// DAC: PX.Objects.PR.PRWorkCodeMaint+PRWorkCodeFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Country", EmitDefaultValue=false)]
 		public StringValue? Country { get; set; }
 

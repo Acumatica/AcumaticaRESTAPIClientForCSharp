@@ -21,134 +21,92 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public List<ProductionOrderAllocation>? Allocations { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Allow pre-assigning of lot/serial numbers
 		/// DAC Field Name: PreassignLotSerial 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Allow Preassigning Lot/Serial Numbers 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AllowPreassigningLotSerialNumbers", EmitDefaultValue=false)]
 		public BooleanValue? AllowPreassigningLotSerialNumbers { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BOMID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: BOM ID 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]
 		public StringValue? BOMID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: BOMRevisionID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: BOM Revision 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BOMRevision", EmitDefaultValue=false)]
 		public StringValue? BOMRevision { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: BranchID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Configuration key ID which represents the key used/generated from the results of a finished configuration
 		/// DAC Field Name: KeyID 
 		/// DAC: PX.Objects.AM.AMConfigurationResults 
+		/// Display Name: Config. Key 
+		/// SQL Type: nvarchar(120) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ConfigKey", EmitDefaultValue=false)]
 		public StringValue? ConfigKey { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ConfigurationID 
 		/// DAC: PX.Objects.AM.AMConfigurationResults 
+		/// Display Name: Configuration ID 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
 		public StringValue? ConfigurationID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Revision 
 		/// DAC: PX.Objects.AM.AMConfigurationResults 
+		/// Display Name: Conf. Revision 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ConfRevision", EmitDefaultValue=false)]
 		public StringValue? ConfRevision { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ConstDate 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Constraint", EmitDefaultValue=false)]
 		public DateTimeValue? Constraint { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CostCodeID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Cost Code 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CostMethod 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Costing Method 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CostingMethod", EmitDefaultValue=false)]
 		public StringValue? CostingMethod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CustomerID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
@@ -156,50 +114,35 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public StringValue? CustomerName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Scheduling/dispatch priority from 1 (high) to 10 (low)
 		/// DAC Field Name: SchPriority 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Dispatch Priority 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="DispatchPriority", EmitDefaultValue=false)]
 		public ShortValue? DispatchPriority { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: EndDate 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: End Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: EstimateID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Estimate ID 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EstimateID", EmitDefaultValue=false)]
 		public StringValue? EstimateID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: EstimateRevisionID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Estimate Revision 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EstimateRevision", EmitDefaultValue=false)]
 		public StringValue? EstimateRevision { get; set; }
 
@@ -207,50 +150,30 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public List<EventHistoryDetail>? EventHistory { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ExcludeFromMRP 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Exclude from MRP 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExcludefromMRP", EmitDefaultValue=false)]
 		public BooleanValue? ExcludefromMRP { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Hold 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: LocationID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
@@ -258,26 +181,19 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public List<OrderAttributeDetail>? OrderAttributes { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProdDate 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Order Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderDate", EmitDefaultValue=false)]
 		public DateTimeValue? OrderDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Order Description 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderDescription", EmitDefaultValue=false)]
 		public StringValue? OrderDescription { get; set; }
 
@@ -285,470 +201,315 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public ProductionOrderTotals? OrderTotals { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrderType 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Order Type 
+		/// SQL Type: char(2) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ParentOrdID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Parent Production Nbr. 
+		/// SQL Type: nvarchar(19) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ParentOrder", EmitDefaultValue=false)]
 		public StringValue? ParentOrder { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ParentOrderType 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Parent Order Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ParentOrderType", EmitDefaultValue=false)]
 		public StringValue? ParentOrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProdOrdID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Production Nbr. 
+		/// SQL Type: nvarchar(19) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProductManagerID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Product Manager 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductManager", EmitDefaultValue=false)]
 		public StringValue? ProductManager { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProductOrdID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Product Production Nbr. 
+		/// SQL Type: nvarchar(19) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductOrder", EmitDefaultValue=false)]
 		public StringValue? ProductOrder { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ProductOrderType 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Product Order Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductOrderType", EmitDefaultValue=false)]
 		public StringValue? ProductOrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProductWorkgroupID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Product Workgroup 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductWorkgroup", EmitDefaultValue=false)]
 		public StringValue? ProductWorkgroup { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Selected Project fot the Production Order
 		/// DAC Field Name: ProjectID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: TaskID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Project Task 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: QtyComplete 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Qty. Complete 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="QtyComplete", EmitDefaultValue=false)]
 		public DecimalValue? QtyComplete { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: QtyRemaining 
+		/// Quantity remaining to be completed on the production order
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Qty. Remaining 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="QtyRemaining", EmitDefaultValue=false)]
 		public DecimalValue? QtyRemaining { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: QtyScrapped 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Qty. Scrapped 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="QtyScrapped", EmitDefaultValue=false)]
 		public DecimalValue? QtyScrapped { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: QtytoProd 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Qty. to Produce 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
 		public DecimalValue? QtytoProduce { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Parent lot number is/isn't required for material transactions
 		/// DAC Field Name: ParentLotSerialRequired 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Require Parent Lot/Serial Number 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RequireParentLotSerialNumber", EmitDefaultValue=false)]
 		public StringValue? RequireParentLotSerialNumber { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ScheduleStatus 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Schedule Status 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ScheduleStatus", EmitDefaultValue=false)]
 		public StringValue? ScheduleStatus { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SchedulingMethod 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Scheduling Method 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SchedulingMethod", EmitDefaultValue=false)]
 		public StringValue? SchedulingMethod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ScrapLocationID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Scrap Location 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ScrapLocation", EmitDefaultValue=false)]
 		public StringValue? ScrapLocation { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ScrapOverride 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Scrap Override 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ScrapOverride", EmitDefaultValue=false)]
 		public BooleanValue? ScrapOverride { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ScrapSiteID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Scrap Warehouse 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ScrapWarehouse", EmitDefaultValue=false)]
 		public StringValue? ScrapWarehouse { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OrdLineRef 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: SO Line Nbr. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SOLineNbr", EmitDefaultValue=false)]
 		public IntValue? SOLineNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OrdNbr 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: SO Order Nbr 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SOOrderNbr", EmitDefaultValue=false)]
 		public StringValue? SOOrderNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OrdTypeRef 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: SO Order Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SOOrderType", EmitDefaultValue=false)]
 		public StringValue? SOOrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Indicates where the production detail source comes from.
 		/// DAC Field Name: DetailSource 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Source", EmitDefaultValue=false)]
 		public StringValue? Source { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: BOMEffDate 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Source Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SourceDate", EmitDefaultValue=false)]
 		public DateTimeValue? SourceDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SourceOrderType 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Source Order Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SourceOrderType", EmitDefaultValue=false)]
 		public StringValue? SourceOrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SourceProductionNbr 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Source Production Nbr 
+		/// SQL Type: nvarchar(19) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SourceProductionNbr", EmitDefaultValue=false)]
 		public StringValue? SourceProductionNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: StartDate 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Start Date 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: StatusID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SubItemID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: UOM 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: UpdateProject 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Update Project 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UpdateProject", EmitDefaultValue=false)]
 		public BooleanValue? UpdateProject { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: FMLTime 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Use Fixed Mfg Lead Times for Order Dates 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UseFixedMfgLeadTimesforOrderDates", EmitDefaultValue=false)]
 		public BooleanValue? UseFixedMfgLeadTimesforOrderDates { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: FMLTMRPOrdorOP 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: Use Order Start Date for MRP 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UseOrderStartDateforMRP", EmitDefaultValue=false)]
 		public BooleanValue? UseOrderStartDateforMRP { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.AM.AMProdItem 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: WIPAcctID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: WIP Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WIPAccount", EmitDefaultValue=false)]
 		public StringValue? WIPAccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: WIPSubID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: WIP Subaccount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WIPSubaccount", EmitDefaultValue=false)]
 		public StringValue? WIPSubaccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: WIPVarianceAcctID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: WIP Variance Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WIPVarianceAccount", EmitDefaultValue=false)]
 		public StringValue? WIPVarianceAccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: WIPVarianceSubID 
 		/// DAC: PX.Objects.AM.AMProdItem 
+		/// Display Name: WIP Variance Subaccount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WIPVarianceSubaccount", EmitDefaultValue=false)]
 		public StringValue? WIPVarianceSubaccount { get; set; }
 

@@ -14,12 +14,30 @@ namespace Acumatica.Default_23_200_001.Model
 	public class InventoryItemUOMConversion : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: UnitRate 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: Conversion Factor 
+		/// </summary>
 		[DataMember(Name="ConversionFactor", EmitDefaultValue=false)]
 		public DecimalValue? ConversionFactor { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: FromUnit 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: From Unit 
+		/// SQL Type: nvarchar(6) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="FromUOM", EmitDefaultValue=false)]
 		public StringValue? FromUOM { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: UnitMultDiv 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: Multiply/Divide 
+		/// SQL Type: char(1) 
+		/// </summary>
 		[DataMember(Name="MultiplyOrDivide", EmitDefaultValue=false)]
 		public StringValue? MultiplyOrDivide { get; set; }
 

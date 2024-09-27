@@ -18,14 +18,8 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BindingID 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BindingID", EmitDefaultValue=false)]
 		public IntValue? BindingID { get; set; }
 
@@ -33,26 +27,14 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		public List<StorageDetailsResult>? Results { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SplitByLocation 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SplitByLocation", EmitDefaultValue=false)]
 		public BooleanValue? SplitByLocation { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Warehouse 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 

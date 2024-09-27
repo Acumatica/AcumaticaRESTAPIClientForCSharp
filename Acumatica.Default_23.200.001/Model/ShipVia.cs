@@ -18,86 +18,66 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The method used to calculate freight charges using the rate breakdown specified in the related FreightRate records.
 		/// DAC Field Name: CalcMethod 
 		/// DAC: PX.Objects.CS.Carrier 
+		/// Display Name: Calculation Method 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CalculationMethod", EmitDefaultValue=false)]
 		public StringValue? CalculationMethod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The Calendar associated with the carrier, which reflects its work hours and the days when it ships the goods.
 		/// DAC Field Name: CalendarID 
 		/// DAC: PX.Objects.CS.Carrier 
+		/// SQL Type: nvarchar(10) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Calendar", EmitDefaultValue=false)]
 		public StringValue? Calendar { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: CarrierID 
+		/// Key field.A unique code of a non-integrated carrier, a method of the integrated carrier or a shipping option of the company.
 		/// DAC: PX.Objects.CS.Carrier 
+		/// Display Name: Ship Via 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CarrierID", EmitDefaultValue=false)]
 		public StringValue? CarrierID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Indicates whether the carrier is a common carrier.Because common carriers deliver goods from a company branch to the customer location that isa selling point, the value of this field affects the set of taxes that applies to the corresponding invoice.
 		/// DAC Field Name: IsCommonCarrier 
 		/// DAC: PX.Objects.CS.Carrier 
+		/// Display Name: Common Carrier 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommonCarrier", EmitDefaultValue=false)]
 		public BooleanValue? CommonCarrier { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the carrier or shipping option.
 		/// DAC: PX.Objects.CS.Carrier 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the General Ledger expense Account, that is used to record the freight charges to be paid to the Carrier.
 		/// DAC Field Name: FreightExpenseAcctID 
 		/// DAC: PX.Objects.CS.Carrier 
+		/// Display Name: Freight Expense Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FreightExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? FreightExpenseAccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the General Ledger Subaccount, that is used to record the freight charges to be paid to the Carrier.
 		/// DAC Field Name: FreightExpenseSubID 
 		/// DAC: PX.Objects.CS.Carrier 
+		/// Display Name: Freight Expense Sub. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FreightExpenseSubaccount", EmitDefaultValue=false)]
 		public StringValue? FreightExpenseSubaccount { get; set; }
 
@@ -105,26 +85,20 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<ShipViaFreightRate>? FreightRates { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the General Ledger income Account, that is used to record the freight charges to be paid to the company.
 		/// DAC Field Name: FreightSalesAcctID 
 		/// DAC: PX.Objects.CS.Carrier 
+		/// Display Name: Freight Sales Account 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FreightSalesAccount", EmitDefaultValue=false)]
 		public StringValue? FreightSalesAccount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the General Ledger Subaccount, that is used to record the freight charges to be paid to the company.
 		/// DAC Field Name: FreightSalesSubID 
 		/// DAC: PX.Objects.CS.Carrier 
+		/// Display Name: Freight Sales Sub. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FreightSalesSubaccount", EmitDefaultValue=false)]
 		public StringValue? FreightSalesSubaccount { get; set; }
 
@@ -132,14 +106,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<ShippingBox>? Packages { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Identifier of the Tax Category to be applied to the freight amountwhen goods are shipped with this shipping option.
 		/// DAC Field Name: TaxCategoryID 
 		/// DAC: PX.Objects.CS.Carrier 
+		/// Display Name: Tax Category 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 

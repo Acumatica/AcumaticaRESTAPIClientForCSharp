@@ -14,12 +14,24 @@ namespace Acumatica.Default_23_200_001.Model
 	public class NonStockItemVendorDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC: PX.Objects.PO.POVendorInventory 
+		/// Display Name: Vendor ID 
+		/// </summary>
 		[DataMember(Name="VendorID", EmitDefaultValue=false)]
 		public StringValue? VendorID { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: Vendor__AcctName 
+		/// DAC: PX.Objects.PO.POVendorInventory 
+		/// </summary>
 		[DataMember(Name="VendorName", EmitDefaultValue=false)]
 		public StringValue? VendorName { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: IsDefault 
+		/// DAC: PX.Objects.PO.POVendorInventory 
+		/// </summary>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 

@@ -21,14 +21,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the customer price class.
 		/// DAC: PX.Objects.AR.ARPriceClass 
+		/// SQL Type: nvarchar(250) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -36,14 +32,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: PriceClassID 
+		/// The unique identifier of the customer price class.This field is the key field.
 		/// DAC: PX.Objects.AR.ARPriceClass 
+		/// Display Name: Price Class ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
 		public StringValue? PriceClassID { get; set; }
 

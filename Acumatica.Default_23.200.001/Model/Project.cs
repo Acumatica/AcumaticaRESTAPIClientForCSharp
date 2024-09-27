@@ -39,26 +39,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public BillToSettings? BillToSettings { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the customer for the project. Projects can be of the internal or external type. Internal projects are those that have the value of this            property equal to NULL and hense are not billable.
 		/// DAC Field Name: CustomerID 
 		/// DAC: PX.Objects.PM.PMProject 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The project description.
 		/// DAC: PX.Objects.PM.PMProject 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -69,26 +61,20 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<ProjectEquipment>? Equipments { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CuryExpense 
 		/// DAC: PX.Objects.PM.PMTaskTotal 
+		/// Display Name: Expense 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Expenses", EmitDefaultValue=false)]
 		public DecimalValue? Expenses { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The external reference number (such as an identifier required by the customer or a number from an external system integrated with Acumatica ERP) entered            manually.
 		/// DAC Field Name: ExtRefNbr 
 		/// DAC: PX.Objects.PM.PMChangeOrder 
+		/// Display Name: External Ref. Nbr. 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExternalRefNbr { get; set; }
 
@@ -96,26 +82,16 @@ namespace Acumatica.Default_23_200_001.Model
 		public ProjectGLAccount? GLAccounts { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Hold 
+		/// Specifies (if set to true) that the project is on hold.
 		/// DAC: PX.Objects.PM.PMProject 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: CuryIncome 
 		/// DAC: PX.Objects.PM.PMTaskTotal 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Income", EmitDefaultValue=false)]
 		public DecimalValue? Income { get; set; }
 
@@ -129,14 +105,13 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? Liabilities { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The project CD. This is a segmented key. Its format is configured on the Segmented Keys (CS202000) form.
 		/// DAC Field Name: ContractCD 
 		/// DAC: PX.Objects.PM.PMProject 
+		/// Display Name: Project ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
@@ -144,26 +119,19 @@ namespace Acumatica.Default_23_200_001.Model
 		public ProjectProperties? ProjectProperties { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The template for the project.
 		/// DAC Field Name: TemplateID 
 		/// DAC: PX.Objects.PM.PMProject 
+		/// Display Name: Template 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
+		/// The status of the project.
 		/// DAC: PX.Objects.PM.PMProject 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 

@@ -24,14 +24,10 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		public List<OrderRisks>? OrderRisks { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The identifier of the branch.The field is included in the Branch foreign key.
 		/// DAC Field Name: BranchID 
 		/// DAC: PX.Objects.SO.SOOrder 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 

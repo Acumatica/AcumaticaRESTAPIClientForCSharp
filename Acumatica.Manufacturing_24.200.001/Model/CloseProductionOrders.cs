@@ -21,14 +21,10 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<CloseProductionOrdersDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: FinancialPeriodID 
 		/// DAC: PX.Objects.AM.FinancialPeriod 
+		/// SQL Type: char(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Period", EmitDefaultValue=false)]
 		public StringValue? Period { get; set; }
 

@@ -21,50 +21,35 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<ProductionAttributesDetail>? Detail { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ShowOrderAttributes 
 		/// DAC: PX.Objects.AM.ProductionAttributesFilter 
+		/// Display Name: Order Attributes 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderAttributes", EmitDefaultValue=false)]
 		public BooleanValue? OrderAttributes { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrderType 
 		/// DAC: PX.Objects.AM.ProductionAttributesFilter 
+		/// Display Name: Order Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProdOrdID 
 		/// DAC: PX.Objects.AM.ProductionAttributesFilter 
+		/// Display Name: Production Nbr. 
+		/// SQL Type: nvarchar(19) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ShowTransactionAttributes 
 		/// DAC: PX.Objects.AM.ProductionAttributesFilter 
+		/// Display Name: Transaction Attributes 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TransactionAttributes", EmitDefaultValue=false)]
 		public BooleanValue? TransactionAttributes { get; set; }
 

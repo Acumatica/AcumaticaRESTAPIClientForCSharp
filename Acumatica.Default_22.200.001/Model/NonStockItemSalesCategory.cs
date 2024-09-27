@@ -14,6 +14,11 @@ namespace Acumatica.Default_22_200_001.Model
 	public class NonStockItemSalesCategory : Entity
 	{
 
+		/// <summary>
+		/// DAC: PX.Objects.IN.INItemCategory 
+		/// Display Name: Category 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
 		public IntValue? CategoryID { get; set; }
 

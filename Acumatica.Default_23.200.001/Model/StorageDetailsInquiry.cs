@@ -21,14 +21,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<StorageDetail>? StorageDetails { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Warehouse 
 		/// DAC: PX.Data.GenericFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 

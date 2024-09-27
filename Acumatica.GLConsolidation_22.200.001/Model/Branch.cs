@@ -18,50 +18,35 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: AcctName 
+		/// The name of the branch.
 		/// DAC: PX.Objects.GL.Branch 
+		/// Display Name: Branch Name 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AcctName", EmitDefaultValue=false)]
 		public StringValue? AcctName { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BranchCD 
+		/// Key field.User-friendly unique identifier of the Branch.
 		/// DAC: PX.Objects.GL.Branch 
+		/// Display Name: Branch ID 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BranchCD", EmitDefaultValue=false)]
 		public StringValue? BranchCD { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Organization__OrganizationCD 
 		/// DAC: PX.Objects.GL.Branch 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrganizationCD", EmitDefaultValue=false)]
 		public StringValue? OrganizationCD { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: Ledger__LedgerCD 
 		/// DAC: PX.Objects.GL.Branch 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }
 

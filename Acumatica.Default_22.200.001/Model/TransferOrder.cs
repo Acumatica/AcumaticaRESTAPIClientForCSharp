@@ -18,26 +18,17 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: TranDate 
 		/// DAC: PX.Objects.IN.INRegister 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: TranDesc 
 		/// DAC: PX.Objects.IN.INRegister 
+		/// SQL Type: nvarchar(256) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -45,26 +36,19 @@ namespace Acumatica.Default_22_200_001.Model
 		public List<TransferOrderDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ExtRefNbr 
 		/// DAC: PX.Objects.IN.INRegister 
+		/// Display Name: External Ref. 
+		/// SQL Type: nvarchar(40) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
 		public StringValue? ExternalRef { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.IN.INRegister 
+		/// Display Name: Warehouse ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="FromWarehouseID", EmitDefaultValue=false)]
 		public StringValue? FromWarehouseID { get; set; }
 
@@ -75,74 +59,51 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: FinPeriodID 
 		/// DAC: PX.Objects.IN.INRegister 
+		/// Display Name: Post Period 
+		/// SQL Type: char(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: RefNbr 
 		/// DAC: PX.Objects.IN.INRegister 
+		/// Display Name: Reference Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Status 
 		/// DAC: PX.Objects.IN.INRegister 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: TotalQty 
 		/// DAC: PX.Objects.IN.INRegister 
+		/// Display Name: Total Qty. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ToSiteID 
 		/// DAC: PX.Objects.IN.INRegister 
+		/// Display Name: To Warehouse ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ToWarehouseID", EmitDefaultValue=false)]
 		public StringValue? ToWarehouseID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: TransferType 
 		/// DAC: PX.Objects.IN.INRegister 
+		/// Display Name: Transfer Type 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TransferType", EmitDefaultValue=false)]
 		public StringValue? TransferType { get; set; }
 

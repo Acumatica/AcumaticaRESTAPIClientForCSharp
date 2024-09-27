@@ -18,38 +18,30 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BalanceType 
+		/// The type of the balance of the ledger.
 		/// DAC: PX.Objects.GL.Ledger 
+		/// Display Name: Type 
+		/// SQL Type: char(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BalanceType", EmitDefaultValue=false)]
 		public StringValue? BalanceType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Descr 
+		/// The description of the Ledger.
 		/// DAC: PX.Objects.GL.Ledger 
+		/// Display Name: Description 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Descr", EmitDefaultValue=false)]
 		public StringValue? Descr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LedgerCD 
+		/// Key field.Unique user-friendly identifier of the Ledger.
 		/// DAC: PX.Objects.GL.Ledger 
+		/// Display Name: Ledger ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }
 

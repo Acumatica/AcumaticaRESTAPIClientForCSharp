@@ -18,14 +18,8 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Active 
 		/// DAC: PX.Objects.TX.TaxCategory 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -33,14 +27,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The description of the tax category, which can be specified by the user.
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.TX.TaxCategory 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -48,14 +39,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<TaxCategoryTaxDetail>? Details { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// "Exclude Listed Taxes" flag. Specifies how the taxes that are included in the category should be applied to the document line.false: Only the taxes of the category that are intersected with the taxes of the tax zone should be applied to the document line.true: All taxes of the tax zone except the taxes of the category should be applied to the document line.
 		/// DAC Field Name: TaxCatFlag 
 		/// DAC: PX.Objects.TX.TaxCategory 
+		/// Display Name: Exclude Listed Taxes 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExcludeListedTaxes", EmitDefaultValue=false)]
 		public BooleanValue? ExcludeListedTaxes { get; set; }
 
@@ -63,14 +51,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: TaxCategoryID 
+		/// The tax category ID. This is the key field, which can be specified by the user.
 		/// DAC: PX.Objects.TX.TaxCategory 
+		/// Display Name: Tax Category ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="TaxCategoryID", EmitDefaultValue=false)]
 		public StringValue? TaxCategoryID { get; set; }
 

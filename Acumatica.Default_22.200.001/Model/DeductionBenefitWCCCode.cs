@@ -14,6 +14,11 @@ namespace Acumatica.Default_22_200_001.Model
 	public class DeductionBenefitWCCCode : Entity
 	{
 
+		/// <summary>
+		/// The state or province to which the deduction or benefit corresponds.The field is included in State.
+		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// SQL Type: nvarchar(50) 
+		/// </summary>
 		[DataMember(Name="State", EmitDefaultValue=false)]
 		public StringValue? State { get; set; }
 

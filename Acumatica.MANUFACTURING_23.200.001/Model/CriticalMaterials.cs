@@ -21,50 +21,34 @@ namespace Acumatica.Manufacturing_23_200_001.Model
 		public List<CriticalMaterialDetail>? Detail { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: OrderType 
 		/// DAC: PX.Objects.AM.ProdItemFilter 
+		/// Display Name: Order Type 
+		/// SQL Type: char(2) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProdOrdID 
 		/// DAC: PX.Objects.AM.ProdItemFilter 
+		/// Display Name: Production Nbr. 
+		/// SQL Type: nvarchar(19) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ShowAll 
 		/// DAC: PX.Objects.AM.ProdItemFilter 
+		/// Display Name: Show All Items 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShowAllItems", EmitDefaultValue=false)]
 		public BooleanValue? ShowAllItems { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ShowAllocated 
 		/// DAC: PX.Objects.AM.ProdItemFilter 
+		/// Display Name: Show Allocated 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ShowAllocated", EmitDefaultValue=false)]
 		public BooleanValue? ShowAllocated { get; set; }
 

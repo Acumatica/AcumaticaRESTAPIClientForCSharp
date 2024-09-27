@@ -18,38 +18,23 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ExpandByLotSerialNbr 
 		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// Display Name: Expand by Lot/Serial Numbers 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExpandByLotSerialNbr", EmitDefaultValue=false)]
 		public BooleanValue? ExpandByLotSerialNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
 		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LocationID 
 		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// Display Name: Location 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
@@ -57,26 +42,18 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<InventorySummaryRow>? Results { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SubItemCD 
 		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
+		/// Display Name: Warehouse 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 

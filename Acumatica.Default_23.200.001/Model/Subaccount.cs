@@ -18,62 +18,43 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Active 
+		/// Indicates whether the Subaccount is active.Inactive subaccounts do not appear in the lists of available subaccounts andthus can't be selected for documents, transactions and other entities.
 		/// DAC: PX.Objects.GL.Sub 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
+		/// The description of the Subaccount.
 		/// DAC: PX.Objects.GL.Sub 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Secured 
 		/// DAC: PX.Objects.GL.Sub 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Secured", EmitDefaultValue=false)]
 		public BooleanValue? Secured { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Key field.Unique user-friendly segmented key of the Subaccount.
 		/// DAC Field Name: SubCD 
 		/// DAC: PX.Objects.GL.Sub 
+		/// Display Name: Subaccount 
+		/// SQL Type: nvarchar(30) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SubaccountCD", EmitDefaultValue=false)]
 		public StringValue? SubaccountCD { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Database identity.Unique identifier of the Subaccount.
 		/// DAC Field Name: SubID 
 		/// DAC: PX.Objects.GL.Sub 
+		/// Display Name: Sub. ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SubaccountID", EmitDefaultValue=false)]
 		public IntValue? SubaccountID { get; set; }
 

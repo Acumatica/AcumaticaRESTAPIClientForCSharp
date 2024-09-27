@@ -18,14 +18,10 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: BucketID 
 		/// DAC: PX.Objects.AM.BucketFilter 
+		/// Display Name: Bucket ID 
+		/// SQL Type: nvarchar(30) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="BucketID", EmitDefaultValue=false)]
 		public StringValue? BucketID { get; set; }
 
@@ -33,122 +29,77 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<MRPRequirementsByItemDetail>? Detail { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
 		/// DAC: PX.Objects.AM.BucketFilter 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: LeadTime 
 		/// DAC: PX.Objects.AM.BucketFilter 
+		/// Display Name: Lead Time 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="LeadTime", EmitDefaultValue=false)]
 		public IntValue? LeadTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: PreferredVendorID 
 		/// DAC: PX.Objects.AM.BucketFilter 
+		/// Display Name: Preferred Vendor ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PreferredVendorID", EmitDefaultValue=false)]
 		public StringValue? PreferredVendorID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProductManagerID 
 		/// DAC: PX.Objects.AM.BucketFilter 
+		/// Display Name: Product Mgr. 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductMgr", EmitDefaultValue=false)]
 		public IntValue? ProductMgr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: ProductManagerID_description 
 		/// DAC: PX.Objects.AM.BucketFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProductMgrContact", EmitDefaultValue=false)]
 		public StringValue? ProductMgrContact { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: QtyOnHand 
 		/// DAC: PX.Objects.AM.BucketFilter 
+		/// Display Name: Qty. on Hand 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="QtyonHand", EmitDefaultValue=false)]
 		public DecimalValue? QtyonHand { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// Replenishment source
 		/// DAC Field Name: ReplenishmentSource 
 		/// DAC: PX.Objects.AM.BucketFilter 
+		/// Display Name: Rep. Source 
+		/// SQL Type: nchar(1) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RepSource", EmitDefaultValue=false)]
 		public StringValue? RepSource { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: SafetyStock 
 		/// DAC: PX.Objects.AM.BucketFilter 
+		/// Display Name: Safety Stock 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
 		public DecimalValue? SafetyStock { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SubItemID 
 		/// DAC: PX.Objects.AM.BucketFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.AM.BucketFilter 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 

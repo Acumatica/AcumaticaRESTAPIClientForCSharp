@@ -18,14 +18,9 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.PM.PMUnion 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -33,14 +28,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<UnionDeductionOrBenefitDetail>? DeductionsAndBenefits { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.PM.PMUnion 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -54,14 +44,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: UnionID 
 		/// DAC: PX.Objects.PM.PMUnion 
+		/// Display Name: Union Local ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PayrollUnionLocalID", EmitDefaultValue=false)]
 		public StringValue? PayrollUnionLocalID { get; set; }
 

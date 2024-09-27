@@ -18,14 +18,11 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The account group of the commitment.
 		/// DAC Field Name: AccountGroupID 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Account Group 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
 		public StringValue? AccountGroup { get; set; }
 
@@ -36,98 +33,74 @@ namespace Acumatica.Default_22_200_001.Model
 		public DecimalValue? CommittedCOQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The invoiced amount of the commitment.
 		/// DAC Field Name: InvoicedAmount 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Committed Invoiced Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedInvoicedAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommittedInvoicedAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The invoiced quantity of the commitment.
 		/// DAC Field Name: InvoicedQty 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Committed Invoiced Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedInvoicedQty", EmitDefaultValue=false)]
 		public DecimalValue? CommittedInvoicedQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The open amount of the commitment that has not been received yet.
 		/// DAC Field Name: OpenAmount 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Committed Open Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedOpenAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommittedOpenAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The open quantity of the commitment that has not been received yet.
 		/// DAC Field Name: OpenQty 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Committed Open Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedOpenQty", EmitDefaultValue=false)]
 		public DecimalValue? CommittedOpenQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The received quantity of the commitment.
 		/// DAC Field Name: ReceivedQty 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Committed Received Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CommittedReceivedQty", EmitDefaultValue=false)]
 		public DecimalValue? CommittedReceivedQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The cost code of the commitment.
 		/// DAC Field Name: CostCodeID 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Cost Code 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The reference number of the commitment of the external type.
 		/// DAC Field Name: ExtRefNbr 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: External Ref. Nbr 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExternalRefNbr { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: InventoryID 
+		/// The inventory item of the commitment.
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Inventory ID 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
@@ -135,50 +108,36 @@ namespace Acumatica.Default_22_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The original amount of the commitment.
 		/// DAC Field Name: OrigAmount 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Original Committed Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OriginalCommittedAmount", EmitDefaultValue=false)]
 		public DecimalValue? OriginalCommittedAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The original quantity of the commitment.
 		/// DAC Field Name: OrigQty 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Original Committed Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="OriginalCommittedQty", EmitDefaultValue=false)]
 		public DecimalValue? OriginalCommittedQty { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ProjectID 
+		/// The project associated with the commitment.
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Project 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: ProjectTaskID 
+		/// The project task associated with the commitment.
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Project Task 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
 
@@ -186,26 +145,20 @@ namespace Acumatica.Default_22_200_001.Model
 		public StringValue? RelatedDocument { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The revised amount of the commitment.
 		/// DAC Field Name: Amount 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Revised Committed Amount 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RevisedCommittedAmount", EmitDefaultValue=false)]
 		public DecimalValue? RevisedCommittedAmount { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The revised quantity of the commitment.
 		/// DAC Field Name: Qty 
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// Display Name: Revised Committed Quantity 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RevisedCommittedQty", EmitDefaultValue=false)]
 		public DecimalValue? RevisedCommittedQty { get; set; }
 
@@ -213,14 +166,10 @@ namespace Acumatica.Default_22_200_001.Model
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: UOM 
+		/// The unit of measure of the commitment.
 		/// DAC: PX.Objects.PM.PMCommitment 
+		/// SQL Type: nvarchar(6) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 

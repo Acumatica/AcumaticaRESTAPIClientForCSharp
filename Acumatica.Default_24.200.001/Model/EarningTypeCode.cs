@@ -18,74 +18,54 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A boolean value that specifies (if set to true) that the hours linked with the code will be considered for PTO calculation.
 		/// DAC Field Name: AccruePTO 
 		/// DAC: PX.Objects.EP.EPEarningType 
+		/// Display Name: Accrue Time Off 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="AccrueTimeOff", EmitDefaultValue=false)]
 		public BooleanValue? AccrueTimeOff { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: IsActive 
 		/// DAC: PX.Objects.EP.EPEarningType 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The category to which an earning type belongs.
 		/// DAC Field Name: EarningTypeCategory 
 		/// DAC: PX.Objects.EP.EPEarningType 
+		/// Display Name: Earning Type Category 
+		/// SQL Type: char(3) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Category", EmitDefaultValue=false)]
 		public StringValue? Category { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// A boolean value that specifies (if set to true) that the system uses a WC code from the employee time activities or payroll settings when inserting an earning line in a paycheck or in a payroll batch.
 		/// DAC Field Name: IsWCCCalculation 
 		/// DAC: PX.Objects.EP.EPEarningType 
+		/// Display Name: Contributes to WCC Calculation 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="ContributestoWCCCalculation", EmitDefaultValue=false)]
 		public BooleanValue? ContributestoWCCCalculation { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: Description 
 		/// DAC: PX.Objects.EP.EPEarningType 
+		/// SQL Type: nvarchar(60) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: TypeCD 
 		/// DAC: PX.Objects.EP.EPEarningType 
+		/// Display Name: Code 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="EarningTypeCodeID", EmitDefaultValue=false)]
 		public StringValue? EarningTypeCodeID { get; set; }
 
@@ -96,14 +76,9 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
 		/// DAC Field Name: OvertimeMultiplier 
 		/// DAC: PX.Objects.EP.EPEarningType 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="Multiplier", EmitDefaultValue=false)]
 		public DecimalValue? Multiplier { get; set; }
 
@@ -111,26 +86,20 @@ namespace Acumatica.Default_24_200_001.Model
 		public EarningCodeProjectSettings? ProjectSettings { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
-		/// DAC Field Name: PublicHoliday 
+		/// A boolean value that specifies (if set to true) that the type refers to earnings guaranteed by a mandatory holiday.
 		/// DAC: PX.Objects.EP.EPEarningType 
+		/// Display Name: Public Holiday 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="PublicHoliday", EmitDefaultValue=false)]
 		public BooleanValue? PublicHoliday { get; set; }
 
 		/// <summary>
-		/// 
-		/// Display Name:
+		/// The user-friendly unique identifier of the earning type to be used for calculation of the PTO amount.The field is included in RegularEarningType.
 		/// DAC Field Name: RegularTypeCD 
 		/// DAC: PX.Objects.EP.EPEarningType 
+		/// Display Name: Regular Time Type Code 
+		/// SQL Type: nvarchar(15) 
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		[DataMember(Name="RegularTimeTypeCode", EmitDefaultValue=false)]
 		public StringValue? RegularTimeTypeCode { get; set; }
 
