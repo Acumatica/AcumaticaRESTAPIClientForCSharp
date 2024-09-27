@@ -154,7 +154,7 @@ namespace EndpointModelGenerator
 
                             foreach (var field in entity.Value.Fields)
                             {
-                                FillFieldDescription(parsedScreenMetadata, parentTopLevelEntityMetadata.screen, field, parentTopLevelEntityMetadata.Mappings.FirstOrDefault(_ => _.field == parentFieldName).Mapping1);
+                                FillFieldDescription(parsedScreenMetadata, parentTopLevelEntityMetadata.screen, field, parentTopLevelEntityMetadata.Mappings.FirstOrDefault(_ => _.field == parentFieldName)?.Mapping1);
                             }
                         }
                     }
@@ -162,9 +162,9 @@ namespace EndpointModelGenerator
             }
         }
 
-        private static void FillFieldDescription(Dictionary<string, ScreenMetadata> parsedScreenMetadata, string screenID, EntityField field, Mapping[] mappings)
+        private static void FillFieldDescription(Dictionary<string, ScreenMetadata> parsedScreenMetadata, string screenID, EntityField field, Mapping[]? mappings)
         {
-            var mappingInfo = mappings.FirstOrDefault(mapping => mapping.@field == field.Name)?.To?.FirstOrDefault();
+            var mappingInfo = mappings?.FirstOrDefault(mapping => mapping.@field == field.Name)?.To?.FirstOrDefault();
             if (mappingInfo != null)
             {
                 field.DACFieldName = mappingInfo.field;
