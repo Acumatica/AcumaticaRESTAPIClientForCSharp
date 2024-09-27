@@ -36,7 +36,7 @@
 			{
 				string documentation = $"\r\n\t\t/// <summary>" +
 					(string.IsNullOrEmpty(field.Summary) ? "" : $"\r\n\t\t/// {field.Summary?.Replace("\n", "")}") +
-					(string.IsNullOrEmpty(field.DACFieldName) || field.DACFieldName == field.Name ? "" : $"/// DAC Field Name: {field.DACFieldName} ") +
+					(string.IsNullOrEmpty(field.DACFieldName) || field.DACFieldName == field.Name ? "" : $"\r\n\t\t/// DAC Field Name: {field.DACFieldName} ") +
 					$"\r\n\t\t/// DAC: {field.DAC} " +
 					(string.IsNullOrEmpty(field.DisplayName) || field.DisplayName == field.Name ? "" : $"\r\n\t\t/// Display Name: {field.DisplayName} ") +
 					((!string.IsNullOrEmpty(field.SqlType)) && field.SqlType.Contains("char") ? $"\r\n\t\t/// SQL Type: {field.SqlType} " : "") +
