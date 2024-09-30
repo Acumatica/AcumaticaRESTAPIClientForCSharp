@@ -42,6 +42,12 @@ namespace Acumatica.RESTClient.FileApi.Model
         public string? Href { get; set; }
 
         /// <summary>
+        /// The field is available starting from Acumatica 2024r2 
+        /// </summary>
+        [DataMember(Name = "comment", EmitDefaultValue = false)]
+        public string? Comment { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>

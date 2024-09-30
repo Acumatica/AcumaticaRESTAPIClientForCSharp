@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>Acumatica Contract Based REST API CLient</Title>
-    <Version>5.2.0-beta</Version>
+    <Version>5.2.1-beta</Version>
     <Authors>Dmitrii-Naumov</Authors>
     <Company>Acumatica</Company>
     <Description>A simple client allowing to use Acumatica Contract Based REST API from C#. </Description>
@@ -18,7 +18,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>9.0</LangVersion>
     <nullable>Enable</nullable>
-    <PackageReleaseNotes>Improved error handling, introduced new put file API</PackageReleaseNotes>
+    <PackageReleaseNotes>Added ability to specify file comment </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
