@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.Contra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_23.200.001", "Acumatica.Default_23.200.001\Acumatica.Default_23.200.001.csproj", "{B6EA31C2-C9F0-4D01-9CC3-A0CA2DB7ABD7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.MaintenanceApi", "Acumatica.RESTClient.Maintenance\Acumatica.RESTClient.MaintenanceApi.csproj", "{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B6EA31C2-C9F0-4D01-9CC3-A0CA2DB7ABD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6EA31C2-C9F0-4D01-9CC3-A0CA2DB7ABD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6EA31C2-C9F0-4D01-9CC3-A0CA2DB7ABD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

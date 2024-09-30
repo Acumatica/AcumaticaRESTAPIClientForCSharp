@@ -31,15 +31,22 @@ namespace AcumaticaRestApiExample
 
                 byte[] initialData = Encoding.UTF8.GetBytes("Acumatica is awesome");
                 string fileName = "TestFile.txt";
+                string fileDesc = "It is the file description";
                 //Obsolete
                 //client.PutFile<SalesOrder>("SO/SO005207", fileName, initialData);
-                client.PutFile(order, fileName, initialData);
+                client.PutFile(order, fileName, initialData, fileDesc);
 
                 order = client.GetByKeys<SalesOrder>(new List<string>() { "SO", "SO005207" }, expand: "files");
 
-                if (order.Files.Any(fl => fl.Filename.EndsWith(@"\" + fileName)))
+                var fileRef = order.Files.Single(fl => fl.Filename.EndsWith(@"\" + fileName));
+
+                if (fileRef != null)
                 {
                     Console.WriteLine($"The file {fileName} was uploaded successfully");
+                }
+                if (fileRef?.Comment == fileDesc)
+                {
+                    Console.WriteLine($"The file {fileName} has description {fileDesc}");
                 }
             }
             catch (Exception e)
