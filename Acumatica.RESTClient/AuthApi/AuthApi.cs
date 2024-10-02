@@ -323,13 +323,17 @@ namespace Acumatica.RESTClient.AuthApi
         {
             if (!response.IsSuccessStatusCode)
             {
-                //if content as string contains string "API login limit", report separate error
-                if (response.Content != null && (await response.Content.ReadAsStringAsync()).Contains("API Login Limit"))
+                var content = await response.Content.ReadAsStringAsync();
+                if (content?.Contains("API Login Limit") == true)
                 {
                     throw new ApiException(429, $"Error when calling {methodName}: API login limit exceeded. Please try again later.");
                 }
+                else if (content?.Contains("Invalid credentials") == true)
+                {
+                    throw new ApiException(429, $"Error when calling {methodName}: Invalid credentials.");
+                }
+                throw new ApiException(429, $"Error when calling {methodName}: {content}");
             }
-            response.EnsureSuccessStatusCode();
         }
 
         [Flags]
