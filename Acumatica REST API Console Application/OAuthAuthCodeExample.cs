@@ -21,14 +21,15 @@ namespace AcumaticaRestApiExample
         public static void Example(string siteURL, string clientSecret, string clientID, string redirectUrl)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest, 
-                responseInterceptor: RequestLogger.LogResponse
+                requestInterceptor: RequestLogger.LogRequest
+            //   ,responseInterceptor: RequestLogger.LogResponse
+            , ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
             var url = client.Authorize(
                 clientID,
                 clientSecret,
                  redirectUrl,
-                 OAuthScope.API | OAuthScope.OfflineAccess
+                 OAuthScope.API //| OAuthScope.OfflineAccess
                 );
             OpenUrl(url);
             var code = ReadCodeFromRedirectURL(redirectUrl);

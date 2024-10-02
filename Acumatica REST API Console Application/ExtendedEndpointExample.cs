@@ -34,9 +34,10 @@ namespace AcumaticaRestApiExample
 		public static void ExampleMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
 			ApiClient client = new ApiClient(siteURL,
-				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse);
-
-			try
+				requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse, 
+			    ignoreSslErrors: true // this is here to allow testing with self-signed certificates
+				);
+            try
 			{
 				client.Login(username, password, tenant, branch, locale);
 

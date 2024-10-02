@@ -19,7 +19,8 @@ namespace AcumaticaRestApiExample
 		{
             var client = new ApiClient(siteURL,
 				requestInterceptor: RequestLogger.LogRequest, 
-                responseInterceptor: RequestLogger.LogResponse
+                responseInterceptor: RequestLogger.LogResponse,
+                 ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
             try
@@ -70,7 +71,8 @@ namespace AcumaticaRestApiExample
         {
             var client = new ApiClient(siteURL,
                 requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse
+                responseInterceptor: RequestLogger.LogResponse,
+                ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
             try
@@ -148,7 +150,8 @@ namespace AcumaticaRestApiExample
         {
             var client = new ApiClient(siteURL,
                 requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse
+                responseInterceptor: RequestLogger.LogResponse,
+                 ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
             try
@@ -184,7 +187,8 @@ namespace AcumaticaRestApiExample
         {
             var client = new ApiClient(siteURL,
                 requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse
+                responseInterceptor: RequestLogger.LogResponse,
+                ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
             try
@@ -234,7 +238,8 @@ namespace AcumaticaRestApiExample
         {
             var client = new ApiClient(siteURL,
                 requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse
+                responseInterceptor: RequestLogger.LogResponse,
+                ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
             try
@@ -267,7 +272,8 @@ namespace AcumaticaRestApiExample
         {
             var client = new ApiClient(siteURL,
                 requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse
+                responseInterceptor: RequestLogger.LogResponse,
+                ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
             try
