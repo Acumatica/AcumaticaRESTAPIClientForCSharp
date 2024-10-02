@@ -330,9 +330,9 @@ namespace Acumatica.RESTClient.AuthApi
                 }
                 else if (content?.Contains("Invalid credentials") == true)
                 {
-                    throw new ApiException(429, $"Error when calling {methodName}: Invalid credentials.");
+                    throw new ApiException((int)response.StatusCode, $"Error when calling {methodName}: Invalid credentials.");
                 }
-                throw new ApiException(429, $"Error when calling {methodName}: {content}");
+                throw new ApiException((int)response.StatusCode, $"Error {(int)response.StatusCode}:{response.ReasonPhrase} when calling {methodName}: {content}");
             }
         }
 
