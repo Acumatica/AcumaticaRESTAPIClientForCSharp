@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.AuthApi.Model;
@@ -114,10 +115,18 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="scope"></param>
         public async static Task<string> AuthorizeAsync(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
         {
+            List<KeyValuePair<string, string>> queryParams = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("response_type", "code"),
+                new KeyValuePair<string, string>("client_id", clientID),
+                new KeyValuePair<string, string>("scope", PrepareScopeParameter(scope)),
+                new KeyValuePair<string, string>("redirect_uri",  redirectUrl)
+            };
+
             HttpResponseMessage response = await client.CallApiAsync(
-                "/identity/connect/authorize",
+                "identity/connect/authorize",
                 HttpMethod.Get,
-                null,
+                queryParams,
                 null,
                 HeaderContentType.None,
                 HeaderContentType.WwwForm);

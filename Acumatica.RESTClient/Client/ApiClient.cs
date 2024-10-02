@@ -12,6 +12,7 @@ using Acumatica.RESTClient.AuthApi.Model;
 
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 using System.Linq;
+using System.Web;
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTests")]
 
@@ -186,16 +187,7 @@ namespace Acumatica.RESTClient.Client
 
             if (queryParams != null)
             {
-                // add query parameter, if any
-                foreach (var param in queryParams)
-                {
-                    var query = System.Web.HttpUtility.ParseQueryString(url.Query);
-                    foreach (var kvp in queryParams)
-                    {
-                        query.Set(kvp.Key, kvp.Value);
-                    }
-                    url.Query = query.ToString();
-                }
+                url.Query += string.Join("&", queryParams.Select(queryParamter => $"{queryParamter.Key}={HttpUtility.UrlEncode(queryParamter.Value, Encoding.UTF8)}"));
             }
 
             var request = new HttpRequestMessage(method, url.ToString());
