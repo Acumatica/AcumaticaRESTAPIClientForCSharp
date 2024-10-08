@@ -128,8 +128,8 @@ namespace Acumatica.RESTClient.AuthApi
                 HttpMethod.Get,
                 queryParams,
                 null,
-                HeaderContentType.None,
-                HeaderContentType.WwwForm);
+                HeaderContentType.Any,
+                HeaderContentType.None);
 
             await VerifyResponseAsync(client, response, "RequestToken");
 
