@@ -7,7 +7,7 @@ The solution allows to easily start developing REST API based integration with A
 The repository contains the following solutions:
 1. Acumatica REST API Client - the solution contains Acumatica REST API client based on RESTSharp. The solution also contains base classes required for endpoint definitions and the endpoint definitions.
 2. Example Console Application - the solution contains examples of API calls to Acumatica ERP.
-3. EndpointModelGenerator - the solution allows to generate C# projects and classes for the REST API client based on OpenAPI 2.0 endpoint schemas.  
+3. EndpointModelGenerator - the solution allows to generate C# projects and classes for the REST API client based on OpenAPI 2.0/3.0 endpoint schemas.  
 
 The Acumatica REST Client and some endpoints are also available as Nuget packages:
 * https://www.nuget.org/packages/Acumatica.RESTClient/ [![NuGet(Acumatica.RESTClient)](https://img.shields.io/nuget/v/Acumatica.RESTClient.svg?style=flat-square)](https://www.nuget.org/packages/Acumatica.RESTClient/)
