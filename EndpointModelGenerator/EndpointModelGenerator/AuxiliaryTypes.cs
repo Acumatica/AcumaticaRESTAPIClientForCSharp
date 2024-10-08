@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,27 +22,70 @@ namespace EndpointSchemaGenerator
         public string Name;
         public string Description;
     }
+    public class Components
+    {
+        public Dictionary<string, JObject> Schemas;
+        public Dictionary<string, JObject> Parameters;
+
+    }
     public class Schema
     {
         public Info Info { get; set; }
         public string BasePath { get; set; }
+        public string? BaseEndpoint { get; set; }
 
-        public List<NameDescrObject> Tags;
-        public Dictionary<string, Dictionary<string, object>> Paths { get; set; }
+        public List<NameDescrObject> Tags { get; set; }
+     //   public Dictionary<string, Dictionary<string, object>> Paths { get; set; }
         public Dictionary<string, JObject> Definitions { get; set; }
-        public HashSet<string> TopLevelEntities { get; set; }
-        public Dictionary<string, Dictionary<string, string>> Entities { get; set; }
+        public Components Components { get; set; }
+        public Dictionary<string, EntityDefinition> Entities { get; set; }
         public Dictionary<string, string> Actions { get; set; }
         public Dictionary<string, Dictionary<string, string>> Parameters { get; set; }
     }
 
-    public class FieldsSchema
+    public class EntityDefinition
+    {
+        public bool IsTopLevel;
+        public string? ScreenID;
+        public HashSet<EntityField> Fields;
+        public string? ParentReference;
+        public EntityDefinition(bool isTopLevel, HashSet<EntityField> fields)
+        {
+            Fields = fields;
+            IsTopLevel = isTopLevel;
+        }
+    }
+    [DebuggerDisplay("{Name} {Type}")]
+    public class EntityField
     {
         public string Type;
-        public JObject Properties;
+        public string Name;
+        public string? View;
+        public string? DACFieldName;
+        public string? DAC;
+        public string? DisplayName;
+        public string? SqlType;
+        public string? Summary;
+        public string? Remarks;
+        public bool? IsKey;
 
-        public Dictionary<string, object> Parameters;
-        public Dictionary<string, object> Entity;
+        public EntityField(string name, string type)
+        {
+            Name = name;
+            Type = type;
+        }
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
+    }
+    public class FieldsSchema
+    {
+        public string? Type;
+        public JObject? Properties;
+
+        public Dictionary<string, object>? Parameters;
+        public Dictionary<string, object>? Entity;
     }
 
     public class EntitySchemaInternal
@@ -53,10 +97,5 @@ namespace EndpointSchemaGenerator
     public class EntitySchemaInternal2
     {
         public JObject Properties;
-    }
-    public class EntitySchema
-    {
-        public string ParentReference;
-        public Dictionary<string, string> FieldsSchema = new Dictionary<string, string>();
     }
 }

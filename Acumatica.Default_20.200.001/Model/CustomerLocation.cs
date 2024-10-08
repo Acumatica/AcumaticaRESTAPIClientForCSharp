@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,95 +11,99 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class CustomerLocation : Entity
+	public class CustomerLocation : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
-
-		[DataMember(Name="AddressOverride", EmitDefaultValue=false)]
-		public BooleanValue AddressOverride { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="Calendar", EmitDefaultValue=false)]
-		public StringValue Calendar { get; set; }
-
-		[DataMember(Name="ContactOverride", EmitDefaultValue=false)]
-		public BooleanValue ContactOverride { get; set; }
+		public StringValue? Calendar { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDateTime { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue Customer { get; set; }
+		public StringValue? Customer { get; set; }
 
 		[DataMember(Name="DefaultProject", EmitDefaultValue=false)]
-		public StringValue DefaultProject { get; set; }
+		public StringValue? DefaultProject { get; set; }
 
 		[DataMember(Name="EntityUsageType", EmitDefaultValue=false)]
-		public StringValue EntityUsageType { get; set; }
+		public StringValue? EntityUsageType { get; set; }
 
 		[DataMember(Name="FedExGroundCollect", EmitDefaultValue=false)]
-		public BooleanValue FedExGroundCollect { get; set; }
+		public BooleanValue? FedExGroundCollect { get; set; }
 
 		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
-		public StringValue FOBPoint { get; set; }
+		public StringValue? FOBPoint { get; set; }
 
 		[DataMember(Name="Insurance", EmitDefaultValue=false)]
-		public BooleanValue Insurance { get; set; }
+		public BooleanValue? Insurance { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="LeadTimeDays", EmitDefaultValue=false)]
-		public ShortValue LeadTimeDays { get; set; }
+		public ShortValue? LeadTimeDays { get; set; }
 
 		[DataMember(Name="LocationContact", EmitDefaultValue=false)]
-		public Contact LocationContact { get; set; }
+		public Contact? LocationContact { get; set; }
 
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue LocationID { get; set; }
+		public StringValue? LocationID { get; set; }
 
 		[DataMember(Name="LocationName", EmitDefaultValue=false)]
-		public StringValue LocationName { get; set; }
+		public StringValue? LocationName { get; set; }
 
 		[DataMember(Name="OrderPriority", EmitDefaultValue=false)]
-		public ShortValue OrderPriority { get; set; }
+		public ShortValue? OrderPriority { get; set; }
 
 		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
-		public StringValue PriceClass { get; set; }
+		public StringValue? PriceClass { get; set; }
 
 		[DataMember(Name="ResidentialDelivery", EmitDefaultValue=false)]
-		public BooleanValue ResidentialDelivery { get; set; }
+		public BooleanValue? ResidentialDelivery { get; set; }
 
 		[DataMember(Name="SaturdayDelivery", EmitDefaultValue=false)]
-		public BooleanValue SaturdayDelivery { get; set; }
+		public BooleanValue? SaturdayDelivery { get; set; }
 
 		[DataMember(Name="ShippingBranch", EmitDefaultValue=false)]
-		public StringValue ShippingBranch { get; set; }
+		public StringValue? ShippingBranch { get; set; }
 
 		[DataMember(Name="ShippingRule", EmitDefaultValue=false)]
-		public StringValue ShippingRule { get; set; }
+		public StringValue? ShippingRule { get; set; }
 
 		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
-		public StringValue ShippingTerms { get; set; }
+		public StringValue? ShippingTerms { get; set; }
 
 		[DataMember(Name="ShippingZone", EmitDefaultValue=false)]
-		public StringValue ShippingZone { get; set; }
+		public StringValue? ShippingZone { get; set; }
 
 		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
-		public StringValue ShipVia { get; set; }
+		public StringValue? ShipVia { get; set; }
 
 		[DataMember(Name="TaxExemptionNbr", EmitDefaultValue=false)]
-		public StringValue TaxExemptionNbr { get; set; }
+		public StringValue? TaxExemptionNbr { get; set; }
 
 		[DataMember(Name="TaxRegistrationID", EmitDefaultValue=false)]
-		public StringValue TaxRegistrationID { get; set; }
+		public StringValue? TaxRegistrationID { get; set; }
 
 		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
-		public StringValue TaxZone { get; set; }
+		public StringValue? TaxZone { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
+		[DataMember(Name="AddressOverride", EmitDefaultValue=false)]
+		public BooleanValue? AddressOverride { get; set; }
+
+		[DataMember(Name="ContactOverride", EmitDefaultValue=false)]
+		public BooleanValue? ContactOverride { get; set; }
+
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

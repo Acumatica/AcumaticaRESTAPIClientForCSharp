@@ -1,0 +1,2972 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "DeviceHub/23.200.001",
+    "version": "4"
+  },
+  "host": "internal.acumatica.com",
+  "basePath": "/entity/DeviceHub/23.200.001",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/Scanner/{actionName}": {
+      "post": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "Scanner_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "actionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "invocation",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScannerCustomAction"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/Scanner"
+            }
+          }
+        }
+      }
+    },
+    "/Scanner/$adHocSchema": {
+      "get": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "Scanner_GetAdHocSchema",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/Scanner"
+            }
+          }
+        }
+      }
+    },
+    "/Scanner/{ids}": {
+      "get": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "Scanner_GetByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Scanner"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "Scanner_DeleteByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/Scanner/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "Scanner_PutFile",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "path",
+            "name": "filename",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Scanner/{id}": {
+      "get": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "Scanner_GetById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Scanner"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "Scanner_DeleteById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/Scanner": {
+      "get": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "Scanner_GetList",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "description": "The number of records to be returned from the system.",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Scanner"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "Scanner_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "entity",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Scanner"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/Scanner"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/Scanner"
+            }
+          }
+        }
+      }
+    },
+    "/Printer/{actionName}": {
+      "post": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "Printer_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "actionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "invocation",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrinterCustomAction"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          }
+        }
+      }
+    },
+    "/Printer/$adHocSchema": {
+      "get": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "Printer_GetAdHocSchema",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          }
+        }
+      }
+    },
+    "/Printer/{ids}": {
+      "get": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "Printer_GetByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "Printer_DeleteByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/Printer/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "Printer_PutFile",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "path",
+            "name": "filename",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Printer/{id}": {
+      "get": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "Printer_GetById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "Printer_DeleteById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/Printer": {
+      "get": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "Printer_GetList",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "description": "The number of records to be returned from the system.",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Printer"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "Printer_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "entity",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          }
+        }
+      }
+    },
+    "/PrintJobs/{actionName}": {
+      "post": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "PrintJobs_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "actionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "invocation",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrintJobsCustomAction"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/PrintJobs"
+            }
+          }
+        }
+      }
+    },
+    "/PrintJobs/$adHocSchema": {
+      "get": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "PrintJobs_GetAdHocSchema",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/PrintJobs"
+            }
+          }
+        }
+      }
+    },
+    "/PrintJobs/{ids}": {
+      "get": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "PrintJobs_GetByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/PrintJobs"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "PrintJobs_DeleteByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/PrintJobs/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "PrintJobs_PutFile",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "path",
+            "name": "filename",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PrintJobs/{id}": {
+      "get": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "PrintJobs_GetById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/PrintJobs"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "PrintJobs_DeleteById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/PrintJobs": {
+      "get": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "PrintJobs_GetList",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "description": "The number of records to be returned from the system.",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJobs"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "PrintJobs_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "entity",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrintJobs"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/PrintJobs"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/PrintJobs"
+            }
+          }
+        }
+      }
+    },
+    "/ScanJobs/{actionName}": {
+      "post": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "ScanJobs_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "actionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "invocation",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScanJobsCustomAction"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/ScanJobs"
+            }
+          }
+        }
+      }
+    },
+    "/ScanJobs/$adHocSchema": {
+      "get": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "ScanJobs_GetAdHocSchema",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/ScanJobs"
+            }
+          }
+        }
+      }
+    },
+    "/ScanJobs/{ids}": {
+      "get": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "ScanJobs_GetByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ScanJobs"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "ScanJobs_DeleteByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/ScanJobs/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "ScanJobs_PutFile",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "path",
+            "name": "filename",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ScanJobs/{id}": {
+      "get": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "ScanJobs_GetById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ScanJobs"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "ScanJobs_DeleteById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/ScanJobs": {
+      "get": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "ScanJobs_GetList",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "description": "The number of records to be returned from the system.",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScanJobs"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "ScanJobs_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "entity",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScanJobs"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/ScanJobs"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/ScanJobs"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BooleanValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "ByteValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomBooleanField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomByteField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomDateTimeField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomDecimalField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "double",
+              "type": "number"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomDoubleField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "double",
+              "type": "number"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomField": {
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "discriminator": "type"
+    },
+    "CustomGuidField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomIntField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomLongField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomShortField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomStringField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "DateTimeValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "DecimalValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "double",
+          "type": "number"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "DoubleValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "double",
+          "type": "number"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "Entity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "rowNumber": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "note": {
+          "$ref": "#/definitions/StringValue"
+        },
+        "custom": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/CustomField"
+            }
+          }
+        },
+        "error": {
+          "type": "string"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FileLink"
+          }
+        }
+      }
+    },
+    "FileLink": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "href": {
+          "format": "uri",
+          "type": "string"
+        }
+      }
+    },
+    "GuidValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "HttpError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "exceptionMessage": {
+          "type": "string"
+        },
+        "exceptionType": {
+          "type": "string"
+        },
+        "stackTrace": {
+          "type": "string"
+        },
+        "modelState": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "messageDetail": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "IntValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "LongValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "PrintJob": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "CreatedBy": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "CreationDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "Description": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "DeviceHub": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "JobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "ModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "NumberOfCopies": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Parameters": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJobParameter"
+              }
+            },
+            "Printer": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ReportID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Selected": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "Status": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "PrintJobParameter": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "JobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "ParameterName": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ParameterValue": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "PrintJobs": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "EndDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "EndModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "HideProcessed": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "JobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Jobs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJob"
+              }
+            },
+            "StartDate": {
+              "$ref": "#/definitions/DateTimeValue"
+            },
+            "StartModifiedDateTime": {
+              "$ref": "#/definitions/DateTimeValue"
+            }
+          }
+        }
+      ]
+    },
+    "PrintJobsCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/PrintJobs"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Printer": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Description": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "DeviceHub": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "IsActive": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "PrinterName": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "PrinterCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/Printer"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ScanJobs": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "DeviceHub": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ErrorMessage": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ErrorTrace": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ScanJobID": {
+              "$ref": "#/definitions/IntValue"
+            },
+            "Scanner": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Status": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "ScanJobsCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/ScanJobs"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Scanner": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Description": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "DeviceHub": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "FileTypeComboValues": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "FileTypeDefValue": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "IsActive": {
+              "$ref": "#/definitions/BooleanValue"
+            },
+            "PaperSourceComboValues": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "PaperSourceDefValue": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "PixelTypeComboValues": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "PixelTypeDefValue": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ResolutionComboValues": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ResolutionDefValue": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ScannerName": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "ScannerCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/Scanner"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ShortValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "StringValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Printer",
+      "description": "(SM206510)"
+    },
+    {
+      "name": "PrintJobs",
+      "description": "(SM206500)"
+    },
+    {
+      "name": "ScanJobs",
+      "description": "(SM206505)"
+    },
+    {
+      "name": "Scanner",
+      "description": "(SM206540)"
+    }
+  ]
+}

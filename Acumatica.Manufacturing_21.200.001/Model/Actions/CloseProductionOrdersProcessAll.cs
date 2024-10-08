@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	public class CloseProductionOrdersProcessAll : EntityAction<CloseProductionOrders>
 	{
 		public CloseProductionOrdersProcessAll(CloseProductionOrders entity) : base(entity)
-		{ }
-		public CloseProductionOrdersProcessAll() : base()
 		{ }
 	}
 }

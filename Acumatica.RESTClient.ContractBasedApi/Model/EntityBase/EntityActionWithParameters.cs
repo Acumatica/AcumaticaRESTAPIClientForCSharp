@@ -7,14 +7,9 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
     [DataContract]
     public abstract class EntityActionWithParameters<EntityType, ParameterType> : EntityAction<EntityType>
-        where EntityType : Entity
+        where EntityType : Entity, ITopLevelEntity
         where ParameterType : new()
     {
-        public EntityActionWithParameters() : base()
-        {
-            this.Parameters = new ParameterType();
-        }
-
         public EntityActionWithParameters(EntityType entity, ParameterType parameters) : base(entity)
         {
             // to ensure "parameters" is required (not null)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,10 +15,10 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="ContractPeriod", EmitDefaultValue=false)]
-		public StringValue ContractPeriod { get; set; }
+		public StringValue? ContractPeriod { get; set; }
 
 		[DataMember(Name="ServiceContract", EmitDefaultValue=false)]
-		public StringValue ServiceContract { get; set; }
+		public StringValue? ServiceContract { get; set; }
 
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -15,12 +16,8 @@ namespace Acumatica.Default_20_200_001.Model
 		public CreateOpportunitySalesOrderParameters() { }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 		[DataMember(Name="RecalculatePricesandDiscounts", EmitDefaultValue=false)]
-		public BooleanValue RecalculatePricesandDiscounts { get; set; }
-		public virtual string ToJson()
-		{
-			return JsonConvert.SerializeObject(this, Formatting.Indented);
-		}
+		public BooleanValue? RecalculatePricesandDiscounts { get; set; }
 	}
 }

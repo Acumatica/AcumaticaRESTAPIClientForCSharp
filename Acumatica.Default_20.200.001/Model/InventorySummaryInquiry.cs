@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,26 +11,30 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class InventorySummaryInquiry : Entity
+	public class InventorySummaryInquiry : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="ExpandByLotSerialNbr", EmitDefaultValue=false)]
-		public BooleanValue ExpandByLotSerialNbr { get; set; }
+		public BooleanValue? ExpandByLotSerialNbr { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue LocationID { get; set; }
+		public StringValue? LocationID { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<InventorySummaryRow> Results { get; set; }
+		public List<InventorySummaryRow>? Results { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue WarehouseID { get; set; }
+		public StringValue? WarehouseID { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

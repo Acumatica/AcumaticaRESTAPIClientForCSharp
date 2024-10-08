@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,10 +15,15 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="ACAInfoDetails", EmitDefaultValue=false)]
-		public List<ACAInfoDetail> ACAInfoDetails { get; set; }
+		public List<ACAInfoDetail>? ACAInfoDetails { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: MinimumIndividualContribution 
+		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Minimum Individual Contribution 
+		/// </summary>
 		[DataMember(Name="MinIndividualContribution", EmitDefaultValue=false)]
-		public DecimalValue MinIndividualContribution { get; set; }
+		public DecimalValue? MinIndividualContribution { get; set; }
 
 	}
 }

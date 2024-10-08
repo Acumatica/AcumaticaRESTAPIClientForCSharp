@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,20 +11,24 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class MPSType : Entity
+	public class MPSType : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Dependent", EmitDefaultValue=false)]
-		public BooleanValue Dependent { get; set; }
+		public BooleanValue? Dependent { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="NumberingSequence", EmitDefaultValue=false)]
-		public StringValue NumberingSequence { get; set; }
+		public StringValue? NumberingSequence { get; set; }
 
 		[DataMember(Name="TypeID", EmitDefaultValue=false)]
-		public StringValue TypeID { get; set; }
+		public StringValue? TypeID { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

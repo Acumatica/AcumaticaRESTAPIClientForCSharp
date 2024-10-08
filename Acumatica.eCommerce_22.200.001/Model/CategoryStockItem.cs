@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,11 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class CategoryStockItem : Entity
+	public class CategoryStockItem : Acumatica.Default_22_200_001.Model.CategoryStockItem
 	{
-
-		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
-		public IntValue CategoryID { get; set; }
 
 	}
 }

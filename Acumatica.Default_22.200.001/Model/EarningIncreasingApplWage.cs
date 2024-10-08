@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,10 +15,10 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="EarningIncreasingApplWageDetails", EmitDefaultValue=false)]
-		public List<EarningIncreasingApplWageDetail> EarningIncreasingApplWageDetails { get; set; }
+		public List<EarningIncreasingApplWageDetail>? EarningIncreasingApplWageDetails { get; set; }
 
 		[DataMember(Name="InclusionType", EmitDefaultValue=false)]
-		public StringValue InclusionType { get; set; }
+		public StringValue? InclusionType { get; set; }
 
 	}
 }

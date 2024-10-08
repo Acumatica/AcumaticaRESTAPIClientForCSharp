@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,29 +11,33 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class KitSpecification : Entity
+	public class KitSpecification : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="IsNonStock", EmitDefaultValue=false)]
-		public BooleanValue IsNonStock { get; set; }
+		public BooleanValue? IsNonStock { get; set; }
 
 		[DataMember(Name="KitInventoryID", EmitDefaultValue=false)]
-		public StringValue KitInventoryID { get; set; }
+		public StringValue? KitInventoryID { get; set; }
 
 		[DataMember(Name="NonStockComponents", EmitDefaultValue=false)]
-		public List<KitNonStockComponent> NonStockComponents { get; set; }
+		public List<KitNonStockComponent>? NonStockComponents { get; set; }
 
 		[DataMember(Name="RevisionID", EmitDefaultValue=false)]
-		public StringValue RevisionID { get; set; }
+		public StringValue? RevisionID { get; set; }
 
 		[DataMember(Name="StockComponents", EmitDefaultValue=false)]
-		public List<KitStockComponent> StockComponents { get; set; }
+		public List<KitStockComponent>? StockComponents { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

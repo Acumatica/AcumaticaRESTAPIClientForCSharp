@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,17 +11,21 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class CostCode : Entity
+	public class CostCode : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CostCodeID", EmitDefaultValue=false)]
-		public StringValue CostCodeID { get; set; }
+		public StringValue? CostCodeID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

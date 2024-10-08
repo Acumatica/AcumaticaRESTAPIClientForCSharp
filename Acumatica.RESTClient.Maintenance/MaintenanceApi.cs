@@ -1,43 +1,49 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.Client;
+using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 namespace Acumatica.RESTClient.MaintenanceApi
 {
-    public class MaintenanceApi : BaseApi
+    public static class MaintenanceApi
     {
-        public MaintenanceApi(ApiClient configuration) : base(configuration)
+        public static async Task PutSchemaAsync(this ApiClient client, string endpointXML)
         {
-
-        }
-     
-        public void PutSchema(string endpointXML)
-        {
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
+            HttpResponseMessage response = await client.CallApiAsync(
                 "/entity/maintenance/23.200/",
                 HttpMethod.Post,
                 null,
                 endpointXML,
                 HeaderContentType.Xml,
-                HeaderContentType.Xml).Result;
+                HeaderContentType.Xml);
 
-            VerifyResponse(localVarResponse, "PutSchema");
+            response.EnsureSuccessStatusCode();
+        }
+        public static void PutSchema(this ApiClient client, string endpointXML)
+        {
+            Task.Run(() => PutSchemaAsync(client, endpointXML)).GetAwaiter().GetResult();
         }
 
-        public string GetSchema(string endpointName, string endpointVersion)
-        {
 
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
+        public static async Task<string> GetSchemaAsync(this ApiClient client, string endpointName, string endpointVersion)
+        {
+            HttpResponseMessage response =await client.CallApiAsync(
                 $"/entity/maintenance/23.200/{endpointName}/{endpointVersion}",
                 HttpMethod.Get,
                 null,
                 null,
                 HeaderContentType.Xml,
-                HeaderContentType.Xml).Result;
+                HeaderContentType.Xml);
 
-            VerifyResponse(localVarResponse, "GetSchema"); 
-            return DeserializeResponse<string>(localVarResponse).Data;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStringAsync(); 
+        }
+        public static string GetSchema(this ApiClient client, string endpointName, string endpointVersion)
+        {
+            return Task.Run(() => GetSchemaAsync(client, endpointName, endpointVersion)).GetAwaiter().GetResult();
         }
     }
 }

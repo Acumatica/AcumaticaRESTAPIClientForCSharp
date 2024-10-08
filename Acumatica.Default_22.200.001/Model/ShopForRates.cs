@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,13 +15,13 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="IsManualPackage", EmitDefaultValue=false)]
-		public BooleanValue IsManualPackage { get; set; }
+		public BooleanValue? IsManualPackage { get; set; }
 
 		[DataMember(Name="OrderWeight", EmitDefaultValue=false)]
-		public DecimalValue OrderWeight { get; set; }
+		public DecimalValue? OrderWeight { get; set; }
 
 		[DataMember(Name="PackageWeight", EmitDefaultValue=false)]
-		public DecimalValue PackageWeight { get; set; }
+		public DecimalValue? PackageWeight { get; set; }
 
 	}
 }

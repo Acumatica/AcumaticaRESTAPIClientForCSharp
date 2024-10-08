@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,14 +11,18 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_20_200_001.Model
 {
 	[DataContract]
-	public class FOBPoint : Entity
+	public class FOBPoint : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="FOBPointID", EmitDefaultValue=false)]
-		public StringValue FOBPointID { get; set; }
+		public StringValue? FOBPointID { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/20.200.001";
+		}
 	}
 }

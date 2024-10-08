@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,46 +15,46 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue CostCode { get; set; }
+		public StringValue? CostCode { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
-		public StringValue Project { get; set; }
+		public StringValue? Project { get; set; }
 
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
-		public StringValue ProjectTask { get; set; }
+		public StringValue? ProjectTask { get; set; }
 
 		[DataMember(Name="QtyComplete", EmitDefaultValue=false)]
-		public DecimalValue QtyComplete { get; set; }
+		public DecimalValue? QtyComplete { get; set; }
 
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
-		public DecimalValue QtytoProduce { get; set; }
+		public DecimalValue? QtytoProduce { get; set; }
 
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
-		public BooleanValue Selected { get; set; }
+		public BooleanValue? Selected { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
 		[DataMember(Name="WIPBalance", EmitDefaultValue=false)]
-		public DecimalValue WIPBalance { get; set; }
+		public DecimalValue? WIPBalance { get; set; }
 
 		[DataMember(Name="WIPVarianceAccount", EmitDefaultValue=false)]
-		public StringValue WIPVarianceAccount { get; set; }
+		public StringValue? WIPVarianceAccount { get; set; }
 
 		[DataMember(Name="WIPVarianceSubaccount", EmitDefaultValue=false)]
-		public StringValue WIPVarianceSubaccount { get; set; }
+		public StringValue? WIPVarianceSubaccount { get; set; }
 
 	}
 }

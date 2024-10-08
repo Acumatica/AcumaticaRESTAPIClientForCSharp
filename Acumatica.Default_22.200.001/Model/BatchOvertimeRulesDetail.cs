@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,40 +15,40 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="DayofWeek", EmitDefaultValue=false)]
-		public StringValue DayofWeek { get; set; }
+		public StringValue? DayofWeek { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="DisbursingEarningType", EmitDefaultValue=false)]
-		public StringValue DisbursingEarningType { get; set; }
+		public StringValue? DisbursingEarningType { get; set; }
 
 		[DataMember(Name="Enabled", EmitDefaultValue=false)]
-		public BooleanValue Enabled { get; set; }
+		public BooleanValue? Enabled { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="Multiplier", EmitDefaultValue=false)]
-		public DecimalValue Multiplier { get; set; }
+		public DecimalValue? Multiplier { get; set; }
 
 		[DataMember(Name="OvertimeRule", EmitDefaultValue=false)]
-		public StringValue OvertimeRule { get; set; }
+		public StringValue? OvertimeRule { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
-		public StringValue Project { get; set; }
+		public StringValue? Project { get; set; }
 
 		[DataMember(Name="State", EmitDefaultValue=false)]
-		public StringValue State { get; set; }
+		public StringValue? State { get; set; }
 
 		[DataMember(Name="ThresholdforOvertimehours", EmitDefaultValue=false)]
-		public DecimalValue ThresholdforOvertimehours { get; set; }
+		public DecimalValue? ThresholdforOvertimehours { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 		[DataMember(Name="UnionLocal", EmitDefaultValue=false)]
-		public StringValue UnionLocal { get; set; }
+		public StringValue? UnionLocal { get; set; }
 
 	}
 }

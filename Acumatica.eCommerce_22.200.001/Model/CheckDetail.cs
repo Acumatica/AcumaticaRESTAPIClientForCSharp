@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,26 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class CheckDetail : Entity
+	public class CheckDetail : Acumatica.Default_22_200_001.Model.CheckDetail
 	{
-
-		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
-		public DecimalValue AmountPaid { get; set; }
-
-		[DataMember(Name="Balance", EmitDefaultValue=false)]
-		public DecimalValue Balance { get; set; }
-
-		[DataMember(Name="CashDiscountBalance", EmitDefaultValue=false)]
-		public DecimalValue CashDiscountBalance { get; set; }
-
-		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
-		public IntValue DocLineNbr { get; set; }
-
-		[DataMember(Name="DocType", EmitDefaultValue=false)]
-		public StringValue DocType { get; set; }
-
-		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue ReferenceNbr { get; set; }
 
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,11 +14,16 @@ namespace Acumatica.Default_22_200_001.Model
 	public class BatchOvertimeRules : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: ApplyOvertimeRules 
+		/// DAC: PX.Objects.PR.PRBatch 
+		/// Display Name: Apply Overtime Rules for the Document 
+		/// </summary>
 		[DataMember(Name="ApplyOvertimeRulesfortheDocument", EmitDefaultValue=false)]
-		public BooleanValue ApplyOvertimeRulesfortheDocument { get; set; }
+		public BooleanValue? ApplyOvertimeRulesfortheDocument { get; set; }
 
 		[DataMember(Name="OvertimeRulesDetails", EmitDefaultValue=false)]
-		public List<BatchOvertimeRulesDetail> OvertimeRulesDetails { get; set; }
+		public List<BatchOvertimeRulesDetail>? OvertimeRulesDetails { get; set; }
 
 	}
 }

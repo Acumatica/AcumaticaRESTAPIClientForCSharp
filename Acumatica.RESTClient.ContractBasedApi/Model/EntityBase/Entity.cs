@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+
+using Acumatica.RESTClient.ContractBasedApi.FileApi.Model;
 using Acumatica.RESTClient.FileApi.Model;
 using Newtonsoft.Json;
 
@@ -28,8 +30,8 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
                     {
                         foreach (var field in view.Value)
                         {
-                            field.Value.fieldName = field.Key;
-                            field.Value.viewName = view.Key;
+                            field.Value.FieldName = field.Key;
+                            field.Value.ViewName = view.Key;
                             customFields.Add(field.Value);
                         }
                     }
@@ -41,11 +43,11 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
                 Custom = new Dictionary<string, Dictionary<string, CustomField>>();
                 foreach (var field in value)
                 {
-                    if (!Custom.ContainsKey(field.viewName))
+                    if (!Custom.ContainsKey(field.ViewName))
                     {
-                        Custom.Add(field.viewName, new Dictionary<string, CustomField>());
+                        Custom.Add(field.ViewName, new Dictionary<string, CustomField>());
                     }
-                    Custom[field.viewName].Add(field.fieldName, field);
+                    Custom[field.ViewName].Add(field.FieldName, field);
                 }
             }
         }
@@ -74,7 +76,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// Gets or Sets Error
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
-        public string Error { get; set; }
+        public string? Error { get; set; }
 
         /// <summary>
         /// Dictionary containing ViewName as a key. 
@@ -82,20 +84,26 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// FieldName as Key.
         /// </summary>
         [DataMember(Name="custom", EmitDefaultValue=false)]
-        public Dictionary<string, Dictionary<string, CustomField>> Custom { get; set; }
+        public Dictionary<string, Dictionary<string, CustomField>>? Custom { get; set; }
 
         /// <summary>
         /// Gets or Sets Note
         /// </summary>
         [DataMember(Name = "note", EmitDefaultValue = false)]
-        public StringValue Note { get; set; }
+        public StringValue? Note { get; set; }
 
 
         /// <summary>
         /// Gets or Sets Files
         /// </summary>
         [DataMember(Name="files", EmitDefaultValue=false)]
-        public List<FileLink> Files { get; set; }
+        public List<FileLink>? Files { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        public Links Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -114,7 +122,5 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
-
     }
-
 }

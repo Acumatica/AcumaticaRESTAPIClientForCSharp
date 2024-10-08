@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,7 +15,7 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="AccountedCampaign", EmitDefaultValue=false)]
-		public StringValue AccountedCampaign { get; set; }
+		public StringValue? AccountedCampaign { get; set; }
 
 	}
 }

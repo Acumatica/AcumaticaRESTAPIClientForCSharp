@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,16 +15,16 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="Factor", EmitDefaultValue=false)]
-		public DecimalValue Factor { get; set; }
+		public DecimalValue? Factor { get; set; }
 
 		[DataMember(Name="Overhead", EmitDefaultValue=false)]
-		public StringValue Overhead { get; set; }
+		public StringValue? Overhead { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 	}
 }

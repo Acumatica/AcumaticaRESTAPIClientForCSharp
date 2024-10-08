@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	public class CancelAppointment : EntityAction<Appointment>
 	{
 		public CancelAppointment(Appointment entity) : base(entity)
-		{ }
-		public CancelAppointment() : base()
 		{ }
 	}
 }

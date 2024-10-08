@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class InventoryQuantityAvailableDetail : Entity
+	public class InventoryQuantityAvailableDetail : Acumatica.Default_22_200_001.Model.InventoryQuantityAvailableDetail
 	{
-
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="QtyAvailable", EmitDefaultValue=false)]
-		public DecimalValue QtyAvailable { get; set; }
 
 	}
 }

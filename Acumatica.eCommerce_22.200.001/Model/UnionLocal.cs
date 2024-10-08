@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,17 +11,12 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class UnionLocal : Entity
+	public class UnionLocal : Acumatica.Default_22_200_001.Model.UnionLocal, ITopLevelEntity
 	{
 
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
-
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
-
-		[DataMember(Name="UnionLocalID", EmitDefaultValue=false)]
-		public StringValue UnionLocalID { get; set; }
-
+		public override string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

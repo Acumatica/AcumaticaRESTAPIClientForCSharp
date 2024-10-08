@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,11 +14,22 @@ namespace Acumatica.Default_22_200_001.Model
 	public class ProjectUnionLocal : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: UnionID_Description 
+		/// DAC: PX.Objects.PM.PMProjectUnion 
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: UnionID 
+		/// DAC: PX.Objects.PM.PMProjectUnion 
+		/// Display Name: Union Local 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="UnionLocalID", EmitDefaultValue=false)]
-		public StringValue UnionLocalID { get; set; }
+		public StringValue? UnionLocalID { get; set; }
 
 	}
 }

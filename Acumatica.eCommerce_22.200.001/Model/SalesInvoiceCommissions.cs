@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class SalesInvoiceCommissions : Entity
+	public class SalesInvoiceCommissions : Acumatica.Default_22_200_001.Model.SalesInvoiceCommissions
 	{
-
-		[DataMember(Name="CommissionAmount", EmitDefaultValue=false)]
-		public DecimalValue CommissionAmount { get; set; }
-
-		[DataMember(Name="SalesPersons", EmitDefaultValue=false)]
-		public List<SalesInvoiceSalesPersonDetail> SalesPersons { get; set; }
-
-		[DataMember(Name="TotalCommissionableAmount", EmitDefaultValue=false)]
-		public DecimalValue TotalCommissionableAmount { get; set; }
 
 	}
 }

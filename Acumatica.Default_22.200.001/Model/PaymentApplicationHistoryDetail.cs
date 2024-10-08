@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,77 +14,180 @@ namespace Acumatica.Default_22_200_001.Model
 	public class PaymentApplicationHistoryDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: SourceDocType 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// Display Name: Source Doc. Type 
+		/// SQL Type: char(3) 
+		/// </summary>
 		[DataMember(Name="AdjustedDocType", EmitDefaultValue=false)]
-		public StringValue AdjustedDocType { get; set; }
+		public StringValue? AdjustedDocType { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: SourceRefNbr 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// Display Name: Source Ref. Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// </summary>
 		[DataMember(Name="AdjustedRefNbr", EmitDefaultValue=false)]
-		public StringValue AdjustedRefNbr { get; set; }
+		public StringValue? AdjustedRefNbr { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: DocType 
+		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Type 
+		/// SQL Type: char(3) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="AdjustingDocType", EmitDefaultValue=false)]
-		public StringValue AdjustingDocType { get; set; }
+		public StringValue? AdjustingDocType { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: RefNbr 
+		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Reference Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="AdjustingRefNbr", EmitDefaultValue=false)]
-		public StringValue AdjustingRefNbr { get; set; }
+		public StringValue? AdjustingRefNbr { get; set; }
 
 		[DataMember(Name="AdjustmentNbr", EmitDefaultValue=false)]
-		public IntValue AdjustmentNbr { get; set; }
+		public IntValue? AdjustmentNbr { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARAdjust2__PendingPPD 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// </summary>
 		[DataMember(Name="AdjustsVAT", EmitDefaultValue=false)]
-		public BooleanValue AdjustsVAT { get; set; }
+		public BooleanValue? AdjustsVAT { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: CuryAmt 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// Display Name: Amount 
+		/// </summary>
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
-		public DecimalValue AmountPaid { get; set; }
+		public DecimalValue? AmountPaid { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARRegisterAlias__FinPeriodID 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// </summary>
 		[DataMember(Name="ApplicationPeriod", EmitDefaultValue=false)]
-		public StringValue ApplicationPeriod { get; set; }
+		public StringValue? ApplicationPeriod { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: CuryBalanceAmt 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// </summary>
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
-		public DecimalValue Balance { get; set; }
+		public DecimalValue? Balance { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: CuryWOAmt 
+		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Write-Off Amount 
+		/// </summary>
 		[DataMember(Name="BalanceWriteOff", EmitDefaultValue=false)]
-		public DecimalValue BalanceWriteOff { get; set; }
+		public DecimalValue? BalanceWriteOff { get; set; }
 
+		/// <summary>
+		/// The number of the Batch created from the document on release.
+		/// DAC: PX.Objects.AR.ARPayment 
+		/// Display Name: Batch Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// </summary>
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
-		public StringValue BatchNbr { get; set; }
+		public StringValue? BatchNbr { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: CuryDiscBalanceAmt 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// Display Name: Cash Discount Balance 
+		/// </summary>
 		[DataMember(Name="CashDiscountBalance", EmitDefaultValue=false)]
-		public DecimalValue CashDiscountBalance { get; set; }
+		public DecimalValue? CashDiscountBalance { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARInvoice__DiscDate 
+		/// DAC: PX.Objects.AR.ARAdjust 
+		/// </summary>
 		[DataMember(Name="CashDiscountDate", EmitDefaultValue=false)]
-		public DateTimeValue CashDiscountDate { get; set; }
+		public DateTimeValue? CashDiscountDate { get; set; }
 
 		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
-		public DecimalValue CashDiscountTaken { get; set; }
+		public DecimalValue? CashDiscountTaken { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARRegisterAlias__CuryID 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
-		public StringValue CurrencyID { get; set; }
+		public StringValue? CurrencyID { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARRegisterAlias__CustomerID 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// </summary>
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue Customer { get; set; }
+		public StringValue? Customer { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARInvoice__InvoiceNbr 
+		/// DAC: PX.Objects.AR.ARAdjust 
+		/// </summary>
 		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
-		public StringValue CustomerOrder { get; set; }
+		public StringValue? CustomerOrder { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARRegisterAlias__DocDate 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// </summary>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue Date { get; set; }
+		public DateTimeValue? Date { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARRegisterAlias__DocDesc 
+		/// DAC: PX.Objects.AR.ARAdjust 
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: SourceDocType 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// Display Name: Source Doc. Type 
+		/// SQL Type: char(3) 
+		/// </summary>
 		[DataMember(Name="DisplayDocType", EmitDefaultValue=false)]
-		public StringValue DisplayDocType { get; set; }
+		public StringValue? DisplayDocType { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: SourceRefNbr 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// Display Name: Source Ref. Nbr. 
+		/// SQL Type: nvarchar(15) 
+		/// </summary>
 		[DataMember(Name="DisplayRefNbr", EmitDefaultValue=false)]
-		public StringValue DisplayRefNbr { get; set; }
+		public StringValue? DisplayRefNbr { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARRegisterAlias__DueDate 
+		/// DAC: PX.Objects.AR.ARAdjust 
+		/// </summary>
 		[DataMember(Name="DueDate", EmitDefaultValue=false)]
-		public DateTimeValue DueDate { get; set; }
+		public DateTimeValue? DueDate { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ARRegisterAlias__FinPeriodID 
+		/// DAC: PX.Objects.AR.ARTranPostBal 
+		/// </summary>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
-		public StringValue PostPeriod { get; set; }
+		public StringValue? PostPeriod { get; set; }
 
 		[DataMember(Name="VATCreditMemo", EmitDefaultValue=false)]
-		public StringValue VATCreditMemo { get; set; }
+		public StringValue? VATCreditMemo { get; set; }
 
 	}
 }

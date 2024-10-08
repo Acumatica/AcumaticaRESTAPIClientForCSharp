@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class EmployeeDelegate : Entity
+	public class EmployeeDelegate : Acumatica.Default_22_200_001.Model.EmployeeDelegate
 	{
-
-		[DataMember(Name="Delegate", EmitDefaultValue=false)]
-		public StringValue Delegate { get; set; }
-
-		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
-		public StringValue EmployeeName { get; set; }
 
 	}
 }

@@ -7,7 +7,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 
     [DataContract]
     public abstract class EntityAction<EntityType>
-        where EntityType : Entity
+        where EntityType : Entity, ITopLevelEntity
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Action" /> class.
@@ -22,14 +22,8 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             }
             else
             {
-                this.Entity = entity;
+                Entity = entity;
             }
-        }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Action" /> class.
-        /// </summary>
-        public EntityAction()
-        {
         }
 
         [DataMember(Name = "entity", EmitDefaultValue = false)]

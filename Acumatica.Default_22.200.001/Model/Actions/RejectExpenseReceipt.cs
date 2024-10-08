@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Default_22_200_001.Model
 	public class RejectExpenseReceipt : EntityAction<ExpenseReceipt>
 	{
 		public RejectExpenseReceipt(ExpenseReceipt entity) : base(entity)
-		{ }
-		public RejectExpenseReceipt() : base()
 		{ }
 	}
 }

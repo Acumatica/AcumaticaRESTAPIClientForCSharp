@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,11 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ProjectTaskToCRMLink : Entity
+	public class ProjectTaskToCRMLink : Acumatica.Default_22_200_001.Model.ProjectTaskToCRMLink
 	{
-
-		[DataMember(Name="AccountedCampaign", EmitDefaultValue=false)]
-		public StringValue AccountedCampaign { get; set; }
 
 	}
 }

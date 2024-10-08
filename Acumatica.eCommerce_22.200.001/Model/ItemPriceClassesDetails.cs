@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,11 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ItemPriceClassesDetails : Entity
+	public class ItemPriceClassesDetails : Acumatica.Default_22_200_001.Model.ItemPriceClassesDetails
 	{
-
-		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
-		public StringValue PriceClassID { get; set; }
 
 	}
 }

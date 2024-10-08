@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,14 +14,26 @@ namespace Acumatica.Default_22_200_001.Model
 	public class TemplateItemVendorDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC: PX.Objects.PO.POVendorInventory 
+		/// Display Name: Vendor ID 
+		/// </summary>
 		[DataMember(Name="VendorID", EmitDefaultValue=false)]
-		public StringValue VendorID { get; set; }
+		public StringValue? VendorID { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: Vendor__AcctName 
+		/// DAC: PX.Objects.PO.POVendorInventory 
+		/// </summary>
 		[DataMember(Name="VendorName", EmitDefaultValue=false)]
-		public StringValue VendorName { get; set; }
+		public StringValue? VendorName { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: IsDefault 
+		/// DAC: PX.Objects.PO.POVendorInventory 
+		/// </summary>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
-		public BooleanValue Default { get; set; }
+		public BooleanValue? Default { get; set; }
 
 	}
 }

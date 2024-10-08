@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>Acumatica REST API for Accessing OData</Title>
-    <Version>4.1.0</Version>
+    <Version>5.3.0</Version>
     <Authors>Dmitrii-Naumov</Authors>
     <Company>Acumatica</Company>
     <Description>An extension for Acumatica REST API client for C# allowing interaction with OData API</Description>
@@ -11,15 +11,15 @@
     <PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
-    <PackageTags>Acumatica;REST;client;</PackageTags>
+    <PackageTags>Acumatica;REST;client;OData</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReleaseNotes>Downgrade Newtonsoft.JSON dependency to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
-  </PropertyGroup>
+    <PackageReleaseNotes>Added new URLs for Odata for Acumatica 2024r2</PackageReleaseNotes>
 
-  <ItemGroup>
-  </ItemGroup>
+    <LangVersion>8.0</LangVersion>
+    <nullable>Enable</nullable>
+  </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\README.md">

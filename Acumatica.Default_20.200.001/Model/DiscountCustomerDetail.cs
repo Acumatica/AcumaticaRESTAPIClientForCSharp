@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,10 +15,10 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
-		public StringValue CustomerID { get; set; }
+		public StringValue? CustomerID { get; set; }
 
 		[DataMember(Name="CustomerName", EmitDefaultValue=false)]
-		public StringValue CustomerName { get; set; }
+		public StringValue? CustomerName { get; set; }
 
 	}
 }

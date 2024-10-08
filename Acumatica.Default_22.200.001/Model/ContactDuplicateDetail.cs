@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,29 +14,57 @@ namespace Acumatica.Default_22_200_001.Model
 	public class ContactDuplicateDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: DuplicateContact__BAccountID 
+		/// DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord 
+		/// </summary>
 		[DataMember(Name="BusinessAccount", EmitDefaultValue=false)]
-		public StringValue BusinessAccount { get; set; }
+		public StringValue? BusinessAccount { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: BAccountR__AcctName 
+		/// DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking 
+		/// </summary>
 		[DataMember(Name="BusinessAccountName", EmitDefaultValue=false)]
-		public StringValue BusinessAccountName { get; set; }
+		public StringValue? BusinessAccountName { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: BAccountR__Type 
+		/// DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord 
+		/// </summary>
 		[DataMember(Name="BusinessAccountType", EmitDefaultValue=false)]
-		public StringValue BusinessAccountType { get; set; }
+		public StringValue? BusinessAccountType { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: DuplicateContact__DisplayName 
+		/// DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord 
+		/// </summary>
 		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
-		public StringValue DisplayName { get; set; }
+		public StringValue? DisplayName { get; set; }
 
 		[DataMember(Name="Duplicate", EmitDefaultValue=false)]
-		public StringValue Duplicate { get; set; }
+		public StringValue? Duplicate { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: DuplicateContact__Email 
+		/// DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking 
+		/// </summary>
 		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue Email { get; set; }
+		public StringValue? Email { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: DuplicateContact__LastModifiedDateTime 
+		/// DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord 
+		/// </summary>
 		[DataMember(Name="LastModifiedDate", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDate { get; set; }
+		public DateTimeValue? LastModifiedDate { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: DuplicateContact__ContactType 
+		/// DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking 
+		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 	}
 }

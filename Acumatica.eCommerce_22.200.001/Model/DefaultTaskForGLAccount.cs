@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class DefaultTaskForGLAccount : Entity
+	public class DefaultTaskForGLAccount : Acumatica.Default_22_200_001.Model.DefaultTaskForGLAccount
 	{
-
-		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue Account { get; set; }
-
-		[DataMember(Name="DefaultTask", EmitDefaultValue=false)]
-		public StringValue DefaultTask { get; set; }
 
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,44 +11,48 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class MRPRequirementsByItem : Entity
+	public class MRPRequirementsByItem : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BucketID", EmitDefaultValue=false)]
-		public StringValue BucketID { get; set; }
+		public StringValue? BucketID { get; set; }
 
 		[DataMember(Name="Detail", EmitDefaultValue=false)]
-		public List<MRPRequirementsByItemDetail> Detail { get; set; }
+		public List<MRPRequirementsByItemDetail>? Detail { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="LeadTime", EmitDefaultValue=false)]
-		public IntValue LeadTime { get; set; }
+		public IntValue? LeadTime { get; set; }
 
 		[DataMember(Name="PreferredVendorID", EmitDefaultValue=false)]
-		public StringValue PreferredVendorID { get; set; }
+		public StringValue? PreferredVendorID { get; set; }
 
 		[DataMember(Name="ProductMgr", EmitDefaultValue=false)]
-		public IntValue ProductMgr { get; set; }
+		public IntValue? ProductMgr { get; set; }
 
 		[DataMember(Name="ProductMgrContact", EmitDefaultValue=false)]
-		public StringValue ProductMgrContact { get; set; }
+		public StringValue? ProductMgrContact { get; set; }
 
 		[DataMember(Name="QtyonHand", EmitDefaultValue=false)]
-		public DecimalValue QtyonHand { get; set; }
+		public DecimalValue? QtyonHand { get; set; }
 
 		[DataMember(Name="RepSource", EmitDefaultValue=false)]
-		public StringValue RepSource { get; set; }
+		public StringValue? RepSource { get; set; }
 
 		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
-		public DecimalValue SafetyStock { get; set; }
+		public DecimalValue? SafetyStock { get; set; }
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue Subitem { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

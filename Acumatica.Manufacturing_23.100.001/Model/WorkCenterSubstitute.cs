@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,14 +14,29 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class WorkCenterSubstitute : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: SubstituteWcID 
+		/// DAC: PX.Objects.AM.AMWCSubstitute 
+		/// Display Name: Substitute Work Center 
+		/// SQL Type: nvarchar(20) 
+		/// </summary>
 		[DataMember(Name="SubstituteWorkCenter", EmitDefaultValue=false)]
-		public StringValue SubstituteWorkCenter { get; set; }
+		public StringValue? SubstituteWorkCenter { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: UpdateOperDesc 
+		/// DAC: PX.Objects.AM.AMWCSubstitute 
+		/// Display Name: Update Operation Description 
+		/// </summary>
 		[DataMember(Name="UpdateOperationDescription", EmitDefaultValue=false)]
-		public BooleanValue UpdateOperationDescription { get; set; }
+		public BooleanValue? UpdateOperationDescription { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: SiteID 
+		/// DAC: PX.Objects.AM.AMWC 
+		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue Warehouse { get; set; }
+		public StringValue? Warehouse { get; set; }
 
 	}
 }

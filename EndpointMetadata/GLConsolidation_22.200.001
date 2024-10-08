@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="GLConsolidation" version="22.200.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
+	<TopLevelEntity name="ConsolAccount" screen="GL103001">
+		<Fields>
+			<Field name="AccountCD" type="StringValue"/>
+			<Field name="Description" type="StringValue"/>
+		</Fields>
+		<Mappings>
+			<Mapping field="AccountCD">
+				<To object="AccountRecords" field="AccountCD"/>
+			</Mapping>
+			<Mapping field="Description">
+				<To object="AccountRecords" field="Description"/>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="Branch" screen="GL103002">
+		<Fields>
+			<Field name="AcctName" type="StringValue"/>
+			<Field name="BranchCD" type="StringValue"/>
+			<Field name="OrganizationCD" type="StringValue" />
+			<Field name="LedgerCD" type="StringValue"/>
+		</Fields>
+		<Mappings>
+			<Mapping field="AcctName">
+				<To object="BranchRecords" field="AcctName"/>
+			</Mapping>
+			<Mapping field="BranchCD">
+				<To object="BranchRecords" field="BranchCD"/>
+			</Mapping>
+			<Mapping field="OrganizationCD">
+				<To object="BranchRecords" field="Organization__OrganizationCD" />
+			</Mapping>
+			<Mapping field="LedgerCD">
+				<To object="BranchRecords" field="Ledger__LedgerCD"/>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="Organization" screen="GL103004">
+		<Fields>
+			<Field name="OrganizationName" type="StringValue"/>
+			<Field name="OrganizationCD" type="StringValue"/>
+			<Field name="LedgerCD" type="StringValue"/>
+		</Fields>
+		<Mappings>
+			<Mapping field="OrganizationName">
+				<To object="OrganizationRecords" field="OrganizationName"/>
+			</Mapping>
+			<Mapping field="OrganizationCD">
+				<To object="OrganizationRecords" field="OrganizationCD"/>
+			</Mapping>
+			<Mapping field="LedgerCD">
+				<To object="OrganizationRecords" field="Ledger__LedgerCD"/>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="ConsolidationData" screen="GL509001">
+		<Fields>
+			<Field name="BranchCD" type="StringValue"/>
+			<Field name="LedgerCD" type="StringValue"/>
+			<Field name="Result" type="ConsolidationItem[]"/>
+		</Fields>
+		<Mappings>
+			<Mapping field="BranchCD">
+				<To object="Filter" field="BranchCD"/>
+			</Mapping>
+			<Mapping field="LedgerCD">
+				<To object="Filter" field="LedgerCD"/>
+			</Mapping>
+			<Mapping field="Result">
+				<Mapping field="AccountCD">
+					<To object="ConsolRecords" field="AccountCD"/>
+				</Mapping>
+				<Mapping field="ConsolAmtCredit">
+					<To object="ConsolRecords" field="ConsolAmtCredit"/>
+				</Mapping>
+				<Mapping field="ConsolAmtDebit">
+					<To object="ConsolRecords" field="ConsolAmtDebit"/>
+				</Mapping>
+				<Mapping field="FinPeriodID">
+					<To object="ConsolRecords" field="FinPeriodID"/>
+				</Mapping>
+				<Mapping field="MappedValue">
+					<To object="ConsolRecords" field="MappedValue"/>
+				</Mapping>
+				<Mapping field="MappedValueLength">
+					<To object="ConsolRecords" field="MappedValueLength"/>
+				</Mapping>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="ConsolidationItem">
+		<Fields>
+			<Field name="AccountCD" type="StringValue"/>
+			<Field name="ConsolAmtCredit" type="DecimalValue"/>
+			<Field name="ConsolAmtDebit" type="DecimalValue"/>
+			<Field name="FinPeriodID" type="StringValue"/>
+			<Field name="MappedValue" type="StringValue"/>
+			<Field name="MappedValueLength" type="IntValue"/>
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="Ledger" screen="GL103003">
+		<Fields>
+			<Field name="BalanceType" type="StringValue"/>
+			<Field name="Descr" type="StringValue"/>
+			<Field name="LedgerCD" type="StringValue"/>
+		</Fields>
+		<Mappings>
+			<Mapping field="BalanceType">
+				<To object="LedgerRecords" field="BalanceType"/>
+			</Mapping>
+			<Mapping field="Descr">
+				<To object="LedgerRecords" field="Descr"/>
+			</Mapping>
+			<Mapping field="LedgerCD">
+				<To object="LedgerRecords" field="LedgerCD"/>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+</Endpoint>

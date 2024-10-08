@@ -17,16 +17,16 @@ namespace Acumatica.RESTClient.CustomizationApi.Model
         public int? ProjectLevel { get; set; }
 
         [DataMember(Name = "isReplaceIfExists", EmitDefaultValue = false)]
-        public bool IsReplaceIfExists { get; set; }
+        public bool? IsReplaceIfExists { get; set; }
 
         [DataMember(Name = "projectName", EmitDefaultValue = false)]
-        public string ProjectName { get; set; }
+        public string? ProjectName { get; set; }
 
         [DataMember(Name = "projectDescription", EmitDefaultValue = false)]
-        public string ProjectDescription { get; set; }
+        public string? ProjectDescription { get; set; }
 
         [DataMember(Name = "projectContentBase64", EmitDefaultValue = false)]
-        public string ProjectContentBase64 { get; set; }
+        public string? ProjectContentBase64 { get; set; }
 
     }
 }

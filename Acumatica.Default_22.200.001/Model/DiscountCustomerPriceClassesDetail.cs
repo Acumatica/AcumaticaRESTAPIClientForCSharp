@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,15 @@ namespace Acumatica.Default_22_200_001.Model
 	public class DiscountCustomerPriceClassesDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: CustomerPriceClassID 
+		/// DAC: PX.Objects.AR.DiscountCustomerPriceClass 
+		/// Display Name: Price Class ID 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
-		public StringValue PriceClassID { get; set; }
+		public StringValue? PriceClassID { get; set; }
 
 	}
 }

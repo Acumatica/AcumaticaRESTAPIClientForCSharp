@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,59 +11,63 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class CreateProductionOrder : Entity
+	public class CreateProductionOrder : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="CreationDate", EmitDefaultValue=false)]
-		public DateTimeValue CreationDate { get; set; }
+		public DateTimeValue? CreationDate { get; set; }
 
 		[DataMember(Name="CreationOrderType", EmitDefaultValue=false)]
-		public StringValue CreationOrderType { get; set; }
+		public StringValue? CreationOrderType { get; set; }
 
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue Customer { get; set; }
+		public StringValue? Customer { get; set; }
 
 		[DataMember(Name="Documents", EmitDefaultValue=false)]
-		public List<CreateProductionDocuments> Documents { get; set; }
+		public List<CreateProductionDocuments>? Documents { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="ItemClassID", EmitDefaultValue=false)]
-		public StringValue ItemClassID { get; set; }
+		public StringValue? ItemClassID { get; set; }
 
 		[DataMember(Name="Me", EmitDefaultValue=false)]
-		public BooleanValue Me { get; set; }
+		public BooleanValue? Me { get; set; }
 
 		[DataMember(Name="My", EmitDefaultValue=false)]
-		public BooleanValue My { get; set; }
+		public BooleanValue? My { get; set; }
 
 		[DataMember(Name="ProdOrderType", EmitDefaultValue=false)]
-		public StringValue ProdOrderType { get; set; }
+		public StringValue? ProdOrderType { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="ProductManager", EmitDefaultValue=false)]
-		public StringValue ProductManager { get; set; }
+		public StringValue? ProductManager { get; set; }
 
 		[DataMember(Name="ProductWorkgroup", EmitDefaultValue=false)]
-		public StringValue ProductWorkgroup { get; set; }
+		public StringValue? ProductWorkgroup { get; set; }
 
 		[DataMember(Name="RequestedOnEndDate", EmitDefaultValue=false)]
-		public DateTimeValue RequestedOnEndDate { get; set; }
+		public DateTimeValue? RequestedOnEndDate { get; set; }
 
 		[DataMember(Name="RequestedOnStartDate", EmitDefaultValue=false)]
-		public DateTimeValue RequestedOnStartDate { get; set; }
+		public DateTimeValue? RequestedOnStartDate { get; set; }
 
 		[DataMember(Name="SOOrderNbr", EmitDefaultValue=false)]
-		public StringValue SOOrderNbr { get; set; }
+		public StringValue? SOOrderNbr { get; set; }
 
 		[DataMember(Name="SOOrderType", EmitDefaultValue=false)]
-		public StringValue SOOrderType { get; set; }
+		public StringValue? SOOrderType { get; set; }
 
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue WarehouseID { get; set; }
+		public StringValue? WarehouseID { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,14 +14,25 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class EstimateStepDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC: PX.Objects.AM.AMEstimateOper 
+		/// Display Name: Operation Desc 
+		/// SQL Type: nvarchar(256) 
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: LineID 
+		/// DAC: PX.Objects.AM.AMEstimateMatl 
+		/// Display Name: Line Nbr. 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="LineOrder", EmitDefaultValue=false)]
-		public IntValue LineOrder { get; set; }
+		public IntValue? LineOrder { get; set; }
 
 	}
 }

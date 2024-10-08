@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,20 +11,12 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ContractUsage : Entity
+	public class ContractUsage : Acumatica.Default_22_200_001.Model.ContractUsage, ITopLevelEntity
 	{
 
-		[DataMember(Name="BilledTransactions", EmitDefaultValue=false)]
-		public List<ContractUsageTransactionDetail> BilledTransactions { get; set; }
-
-		[DataMember(Name="ContractID", EmitDefaultValue=false)]
-		public StringValue ContractID { get; set; }
-
-		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
-		public StringValue PostPeriod { get; set; }
-
-		[DataMember(Name="UnbilledTransactions", EmitDefaultValue=false)]
-		public List<ContractUsageTransactionDetail> UnbilledTransactions { get; set; }
-
+		public override string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

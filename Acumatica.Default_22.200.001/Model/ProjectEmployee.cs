@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,13 +15,13 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Department", EmitDefaultValue=false)]
-		public StringValue Department { get; set; }
+		public StringValue? Department { get; set; }
 
 		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
-		public StringValue EmployeeID { get; set; }
+		public StringValue? EmployeeID { get; set; }
 
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
-		public StringValue EmployeeName { get; set; }
+		public StringValue? EmployeeName { get; set; }
 
 	}
 }

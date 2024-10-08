@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	public class ReverseChangeOrder : EntityAction<ChangeOrder>
 	{
 		public ReverseChangeOrder(ChangeOrder entity) : base(entity)
-		{ }
-		public ReverseChangeOrder() : base()
 		{ }
 	}
 }

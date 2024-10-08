@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,11 +14,21 @@ namespace Acumatica.Default_22_200_001.Model
 	public class EmploymentDates : Entity
 	{
 
+		/// <summary>
+		/// Hire date.
+		/// DAC: PX.Objects.PR.EmploymentHistory 
+		/// Display Name: Hire Date 
+		/// </summary>
 		[DataMember(Name="HireDate", EmitDefaultValue=false)]
-		public DateTimeValue HireDate { get; set; }
+		public DateTimeValue? HireDate { get; set; }
 
+		/// <summary>
+		/// Termination date.
+		/// DAC: PX.Objects.PR.EmploymentHistory 
+		/// Display Name: Termination Date 
+		/// </summary>
 		[DataMember(Name="TerminationDate", EmitDefaultValue=false)]
-		public DateTimeValue TerminationDate { get; set; }
+		public DateTimeValue? TerminationDate { get; set; }
 
 	}
 }

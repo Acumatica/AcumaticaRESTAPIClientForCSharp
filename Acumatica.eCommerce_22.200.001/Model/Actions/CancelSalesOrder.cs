@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	public class CancelSalesOrder : EntityAction<SalesOrder>
 	{
 		public CancelSalesOrder(SalesOrder entity) : base(entity)
-		{ }
-		public CancelSalesOrder() : base()
 		{ }
 	}
 }

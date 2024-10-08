@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,11 +14,17 @@ namespace Acumatica.Default_22_200_001.Model
 	public class TaxSettingsCA : Entity
 	{
 
+		/// <summary>
+		/// The benefit type that is used for reporting and calculation purposes in Canada.
+		/// DAC Field Name: BenefitTypeCDCAN 
+		/// DAC: PX.Objects.PR.PRDeductCode 
+		/// Display Name: Code Type 
+		/// </summary>
 		[DataMember(Name="CodeType", EmitDefaultValue=false)]
-		public StringValue CodeType { get; set; }
+		public StringValue? CodeType { get; set; }
 
 		[DataMember(Name="TaxDetailsCA", EmitDefaultValue=false)]
-		public List<DeductionOrBenefitTaxDetailCA> TaxDetailsCA { get; set; }
+		public List<DeductionOrBenefitTaxDetailCA>? TaxDetailsCA { get; set; }
 
 	}
 }

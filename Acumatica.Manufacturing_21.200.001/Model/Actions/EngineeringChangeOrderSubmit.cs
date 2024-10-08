@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	public class EngineeringChangeOrderSubmit : EntityAction<EngineeringChangeOrder>
 	{
 		public EngineeringChangeOrderSubmit(EngineeringChangeOrder entity) : base(entity)
-		{ }
-		public EngineeringChangeOrderSubmit() : base()
 		{ }
 	}
 }

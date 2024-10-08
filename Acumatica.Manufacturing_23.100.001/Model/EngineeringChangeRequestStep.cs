@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,22 +15,22 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	{
 
 		[DataMember(Name="ChangeStatus", EmitDefaultValue=false)]
-		public StringValue ChangeStatus { get; set; }
+		public StringValue? ChangeStatus { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="ECRID", EmitDefaultValue=false)]
-		public StringValue ECRID { get; set; }
+		public StringValue? ECRID { get; set; }
 
 		[DataMember(Name="LineID", EmitDefaultValue=false)]
-		public IntValue LineID { get; set; }
+		public IntValue? LineID { get; set; }
 
 		[DataMember(Name="OperationID", EmitDefaultValue=false)]
-		public StringValue OperationID { get; set; }
+		public StringValue? OperationID { get; set; }
 
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue Revision { get; set; }
+		public StringValue? Revision { get; set; }
 
 	}
 }

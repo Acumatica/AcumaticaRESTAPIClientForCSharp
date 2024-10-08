@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,43 +15,43 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
-		public StringValue BatchNbr { get; set; }
+		public StringValue? BatchNbr { get; set; }
 
 		[DataMember(Name="CreatedAt", EmitDefaultValue=false)]
-		public DateTimeValue CreatedAt { get; set; }
+		public DateTimeValue? CreatedAt { get; set; }
 
 		[DataMember(Name="CreatedBy", EmitDefaultValue=false)]
-		public StringValue CreatedBy { get; set; }
+		public StringValue? CreatedBy { get; set; }
 
 		[DataMember(Name="CreatedScreen", EmitDefaultValue=false)]
-		public StringValue CreatedScreen { get; set; }
+		public StringValue? CreatedScreen { get; set; }
 
 		[DataMember(Name="CreatedScreenID", EmitDefaultValue=false)]
-		public StringValue CreatedScreenID { get; set; }
+		public StringValue? CreatedScreenID { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
-		public StringValue DocType { get; set; }
+		public StringValue? DocType { get; set; }
 
 		[DataMember(Name="EventID", EmitDefaultValue=false)]
-		public LongValue EventID { get; set; }
+		public LongValue? EventID { get; set; }
 
 		[DataMember(Name="EventLineNumber", EmitDefaultValue=false)]
-		public IntValue EventLineNumber { get; set; }
+		public IntValue? EventLineNumber { get; set; }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
-		public StringValue ProductionNbr { get; set; }
+		public StringValue? ProductionNbr { get; set; }
 
 		[DataMember(Name="RelatedDocument", EmitDefaultValue=false)]
-		public GuidValue RelatedDocument { get; set; }
+		public GuidValue? RelatedDocument { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 	}
 }

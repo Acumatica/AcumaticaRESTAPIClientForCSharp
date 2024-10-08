@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class BatchOvertimeRules : Entity
+	public class BatchOvertimeRules : Acumatica.Default_22_200_001.Model.BatchOvertimeRules
 	{
-
-		[DataMember(Name="ApplyOvertimeRulesfortheDocument", EmitDefaultValue=false)]
-		public BooleanValue ApplyOvertimeRulesfortheDocument { get; set; }
-
-		[DataMember(Name="OvertimeRulesDetails", EmitDefaultValue=false)]
-		public List<BatchOvertimeRulesDetail> OvertimeRulesDetails { get; set; }
 
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -9,21 +10,35 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_22_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen CT303000 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
-	public class ContractUsage : Entity
+	public class ContractUsage : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="BilledTransactions", EmitDefaultValue=false)]
-		public List<ContractUsageTransactionDetail> BilledTransactions { get; set; }
+		public List<ContractUsageTransactionDetail>? BilledTransactions { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.CT.UsageMaint+UsageFilter 
+		/// </summary>
 		[DataMember(Name="ContractID", EmitDefaultValue=false)]
-		public StringValue ContractID { get; set; }
+		public StringValue? ContractID { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: InvFinPeriodID 
+		/// DAC: PX.Objects.CT.UsageMaint+UsageFilter 
+		/// </summary>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
-		public StringValue PostPeriod { get; set; }
+		public StringValue? PostPeriod { get; set; }
 
 		[DataMember(Name="UnbilledTransactions", EmitDefaultValue=false)]
-		public List<ContractUsageTransactionDetail> UnbilledTransactions { get; set; }
+		public List<ContractUsageTransactionDetail>? UnbilledTransactions { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

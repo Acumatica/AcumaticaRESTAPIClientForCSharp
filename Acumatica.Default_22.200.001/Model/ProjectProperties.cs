@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,34 +15,34 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="CertifiedJob", EmitDefaultValue=false)]
-		public BooleanValue CertifiedJob { get; set; }
+		public BooleanValue? CertifiedJob { get; set; }
 
 		[DataMember(Name="ChangeOrderWorkflow", EmitDefaultValue=false)]
-		public BooleanValue ChangeOrderWorkflow { get; set; }
+		public BooleanValue? ChangeOrderWorkflow { get; set; }
 
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue EndDate { get; set; }
+		public DateTimeValue? EndDate { get; set; }
 
 		[DataMember(Name="LastRevenueChangeNbr", EmitDefaultValue=false)]
-		public StringValue LastRevenueChangeNbr { get; set; }
+		public StringValue? LastRevenueChangeNbr { get; set; }
 
 		[DataMember(Name="ProjectManager", EmitDefaultValue=false)]
-		public StringValue ProjectManager { get; set; }
+		public StringValue? ProjectManager { get; set; }
 
 		[DataMember(Name="RestrictEmployees", EmitDefaultValue=false)]
-		public BooleanValue RestrictEmployees { get; set; }
+		public BooleanValue? RestrictEmployees { get; set; }
 
 		[DataMember(Name="RestrictEquipment", EmitDefaultValue=false)]
-		public BooleanValue RestrictEquipment { get; set; }
+		public BooleanValue? RestrictEquipment { get; set; }
 
 		[DataMember(Name="RevenueBudgetLevel", EmitDefaultValue=false)]
-		public StringValue RevenueBudgetLevel { get; set; }
+		public StringValue? RevenueBudgetLevel { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="TrackProductionData", EmitDefaultValue=false)]
-		public BooleanValue TrackProductionData { get; set; }
+		public BooleanValue? TrackProductionData { get; set; }
 
 	}
 }

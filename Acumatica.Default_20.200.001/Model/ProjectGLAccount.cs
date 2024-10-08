@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,19 +15,19 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="AccrualAccount", EmitDefaultValue=false)]
-		public StringValue AccrualAccount { get; set; }
+		public StringValue? AccrualAccount { get; set; }
 
 		[DataMember(Name="AccrualSubaccount", EmitDefaultValue=false)]
-		public StringValue AccrualSubaccount { get; set; }
+		public StringValue? AccrualSubaccount { get; set; }
 
 		[DataMember(Name="DefaultAccount", EmitDefaultValue=false)]
-		public StringValue DefaultAccount { get; set; }
+		public StringValue? DefaultAccount { get; set; }
 
 		[DataMember(Name="DefaultSubaccount", EmitDefaultValue=false)]
-		public StringValue DefaultSubaccount { get; set; }
+		public StringValue? DefaultSubaccount { get; set; }
 
 		[DataMember(Name="DefaultTaskForGLAccounts", EmitDefaultValue=false)]
-		public List<DefaultTaskForGLAccount> DefaultTaskForGLAccounts { get; set; }
+		public List<DefaultTaskForGLAccount>? DefaultTaskForGLAccounts { get; set; }
 
 	}
 }

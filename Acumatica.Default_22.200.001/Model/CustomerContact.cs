@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,10 +15,10 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Contact", EmitDefaultValue=false)]
-		public Contact Contact { get; set; }
+		public Contact? Contact { get; set; }
 
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
-		public IntValue ContactID { get; set; }
+		public IntValue? ContactID { get; set; }
 
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,17 +11,12 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class StorageDetailsByLocationInquiry : Entity
+	public class StorageDetailsByLocationInquiry : Acumatica.Default_22_200_001.Model.StorageDetailsByLocationInquiry, ITopLevelEntity
 	{
 
-		[DataMember(Name="SplitByLocation", EmitDefaultValue=false)]
-		public BooleanValue SplitByLocation { get; set; }
-
-		[DataMember(Name="StorageDetailsByLocation", EmitDefaultValue=false)]
-		public List<StorageDetailByLocation> StorageDetailsByLocation { get; set; }
-
-		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue WarehouseID { get; set; }
-
+		public override string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,20 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class EmployeeWorkLocations : Entity
+	public class EmployeeWorkLocations : Acumatica.Default_22_200_001.Model.EmployeeWorkLocations
 	{
-
-		[DataMember(Name="UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt", EmitDefaultValue=false)]
-		public BooleanValue UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt { get; set; }
-
-		[DataMember(Name="UsePayrollWorkLocationfromProject", EmitDefaultValue=false)]
-		public BooleanValue UsePayrollWorkLocationfromProject { get; set; }
-
-		[DataMember(Name="WorkLocationClassDefaults", EmitDefaultValue=false)]
-		public BooleanValue WorkLocationClassDefaults { get; set; }
-
-		[DataMember(Name="WorkLocationDetails", EmitDefaultValue=false)]
-		public List<EmployeeWorkLocationDetail> WorkLocationDetails { get; set; }
 
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,7 +15,7 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
-		public IntValue CategoryID { get; set; }
+		public IntValue? CategoryID { get; set; }
 
 	}
 }

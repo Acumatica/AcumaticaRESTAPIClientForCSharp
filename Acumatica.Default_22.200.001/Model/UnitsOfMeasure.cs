@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -9,27 +10,59 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_22_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen CS203100 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
-	public class UnitsOfMeasure : Entity
+	public class UnitsOfMeasure : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// DAC Field Name: UnitRate 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: Conversion Factor 
+		/// </summary>
 		[DataMember(Name="ConversionFactor", EmitDefaultValue=false)]
-		public DecimalValue ConversionFactor { get; set; }
+		public DecimalValue? ConversionFactor { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue CreatedDateTime { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: FromUnit 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: From Unit 
+		/// SQL Type: nvarchar(6) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="FromUOM", EmitDefaultValue=false)]
-		public StringValue FromUOM { get; set; }
+		public StringValue? FromUOM { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: UnitMultDiv 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: Multiply/Divide 
+		/// SQL Type: char(1) 
+		/// </summary>
 		[DataMember(Name="MultiplyOrDivide", EmitDefaultValue=false)]
-		public StringValue MultiplyOrDivide { get; set; }
+		public StringValue? MultiplyOrDivide { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ToUnit 
+		/// DAC: PX.Objects.IN.INUnit 
+		/// Display Name: To Unit 
+		/// SQL Type: nvarchar(6) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="ToUOM", EmitDefaultValue=false)]
-		public StringValue ToUOM { get; set; }
+		public StringValue? ToUOM { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

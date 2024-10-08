@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	public class ReleaseWipAdjustmentEntry : EntityAction<WipAdjustmentEntry>
 	{
 		public ReleaseWipAdjustmentEntry(WipAdjustmentEntry entity) : base(entity)
-		{ }
-		public ReleaseWipAdjustmentEntry() : base()
 		{ }
 	}
 }

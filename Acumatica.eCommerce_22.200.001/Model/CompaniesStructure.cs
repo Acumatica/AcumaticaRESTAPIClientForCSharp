@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,11 +11,12 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class CompaniesStructure : Entity
+	public class CompaniesStructure : Acumatica.Default_22_200_001.Model.CompaniesStructure, ITopLevelEntity
 	{
 
-		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<CompaniesStructureDetail> Results { get; set; }
-
+		public override string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

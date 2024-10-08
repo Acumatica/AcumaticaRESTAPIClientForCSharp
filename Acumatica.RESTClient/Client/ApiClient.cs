@@ -1,83 +1,88 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-using Acumatica.Auth.Model;
+using Microsoft.Extensions.DependencyInjection;
+
 using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Auxiliary;
+using Acumatica.RESTClient.AuthApi.Model;
 
+using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
+using System.Linq;
+using System.Web;
 
-using Newtonsoft.Json;
-
-using static Acumatica.RESTClient.Auxiliary.Constants;
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTests")]
 
 namespace Acumatica.RESTClient.Client
 {
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.
     /// </summary>
-    public partial class ApiClient
+    public class ApiClient : IDisposable
     {
+        private const string SessionCookieName = "ASP.NET_SessionId";
         #region State & ctor
-
-        private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
-
-        private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
-        {
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
-        };
-
-        public CookieContainer Cookies { get; protected set; }
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path.
-        /// </summary>
-        /// <param name="timeout">
-        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
+        /// Initializes a new instance of the <see cref="ApiClient" /> class.
+        /// </summary> 
+        /// <param name="basePath">
+        /// Path to the Acumatica instance e.g. <c>https://example.acumatica.com/</c>
         /// </param>
-        public ApiClient(string basePath, 
+        /// <param name="requestInterceptor">
+        /// An action delegate that will be executed along with sending an API request. 
+        /// Can be used for logging purposes.
+        /// </param>
+        /// <param name="responseInterceptor">
+        /// An action delegate that will be executed along with receiving an API response. 
+        /// Can be used for logging purposes.
+        /// </param>
+        /// <param name="timeout">
+        /// Sets the HTTP timeout (milliseconds) of the ApiClient. Default to 100000 milliseconds.
+        /// </param>
+        /// <param name="ignoreSslErrors">
+        /// Sets whether SSL/TLS related errors should be ignored.
+        /// </param>
+        public ApiClient(string basePath,
             int timeout = 100000,
-             Action<HttpRequestMessage> requestInterceptor = null,
-             Action<HttpResponseMessage> responseInterceptor = null)
+            bool ignoreSslErrors = false,
+             Action<HttpRequestMessage>? requestInterceptor = null,
+             Action<HttpResponseMessage>? responseInterceptor = null)
         {
             BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
 
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
 
-
-            Cookies = new CookieContainer();
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.CookieContainer = Cookies;
-
-            Client = new HttpClient(handler);
-            Client.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
+            HttpClient = new HttpClientHandler(timeout, ignoreSslErrors);
         }
 
+        internal ApiClient(string basePath, IHttpClientHandler httpClient)
+        {
+            BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
+
+            HttpClient = httpClient;
+        }
 
 
         /// <summary>
         /// Method that is executed before request. May be used for loggin the request body.
         /// </summary>
-        public Action<HttpRequestMessage> RequestInterceptor { get; set; }
+        public Action<HttpRequestMessage>? RequestInterceptor { get; set; }
 
         /// <summary>
         /// Method that is executed after receiving response. May be used for loggin the response.
         /// </summary>
-        public Action<HttpResponseMessage> ResponseInterceptor { get; set; }
+        public Action<HttpResponseMessage>? ResponseInterceptor { get; set; }
 
 
         /// <summary>
         /// Gets or sets the HttpClient.
         /// </summary>
         /// <value>An instance of the HttpClient</value>
-        public HttpClient Client { get; set; }
+        internal IHttpClientHandler HttpClient { get; set; }
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
@@ -90,45 +95,19 @@ namespace Acumatica.RESTClient.Client
         /// Gets or sets the username (HTTP basic authentication).
         /// </summary>
         /// <value>The username.</value>
-        public virtual string Username { get; set; }
+        public virtual string? Username { get; set; }
 
         /// <summary>
         /// Gets or sets the password (HTTP basic authentication).
         /// </summary>
         /// <value>The password.</value>
-        public virtual string Password { get; set; }
+        public virtual string? Password { get; set; }
 
         /// <summary>
         /// Gets or sets the access token for OAuth2 authentication.
         /// </summary>
         /// <value>The access token.</value>
-        public virtual Token Token { get; set; }
-
-        /// <summary>
-        /// Gets or sets the the date time format used when serializing in the ApiClient
-        /// By default, it's set to ISO 8601 - "o", for others see:
-        /// https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
-        /// and https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx
-        /// No validation is done to ensure that the string you're providing is valid
-        /// </summary>
-        /// <value>The DateTimeFormat string</value>
-        public virtual string DateTimeFormat
-        {
-            get { return _dateTimeFormat; }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    // Never allow a blank or null string, go back to the default
-                    _dateTimeFormat = ISO8601_DATETIME_FORMAT;
-                    return;
-                }
-
-                // Caution, no validation when you choose date time format other than ISO 8601
-                // Take a look at the above links
-                _dateTimeFormat = value;
-            }
-        }
+        public virtual Token? Token { get; set; }
         #endregion
 
         #region Public Methods
@@ -145,17 +124,17 @@ namespace Acumatica.RESTClient.Client
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
         public async Task<HttpResponseMessage> CallApiAsync(
-            String resourcePath, 
+            String resourcePath,
             HttpMethod method,
-            List<KeyValuePair<String, String>> queryParams,
-            Object postBody,
+            List<KeyValuePair<String, String>>? queryParams,
+            Object? postBody,
             HeaderContentType acceptType,
             HeaderContentType contentType,
-            Dictionary<String, String> customHeaders = null)
+            Dictionary<String, String>? customHeaders = null)
         {
             var request = PrepareRequest(
                 resourcePath,
-                method, 
+                method,
                 queryParams,
                 postBody,
                 customHeaders,
@@ -166,7 +145,8 @@ namespace Acumatica.RESTClient.Client
             {
                 RequestInterceptor(request);
             }
-            var response = await Client.SendAsync(request);
+            HttpResponseMessage response = await HttpClient.SendRequest(request);
+
             if (ResponseInterceptor != null)
             {
                 ResponseInterceptor(response);
@@ -176,152 +156,30 @@ namespace Acumatica.RESTClient.Client
         }
 
 
-        /// <summary>
-        /// Deserialize the JSON string into a proper object.
-        /// </summary>
-        /// <param name="response">The HTTP response.</param>
-        /// <param name="type">Object type.</param>
-        /// <returns>Object representation of the JSON string.</returns>
-        public object Deserialize<T>(HttpResponseMessage response)
+      
+        public bool HasToken()
         {
-            if (typeof(T) == typeof(byte[])) // return byte array
-            {
-                return response.Content.ReadAsByteArrayAsync().Result;
-            }
-
-            if (typeof(T).Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
-            {
-                return DateTime.Parse(response.Content.ReadAsStringAsync().Result, null, System.Globalization.DateTimeStyles.RoundtripKind);
-            }
-
-            if (typeof(T) == typeof(String)) // return primitive type
-            {
-                return (String)response.Content.ReadAsStringAsync().Result;
-            }
-
-            if (typeof(T).Name.StartsWith("System.Nullable"))
-            {
-                return Convert.ChangeType(response.Content, typeof(T));
-            }
-
-            return JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result, typeof(T), serializerSettings);
+            return Token != null;
         }
-
-        /// <summary>
-        /// Serialize an input (model) into JSON string
-        /// </summary>
-        /// <param name="obj">Object.</param>
-        /// <returns>JSON string.</returns>
-        public String Serialize(object obj)
+        public void Dispose()
         {
-            try
+            if (HasToken() || HasSessionInfo())
             {
-                return obj != null ? JsonConvert.SerializeObject(obj) : null;
-            }
-            catch (Exception e)
-            {
-                throw new ApiException(500, e.Message);
+                AuthApi.AuthApiExtensions.TryLogout(this);
             }
         }
-
-        /// <summary>
-        /// Select the Content-Type header's value from the given content-type array:
-        /// if JSON type exists in the given array, use it;
-        /// otherwise use the first one defined in 'consumes'.
-        /// </summary>
-        /// <remarks>
-        /// We need this because only one content type is allowed
-        /// </remarks>
-        /// <param name="contentTypes">The Content-Type array to select from.</param>
-        /// <returns>The Content-Type header to use.</returns>
-        private String SelectHeaderContentType(IEnumerable<string> contentTypes)
-        {
-            if (contentTypes.Count() == 0)
-                return ApplicationJsonAcceptContentType;
-
-            foreach (var contentType in contentTypes)
-            {
-                if (ApiClientHelpers.IsJsonMime(contentType.ToLower()))
-                    return contentType;
-            }
-
-            return contentTypes.First(); 
-        }
-
-        protected string ComposeAcceptHeaders(HeaderContentType contentTypes)
-        {
-            return string.Join(",", ComposeHeadersArray(contentTypes));
-        }
-
-        private static IEnumerable<string> ComposeHeadersArray(HeaderContentType contentTypes)
-        {
-            List<string> headers = new List<string>();
-            if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Json)
-            {
-                headers.Add(ApplicationJsonAcceptContentType);
-                headers.Add(TextJsonAcceptContentType);
-            }
-            if ((contentTypes & HeaderContentType.Xml) == HeaderContentType.Xml)
-            {
-                headers.Add(ApplicationXmlAcceptContentType);
-                headers.Add(TextXmlAcceptContentType);
-            }
-            if ((contentTypes & HeaderContentType.Any) == HeaderContentType.Any)
-            {
-                headers.Add(AnyAcceptContentType);
-            }
-            if ((contentTypes & HeaderContentType.WwwForm) == HeaderContentType.WwwForm)
-            {
-                headers.Add(WwwFormEncoded);
-            }
-
-            if ((contentTypes & HeaderContentType.OctetStream) == HeaderContentType.OctetStream)
-            {
-                headers.Add(OctetStream);
-            }
-            return headers;
-        }
-
-
-        /// <summary>
-        /// Convert params to key/value pairs. 
-        /// Use collectionFormat to properly format lists and collections.
-        /// </summary>
-        /// <param name="name">Key name.</param>
-        /// <param name="value">Value object.</param>
-        /// <returns>A list of KeyValuePairs</returns>
-        public IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
-        {
-            var parameters = new List<KeyValuePair<string, string>>();
-
-            if (IsCollection(value) && collectionFormat == "multi")
-            {
-                var valueCollection = value as IEnumerable;
-                parameters.AddRange(from object item in valueCollection select new KeyValuePair<string, string>(name, item.ToString()));
-            }
-            else
-            {
-                parameters.Add(new KeyValuePair<string, string>(name,value.ToString()));
-            }
-
-            return parameters;
-        }
-
         #endregion
 
         #region Implementation
-        protected string ComposeContentHeaders(HeaderContentType contentTypes)
-        {
-            return SelectHeaderContentType(ComposeHeadersArray(contentTypes));
-        }
+
         // Creates and sets up a RestRequest prior to a call.
         private HttpRequestMessage PrepareRequest(
-            String resourcePath, 
-            HttpMethod method, 
-            List<KeyValuePair<String, String>> queryParams, 
-            Object postBody,
-            Dictionary<String, String> headerParams,
-            string acceptType, 
+            String resourcePath,
+            HttpMethod method,
+            List<KeyValuePair<String, String>>? queryParams,
+            Object? postBody,
+            Dictionary<String, String>? headerParams,
+            string acceptType,
             string contentType)
         {
 
@@ -329,20 +187,10 @@ namespace Acumatica.RESTClient.Client
 
             if (queryParams != null)
             {
-                // add query parameter, if any
-                foreach (var param in queryParams)
-                {
-                    var query = System.Web.HttpUtility.ParseQueryString(url.Query);
-                    foreach(var kvp in queryParams)
-                    {
-                        query.Set(kvp.Key, kvp.Value);  
-                    }
-                    url.Query = query.ToString();
-                }
+                url.Query += string.Join("&", queryParams.Select(queryParamter => $"{queryParamter.Key}={HttpUtility.UrlEncode(queryParamter.Value, Encoding.UTF8)}"));
             }
 
             var request = new HttpRequestMessage(method, url.ToString());
-
             if (headerParams != null)
             {
                 // add header parameter, if any
@@ -357,9 +205,9 @@ namespace Acumatica.RESTClient.Client
             }
 
 
-            if (Token != null)
+            if (HasToken())
             {
-                request.Headers.Add("Authorization", $"{Token.Token_type} {Token.Access_token}");
+                request.Headers.Add("Authorization", $"{Token!.Token_type} {Token.Access_token}");
             }
 
             if (postBody != null)
@@ -368,27 +216,22 @@ namespace Acumatica.RESTClient.Client
                 {
                     request.Content = new StringContent(postBody as string, Encoding.UTF8, contentType);
                 }
-               
+
                 else if (postBody is byte[])
                 {
                     request.Content = new ByteArrayContent(postBody as byte[]);
                 }
-                else 
+                else
                 {
-                    request.Content = new StringContent(Serialize(postBody), Encoding.UTF8, contentType); 
+                    request.Content = new StringContent(Serialize(postBody), Encoding.UTF8, contentType);
                 }
             }
             return request;
         }
 
-        /// <summary>
-        /// Check if generic object is a collection.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns>True if object is a collection type</returns>
-        private static bool IsCollection(object value)
+        internal bool HasSessionInfo()
         {
-            return value is IList || value is ICollection;
+            return HttpClient.HasSessionCookie(new Uri(BasePath), SessionCookieName);
         }
         #endregion
     }

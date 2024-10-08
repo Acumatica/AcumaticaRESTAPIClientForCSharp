@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,23 +11,12 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class CompanyFinancialPeriod : Entity
+	public class CompanyFinancialPeriod : Acumatica.Default_22_200_001.Model.CompanyFinancialPeriod, ITopLevelEntity
 	{
 
-		[DataMember(Name="Company", EmitDefaultValue=false)]
-		public StringValue Company { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<FinancialPeriodDetail> Details { get; set; }
-
-		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
-		public StringValue FinancialYear { get; set; }
-
-		[DataMember(Name="NbrOfPeriods", EmitDefaultValue=false)]
-		public ShortValue NbrOfPeriods { get; set; }
-
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
-
+		public override string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

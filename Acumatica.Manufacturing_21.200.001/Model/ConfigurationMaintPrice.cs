@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,10 +15,10 @@ namespace Acumatica.Manufacturing_21_200_001.Model
 	{
 
 		[DataMember(Name="Calculate", EmitDefaultValue=false)]
-		public StringValue Calculate { get; set; }
+		public StringValue? Calculate { get; set; }
 
 		[DataMember(Name="Rollup", EmitDefaultValue=false)]
-		public StringValue Rollup { get; set; }
+		public StringValue? Rollup { get; set; }
 
 	}
 }

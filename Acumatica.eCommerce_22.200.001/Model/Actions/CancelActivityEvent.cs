@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	public class CancelActivityEvent : EntityAction<Event>
 	{
 		public CancelActivityEvent(Event entity) : base(entity)
-		{ }
-		public CancelActivityEvent() : base()
 		{ }
 	}
 }

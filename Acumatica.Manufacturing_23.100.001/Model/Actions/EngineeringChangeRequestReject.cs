@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class EngineeringChangeRequestReject : EntityAction<EngineeringChangeRequest>
 	{
 		public EngineeringChangeRequestReject(EngineeringChangeRequest entity) : base(entity)
-		{ }
-		public EngineeringChangeRequestReject() : base()
 		{ }
 	}
 }

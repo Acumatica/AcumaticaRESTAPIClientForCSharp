@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 	public class AllowBilling : EntityAction<ServiceOrder>
 	{
 		public AllowBilling(ServiceOrder entity) : base(entity)
-		{ }
-		public AllowBilling() : base()
 		{ }
 	}
 }

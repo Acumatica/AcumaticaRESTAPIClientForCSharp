@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class InventoryFileUrls : Entity
+	public class InventoryFileUrls : Acumatica.Default_22_200_001.Model.InventoryFileUrls
 	{
-
-		[DataMember(Name="FileType", EmitDefaultValue=false)]
-		public StringValue FileType { get; set; }
-
-		[DataMember(Name="FileURL", EmitDefaultValue=false)]
-		public StringValue FileURL { get; set; }
-
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
-		public GuidValue NoteID { get; set; }
 
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,14 @@ namespace Acumatica.Default_22_200_001.Model
 	public class TaxZoneApplicableTaxDetail : Entity
 	{
 
+		/// <summary>
+		/// The field contains ID of a tax that would be used to create tax transactions in documents.
+		/// DAC: PX.Objects.TX.TaxZone 
+		/// Display Name: Tax ID 
+		/// SQL Type: nvarchar(60) 
+		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue TaxID { get; set; }
+		public StringValue? TaxID { get; set; }
 
 	}
 }

@@ -5,42 +5,92 @@ using System.Text;
 
 namespace EndpointSchemaGenerator
 {
-    public partial class SchemaGenerator
+    public static class SchemaGenerator
     {
-        public static void WriteCSharp(string outputPath, 
+        public static void WriteCSharp(string outputPath,
+            string endpointName,
             Schema schema, 
             Action<string> writeLogDelegate, 
-            string endpointNamespace, 
-            string csprojPath, 
-            string additionalPath = "")
+            string defaultNamespaceTemplate, 
+            bool generateApis = true)
         {
-            string modelLocalPath = additionalPath + "Model\\";
+            outputPath += "\\";
+            string modelLocalPath = "Model\\";
             string actionsLocalPath = modelLocalPath + "Actions\\";
             string actionParametersLocalPath = modelLocalPath + "ActionParameters\\";
-            string apiLocalPath = additionalPath + "Api\\";
+            string apiLocalPath = "Api\\";
 
             string modelFilesDirectory = outputPath + modelLocalPath;
             string modelActionsFilesDirectory = outputPath + actionsLocalPath;
             string modelParametersFilesDirectory = outputPath + actionParametersLocalPath;
             string apiFilesDirectory = outputPath + apiLocalPath;
 
+            string endpointNamespace = GetEndpointNamespace(defaultNamespaceTemplate, endpointName);
+            string csprojPath = GetCsprojPath(outputPath, endpointName, defaultNamespaceTemplate);
+            string baseCsprojPath = string.IsNullOrEmpty(schema.BaseEndpoint) ? string.Empty : GetCsprojPath(string.Format(defaultNamespaceTemplate, schema.BaseEndpoint)+"\\", schema.BaseEndpoint, defaultNamespaceTemplate);
+
             RegenerateDirectories(outputPath, modelFilesDirectory, modelActionsFilesDirectory, modelParametersFilesDirectory, apiFilesDirectory);
 
-            WriteCsProj(csprojPath);
+            WriteCsProj(csprojPath, baseCsprojPath);
 
-            WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory);
-            WriteBaseApi(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
-            WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
+            WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory, defaultNamespaceTemplate);
+            if (generateApis)
+            {
+                WriteBaseApi(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
+                WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
+            }
             WriteActions(schema, writeLogDelegate, endpointNamespace, actionsLocalPath, actionParametersLocalPath, modelActionsFilesDirectory, modelParametersFilesDirectory);
 
             writeLogDelegate.Invoke("Done!");
         }
 
-        private static void WriteCsProj(string csprojPath)
+        private static string GetCsprojPath(string outputPath, string endpointName, string defaultNamespaceTemplate)
         {
+            return outputPath + string.Format(defaultNamespaceTemplate, endpointName) + ".csproj";
+        }
+
+        private static string GetEndpointNamespace(string defaultNamespaceTemplate,  string endpointName)
+        {
+            return string.Format(defaultNamespaceTemplate, endpointName.Replace(".", "_"));
+        }
+        private static void WriteCsProj(string csprojPath, string baseCsprojPath)
+        {
+            StringBuilder sectionsToPreserve = new StringBuilder();
+            if (File.Exists(csprojPath))
+            {
+                StreamReader reader = new StreamReader(csprojPath);
+                var existingProject = reader.ReadToEnd();
+                reader.Close();
+                sectionsToPreserve.AppendLine(ExtractSection("Version", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Company", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Description", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Copyright", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("PackageProjectUrl", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("RepositoryUrl", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("PackageTags", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("PackageReleaseNotes", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("PackageLicenseExpression", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Title", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("Authors", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("IncludeSymbols", existingProject));
+                sectionsToPreserve.AppendLine(ExtractSection("SymbolPackageFormat", existingProject));
+            }
             StreamWriter writer = new StreamWriter(csprojPath);
-            writer.Write(Templates.ProjectTemplate);
+            writer.Write(Templates.ProjectTemplate, sectionsToPreserve,string.IsNullOrEmpty(baseCsprojPath)?"": $"<ProjectReference Include=\"..\\{baseCsprojPath}\" />");
             writer.Close();
+        }
+
+        private static string ExtractSection(string tag, string csProjXML)
+        {
+            //find Version xml tag in existing project
+            int versionTagStart = csProjXML.IndexOf($"<{tag}>");
+            int versionTagEnd = csProjXML.IndexOf($"</{tag}>");
+            if (versionTagStart > 0 && versionTagEnd > 0)
+            {
+                return csProjXML.Substring(versionTagStart, versionTagEnd - versionTagStart + tag.Length + 3);
+            }
+
+            return "";
         }
 
         private static void WriteActions(Schema schema, 
@@ -102,7 +152,6 @@ namespace EndpointSchemaGenerator
         {
             string filename = "BaseEndpointApi.cs";
             StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
-
             string result = String.Format(Templates.BaseEndpointApiTemplate, endpointNamespace, schema.Info.Title);
             writeLogDelegate.Invoke("BaseEndpointApi");
             writer.Write(result);
@@ -114,37 +163,46 @@ namespace EndpointSchemaGenerator
             string apiLocalPath, 
             string apiFilesDirectory)
         {
-			foreach (var entity in schema.TopLevelEntities)
+			foreach (var entity in schema.Entities.Where(_=>_.Value.IsTopLevel))
 			{
-				string filename = entity + "Api.cs";
+				string filename = entity.Key + "Api.cs";
 				StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
 
-				string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity);
-				writeLogDelegate.Invoke(entity + "Api");
+				string result = String.Format(Templates.ApiTemplate, endpointNamespace, entity.Key);
+				writeLogDelegate.Invoke(entity.Key + "Api");
 				writer.Write(result);
 				writer.Close();
 			}
 		}
 
-        private static void WriteEntities(Schema schema, 
-            Action<string> writeLogDelegate, 
-            string endpointNamespace, 
-            string modelLocalPath, 
-            string modelFilesDirectory)
+        private static void WriteEntities(Schema schema,
+            Action<string> writeLogDelegate,
+            string endpointNamespace,
+            string modelLocalPath,
+            string modelFilesDirectory, 
+            string defaultNamespaceTemplate)
         {
             foreach (var entity in schema.Entities)
             {
                 string filename = entity.Key + ".cs";
                 StreamWriter writer = new StreamWriter(modelFilesDirectory + filename);
                 StringBuilder body = new StringBuilder();
-                foreach (var field in entity.Value)
+                foreach (var field in entity.Value.Fields)
                 {
-                    if (field.Key == entity.Key)
-                        body.Append(string.Format(Templates.FieldTemplate, field.Key.ToLowerInvariant(), field.Value));
-                    else
-                        body.Append(string.Format(Templates.FieldTemplate, field.Key, field.Value));
+                    body.Append(Templates.GenerateFieldCode(entity.Key, field));
                 }
-                string result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString());
+                string result;
+                bool isNotDerived = string.IsNullOrEmpty(schema.BaseEndpoint) || string.IsNullOrEmpty(entity.Value.ParentReference);
+                string baseEntity = isNotDerived ? "Entity" : $"{GetEndpointNamespace(defaultNamespaceTemplate, schema.BaseEndpoint)}.Model.{entity.Value.ParentReference}";
+                if (entity.Value.IsTopLevel)
+                {
+                    result = Templates.GenerateTopLevelEntityCode(
+                        endpointNamespace, entity.Key, body.ToString(), schema.Info.Title, baseEntity, !isNotDerived, entity.Value.ScreenID);
+                }
+                else
+                {
+                    result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString(), baseEntity, "");
+                }
                 writeLogDelegate.Invoke(entity.Key);
                 writer.Write(result);
                 writer.Close();

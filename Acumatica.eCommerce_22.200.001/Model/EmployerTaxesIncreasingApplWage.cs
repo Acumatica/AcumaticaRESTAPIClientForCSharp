@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,14 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class EmployerTaxesIncreasingApplWage : Entity
+	public class EmployerTaxesIncreasingApplWage : Acumatica.Default_22_200_001.Model.EmployerTaxesIncreasingApplWage
 	{
-
-		[DataMember(Name="EmployerTaxesIncreasingApplWageDetails", EmitDefaultValue=false)]
-		public List<EmployerTaxesIncreasingApplWageDetail> EmployerTaxesIncreasingApplWageDetails { get; set; }
-
-		[DataMember(Name="InclusionType", EmitDefaultValue=false)]
-		public StringValue InclusionType { get; set; }
 
 	}
 }

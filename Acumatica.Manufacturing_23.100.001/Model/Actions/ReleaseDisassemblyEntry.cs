@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class ReleaseDisassemblyEntry : EntityAction<DisassemblyEntry>
 	{
 		public ReleaseDisassemblyEntry(DisassemblyEntry entity) : base(entity)
-		{ }
-		public ReleaseDisassemblyEntry() : base()
 		{ }
 	}
 }

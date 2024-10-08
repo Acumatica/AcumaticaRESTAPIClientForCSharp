@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,26 +11,30 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class WorkCenterCrewSchedule : Entity
+	public class WorkCenterCrewSchedule : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<WorkCenterCrewScheduleDetail> Details { get; set; }
+		public List<WorkCenterCrewScheduleDetail>? Details { get; set; }
 
 		[DataMember(Name="FromDate", EmitDefaultValue=false)]
-		public DateTimeValue FromDate { get; set; }
+		public DateTimeValue? FromDate { get; set; }
 
 		[DataMember(Name="Shift", EmitDefaultValue=false)]
-		public StringValue Shift { get; set; }
+		public StringValue? Shift { get; set; }
 
 		[DataMember(Name="ShowAll", EmitDefaultValue=false)]
-		public BooleanValue ShowAll { get; set; }
+		public BooleanValue? ShowAll { get; set; }
 
 		[DataMember(Name="ToDate", EmitDefaultValue=false)]
-		public DateTimeValue ToDate { get; set; }
+		public DateTimeValue? ToDate { get; set; }
 
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
-		public StringValue WorkCenter { get; set; }
+		public StringValue? WorkCenter { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class ReminderDetail : Entity
+	public class ReminderDetail : Acumatica.Default_22_200_001.Model.ReminderDetail
 	{
-
-		[DataMember(Name="IsActive", EmitDefaultValue=false)]
-		public BooleanValue IsActive { get; set; }
-
-		[DataMember(Name="RemindAtDate", EmitDefaultValue=false)]
-		public DateTimeValue RemindAtDate { get; set; }
-
-		[DataMember(Name="RemindAtTime", EmitDefaultValue=false)]
-		public DateTimeValue RemindAtTime { get; set; }
 
 	}
 }

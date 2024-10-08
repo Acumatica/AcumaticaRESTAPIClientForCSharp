@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,26 +11,30 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_21_200_001.Model
 {
 	[DataContract]
-	public class Overhead : Entity
+	public class Overhead : Entity, ITopLevelEntity
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue Account { get; set; }
+		public StringValue? Account { get; set; }
 
 		[DataMember(Name="CostRate", EmitDefaultValue=false)]
-		public DecimalValue CostRate { get; set; }
+		public DecimalValue? CostRate { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="OverheadID", EmitDefaultValue=false)]
-		public StringValue OverheadID { get; set; }
+		public StringValue? OverheadID { get; set; }
 
 		[DataMember(Name="OverheadType", EmitDefaultValue=false)]
-		public StringValue OverheadType { get; set; }
+		public StringValue? OverheadType { get; set; }
 
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
-		public StringValue Subaccount { get; set; }
+		public StringValue? Subaccount { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/21.200.001";
+		}
 	}
 }

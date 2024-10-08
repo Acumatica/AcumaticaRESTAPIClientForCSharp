@@ -69,11 +69,10 @@ namespace ModelGeneratorUI
             LogTextBox.Text += "\r\nWriting code...";
 
             SchemaGenerator.WriteCSharp(directoryPath + "\\", 
-                schema, 
+                endpointName, 
+                schema,
                 (_) => LogTextBox.Text += ("\r\n" + _), 
-                "Acumatica." + endpointName.Replace(".", "_"), 
-                pathToProject, 
-                additionalPath);
+                "Acumatica." + endpointName.Replace(".", "_"));
         }
     }
 }

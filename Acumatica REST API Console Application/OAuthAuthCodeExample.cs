@@ -7,10 +7,12 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-using Acumatica.Auth.Api;
 using Acumatica.Default_20_200_001.Api;
+using Acumatica.Default_20_200_001.Model;
+using Acumatica.RESTClient.Client;
 
-using static Acumatica.Auth.Api.AuthApi;
+using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
+using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
 
 namespace AcumaticaRestApiExample
 {
@@ -18,30 +20,31 @@ namespace AcumaticaRestApiExample
     {
         public static void Example(string siteURL, string clientSecret, string clientID, string redirectUrl)
         {
-            var authApi = new AuthApi(siteURL
-                //, 
-                //requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+            var client = new ApiClient(siteURL,
+                requestInterceptor: RequestLogger.LogRequest
+            //   ,responseInterceptor: RequestLogger.LogResponse
+            , ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
-            var url = authApi.Authorize(
+            var url = client.Authorize(
                 clientID,
                 clientSecret,
                  redirectUrl,
-                 OAuthScope.API | OAuthScope.OfflineAccess
+                 OAuthScope.API //| OAuthScope.OfflineAccess
                 );
             OpenUrl(url);
             var code = ReadCodeFromRedirectURL(redirectUrl);
 
-            authApi.ReceiveAccessTokenAuthCode(
+            client.ReceiveAccessTokenAuthCode(
                 clientID,
                 clientSecret,
                 redirectUrl,
                 code);
 
-            foreach (var account in new AccountApi(authApi.ApiClient).GetList(top: 5))
+            foreach (var account in client.GetList<Account>(top: 5))
             {
                 Console.WriteLine(account.Description.Value);
             }
-            authApi.TryLogout();
+            client.TryLogout();
 
         }
 
@@ -80,7 +83,6 @@ namespace AcumaticaRestApiExample
                 // hack because of this: https://github.com/dotnet/corefx/issues/10361
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
-                    url = url.Replace("&", "^&");
                     Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
                 }
                 else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))

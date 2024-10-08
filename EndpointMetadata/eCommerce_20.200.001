@@ -1,0 +1,1276 @@
+<?xml version="1.0" encoding="cp866"?>
+<Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="eCommerce" version="20.200.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
+	<ExtendsEndpoint name="Default" version="20.200.001" />
+	<TopLevelEntity name="Customer" screen="AR303000">
+		<Fields>
+			<Field name="RestrictVisibilityTo" type="StringValue" />
+			<Field name="CreditLimit" type="DecimalValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="EntityUsageType" type="StringValue" />
+			<Field name="Email" type="StringValue" />
+			<Field name="TaxExemptionNumber" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="RestrictVisibilityTo">
+					<To object="CurrentCustomer: 3" field="COrgBAccountID" />
+			</Mapping>
+			<Mapping field="EntityUsageType">
+				<To object="DefLocation: 3" field="CAvalaraCustomerUsageType" />
+			</Mapping>
+			<Mapping field="TaxExemptionNumber">
+				<To object="DefLocation: 3" field="CAvalaraExemptionNumber" />
+			</Mapping>
+			<Mapping field="CreditLimit">
+				<To object="CurrentCustomer: 3" field="CreditLimit" />
+			</Mapping>
+			<Mapping field="NoteID">
+				<To object="BAccount" field="NoteID" />
+			</Mapping>
+			<Mapping field="MainContact">
+				<Mapping field="FullName">
+					<To object="DefContact" field="FullName" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="Email">
+                <To object="DefContact" field="Email" />
+            </Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="CustomerLocation" screen="AR303020">
+		<Fields>
+			<Field name="NoteID" type="GuidValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="NoteID">
+				<To object="Location" field="NoteID" />
+			</Mapping>
+			<Mapping field="LocationContact">
+				<Mapping field="FullName">
+					<To object="Contact" field="FullName" />
+				</Mapping>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="Contact" screen="CR302000">
+		<Fields>
+			<Field name="FullName" type="StringValue" />
+		</Fields>
+	</TopLevelEntity>
+	<TopLevelEntity name="ItemSalesCategory" screen="IN204060">
+		<Fields>
+			<Field name="NoteID" type="GuidValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="NoteID">
+				<To object="Folders" field="NoteID" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="NonStockItem" screen="IN202000">
+		<Fields>
+		    <Field name="CurySpecificMSRP" type="DecimalValue" />
+			<Field name="CurySpecificPrice" type="DecimalValue" />
+			<Field name="Availability" type="StringValue" />
+			<Field name="ExportToExternal" type="BooleanValue" />
+			<Field name="Categories" type="CategoryStockItem[]" />
+			<Field name="Content" type="StringValue" />
+			<Field name="CurrentStdCost" type="DecimalValue" />
+			<Field name="CustomURL" type="StringValue" />
+			<Field name="DimensionWeight" type="DecimalValue" />
+			<Field name="FileUrls" type="InventoryFileUrls[]" />
+			<Field name="MetaDescription" type="StringValue" />
+			<Field name="MetaKeywords" type="StringValue" />
+			<Field name="MSRP" type="DecimalValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="PageTitle" type="StringValue" />
+			<Field name="SearchKeywords" type="StringValue" />
+			<Field name="TemplateItemID" type="StringValue" />
+			<Field name="Visibility" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="CurySpecificPrice">
+					<To object="ItemCurySettings: 1" field="BasePrice" />
+			</Mapping>
+			<Mapping field="CurySpecificMSRP">
+					<To object="ItemCurySettings: 1" field="RecPrice" />
+			</Mapping>
+			<Mapping field="MSRP">
+				<To object="ItemSettings: 3" field="RecPrice" />
+			</Mapping>
+			<Mapping field="NoteID">
+				<To object="Item" field="NoteID" />
+			</Mapping>
+			<Mapping field="TemplateItemID">
+				<To object="ItemSettings" field="TemplateItemID" />
+			</Mapping>
+			<Mapping field="Categories">
+				<Mapping field="CategoryID">
+					<To object="Category" field="CategoryID" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="Content">
+				<To object="ItemSettings: 9" field="Body" />
+			</Mapping>
+			<Mapping field="CurrentStdCost">
+				<To object="ItemSettings: 4" field="StdCost" />
+			</Mapping>
+			<Mapping field="VendorDetails">
+				<Mapping field="Default">
+					<To object="VendorItems" field="IsDefault" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="DimensionWeight">
+				<To object="ItemSettings: 8" field="BaseItemWeight" />
+			</Mapping>
+			<Mapping field="FileUrls">
+				<Mapping field="FileType">
+					<To object="InventoryFileUrls" field="FileType" />
+				</Mapping>
+				<Mapping field="FileURL">
+					<To object="InventoryFileUrls" field="FileURL" />
+				</Mapping>
+				<Mapping field="NoteID">
+					<To object="InventoryFileUrls" field="NoteID" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="MetaDescription">
+				<To object="ItemSettings: 15" field="MetaDescription" />
+			</Mapping>
+			<Mapping field="MetaKeywords">
+				<To object="ItemSettings: 15" field="MetaKeywords" />
+			</Mapping>
+			<Mapping field="Availability">
+				<To object="ItemSettings: 15" field="Availability" />
+			</Mapping>
+			<Mapping field="ExportToExternal">
+				<To object="ItemSettings: 15" field="ExportToExternal" />
+			</Mapping>
+			<Mapping field="PageTitle">
+				<To object="ItemSettings: 15" field="PageTitle" />
+			</Mapping>
+			<Mapping field="SearchKeywords">
+				<To object="ItemSettings: 15" field="SearchKeywords" />
+			</Mapping>
+			<Mapping field="Visibility">
+				<To object="ItemSettings: 15" field="Visibility" />
+			</Mapping>
+			<Mapping field="CustomURL">
+				<To object="ItemSettings: 15" field="CustomURL" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="StockItem" screen="IN202500">
+		<Fields>
+		    <Field name="CurySpecificMSRP" type="DecimalValue" />
+			<Field name="CurySpecificPrice" type="DecimalValue" />
+			<Field name="Availability" type="StringValue" />
+			<Field name="CustomURL" type="StringValue" />
+			<Field name="ExportToExternal" type="BooleanValue" />
+			<Field name="FileURLs" type="InventoryFileUrls[]" />
+			<Field name="MetaDescription" type="StringValue" />
+			<Field name="MetaKeywords" type="StringValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="PageTitle" type="StringValue" />
+			<Field name="SearchKeywords" type="StringValue" />
+			<Field name="TemplateItemID" type="StringValue" />
+			<Field name="Visibility" type="StringValue" />
+			<Field name="NotAvailable" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="FileURLs">
+				<Mapping field="FileType">
+					<To object="InventoryFileUrls" field="FileType" />
+				</Mapping>
+				<Mapping field="FileURL">
+					<To object="InventoryFileUrls" field="FileURL" />
+				</Mapping>
+				<Mapping field="NoteID">
+					<To object="InventoryFileUrls" field="NoteID" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="CrossReferences">
+				<Mapping field="UOM">
+					<To object="itemxrefrecords" field="UOM" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="NoteID">
+				<To object="Item" field="NoteID" />
+			</Mapping>
+			<Mapping field="TemplateItemID">
+				<To object="ItemSettings" field="TemplateItemID" />
+			</Mapping>
+			<Mapping field="CurySpecificMSRP">
+				<To object="ItemCurySettings: 1" field="RecPrice" />
+			</Mapping>
+			<Mapping field="CurySpecificPrice">
+				<To object="ItemCurySettings: 1" field="BasePrice" />
+			</Mapping>
+			<Mapping field="PageTitle">
+				<To object="ItemSettings: 18" field="PageTitle" />
+			</Mapping>
+			<Mapping field="SearchKeywords">
+				<To object="ItemSettings: 18" field="SearchKeywords" />
+			</Mapping>
+			<Mapping field="Availability">
+				<To object="ItemSettings: 18" field="Availability" />
+			</Mapping>
+			<Mapping field="Visibility">
+				<To object="ItemSettings: 18" field="Visibility" />
+			</Mapping>
+			<Mapping field="CustomURL">
+				<To object="ItemSettings: 18" field="CustomURL" />
+			</Mapping>
+			<Mapping field="ExportToExternal">
+				<To object="ItemSettings: 18" field="ExportToExternal" />
+			</Mapping>
+			<Mapping field="MetaDescription">
+				<To object="ItemSettings: 18" field="MetaDescription" />
+			</Mapping>
+			<Mapping field="MetaKeywords">
+				<To object="ItemSettings: 18" field="MetaKeywords" />
+			</Mapping>
+			<Mapping field="NotAvailable">
+				<To object="ItemSettings: 18" field="NotAvailMode" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="CategoryStockItem" />
+	<TopLevelEntity name="SalesOrder" screen="SO301000">
+		<Fields>
+			<Field name="OrderRisks" type="OrderRisks[]" />
+            <Field name="MaxRiskScore" type="DecimalValue" />
+		    <Field name="ExternalOrderOriginal" type="BooleanValue" />
+			<Field name="ExternalRefundRef" type="StringValue" />
+            <Field name="WillCall" type="BooleanValue" />
+			<Field name="PaymentRef" type="StringValue" />
+			<Field name="NoteID" type="GuidValue" />	
+			<Field name="UsrExternalOrderOriginal" type="BooleanValue" />
+			<Field name="ExternalOrderOrigin" type="StringValue" />
+			<Field name="ExternalOrderSource" type="StringValue" />
+			<Field name="TaxCalcMode" type="StringValue" />
+			<Field name="CreatedDate" type="DateTimeValue" />
+		</Fields>
+		<Mappings>
+		    <Mapping field="MaxRiskScore">
+                    <To object="CurrentDocument: 9" field="MaxRiskScore" />
+            </Mapping>
+            <Mapping field="OrderRisks">
+                    <Mapping field="Message">
+                        <To object="OrderRisks" field="Message" />
+                    </Mapping>
+                    <Mapping field="Recommendation">
+                        <To object="OrderRisks" field="Recommendation" />
+                    </Mapping>
+                    <Mapping field="Score">
+                        <To object="OrderRisks" field="Score" />
+                    </Mapping>
+                   
+            </Mapping>
+			<Mapping field="WillCall">
+                <To object="CurrentDocument: 3" field="WillCall" />
+            </Mapping>
+            <Mapping field="ExternalOrderOriginal">
+                <To object="Document" field="ExternalOrderOriginal" />
+            </Mapping>
+			 <Mapping field="ExternalRefundRef">
+                <To object="Document" field="ExternalRefundRef" />
+            </Mapping>
+			<Mapping field="ExternalOrderOrigin">
+                <To object="Document" field="ExternalOrderOrigin" />
+            </Mapping>
+			<Mapping field="ExternalOrderSource">
+                <To object="Document" field="ExternalOrderSource" />
+            </Mapping>
+			<Mapping field="PaymentRef">
+				<To object="CurrentDocument: 1" field="ExtRefNbr" />
+			</Mapping>
+			<Mapping field="TaxCalcMode">
+				<To object="CurrentDocument: 1" field="TaxCalcMode" />
+			</Mapping>
+			<Mapping field="NoteID">
+				<To object="Document" field="NoteID" />
+			</Mapping>
+			<Mapping field="UsrExternalOrderOriginal">
+				<To object="Document" field="UsrExternalOrderOriginal" />
+			</Mapping>
+			<Mapping field="Details">
+				<Mapping field="GiftMessage">
+                   <To object="Transactions" field="GiftMessage" />
+                </Mapping>
+                <Mapping field="AssociatedOrderLineNbr">
+                    <To object="Transactions" field="AssociatedOrderLineNbr" />
+                </Mapping>
+			    <Mapping field="LotSerialNbr">
+                    <To object="Transactions" field="LotSerialNbr" />
+                </Mapping>
+				<Mapping field="ManualPrice">
+					<To object="Transactions" field="ManualPrice" />
+				</Mapping>
+				<Mapping field="NoteID">
+					<To object="Transactions" field="NoteID" />
+				</Mapping>
+				<Mapping field="ExternalRef">
+					<To object="Transactions" field="ExternalRef" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="Payments">
+				<Mapping field="ExternalRef">
+                    <To object="Adjustments" field="ExternalRef" />
+                </Mapping>
+				<Mapping field="NewCard">
+                    <To object="Adjustments" field="NewCard" />
+                </Mapping>
+				<Mapping field="NoteID">
+					<To object="Adjustments" field="NoteID" />
+				</Mapping>
+				<Mapping field="CreditCardTransactionInfo">
+					<Mapping field="CardType">
+						<To object="apiInputCCTran" field="CardType" />
+					</Mapping>
+				</Mapping>
+			</Mapping>
+			<Mapping field="Shipments">
+				<Mapping field="InventoryNoteID">
+					<To object="ShipmentList" field="InvtNoteID" />
+				</Mapping>
+				<Mapping field="LastModifiedDateTime">
+					<To object="ShipmentList" field="LastModifiedDateTime" />
+				</Mapping>
+				<Mapping field="OrderNoteID">
+					<To object="ShipmentList" field="OrderNoteID" />
+				</Mapping>
+				<Mapping field="ShippingNoteID">
+					<To object="ShipmentList" field="ShipmentNoteID" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="Totals">
+				<Mapping field="FreightCost">
+                    <To object="CurrentDocument: 7" field="CuryFreightCost" />
+				</Mapping>
+                <Mapping field="PremiumFreight">
+                    <To object="CurrentDocument: 7" field="CuryPremiumFreightAmt" />
+                </Mapping>
+                <Mapping field="FreightCostIsuptodate">
+                    <To object="CurrentDocument: 7" field="FreightCostIsValid" />
+                </Mapping>
+                <Mapping field="FreightTaxCategory">
+                    <To object="CurrentDocument: 7" field="FreightTaxCategoryID" />
+                </Mapping>
+                <Mapping field="OrderVolume">
+                    <To object="CurrentDocument: 7" field="OrderVolume" />
+                </Mapping>
+                <Mapping field="OrderWeight">
+                    <To object="CurrentDocument: 7" field="OrderWeight" />
+                </Mapping>
+                <Mapping field="PackageWeight">
+                    <To object="CurrentDocument: 7" field="PackageWeight" />
+                </Mapping>
+                <Mapping field="Freight">
+                    <To object="CurrentDocument: 7" field="CuryFreightAmt" />
+                </Mapping>
+				<Mapping field="OverrideFreightAmount">
+					<To object="CurrentDocument: 5" field="OverrideFreightAmount" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="CreatedDate">
+                <To object="Document" field="CreatedDateTime" />
+            </Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="Payment" screen="AR302000">
+		<Fields>
+			<Field name="IsCCPayment" type="BooleanValue" />
+			<Field name="ExternalRef" type="StringValue" />
+			<Field name="OrigTransaction" type="StringValue" />
+			<Field name="BranchID" type="StringValue" />
+			<Field name="CustomerLocationID" type="StringValue" />
+			<Field name="IsNewCard" type="BooleanValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="AvailableBalance" type="DecimalValue" />
+			<Field name="AppliedToOrders" type="DecimalValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="IsCCPayment">
+				<To object="Document" field="IsCCPayment" />
+			</Mapping>
+			<Mapping field="ExternalRef">
+                    <To object="Document" field="ExternalRef" />
+                </Mapping>
+			<Mapping field="OrigTransaction">
+                    <To object="Document" field="RefTranExtNbr" />
+            </Mapping>
+			<Mapping field="BranchID">
+				<To object="CurrentDocument" field="BranchID" />
+			</Mapping>
+			<Mapping field="CustomerLocationID">
+				<To object="Document" field="CustomerLocationID" />
+			</Mapping>
+			<Mapping field="IsNewCard">
+				<To object="Document" field="NewCard" />
+			</Mapping>
+			<Mapping field="NoteID">
+				<To object="Document" field="NoteID" />
+			</Mapping>
+			<Mapping field="AvailableBalance">
+					<To object="Document" field="CuryUnappliedBal" />
+			</Mapping>
+			<Mapping field="AppliedToOrders">
+				<To object="Document" field="CurySOApplAmt" />
+			</Mapping>
+            <Mapping field="CreditCardTransactionInfo">
+				<Mapping field="OrigTranNbr">
+					<To object="apiInputCCTran" field="OrigPCTranNumber" />
+				</Mapping>
+				<Mapping field="ExpirationDate">
+					<To object="apiInputCCTran" field="ExpirationDate" />
+				</Mapping>
+				<Mapping field="CardType">
+					<To object="apiInputCCTran" field="CardType" />
+				</Mapping>
+			</Mapping>
+		</Mappings>
+		<Actions>
+			<Action name="RegisterAuthTran" mappedTo="RegisterBCAuthTran">
+				<Fields>
+					<Field name="PaymentGatewayCreateProfile" type="StringValue" />
+					<Field name="PaymentGatewayTranID" type="StringValue" />
+				</Fields>
+				<Mappings>
+					<Mapping field="PaymentGatewayCreateProfile">
+						<To object="Document" field="PaymentGatewayCreateProfile" />
+					</Mapping>
+					<Mapping field="PaymentGatewayTranID">
+						<To object="Document" field="PaymentGatewayTranID" />
+					</Mapping>
+				</Mappings>
+			</Action>
+			<Action name="VoidCardPayment" mappedTo="VoidCardPayment">
+				<Fields>
+					<Field name="TranType" type="StringValue" />
+					<Field name="TranNbr" type="StringValue" />
+					<Field name="ExtProfileId" type="StringValue" />
+					<Field name="TranDate" type="DateTimeValue" />
+					<Field name="NeedValidation" type="BooleanValue" />
+					<Field name="OrigTranNbr" type="StringValue" />
+				</Fields>
+				<Mappings>
+					<Mapping field="TranType">
+						<To object="apiInputCCTran" field="TranType" />
+					</Mapping>
+					<Mapping field="TranNbr">
+						<To object="apiInputCCTran" field="PCTranNumber" />
+					</Mapping>
+					<Mapping field="ExtProfileId">
+						<To object="apiInputCCTran" field="ExtProfileId" />
+					</Mapping>
+					<Mapping field="TranDate">
+						<To object="apiInputCCTran" field="TranDate" />
+					</Mapping>
+					<Mapping field="NeedValidation">
+						<To object="apiInputCCTran" field="NeedValidation" />
+					</Mapping>
+					<Mapping field="OrigTranNbr">
+						<To object="apiInputCCtran" field="OrigPCTranNumber" />
+					</Mapping>
+				</Mappings>
+			</Action>
+			<Action name="CardOperation" mappedTo="CardOperation">
+				<Fields>
+					<Field name="TranType" type="StringValue" />
+					<Field name="TranNbr" type="StringValue" />
+					<Field name="AuthNumber" type="StringValue" />
+					<Field name="ExtProfileId" type="StringValue" />
+					<Field name="TranDate" type="DateTimeValue" />
+					<Field name="OrigTranNbr" type="StringValue" />
+                    <Field name="Amount" type="DecimalValue" />
+				</Fields>
+				<Mappings>
+					<Mapping field="TranType">
+						<To object="apiInputCCTran" field="TranType" />
+					</Mapping>
+					<Mapping field="TranNbr">
+						<To object="apiInputCCTran" field="PCTranNumber" />
+					</Mapping>
+					<Mapping field="AuthNumber">
+						<To object="apiInputCCTran" field="AuthNumber" />
+					</Mapping>
+					<Mapping field="ExtProfileId">
+						<To object="apiInputCCTran" field="ExtProfileId" />
+					</Mapping>
+					<Mapping field="TranDate">
+						<To object="apiInputCCTran" field="TranDate" />
+					</Mapping>
+					<Mapping field="OrigTranNbr">
+						<To object="apiInputCCtran" field="OrigPCTranNumber" />
+					</Mapping>
+					<Mapping field="Amount">
+						<To object="apiInputCCtran" field="Amount" />
+					</Mapping>
+				</Mappings>
+			</Action>
+		</Actions>
+	</TopLevelEntity>
+	<Detail name="SalesOrderPayment">
+		<Fields>
+			<Field name="ExternalRef" type="StringValue" />
+			<Field name="NewCard" type="BooleanValue" />
+			<Field name="NoteID" type="GuidValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="StorageDetails" screen="BC408010">
+            <Fields>
+                <Field name="BindingID" type="IntValue" />
+               
+                <Field name="Results" type="StorageDetailsResult[]" />
+                <Field name="SplitByLocation" type="BooleanValue" />
+                <Field name="Warehouse" type="StringValue" />
+            </Fields>
+            <Mappings>
+                <Mapping field="Results">
+                    <Mapping field="ProductLocalID">
+                        <To object="Results" field="BCSyncStatus_localID" />
+                    </Mapping>
+					<Mapping field="SiteCD">
+						<To object="Results" field="INSite_descr" />
+					</Mapping>
+					<Mapping field="VariantExternID">
+						<To object="Results" field="BCSyncDetail_externID" />
+					</Mapping>
+					<Mapping field="ProductExternID">
+						<To object="Results" field="BCSyncStatus_externID" />
+					</Mapping>
+                    <Mapping field="NotAvailMode">
+                        <To object="Results" field="InventoryItem2_notAvailMode" />
+                    </Mapping>
+                    <Mapping field="InventoryDescription">
+                        <To object="Results" field="InventoryItem2_descr" />
+                    </Mapping>
+                    <Mapping field="TemplateItemID">
+                        <To object="Results" field="InventoryItem2_templateItemID" />
+                    </Mapping>
+                    <Mapping field="ParentSyncId">
+                        <To object="Results" field="BCSyncStatus_syncID" />
+                    </Mapping>
+                    <Mapping field="Availability">
+                        <To object="Results" field="InventoryItem2_availability" />
+                    </Mapping>
+                    <Mapping field="InventoryCD">
+                        <To object="Results" field="InventoryItem2_inventoryID" />
+                    </Mapping>
+                    <Mapping field="InventoryLastModifiedDate">
+                        <To object="Results" field="InventoryItem2_lastModifiedDateTime" />
+                    </Mapping>
+                    <Mapping field="InventoryNoteID">
+                        <To object="Results" field="InventoryItem2_noteID" />
+                    </Mapping>
+                    <Mapping field="IsTemplate">
+                        <To object="Results" field="InventoryItem2_isTemplate" />
+                    </Mapping>
+                    <Mapping field="ItemStatus">
+                        <To object="Results" field="InventoryItem2_itemStatus" />
+                    </Mapping>
+                    <Mapping field="LocationAvailableforIssue">
+                        <To object="Results" field="INLocationStatus_qtyActual" />
+                    </Mapping>
+                    <Mapping field="LocationAvailableforShipping">
+                        <To object="Results" field="INLocationStatus_qtyHardAvail" />
+                    </Mapping>
+                    <Mapping field="LocationDescription">
+                        <To object="Results" field="INLocation_descr" />
+                    </Mapping>
+                    <Mapping field="LocationID">
+                        <To object="Results" field="INLocation_locationCD" />
+                    </Mapping>
+                    <Mapping field="LocationLastModifiedDate">
+                        <To object="Results" field="INLocationStatus_lastModifiedDateTime" />
+                    </Mapping>
+                    <Mapping field="LocationOnHand">
+                        <To object="Results" field="INLocationStatus_qtyOnHand" />
+                    </Mapping>
+                    <Mapping field="LotSerialNbr">
+                        <To object="Results" field="INSiteLotSerial_LotSerialNbr" />
+                    </Mapping>
+                    <Mapping field="SiteAvailable">
+                        <To object="Results" field="INSiteStatus_Formula0a16a01fed80413f8bf9e3dad9e06825" />
+                    </Mapping>
+                    <Mapping field="SiteAvailableforIssue">
+                        <To object="Results" field="INSiteStatus_Formula471f423154524410bbc6ea05048fed9d" />
+                    </Mapping>
+                    <Mapping field="SiteAvailableforShipping">
+                        <To object="Results" field="INSiteStatus_Formulafa66d83f3f674cb5b8da9d9b4fdbbe5d" />
+                    </Mapping>
+                    <Mapping field="SiteDescription">
+                        <To object="Results" field="INSite_descr" />
+                    </Mapping>
+                    <Mapping field="SiteID">
+                        <To object="Results" field="INSite_siteCD" />
+                    </Mapping>
+                    <Mapping field="SiteLastModifiedDate">
+                        <To object="Results" field="INSiteStatus_lastModifiedDateTime" />
+                    </Mapping>
+                    <Mapping field="SiteOnHand">
+                        <To object="Results" field="INSiteStatus_Formuladc83c8574eec4cc3b128d402289eef80" />
+                    </Mapping>
+                    <Mapping field="Location">
+                        <To object="Results" field="INLocationStatus_LocationID" />
+                    </Mapping>
+                    <Mapping field="LocationAvailable">
+                        <To object="Results" field="INLocationStatus_qtyAvail" />
+                    </Mapping>
+                </Mapping>
+                <Mapping field="BindingID">
+                    <To object="Filter" field="BindingID" />
+                </Mapping>
+               
+                <Mapping field="SplitByLocation">
+                    <To object="Filter" field="SplitByLocation" />
+                </Mapping>
+                <Mapping field="Warehouse">
+                    <To object="Filter" field="Warehouse" />
+                </Mapping>
+            </Mappings>
+        </TopLevelEntity>
+        <Detail name="StorageDetailsResult">
+		<Fields>
+            <Field name="ProductLocalID" type="GuidValue" />
+			<Field name="ProductExternID" type="StringValue" />
+            <Field name="SiteCD" type="StringValue" />
+            <Field name="VariantExternID" type="StringValue" />
+			<Field name="Availability" type="StringValue" />
+			<Field name="InventoryDescription" type="StringValue" />
+			<Field name="InventoryCD" type="StringValue" />
+			<Field name="InventoryLastModifiedDate" type="DateTimeValue" />
+			<Field name="InventoryNoteID" type="GuidValue" />
+			<Field name="IsTemplate" type="BooleanValue" />
+			<Field name="ItemStatus" type="StringValue" />
+			<Field name="Location" type="StringValue" />
+			<Field name="LocationAvailable" type="DecimalValue" />
+			<Field name="LocationAvailableforIssue" type="DecimalValue" />
+			<Field name="LocationAvailableforShipping" type="DecimalValue" />
+			<Field name="LocationDescription" type="StringValue" />
+			<Field name="LocationID" type="StringValue" />
+			<Field name="LocationLastModifiedDate" type="DateTimeValue" />
+			<Field name="LocationOnHand" type="DecimalValue" />
+			<Field name="LotSerialNbr" type="StringValue" />
+			<Field name="NotAvailMode" type="StringValue" />
+			<Field name="ParentSyncId" type="IntValue" />
+			<Field name="SiteAvailable" type="DecimalValue" />
+			<Field name="SiteAvailableforIssue" type="DecimalValue" />
+			<Field name="SiteAvailableforShipping" type="DecimalValue" />
+			<Field name="SiteDescription" type="StringValue" />
+			<Field name="SiteID" type="StringValue" />
+			<Field name="SiteLastModifiedDate" type="DateTimeValue" />
+			<Field name="SiteOnHand" type="DecimalValue" />
+			<Field name="TemplateItemID" type="StringValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="ItemImages" screen="BC408020">
+		<Fields>
+			<Field name="Results" type="ItemImageDetails[]" />
+		</Fields>
+		<Mappings>
+			<Mapping field="Results">
+				<Mapping field="Extension">
+					<To object="Results" field="UploadFile_extansion" />
+				</Mapping>
+				<Mapping field="TemplateItemID">
+					<To object="Results" field="InventoryItem_templateItemID" />
+				</Mapping>
+				<Mapping field="FileID">
+					<To object="Results" field="UploadFile_fileID" />
+				</Mapping>
+				<Mapping field="FileName">
+					<To object="Results" field="UploadFile_name" />
+				</Mapping>
+				<Mapping field="FileNoteID">
+					<To object="Results" field="UploadFile_noteID" />
+				</Mapping>
+				<Mapping field="InventoryID">
+					<To object="Results" field="InventoryItem_inventoryCD" />
+				</Mapping>
+				<Mapping field="InventoryLastModifiedDateTime">
+					<To object="Results" field="InventoryItem_lastModifiedDateTime" />
+				</Mapping>
+				<Mapping field="InventoryNoteID">
+					<To object="Results" field="InventoryItem_noteID" />
+				</Mapping>
+				<Mapping field="IsDefault">
+					<To object="Results" field="InventoryItem_Formula0c812287c27b492e980dba53a73007c1" />
+				</Mapping>
+				<Mapping field="LastModifiedDateTime">
+					<To object="Results" field="UploadFileRevision_createdDateTime" />
+				</Mapping>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="ItemImageDetails">
+		<Fields>
+			<Field name="Extension" type="StringValue" />
+			<Field name="FileID" type="GuidValue" />
+			<Field name="FileName" type="StringValue" />
+			<Field name="FileNoteID" type="GuidValue" />
+			<Field name="InventoryID" type="StringValue" />
+			<Field name="InventoryLastModifiedDateTime" type="DateTimeValue" />
+			<Field name="InventoryNoteID" type="GuidValue" />
+			<Field name="IsDefault" type="BooleanValue" />
+			<Field name="LastModifiedDateTime" type="DateTimeValue" />
+			<Field name="TemplateItemID" type="StringValue" />
+		</Fields>
+	</Detail>
+	<Detail name="NonStockItemVendorDetail">
+		<Fields>
+			<Field name="Default" type="BooleanValue" />
+		</Fields>
+	</Detail>
+        <Detail name="ShipmentPackage">
+                <Fields>
+                    <Field name="LineNbr" type="IntValue" />
+ 		    <Field name="NoteID" type="GuidValue" />
+                </Fields>
+         </Detail>
+	<TopLevelEntity name="Shipment" screen="SO302000">
+		<Fields>
+			<Field name="NoteID" type="GuidValue" />
+		</Fields>
+		<Mappings>
+ 			<Mapping field="Packages">
+                        <Mapping field="LineNbr">
+                            <To object="Packages" field="LineNbr" />
+                        </Mapping>
+			<Mapping field="NoteID">
+                            <To object="Packages" field="NoteID" />
+                        </Mapping>
+                    	</Mapping>
+			<Mapping field="NoteID">
+				<To object="Document" field="NoteID" />
+			</Mapping>
+			<Mapping field="Orders">
+				<Mapping field="OrderNoteID">
+					<To object="OrderList" field="OrderNoteID" />
+				</Mapping>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="SalesOrderShipment">
+		<Fields>
+			<Field name="InventoryNoteID" type="GuidValue" />
+			<Field name="LastModifiedDateTime" type="DateTimeValue" />
+			<Field name="OrderNoteID" type="GuidValue" />
+			<Field name="ShippingNoteID" type="GuidValue" />
+		</Fields>
+	</Detail>
+	<Detail name="InventoryFileUrls">
+		<Fields>
+			<Field name="FileType" type="StringValue" />
+			<Field name="FileURL" type="StringValue" />
+			<Field name="NoteID" type="GuidValue" />
+		</Fields>
+	</Detail>
+	<Detail name="SalesOrderDetail">
+		<Fields>
+			<Field name="AssociatedOrderLineNbr" type="IntValue" />
+            <Field name="GiftMessage" type="StringValue" />
+			<Field name="ManualPrice" type="BooleanValue" />
+			<Field name="LotSerialNbr" type="StringValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="ExternalRef" type="StringValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="BCShipments" screen="BC408030">
+		<Fields>
+			<Field name="LastModified" type="DateTimeValue" />
+			<Field name="ShippingNoteID" type="GuidValue" />
+			<Field name="OrderNbr" type="StringValue" />
+			<Field name="OrderType" type="StringValue" />
+			<Field name="BindingID" type="IntValue" />
+			<Field name="Results" type="BCShipmentsResult[]" />
+		</Fields>
+		<Mappings>
+			<Mapping field="LastModified">
+				<To object="Filter" field="LastModified" />
+			</Mapping>
+			<Mapping field="OrderNbr">
+				<To object="Filter" field="OrderNbr" />
+			</Mapping>
+			<Mapping field="OrderType">
+				<To object="Filter" field="OrderType" />
+			</Mapping>
+			<Mapping field="BindingID">
+				<To object="Filter" field="BindingID" />
+			</Mapping>
+			<Mapping field="Results">
+				<Mapping field="ExternalShipmentUpdated">
+                 <To object="Results" field="SOShipment_externalShipmentUpdated" />
+				</Mapping>
+				<Mapping field="InvoiceType">
+					<To object="Results" field="SOOrderShipment_invoiceType" />
+				</Mapping>
+				<Mapping field="LastModifiedDateTime">
+					<To object="Results" field="SOOrderShipment_lastModifiedDateTime" />
+				</Mapping>
+				<Mapping field="NoteID">
+					<To object="Results" field="SOOrderShipment_shippingRefNoteID" />
+				</Mapping>
+				<Mapping field="OrderNoteID">
+					<To object="Results" field="SOOrderShipment_orderNoteID" />
+				</Mapping>
+				<Mapping field="OrderType">
+					<To object="Results" field="SOOrderShipment_OrderType" />
+				</Mapping>
+				<Mapping field="ShipmentNumber">
+					<To object="Results" field="SOOrderShipment_Formulaed3c462824714383866aa59e6fec34e4" />
+				</Mapping>
+				<Mapping field="ShipmentType">
+					<To object="Results" field="SOOrderShipment_Formulaa1cc8efe91af4e359f509430a43c1d27" />
+				</Mapping>
+				<Mapping field="OrderNbr">
+					<To object="Results" field="SOOrderShipment_orderNbr" />
+				</Mapping>
+				<Mapping field="Confirmed">
+					<To object="Results" field="SOOrderShipment_confirmed" />
+				</Mapping>
+		   		<Mapping field="InvoiceNbr">
+					<To object="Results" field="POReceipt_invoiceNbr" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="ShippingNoteID">
+				<To object="Filter" field="ShippingNoteID" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="BCShipmentsResult">
+		<Fields>
+			<Field name="ExternalShipmentUpdated" type="BooleanValue" />
+			<Field name="InvoiceNbr" type="StringValue" />
+			<Field name="InvoiceType" type="StringValue" />
+			<Field name="Confirmed" type="BooleanValue" />
+			<Field name="LastModifiedDateTime" type="DateTimeValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="OrderNbr" type="StringValue" />
+			<Field name="OrderNoteID" type="GuidValue" />
+			<Field name="OrderType" type="StringValue" />
+			<Field name="ShipmentNumber" type="StringValue" />
+			<Field name="ShipmentType" type="StringValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="CustomerPriceClass" screen="AR208000">
+		<Fields>
+			<Field name="NoteID" type="GuidValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="NoteID">
+				<To object="Records" field="NoteID" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="ShipmentOrderDetail">
+		<Fields>
+			<Field name="OrderNoteID" type="GuidValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="BCItemSalesCategory" screen="IN204060">
+		<Fields>
+			<Field name="CategoryID" type="IntValue" />
+			<Field name="Description" type="StringValue" />
+			<Field name="LastModifiedDateTime" type="DateTimeValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="ParentCategoryID" type="IntValue" />
+			<Field name="Path" type="StringValue" />
+			<Field name="SortOrder" type="IntValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="CategoryID">
+				<To object="Folders" field="CategoryID" />
+			</Mapping>
+			<Mapping field="Description">
+				<To object="Folders" field="Description" />
+			</Mapping>
+			<Mapping field="LastModifiedDateTime">
+				<To object="Folders" field="LastModifiedDateTime" />
+			</Mapping>
+			<Mapping field="NoteID">
+				<To object="Folders" field="NoteID" />
+			</Mapping>
+			<Mapping field="ParentCategoryID">
+				<To object="CurrentCategory" field="ParentID" />
+			</Mapping>
+			<Mapping field="Path">
+				<To object="Folders" field="//Description" />
+			</Mapping>
+			<Mapping field="SortOrder">
+				<To object="Folders" field="SortOrder" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<LinkedEntity name="Totals">
+		<Fields>
+			<Field name="Freight" type="DecimalValue" />
+            <Field name="FreightCost" type="DecimalValue" />
+            <Field name="FreightCostIsuptodate" type="BooleanValue" />
+            <Field name="FreightTaxCategory" type="StringValue" />
+            <Field name="OrderVolume" type="DecimalValue" />
+            <Field name="OrderWeight" type="DecimalValue" />
+            <Field name="PackageWeight" type="DecimalValue" />
+            <Field name="PremiumFreight" type="DecimalValue" />
+			<Field name="OverrideFreightAmount" type="BooleanValue" />
+		</Fields>
+	</LinkedEntity>
+	<Detail name="SalesPriceDetail">
+		<Fields>
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="Warehouse" type="StringValue" />
+			<Field name="TaxCalculationMode" type="StringValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="SalesPricesInquiry" screen="AR202000">
+		<Fields>
+			<Field name="TaxCalculationMode" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="TaxCalculationMode">
+				<To object="Filter" field="TaxCalcMode" />
+			</Mapping>
+			<Mapping field="SalesPriceDetails">
+				<Mapping field="NoteID">
+					<To object="Records" field="NoteID" />
+				</Mapping>
+				<Mapping field="Warehouse">
+					<To object="Records" field="SiteID" />
+				</Mapping>
+				<Mapping field="TaxCalculationMode">
+					<To object="Records" field="TaxCalcMode" />
+				</Mapping>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="ShopifyStore" screen="BC201010">
+		<Fields>
+			<Field name="AccessToken" type="StringValue" />
+			<Field name="Active" type="BooleanValue" />
+			<Field name="APIKey" type="StringValue" />
+			<Field name="Connector" type="StringValue" />
+			<Field name="Default" type="BooleanValue" />
+			<Field name="SharedSecret" type="StringValue" />
+			<Field name="StoreAdminURL" type="StringValue" />
+			<Field name="StoreName" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="StoreName">
+				<To object="Bindings" field="BindingName" />
+			</Mapping>
+			<Mapping field="Connector">
+				<To object="Bindings" field="ConnectorType" />
+			</Mapping>
+			<Mapping field="Active">
+				<To object="Bindings" field="IsActive" />
+			</Mapping>
+			<Mapping field="Default">
+				<To object="Bindings" field="IsDefault" />
+			</Mapping>
+			<Mapping field="AccessToken">
+				<To object="CurrentBindingShopify" field="ShopifyAccessToken" />
+			</Mapping>
+			<Mapping field="StoreAdminURL">
+				<To object="CurrentBindingShopify" field="ShopifyApiBaseUrl" />
+			</Mapping>
+			<Mapping field="APIKey">
+				<To object="CurrentBindingShopify" field="ShopifyApiKey" />
+			</Mapping>
+			<Mapping field="SharedSecret">
+				<To object="CurrentBindingShopify" field="StoreSharedSecret" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="BigCommerceStores" screen="BC201000">
+		<Fields>
+			<Field name="AccessToken" type="StringValue" />
+			<Field name="Active" type="BooleanValue" />
+			<Field name="APIPath" type="StringValue" />
+			<Field name="ClientID" type="StringValue" />
+			<Field name="Connector" type="StringValue" />
+			<Field name="Default" type="BooleanValue" />
+			<Field name="StoreAdminPath" type="StringValue" />
+			<Field name="StoreName" type="StringValue" />
+			<Field name="WebDAVPassword" type="StringValue" />
+			<Field name="WebDAVPath" type="StringValue" />
+			<Field name="WebDAVUsername" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="StoreName">
+				<To object="Bindings" field="BindingName" />
+			</Mapping>
+			<Mapping field="WebDAVUsername">
+				<To object="CurrentBindingBigCommerce: 2" field="StoreWDAVClientUser" />
+			</Mapping>
+			<Mapping field="WebDAVPath">
+				<To object="CurrentBindingBigCommerce: 2" field="StoreWDAVServerUrl" />
+			</Mapping>
+			<Mapping field="Connector">
+				<To object="Bindings" field="ConnectorType" />
+			</Mapping>
+			<Mapping field="Active">
+				<To object="Bindings" field="IsActive" />
+			</Mapping>
+			<Mapping field="Default">
+				<To object="Bindings" field="IsDefault" />
+			</Mapping>
+			<Mapping field="StoreAdminPath">
+				<To object="CurrentBindingBigCommerce" field="StoreAdminUrl" />
+			</Mapping>
+			<Mapping field="APIPath">
+				<To object="CurrentBindingBigCommerce: 1" field="StoreBaseURL" />
+			</Mapping>
+			<Mapping field="ClientID">
+				<To object="CurrentBindingBigCommerce: 1" field="StoreXAuthClient" />
+			</Mapping>
+			<Mapping field="AccessToken">
+				<To object="CurrentBindingBigCommerce: 1" field="StoreXAuthToken" />
+			</Mapping>
+			<Mapping field="WebDAVPassword">
+				<To object="CurrentBindingBigCommerce: 2" field="StoreWDAVClientPass" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="TemplateItems" screen="IN203000">
+		<Fields>
+			<Field name="SalesUOM" type="StringValue" />
+		    <Field name="CurySpecificMSRP" type="DecimalValue" />
+			<Field name="CurySpecificPrice" type="DecimalValue" />
+		    <Field name="ItemClass" type="StringValue" />
+			<Field name="Availability" type="StringValue" />
+			<Field name="Attributes" type="AttributeValue[]" />
+			<Field name="BaseUOM" type="StringValue" />
+			<Field name="Categories" type="CategoryStockItem[]" />
+			<Field name="Content" type="StringValue" />
+			<Field name="CurrentStdCost" type="DecimalValue" />
+			<Field name="CustomURL" type="StringValue" />
+			<Field name="DefaultIssueLocationID" type="StringValue" />
+			<Field name="DefaultPrice" type="DecimalValue" />
+			<Field name="Description" type="StringValue" />
+			<Field name="DimensionWeight" type="DecimalValue" />
+			<Field name="ExportToExternal" type="BooleanValue" />
+			<Field name="FileURLs" type="InventoryFileUrls[]" />
+			<Field name="InventoryID" type="StringValue" />
+			<Field name="IsStockItem" type="BooleanValue" />
+			<Field name="ItemStatus" type="StringValue" />
+			<Field name="LastModified" type="DateTimeValue" />
+			<Field name="Matrix" type="MatrixItems[]" />
+			<Field name="MetaDescription" type="StringValue" />
+			<Field name="MSRP" type="DecimalValue" />
+			<Field name="PageTitle" type="StringValue" />
+			<Field name="SearchKeywords" type="StringValue" />
+			<Field name="TaxCategory" type="StringValue" />
+			<Field name="Visibility" type="StringValue" />
+			<Field name="WeightUOM" type="StringValue" />
+			<Field name="MetaKeywords" type="StringValue"/>
+			<Field name="RequireShipment" type="BooleanValue" />
+			<Field name="NotAvailable" type="StringValue" />
+			<Field name="VendorDetails" type="TemplateItemVendorDetail[]" />
+		</Fields>
+		<Mappings>
+			<Mapping field="ItemClass">
+                <To object="ItemSettings" field="ItemClassID" />
+            </Mapping>
+			<Mapping field="Attributes">
+				<Mapping field="AttributeID">
+					<To object="Answers" field="AttributeID$value" />
+				</Mapping>
+				<Mapping field="Required">
+					<To object="Answers" field="isRequired" />
+				</Mapping>
+				<Mapping field="Value">
+					<To object="Answers" field="Value$value" />
+				</Mapping>
+				<Mapping field="AttributeDescription">
+					<To object="Answers" field="AttributeID_description" />
+				</Mapping>
+				<Mapping field="RefNoteID">
+					<To object="Answers" field="RefNoteID" />
+				</Mapping>
+				<Mapping field="ValueDescription">
+					<To object="Answers" field="Value" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="DimensionWeight">
+				<To object="ItemSettings: 5" field="BaseItemWeight" />
+			</Mapping>
+			<Mapping field="FileURLs">
+				<Mapping field="FileType">
+					<To object="InventoryFileUrls" field="FileType" />
+				</Mapping>
+				<Mapping field="FileURL">
+					<To object="InventoryFileUrls" field="FileURL" />
+				</Mapping>
+				<Mapping field="NoteID">
+					<To object="InventoryFileUrls" field="NoteID" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="InventoryID">
+			   <To object="Item" field="InventoryCD" />
+			</Mapping>
+			<Mapping field="CurySpecificPrice">
+				<To object="ItemCurySettings: 1" field="BasePrice" />
+			</Mapping>
+			<Mapping field="SalesUOM">
+					<To object="ItemSettings: 3" field="SalesUnit" />
+			</Mapping>
+			<Mapping field="CurySpecificMSRP">
+				<To object="ItemCurySettings: 1" field="RecPrice" />
+			</Mapping>
+			<Mapping field="IsStockItem">
+				<To object="Item" field="StkItem" />
+			</Mapping>
+			<Mapping field="ItemStatus">
+				<To object="Item" field="InventoryCD%ItemStatus" />
+			</Mapping>
+			<Mapping field="LastModified">
+				<To object="Item" field="LastModifiedDateTime" />
+			</Mapping>
+			<Mapping field="Matrix">
+				<Mapping field="DefaultPrice">
+					<To object="MatrixItems" field="BasePrice" />
+				</Mapping>
+				<Mapping field="Description">
+					<To object="MatrixItems" field="Descr" />
+				</Mapping>
+				<Mapping field="InventoryID">
+					<To object="MatrixItems" field="InventoryID" />
+				</Mapping>
+				<Mapping field="MSRP">
+					<To object="MatrixItems" field="RecPrice" />
+				</Mapping>
+				<Mapping field="ItemStatus">
+					<To object="MatrixItems" field="InventoryID%ItemStatus" />
+				</Mapping>
+				<Mapping field="ExportToExternal">
+					<To object="MatrixItems" field="InventoryID%ExportToExternal" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="MSRP">
+				<To object="ItemSettings: 9" field="RecPrice" />
+			</Mapping>
+			<Mapping field="BaseUOM">
+				<To object="ItemSettings: 3" field="BaseUnit" />
+			</Mapping>
+			<Mapping field="TaxCategory">
+				<To object="ItemSettings" field="TaxCategoryID%TaxCategoryID" />
+			</Mapping>
+			<Mapping field="WeightUOM">
+				<To object="ItemSettings: 5" field="WeightUOM" />
+			</Mapping>
+			<Mapping field="Categories">
+				<Mapping field="CategoryID">
+					<To object="Category" field="CategoryID" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="Content">
+				<To object="ItemSettings: 14" field="Body" />
+			</Mapping>
+			<Mapping field="CurrentStdCost">
+				<To object="ItemSettings: 10" field="StdCost" />
+			</Mapping>
+			<Mapping field="DefaultIssueLocationID">
+				<To object="ItemSettings: 2" field="DfltShipLocationID%LocationCD" />
+			</Mapping>
+			<Mapping field="DefaultPrice">
+				<To object="ItemSettings: 9" field="BasePrice" />
+			</Mapping>
+			<Mapping field="Description">
+				<To object="Item" field="Descr" />
+			</Mapping>
+			<Mapping field="RequireShipment">
+				<To object="ItemSettings" field="NonStockShip" />
+			</Mapping>
+			<Mapping field="MetaKeywords">
+				<To object="ItemSettings: 18" field="MetaKeywords"/>
+			</Mapping>
+			<Mapping field="Availability">
+				<To object="ItemSettings: 18" field="Availability" />
+			</Mapping>
+			<Mapping field="ExportToExternal">
+				<To object="ItemSettings: 18" field="ExportToExternal" />
+			</Mapping>
+			<Mapping field="MetaDescription">
+				<To object="ItemSettings: 18" field="MetaDescription" />
+			</Mapping>
+			<Mapping field="PageTitle">
+				<To object="ItemSettings: 18" field="PageTitle" />
+			</Mapping>
+			<Mapping field="SearchKeywords">
+				<To object="ItemSettings: 18" field="SearchKeywords" />
+			</Mapping>
+			<Mapping field="Visibility">
+				<To object="ItemSettings: 18" field="Visibility" />
+			</Mapping>
+			<Mapping field="CustomURL">
+				<To object="ItemSettings: 18" field="CustomURL" />
+			</Mapping>
+			<Mapping field="NotAvailable">
+				<To object="ItemSettings: 18" field="NotAvailMode" />
+			</Mapping>
+			<Mapping field="VendorDetails">
+				<Mapping field="VendorID">
+					<To object="VendorItems" field="VendorID" />
+				</Mapping>
+				<Mapping field="VendorName">
+					<To object="VendorItems" field="Vendor__AcctName" />
+				</Mapping>
+				<Mapping field="Default">
+					<To object="VendorItems" field="IsDefault" />
+				</Mapping>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="CustomerPaymentMethod" screen="AR303010">
+        <Fields>
+            <Field name="CardType" type="StringValue" />
+		</Fields>
+        <Mappings>
+			<Mapping field="CardType">
+				<To object="CustomerPaymentMethod" field="DisplayCardType" />
+			</Mapping>
+        </Mappings>
+    </TopLevelEntity>
+	<Detail name="InventoryItemCrossReference">
+		<Fields>
+			<Field name="UOM" type="StringValue" />
+		</Fields>
+	</Detail>
+	<Detail name="MatrixItems">
+		<Fields>
+			<Field name="DefaultPrice" type="DecimalValue" />
+			<Field name="Description" type="StringValue" />
+			<Field name="InventoryID" type="StringValue" />
+			<Field name="MSRP" type="DecimalValue" />
+			<Field name="ItemStatus" type="StringValue" />
+			<Field name="ExportToExternal" type="BooleanValue" />
+		</Fields>
+	</Detail>	
+	<Detail name="TemplateItemVendorDetail">
+		<Fields>
+			<Field name="Default" type="BooleanValue" />
+			<Field name="VendorID" type="StringValue" />
+			<Field name="VendorName" type="StringValue" />
+		</Fields>
+	</Detail>
+	<Detail name="CreditCardTransactionDetail">
+		<Fields>
+			<Field name="OrigTranNbr" type="StringValue" />
+			<Field name="ExpirationDate" type="DateTimeValue" />
+			<Field name="CardType" type="StringValue" />
+		</Fields>
+	</Detail>
+	<Detail name="SalesOrderCreditCardTransactionDetail">
+		<Fields>
+			<Field name="CardType" type="StringValue" />
+		</Fields>
+	</Detail>
+	<Detail name="AttributeValue" />
+	<Detail name="OrderRisks">
+            <Fields>
+                <Field name="Message" type="StringValue" />
+                <Field name="Recommendation" type="StringValue" />
+                <Field name="Score" type="DecimalValue" />
+            </Fields>
+        </Detail>
+</Endpoint>

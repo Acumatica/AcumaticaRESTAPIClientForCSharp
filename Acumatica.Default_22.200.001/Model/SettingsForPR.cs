@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,14 +14,28 @@ namespace Acumatica.Default_22_200_001.Model
 	public class SettingsForPR : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: PRBatchExportSYMappingID 
+		/// DAC: PX.Objects.CA.PaymentMethod 
+		/// Display Name: Export Scenario 
+		/// </summary>
 		[DataMember(Name="ExportScenario", EmitDefaultValue=false)]
-		public StringValue ExportScenario { get; set; }
+		public StringValue? ExportScenario { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.CA.PaymentMethod 
+		/// SQL Type: nvarchar(MAX) 
+		/// </summary>
 		[DataMember(Name="PRProcessing", EmitDefaultValue=false)]
-		public StringValue PRProcessing { get; set; }
+		public StringValue? PRProcessing { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: PRCheckReportID 
+		/// DAC: PX.Objects.CA.PaymentMethod 
+		/// SQL Type: varchar(8) 
+		/// </summary>
 		[DataMember(Name="Report", EmitDefaultValue=false)]
-		public StringValue Report { get; set; }
+		public StringValue? Report { get; set; }
 
 	}
 }

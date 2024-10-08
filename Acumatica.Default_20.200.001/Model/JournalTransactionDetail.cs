@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,58 +15,58 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue Account { get; set; }
+		public StringValue? Account { get; set; }
 
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]
-		public StringValue BranchID { get; set; }
+		public StringValue? BranchID { get; set; }
 
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue CostCode { get; set; }
+		public StringValue? CostCode { get; set; }
 
 		[DataMember(Name="CreditAmount", EmitDefaultValue=false)]
-		public DecimalValue CreditAmount { get; set; }
+		public DecimalValue? CreditAmount { get; set; }
 
 		[DataMember(Name="DebitAmount", EmitDefaultValue=false)]
-		public DecimalValue DebitAmount { get; set; }
+		public DecimalValue? DebitAmount { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="IsNonPM", EmitDefaultValue=false)]
-		public BooleanValue IsNonPM { get; set; }
+		public BooleanValue? IsNonPM { get; set; }
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="NonBillable", EmitDefaultValue=false)]
-		public BooleanValue NonBillable { get; set; }
+		public BooleanValue? NonBillable { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
-		public StringValue Project { get; set; }
+		public StringValue? Project { get; set; }
 
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
-		public StringValue ProjectTask { get; set; }
+		public StringValue? ProjectTask { get; set; }
 
 		[DataMember(Name="ProjectTransactionID", EmitDefaultValue=false)]
-		public LongValue ProjectTransactionID { get; set; }
+		public LongValue? ProjectTransactionID { get; set; }
 
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue Qty { get; set; }
+		public DecimalValue? Qty { get; set; }
 
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue ReferenceNbr { get; set; }
+		public StringValue? ReferenceNbr { get; set; }
 
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
-		public StringValue Subaccount { get; set; }
+		public StringValue? Subaccount { get; set; }
 
 		[DataMember(Name="TransactionDescription", EmitDefaultValue=false)]
-		public StringValue TransactionDescription { get; set; }
+		public StringValue? TransactionDescription { get; set; }
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue UOM { get; set; }
+		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="VendorOrCustomer", EmitDefaultValue=false)]
-		public StringValue VendorOrCustomer { get; set; }
+		public StringValue? VendorOrCustomer { get; set; }
 
 	}
 }

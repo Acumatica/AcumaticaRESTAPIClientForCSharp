@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,20 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class SubItemStockItem : Entity
+	public class SubItemStockItem : Acumatica.Default_22_200_001.Model.SubItemStockItem
 	{
-
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
-
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
-
-		[DataMember(Name="SegmentID", EmitDefaultValue=false)]
-		public ShortValue SegmentID { get; set; }
-
-		[DataMember(Name="Value", EmitDefaultValue=false)]
-		public StringValue Value { get; set; }
 
 	}
 }

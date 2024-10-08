@@ -1,278 +1,22 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "4",
-    "title": "GLConsolidation/22.200.001"
+    "title": "GLConsolidation/22.200.001",
+    "version": "4"
   },
-  "host": "localhost",
-  "basePath": "/23r100/entity/GLConsolidation/22.200.001",
+  "host": "internal.acumatica.com",
+  "basePath": "/entity/GLConsolidation/22.200.001",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
-    "/Branch/$adHocSchema": {
-      "get": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "Branch_GetAdHocSchema",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Branch/{ids}": {
-      "get": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Branch_GetByKeys",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Branch_DeleteByKeys",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Branch/{id}": {
-      "get": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Branch_GetById",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Deletes the record by its session identifier.",
-        "operationId": "Branch_DeleteById",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Branch/{actionName}": {
+    "/Organization/{actionName}": {
       "post": {
         "tags": [
-          "Branch"
+          "Organization"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "Branch_InvokeAction_CustomAction",
+        "operationId": "Organization_InvokeAction_CustomAction",
         "consumes": [
           "application/json",
           "text/json"
@@ -283,31 +27,32 @@
         ],
         "parameters": [
           {
-            "name": "actionName",
             "in": "path",
+            "name": "actionName",
             "required": true,
             "type": "string"
           },
           {
-            "name": "invocation",
             "in": "body",
+            "name": "invocation",
             "description": "The record to which the action should be applied and the parameters of the action.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/BranchCustomAction",
-              "type": "object"
+              "$ref": "#/definitions/OrganizationCustomAction"
             }
           }
         ],
         "responses": {
-          "202": {
-            "description": "The operation is in progress.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
             }
           },
           "204": {
@@ -320,562 +65,6 @@
               }
             }
           },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "422": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Branch/{ids}/files/{filename}": {
-      "put": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Attaches a file to a record.",
-        "operationId": "Branch_PutFile",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "name": "filename",
-            "in": "path",
-            "description": "The name of the file that you are going to attach with the extension.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The file is successfully attached.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to retrieve the file from the system.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Branch": {
-      "get": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "Branch_GetList",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$skip",
-            "in": "query",
-            "description": "The number of records to be skipped from the list of returned records.",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "$top",
-            "in": "query",
-            "description": "The number of records to be returned from the system.",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The list of records that satisfy the specified conditions.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Branch"
-              }
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Creates a record or updates an existing record.",
-        "operationId": "Branch_PutEntity",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "entity",
-            "in": "body",
-            "description": "The record to be passed to the system.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The created or updated record.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "422": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/Branch"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolAccount/$adHocSchema": {
-      "get": {
-        "tags": [
-          "ConsolAccount"
-        ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "ConsolAccount_GetAdHocSchema",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/ConsolAccount"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolAccount/{ids}": {
-      "get": {
-        "tags": [
-          "ConsolAccount"
-        ],
-        "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "ConsolAccount_GetByKeys",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/ConsolAccount"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "ConsolAccount"
-        ],
-        "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "ConsolAccount_DeleteByKeys",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolAccount/{id}": {
-      "get": {
-        "tags": [
-          "ConsolAccount"
-        ],
-        "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "ConsolAccount_GetById",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/ConsolAccount"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "ConsolAccount"
-        ],
-        "summary": "Deletes the record by its session identifier.",
-        "operationId": "ConsolAccount_DeleteById",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolAccount/{actionName}": {
-      "post": {
-        "tags": [
-          "ConsolAccount"
-        ],
-        "summary": "Performs an action in the system.",
-        "operationId": "ConsolAccount_InvokeAction_CustomAction",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "actionName",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "invocation",
-            "in": "body",
-            "description": "The record to which the action should be applied and the parameters of the action.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ConsolAccountCustomAction",
-              "type": "object"
-            }
-          }
-        ],
-        "responses": {
           "202": {
             "description": "The operation is in progress.",
             "headers": {
@@ -886,24 +75,8 @@
               }
             }
           },
-          "204": {
-            "description": "The operation that was initiated by the action is completed.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
           "400": {
             "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
@@ -917,7 +90,28 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/Organization"
+            }
+          }
+        }
+      }
+    },
+    "/Organization/$adHocSchema": {
+      "get": {
+        "tags": [
+          "Organization"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "Organization_GetAdHocSchema",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
             }
           },
           "500": {
@@ -925,26 +119,31 @@
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
+          },
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/Organization"
+            }
           }
         }
       }
     },
-    "/ConsolAccount/{ids}/files/{filename}": {
-      "put": {
+    "/Organization/{ids}": {
+      "get": {
         "tags": [
-          "ConsolAccount"
+          "Organization"
         ],
-        "summary": "Attaches a file to a record.",
-        "operationId": "ConsolAccount_PutFile",
-        "consumes": [],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "Organization_GetByKeys",
         "produces": [
           "application/json",
           "text/json"
         ],
         "parameters": [
           {
-            "name": "ids",
             "in": "path",
+            "name": "ids",
             "description": "The values of the key fields of the record.",
             "required": true,
             "type": "array",
@@ -954,14 +153,137 @@
             "collectionFormat": "pipes"
           },
           {
-            "name": "filename",
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Organization"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Organization"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "Organization_DeleteByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
             "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/Organization/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "Organization"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "Organization_PutFile",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "path",
+            "name": "filename",
             "description": "The name of the file that you are going to attach with the extension.",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
           "204": {
             "description": "The file is successfully attached.",
             "headers": {
@@ -971,7 +293,56 @@
                 "format": "uri"
               }
             }
+          }
+        }
+      }
+    },
+    "/Organization/{id}": {
+      "get": {
+        "tags": [
+          "Organization"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "Organization_GetById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
           },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
           "401": {
             "description": "The user is not logged in to the system.",
             "schema": {
@@ -983,98 +354,135 @@
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Organization"
+            }
           }
         }
-      }
-    },
-    "/ConsolAccount": {
-      "get": {
+      },
+      "delete": {
         "tags": [
-          "ConsolAccount"
+          "Organization"
         ],
-        "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "ConsolAccount_GetList",
-        "consumes": [],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "Organization_DeleteById",
         "produces": [
           "application/json",
           "text/json"
         ],
         "parameters": [
           {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/Organization": {
+      "get": {
+        "tags": [
+          "Organization"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "Organization_GetList",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
             "name": "$select",
-            "in": "query",
             "description": "The fields of the entity to be returned from the system.",
-            "required": false,
             "type": "string"
           },
           {
+            "in": "query",
             "name": "$filter",
-            "in": "query",
             "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
             "type": "string"
           },
           {
+            "in": "query",
             "name": "$expand",
-            "in": "query",
             "description": "The linked and detail entities that should be expanded.",
-            "required": false,
             "type": "string"
           },
           {
+            "in": "query",
             "name": "$custom",
-            "in": "query",
             "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
             "type": "string"
           },
           {
-            "name": "$skip",
             "in": "query",
+            "name": "$skip",
             "description": "The number of records to be skipped from the list of returned records.",
-            "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "$top",
             "in": "query",
+            "name": "$top",
             "description": "The number of records to be returned from the system.",
-            "required": false,
             "type": "integer",
             "format": "int32"
           }
         ],
         "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
           "200": {
             "description": "The list of records that satisfy the specified conditions.",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ConsolAccount"
+                "$ref": "#/definitions/Organization"
               }
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
             }
           }
         }
       },
       "put": {
         "tags": [
-          "ConsolAccount"
+          "Organization"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "ConsolAccount_PutEntity",
+        "operationId": "Organization_PutEntity",
         "consumes": [
           "application/json",
           "text/json"
@@ -1085,58 +493,60 @@
         ],
         "parameters": [
           {
-            "name": "entity",
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
             "in": "body",
+            "name": "entity",
             "description": "The record to be passed to the system.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/Organization"
             }
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
           "200": {
             "description": "The created or updated record.",
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
+              "$ref": "#/definitions/Organization"
             }
           },
           "400": {
             "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
@@ -1150,845 +560,7 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/ConsolAccount"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolidationData/$adHocSchema": {
-      "get": {
-        "tags": [
-          "ConsolidationData"
-        ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "ConsolidationData_GetAdHocSchema",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/ConsolidationData"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolidationData/{ids}": {
-      "get": {
-        "tags": [
-          "ConsolidationData"
-        ],
-        "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "ConsolidationData_GetByKeys",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/ConsolidationData"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "ConsolidationData"
-        ],
-        "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "ConsolidationData_DeleteByKeys",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolidationData/{id}": {
-      "get": {
-        "tags": [
-          "ConsolidationData"
-        ],
-        "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "ConsolidationData_GetById",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/ConsolidationData"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "ConsolidationData"
-        ],
-        "summary": "Deletes the record by its session identifier.",
-        "operationId": "ConsolidationData_DeleteById",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolidationData/{actionName}": {
-      "post": {
-        "tags": [
-          "ConsolidationData"
-        ],
-        "summary": "Performs an action in the system.",
-        "operationId": "ConsolidationData_InvokeAction_CustomAction",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "actionName",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "invocation",
-            "in": "body",
-            "description": "The record to which the action should be applied and the parameters of the action.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ConsolidationDataCustomAction",
-              "type": "object"
-            }
-          }
-        ],
-        "responses": {
-          "202": {
-            "description": "The operation is in progress.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          "204": {
-            "description": "The operation that was initiated by the action is completed.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "422": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/ConsolidationData"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolidationData/{ids}/files/{filename}": {
-      "put": {
-        "tags": [
-          "ConsolidationData"
-        ],
-        "summary": "Attaches a file to a record.",
-        "operationId": "ConsolidationData_PutFile",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "name": "filename",
-            "in": "path",
-            "description": "The name of the file that you are going to attach with the extension.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The file is successfully attached.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to retrieve the file from the system.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/ConsolidationData": {
-      "get": {
-        "tags": [
-          "ConsolidationData"
-        ],
-        "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "ConsolidationData_GetList",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$skip",
-            "in": "query",
-            "description": "The number of records to be skipped from the list of returned records.",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "$top",
-            "in": "query",
-            "description": "The number of records to be returned from the system.",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The list of records that satisfy the specified conditions.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ConsolidationData"
-              }
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "ConsolidationData"
-        ],
-        "summary": "Creates a record or updates an existing record.",
-        "operationId": "ConsolidationData_PutEntity",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "entity",
-            "in": "body",
-            "description": "The record to be passed to the system.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ConsolidationData"
-            }
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The created or updated record.",
-            "schema": {
-              "$ref": "#/definitions/ConsolidationData"
-            }
-          },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "422": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/ConsolidationData"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Ledger/$adHocSchema": {
-      "get": {
-        "tags": [
-          "Ledger"
-        ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "Ledger_GetAdHocSchema",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/Ledger"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Ledger/{ids}": {
-      "get": {
-        "tags": [
-          "Ledger"
-        ],
-        "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Ledger_GetByKeys",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Ledger"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Ledger"
-        ],
-        "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Ledger_DeleteByKeys",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Ledger/{id}": {
-      "get": {
-        "tags": [
-          "Ledger"
-        ],
-        "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Ledger_GetById",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Ledger"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Ledger"
-        ],
-        "summary": "Deletes the record by its session identifier.",
-        "operationId": "Ledger_DeleteById",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
+              "$ref": "#/definitions/Organization"
             }
           }
         }
@@ -2011,31 +583,32 @@
         ],
         "parameters": [
           {
-            "name": "actionName",
             "in": "path",
+            "name": "actionName",
             "required": true,
             "type": "string"
           },
           {
-            "name": "invocation",
             "in": "body",
+            "name": "invocation",
             "description": "The record to which the action should be applied and the parameters of the action.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LedgerCustomAction",
-              "type": "object"
+              "$ref": "#/definitions/LedgerCustomAction"
             }
           }
         ],
         "responses": {
-          "202": {
-            "description": "The operation is in progress.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
             }
           },
           "204": {
@@ -2048,14 +621,18 @@
               }
             }
           },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
             }
           },
-          "401": {
-            "description": "The user is not logged in to the system.",
+          "400": {
+            "description": "The data specified in the request is invalid.",
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
@@ -2071,12 +648,150 @@
             "schema": {
               "$ref": "#/definitions/Ledger"
             }
+          }
+        }
+      }
+    },
+    "/Ledger/$adHocSchema": {
+      "get": {
+        "tags": [
+          "Ledger"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "Ledger_GetAdHocSchema",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
           },
           "500": {
             "description": "Internal server error.",
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
+          },
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/Ledger"
+            }
+          }
+        }
+      }
+    },
+    "/Ledger/{ids}": {
+      "get": {
+        "tags": [
+          "Ledger"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "Ledger_GetByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Ledger"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ledger"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "Ledger_DeleteByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
           }
         }
       }
@@ -2088,15 +803,14 @@
         ],
         "summary": "Attaches a file to a record.",
         "operationId": "Ledger_PutFile",
-        "consumes": [],
         "produces": [
           "application/json",
           "text/json"
         ],
         "parameters": [
           {
-            "name": "ids",
             "in": "path",
+            "name": "ids",
             "description": "The values of the key fields of the record.",
             "required": true,
             "type": "array",
@@ -2106,24 +820,14 @@
             "collectionFormat": "pipes"
           },
           {
-            "name": "filename",
             "in": "path",
+            "name": "filename",
             "description": "The name of the file that you are going to attach with the extension.",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
-          "204": {
-            "description": "The file is successfully attached.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to retrieve the file from the system.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
           "401": {
             "description": "The user is not logged in to the system.",
             "schema": {
@@ -2135,6 +839,121 @@
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
+          },
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Ledger/{id}": {
+      "get": {
+        "tags": [
+          "Ledger"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "Ledger_GetById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Ledger"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ledger"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "Ledger_DeleteById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
           }
         }
       }
@@ -2146,67 +965,51 @@
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
         "operationId": "Ledger_GetList",
-        "consumes": [],
         "produces": [
           "application/json",
           "text/json"
         ],
         "parameters": [
           {
+            "in": "query",
             "name": "$select",
-            "in": "query",
             "description": "The fields of the entity to be returned from the system.",
-            "required": false,
             "type": "string"
           },
           {
+            "in": "query",
             "name": "$filter",
-            "in": "query",
             "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
             "type": "string"
           },
           {
+            "in": "query",
             "name": "$expand",
-            "in": "query",
             "description": "The linked and detail entities that should be expanded.",
-            "required": false,
             "type": "string"
           },
           {
+            "in": "query",
             "name": "$custom",
-            "in": "query",
             "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
             "type": "string"
           },
           {
-            "name": "$skip",
             "in": "query",
+            "name": "$skip",
             "description": "The number of records to be skipped from the list of returned records.",
-            "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "$top",
             "in": "query",
+            "name": "$top",
             "description": "The number of records to be returned from the system.",
-            "required": false,
             "type": "integer",
             "format": "int32"
           }
         ],
         "responses": {
-          "200": {
-            "description": "The list of records that satisfy the specified conditions.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Ledger"
-              }
-            }
-          },
           "401": {
             "description": "The user is not logged in to the system.",
             "schema": {
@@ -2217,6 +1020,15 @@
             "description": "Internal server error.",
             "schema": {
               "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Ledger"
+              }
             }
           }
         }
@@ -2237,44 +1049,52 @@
         ],
         "parameters": [
           {
-            "name": "entity",
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
             "in": "body",
+            "name": "entity",
             "description": "The record to be passed to the system.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Ledger"
             }
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
           "200": {
             "description": "The created or updated record.",
             "schema": {
@@ -2283,12 +1103,6 @@
           },
           "400": {
             "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
@@ -2304,279 +1118,17 @@
             "schema": {
               "$ref": "#/definitions/Ledger"
             }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
           }
         }
       }
     },
-    "/Organization/$adHocSchema": {
-      "get": {
-        "tags": [
-          "Organization"
-        ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "Organization_GetAdHocSchema",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/Organization"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Organization/{ids}": {
-      "get": {
-        "tags": [
-          "Organization"
-        ],
-        "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Organization_GetByKeys",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Organization"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Organization"
-        ],
-        "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Organization_DeleteByKeys",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "path",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Organization/{id}": {
-      "get": {
-        "tags": [
-          "Organization"
-        ],
-        "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Organization_GetById",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Organization"
-            }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Organization"
-        ],
-        "summary": "Deletes the record by its session identifier.",
-        "operationId": "Organization_DeleteById",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The record is successfully deleted."
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          }
-        }
-      }
-    },
-    "/Organization/{actionName}": {
+    "/ConsolAccount/{actionName}": {
       "post": {
         "tags": [
-          "Organization"
+          "ConsolAccount"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "Organization_InvokeAction_CustomAction",
+        "operationId": "ConsolAccount_InvokeAction_CustomAction",
         "consumes": [
           "application/json",
           "text/json"
@@ -2587,31 +1139,32 @@
         ],
         "parameters": [
           {
-            "name": "actionName",
             "in": "path",
+            "name": "actionName",
             "required": true,
             "type": "string"
           },
           {
-            "name": "invocation",
             "in": "body",
+            "name": "invocation",
             "description": "The record to which the action should be applied and the parameters of the action.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/OrganizationCustomAction",
-              "type": "object"
+              "$ref": "#/definitions/ConsolAccountCustomAction"
             }
           }
         ],
         "responses": {
-          "202": {
-            "description": "The operation is in progress.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
             }
           },
           "204": {
@@ -2624,14 +1177,18 @@
               }
             }
           },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
             }
           },
-          "401": {
-            "description": "The user is not logged in to the system.",
+          "400": {
+            "description": "The data specified in the request is invalid.",
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
@@ -2645,7 +1202,28 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/ConsolAccount"
+            }
+          }
+        }
+      }
+    },
+    "/ConsolAccount/$adHocSchema": {
+      "get": {
+        "tags": [
+          "ConsolAccount"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "ConsolAccount_GetAdHocSchema",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
             }
           },
           "500": {
@@ -2653,26 +1231,31 @@
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
+          },
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/ConsolAccount"
+            }
           }
         }
       }
     },
-    "/Organization/{ids}/files/{filename}": {
-      "put": {
+    "/ConsolAccount/{ids}": {
+      "get": {
         "tags": [
-          "Organization"
+          "ConsolAccount"
         ],
-        "summary": "Attaches a file to a record.",
-        "operationId": "Organization_PutFile",
-        "consumes": [],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "ConsolAccount_GetByKeys",
         "produces": [
           "application/json",
           "text/json"
         ],
         "parameters": [
           {
-            "name": "ids",
             "in": "path",
+            "name": "ids",
             "description": "The values of the key fields of the record.",
             "required": true,
             "type": "array",
@@ -2682,14 +1265,137 @@
             "collectionFormat": "pipes"
           },
           {
-            "name": "filename",
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ConsolAccount"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ConsolAccount"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "ConsolAccount_DeleteByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
             "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/ConsolAccount/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "ConsolAccount"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "ConsolAccount_PutFile",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "path",
+            "name": "filename",
             "description": "The name of the file that you are going to attach with the extension.",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
           "204": {
             "description": "The file is successfully attached.",
             "headers": {
@@ -2699,90 +1405,56 @@
                 "format": "uri"
               }
             }
-          },
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
           }
         }
       }
     },
-    "/Organization": {
+    "/ConsolAccount/{id}": {
       "get": {
         "tags": [
-          "Organization"
+          "ConsolAccount"
         ],
-        "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "Organization_GetList",
-        "consumes": [],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "ConsolAccount_GetById",
         "produces": [
           "application/json",
           "text/json"
         ],
         "parameters": [
           {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
             "name": "$select",
-            "in": "query",
             "description": "The fields of the entity to be returned from the system.",
-            "required": false,
             "type": "string"
           },
           {
+            "in": "query",
             "name": "$filter",
-            "in": "query",
             "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
             "type": "string"
           },
           {
+            "in": "query",
             "name": "$expand",
-            "in": "query",
             "description": "The linked and detail entities that should be expanded.",
-            "required": false,
             "type": "string"
           },
           {
+            "in": "query",
             "name": "$custom",
-            "in": "query",
             "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
             "type": "string"
-          },
-          {
-            "name": "$skip",
-            "in": "query",
-            "description": "The number of records to be skipped from the list of returned records.",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "$top",
-            "in": "query",
-            "description": "The number of records to be returned from the system.",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
           }
         ],
         "responses": {
-          "200": {
-            "description": "The list of records that satisfy the specified conditions.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Organization"
-              }
-            }
-          },
           "401": {
             "description": "The user is not logged in to the system.",
             "schema": {
@@ -2794,15 +1466,135 @@
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ConsolAccount"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ConsolAccount"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "ConsolAccount_DeleteById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/ConsolAccount": {
+      "get": {
+        "tags": [
+          "ConsolAccount"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "ConsolAccount_GetList",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "description": "The number of records to be returned from the system.",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ConsolAccount"
+              }
+            }
           }
         }
       },
       "put": {
         "tags": [
-          "Organization"
+          "ConsolAccount"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "Organization_PutEntity",
+        "operationId": "ConsolAccount_PutEntity",
         "consumes": [
           "application/json",
           "text/json"
@@ -2813,58 +1605,60 @@
         ],
         "parameters": [
           {
-            "name": "entity",
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
             "in": "body",
+            "name": "entity",
             "description": "The record to be passed to the system.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/ConsolAccount"
             }
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "The fields of the entity to be returned from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$expand",
-            "in": "query",
-            "description": "The linked and detail entities that should be expanded.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$custom",
-            "in": "query",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
-          "200": {
-            "description": "The created or updated record.",
-            "schema": {
-              "$ref": "#/definitions/Organization"
-            }
-          },
-          "400": {
-            "description": "The data specified in the request is invalid.",
+          "401": {
+            "description": "The user is not logged in to the system.",
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
           },
-          "401": {
-            "description": "The user is not logged in to the system.",
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/ConsolAccount"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
@@ -2878,7 +1672,49 @@
           "422": {
             "description": "The data specified in the request is invalid.",
             "schema": {
-              "$ref": "#/definitions/Organization"
+              "$ref": "#/definitions/ConsolAccount"
+            }
+          }
+        }
+      }
+    },
+    "/ConsolidationData/{actionName}": {
+      "post": {
+        "tags": [
+          "ConsolidationData"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "ConsolidationData_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "actionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "invocation",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConsolidationDataCustomAction"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
             }
           },
           "500": {
@@ -2886,17 +1722,1142 @@
             "schema": {
               "$ref": "#/definitions/HttpError"
             }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/ConsolidationData"
+            }
+          }
+        }
+      }
+    },
+    "/ConsolidationData/$adHocSchema": {
+      "get": {
+        "tags": [
+          "ConsolidationData"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "ConsolidationData_GetAdHocSchema",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/ConsolidationData"
+            }
+          }
+        }
+      }
+    },
+    "/ConsolidationData/{ids}": {
+      "get": {
+        "tags": [
+          "ConsolidationData"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "ConsolidationData_GetByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ConsolidationData"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ConsolidationData"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "ConsolidationData_DeleteByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/ConsolidationData/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "ConsolidationData"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "ConsolidationData_PutFile",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "path",
+            "name": "filename",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ConsolidationData/{id}": {
+      "get": {
+        "tags": [
+          "ConsolidationData"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "ConsolidationData_GetById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/ConsolidationData"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ConsolidationData"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "ConsolidationData_DeleteById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/ConsolidationData": {
+      "get": {
+        "tags": [
+          "ConsolidationData"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "ConsolidationData_GetList",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "description": "The number of records to be returned from the system.",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ConsolidationData"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ConsolidationData"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "ConsolidationData_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "entity",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConsolidationData"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/ConsolidationData"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/ConsolidationData"
+            }
+          }
+        }
+      }
+    },
+    "/Branch/{actionName}": {
+      "post": {
+        "tags": [
+          "Branch"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "Branch_InvokeAction_CustomAction",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "actionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "invocation",
+            "description": "The record to which the action should be applied and the parameters of the action.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BranchCustomAction"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The operation that was initiated by the action is completed.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "202": {
+            "description": "The operation is in progress.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/Branch"
+            }
+          }
+        }
+      }
+    },
+    "/Branch/$adHocSchema": {
+      "get": {
+        "tags": [
+          "Branch"
+        ],
+        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "operationId": "Branch_GetAdHocSchema",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
+            "schema": {
+              "$ref": "#/definitions/Branch"
+            }
+          }
+        }
+      }
+    },
+    "/Branch/{ids}": {
+      "get": {
+        "tags": [
+          "Branch"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "Branch_GetByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Branch"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Branch"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "Branch_DeleteByKeys",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/Branch/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "Branch"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "Branch_PutFile",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "description": "The values of the key fields of the record.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "pipes"
+          },
+          {
+            "in": "path",
+            "name": "filename",
+            "description": "The name of the file that you are going to attach with the extension.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The file is successfully attached.",
+            "headers": {
+              "Location": {
+                "description": "A URL that can be used to retrieve the file from the system.",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Branch/{id}": {
+      "get": {
+        "tags": [
+          "Branch"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "Branch_GetById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The requested record.",
+            "schema": {
+              "$ref": "#/definitions/Branch"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Branch"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "Branch_DeleteById",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The session ID of the record.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "204": {
+            "description": "The record is successfully deleted."
+          }
+        }
+      }
+    },
+    "/Branch": {
+      "get": {
+        "tags": [
+          "Branch"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "Branch_GetList",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "description": "The number of records to be skipped from the list of returned records.",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "description": "The number of records to be returned from the system.",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Branch"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Branch"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "Branch_PutEntity",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$select",
+            "description": "The fields of the entity to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$filter",
+            "description": "The conditions that determine which records should be selected from the system.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "The linked and detail entities that should be expanded.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$custom",
+            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "entity",
+            "description": "The record to be passed to the system.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Branch"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "The user is not logged in to the system.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "200": {
+            "description": "The created or updated record.",
+            "schema": {
+              "$ref": "#/definitions/Branch"
+            }
+          },
+          "400": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "412": {
+            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+            "schema": {
+              "$ref": "#/definitions/HttpError"
+            }
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "schema": {
+              "$ref": "#/definitions/Branch"
+            }
           }
         }
       }
     }
   },
   "definitions": {
-    "LongValue": {
+    "BooleanValue": {
       "type": "object",
       "properties": {
         "value": {
-          "format": "int64",
+          "type": "boolean"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "Branch": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "AcctName": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "BranchCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "OrganizationCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "LedgerCD": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "BranchCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/Branch"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ByteValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int32",
           "type": "integer"
         },
         "error": {
@@ -2904,18 +2865,131 @@
         }
       }
     },
-    "StringValue": {
+    "ConsolAccount": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "AccountCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Description": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
+    "ConsolAccountCustomAction": {
+      "required": [
+        "entity"
+      ],
       "type": "object",
       "properties": {
-        "value": {
-          "type": "string"
+        "entity": {
+          "$ref": "#/definitions/ConsolAccount"
         },
-        "error": {
-          "type": "string"
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
         }
       }
     },
-    "CustomStringField": {
+    "ConsolidationData": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "BranchCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "LedgerCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "Result": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ConsolidationItem"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ConsolidationDataCustomAction": {
+      "required": [
+        "entity"
+      ],
+      "type": "object",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/ConsolidationData"
+        },
+        "parameters": {
+          "description": "The parameters of the action.",
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ConsolidationItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "AccountCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "ConsolAmtCredit": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "ConsolAmtDebit": {
+              "$ref": "#/definitions/DecimalValue"
+            },
+            "FinPeriodID": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "MappedValue": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "MappedValueLength": {
+              "$ref": "#/definitions/IntValue"
+            }
+          }
+        }
+      ]
+    },
+    "CustomBooleanField": {
       "allOf": [
         {
           "$ref": "#/definitions/CustomField"
@@ -2924,6 +2998,44 @@
           "type": "object",
           "properties": {
             "value": {
+              "type": "boolean"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomByteField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomDateTimeField": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CustomField"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "format": "date-time",
               "type": "string"
             },
             "error": {
@@ -2952,7 +3064,7 @@
         }
       ]
     },
-    "CustomDateTimeField": {
+    "CustomDoubleField": {
       "allOf": [
         {
           "$ref": "#/definitions/CustomField"
@@ -2961,8 +3073,8 @@
           "type": "object",
           "properties": {
             "value": {
-              "format": "date-time",
-              "type": "string"
+              "format": "double",
+              "type": "number"
             },
             "error": {
               "type": "string"
@@ -2971,7 +3083,19 @@
         }
       ]
     },
-    "CustomBooleanField": {
+    "CustomField": {
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "discriminator": "type"
+    },
+    "CustomGuidField": {
       "allOf": [
         {
           "$ref": "#/definitions/CustomField"
@@ -2980,7 +3104,8 @@
           "type": "object",
           "properties": {
             "value": {
-              "type": "boolean"
+              "format": "uuid",
+              "type": "string"
             },
             "error": {
               "type": "string"
@@ -3046,7 +3171,7 @@
         }
       ]
     },
-    "CustomByteField": {
+    "CustomStringField": {
       "allOf": [
         {
           "$ref": "#/definitions/CustomField"
@@ -3055,45 +3180,6 @@
           "type": "object",
           "properties": {
             "value": {
-              "format": "int32",
-              "type": "integer"
-            },
-            "error": {
-              "type": "string"
-            }
-          }
-        }
-      ]
-    },
-    "CustomDoubleField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "double",
-              "type": "number"
-            },
-            "error": {
-              "type": "string"
-            }
-          }
-        }
-      ]
-    },
-    "CustomGuidField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "uuid",
               "type": "string"
             },
             "error": {
@@ -3102,30 +3188,6 @@
           }
         }
       ]
-    },
-    "CustomField": {
-      "required": [
-        "type"
-      ],
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        }
-      },
-      "discriminator": "type"
-    },
-    "DecimalValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "double",
-          "type": "number"
-        },
-        "error": {
-          "type": "string"
-        }
-      }
     },
     "DateTimeValue": {
       "type": "object",
@@ -3139,47 +3201,12 @@
         }
       }
     },
-    "BooleanValue": {
+    "DecimalValue": {
       "type": "object",
       "properties": {
         "value": {
-          "type": "boolean"
-        },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "IntValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "ShortValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "ByteValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "int32",
-          "type": "integer"
+          "format": "double",
+          "type": "number"
         },
         "error": {
           "type": "string"
@@ -3194,34 +3221,6 @@
           "type": "number"
         },
         "error": {
-          "type": "string"
-        }
-      }
-    },
-    "GuidValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "FileLink": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "filename": {
-          "type": "string"
-        },
-        "href": {
-          "format": "uri",
           "type": "string"
         }
       }
@@ -3260,13 +3259,38 @@
         }
       }
     },
+    "FileLink": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "href": {
+          "format": "uri",
+          "type": "string"
+        }
+      }
+    },
+    "GuidValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
     "HttpError": {
       "type": "object",
       "properties": {
         "message": {
-          "type": "string"
-        },
-        "messageDetail": {
           "type": "string"
         },
         "exceptionMessage": {
@@ -3286,148 +3310,26 @@
               "type": "string"
             }
           }
+        },
+        "messageDetail": {
+          "type": "string"
         }
       },
       "additionalProperties": {
         "type": "object"
       }
     },
-    "CancellationToken": {
+    "IntValue": {
       "type": "object",
       "properties": {
-        "isCancellationRequested": {
-          "type": "boolean",
-          "readOnly": true
+        "value": {
+          "format": "int32",
+          "type": "integer"
         },
-        "canBeCanceled": {
-          "type": "boolean",
-          "readOnly": true
-        },
-        "waitHandle": {
-          "$ref": "#/definitions/WaitHandle",
-          "readOnly": true
+        "error": {
+          "type": "string"
         }
       }
-    },
-    "WaitHandle": {
-      "type": "object",
-      "properties": {
-        "handle": {
-          "type": "object"
-        },
-        "safeWaitHandle": {
-          "$ref": "#/definitions/SafeWaitHandle"
-        }
-      }
-    },
-    "SafeWaitHandle": {
-      "type": "object",
-      "properties": {
-        "isInvalid": {
-          "type": "boolean",
-          "readOnly": true
-        },
-        "isClosed": {
-          "type": "boolean",
-          "readOnly": true
-        }
-      }
-    },
-    "Branch": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "AcctName": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "BranchCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "OrganizationCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "LedgerCD": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "ConsolAccount": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "AccountCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "Description": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "ConsolidationData": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "BranchCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "LedgerCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "Result": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ConsolidationItem"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "ConsolidationItem": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "AccountCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ConsolAmtCredit": {
-              "$ref": "#/definitions/DecimalValue"
-            },
-            "ConsolAmtDebit": {
-              "$ref": "#/definitions/DecimalValue"
-            },
-            "FinPeriodID": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "MappedValue": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "MappedValueLength": {
-              "$ref": "#/definitions/IntValue"
-            }
-          }
-        }
-      ]
     },
     "Ledger": {
       "allOf": [
@@ -3449,105 +3351,6 @@
           }
         }
       ]
-    },
-    "Organization": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "OrganizationName": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "OrganizationCD": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "LedgerCD": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "BranchCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/Branch"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "ConsolAccountCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/ConsolAccount"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "ConsolidationDataCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/ConsolidationData"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
     },
     "LedgerCustomAction": {
       "required": [
@@ -3575,6 +3378,39 @@
         }
       }
     },
+    "LongValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "Organization": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "OrganizationName": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "OrganizationCD": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "LedgerCD": {
+              "$ref": "#/definitions/StringValue"
+            }
+          }
+        }
+      ]
+    },
     "OrganizationCustomAction": {
       "required": [
         "entity"
@@ -3598,6 +3434,29 @@
               }
             }
           }
+        }
+      }
+    },
+    "ShortValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "StringValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
         }
       }
     }

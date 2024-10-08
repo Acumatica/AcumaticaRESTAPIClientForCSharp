@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Default_20_200_001.Model
 	public class ReleaseCashSale : EntityAction<CashSale>
 	{
 		public ReleaseCashSale(CashSale entity) : base(entity)
-		{ }
-		public ReleaseCashSale() : base()
 		{ }
 	}
 }

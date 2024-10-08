@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,23 +14,52 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class EstimateHistory : Entity
 	{
 
+		/// <summary>
+		/// The date and time when the record was created.
+		/// DAC Field Name: CreatedDateTime 
+		/// DAC: PX.Objects.AM.AMEstimateHistory 
+		/// Display Name: Created At 
+		/// </summary>
 		[DataMember(Name="CreatedAt", EmitDefaultValue=false)]
-		public DateTimeValue CreatedAt { get; set; }
+		public DateTimeValue? CreatedAt { get; set; }
 
+		/// <summary>
+		/// The ID of the user who created the record.
+		/// DAC Field Name: CreatedByID 
+		/// DAC: PX.Objects.AM.AMEstimateHistory 
+		/// Display Name: Created By 
+		/// </summary>
 		[DataMember(Name="CreatedBy", EmitDefaultValue=false)]
-		public StringValue CreatedBy { get; set; }
+		public StringValue? CreatedBy { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.AM.AMEstimateOper 
+		/// Display Name: Operation Desc 
+		/// SQL Type: nvarchar(256) 
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue Description { get; set; }
+		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.AM.AMEstimateItem 
+		/// Display Name: Estimate ID 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="EstimateID", EmitDefaultValue=false)]
-		public StringValue EstimateID { get; set; }
+		public StringValue? EstimateID { get; set; }
 
 		[DataMember(Name="HistoryLineNumber", EmitDefaultValue=false)]
-		public IntValue HistoryLineNumber { get; set; }
+		public IntValue? HistoryLineNumber { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: RevisionID 
+		/// DAC: PX.Objects.AM.AMEstimateItem 
+		/// SQL Type: nvarchar(10) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue Revision { get; set; }
+		public StringValue? Revision { get; set; }
 
 	}
 }

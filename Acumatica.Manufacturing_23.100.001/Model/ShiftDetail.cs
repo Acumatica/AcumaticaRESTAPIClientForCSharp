@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,29 +14,66 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class ShiftDetail : Entity
 	{
 
+		/// <summary>
+		/// DAC: PX.Objects.AM.AMShift 
+		/// Display Name: Calendar ID 
+		/// SQL Type: nvarchar(10) 
+		/// </summary>
 		[DataMember(Name="CalendarID", EmitDefaultValue=false)]
-		public StringValue CalendarID { get; set; }
+		public StringValue? CalendarID { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.AM.AMShift 
+		/// Display Name: Crew Size 
+		/// </summary>
 		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
-		public DecimalValue CrewSize { get; set; }
+		public DecimalValue? CrewSize { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: EPShiftCode__DiffType 
+		/// DAC: PX.Objects.AM.AMShift 
+		/// </summary>
 		[DataMember(Name="DiffType", EmitDefaultValue=false)]
-		public StringValue DiffType { get; set; }
+		public StringValue? DiffType { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ShftEff 
+		/// DAC: PX.Objects.AM.AMShift 
+		/// </summary>
 		[DataMember(Name="Efficiency", EmitDefaultValue=false)]
-		public DecimalValue Efficiency { get; set; }
+		public DecimalValue? Efficiency { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: LaborCodeID 
+		/// DAC: PX.Objects.AM.AMShift 
+		/// Display Name: Labor Code 
+		/// SQL Type: nvarchar(15) 
+		/// </summary>
 		[DataMember(Name="LaborCode", EmitDefaultValue=false)]
-		public StringValue LaborCode { get; set; }
+		public StringValue? LaborCode { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: MachNbr 
+		/// DAC: PX.Objects.AM.AMShift 
+		/// </summary>
 		[DataMember(Name="Machines", EmitDefaultValue=false)]
-		public DecimalValue Machines { get; set; }
+		public DecimalValue? Machines { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: ShiftCD 
+		/// DAC: PX.Objects.AM.AMShift 
+		/// SQL Type: nvarchar(15) 
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="Shift", EmitDefaultValue=false)]
-		public StringValue Shift { get; set; }
+		public StringValue? Shift { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: EPShiftCode__ShftDiff 
+		/// DAC: PX.Objects.AM.AMShift 
+		/// </summary>
 		[DataMember(Name="ShiftDiff", EmitDefaultValue=false)]
-		public DecimalValue ShiftDiff { get; set; }
+		public DecimalValue? ShiftDiff { get; set; }
 
 	}
 }

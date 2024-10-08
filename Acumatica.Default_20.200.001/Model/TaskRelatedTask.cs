@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,22 +15,22 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="CompletedAt", EmitDefaultValue=false)]
-		public DateTimeValue CompletedAt { get; set; }
+		public DateTimeValue? CompletedAt { get; set; }
 
 		[DataMember(Name="DueDate", EmitDefaultValue=false)]
-		public DateTimeValue DueDate { get; set; }
+		public DateTimeValue? DueDate { get; set; }
 
 		[DataMember(Name="RecordID", EmitDefaultValue=false)]
-		public IntValue RecordID { get; set; }
+		public IntValue? RecordID { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
-		public StringValue Subject { get; set; }
+		public StringValue? Subject { get; set; }
 
 	}
 }

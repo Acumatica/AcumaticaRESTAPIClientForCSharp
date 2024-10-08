@@ -18,16 +18,16 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
     [JsonSubtypes.KnownSubType(typeof(CustomLongField), nameof(CustomLongField))]
     [JsonSubtypes.KnownSubType(typeof(CustomDecimalField), nameof(CustomDecimalField))]
     [JsonSubtypes.KnownSubType(typeof(CustomGuidField), nameof(CustomGuidField))]
-    public abstract class CustomField 
+    public abstract class CustomField
     {
-        [DataMember(Name = "Type", EmitDefaultValue = false)]
-        public string Type { get; set; }
+		[DataMember(Name = "Type", EmitDefaultValue = false)]
+        public string? Type { get; set; }
 
-        [Obsolete("viewName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
-        public string viewName;
+        [Obsolete("ViewName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
+        public string? ViewName;
 
-        [Obsolete("fieldName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
-        public string fieldName;
+        [Obsolete("FieldName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
+        public string? FieldName;
     }
     
     [DataContract]
@@ -61,7 +61,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         }
 
         [DataMember(Name = "value", EmitDefaultValue = false)]
-        public TValue Value { get; set; }
+        public TValue? Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

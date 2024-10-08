@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="eCommerce" version="24.200.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
+	<ExtendsEndpoint name="Default" version="24.200.001" />
+	<TopLevelEntity name="ItemImages" screen="BC408020">
+		<Fields>
+			<Field name="Results" type="ItemImageDetails[]" />
+		</Fields>
+		<Mappings>
+			<Mapping field="Results">
+				<Mapping field="Extension">
+					<To object="Results" field="UploadFile_extansion" />
+				</Mapping>
+				<Mapping field="TemplateItemID">
+					<To object="Results" field="InventoryItem_templateItemID" />
+				</Mapping>
+				<Mapping field="FileID">
+					<To object="Results" field="UploadFile_fileID" />
+				</Mapping>
+				<Mapping field="FileName">
+					<To object="Results" field="UploadFile_name" />
+				</Mapping>
+				<Mapping field="FileNoteID">
+					<To object="Results" field="UploadFile_noteID" />
+				</Mapping>
+				<Mapping field="InventoryID">
+					<To object="Results" field="InventoryItem_inventoryCD" />
+				</Mapping>
+				<Mapping field="InventoryLastModifiedDateTime">
+					<To object="Results" field="InventoryItem_lastModifiedDateTime" />
+				</Mapping>
+				<Mapping field="InventoryNoteID">
+					<To object="Results" field="InventoryItem_noteID" />
+				</Mapping>
+				<Mapping field="IsDefault">
+					<To object="Results" field="InventoryItem_Formula0c812287c27b492e980dba53a73007c1" />
+				</Mapping>
+				<Mapping field="LastModifiedDateTime">
+					<To object="Results" field="UploadFileRevision_createdDateTime" />
+				</Mapping>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="ItemImageDetails">
+		<Fields>
+			<Field name="Extension" type="StringValue" />
+			<Field name="FileID" type="GuidValue" />
+			<Field name="FileName" type="StringValue" />
+			<Field name="FileNoteID" type="GuidValue" />
+			<Field name="InventoryID" type="StringValue" />
+			<Field name="InventoryLastModifiedDateTime" type="DateTimeValue" />
+			<Field name="InventoryNoteID" type="GuidValue" />
+			<Field name="IsDefault" type="BooleanValue" />
+			<Field name="LastModifiedDateTime" type="DateTimeValue" />
+			<Field name="TemplateItemID" type="StringValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="BCShipments" screen="BC408030">
+		<Fields>
+			<Field name="LastModified" type="DateTimeValue" />
+			<Field name="ShippingNoteID" type="GuidValue" />
+			<Field name="OrderNbr" type="StringValue" />
+			<Field name="OrderType" type="StringValue" />
+			<Field name="BindingID" type="IntValue" />
+			<Field name="Results" type="BCShipmentsResult[]" />
+		</Fields>
+		<Mappings>
+			<Mapping field="LastModified">
+				<To object="Filter" field="LastModified" />
+			</Mapping>
+			<Mapping field="OrderNbr">
+				<To object="Filter" field="OrderNbr" />
+			</Mapping>
+			<Mapping field="OrderType">
+				<To object="Filter" field="OrderType" />
+			</Mapping>
+			<Mapping field="BindingID">
+				<To object="Filter" field="BindingID" />
+			</Mapping>
+			<Mapping field="Results">
+				<Mapping field="ExternalShipmentUpdated">
+					<To object="Results" field="SOShipment_externalShipmentUpdated" />
+				</Mapping>
+				<Mapping field="InvoiceType">
+					<To object="Results" field="SOOrderShipment_invoiceType" />
+				</Mapping>
+				<Mapping field="LastModifiedDateTime">
+					<To object="Results" field="SOOrderShipment_lastModifiedDateTime" />
+				</Mapping>
+				<Mapping field="NoteID">
+					<To object="Results" field="SOOrderShipment_shippingRefNoteID" />
+				</Mapping>
+				<Mapping field="OrderNoteID">
+					<To object="Results" field="SOOrderShipment_orderNoteID" />
+				</Mapping>
+				<Mapping field="OrderType">
+					<To object="Results" field="SOOrderShipment_OrderType" />
+				</Mapping>
+				<Mapping field="ShipmentNumber">
+					<To object="Results" field="SOOrderShipment_Formulaed3c462824714383866aa59e6fec34e4" />
+				</Mapping>
+				<Mapping field="ShipmentType">
+					<To object="Results" field="SOOrderShipment_Formulaa1cc8efe91af4e359f509430a43c1d27" />
+				</Mapping>
+				<Mapping field="OrderNbr">
+					<To object="Results" field="SOOrderShipment_orderNbr" />
+				</Mapping>
+				<Mapping field="Confirmed">
+					<To object="Results" field="SOOrderShipment_confirmed" />
+				</Mapping>
+				<Mapping field="InvoiceNbr">
+					<To object="Results" field="POReceipt_invoiceNbr" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="ShippingNoteID">
+				<To object="Filter" field="ShippingNoteID" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="BCShipmentsResult">
+		<Fields>
+			<Field name="ExternalShipmentUpdated" type="BooleanValue" />
+			<Field name="InvoiceNbr" type="StringValue" />
+			<Field name="InvoiceType" type="StringValue" />
+			<Field name="Confirmed" type="BooleanValue" />
+			<Field name="LastModifiedDateTime" type="DateTimeValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="OrderNbr" type="StringValue" />
+			<Field name="OrderNoteID" type="GuidValue" />
+			<Field name="OrderType" type="StringValue" />
+			<Field name="ShipmentNumber" type="StringValue" />
+			<Field name="ShipmentType" type="StringValue" />
+		</Fields>
+	</Detail>
+	<!--Do not merge with ItemSalesCategory as it causes issues when inserting during import of categories.-->
+	<TopLevelEntity name="BCItemSalesCategory" screen="IN204060">
+		<Fields>
+			<Field name="CategoryID" type="IntValue" />
+			<Field name="Description" type="StringValue" />
+			<Field name="LastModifiedDateTime" type="DateTimeValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="ParentCategoryID" type="IntValue" />
+			<Field name="Path" type="StringValue" />
+			<Field name="SortOrder" type="IntValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="CategoryID">
+				<To object="Folders" field="CategoryID" />
+			</Mapping>
+			<Mapping field="Description">
+				<To object="Folders" field="Description" />
+			</Mapping>
+			<Mapping field="LastModifiedDateTime">
+				<To object="Folders" field="LastModifiedDateTime" />
+			</Mapping>
+			<Mapping field="NoteID">
+				<To object="Folders" field="NoteID" />
+			</Mapping>
+			<Mapping field="ParentCategoryID">
+				<To object="CurrentCategory" field="ParentID" />
+			</Mapping>
+			<Mapping field="Path">
+				<To object="Folders" field="//Description" />
+			</Mapping>
+			<Mapping field="SortOrder">
+				<To object="Folders" field="SortOrder" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+</Endpoint>

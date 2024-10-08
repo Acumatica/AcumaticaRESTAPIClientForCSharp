@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -9,18 +10,32 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_22_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen GI640590 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
-	public class InventoryQuantityAvailable : Entity
+	public class InventoryQuantityAvailable : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// DAC Field Name: InventoryItem 
+		/// DAC: PX.Data.GenericFilter 
+		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<InventoryQuantityAvailableDetail> Results { get; set; }
+		public List<InventoryQuantityAvailableDetail>? Results { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Data.GenericFilter 
+		/// </summary>
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/22.200.001";
+		}
 	}
 }

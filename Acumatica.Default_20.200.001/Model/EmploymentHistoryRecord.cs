@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,31 +15,31 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue Active { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue EndDate { get; set; }
+		public DateTimeValue? EndDate { get; set; }
 
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue LineNbr { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		[DataMember(Name="PositionID", EmitDefaultValue=false)]
-		public StringValue PositionID { get; set; }
+		public StringValue? PositionID { get; set; }
 
 		[DataMember(Name="RehireEligible", EmitDefaultValue=false)]
-		public BooleanValue RehireEligible { get; set; }
+		public BooleanValue? RehireEligible { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue StartDate { get; set; }
+		public DateTimeValue? StartDate { get; set; }
 
 		[DataMember(Name="StartReason", EmitDefaultValue=false)]
-		public StringValue StartReason { get; set; }
+		public StringValue? StartReason { get; set; }
 
 		[DataMember(Name="Terminated", EmitDefaultValue=false)]
-		public BooleanValue Terminated { get; set; }
+		public BooleanValue? Terminated { get; set; }
 
 		[DataMember(Name="TerminationReason", EmitDefaultValue=false)]
-		public StringValue TerminationReason { get; set; }
+		public StringValue? TerminationReason { get; set; }
 
 	}
 }

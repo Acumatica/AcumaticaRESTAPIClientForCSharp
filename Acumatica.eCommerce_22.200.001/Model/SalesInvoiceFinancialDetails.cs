@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,17 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class SalesInvoiceFinancialDetails : Entity
+	public class SalesInvoiceFinancialDetails : Acumatica.Default_22_200_001.Model.SalesInvoiceFinancialDetails
 	{
-
-		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
-		public StringValue BatchNbr { get; set; }
-
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue Branch { get; set; }
-
-		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
-		public StringValue CustomerTaxZone { get; set; }
 
 	}
 }

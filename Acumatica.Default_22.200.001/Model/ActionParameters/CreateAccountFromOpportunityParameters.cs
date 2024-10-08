@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -15,14 +16,10 @@ namespace Acumatica.Default_22_200_001.Model
 		public CreateAccountFromOpportunityParameters() { }
 
 		[DataMember(Name="AccountClass", EmitDefaultValue=false)]
-		public StringValue AccountClass { get; set; }
+		public StringValue? AccountClass { get; set; }
 		[DataMember(Name="AccountName", EmitDefaultValue=false)]
-		public StringValue AccountName { get; set; }
+		public StringValue? AccountName { get; set; }
 		[DataMember(Name="BAccountID", EmitDefaultValue=false)]
-		public StringValue BAccountID { get; set; }
-		public virtual string ToJson()
-		{
-			return JsonConvert.SerializeObject(this, Formatting.Indented);
-		}
+		public StringValue? BAccountID { get; set; }
 	}
 }

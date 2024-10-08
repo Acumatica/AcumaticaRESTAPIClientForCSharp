@@ -4,22 +4,21 @@ using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.CustomizationApi.Model;
+
+using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 
 namespace Acumatica.RESTClient.CustomizationApi
 {
-    public class CustomizationApi : BaseApi
+    public static class CustomizationApi
     {
-        public CustomizationApi(ApiClient configuration) : base(configuration)
-        {
-
-        }
-        public CustomizationPublishLog Import(Stream customizationPackageContent,
+        public static async Task<CustomizationPublishLog> ImportAsync(this ApiClient client, 
+            Stream customizationPackageContent,
             string projectName,
             string projectDescription = "",
             bool replaceIfExists = true,
@@ -35,30 +34,27 @@ namespace Acumatica.RESTClient.CustomizationApi
             customizationImport.ProjectName = projectName;
             customizationImport.ProjectLevel = level;
             customizationImport.IsReplaceIfExists = replaceIfExists;
-            customizationImport.ProjectContentBase64 = ConvertToBase64(customizationPackageContent);
+            customizationImport.ProjectContentBase64 = ConvertToBase64(customizationPackageContent!);
 
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
+            HttpResponseMessage response = await client.CallApiAsync(
                 "/CustomizationApi/Import",
                 HttpMethod.Post,
                 null,
                 customizationImport,
                 HeaderContentType.Json,
-                HeaderContentType.Json).Result;
+                HeaderContentType.Json);
 
-            VerifyResponse(localVarResponse, "Import");
-            return DeserializeResponse<CustomizationPublishLog>(localVarResponse).Data;
+            response.EnsureSuccessStatusCode();
+            return await DeserializeAsync<CustomizationPublishLog>(response);
         }
-
-        private static string ConvertToBase64(Stream stream)
+        public static CustomizationPublishLog Import(this ApiClient client, 
+            Stream customizationPackageContent,
+            string projectName,
+            string projectDescription = "",
+            bool replaceIfExists = true,
+            int? level = null)
         {
-            byte[] bytes;
-            using (var memoryStream = new MemoryStream())
-            {
-                stream.CopyTo(memoryStream);
-                bytes = memoryStream.ToArray();
-            }
-
-            return Convert.ToBase64String(bytes);
+            return Task.Run(() => ImportAsync(client, customizationPackageContent, projectName, projectDescription, replaceIfExists, level)).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -87,8 +83,9 @@ namespace Acumatica.RESTClient.CustomizationApi
         /// If sucessfull, returns log record with the following message: 
         /// "Publishing has started."
         /// </returns>
-        public CustomizationPublishLog PublishBegin(string projectName,
-            bool isMergeWithExistingPackages = true,
+        public static async Task<CustomizationPublishLog> PublishBeginAsync(this ApiClient client, 
+            string projectName,
+            bool isMergeWithExistingPackages = true, 
             bool isOnlyValidation = false,
             bool isOnlyDbUpdates = false,
             bool isReplayPreviouslyExecutedScripts = false,
@@ -97,14 +94,29 @@ namespace Acumatica.RESTClient.CustomizationApi
         {
             if (projectName == null)
                 ThrowMissingParameter("PublishBegin", nameof(projectName));
-            var list = new List<string >();
-            list.Add(projectName);
-           return PublishBegin(list, 
+            var list = new List<string>
+            {
+                projectName!
+            };
+            return await PublishBeginAsync(client,
+               list, 
                isMergeWithExistingPackages, 
                isOnlyValidation,
                isOnlyDbUpdates,
                isReplayPreviouslyExecutedScripts,
                tenantMode);
+        }
+
+        public static CustomizationPublishLog PublishBegin(this ApiClient client,
+            string projectName,
+            bool isMergeWithExistingPackages = true,
+            bool isOnlyValidation = false,
+            bool isOnlyDbUpdates = false,
+            bool isReplayPreviouslyExecutedScripts = false,
+            TenantMode tenantMode = TenantMode.Current
+                       )
+        {
+            return Task.Run(() => PublishBeginAsync(client, projectName, isMergeWithExistingPackages, isOnlyValidation, isOnlyDbUpdates, isReplayPreviouslyExecutedScripts, tenantMode)).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -133,7 +145,8 @@ namespace Acumatica.RESTClient.CustomizationApi
         /// If sucessfull, returns log record with the following message: 
         /// "Publishing has started."
         /// </returns>
-        public CustomizationPublishLog PublishBegin(List<string> projectNames,
+        public static async Task<CustomizationPublishLog> PublishBeginAsync(this ApiClient client,
+            List<string> projectNames,
             bool isMergeWithExistingPackages = false,
             bool isOnlyValidation = false,
             bool isOnlyDbUpdates = false,
@@ -145,8 +158,6 @@ namespace Acumatica.RESTClient.CustomizationApi
                 ThrowMissingParameter("PublishBegin", nameof(projectNames));
 
 
-            var localVarPath = "/CustomizationApi/PublishBegin";
-
             CustomizationPublishParams publishParams = new CustomizationPublishParams();
             publishParams.ProjectNames = projectNames;
             publishParams.IsMergeWithExistingPackages = isMergeWithExistingPackages;
@@ -156,49 +167,67 @@ namespace Acumatica.RESTClient.CustomizationApi
             switch (tenantMode)
             {
                 case TenantMode.Current: publishParams.TenantMode = "Current"; break;
-                case TenantMode.List: throw new NotImplementedException(); break;
+                case TenantMode.List: throw new NotImplementedException(); 
                 case TenantMode.All: publishParams.TenantMode = "All"; break;
             }
 
-
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
-                localVarPath,
+            HttpResponseMessage response = await client.CallApiAsync(
+                "/CustomizationApi/PublishBegin",
                 HttpMethod.Post,
                 null,
                 publishParams,
                 HeaderContentType.Json,
-                HeaderContentType.Json).Result;
+                HeaderContentType.Json);
 
-            VerifyResponse(localVarResponse, "PublishBegin");
-            return DeserializeResponse<CustomizationPublishLog>(localVarResponse).Data;
+            response.EnsureSuccessStatusCode();
+            return await DeserializeAsync<CustomizationPublishLog>(response);
         }
-        public CustomizationPublishEnd CustomizationPublishEnd()
+
+        public static CustomizationPublishLog PublishBegin(this ApiClient client,
+                       List<string> projectNames,
+                                  bool isMergeWithExistingPackages = false,
+                                             bool isOnlyValidation = false,
+                                                        bool isOnlyDbUpdates = false,
+                                                                   bool isReplayPreviouslyExecutedScripts = false,
+                                                                              TenantMode tenantMode = TenantMode.Current
+                       )
         {
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
+            return Task.Run(() => PublishBeginAsync(client, projectNames, isMergeWithExistingPackages, isOnlyValidation, isOnlyDbUpdates, isReplayPreviouslyExecutedScripts, tenantMode)).GetAwaiter().GetResult();
+        }
+
+
+
+        public static async Task<CustomizationPublishEnd> CustomizationPublishEndAsync(this ApiClient client)
+        {
+            HttpResponseMessage response = await client.CallApiAsync(
                 "/CustomizationApi/PublishEnd",
                 HttpMethod.Post,
                 null,
                 null,
                 HeaderContentType.Json,
-                HeaderContentType.Json).Result;
+                HeaderContentType.Json);
 
-            VerifyResponse(localVarResponse, "PublishEnd");
-            return DeserializeResponse<CustomizationPublishEnd>(localVarResponse).Data;
+            response.EnsureSuccessStatusCode();
+            return await DeserializeAsync<CustomizationPublishEnd>(response);
+        }
+        public static CustomizationPublishEnd CustomizationPublishEnd(this ApiClient client)
+        {
+            return Task.Run(() => CustomizationPublishEndAsync(client)).GetAwaiter().GetResult();
         }
 
-        public void WaitPublishingCompletion(int millisecondsInterval = 1000)
+        public static void WaitPublishingCompletion(this ApiClient client, int millisecondsInterval = 1000)
         {
             while (true)
             {
-                var processResult = CustomizationPublishEnd();
-                if (processResult.IsCompleted)
+                var processResult = CustomizationPublishEnd(client);
+                if (processResult.IsCompleted == true)
                 {
                     return;
                 }
-                else if (processResult.isFailed)
+                else if (processResult.isFailed == true)
                 {
                     StringBuilder log = new StringBuilder();
-                    processResult.Log.ForEach(_ => log.Append(_.Message).Append(Environment.NewLine));
+                    processResult?.Log?.ForEach(_ => log.Append(_.Message).Append(Environment.NewLine));
                     throw new Exception(log.ToString());
                 }
                 else

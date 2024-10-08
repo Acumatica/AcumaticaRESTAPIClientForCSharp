@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -9,18 +10,31 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.GLConsolidation_22_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen GL509001 in the Acumatica ERP
+	/// </summary>
 	[DataContract]
-	public class ConsolidationData : Entity
+	public class ConsolidationData : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter 
+		/// </summary>
 		[DataMember(Name="BranchCD", EmitDefaultValue=false)]
-		public StringValue BranchCD { get; set; }
+		public StringValue? BranchCD { get; set; }
 
+		/// <summary>
+		/// DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter 
+		/// </summary>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
-		public StringValue LedgerCD { get; set; }
+		public StringValue? LedgerCD { get; set; }
 
 		[DataMember(Name="Result", EmitDefaultValue=false)]
-		public List<ConsolidationItem> Result { get; set; }
+		public List<ConsolidationItem>? Result { get; set; }
 
+		public virtual string GetEndpointPath()
+		{
+			return "entity/GLConsolidation/22.200.001";
+		}
 	}
 }

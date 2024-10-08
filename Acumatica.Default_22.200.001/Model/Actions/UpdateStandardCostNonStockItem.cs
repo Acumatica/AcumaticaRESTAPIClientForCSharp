@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Default_22_200_001.Model
 	public class UpdateStandardCostNonStockItem : EntityAction<NonStockItem>
 	{
 		public UpdateStandardCostNonStockItem(NonStockItem entity) : base(entity)
-		{ }
-		public UpdateStandardCostNonStockItem() : base()
 		{ }
 	}
 }

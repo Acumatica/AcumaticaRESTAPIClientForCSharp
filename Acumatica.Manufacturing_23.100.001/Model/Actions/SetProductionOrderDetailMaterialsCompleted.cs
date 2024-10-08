@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class SetProductionOrderDetailMaterialsCompleted : EntityAction<ProductionOrderDetail>
 	{
 		public SetProductionOrderDetailMaterialsCompleted(ProductionOrderDetail entity) : base(entity)
-		{ }
-		public SetProductionOrderDetailMaterialsCompleted() : base()
 		{ }
 	}
 }

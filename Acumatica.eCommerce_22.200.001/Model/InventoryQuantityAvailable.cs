@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -10,17 +11,12 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_22_200_001.Model
 {
 	[DataContract]
-	public class InventoryQuantityAvailable : Entity
+	public class InventoryQuantityAvailable : Acumatica.Default_22_200_001.Model.InventoryQuantityAvailable, ITopLevelEntity
 	{
 
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue InventoryID { get; set; }
-
-		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<InventoryQuantityAvailableDetail> Results { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue LastModifiedDateTime { get; set; }
-
+		public override string GetEndpointPath()
+		{
+			return "entity/eCommerce/22.200.001";
+		}
 	}
 }

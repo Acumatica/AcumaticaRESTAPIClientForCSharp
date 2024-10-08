@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,19 +15,19 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue Amount { get; set; }
+		public DecimalValue? Amount { get; set; }
 
 		[DataMember(Name="RefNbr", EmitDefaultValue=false)]
-		public StringValue RefNbr { get; set; }
+		public StringValue? RefNbr { get; set; }
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue Status { get; set; }
+		public StringValue? Status { get; set; }
 
 		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
-		public StringValue TaxZone { get; set; }
+		public StringValue? TaxZone { get; set; }
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue Type { get; set; }
+		public StringValue? Type { get; set; }
 
 	}
 }

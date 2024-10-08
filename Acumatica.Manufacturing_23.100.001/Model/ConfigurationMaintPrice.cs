@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,11 +14,21 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class ConfigurationMaintPrice : Entity
 	{
 
+		/// <summary>
+		/// DAC Field Name: PriceCalc 
+		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// SQL Type: char(1) 
+		/// </summary>
 		[DataMember(Name="Calculate", EmitDefaultValue=false)]
-		public StringValue Calculate { get; set; }
+		public StringValue? Calculate { get; set; }
 
+		/// <summary>
+		/// DAC Field Name: PriceRollup 
+		/// DAC: PX.Objects.AM.AMConfiguration 
+		/// SQL Type: char(2) 
+		/// </summary>
 		[DataMember(Name="Rollup", EmitDefaultValue=false)]
-		public StringValue Rollup { get; set; }
+		public StringValue? Rollup { get; set; }
 
 	}
 }

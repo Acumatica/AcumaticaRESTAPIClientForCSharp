@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 	public class CapableToPromiseProcess : EntityAction<CapableToPromise>
 	{
 		public CapableToPromiseProcess(CapableToPromise entity) : base(entity)
-		{ }
-		public CapableToPromiseProcess() : base()
 		{ }
 	}
 }

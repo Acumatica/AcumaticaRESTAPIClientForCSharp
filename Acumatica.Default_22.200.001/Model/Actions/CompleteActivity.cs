@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,6 @@ namespace Acumatica.Default_22_200_001.Model
 	public class CompleteActivity : EntityAction<Activity>
 	{
 		public CompleteActivity(Activity entity) : base(entity)
-		{ }
-		public CompleteActivity() : base()
 		{ }
 	}
 }

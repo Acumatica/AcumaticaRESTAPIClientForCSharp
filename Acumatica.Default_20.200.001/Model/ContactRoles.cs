@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,16 +15,16 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="RoleDescription", EmitDefaultValue=false)]
-		public StringValue RoleDescription { get; set; }
+		public StringValue? RoleDescription { get; set; }
 
 		[DataMember(Name="RoleName", EmitDefaultValue=false)]
-		public StringValue RoleName { get; set; }
+		public StringValue? RoleName { get; set; }
 
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
-		public BooleanValue Selected { get; set; }
+		public BooleanValue? Selected { get; set; }
 
 		[DataMember(Name="UserType", EmitDefaultValue=false)]
-		public IntValue UserType { get; set; }
+		public IntValue? UserType { get; set; }
 
 	}
 }

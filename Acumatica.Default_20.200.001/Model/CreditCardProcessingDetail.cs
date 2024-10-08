@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,10 +15,10 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="TransactionAmount", EmitDefaultValue=false)]
-		public DecimalValue TransactionAmount { get; set; }
+		public DecimalValue? TransactionAmount { get; set; }
 
 		[DataMember(Name="TransactionStatus", EmitDefaultValue=false)]
-		public StringValue TransactionStatus { get; set; }
+		public StringValue? TransactionStatus { get; set; }
 
 	}
 }

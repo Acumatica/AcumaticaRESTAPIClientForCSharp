@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -15,10 +16,6 @@ namespace Acumatica.eCommerce_22_200_001.Model
 		public ChangeCostCodeIDParameters() { }
 
 		[DataMember(Name="CostCodeID", EmitDefaultValue=false)]
-		public StringValue CostCodeID { get; set; }
-		public virtual string ToJson()
-		{
-			return JsonConvert.SerializeObject(this, Formatting.Indented);
-		}
+		public StringValue? CostCodeID { get; set; }
 	}
 }

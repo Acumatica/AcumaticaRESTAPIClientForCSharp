@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -14,25 +15,25 @@ namespace Acumatica.Default_20_200_001.Model
 	{
 
 		[DataMember(Name="BillableOvertime", EmitDefaultValue=false)]
-		public StringValue BillableOvertime { get; set; }
+		public StringValue? BillableOvertime { get; set; }
 
 		[DataMember(Name="BillableTime", EmitDefaultValue=false)]
-		public StringValue BillableTime { get; set; }
+		public StringValue? BillableTime { get; set; }
 
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue CostCode { get; set; }
+		public StringValue? CostCode { get; set; }
 
 		[DataMember(Name="Overtime", EmitDefaultValue=false)]
-		public StringValue Overtime { get; set; }
+		public StringValue? Overtime { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
-		public StringValue Project { get; set; }
+		public StringValue? Project { get; set; }
 
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
-		public StringValue ProjectTask { get; set; }
+		public StringValue? ProjectTask { get; set; }
 
 		[DataMember(Name="TimeSpent", EmitDefaultValue=false)]
-		public StringValue TimeSpent { get; set; }
+		public StringValue? TimeSpent { get; set; }
 
 	}
 }

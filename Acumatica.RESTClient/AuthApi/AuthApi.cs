@@ -5,68 +5,53 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
-using Acumatica.Auth.Model;
 using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.AuthApi.Model;
 using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 
+using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
-namespace Acumatica.Auth.Api
+
+namespace Acumatica.RESTClient.AuthApi
 {
-    /// <summary>
-    /// Represents a collection of functions to interact with the Authorization endpoint
-    /// </summary>
-    public partial class AuthApi : BaseApi
+	/// <summary>
+	/// Represents a collection of functions to interact with the Authorization endpoint
+	/// </summary>
+	public static class AuthApiExtensions
     {
-        #region Constructor
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AuthApi"/> class
-        /// </summary>
-        /// <param name="basePath">
-        /// Path to the Acumatica instance e.g. <c>https://example.acumatica.com/</c>
-        /// </param>
-        /// <param name="timeout">
-        /// Request timeout of API requests in milliseconds. Default to 10000 milliseconds. 
-        /// The timeout is saved in the <see cref="Configuration"/> and will be applied to 
-        /// all subsequent requests using the same <see cref="Configuration"/>.
-        /// </param>
-        /// <param name="requestInterceptor">
-        /// An action delegate that will be executed along with sending an API request. 
-        /// Can be used for logging purposes.
-        /// </param>
-        /// <param name="responseInterceptor">
-        /// An action delegate that will be executed along with receiving an API response. 
-        /// Can be used for logging purposes.
-        /// </param>
-        public AuthApi(string basePath, int timeout = 100000,
-            Action<HttpRequestMessage> requestInterceptor = null,
-            Action<HttpResponseMessage> responseInterceptor = null) : base(basePath, timeout, requestInterceptor, responseInterceptor)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AuthApi"/> class
-        /// using Configuration object
-        /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
-        /// <returns></returns>
-        protected AuthApi(ApiClient configuration) : base(configuration)
-        { }
-        #endregion
-
-        #region Public Methods
-
-        #region OAuth
-        public ApiClient RefreshAccessToken(string clientID, string clientSecret, ApiClient configuration)
+		#region Public Methods
+		#region OAuth
+		public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
         {
-            if (configuration == null || string.IsNullOrEmpty(ApiClient.Token?.Refresh_token))
-                ThrowMissingParameter("RefreshAccessToken", "Refresh_Token");
-
-            var result = RefreshWithHttpInfo(clientID, clientSecret, ApiClient.Token.Refresh_token);
-            ApiClient.Token = result.Data;
-            return configuration;
+            Task.Run(() => RefreshAccessTokenAsync(client, clientID, clientSecret)).GetAwaiter().GetResult();
         }
 
+        public async static Task RefreshAccessTokenAsync(this ApiClient client, string clientID, string clientSecret)
+        {
+            if (client == null || string.IsNullOrEmpty(client.Token?.Refresh_token))
+                ApiClientHelpers.ThrowMissingParameter(nameof(RefreshAccessToken), "Refresh_Token");
+
+            HttpResponseMessage response = await client!.CallApiAsync(
+               "/identity/connect/token",
+               HttpMethod.Post,
+               null,
+               await ApiClientHelpers.ToFormUrlEncodedAsync(new Dictionary<string, string>()
+               {
+                    {"grant_type", "refresh_token" },
+                    {"client_id", clientID },
+                    {"client_secret", clientSecret },
+                    {"refresh_token", client.Token!.Refresh_token! },
+               }),
+               HeaderContentType.None,
+               HeaderContentType.WwwForm);
+
+            response.EnsureSuccessStatusCode();
+
+            client.Token = await DeserializeAsync<Token>(response);
+        }
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
         /// </summary>
@@ -75,23 +60,79 @@ namespace Acumatica.Auth.Api
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="scope"></param>
-        public void ReceiveAccessToken(string clientID, string clientSecret, string username, string password, OAuthScope scope)
+        public static void ReceiveAccessToken(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
         {
-            var result = ConnectWithHttpInfo(
-                clientID,
-                clientSecret,
-                username,
-                password,
-                scope);
-            ApiClient.Token = result.Data;
+            Task.Run(() => ReceiveAccessTokenAsync(client, clientID, clientSecret, username, password, scope)).GetAwaiter().GetResult();
+        }
+        /// <summary>
+        /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="scope"></param>
+        public async static Task ReceiveAccessTokenAsync(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
+        {
+            HttpResponseMessage response = await client.CallApiAsync(
+               "identity/connect/token",
+               HttpMethod.Post,
+               null,
+               await ApiClientHelpers.ToFormUrlEncodedAsync(new Dictionary<string, string>
+               {
+                    {"grant_type", "password" },
+                    {"client_id", clientID },
+                    {"client_secret", clientSecret },
+                    {"username", username },
+                    {"password", password },
+                    {"scope", PrepareScopeParameter(scope) }
+               }),
+               HeaderContentType.None,
+               HeaderContentType.WwwForm);
+
+            await VerifyResponseAsync(client, response, nameof(ReceiveAccessTokenAsync));
+
+            client.Token = await DeserializeAsync<Token>(response);
         }
 
-        public string Authorize(string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="redirectUrl"></param>
+        /// <param name="scope"></param>
+        public static string Authorize(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
         {
-            var response = AuthorizeWithHttpInfo(
-              clientID,
-              redirectUrl,
-              scope);
+            return AuthorizeAsync(client, clientID, clientSecret, redirectUrl, scope).Result;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="redirectUrl"></param>
+        /// <param name="scope"></param>
+        public async static Task<string> AuthorizeAsync(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
+        {
+            List<KeyValuePair<string, string>> queryParams = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("response_type", "code"),
+                new KeyValuePair<string, string>("client_id", clientID),
+                new KeyValuePair<string, string>("scope", PrepareScopeParameter(scope)),
+                new KeyValuePair<string, string>("redirect_uri",  redirectUrl)
+            };
+
+            HttpResponseMessage response = await client.CallApiAsync(
+                "identity/connect/authorize",
+                HttpMethod.Get,
+                queryParams,
+                null,
+                HeaderContentType.Any,
+                HeaderContentType.None);
+
+            await VerifyResponseAsync(client, response, "RequestToken");
+
             var locationHeader = response.Headers.Where(_ => _.Key == "Location").FirstOrDefault();
             if (!response.Headers.Where(_ => _.Key == "Location").Any())
             {
@@ -101,14 +142,48 @@ namespace Acumatica.Auth.Api
             return response.Headers.Where(_ => _.Key == "Location").First().Value.First().ToString();
         }
 
-        public void ReceiveAccessTokenAuthCode(string clientID, string clientSecret, string redirectUrl, string code)
+        /// <summary>
+        /// Receives access token for OAuth 2.0 authentication (Authorization code flow)
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="clientID"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="redirectUrl"></param>
+        /// <param name="code"></param>
+        public static void ReceiveAccessTokenAuthCode(this ApiClient client, string clientID, string clientSecret, string redirectUrl, string code)
         {
-            var result = ConnectWithHttpInfoAuthCode(
-                clientID,
-                clientSecret,
-                redirectUrl,
-                code);
-            ApiClient.Token = result.Data;
+            Task.Run(() => ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, redirectUrl, code)).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Receives access token for OAuth 2.0 authentication (Authorization code flow)
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="clientID"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="redirectUrl"></param>
+        /// <param name="code"></param>
+        public static async Task ReceiveAccessTokenAuthCodeAsync(this ApiClient client, string clientID, string clientSecret, string redirectUrl, string code)
+        {
+            HttpResponseMessage response = await client.CallApiAsync(
+               "/identity/connect/token",
+               HttpMethod.Post,
+               null,
+               await ApiClientHelpers.ToFormUrlEncodedAsync(new Dictionary<string, string>
+               {
+                    {"grant_type", "authorization_code" },
+                    {"code", code },
+                    {"redirect_uri", redirectUrl },
+                    {"client_id", clientID },
+                    {"client_secret", clientSecret }
+                   // ,                    {"scope", PrepareScopeParameter(scope) }
+               }),
+               HeaderContentType.None,
+               HeaderContentType.WwwForm);
+
+            await VerifyResponseAsync(client, response, "RequestToken");
+
+            client.Token = await DeserializeAsync<Token>(response);
         }
         #endregion
 
@@ -125,9 +200,26 @@ namespace Acumatica.Auth.Api
         /// <returns>
         /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
         /// </returns>
-        public void LogIn(string username, string password, string tenant = null, string branch = null, string locale = null)
+        public static void Login(this ApiClient client, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
         {
-            LogIn(new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
+            Login(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
+        }
+
+        /// <summary>
+        /// Logs in to the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">Name of the user that is used to open a new session (required).</param>
+        /// <param name="password">User password (required).</param>
+        /// <param name="tenant">Defines the tenant to log in.</param>
+        /// <param name="branch">Defines the branch to log in.</param>
+        /// <param name="locale">Defines the locale to use for localizable data.</param>
+        /// <returns>
+        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
+        /// </returns>
+        public async static Task LoginAsync(this ApiClient client, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
+        {
+            await LoginAsync(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
         }
 
         /// <summary>
@@ -140,11 +232,37 @@ namespace Acumatica.Auth.Api
         /// <returns>
         /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
         /// </returns>
-        public void LogIn(Credentials credentials)
+        public static void Login(this ApiClient client, Credentials credentials)
         {
-            AuthLoginWithHttpInfo(credentials);
+           Task.Run(() => LoginAsync(client, credentials)).GetAwaiter().GetResult();
+		}
+        /// <summary>
+        /// Logs in to the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="credentials">
+        /// <see cref="Credentials"/> object that provides information required to log into the web service.
+        /// </param>
+        /// <returns>
+        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
+        /// </returns>
+        public async static Task LoginAsync(this ApiClient client, Credentials credentials)
+        {
+            if (credentials == null)
+                ApiClientHelpers.ThrowMissingParameter(nameof(LoginAsync), nameof(credentials));
+
+            HttpResponseMessage response = await client.CallApiAsync(
+                "/entity/auth/login",
+                HttpMethod.Post,
+                null,
+                credentials,
+                HeaderContentType.None,
+                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
+
+            await VerifyResponseAsync(client, response, nameof(LoginAsync));
         }
         #endregion
+
 
         #region Logout
         /// <summary>
@@ -152,54 +270,72 @@ namespace Acumatica.Auth.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
-        public void Logout()
+        public static void Logout(this ApiClient client)
         {
-            AuthLogoutWithHttpInfo();
+            Task.Run(() => LogoutAsync(client)).GetAwaiter().GetResult();
         }
 
         /// <summary>
         /// Logs out from the system without throwing exceptions if the logout failed.
         /// </summary>
         /// <returns>Returns <c>true</c> if the logout has been successful</returns>
-        public bool TryLogout()
+        public static bool TryLogout(this ApiClient client)
         {
             try
             {
-                Logout();
-                return true;
+				Logout(client);
+				return true;
             }
             catch
             {
                 return false;
             }
         }
+
+  
         /// <summary>
         /// Logs out from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task LogoutAsync()
+        public static async Task LogoutAsync(this ApiClient client)
         {
-            await AuthLogoutAsyncWithHttpInfo();
+            if (!client.HasSessionInfo())
+            {
+                throw new Exception("There is no open session to log out.");
+            }
+            HttpResponseMessage response = await client.CallApiAsync(
+               "/entity/auth/logout",
+               HttpMethod.Post,
+               null,
+               null,
+               HeaderContentType.None,
+               HeaderContentType.None);
+
+             await VerifyResponseAsync(client, response, nameof(LogoutAsync));
         }
 
         #endregion
         #endregion
 
-        #region Implementation
-        protected override void VerifyResponse(HttpResponseMessage response, string methodName)
+        #region Auxiliary
+        private async static Task VerifyResponseAsync(ApiClient client, HttpResponseMessage response, string methodName)
         {
             if (!response.IsSuccessStatusCode)
             {
-                //if content as string contains string "API login limit", report separate error
-                if (response.Content != null && response.Content.ReadAsStringAsync().Result.Contains("API Login Limit"))
+                var content = await response.Content.ReadAsStringAsync();
+                if (content?.Contains("API Login Limit") == true)
                 {
                     throw new ApiException(429, $"Error when calling {methodName}: API login limit exceeded. Please try again later.");
                 }
+                else if (content?.Contains("Invalid credentials") == true)
+                {
+                    throw new ApiException((int)response.StatusCode, $"Error when calling {methodName}: Invalid credentials.");
+                }
+                throw new ApiException((int)response.StatusCode, $"Error {(int)response.StatusCode}:{response.ReasonPhrase} when calling {methodName}: {content}");
             }
-          
-            base.VerifyResponse(response, methodName);
         }
+
         [Flags]
         public enum OAuthScope
         {
@@ -207,92 +343,6 @@ namespace Acumatica.Auth.Api
             API = 1,
             OfflineAccess = 2,
             ConcurrentAccess = 4
-        }
-        protected ApiResponse<Token> RefreshWithHttpInfo(string clientID, string clientSecret, string refreshToken)
-        {
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
-                "/identity/connect/token",
-                HttpMethod.Post,
-                null,
-                ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>()
-                {
-                    {"grant_type", "refresh_token" },
-                    {"client_id", clientID },
-                    {"client_secret", clientSecret },
-                    {"refresh_token", refreshToken },
-                }),
-                HeaderContentType.None,
-                HeaderContentType.WwwForm).Result;
-
-            VerifyResponse(localVarResponse, "RefreshToken");
-
-            return DeserializeResponse<Token>(localVarResponse);
-        }
-
-        protected ApiResponse<Token> ConnectWithHttpInfo(string clientID, string clientSecret, string username, string password, OAuthScope scope)
-        {
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
-                "identity/connect/token",
-                HttpMethod.Post,
-                null,
-                ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
-                {
-                    {"grant_type", "password" },
-                    {"client_id", clientID },
-                    {"client_secret", clientSecret },
-                    {"username", username },
-                    {"password", password },
-                    {"scope", PrepareScopeParameter(scope) }
-                }),
-                HeaderContentType.None,
-                HeaderContentType.WwwForm).Result;
-
-            VerifyResponse(localVarResponse, "RequestToken");
-
-            return DeserializeResponse<Token>(localVarResponse);
-        }
-
-        protected HttpResponseMessage AuthorizeWithHttpInfo(string clientID, string redirectUrl, OAuthScope scope)
-        {
-            //queryParameters.Add(new KeyValuePair<string, string>("response_type", "code"));
-            //queryParameters.Add(new KeyValuePair<string, string>("client_id", clientID));
-            //queryParameters.Add(new KeyValuePair<string, string>("scope", PrepareScopeParameter(scope)));
-            //queryParameters.Add(new KeyValuePair<string, string>("redirect_uri", redirectUrl));
-
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
-                "/identity/connect/authorize",
-                HttpMethod.Get,
-                null,
-                null,
-                HeaderContentType.None,
-                HeaderContentType.WwwForm).Result;
-
-            VerifyResponse(localVarResponse, "RequestToken");
-
-            return localVarResponse;
-        }
-
-        protected ApiResponse<Token> ConnectWithHttpInfoAuthCode(string clientID, string clientSecret, string redirectUrl, string code)
-        {
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
-                "/identity/connect/token",
-                HttpMethod.Post,
-                null,
-                ApiClientHelpers.ToFormUrlEncoded(new Dictionary<string, string>
-                {
-                    {"grant_type", "authorization_code" },
-                    {"code", code },
-                    {"redirect_uri", redirectUrl },
-                    {"client_id", clientID },
-                    {"client_secret", clientSecret }
-                   // ,                    {"scope", PrepareScopeParameter(scope) }
-                }),
-                HeaderContentType.None,
-                HeaderContentType.WwwForm).Result;
-
-            VerifyResponse(localVarResponse, "RequestToken");
-
-            return DeserializeResponse<Token>(localVarResponse);
         }
 
         private static string PrepareScopeParameter(OAuthScope scope)
@@ -308,95 +358,6 @@ namespace Acumatica.Auth.Api
             return s.ToString().TrimEnd(' ');
         }
 
-        /// <summary>
-        /// Logs in to the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="credentials"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        protected ApiResponse AuthLoginWithHttpInfo(Credentials credentials)
-        {
-            if (credentials == null)
-                ThrowMissingParameter("AuthLogin", nameof(credentials));
-
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
-                "/entity/auth/login",
-                HttpMethod.Post,
-                null,
-                credentials, 
-                HeaderContentType.None, 
-                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm).Result;
-
-            VerifyResponse(localVarResponse, "AuthLogin");
-
-            return ConvertRestResponeToApiResponse(localVarResponse);
-        }
-
-        /// <summary>
-        /// Logs in to the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="credentials"></param>
-        /// <returns>Task of ApiResponse</returns>
-        protected async Task<ApiResponse> AuthLoginAsyncWithHttpInfo(Credentials credentials)
-        {
-            if (credentials == null)
-                ThrowMissingParameter("AuthLogin", nameof(credentials));
-
-            HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
-                "/entity/auth/login",
-                HttpMethod.Post,
-                null,
-                credentials, 
-                HeaderContentType.None, 
-                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
-
-            VerifyResponse(localVarResponse, "AuthLogin");
-
-            return ConvertRestResponeToApiResponse(localVarResponse);
-        }
-
-        /// <summary>
-        /// Logs out from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object(void)</returns>
-        protected ApiResponse AuthLogoutWithHttpInfo()
-        {
-
-            HttpResponseMessage localVarResponse = ApiClient.CallApiAsync(
-                "/entity/auth/logout",
-                HttpMethod.Post,
-                null,
-                null, 
-                HeaderContentType.None, 
-                HeaderContentType.None).Result;
-
-            VerifyResponse(localVarResponse, "AuthLogout");
-
-            return ConvertRestResponeToApiResponse(localVarResponse);
-        }
-
-        /// <summary>
-        /// Logs out from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse</returns>
-        protected async Task<ApiResponse> AuthLogoutAsyncWithHttpInfo()
-        {
-
-            HttpResponseMessage localVarResponse = await ApiClient.CallApiAsync(
-                "/entity/auth/logout",
-                HttpMethod.Post,
-                null,
-                null,
-                HeaderContentType.None,
-                HeaderContentType.None);
-
-            VerifyResponse(localVarResponse, "AuthLogout");
-
-            return ConvertRestResponeToApiResponse(localVarResponse);
-        }
         #endregion
     }
 }

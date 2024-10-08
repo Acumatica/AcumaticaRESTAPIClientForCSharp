@@ -1,24 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup> 
+<Version>5.3.0</Version>
+<Company>Acumatica</Company>
+<Description>C# classes generated based on Acumatica Manufacturing endpoint version 23.100.001</Description>
+<Copyright>Acumatica</Copyright>
+<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
+<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
+<PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
+<PackageReleaseNotes>Added field documentation</PackageReleaseNotes>
+<PackageLicenseExpression>MIT</PackageLicenseExpression>
+<Title>Manufacturing Acumatica Contract Based API endpoint v.23.100.001 model </Title>
+<Authors>Dmitrii-Naumov</Authors>
+<IncludeSymbols>True</IncludeSymbols>
+<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+ </PropertyGroup>
+
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
-	<Version>4.1.0</Version>
-	<Authors>Dmitrii-Naumov</Authors>
-	<Company>Acumatica</Company>
-	<Description>C# classes generated based on Acumatica Manufacturing endpoint version 23.100.001</Description>
-	<Copyright>Acumatica</Copyright>
-	<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
-	<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
-	<PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<IncludeSymbols>True</IncludeSymbols>
-	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <LangVersion>8.0</LangVersion>
+    <nullable>Enable</nullable>
   </PropertyGroup>
 
    <ItemGroup>
-	<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup> <ItemGroup>
 	<ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+	
 	<ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
   </ItemGroup>
 
