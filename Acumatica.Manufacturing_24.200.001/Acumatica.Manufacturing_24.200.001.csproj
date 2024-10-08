@@ -22,7 +22,7 @@
     <LangVersion>8.0</LangVersion>
     <nullable>Enable</nullable>
     <Title>Manufacturing Acumatica Contract Based API endpoint v.24.200.001 model </Title>
-    <Version>5.2.0-beta</Version>
+    <Version>5.3.0</Version>
     <Authors>Dmitrii-Naumov</Authors>
     <Company>Acumatica</Company>
     <Description>C# classes generated based on Acumatica Manufacturing endpoint version 24.200.001</Description>

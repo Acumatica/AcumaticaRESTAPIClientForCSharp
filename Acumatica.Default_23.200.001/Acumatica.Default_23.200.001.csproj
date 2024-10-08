@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup> 
-<Version>5.2.0-beta</Version>
+<Version>5.3.0</Version>
 <Company>Acumatica</Company>
 <Description>C# classes generated based on Acumatica Default endpoint version 23.200.001</Description>
 <Copyright>Acumatica</Copyright>
