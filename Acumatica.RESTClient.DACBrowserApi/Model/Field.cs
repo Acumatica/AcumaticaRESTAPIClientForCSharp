@@ -25,7 +25,7 @@ namespace Acumatica.RESTClient.DACBrowserApi.Model
         public string SqlType { get; set; }
 
         [DataMember(Name = "documentation", EmitDefaultValue = false)]
-        public Documentation Documentation { get; set; }
+        public Documentation? Documentation { get; set; }
 
     }
 }
