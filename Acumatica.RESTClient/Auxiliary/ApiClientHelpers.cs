@@ -115,7 +115,7 @@ namespace Acumatica.RESTClient.Auxiliary
         /// <param name="name">Key name.</param>
         /// <param name="value">Value object.</param>
         /// <returns>A list of KeyValuePairs</returns>
-        private static IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
+        public static IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
         {
             var parameters = new List<KeyValuePair<string, string>>();
 

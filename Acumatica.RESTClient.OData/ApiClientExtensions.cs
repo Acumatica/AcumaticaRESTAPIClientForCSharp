@@ -27,18 +27,18 @@ namespace Acumatica.RESTClient.ODataApi
             return (await GetODataAsync(client, version, "", tenant)).Select(_=> _.ToObject<ODataObject>());
         }
 
-        public static IEnumerable<JObject> GetOData(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null)
-        {   
-            return Task.Run(()=>GetODataAsync(client, version, resource, tenant, select, filter, expand, skip, top)).GetAwaiter().GetResult();
+        public static IEnumerable<JObject> GetOData(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null, string? orderby = null)
+        {
+            return Task.Run(() => GetODataAsync(client, version, resource, tenant, select, filter, expand, skip, top, orderby)).GetAwaiter().GetResult();
         }
         
-        public static async Task<IEnumerable<JObject>> GetODataAsync(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null)
+        public static async Task<IEnumerable<JObject>> GetODataAsync(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null, string? orderby = null)
         {
             //Oauth authentication
             HttpResponseMessage response = await client.CallApiAsync(
                 ConfigurePath(resource, tenant, version),
                 HttpMethod.Get,
-                ComposeQueryParams(select, filter, expand, null, skip, top),
+                ComposeQueryParamsOData(select, filter, expand, null, skip, top, orderby),
                 null,
                 HeaderContentType.Json,
                 HeaderContentType.Json,
@@ -53,7 +53,13 @@ namespace Acumatica.RESTClient.ODataApi
 
         #region Implementation
 
+        public static List<KeyValuePair<string, string>> ComposeQueryParamsOData(string? select = null, string? filter = null, string? expand = null, string? custom = null, int? skip = null, int? top = null, string? orderby = null)
+        {
+            var queryParameters = ComposeQueryParams(select, filter, expand, custom, skip, top);
+            if (!String.IsNullOrEmpty(orderby)) queryParameters.AddRange(ParameterToKeyValuePairs("", "$orderby", orderby!));
 
+            return queryParameters;
+        }
 
         /// <summary>
         /// Configures the base path according to version of OData and tenant, if exists.

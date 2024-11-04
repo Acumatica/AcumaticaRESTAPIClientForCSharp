@@ -68,7 +68,7 @@ namespace AcumaticaRestApiExample
                     Console.WriteLine(e.Message);
                 }
                 string filterParam2 = "LastModifiedDateofWarehouseQty gt datetime'2022-07-13T00:00:00.000'";
-                var giResult3 = client.GetOData(ODataVersion.OData, "DB-StorageDetails", tenant: tenant, filter: filterParam2);
+                var giResult3 = client.GetOData(ODataVersion.OData, "DB-StorageDetails", tenant: tenant, filter: filterParam2, top: 3, orderby: "LastModifiedDateofWarehouseQty asc");
                 Console.WriteLine("Retrieved successfully");
             }
 			catch (Exception e)
@@ -157,7 +157,7 @@ namespace AcumaticaRestApiExample
 			selectParam = "InventoryCD,Descr,ItemStatus,LastModifiedDateTime,BaseUnit";
 			expandParam = "INSiteByDfltSiteID($select=SiteCD),INItemClassByItemClassID($select = ItemClassCD),INSiteStatusCollection($select = QtyOnHand)";
 			string filterParam = "StkItem eq true and ItemStatus eq 'AC' and LastModifiedDateTime gt 2022-07-13T00:00-04:00";
-			var response5 = client.GetOData(ODataVersion.ODatav4, "PX_Objects_IN_InventoryItem", tenant: tenant, select: selectParam, filter: filterParam, expand: expandParam);
+			var response5 = client.GetOData(ODataVersion.ODatav4, "PX_Objects_IN_InventoryItem", tenant: tenant, select: selectParam, filter: filterParam, expand: expandParam, orderby: "LastModifiedDateTime asc");
 			Console.WriteLine(response5.First());
 
         }
