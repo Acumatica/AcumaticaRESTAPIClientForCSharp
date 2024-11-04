@@ -14,8 +14,7 @@ namespace AcumaticaRestApiExample
 		{
 			Console.WriteLine("OData with Oauth authentication");
             var authApi = new AuthApi(siteURL
-				//,
-				//requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+				,requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
 				);
 			authApi.ReceiveAccessToken(clientID, clientSecret, username, password, OAuthScope.API);
 			
@@ -28,7 +27,7 @@ namespace AcumaticaRestApiExample
 		{
 			Console.WriteLine("OData version 3 with Basic Authentication");
 			var conf = new ApiClient(siteURL
-				//, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+				, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
 				);
 			conf.Username = username;
 			conf.Password = password;
@@ -38,15 +37,13 @@ namespace AcumaticaRestApiExample
 
 
 			Console.WriteLine("Filtering the Result of a Generic Inquiry with OData Version 3");
-			response = odatav3.GetOData("BI-ARInvoices");
+			response = odatav3.GetOData("BI-ARInvoices", top: 3);
 
 			Console.WriteLine(response.Data);
 
 			Console.WriteLine("Retrieve the modified stocks qtys with OData Version 3");
-			string filterParam = "LastModifiedDateTime gt datetime'2022-07-13T00:00:00.000'";
-			response = odatav3.GetOData("DB-StorageDetails", filter: filterParam);
-            ///gives this error:
-            ///<m:message>Could not find a property named 'LastModifiedDateTime' on type 'PX.Data.DBStorageDetails'.</m:message>
+            string filterParam = "LastModifiedDateofWarehouseQty gt datetime'2022-07-13T00:00:00.000'";
+            response = odatav3.GetOData("DB-StorageDetails", filter: filterParam, top: 3, orderby: "LastModifiedDateofWarehouseQty asc");
             Console.WriteLine(response.Data);
 		}
         
@@ -55,7 +52,7 @@ namespace AcumaticaRestApiExample
 			Console.WriteLine("OData version 4 examples");
 			Console.WriteLine("Testing sign in");
             var conf = new ApiClient(siteURL
-			//	, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
+				, requestInterceptor: RequestLogger.LogRequest, responseInterceptor: RequestLogger.LogResponse
 				);
             conf.Username = username;
             conf.Password = password;
@@ -66,14 +63,14 @@ namespace AcumaticaRestApiExample
 			Console.WriteLine("Retrieving quantities from tables with OData Version 4");
 			string selectParam = "QtyOnHand,QtyAvail";
 			string expandParam = "InventoryItemByInventoryID($select=InventoryCD,Descr),INSiteBySiteID($select = SiteCD)";
-			var response3 = oDatav4.GetOData("PX_Objects_IN_INSiteStatus", selectParam, null, expandParam);
+			var response3 = oDatav4.GetOData("PX_Objects_IN_INSiteStatus", selectParam, null, expandParam, top: 3);
 			Console.WriteLine(response3.Data);
 
 			Console.WriteLine("Retrieve the list of modified stocks with OData Version 4");
 			selectParam = "InventoryCD,Descr,ItemStatus,LastModifiedDateTime,BaseUnit";
 			expandParam = "INSiteByDfltSiteID($select=SiteCD),INItemClassByItemClassID($select = ItemClassCD),INSiteStatusCollection($select = QtyOnHand)";
 			string filterParam = "StkItem eq true and ItemStatus eq 'AC' and LastModifiedDateTime gt 2022-07-13T00:00-04:00";
-			var response5 = oDatav4.GetOData("PX_Objects_IN_InventoryItem", selectParam, filterParam, expandParam);
+			var response5 = oDatav4.GetOData("PX_Objects_IN_InventoryItem", selectParam, filterParam, expandParam, top: 3, orderby: "LastModifiedDateTime asc");
 			Console.WriteLine(response5.Data);
 
         }

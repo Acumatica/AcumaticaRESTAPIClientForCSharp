@@ -4,7 +4,7 @@ namespace AcumaticaRestApiExample
 {
 	class Program
 	{
-		const string SiteURL = "http://localhost/2023r200Sales/";
+		const string SiteURL = "http://localhost/24r200/";
         const string Username = "admin";
 		const string Password = "123";
 		const string Tenant = null;
@@ -32,11 +32,11 @@ namespace AcumaticaRestApiExample
             Console.WriteLine("OData V4 example");
             ODataExample.ODataGetV4(SiteURL, Username, Password, Tenant);
 
-            Console.WriteLine("OData OAuth 2.0 (Resource Owner Password Credentials flow) example");
-            ODataExample.OauthExample(SiteURL, Username, Password, ClientSecret, ClientID, Tenant);
+            //Console.WriteLine("OData OAuth 2.0 (Resource Owner Password Credentials flow) example");
+            //ODataExample.OauthExample(SiteURL, Username, Password, ClientSecret, ClientID, Tenant);
 
-            Console.WriteLine("OAuth 2.0 (Authorization Code flow)");
-            OAuthAuthCodeExample.Example(SiteURL, ClientSecret, ClientID, RedirectUrl);
+            //Console.WriteLine("OAuth 2.0 (Authorization Code flow)");
+            //OAuthAuthCodeExample.Example(SiteURL, ClientSecret, ClientID, RedirectUrl);
 
         }
 
