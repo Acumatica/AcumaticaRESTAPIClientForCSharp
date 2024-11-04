@@ -23,15 +23,15 @@ namespace Acumatica.RESTClient.ODataApi
         {
             return GetOData("$metadata");
         }
-        public ApiResponse<string> GetOData(string resource, string select = null, string filter = null, string expand = null, int? skip = null, int? top = null)
+        public ApiResponse<string> GetOData(string resource, string select = null, string filter = null, string expand = null, int? skip = null, int? top = null, string orderby = null)
         {
             //Oauth authentication
             HttpResponseMessage response = ApiClient.CallApiAsync(
                 ConfigurePath(resource),
                 HttpMethod.Get,
-                ComposeQueryParams(select, filter, expand, null, skip, top),
-                null, 
-                HeaderContentType.Json, 
+                ComposeQueryParamsOData(select, filter, expand, null, skip, top, orderby),
+                null,
+                HeaderContentType.Json,
                 HeaderContentType.Json,
                 ComposeAuthenticationHeaders()
             ).Result;
@@ -41,10 +41,15 @@ namespace Acumatica.RESTClient.ODataApi
         }
 
 
- 
-
-
         #region Implementation
+
+        protected List<KeyValuePair<string, string>> ComposeQueryParamsOData(string select = null, string filter = null, string expand = null, string custom = null, int? skip = null, int? top = null, string orderby = null)
+        {
+            var queryParameters = ComposeQueryParams(select, filter, expand, custom, skip, top);
+            if (!String.IsNullOrEmpty(orderby)) queryParameters.AddRange(ApiClient.ParameterToKeyValuePairs("", "$orderby", orderby));
+
+            return queryParameters;
+        }
 
         /// <summary>
         /// Configures the base path according to version of OData and tenant, if exists.
