@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
-using Acumatica.RESTClient.Client;
 
-using Acumatica.RESTClient.ContractBasedApi.Model;
-using System.Net;
-using System.Linq;
 using Acumatica.RESTClient.Api;
-using System.Net.Http;
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi.Model;
 
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 using static Acumatica.RESTClient.ContractBasedApi.EntityStructureHelper;
@@ -349,7 +348,6 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of Entity</returns>
@@ -384,7 +382,6 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Entity</returns>
@@ -404,7 +401,6 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The session ID of the record.</param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of Entity</returns>
@@ -438,7 +434,6 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The session ID of the record.</param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Entity</returns>
