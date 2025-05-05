@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net.Http;
 
-namespace AcumaticaRestApiExample
+namespace Acumatica.RESTClient.Loggers
 {
     public static class FileRequestLogger
     {

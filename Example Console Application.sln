@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_23.200.00
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.MaintenanceApi", "Acumatica.RESTClient.Maintenance\Acumatica.RESTClient.MaintenanceApi.csproj", "{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loggers", "Loggers\Loggers.csproj", "{8F09008A-DDF6-46ED-BB99-4FD6C7F46624}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient.Loggers", "Loggers\Acumatica.RESTClient.Loggers.csproj", "{8F09008A-DDF6-46ED-BB99-4FD6C7F46624}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

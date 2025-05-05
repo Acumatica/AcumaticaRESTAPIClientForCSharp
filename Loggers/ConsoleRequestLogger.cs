@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace AcumaticaSoapLikeApiExample
+namespace Acumatica.RESTClient.Loggers
 {
     public static class ConsoleRequestLogger
     {

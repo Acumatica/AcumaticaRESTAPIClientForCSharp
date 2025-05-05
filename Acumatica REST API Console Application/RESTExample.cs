@@ -6,6 +6,7 @@ using System.Text;
 
 using Acumatica.Default_23_200_001.Model;
 using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.Loggers;
 
 using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
 using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;

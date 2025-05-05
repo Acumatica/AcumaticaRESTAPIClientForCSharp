@@ -3,6 +3,7 @@ using System.IO;
 
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.CustomizationApi;
+using Acumatica.RESTClient.Loggers;
 
 using AcumaticaRestApiExample;
 

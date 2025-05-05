@@ -5,6 +5,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.Loggers;
 using Acumatica.RESTClient.ODataApi;
 
 using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;

@@ -15,6 +15,7 @@ using AcumaticaRestApiExample;
 using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
 using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
 using Acumatica.RESTClient.MaintenanceApi;
+using Acumatica.RESTClient.Loggers;
 
 namespace AcumaticaRestApiExample
 {
