@@ -17,8 +17,8 @@ namespace Acumatica_REST_API_Example_Console_Application
         {
             Console.WriteLine("Sign in");
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse
+                requestInterceptor: FileRequestLogger.LogRequest,
+                responseInterceptor: FileRequestLogger.LogResponse
                 );
             try
             {

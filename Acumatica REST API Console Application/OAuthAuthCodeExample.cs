@@ -21,7 +21,7 @@ namespace AcumaticaRestApiExample
         public static void Example(string siteURL, string clientSecret, string clientID, string redirectUrl)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest
+                requestInterceptor: FileRequestLogger.LogRequest
             //   ,responseInterceptor: RequestLogger.LogResponse
             , ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );

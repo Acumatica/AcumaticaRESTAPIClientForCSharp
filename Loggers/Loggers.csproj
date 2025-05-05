@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+
+	  <Title>Loggers for Acumatica REST API Client</Title>
+	  <Version>1.0.0</Version>
+	  <Authors>Dmitrii-Naumov</Authors>
+	  <Company>Acumatica</Company>
+	  <Description>An extension for Acumatica REST API client for C# allowing to log requests and responses</Description>
+	  <Copyright>Acumatica</Copyright>
+	  <PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
+	  <PackageTags>Acumatica;REST;client;log</PackageTags>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+  </PropertyGroup>
+
+</Project>

@@ -18,8 +18,8 @@ namespace AcumaticaRestApiExample
 		public static void TestFileUpload(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
             var client = new ApiClient(siteURL,
-				requestInterceptor: RequestLogger.LogRequest, 
-                responseInterceptor: RequestLogger.LogResponse,
+				requestInterceptor: FileRequestLogger.LogRequest, 
+                responseInterceptor: FileRequestLogger.LogResponse,
                  ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
@@ -70,8 +70,8 @@ namespace AcumaticaRestApiExample
         public static void TestFullSOProcess(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse,
+                requestInterceptor: FileRequestLogger.LogRequest,
+                responseInterceptor: FileRequestLogger.LogResponse,
                 ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
@@ -149,8 +149,8 @@ namespace AcumaticaRestApiExample
         public static void TestShipmentRetrieval(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse,
+                requestInterceptor: FileRequestLogger.LogRequest,
+                responseInterceptor: FileRequestLogger.LogResponse,
                  ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
@@ -186,8 +186,8 @@ namespace AcumaticaRestApiExample
         public static void CreateAndReleaseAPBill(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse,
+                requestInterceptor: FileRequestLogger.LogRequest,
+                responseInterceptor: FileRequestLogger.LogResponse,
                 ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
@@ -237,8 +237,8 @@ namespace AcumaticaRestApiExample
         public static void ReadStockItemsWithTranslations(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse,
+                requestInterceptor: FileRequestLogger.LogRequest,
+                responseInterceptor: FileRequestLogger.LogResponse,
                 ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
@@ -271,8 +271,8 @@ namespace AcumaticaRestApiExample
         public static void TryToCreateARInvoiceAndFail(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse,
+                requestInterceptor: FileRequestLogger.LogRequest,
+                responseInterceptor: FileRequestLogger.LogResponse,
                 ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
 
