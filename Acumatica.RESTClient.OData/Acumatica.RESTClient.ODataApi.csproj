@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>Acumatica REST API for Accessing OData</Title>
-    <Version>5.3.0</Version>
+    <Version>5.4.0</Version>
     <Authors>Dmitrii-Naumov</Authors>
     <Company>Acumatica</Company>
     <Description>An extension for Acumatica REST API client for C# allowing interaction with OData API</Description>
@@ -15,7 +15,7 @@
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReleaseNotes>Added new URLs for Odata for Acumatica 2024r2</PackageReleaseNotes>
+    <PackageReleaseNotes>Added OrderBy parameter</PackageReleaseNotes>
 
     <LangVersion>8.0</LangVersion>
     <nullable>Enable</nullable>

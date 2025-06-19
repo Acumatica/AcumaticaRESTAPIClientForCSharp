@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
-using System.Reflection;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
@@ -12,7 +11,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 using Acumatica.RESTClient.FileApi.Model;
 
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
-using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
 
 namespace Acumatica.RESTClient.FileApi
 {

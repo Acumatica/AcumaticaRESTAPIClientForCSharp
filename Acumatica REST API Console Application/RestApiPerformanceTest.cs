@@ -8,6 +8,7 @@ using System.Text;
 using Acumatica.Default_20_200_001.Api;
 using Acumatica.Default_20_200_001.Model;
 using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.Loggers;
 
 using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
 using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
@@ -19,8 +20,8 @@ namespace AcumaticaRestApiExample
         public static void SyncRestApiMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
 			var client = new ApiClient(siteURL,
-				requestInterceptor: RequestLogger.LogRequest, 
-                responseInterceptor: RequestLogger.LogResponse
+				requestInterceptor: FileRequestLogger.LogRequest, 
+                responseInterceptor: FileRequestLogger.LogResponse
                 );
          
             for (int i = 0; i < 1000; i++)
@@ -46,8 +47,8 @@ namespace AcumaticaRestApiExample
         public static async System.Threading.Tasks.Task AsyncRestApiMethod(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest,
-                responseInterceptor: RequestLogger.LogResponse
+                requestInterceptor: FileRequestLogger.LogRequest,
+                responseInterceptor: FileRequestLogger.LogResponse
                 );
             for (int i = 0; i < 1000; i++)
             {

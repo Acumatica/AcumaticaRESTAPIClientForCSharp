@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Acumatica.Default_20_200_001.Api;
 using Acumatica.Default_20_200_001.Model;
 using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.Loggers;
 
 using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
 using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
@@ -21,7 +22,7 @@ namespace AcumaticaRestApiExample
         public static void Example(string siteURL, string clientSecret, string clientID, string redirectUrl)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: RequestLogger.LogRequest
+                requestInterceptor: FileRequestLogger.LogRequest
             //   ,responseInterceptor: RequestLogger.LogResponse
             , ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );

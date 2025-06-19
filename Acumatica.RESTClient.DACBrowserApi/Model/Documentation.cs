@@ -12,6 +12,6 @@ namespace Acumatica.RESTClient.DACBrowserApi.Model
         public string Summary { get; set; }
 
         [DataMember(Name = "remarks", EmitDefaultValue = false)]
-        public string Remarks { get; set; }
+        public string? Remarks { get; set; }
     }
 }
