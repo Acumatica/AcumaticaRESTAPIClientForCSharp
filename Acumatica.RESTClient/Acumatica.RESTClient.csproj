@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ApplicationIcon>images\AcumaticaRESTClientLogo.ico</ApplicationIcon>
-    <Version>5.4.0</Version>
+    <Version>5.5.1-test</Version>
     <Company>Acumatica</Company>
     <Description>A simple client allowing to use Acumatica REST API from C#. </Description>
     <Copyright>Acumatica</Copyright>
@@ -51,8 +51,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-rc.2.23479.6" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0-rc.2.23479.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 

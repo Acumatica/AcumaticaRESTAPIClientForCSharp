@@ -5,8 +5,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.AuthApi.Model;
 
@@ -56,7 +54,7 @@ namespace Acumatica.RESTClient.Client
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
 
-            HttpClient = new HttpClientHandler(timeout, ignoreSslErrors);
+            HttpClient = new SimpleHttpClientHandler(timeout, ignoreSslErrors);
         }
 
         internal ApiClient(string basePath, IHttpClientHandler httpClient)

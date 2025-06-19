@@ -11,4 +11,8 @@ namespace Acumatica.RESTClient.Client
         Task<HttpResponseMessage> SendRequest(HttpRequestMessage request);
         bool HasSessionCookie(Uri path, string sessionCookieName);
     }
+    internal interface ITestableHttpClientHandler
+    {
+        HttpClient GetHttpClient();
+    }
 }

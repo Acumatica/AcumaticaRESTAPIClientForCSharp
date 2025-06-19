@@ -7,8 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Acumatica.RESTClient.Client;
 
-using Microsoft.Extensions.DependencyInjection;
-
 namespace RESTClientTests.Mocks
 {
     internal class HttpClientHandlerMock : IHttpClientHandler
