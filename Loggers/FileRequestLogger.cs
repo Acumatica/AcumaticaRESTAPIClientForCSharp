@@ -19,6 +19,11 @@ namespace Acumatica.RESTClient.Loggers
         public static void LogResponse(HttpResponseMessage request) => LogResponse(request, LogFilePath, silent: true);
 
         /// <summary>
+        /// Logs responses to AcumaticaRestClient.log file if response is not successfull.
+        /// </summary>
+        public static void LogErrorResponse(HttpResponseMessage request) => LogErrorResponse(request, LogFilePath, silent: true);
+
+        /// <summary>
         /// Logs request to the file specified in <paramref name="requestsLogPath"/>.
         /// </summary>
         /// <param name="request">The request to log.</param>
@@ -52,7 +57,19 @@ namespace Acumatica.RESTClient.Loggers
             }
 
         }
-
+        /// <summary>
+        /// Logs response to RequestsLog.txt file if the response is not successful.
+        /// </summary>
+        /// <param name="responseMessage">The response to log.</param>
+        /// <param name="requestsLogPath">Path to the file.</param>
+        /// <param name="silent">When set to <c>true</c> indicates that exceptions occurred in this method are omitted.</param>
+        public static void LogErrorResponse(HttpResponseMessage responseMessage, string requestsLogPath = LogFilePath, bool silent = true)
+        {
+            if (!responseMessage.IsSuccessStatusCode)
+            {
+                LogResponse(responseMessage, requestsLogPath, silent);
+            }
+        }
         /// <summary>
         /// Logs response to RequestsLog.txt file.
         /// </summary>

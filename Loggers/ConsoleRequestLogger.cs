@@ -13,10 +13,21 @@ namespace Acumatica.RESTClient.Loggers
         {
             Console.WriteLine(DateTime.Now.ToString());
             Console.WriteLine("Response");
-            Console.WriteLine("\tStatus code: " + response.StatusCode);
+            Console.WriteLine($"\tStatus code: {(int)response.StatusCode} - {response.StatusCode}");
             Console.WriteLine("\tContent: " + response.Content?.ReadAsStringAsync().Result);
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Logs response to Console if the response is not successful
+        /// </summary>
+        public static void LogErrorResponse(HttpResponseMessage response)
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                LogResponse(response);
+            }
         }
 
         /// <summary>
