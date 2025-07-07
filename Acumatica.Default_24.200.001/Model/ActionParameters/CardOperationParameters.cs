@@ -19,6 +19,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? TranType { get; set; }
 		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
 		public StringValue? TranNbr { get; set; }
+		[DataMember(Name="TranApiNbr", EmitDefaultValue=false)]
+		public StringValue? TranApiNbr { get; set; }
 		[DataMember(Name="AuthNumber", EmitDefaultValue=false)]
 		public StringValue? AuthNumber { get; set; }
 		[DataMember(Name="ExtProfileId", EmitDefaultValue=false)]

@@ -168,6 +168,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// The identifier of the project associated with the documentor the non-project code, which indicates that the document is not related to any particular project.
 		/// DAC Field Name: ProjectID 
 		/// DAC: PX.Objects.AR.ARInvoice 
+		/// Display Name: Contract 
 		/// </summary>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }

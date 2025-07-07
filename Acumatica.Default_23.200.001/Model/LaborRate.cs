@@ -69,7 +69,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <summary>
 		/// DAC Field Name: Rate 
 		/// DAC: PX.Objects.PM.PMLaborCostRate 
-		/// Display Name: Cost Rate 
+		/// Display Name: Rate 
 		/// </summary>
 		[DataMember(Name="HourlyRate", EmitDefaultValue=false)]
 		public DecimalValue? HourlyRate { get; set; }

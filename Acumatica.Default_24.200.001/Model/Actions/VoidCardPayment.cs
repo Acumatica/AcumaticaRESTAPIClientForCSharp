@@ -26,6 +26,11 @@ namespace Acumatica.Default_24_200_001.Model
 			get { return Parameters.TranNbr; }
 			set { Parameters.TranNbr = value; }
 		}
+		public StringValue? TranApiNbr
+		{
+			get { return Parameters.TranApiNbr; }
+			set { Parameters.TranApiNbr = value; }
+		}
 		public StringValue? ExtProfileId
 		{
 			get { return Parameters.ExtProfileId; }
