@@ -18,10 +18,9 @@ namespace Acumatica.Default_22_200_001.Model
 	{
 
 		/// <summary>
-		/// A boolean value that specifies (if set to true) that the hours linked with the code will be considered for PTO calculation.
+		/// A boolean value that specifies (if set to true) that the hours linked with the code will be considered for PTO calculation.The field is obsolete from 2025R1.
 		/// DAC Field Name: AccruePTO 
 		/// DAC: PX.Objects.EP.EPEarningType 
-		/// Display Name: Accrue Time Off 
 		/// </summary>
 		[DataMember(Name="AccrueTimeOff", EmitDefaultValue=false)]
 		public BooleanValue? AccrueTimeOff { get; set; }

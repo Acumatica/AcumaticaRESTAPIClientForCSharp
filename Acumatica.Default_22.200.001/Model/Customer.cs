@@ -85,6 +85,7 @@ namespace Acumatica.Default_22_200_001.Model
 		/// <summary>
 		/// The date and time when the record was created.
 		/// DAC: PX.Objects.CR.Standalone.Location 
+		/// Display Name: Created On 
 		/// </summary>
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
@@ -183,6 +184,7 @@ namespace Acumatica.Default_22_200_001.Model
 		/// <summary>
 		/// The date and time when the record was last modified.
 		/// DAC: PX.Objects.CR.Standalone.Location 
+		/// Display Name: Last Modified On 
 		/// </summary>
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }

@@ -42,6 +42,7 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		public DecimalValue? ExtCost { get; set; }
 
 		/// <summary>
+		/// Reference to journal transaction field LineNbr
 		/// DAC Field Name: GLLineNbr 
 		/// DAC: PX.Objects.AM.AMDisassembleTran 
 		/// Display Name: GL Batch Line Nbr 
@@ -50,6 +51,7 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		public IntValue? GLBatchLineNbr { get; set; }
 
 		/// <summary>
+		/// Reference to journal transaction field BatchNbr
 		/// DAC Field Name: GLBatNbr 
 		/// DAC: PX.Objects.AM.AMDisassembleTran 
 		/// Display Name: GL Batch Nbr 
@@ -147,6 +149,7 @@ namespace Acumatica.Manufacturing_23_100_001.Model
 		public DecimalValue? Quantity { get; set; }
 
 		/// <summary>
+		/// Scrap reason code selector for production transaction. Results are limited to Production.
 		/// DAC Field Name: ReasonCodeID 
 		/// DAC: PX.Objects.AM.AMDisassembleTran 
 		/// Display Name: Reason Code 

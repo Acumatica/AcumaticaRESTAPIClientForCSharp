@@ -54,7 +54,7 @@ namespace Acumatica.Default_22_200_001.Model
 		/// <summary>
 		/// The identifier of the CROpportunityClass.
 		/// DAC: PX.Objects.CR.CROpportunity 
-		/// Display Name: Class ID 
+		/// Display Name: Opportunity Class 
 		/// SQL Type: nvarchar(10) 
 		/// </summary>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
@@ -287,7 +287,7 @@ namespace Acumatica.Default_22_200_001.Model
 		/// <summary>
 		/// DAC Field Name: CuryWgtAmount 
 		/// DAC: PX.Objects.CR.CROpportunity 
-		/// Display Name: Wgt. Total 
+		/// Display Name: Weight Total 
 		/// </summary>
 		[DataMember(Name="WeightTotal", EmitDefaultValue=false)]
 		public DecimalValue? WeightTotal { get; set; }

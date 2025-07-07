@@ -35,7 +35,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <summary>
 		/// DAC Field Name: CuryID 
 		/// DAC: PX.Objects.EP.EPEmployee 
-		/// Display Name: Currency ID 
+		/// Display Name: Currency 
 		/// SQL Type: nvarchar(5) 
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]

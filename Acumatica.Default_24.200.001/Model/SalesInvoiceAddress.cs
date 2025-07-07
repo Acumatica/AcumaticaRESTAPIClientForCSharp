@@ -15,7 +15,7 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// The first address line.
+		/// The first line of the street address.
 		/// DAC: PX.Objects.AR.ARShippingAddress 
 		/// Display Name: Address Line 1 
 		/// SQL Type: nvarchar(2500) 
@@ -24,7 +24,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? AddressLine1 { get; set; }
 
 		/// <summary>
-		/// The second address line.
+		/// The second line of the street address.
 		/// DAC: PX.Objects.AR.ARShippingAddress 
 		/// Display Name: Address Line 2 
 		/// SQL Type: nvarchar(2500) 

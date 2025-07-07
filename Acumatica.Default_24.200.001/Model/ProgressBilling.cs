@@ -30,7 +30,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
-		/// The amount to bill the customer.
+		/// The amount that is billed to the customer.
 		/// DAC Field Name: CuryLineTotal 
 		/// DAC: PX.Objects.PM.PMProformaProgressLine 
 		/// Display Name: Amount to Invoice 
@@ -159,7 +159,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? SalesSubaccount { get; set; }
 
 		/// <summary>
-		/// The amount of material stored.
+		/// The amount of stored material.
 		/// DAC Field Name: CuryMaterialStoredAmount 
 		/// DAC: PX.Objects.PM.PMProformaProgressLine 
 		/// Display Name: Stored Material 

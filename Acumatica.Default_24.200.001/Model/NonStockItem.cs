@@ -388,6 +388,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? CurySpecificPrice { get; set; }
 
 		/// <summary>
+		/// Indicates the availability setting for the inventory item.
 		/// DAC: PX.Objects.IN.InventoryItem 
 		/// SQL Type: char(1) 
 		/// </summary>
@@ -423,7 +424,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? CurrentStdCost { get; set; }
 
 		/// <summary>
+		/// The URL to use for this inventory item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Custom URL 
+		/// SQL Type: nvarchar(100) 
 		/// </summary>
 		[DataMember(Name="CustomURL", EmitDefaultValue=false)]
 		public StringValue? CustomURL { get; set; }
@@ -441,13 +445,19 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<InventoryFileUrls>? FileUrls { get; set; }
 
 		/// <summary>
+		/// The meta description for this item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Meta Description 
+		/// SQL Type: nvarchar(1024) 
 		/// </summary>
 		[DataMember(Name="MetaDescription", EmitDefaultValue=false)]
 		public StringValue? MetaDescription { get; set; }
 
 		/// <summary>
+		/// A comma-separated list of meta keywords for this item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Meta Keywords 
+		/// SQL Type: nvarchar(1024) 
 		/// </summary>
 		[DataMember(Name="MetaKeywords", EmitDefaultValue=false)]
 		public StringValue? MetaKeywords { get; set; }
@@ -464,13 +474,19 @@ namespace Acumatica.Default_24_200_001.Model
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
+		/// The title to use on this item's page.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Page Title 
+		/// SQL Type: nvarchar(100) 
 		/// </summary>
 		[DataMember(Name="PageTitle", EmitDefaultValue=false)]
 		public StringValue? PageTitle { get; set; }
 
 		/// <summary>
+		/// A comma-separated list of search keywords for this item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Search Keywords 
+		/// SQL Type: nvarchar(1024) 
 		/// </summary>
 		[DataMember(Name="SearchKeywords", EmitDefaultValue=false)]
 		public StringValue? SearchKeywords { get; set; }
@@ -484,6 +500,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? TemplateItemID { get; set; }
 
 		/// <summary>
+		/// Indicates the visibility for this inventory item.
 		/// DAC: PX.Objects.IN.InventoryItem 
 		/// SQL Type: char(1) 
 		/// </summary>

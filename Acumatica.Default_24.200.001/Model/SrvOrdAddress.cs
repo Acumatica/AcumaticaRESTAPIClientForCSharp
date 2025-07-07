@@ -17,7 +17,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// DAC: PX.Objects.FS.FSAddress 
 		/// Display Name: Address Line 1 
-		/// SQL Type: nvarchar(50) 
+		/// SQL Type: nvarchar(70) 
 		/// </summary>
 		[DataMember(Name="AddressLine1", EmitDefaultValue=false)]
 		public StringValue? AddressLine1 { get; set; }
@@ -25,7 +25,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// DAC: PX.Objects.FS.FSAddress 
 		/// Display Name: Address Line 2 
-		/// SQL Type: nvarchar(50) 
+		/// SQL Type: nvarchar(70) 
 		/// </summary>
 		[DataMember(Name="AddressLine2", EmitDefaultValue=false)]
 		public StringValue? AddressLine2 { get; set; }

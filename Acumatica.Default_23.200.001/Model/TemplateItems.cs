@@ -55,6 +55,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
+		/// Indicates the availability setting for the inventory item.
 		/// DAC: PX.Objects.IN.InventoryItem 
 		/// SQL Type: char(1) 
 		/// </summary>
@@ -96,7 +97,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? CurrentStdCost { get; set; }
 
 		/// <summary>
+		/// The URL to use for this inventory item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Custom URL 
+		/// SQL Type: nvarchar(100) 
 		/// </summary>
 		[DataMember(Name="CustomURL", EmitDefaultValue=false)]
 		public StringValue? CustomURL { get; set; }
@@ -183,7 +187,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<MatrixItems>? Matrix { get; set; }
 
 		/// <summary>
+		/// The meta description for this item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Meta Description 
+		/// SQL Type: nvarchar(1024) 
 		/// </summary>
 		[DataMember(Name="MetaDescription", EmitDefaultValue=false)]
 		public StringValue? MetaDescription { get; set; }
@@ -197,13 +204,19 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? MSRP { get; set; }
 
 		/// <summary>
+		/// The title to use on this item's page.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Page Title 
+		/// SQL Type: nvarchar(100) 
 		/// </summary>
 		[DataMember(Name="PageTitle", EmitDefaultValue=false)]
 		public StringValue? PageTitle { get; set; }
 
 		/// <summary>
+		/// A comma-separated list of search keywords for this item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Search Keywords 
+		/// SQL Type: nvarchar(1024) 
 		/// </summary>
 		[DataMember(Name="SearchKeywords", EmitDefaultValue=false)]
 		public StringValue? SearchKeywords { get; set; }
@@ -212,6 +225,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
+		/// Indicates the visibility for this inventory item.
 		/// DAC: PX.Objects.IN.InventoryItem 
 		/// SQL Type: char(1) 
 		/// </summary>
@@ -228,7 +242,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? WeightUOM { get; set; }
 
 		/// <summary>
+		/// A comma-separated list of meta keywords for this item.
 		/// DAC: PX.Objects.IN.InventoryItem 
+		/// Display Name: Meta Keywords 
+		/// SQL Type: nvarchar(1024) 
 		/// </summary>
 		[DataMember(Name="MetaKeywords", EmitDefaultValue=false)]
 		public StringValue? MetaKeywords { get; set; }
@@ -243,6 +260,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? RequireShipment { get; set; }
 
 		/// <summary>
+		/// Indicates the Not Available Setting to use when an item has no more quantity available.
 		/// DAC Field Name: NotAvailMode 
 		/// DAC: PX.Objects.IN.InventoryItem 
 		/// Display Name: When Qty Unavailable 

@@ -26,7 +26,7 @@ namespace Acumatica.Default_22_200_001.Model
 		/// <summary>
 		/// The identifier of the class.
 		/// DAC: PX.Objects.CR.Contact 
-		/// Display Name: Class ID 
+		/// Display Name: Contact Class 
 		/// SQL Type: nvarchar(10) 
 		/// </summary>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
@@ -63,6 +63,7 @@ namespace Acumatica.Default_22_200_001.Model
 
 		/// <summary>
 		/// DAC: PX.Objects.CR.ContactNotification 
+		/// Display Name: Notification ID 
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="NotificationID", EmitDefaultValue=false)]

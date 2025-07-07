@@ -61,7 +61,7 @@ namespace Acumatica.Default_22_200_001.Model
 
 		/// <summary>
 		/// DAC: PX.Objects.SO.SOPackageDetailEx 
-		/// SQL Type: nvarchar(30) 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }

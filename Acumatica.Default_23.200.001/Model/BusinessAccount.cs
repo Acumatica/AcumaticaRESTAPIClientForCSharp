@@ -56,7 +56,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <summary>
 		/// Identifier of the business acccount class to which the business account belongs.
 		/// DAC: PX.Objects.CR.BAccount 
-		/// Display Name: Class 
+		/// Display Name: Business Account Class 
 		/// SQL Type: nvarchar(10) 
 		/// </summary>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]

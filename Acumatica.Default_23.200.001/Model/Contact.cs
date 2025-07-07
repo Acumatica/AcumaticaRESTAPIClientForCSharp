@@ -82,7 +82,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// The identifier of the class.
 		/// DAC Field Name: ClassID 
 		/// DAC: PX.Objects.CR.Contact 
-		/// Display Name: Class ID 
+		/// Display Name: Contact Class 
 		/// SQL Type: nvarchar(10) 
 		/// </summary>
 		[DataMember(Name="ContactClass", EmitDefaultValue=false)]
@@ -450,7 +450,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <summary>
 		/// Specifies whether the contact should be included in exchange synchronization.
 		/// DAC: PX.Objects.CR.Contact 
-		/// Display Name: Synchronize to Exchange 
+		/// Display Name: Synchronize with Exchange 
 		/// </summary>
 		[DataMember(Name="Synchronize", EmitDefaultValue=false)]
 		public BooleanValue? Synchronize { get; set; }

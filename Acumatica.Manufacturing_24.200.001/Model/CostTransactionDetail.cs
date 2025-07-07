@@ -44,6 +44,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public DecimalValue? ExtCost { get; set; }
 
 		/// <summary>
+		/// Reference to journal transaction field LineNbr
 		/// DAC Field Name: GLLineNbr 
 		/// DAC: PX.Objects.AM.AMMTran 
 		/// Display Name: GL Batch Line Nbr 
@@ -52,6 +53,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? GLBatchLineNbr { get; set; }
 
 		/// <summary>
+		/// Reference to journal transaction field BatchNbr
 		/// DAC Field Name: GLBatNbr 
 		/// DAC: PX.Objects.AM.AMMTran 
 		/// Display Name: GL Batch Nbr 

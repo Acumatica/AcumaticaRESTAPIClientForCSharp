@@ -15,6 +15,7 @@ namespace Acumatica.eCommerce_23_200_001.Model
 	{
 
 		/// <summary>
+		/// The attention for this contact.
 		/// DAC: PX.Objects.AR.ARShippingContact 
 		/// SQL Type: nvarchar(2500) 
 		/// </summary>

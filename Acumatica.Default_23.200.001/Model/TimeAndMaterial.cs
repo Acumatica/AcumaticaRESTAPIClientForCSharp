@@ -15,7 +15,7 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// The amount to bill the customer.
+		/// The amount that is billed to the customer.
 		/// DAC Field Name: CuryLineTotal 
 		/// DAC: PX.Objects.PM.PMProformaProgressLine 
 		/// Display Name: Amount to Invoice 
