@@ -45,11 +45,12 @@ namespace Acumatica.RESTClient.Client
         /// <param name="ignoreSslErrors">
         /// Sets whether SSL/TLS related errors should be ignored.
         /// </param>
-        public ApiClient(string basePath,
+        public ApiClient(
+            string basePath,
             int timeout = 100000,
             bool ignoreSslErrors = false,
-             Action<HttpRequestMessage>? requestInterceptor = null,
-             Action<HttpResponseMessage>? responseInterceptor = null)
+            Action<HttpRequestMessage>? requestInterceptor = null,
+            Action<HttpResponseMessage>? responseInterceptor = null)
         {
             BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
 
@@ -59,13 +60,21 @@ namespace Acumatica.RESTClient.Client
             HttpClient = new HttpClientHandler(timeout, ignoreSslErrors);
         }
 
-        internal ApiClient(string basePath, IHttpClientHandler httpClient)
+        public ApiClient(
+            string basePath,
+            IHttpClientHandler httpClient,
+            Action<HttpRequestMessage>? requestInterceptor = null,
+            Action<HttpResponseMessage>? responseInterceptor = null)
         {
-            BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
+            BasePath = basePath.EndsWith("/")
+                ? basePath
+                : basePath + "/";
+
+            RequestInterceptor = requestInterceptor;
+            ResponseInterceptor = responseInterceptor;
 
             HttpClient = httpClient;
         }
-
 
         /// <summary>
         /// Method that is executed before request. May be used for loggin the request body.
@@ -212,14 +221,14 @@ namespace Acumatica.RESTClient.Client
 
             if (postBody != null)
             {
-                if (postBody is string)
+                if (postBody is string str)
                 {
-                    request.Content = new StringContent(postBody as string, Encoding.UTF8, contentType);
+                    request.Content = new StringContent(str, Encoding.UTF8, contentType);
                 }
 
-                else if (postBody is byte[])
+                else if (postBody is byte[] bytes)
                 {
-                    request.Content = new ByteArrayContent(postBody as byte[]);
+                    request.Content = new ByteArrayContent(bytes);
                 }
                 else
                 {

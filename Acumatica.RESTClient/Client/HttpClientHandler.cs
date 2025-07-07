@@ -7,76 +7,55 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTests")]
-
 namespace Acumatica.RESTClient.Client
 {
-    internal class HttpClientHandler : IHttpClientHandler
+    public class HttpClientHandler : IHttpClientHandler
     {
-        private const string httpClientName = "HttpClient";
         private const string SessionCookieName = "ASP.NET_SessionId";
+        private readonly CookieContainer _cookieContainer;
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _httpClientName;
+
+        public HttpClientHandler(
+            CookieContainer cookieContainer,
+            IHttpClientFactory httpClientFactory,
+            string httpClientName)
+        {
+            _cookieContainer = cookieContainer;
+            _httpClientFactory = httpClientFactory;
+            _httpClientName = httpClientName;
+        }
 
         public HttpClientHandler(
             int timeout,
             bool ignoreSslErrors)
         {
-            Cookies = new CookieContainer();
+            _httpClientName = "HttpClient";
 
-            var services = new ServiceCollection();
-            services.AddHttpClient(httpClientName, c => {
-                c.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
-            }
-            ).ConfigurePrimaryHttpMessageHandler(() => {
-                System.Net.Http.HttpClientHandler handler;
-                if (ignoreSslErrors)
-                {
-                    handler = new System.Net.Http.HttpClientHandler
-                    {
-                        UseCookies = true,
-                        CookieContainer = Cookies,
-                        ServerCertificateCustomValidationCallback = (HttpRequestMessage httpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2 cert, System.Security.Cryptography.X509Certificates.X509Chain cetChain, System.Net.Security.SslPolicyErrors policyErrors) => true
-                    };
-                }
-                else
-                {
-                    handler = new System.Net.Http.HttpClientHandler
-                    {
-                        UseCookies = true,
-                        CookieContainer = Cookies
-                    };
-                }
-                return handler;
-            });
-            var serviceProvider = services.BuildServiceProvider();
-            HttpClientFactory = serviceProvider.GetService<IHttpClientFactory>()!;
+            var serviceProvider = new ServiceCollection()
+                .ConfigureDefaultHttpClientHandler(
+                    timeout,
+                    ignoreSslErrors,
+                    _httpClientName)
+                .BuildServiceProvider();
+
+            _httpClientFactory = serviceProvider
+                .GetRequiredService<IHttpClientFactory>();
+            _cookieContainer = serviceProvider
+                .GetRequiredService<CookieContainer>();
         }
 
-        public CookieContainer Cookies
-        {
-            get; protected set;
-        }
+        public Task<HttpResponseMessage> SendRequest(
+            HttpRequestMessage request) =>
+                GetHttpClient().SendAsync(request);
 
-        public IHttpClientFactory HttpClientFactory { get; set; }
+        public virtual HttpClient GetHttpClient() =>
+            _httpClientFactory.CreateClient(_httpClientName);
 
-
-        public async Task<HttpResponseMessage> SendRequest(HttpRequestMessage request)
-        {
-            return await GetHttpClient().SendAsync(request);
-        }
-
-        public virtual HttpClient GetHttpClient()
-        {
-            return HttpClientFactory.CreateClient(httpClientName);
-        }
-
-        public bool HasSessionCookie(Uri path, string sessionCookieName)
-        {
-            if (Cookies != null
-                && Cookies.GetCookies(path).Cast<Cookie>()
-                .Any(cookie => cookie.Name == sessionCookieName))
-            {
-                return true;
-            }
-            return false;
-        }
+        public bool HasSessionCookie(Uri path, string sessionCookieName) =>
+            _cookieContainer
+                .GetCookies(path)
+                .Cast<Cookie>()
+                .Any(cookie => cookie.Name == sessionCookieName);
     }
 }
