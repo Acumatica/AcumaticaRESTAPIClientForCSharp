@@ -14,5 +14,11 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PTOBankApplicableEarningType : Entity
 	{
 
+		[DataMember(Name="ApplicableEarningTypeDetail", EmitDefaultValue=false)]
+		public List<PTOBankApplicableEarningTypeDetail>? ApplicableEarningTypeDetail { get; set; }
+
+		[DataMember(Name="AccrueTimeOffBasedOn", EmitDefaultValue=false)]
+		public StringValue? AccrueTimeOffBasedOn { get; set; }
+
 	}
 }

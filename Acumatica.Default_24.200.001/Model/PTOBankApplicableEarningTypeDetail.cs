@@ -14,5 +14,8 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PTOBankApplicableEarningTypeDetail : Entity
 	{
 
+		[DataMember(Name="EarningType", EmitDefaultValue=false)]
+		public StringValue? EarningType { get; set; }
+
 	}
 }

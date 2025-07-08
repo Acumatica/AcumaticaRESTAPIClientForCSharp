@@ -43,6 +43,9 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
+		[DataMember(Name="ApplicableEarningTypes", EmitDefaultValue=false)]
+		public PTOBankApplicableEarningType? ApplicableEarningTypes { get; set; }
+
 		/// <summary>
 		/// Indicates (if set to true) that banding rules will be applied.
 		/// DAC: PX.Objects.PR.PRPTOBank 

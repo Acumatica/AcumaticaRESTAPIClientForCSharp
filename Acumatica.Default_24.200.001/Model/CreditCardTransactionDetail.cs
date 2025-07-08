@@ -23,6 +23,9 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
 		public StringValue? TranNbr { get; set; }
 
+		[DataMember(Name="TranApiNbr", EmitDefaultValue=false)]
+		public StringValue? TranApiNbr { get; set; }
+
 		/// <summary>
 		/// DAC: PX.Objects.AR.CCProcTran 
 		/// Display Name: Tran. Type 
