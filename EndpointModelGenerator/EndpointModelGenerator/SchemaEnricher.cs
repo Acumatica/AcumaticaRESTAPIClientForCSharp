@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 using System.Xml;
+using System.Xml.Serialization;
+
+using Acumatica.RESTClient.AuthApi;
+using Acumatica.RESTClient.Client;
 
 using EndpointSchemaGenerator;
-using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.AuthApi;
+
 using static Acumatica.RESTClient.DACBrowserApi.DACBrowserApiExtensions;
 
 namespace EndpointModelGenerator
@@ -46,8 +46,8 @@ namespace EndpointModelGenerator
             {
                 endpointSchema.BaseEndpoint = $"{parsedEndpointMetadata.ExtendsEndpoint.name}_{parsedEndpointMetadata.ExtendsEndpoint.version}";
 
+                DetectDerivedEntities(endpointSchema, parsedEndpointMetadata);
             }
-            DetectDerivedEntities(endpointSchema, parsedEndpointMetadata);
             FillDescriptions(endpointSchema, parsedScreenMetadata, parsedEndpointMetadata);
         }
         private static void DetectDerivedEntities(Schema endpointSchema, Endpoint? parsedEndpointMetadata)
@@ -57,7 +57,7 @@ namespace EndpointModelGenerator
                 if (parsedEndpointMetadata.TopLevelEntity?.Any(_ => _.name == entity.Key) ?? false)
                 {
                     var topLevelEntityMetadata = parsedEndpointMetadata.TopLevelEntity.First(_ => _.name == entity.Key);
-                   
+
                     // We need to only keep fields that are in the metadata. If we remove any fields, we need to add a parent reference to the entity.
                     foreach (var field in entity.Value.Fields)
                     {
@@ -67,11 +67,12 @@ namespace EndpointModelGenerator
                             endpointSchema.Entities[entity.Key].Fields.Remove(field);
                         }
                     }
+
                 }
                 else if (parsedEndpointMetadata.Detail?.Any(_ => _.name == entity.Key) ?? false)
                 {
                     var detailEntityMetadata = parsedEndpointMetadata.Detail.First(_ => _.name == entity.Key);
-                   
+
                     // We need to only keep fields that are in the metadata. If we remove any fields, we need to add a parent reference to the entity.
                     foreach (var field in entity.Value.Fields)
                     {
@@ -81,9 +82,11 @@ namespace EndpointModelGenerator
                             endpointSchema.Entities[entity.Key].Fields.Remove(field);
                         }
                     }
+
                 }
                 else if (parsedEndpointMetadata.LinkedEntity?.Any(_ => _.name == entity.Key) ?? false)
                 {
+
                     // We need to only keep fields that are in the metadata. If we remove any fields, we need to add a parent reference to the entity.
                     foreach (var field in entity.Value.Fields)
                     {
@@ -92,12 +95,14 @@ namespace EndpointModelGenerator
                             endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
                             endpointSchema.Entities[entity.Key].Fields.Remove(field);
                         }
+
                     }
                 }
                 else
                 {
                     endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
                     endpointSchema.Entities[entity.Key].Fields.Clear();
+
                 }
             }
         }
