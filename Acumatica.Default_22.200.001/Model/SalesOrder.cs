@@ -189,6 +189,14 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="DisableAutomaticDiscountUpdate", EmitDefaultValue=false)]
 		public BooleanValue? DisableAutomaticDiscountUpdate { get; set; }
 
+		/// <summary>
+		/// A Boolean value that specifies (if set to true)that the system does not need to calculate taxes, because they are already calculated.
+		/// DAC: PX.Objects.SO.SOOrder 
+		/// Display Name: Disable Automatic Tax Calculation 
+		/// </summary>
+		[DataMember(Name="DisableAutomaticTaxCalculation", EmitDefaultValue=false)]
+		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
+
 		[DataMember(Name="DiscountDetails", EmitDefaultValue=false)]
 		public List<SalesOrdersDiscountDetails>? DiscountDetails { get; set; }
 
@@ -487,14 +495,6 @@ namespace Acumatica.Default_22_200_001.Model
 		/// </summary>
 		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDate { get; set; }
-
-		/// <summary>
-		/// A Boolean value that specifies (if set to true)that the system does not need to calculate taxes, because they are already calculated.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Disable Automatic Tax Calculation 
-		/// </summary>
-		[DataMember(Name="DisableAutomaticTaxCalculation", EmitDefaultValue=false)]
-		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

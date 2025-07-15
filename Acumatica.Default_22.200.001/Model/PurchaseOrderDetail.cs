@@ -147,6 +147,13 @@ namespace Acumatica.Default_22_200_001.Model
 		public DecimalValue? OrderQty { get; set; }
 
 		/// <summary>
+		/// DAC: PX.Objects.PO.POLine 
+		/// Display Name: Qty. On Orders 
+		/// </summary>
+		[DataMember(Name="OrderedQty", EmitDefaultValue=false)]
+		public DecimalValue? OrderedQty { get; set; }
+
+		/// <summary>
 		/// DAC: PX.Objects.PO.POOrder 
 		/// Display Name: Type 
 		/// SQL Type: char(2) 
@@ -268,13 +275,6 @@ namespace Acumatica.Default_22_200_001.Model
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
-
-		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Qty. On Orders 
-		/// </summary>
-		[DataMember(Name="OrderedQty", EmitDefaultValue=false)]
-		public DecimalValue? OrderedQty { get; set; }
 
 	}
 }

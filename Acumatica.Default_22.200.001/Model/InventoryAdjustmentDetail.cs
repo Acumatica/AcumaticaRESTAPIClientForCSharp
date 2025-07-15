@@ -153,5 +153,8 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 
+		[DataMember(Name="InventorySource", EmitDefaultValue=false)]
+		public StringValue? InventorySource { get; set; }
+
 	}
 }

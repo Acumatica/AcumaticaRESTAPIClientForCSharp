@@ -169,6 +169,15 @@ namespace Acumatica.Default_22_200_001.Model
 		public ShortValue? LeadTimedays { get; set; }
 
 		/// <summary>
+		/// The legal name of the company that is used by the1099 Reporting feature only (see Organization).
+		/// DAC: PX.Objects.AP.Vendor 
+		/// Display Name: Legal Name 
+		/// SQL Type: nvarchar(255) 
+		/// </summary>
+		[DataMember(Name="LegalName", EmitDefaultValue=false)]
+		public StringValue? LegalName { get; set; }
+
+		/// <summary>
 		/// The name of the location.
 		/// DAC Field Name: Descr 
 		/// DAC: PX.Objects.CR.Standalone.Location 
@@ -454,15 +463,6 @@ namespace Acumatica.Default_22_200_001.Model
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
-
-		/// <summary>
-		/// The legal name of the company that is used by the1099 Reporting feature only (see Organization).
-		/// DAC: PX.Objects.AP.Vendor 
-		/// Display Name: Legal Name 
-		/// SQL Type: nvarchar(255) 
-		/// </summary>
-		[DataMember(Name="LegalName", EmitDefaultValue=false)]
-		public StringValue? LegalName { get; set; }
 
 		public virtual string GetEndpointPath()
 		{

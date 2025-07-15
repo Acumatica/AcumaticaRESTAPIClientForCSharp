@@ -201,6 +201,9 @@ namespace Acumatica.Default_22_200_001.Model
 		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
 		public List<InvoiceTaxDetail>? TaxDetails { get; set; }
 
+		[DataMember(Name="IsTaxValid", EmitDefaultValue=false)]
+		public BooleanValue? IsTaxValid { get; set; }
+
 		/// <summary>
 		/// The total amount of tax associated with the document.Given in the currency of the document.
 		/// DAC Field Name: CuryTaxTotal 
@@ -228,9 +231,6 @@ namespace Acumatica.Default_22_200_001.Model
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
-
-		[DataMember(Name="IsTaxValid", EmitDefaultValue=false)]
-		public BooleanValue? IsTaxValid { get; set; }
 
 		public virtual string GetEndpointPath()
 		{
