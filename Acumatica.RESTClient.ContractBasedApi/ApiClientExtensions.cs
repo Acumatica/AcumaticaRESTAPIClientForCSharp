@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -80,25 +81,42 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Time that the system waits between querying for the operation status in milliseconds.
         /// Default value is <c>1000</c>.
         /// </param>
+        /// <param name="secondsTimeout">
+        /// Time that the system waits for the process completion. 
+        /// Default value is <c>360</c>.
+        /// </param>
         /// <exception cref="InvalidOperationException">
         /// Throws the the exception if the operation finishes with a status code not indicating 
         /// successful completion.
         /// </exception>
-        public static async Task WaitActionCompletionAsync(this ApiClient client, string location, int millisecondsInterval = 1000)
+        /// <exception cref="TimeoutException">
+        /// Throws the the exception if the operation did not finish in specified timeout interval. 
+        /// </exception>
+        public static async Task WaitActionCompletionAsync(this ApiClient client, string location, int millisecondsInterval = 1000, int secondsTimeout = 360)
         {
             while (true)
             {
+                var startTime = DateTime.Now;
                 var processResult = await GetProcessStatusAsync(client, location);
 
                 switch (processResult)
                 {
+                    case HttpStatusCode.NotFound:
+                        throw new ApiException(404, "Process Not Found. Probably it has been started in another session.");
                     case HttpStatusCode.NoContent:
                         return;
                     case HttpStatusCode.Accepted:
-                        await Task.Delay(millisecondsInterval);
-                        continue;
+                        if ((startTime - DateTime.Now).Seconds > secondsTimeout)
+                        {
+                            throw new TimeoutException();
+                        }
+                        else
+                        {
+                            await Task.Delay(millisecondsInterval);
+                            continue;
+                        }
                     default:
-                        throw new InvalidOperationException();
+                        throw new InvalidOperationException($"Process status: {processResult}");
                 }
             }
         }
@@ -110,8 +128,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// </summary>
         /// <param name="location">
         /// Value of the Location header returned 
-        /// from <see cref="InvokeAction(EntityAction{EntityType})"/> or
-        /// <see cref="InvokeActionAsync(EntityAction{EntityType})"/>
+        /// from <see cref=" InvokeAction{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/> or
+        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/>
         /// </param>
         /// <param name="millisecondsInterval">
         /// Time that the system waits between querying for the operation status in milliseconds.
@@ -131,8 +149,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// </summary>
         /// <param name="location">
         /// Value of the Location header returned 
-        /// from <see cref="InvokeAction(EntityAction{EntityType})"/> or
-        /// <see cref="InvokeActionAsync(EntityAction{EntityType})"/>
+        /// from <see cref="InvokeAction{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/> or
+        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/>
         /// </param>
         /// <returns>Returns HTTP status code of the running operation.</returns>
         public static HttpStatusCode GetProcessStatus(this ApiClient client, string location)
@@ -144,8 +162,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// </summary>
         /// <param name="location">
         /// Value of the Location header returned 
-        /// from <see cref="InvokeAction(EntityAction{EntityType})"/> or
-        /// <see cref="InvokeActionAsync(EntityAction{EntityType})"/>
+        /// from <see cref="InvokeAction{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/> or
+        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/>
         /// </param>
         /// <returns>Returns HTTP status code of the running operation.</returns>
         public static async Task<HttpStatusCode> GetProcessStatusAsync(this ApiClient client, string location)

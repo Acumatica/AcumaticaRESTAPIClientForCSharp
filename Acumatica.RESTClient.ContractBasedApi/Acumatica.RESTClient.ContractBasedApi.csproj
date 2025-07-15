@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>Acumatica Contract Based REST API CLient</Title>
-    <Version>5.3.0</Version>
+    <Version>5.4.0</Version>
     <Authors>Dmitrii-Naumov</Authors>
     <Company>Acumatica</Company>
     <Description>A simple client allowing to use Acumatica Contract Based REST API from C#. </Description>
@@ -18,7 +18,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>9.0</LangVersion>
     <nullable>Enable</nullable>
-    <PackageReleaseNotes>Added ability to specify file comment </PackageReleaseNotes>
+    <PackageReleaseNotes>Added timeout to WaitAction completion</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
