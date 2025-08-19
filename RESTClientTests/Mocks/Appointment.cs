@@ -4,10 +4,10 @@ using System.Runtime.Serialization;
 
 namespace RESTClientTests.Mocks
 {
-    public class SalesOrder : Entity, ITopLevelEntity
+    public class Appointment : Entity, ITopLevelEntity
     {
-        [DataMember(Name = "Date", EmitDefaultValue = false)]
-        public DateTimeValue? Date { get; set; }
+        [DataMember(Name = "DateTime", EmitDefaultValue = false)]
+        public DateTimeValue? DateTime { get; set; }
 
         public virtual string GetEndpointPath()
         {
