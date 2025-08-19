@@ -52,7 +52,9 @@ namespace Acumatica.RESTClient.Auxiliary
         {
             JsonSerializerSettings serializerSettings = new JsonSerializerSettings
             {
-                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
+                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                DateTimeZoneHandling = DateTimeZoneHandling.Utc
+
             };
 
             return (T?)JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync(), typeof(T), serializerSettings);
