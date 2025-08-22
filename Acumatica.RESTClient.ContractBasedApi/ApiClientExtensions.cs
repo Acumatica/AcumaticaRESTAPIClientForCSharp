@@ -364,6 +364,23 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves a record by the values of its key fields from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The values of the key field of the record.</param>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <returns>Task of Entity</returns>
+        public static async Task<EntityType> GetByKeysAsync<EntityType>(
+            this ApiClient client, string key,
+            string? endpointPath = null,
+            string? select = null, string? expand = null, string? custom = null)
+            where EntityType : Entity, ITopLevelEntity, new()
+        {
+            return await GetByKeysAsync<EntityType>(client, new List<string> { key }, endpointPath, select, expand, custom);
+        }
+        /// <summary>
+        /// Retrieves a record by the values of its key fields from the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
@@ -393,6 +410,23 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return await DeserializeAsync<EntityType>(response);
         }
 
+        /// <summary>
+        /// Retrieves a record by the values of its key fields from the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The value of the key field of the record.</param>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <returns>Entity</returns>
+        public static EntityType GetByKeys<EntityType>(
+            this ApiClient client, string key,
+            string? endpointPath = null,
+            string? select = null, string? expand = null, string? custom = null)
+            where EntityType : Entity, ITopLevelEntity, new()
+        {
+            return Task.Run(() => GetByKeysAsync<EntityType>(client, key, endpointPath, select, expand, custom)).GetAwaiter().GetResult();
+        }
 
         /// <summary>
         /// Retrieves a record by the values of its key fields from the system. 
@@ -412,6 +446,27 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return Task.Run(() => GetByKeysAsync<EntityType>(client, ids, endpointPath, select, expand, custom)).GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        /// Retrieves a record by the value of the session entity ID from the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entity">The record from which the ID will be taken.</param>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <returns>Task of Entity</returns>
+        public static async Task<EntityType> GetByIdAsync<EntityType>(
+            this ApiClient client, EntityType entity,
+            string? endpointPath = null,
+            string? select = null, string? expand = null, string? custom = null)
+            where EntityType : Entity, ITopLevelEntity, new()
+        {
+            if (entity == null)
+                ThrowMissingParameter(nameof(GetById), nameof(entity));
+            if (entity!.ID == null)
+                ThrowMissingParameter(nameof(GetById), nameof(entity.ID));
+            return await GetByIdAsync<EntityType>(client, entity.ID, endpointPath, select, expand, custom);
+        }
 
         /// <summary>
         /// Retrieves a record by the value of the session entity ID from the system. 
@@ -444,6 +499,23 @@ namespace Acumatica.RESTClient.ContractBasedApi
             await VerifyResponseAsync(response, nameof(GetByIdAsync));
 
             return await DeserializeAsync<EntityType>(response);
+        }
+
+        /// <summary>
+        /// Retrieves a record by the value of the session entity ID from the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The session ID of the record.</param>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <returns>Entity</returns>
+        public static EntityType GetById<EntityType>(this ApiClient client, EntityType entity,
+            string? endpointPath = null,
+            string? select = null, string? expand = null, string? custom = null)
+            where EntityType : Entity, ITopLevelEntity, new()
+        {
+            return Task.Run(() => GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand, custom)).GetAwaiter().GetResult();
         }
 
         /// <summary>
