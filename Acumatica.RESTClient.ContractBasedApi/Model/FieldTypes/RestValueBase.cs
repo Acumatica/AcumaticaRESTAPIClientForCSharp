@@ -46,13 +46,25 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// <returns>Boolean</returns>
         public bool Equals(RestValueBase<TValue>? input)
         {
-            if (input is null)
+            if(this is null && input is null)
+            {
+                return true;
+            }
+            else if (this is null || input is null)
+            {
+                return false;
+            }
+            else if (Value == null && input.Value == null)
+            {
+                return true;
+            }
+            else if (Value == null || input.Value == null)
             {
                 return false;
             }
             else
             {
-                return Value!.Equals(input.Value);
+                return Value!.Equals(input.Value!);
             }
         }
 
