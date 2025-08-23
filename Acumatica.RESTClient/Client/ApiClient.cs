@@ -143,7 +143,7 @@ namespace Acumatica.RESTClient.Client
 
             RequestInterceptor?.Invoke(request);
 
-            HttpResponseMessage response = await HttpClient.SendRequest(request);
+            HttpResponseMessage response = await HttpClient.SendRequest(request).ConfigureAwait(false);
 
             ResponseInterceptor?.Invoke(response);
 

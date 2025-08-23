@@ -60,7 +60,7 @@ namespace Acumatica.RESTClient.Client
 
         public async Task<HttpResponseMessage> SendRequest(HttpRequestMessage request)
         {
-            return await GetHttpClient().SendAsync(request);
+            return await GetHttpClient().SendAsync(request).ConfigureAwait(false);
         }
 
         public virtual HttpClient GetHttpClient()

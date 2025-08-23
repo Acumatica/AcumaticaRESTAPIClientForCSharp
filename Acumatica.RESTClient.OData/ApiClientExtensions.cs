@@ -20,16 +20,16 @@ namespace Acumatica.RESTClient.ODataApi
     {
         public static IEnumerable<ODataObject> GetOdataObjects(this ApiClient client, ODataVersion version, string? tenant = null)
         {
-            return Task.Run(() => GetOdataObjectsAsync(client, version, tenant)).GetAwaiter().GetResult();
+            return GetOdataObjectsAsync(client, version, tenant).GetAwaiter().GetResult();
         }
         public static async Task<IEnumerable<ODataObject>> GetOdataObjectsAsync(this ApiClient client, ODataVersion version, string? tenant = null)
         {
-            return (await GetODataAsync(client, version, "", tenant)).Select(_=> _.ToObject<ODataObject>());
+            return (await GetODataAsync(client, version, "", tenant).ConfigureAwait(false)).Select(_=> _.ToObject<ODataObject>());
         }
 
         public static IEnumerable<JObject> GetOData(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null, string? orderby = null)
         {
-            return Task.Run(() => GetODataAsync(client, version, resource, tenant, select, filter, expand, skip, top, orderby)).GetAwaiter().GetResult();
+            return GetODataAsync(client, version, resource, tenant, select, filter, expand, skip, top, orderby).GetAwaiter().GetResult();
         }
         
         public static async Task<IEnumerable<JObject>> GetODataAsync(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null, string? orderby = null)
@@ -43,12 +43,12 @@ namespace Acumatica.RESTClient.ODataApi
                 HeaderContentType.Json,
                 HeaderContentType.Json,
                 ComposeAuthenticationHeaders(client)
-            );
+            ).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Status code: {response.StatusCode}:{response.ReasonPhrase}, Error: {await response.Content.ReadAsStringAsync()}");
+                throw new Exception($"Status code: {response.StatusCode}:{response.ReasonPhrase}, Error: {await response.Content.ReadAsStringAsync().ConfigureAwait(false)}");
             }
-            return JsonConvert.DeserializeObject<ODataResults>(await response.Content.ReadAsStringAsync()).Results; 
+            return JsonConvert.DeserializeObject<ODataResults>(await response.Content.ReadAsStringAsync().ConfigureAwait(false)).Results; 
         }
 
         #region Implementation

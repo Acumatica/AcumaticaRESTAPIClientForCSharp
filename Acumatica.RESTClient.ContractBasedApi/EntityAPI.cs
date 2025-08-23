@@ -30,36 +30,36 @@ namespace Acumatica.RESTClient.ContractBasedApi
             => ((int)ApiClientExtensions.GetProcessStatus(Client, locationRaw));
 
         public async Task<List<EntityType>> GetListAsync(string? select = null, string? filter = null, string? expand = null, string? custom = null, int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null)
-            => await ApiClientExtensions.GetListAsync<EntityType>(Client, GetEndpointPath(), select, filter, expand, custom, skip, top, customHeaders);
+            => await ApiClientExtensions.GetListAsync<EntityType>(Client, GetEndpointPath(), select, filter, expand, custom, skip, top, customHeaders).ConfigureAwait(false);
 
         public EntityType PutEntity(EntityType entity, string? select = null, string? filter = null, string? expand = null, string? custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
             => ApiClientExtensions.Put(Client, entity, GetEndpointPath(), select, filter, expand, custom, method, businessDate, branch);
 
         public async Task<EntityType> PutEntityAsync(EntityType entity, string? select = null, string? filter = null, string? expand = null, string? custom = null, PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
-            => await ApiClientExtensions.PutAsync(Client, entity, GetEndpointPath(), select, filter, expand, custom, method, businessDate, branch);
+            => await ApiClientExtensions.PutAsync(Client, entity, GetEndpointPath(), select, filter, expand, custom, method, businessDate, branch).ConfigureAwait(false);
 
 
         public void PutFile(string id, string filename, byte[] content)
             => ApiClientExtensions.PutFile<EntityType>(Client, id, filename, content, GetEndpointPath());
 
         public async Task PutFileAsync(string id, string filename, byte[] content)
-            => await ApiClientExtensions.PutFileAsync<EntityType>(Client, id, filename, content, GetEndpointPath());
+            => await ApiClientExtensions.PutFileAsync<EntityType>(Client, id, filename, content, GetEndpointPath()).ConfigureAwait(false);
 
 
         public void PutFile(IEnumerable<string> ids, string filename, byte[] content)
             => ApiClientExtensions.PutFile<EntityType>(Client, ids, filename, content, GetEndpointPath());
 
         public async Task PutFileAsync(IEnumerable<string> ids, string filename, byte[] content)
-            => await ApiClientExtensions.PutFileAsync<EntityType>(Client, ids, filename, content, GetEndpointPath());
+            => await ApiClientExtensions.PutFileAsync<EntityType>(Client, ids, filename, content, GetEndpointPath()).ConfigureAwait(false);
 
         public string InvokeAction(EntityAction<EntityType> action, DateTime? businessDate = null, string? branch = null)
             => ApiClientExtensions.InvokeAction(Client, action, GetEndpointPath(), businessDate, branch);
 
         public async Task<string> InvokeActionAsync(EntityAction<EntityType> action, DateTime? businessDate = null, string? branch = null)
-            => await ApiClientExtensions.InvokeActionAsync(Client, action, GetEndpointPath(), businessDate, branch);
+            => await ApiClientExtensions.InvokeActionAsync(Client, action, GetEndpointPath(), businessDate, branch).ConfigureAwait(false);
 
         public async Task<EntityType> GetByKeysAsync(IEnumerable<string> ids, string? select = null, string? expand = null, string? custom = null)
-            => await ApiClientExtensions.GetByKeysAsync<EntityType>(Client, ids, GetEndpointPath(), select, expand, custom);
+            => await ApiClientExtensions.GetByKeysAsync<EntityType>(Client, ids, GetEndpointPath(), select, expand, custom).ConfigureAwait(false);
 
         public List<EntityType> GetList(string? select = null, string? filter = null, string? expand = null, string? custom = null, int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null)
             => ApiClientExtensions.GetList<EntityType>(Client, GetEndpointPath(), select, filter, expand, custom, skip, top, customHeaders);
@@ -68,10 +68,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
             => ApiClientExtensions.GetByKeys<EntityType>(Client, ids, GetEndpointPath(), select, expand, custom);
 
         public async Task<EntityType> GetByIdAsync(Guid? id, string? select = null, string? expand = null, string? custom = null)
-            => await ApiClientExtensions.GetByIdAsync<EntityType>(Client, id, GetEndpointPath(), select, expand, custom);
+            => await ApiClientExtensions.GetByIdAsync<EntityType>(Client, id, GetEndpointPath(), select, expand, custom).ConfigureAwait(false);
 
         public async Task<EntityType> GetAdHocSchemaAsync()
-            => await ApiClientExtensions.GetAdHocSchemaAsync<EntityType>(Client, GetEndpointPath());
+            => await ApiClientExtensions.GetAdHocSchemaAsync<EntityType>(Client, GetEndpointPath()).ConfigureAwait(false);
 
         public EntityType GetById(Guid? id, string? select = null, string? filter = null, string? expand = null, string? custom = null)
             => ApiClientExtensions.GetById<EntityType>(Client, id, GetEndpointPath(), select,  expand, custom);
@@ -81,7 +81,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             => ApiClientExtensions.DeleteByKeys<EntityType>(Client, ids, GetEndpointPath());
 
         public async Task DeleteByKeysAsync(IEnumerable<string> ids)
-            => await ApiClientExtensions.DeleteByKeysAsync<EntityType>(Client, ids, GetEndpointPath());
+            => await ApiClientExtensions.DeleteByKeysAsync<EntityType>(Client, ids, GetEndpointPath()).ConfigureAwait(false);
 
 
         public EntityType GetAdHocSchema()
@@ -92,6 +92,6 @@ namespace Acumatica.RESTClient.ContractBasedApi
             => ApiClientExtensions.DeleteById<EntityType>(Client, id, GetEndpointPath());
 
         public async Task DeleteByIdAsync(Guid? id)
-            => await ApiClientExtensions.DeleteByIdAsync<EntityType>(Client, id, GetEndpointPath());
+            => await ApiClientExtensions.DeleteByIdAsync<EntityType>(Client, id, GetEndpointPath()).ConfigureAwait(false);
     }
 }

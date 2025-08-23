@@ -57,7 +57,7 @@ namespace Acumatica.RESTClient.Auxiliary
 
             };
 
-            return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync(), serializerSettings);
+            return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync().ConfigureAwait(false), serializerSettings);
         }
         public static string ComposeContentHeaders(HeaderContentType contentTypes)
         {
@@ -194,7 +194,7 @@ namespace Acumatica.RESTClient.Auxiliary
         public async static Task<string> ToFormUrlEncodedAsync(IDictionary<string, string> keyValueContent)
         {
             var formUrlEncodedContent = new FormUrlEncodedContent(keyValueContent);
-            return await formUrlEncodedContent.ReadAsStringAsync();
+            return await formUrlEncodedContent.ReadAsStringAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Encodes string in base64 format.

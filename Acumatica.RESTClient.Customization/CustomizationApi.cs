@@ -42,10 +42,10 @@ namespace Acumatica.RESTClient.CustomizationApi
                 null,
                 customizationImport,
                 HeaderContentType.Json,
-                HeaderContentType.Json);
+                HeaderContentType.Json).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await DeserializeAsync<CustomizationPublishLog>(response);
+            return await DeserializeAsync<CustomizationPublishLog>(response).ConfigureAwait(false);
         }
         public static CustomizationPublishLog Import(this ApiClient client, 
             Stream customizationPackageContent,
@@ -54,7 +54,7 @@ namespace Acumatica.RESTClient.CustomizationApi
             bool replaceIfExists = true,
             int? level = null)
         {
-            return Task.Run(() => ImportAsync(client, customizationPackageContent, projectName, projectDescription, replaceIfExists, level)).GetAwaiter().GetResult();
+            return ImportAsync(client, customizationPackageContent, projectName, projectDescription, replaceIfExists, level).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace Acumatica.RESTClient.CustomizationApi
                isOnlyValidation,
                isOnlyDbUpdates,
                isReplayPreviouslyExecutedScripts,
-               tenantMode);
+               tenantMode).ConfigureAwait(false);
         }
 
         public static CustomizationPublishLog PublishBegin(this ApiClient client,
@@ -116,7 +116,7 @@ namespace Acumatica.RESTClient.CustomizationApi
             TenantMode tenantMode = TenantMode.Current
                        )
         {
-            return Task.Run(() => PublishBeginAsync(client, projectName, isMergeWithExistingPackages, isOnlyValidation, isOnlyDbUpdates, isReplayPreviouslyExecutedScripts, tenantMode)).GetAwaiter().GetResult();
+            return PublishBeginAsync(client, projectName, isMergeWithExistingPackages, isOnlyValidation, isOnlyDbUpdates, isReplayPreviouslyExecutedScripts, tenantMode).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -177,10 +177,10 @@ namespace Acumatica.RESTClient.CustomizationApi
                 null,
                 publishParams,
                 HeaderContentType.Json,
-                HeaderContentType.Json);
+                HeaderContentType.Json).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await DeserializeAsync<CustomizationPublishLog>(response);
+            return await DeserializeAsync<CustomizationPublishLog>(response).ConfigureAwait(false);
         }
 
         public static CustomizationPublishLog PublishBegin(this ApiClient client,
@@ -192,7 +192,7 @@ namespace Acumatica.RESTClient.CustomizationApi
                                                                               TenantMode tenantMode = TenantMode.Current
                        )
         {
-            return Task.Run(() => PublishBeginAsync(client, projectNames, isMergeWithExistingPackages, isOnlyValidation, isOnlyDbUpdates, isReplayPreviouslyExecutedScripts, tenantMode)).GetAwaiter().GetResult();
+            return PublishBeginAsync(client, projectNames, isMergeWithExistingPackages, isOnlyValidation, isOnlyDbUpdates, isReplayPreviouslyExecutedScripts, tenantMode).GetAwaiter().GetResult();
         }
 
 
@@ -205,14 +205,14 @@ namespace Acumatica.RESTClient.CustomizationApi
                 null,
                 null,
                 HeaderContentType.Json,
-                HeaderContentType.Json);
+                HeaderContentType.Json).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await DeserializeAsync<CustomizationPublishEnd>(response);
+            return await DeserializeAsync<CustomizationPublishEnd>(response).ConfigureAwait(false);
         }
         public static CustomizationPublishEnd CustomizationPublishEnd(this ApiClient client)
         {
-            return Task.Run(() => CustomizationPublishEndAsync(client)).GetAwaiter().GetResult();
+            return CustomizationPublishEndAsync(client).GetAwaiter().GetResult();
         }
 
         public static void WaitPublishingCompletion(this ApiClient client, int millisecondsInterval = 1000)

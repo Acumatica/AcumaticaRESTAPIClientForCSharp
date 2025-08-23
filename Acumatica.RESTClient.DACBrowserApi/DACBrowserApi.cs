@@ -14,7 +14,7 @@ namespace Acumatica.RESTClient.DACBrowserApi
     {
         public static ItemsRoot GetAllDACs(this ApiClient client)
         {
-            return Task.Run(() => GetAllDACsAsync(client)).GetAwaiter().GetResult();
+            return GetAllDACsAsync(client).GetAwaiter().GetResult();
         }
 
         public async static Task<ItemsRoot> GetAllDACsAsync(this ApiClient client)
@@ -25,46 +25,34 @@ namespace Acumatica.RESTClient.DACBrowserApi
                 null,
                 null,
                 HeaderContentType.Json,
-                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
+                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await DeserializeAsync<ItemsRoot>(response);
+            return await DeserializeAsync<ItemsRoot>(response).ConfigureAwait(false);
         }
         public static DAC GetDAC(this ApiClient client, string DACNamespace, string DACName)
         {
-            return Task.Run(() => GetDACAsync(client, DACNamespace, DACName)).GetAwaiter().GetResult();
+            return GetDACAsync(client, DACNamespace, DACName).GetAwaiter().GetResult();
         }
 
         public async static Task<DAC> GetDACAsync(this ApiClient client, string DACNamespace, string DACName)
         {
-            HttpResponseMessage response = await client.CallApiAsync(
-                $"/dacBrowser/{DACNamespace}/{DACName}",
-                HttpMethod.Get,
-                null,
-                null,
-                HeaderContentType.Json,
-                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
+            HttpResponseMessage response = await client.CallApiAsync($"/dacBrowser/{DACNamespace}/{DACName}", HttpMethod.Get, null, null, HeaderContentType.Json, HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await DeserializeAsync<DAC>(response);
+            return await DeserializeAsync<DAC>(response).ConfigureAwait(false);
         }
         public static Field GetField(this ApiClient client, string DACNamespace, string DACName, string fieldName)
         {
-            return Task.Run(() => GetFieldAsync(client, DACNamespace, DACName, fieldName)).GetAwaiter().GetResult();
+            return GetFieldAsync(client, DACNamespace, DACName, fieldName).GetAwaiter().GetResult();
         }
 
         public async static Task<Field> GetFieldAsync(this ApiClient client, string DACNamespace, string DACName, string fieldName)
         {
-            HttpResponseMessage response = await client.CallApiAsync(
-                $"/dacBrowser/{DACNamespace}/{DACName}/{fieldName}",
-                HttpMethod.Get,
-                null,
-                null,
-                HeaderContentType.Json,
-                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
+            HttpResponseMessage response = await client.CallApiAsync($"/dacBrowser/{DACNamespace}/{DACName}/{fieldName}", HttpMethod.Get, null, null, HeaderContentType.Json, HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await DeserializeAsync<Field>(response);
+            return await DeserializeAsync<Field>(response).ConfigureAwait(false);
         }
     }
 }

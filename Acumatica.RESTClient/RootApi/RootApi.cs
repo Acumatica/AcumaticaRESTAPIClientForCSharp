@@ -40,11 +40,11 @@ namespace Acumatica.RESTClient.RootApi
                 null,
                 null,
                 HeaderContentType.Json | HeaderContentType.Xml,
-                HeaderContentType.None);
+                HeaderContentType.None).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
 
-            return await DeserializeAsync<VersionAndEndpoints>(response);
+            return await DeserializeAsync<VersionAndEndpoints>(response).ConfigureAwait(false);
         }
         #endregion
     }

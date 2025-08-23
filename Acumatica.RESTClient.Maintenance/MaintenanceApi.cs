@@ -18,13 +18,13 @@ namespace Acumatica.RESTClient.MaintenanceApi
                 null,
                 endpointXML,
                 HeaderContentType.Xml,
-                HeaderContentType.Xml);
+                HeaderContentType.Xml).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
         }
         public static void PutSchema(this ApiClient client, string endpointXML)
         {
-            Task.Run(() => PutSchemaAsync(client, endpointXML)).GetAwaiter().GetResult();
+            PutSchemaAsync(client, endpointXML).GetAwaiter().GetResult();
         }
 
 
@@ -36,14 +36,14 @@ namespace Acumatica.RESTClient.MaintenanceApi
                 null,
                 null,
                 HeaderContentType.Xml,
-                HeaderContentType.Xml);
+                HeaderContentType.Xml).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await response.Content.ReadAsStringAsync(); 
+            return await response.Content.ReadAsStringAsync().ConfigureAwait(false); 
         }
         public static string GetSchema(this ApiClient client, string endpointName, string endpointVersion)
         {
-            return Task.Run(() => GetSchemaAsync(client, endpointName, endpointVersion)).GetAwaiter().GetResult();
+            return GetSchemaAsync(client, endpointName, endpointVersion).GetAwaiter().GetResult();
         }
     }
 }

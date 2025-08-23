@@ -22,7 +22,7 @@ namespace Acumatica.RESTClient.FileApi
         }
         public static async Task<Stream> GetFileAsync(this ApiClient client, FileLink fileLink)
         {
-            return await GetFileAsync(client, fileLink.Href);
+            return await GetFileAsync(client, fileLink.Href).ConfigureAwait(false);
         }
 
         public static Stream GetFile(this ApiClient client, string href)
@@ -33,7 +33,7 @@ namespace Acumatica.RESTClient.FileApi
         public static async Task<Stream> GetFileAsync(this ApiClient client, string href)
         {
             var parsedLocation = UrlParser.ParseFileLocation(href);
-            return await GetFileAsync(client, parsedLocation.ID, parsedLocation.EndpointName, parsedLocation.EndpointVersion);
+            return await GetFileAsync(client, parsedLocation.ID, parsedLocation.EndpointName, parsedLocation.EndpointVersion).ConfigureAwait(false);
         }
 
         public static Stream GetFile(this ApiClient client, Guid fileID, string endpointName, string endpointVersion)
@@ -42,7 +42,7 @@ namespace Acumatica.RESTClient.FileApi
         }
         public static async Task<Stream> GetFileAsync(this ApiClient client, Guid fileID, string endpointName, string endpointVersion)
         {
-            return await GetFileAsync(client, fileID.ToString(), endpointName, endpointVersion);
+            return await GetFileAsync(client, fileID.ToString(), endpointName, endpointVersion).ConfigureAwait(false);
         }
 
         public static Stream GetFile(this ApiClient client, string fileID, string endpointName, string endpointVersion)
@@ -58,10 +58,10 @@ namespace Acumatica.RESTClient.FileApi
                 null,
                 HeaderContentType.OctetStream,
                 HeaderContentType.Json
-                );
+                ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await response.Content.ReadAsStreamAsync();
+            return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// 
@@ -73,7 +73,7 @@ namespace Acumatica.RESTClient.FileApi
         /// <param name="comment">Starting from Acumatica 2024r2 it is possible to specify the file comment.</param>
         public static void PutFile(this ApiClient client, Entity entity, string filename, byte[] content, string? comment = null)
         {
-            Task.Run(() => PutFileAsync(client, entity, filename, content, comment)).GetAwaiter().GetResult();
+            PutFileAsync(client, entity, filename, content, comment).GetAwaiter().GetResult();
         }
         /// <summary>
         /// 
@@ -97,7 +97,7 @@ namespace Acumatica.RESTClient.FileApi
                 content,
                 HeaderContentType.Json,
                 HeaderContentType.OctetStream,
-                ComposeFileUploadHeaders(comment));
+                ComposeFileUploadHeaders(comment)).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
         }
