@@ -29,7 +29,7 @@ namespace RESTClientTests
                    { Content = new StringContent(response) };
                }));
             var order = client.GetById<SalesOrder>(new Guid());
-            order.Date.Value.Should().Be(expectedValue);
+            order!.Date!.Value!.Should().Be(expectedValue);
         }
 
         [Theory]
@@ -69,7 +69,7 @@ namespace RESTClientTests
                    { Content = new StringContent(response) };
                }));
             var appointment = client.GetById<Appointment>(new Guid());
-            appointment.DateTime.Value.Should().Be(expectedValue);
+            appointment!.DateTime!.Value!.Should().Be(expectedValue);
         }
 
         [Fact]
@@ -83,7 +83,7 @@ namespace RESTClientTests
                    { Content = new StringContent(response) };
                }));
             var appointment = client.GetById<Appointment>(new Guid());
-            appointment.DateTime.Value.Value.Kind.Should().Be(DateTimeKind.Utc);
+            appointment!.DateTime!.Value!.Value.Kind.Should().Be(DateTimeKind.Utc);
         }
 
         [Theory]

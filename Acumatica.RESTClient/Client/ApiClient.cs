@@ -141,21 +141,14 @@ namespace Acumatica.RESTClient.Client
                 acceptType: ComposeAcceptHeaders(acceptType),
                 contentType: ComposeContentHeaders(contentType));
 
-            if (RequestInterceptor != null)
-            {
-                RequestInterceptor(request);
-            }
+            RequestInterceptor?.Invoke(request);
+
             HttpResponseMessage response = await HttpClient.SendRequest(request);
 
-            if (ResponseInterceptor != null)
-            {
-                ResponseInterceptor(response);
-            }
+            ResponseInterceptor?.Invoke(response);
 
             return response;
         }
-
-
       
         public bool HasToken()
         {

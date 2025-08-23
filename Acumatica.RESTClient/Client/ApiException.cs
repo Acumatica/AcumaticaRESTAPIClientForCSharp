@@ -61,7 +61,7 @@ namespace Acumatica.RESTClient.Client
                 {
                     ErrorContent = JToken.Parse(errorContent);
                     ServerException = ErrorContent.ToObject<ServerException>();
-                    if (ServerException.Message == null)
+                    if (ServerException?.Message == null)
                     {
                         ServerException = null;
                         Error = ErrorContent["error"]?.ToString();
@@ -185,7 +185,7 @@ namespace Acumatica.RESTClient.Client
 
         public ServerException GetInnermostException() => InnerException?.GetInnermostException() ?? this;
 
-        private string GetIndention(int depth)
+        private static string GetIndention(int depth)
         {
             return new string('\t', depth);
         }

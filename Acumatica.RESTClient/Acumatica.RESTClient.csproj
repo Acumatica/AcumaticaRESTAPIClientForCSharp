@@ -34,12 +34,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Properties\**" />
-    <EmbeddedResource Remove="Properties\**" />
-    <None Remove="Properties\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="images\AcumaticaRESTClientLogo.ico" />
   </ItemGroup>
 

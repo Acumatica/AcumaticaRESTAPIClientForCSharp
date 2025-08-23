@@ -13,7 +13,7 @@ namespace RESTClientTests.Mocks
 {
     internal class HttpClientHandlerMock : IHttpClientHandler
     {
-        Func<HttpRequestMessage, HttpResponseMessage> ReturnResponse;
+        readonly Func<HttpRequestMessage, HttpResponseMessage> ReturnResponse;
         public HttpClientHandlerMock(Func<HttpRequestMessage, HttpResponseMessage> returnResponse)
         {
             ReturnResponse = returnResponse;

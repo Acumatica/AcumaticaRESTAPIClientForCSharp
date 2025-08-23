@@ -270,10 +270,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
             if (entity == null)
                 ThrowMissingParameter(nameof(PutAsync), nameof(entity));
             if (endpointPath == null)
-                endpointPath = GetEndpointPath(entity);
+                endpointPath = GetEndpointPath(entity!);
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(entity)}",
+                $"{endpointPath}/{GetEntityName(entity!)}",
                 HttpMethod.Put,
                 ComposeQueryParams(select, filter, expand, custom),
                 entity,
