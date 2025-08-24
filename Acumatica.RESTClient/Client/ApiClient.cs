@@ -5,8 +5,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.AuthApi.Model;
 
@@ -23,8 +21,38 @@ namespace Acumatica.RESTClient.Client
     /// </summary>
     public class ApiClient : IDisposable
     {
-        private const string SessionCookieName = "ASP.NET_SessionId";
         #region State & ctor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiClient" /> class.
+        /// </summary> 
+        /// <param name="basePath">
+        /// Path to the Acumatica instance e.g. <c>https://example.acumatica.com/</c>
+        /// </param>
+        /// <param name="requestInterceptor">
+        /// An action delegate that will be executed along with sending an API request. 
+        /// Can be used for logging purposes.
+        /// </param>
+        /// <param name="responseInterceptor">
+        /// An action delegate that will be executed along with receiving an API response. 
+        /// Can be used for logging purposes.
+        /// </param>
+        /// <param name="timeout">
+        /// Sets the HTTP timeout (milliseconds) of the ApiClient. Default to 100000 milliseconds.
+        /// </param>
+        /// <param name="ignoreSslErrors">
+        /// Sets whether SSL/TLS related errors should be ignored.
+        /// </param>
+        public ApiClient(HttpClient httpClient,
+            Action<HttpRequestMessage>? requestInterceptor = null,
+            Action<HttpResponseMessage>? responseInterceptor = null)
+        {
+            RequestInterceptor = requestInterceptor;
+            ResponseInterceptor = responseInterceptor;
+
+            HttpClient = httpClient;
+            OwnsHttpClient = false;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
         /// </summary> 
@@ -48,24 +76,40 @@ namespace Acumatica.RESTClient.Client
         public ApiClient(string basePath,
             int timeout = 100000,
             bool ignoreSslErrors = false,
-             Action<HttpRequestMessage>? requestInterceptor = null,
-             Action<HttpResponseMessage>? responseInterceptor = null)
+            Action<HttpRequestMessage>? requestInterceptor = null,
+            Action<HttpResponseMessage>? responseInterceptor = null)
         {
-            BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
 
             RequestInterceptor = requestInterceptor;
             ResponseInterceptor = responseInterceptor;
 
-            HttpClient = new HttpClientHandler(timeout, ignoreSslErrors);
+            Cookies = new CookieContainer();
+            HttpClientHandler handler;
+            if (ignoreSslErrors)
+            {
+                handler = new HttpClientHandler
+                {
+                    UseCookies = true,
+                    CookieContainer = Cookies,
+                    ServerCertificateCustomValidationCallback = (HttpRequestMessage httpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2 cert, System.Security.Cryptography.X509Certificates.X509Chain cetChain, System.Net.Security.SslPolicyErrors policyErrors) => true
+                };
+            }
+            else
+            {
+                handler = new HttpClientHandler
+                {
+                    UseCookies = true,
+                    CookieContainer = Cookies
+                };
+            }
+            HttpClient = new HttpClient(handler)
+            {
+                Timeout = new TimeSpan(0, 0, 0, 0, timeout),
+                BaseAddress = new Uri(basePath)
+            };
+            OwnsHttpClient = true;
+            BasePath = basePath;
         }
-
-        internal ApiClient(string basePath, IHttpClientHandler httpClient)
-        {
-            BasePath = basePath.EndsWith("/") ? basePath : basePath + "/";
-
-            HttpClient = httpClient;
-        }
-
 
         /// <summary>
         /// Method that is executed before request. May be used for loggin the request body.
@@ -77,18 +121,27 @@ namespace Acumatica.RESTClient.Client
         /// </summary>
         public Action<HttpResponseMessage>? ResponseInterceptor { get; set; }
 
-
         /// <summary>
         /// Gets or sets the HttpClient.
         /// </summary>
         /// <value>An instance of the HttpClient</value>
-        internal IHttpClientHandler HttpClient { get; set; }
+        internal HttpClient HttpClient { get; set; }
+
+        protected bool OwnsHttpClient { get; set; }
+
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
         public virtual string BasePath
         {
-            get; set;
+            get
+            {
+                return HttpClient.BaseAddress?.ToString() ?? string.Empty;
+            }
+            set
+            {
+                HttpClient.BaseAddress = new Uri(value.EndsWith("/") ? value : value + "/");
+            }
         }
 
         /// <summary>
@@ -143,7 +196,7 @@ namespace Acumatica.RESTClient.Client
 
             RequestInterceptor?.Invoke(request);
 
-            HttpResponseMessage response = await HttpClient.SendRequest(request).ConfigureAwait(false);
+            HttpResponseMessage response = await HttpClient.SendAsync(request).ConfigureAwait(false);
 
             ResponseInterceptor?.Invoke(response);
 
@@ -159,6 +212,10 @@ namespace Acumatica.RESTClient.Client
             if (HasToken() || HasSessionInfo())
             {
                 AuthApi.AuthApiExtensions.TryLogout(this);
+            }
+            if(OwnsHttpClient)
+            {
+                HttpClient.Dispose();
             }
         }
         #endregion
@@ -222,9 +279,24 @@ namespace Acumatica.RESTClient.Client
             return request;
         }
 
+        private const string SessionCookieName = "ASP.NET_SessionId";
         internal bool HasSessionInfo()
         {
-            return HttpClient.HasSessionCookie(new Uri(BasePath), SessionCookieName);
+            return HasSessionCookie(new Uri(BasePath), SessionCookieName);
+        }
+
+        protected readonly CookieContainer Cookies;
+
+
+        public bool HasSessionCookie(Uri path, string sessionCookieName)
+        {
+            if (Cookies != null
+                && Cookies.GetCookies(path).Cast<Cookie>()
+                .Any(cookie => cookie.Name == sessionCookieName))
+            {
+                return true;
+            }
+            return false;
         }
         #endregion
     }

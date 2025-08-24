@@ -1,32 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Net;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Acumatica.RESTClient.Client;
-
-using Microsoft.Extensions.DependencyInjection;
 
 namespace RESTClientTests.Mocks
 {
-    internal class HttpClientHandlerMock : IHttpClientHandler
+    internal class HttpClientMock : HttpClient
     {
-        readonly Func<HttpRequestMessage, HttpResponseMessage> ReturnResponse;
-        public HttpClientHandlerMock(Func<HttpRequestMessage, HttpResponseMessage> returnResponse)
-        {
-            ReturnResponse = returnResponse;
-        }
+        public HttpClientMock(Func<HttpRequestMessage, HttpResponseMessage> returnResponse) : base(new HttpMessageHandlerMock(returnResponse))
+        { }
 
-        public bool HasSessionCookie(Uri path, string sessionCookieName)
+        private class HttpMessageHandlerMock : HttpMessageHandler
         {
-            return true;
-        }
+            private Func<HttpRequestMessage, HttpResponseMessage> returnResponse;
 
-        public async Task<HttpResponseMessage> SendRequest(HttpRequestMessage request)
-        {
-            return ReturnResponse(request);
+            public HttpMessageHandlerMock(Func<HttpRequestMessage, HttpResponseMessage> returnResponse)
+            {
+                this.returnResponse = returnResponse;
+            }
+
+            protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+            {
+                return Task.FromResult(returnResponse(request));
+            }
         }
     }
 }

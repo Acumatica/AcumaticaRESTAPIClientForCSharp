@@ -19,8 +19,8 @@ namespace RESTClientTests
         [Fact]
         public void AllParametersArePropagatedToUrl()
         {
-            var client = new ApiClient("http://localhost/23r211/",
-                new HttpClientHandlerMock(request=>
+            var client = new ApiClient(
+                new HttpClientMock(request=>
                 {
                     Assert.Contains("expand=files", request.RequestUri.ToString());
                     Assert.Contains("select=OrderNbr", request.RequestUri.ToString());
