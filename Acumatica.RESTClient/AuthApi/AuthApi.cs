@@ -205,6 +205,7 @@ namespace Acumatica.RESTClient.AuthApi
             Login(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
         }
 
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
@@ -222,6 +223,7 @@ namespace Acumatica.RESTClient.AuthApi
             await LoginAsync(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale)).ConfigureAwait(false);
         }
 
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
@@ -236,6 +238,8 @@ namespace Acumatica.RESTClient.AuthApi
         {
            LoginAsync(client, credentials).GetAwaiter().GetResult();
 		}
+
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
