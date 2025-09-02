@@ -25,8 +25,8 @@ namespace Acumatica.RESTClient.Client
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
         /// </summary> 
-        /// <param name="basePath">
-        /// Path to the Acumatica instance e.g. <c>https://example.acumatica.com/</c>
+        /// <param name="httpClient">
+        /// An instance of <see cref="HttpClient"/> that is going to be used for performing API requests.</c>
         /// </param>
         /// <param name="requestInterceptor">
         /// An action delegate that will be executed along with sending an API request. 
@@ -35,12 +35,6 @@ namespace Acumatica.RESTClient.Client
         /// <param name="responseInterceptor">
         /// An action delegate that will be executed along with receiving an API response. 
         /// Can be used for logging purposes.
-        /// </param>
-        /// <param name="timeout">
-        /// Sets the HTTP timeout (milliseconds) of the ApiClient. Default to 100000 milliseconds.
-        /// </param>
-        /// <param name="ignoreSslErrors">
-        /// Sets whether SSL/TLS related errors should be ignored.
         /// </param>
         public ApiClient(HttpClient httpClient,
             Action<HttpRequestMessage>? requestInterceptor = null,
