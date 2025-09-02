@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ApplicationIcon>images\AcumaticaRESTClientLogo.ico</ApplicationIcon>
-    <Version>5.6.0-beta</Version>
+    <Version>5.6.1-beta</Version>
     <Company>Acumatica</Company>
     <Description>A simple client allowing to use Acumatica REST API from C#. </Description>
     <Copyright>Acumatica</Copyright>
@@ -12,7 +12,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
     <PackageTags>Acumatica;REST;client;</PackageTags>
-    <PackageReleaseNotes>Changed the date serialization/deserialization settings to always be UTC</PackageReleaseNotes>
+    <PackageReleaseNotes>Allowed passing HttpClient to API clent to allow using it in applications with DI</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <OutputType>Library</OutputType>
