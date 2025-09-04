@@ -13,6 +13,7 @@ using System.Linq;
 using System.Web;
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTests")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTestsNetFramework")]
 
 namespace Acumatica.RESTClient.Client
 {

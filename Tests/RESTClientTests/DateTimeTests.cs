@@ -22,7 +22,7 @@ namespace RESTClientTests
         {
             string response = $"{{\"Date\":{{\"value\":\"{responseDate}\"}}}}";
             DateTime expectedValue = new DateTime(expectedYear, expectedMonth, expectedDay);
-            var client = new ApiClient(new HttpClientMock(request =>
+            var client = new ApiClient(new HttpClientMock(async (request, ct) =>
                {
                    return new HttpResponseMessage(HttpStatusCode.OK)
                    { Content = new StringContent(response) };
@@ -41,7 +41,7 @@ namespace RESTClientTests
             };
 
             var client = new ApiClient(
-               new HttpClientMock(request =>
+               new HttpClientMock(async (request, ct) =>
                {
                    string serializedContent = request.Content.ReadAsStringAsync().Result;
                    serializedContent.Should().Contain($"Date\":{{\"value\":\"{expectedDateTime}\"");
@@ -61,7 +61,7 @@ namespace RESTClientTests
         {
             string response = $"{{\"DateTime\":{{\"value\":\"{responseDateTime}\"}}}}";
             DateTime expectedValue = new DateTime(expectedYear, expectedMonth, expectedDay, expectedHour, 0, 0);
-            var client = new ApiClient(new HttpClientMock(request =>
+            var client = new ApiClient(new HttpClientMock(async (request, ct) =>
                {
                    return new HttpResponseMessage(HttpStatusCode.OK)
                    { Content = new StringContent(response) };
@@ -75,7 +75,7 @@ namespace RESTClientTests
         {
             string response = $"{{\"DateTime\":{{\"value\":\"2020-09-25T13:00:00+04:00\"}}}}";
             var client = new ApiClient(
-               new HttpClientMock(request =>
+               new HttpClientMock(async (request, ct) =>
                {
                    return new HttpResponseMessage(HttpStatusCode.OK)
                    { Content = new StringContent(response) };
@@ -94,7 +94,7 @@ namespace RESTClientTests
                 DateTime = new DateTime(year, month, day, hour, 0, 0)
             };
 
-            var client = new ApiClient(new HttpClientMock(request =>
+            var client = new ApiClient(new HttpClientMock(async (request, ct) =>
                {
                    string serializedContent = request.Content.ReadAsStringAsync().Result;
                    serializedContent.Should().Contain($"DateTime\":{{\"value\":\"{expectedDateTime}\"");

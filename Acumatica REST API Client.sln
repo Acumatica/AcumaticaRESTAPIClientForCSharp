@@ -49,6 +49,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_24.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient.DACBrowserApi", "Acumatica.RESTClient.DACBrowserApi\Acumatica.RESTClient.DACBrowserApi.csproj", "{FB8CB5EA-E178-4731-8810-2FEE33199EF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTClientTestsNetFramework", "RESTClientTestsNetFramework\RESTClientTestsNetFramework.csproj", "{F9C0AE6E-A837-470D-8ABB-DED5F853FC59}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C2E0EC83-1B55-4C55-AE8E-0258FD6ADF14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuxiliaryTestClasses", "AuxiliaryTestClasses\AuxiliaryTestClasses.csproj", "{7AF2BEE7-78F0-4D9C-831E-A06C193B6A4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+	  <TargetFramework>net481</TargetFramework>
+    <AssemblyTitle>RESTClientTestsNetFramework</AssemblyTitle>
+    <Product>RESTClientTestsNetFramework</Product>
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <WarningLevel>3</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+    <nullable>Enable</nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="8.6.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
+    <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+    <ProjectReference Include="..\AuxiliaryTestClasses\AuxiliaryTestClasses.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+</Project>

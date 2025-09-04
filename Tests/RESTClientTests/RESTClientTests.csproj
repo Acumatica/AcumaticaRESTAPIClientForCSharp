@@ -34,5 +34,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
+    <ProjectReference Include="..\AuxiliaryTestClasses\AuxiliaryTestClasses.csproj" />
   </ItemGroup>
 </Project>
