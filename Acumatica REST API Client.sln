@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoints", "Endpoints", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTClientTests", "RESTClientTests\RESTClientTests.csproj", "{C56AC405-E788-41DF-B530-D964B55625E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_20.200.001", "Acumatica.Default_20.200.001\Acumatica.Default_20.200.001.csproj", "{CF6F7377-7A11-4D88-AD4D-6440E6994826}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_20.200.001", "Endpoints\Acumatica.Default_20.200.001\Acumatica.Default_20.200.001.csproj", "{CF6F7377-7A11-4D88-AD4D-6440E6994826}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_21.200.001", "Acumatica.Manufacturing_21.200.001\Acumatica.Manufacturing_21.200.001.csproj", "{4EB48CBD-6535-4CAA-96EE-346B3D426D6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_21.200.001", "Endpoints\Acumatica.Manufacturing_21.200.001\Acumatica.Manufacturing_21.200.001.csproj", "{4EB48CBD-6535-4CAA-96EE-346B3D426D6D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.ISVCB_21.200.001", "Acumatica.ISVCB_21.200.001\Acumatica.ISVCB_21.200.001.csproj", "{9DECC2EE-7FBC-4FC2-98A7-A1CD420F0C2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.ISVCB_21.200.001", "Endpoints\Acumatica.ISVCB_21.200.001\Acumatica.ISVCB_21.200.001.csproj", "{9DECC2EE-7FBC-4FC2-98A7-A1CD420F0C2A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_22.200.001", "Acumatica.Default_22.200.001\Acumatica.Default_22.200.001.csproj", "{4641CA94-9314-4FB3-BC8C-6F9DA5A9EDEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_22.200.001", "Endpoints\Acumatica.Default_22.200.001\Acumatica.Default_22.200.001.csproj", "{4641CA94-9314-4FB3-BC8C-6F9DA5A9EDEC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.ODataApi", "Acumatica.RESTClient.OData\Acumatica.RESTClient.ODataApi.csproj", "{48EA91F8-F5D2-4396-BEAF-5E17AC8CAEF9}"
 EndProject
@@ -25,27 +25,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.Mainte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.ContractBasedApi", "Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj", "{C12E1F61-1119-42B8-85D2-DF391A7B4378}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.DeviceHub_23.200.001", "Acumatica.DeviceHub_23.200.001\Acumatica.DeviceHub_23.200.001.csproj", "{83D15378-5F49-4B9A-ACB5-8A533EF394FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.DeviceHub_23.200.001", "Endpoints\Acumatica.DeviceHub_23.200.001\Acumatica.DeviceHub_23.200.001.csproj", "{83D15378-5F49-4B9A-ACB5-8A533EF394FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_22.200.001", "Acumatica.eCommerce_22.200.001\Acumatica.eCommerce_22.200.001.csproj", "{90B0851F-8B5F-4DCE-A552-8B6304023791}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_22.200.001", "Endpoints\Acumatica.eCommerce_22.200.001\Acumatica.eCommerce_22.200.001.csproj", "{90B0851F-8B5F-4DCE-A552-8B6304023791}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.GLConsolidation_22.200.001", "Acumatica.GLConsolidation_22.200.001\Acumatica.GLConsolidation_22.200.001.csproj", "{51BEEEB6-81A3-4745-B7FD-7F926F495182}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.GLConsolidation_22.200.001", "Endpoints\Acumatica.GLConsolidation_22.200.001\Acumatica.GLConsolidation_22.200.001.csproj", "{51BEEEB6-81A3-4745-B7FD-7F926F495182}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_23.100.001", "Acumatica.Manufacturing_23.100.001\Acumatica.Manufacturing_23.100.001.csproj", "{C971B770-8C90-41E5-895D-079F6FFA847F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_23.100.001", "Endpoints\Acumatica.Manufacturing_23.100.001\Acumatica.Manufacturing_23.100.001.csproj", "{C971B770-8C90-41E5-895D-079F6FFA847F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_23.200.001", "Acumatica.Default_23.200.001\Acumatica.Default_23.200.001.csproj", "{33A648C0-1F8A-4DAB-A914-8A92BAF32D02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_23.200.001", "Endpoints\Acumatica.Default_23.200.001\Acumatica.Default_23.200.001.csproj", "{33A648C0-1F8A-4DAB-A914-8A92BAF32D02}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_20.200.001", "Acumatica.eCommerce_20.200.001\Acumatica.eCommerce_20.200.001.csproj", "{04715C4B-8CE0-4E3D-9930-2570B35F3C78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_20.200.001", "Endpoints\Acumatica.eCommerce_20.200.001\Acumatica.eCommerce_20.200.001.csproj", "{04715C4B-8CE0-4E3D-9930-2570B35F3C78}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_23.200.001", "Acumatica.eCommerce_23.200.001\Acumatica.eCommerce_23.200.001.csproj", "{36CC9184-F935-425B-9B19-53BE782C10DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_23.200.001", "Endpoints\Acumatica.eCommerce_23.200.001\Acumatica.eCommerce_23.200.001.csproj", "{36CC9184-F935-425B-9B19-53BE782C10DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_23.200.001", "Acumatica.MANUFACTURING_23.200.001\Acumatica.Manufacturing_23.200.001.csproj", "{F0629B4C-9902-43C1-98A1-0DCD37E57069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_23.200.001", "Endpoints\Acumatica.MANUFACTURING_23.200.001\Acumatica.Manufacturing_23.200.001.csproj", "{F0629B4C-9902-43C1-98A1-0DCD37E57069}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_24.200.001", "Acumatica.Default_24.200.001\Acumatica.Default_24.200.001.csproj", "{75C7DC1C-2C4C-4B7D-A9AD-A67B471091FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_24.200.001", "Endpoints\Acumatica.Default_24.200.001\Acumatica.Default_24.200.001.csproj", "{75C7DC1C-2C4C-4B7D-A9AD-A67B471091FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_24.200.001", "Acumatica.eCommerce_24.200.001\Acumatica.eCommerce_24.200.001.csproj", "{77E0F239-AA86-4B78-A08B-C0B7D4C7571A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.eCommerce_24.200.001", "Endpoints\Acumatica.eCommerce_24.200.001\Acumatica.eCommerce_24.200.001.csproj", "{77E0F239-AA86-4B78-A08B-C0B7D4C7571A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_24.200.001", "Acumatica.Manufacturing_24.200.001\Acumatica.Manufacturing_24.200.001.csproj", "{E5660818-2C5D-457F-B30D-426A3CD9A884}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_24.200.001", "Endpoints\Acumatica.Manufacturing_24.200.001\Acumatica.Manufacturing_24.200.001.csproj", "{E5660818-2C5D-457F-B30D-426A3CD9A884}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient.DACBrowserApi", "Acumatica.RESTClient.DACBrowserApi\Acumatica.RESTClient.DACBrowserApi.csproj", "{FB8CB5EA-E178-4731-8810-2FEE33199EF7}"
 EndProject
