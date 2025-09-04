@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient", "Acu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoints", "Endpoints", "{F0B2BD45-79AE-43AF-B737-3018CD95C6E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTClientTests", "RESTClientTests\RESTClientTests.csproj", "{C56AC405-E788-41DF-B530-D964B55625E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTClientTests", "Tests\RESTClientTests\RESTClientTests.csproj", "{C56AC405-E788-41DF-B530-D964B55625E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_20.200.001", "Endpoints\Acumatica.Default_20.200.001\Acumatica.Default_20.200.001.csproj", "{CF6F7377-7A11-4D88-AD4D-6440E6994826}"
 EndProject
@@ -49,11 +49,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Manufacturing_24.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient.DACBrowserApi", "Acumatica.RESTClient.DACBrowserApi\Acumatica.RESTClient.DACBrowserApi.csproj", "{FB8CB5EA-E178-4731-8810-2FEE33199EF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTClientTestsNetFramework", "RESTClientTestsNetFramework\RESTClientTestsNetFramework.csproj", "{F9C0AE6E-A837-470D-8ABB-DED5F853FC59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTClientTestsNetFramework", "Tests\RESTClientTestsNetFramework\RESTClientTestsNetFramework.csproj", "{F9C0AE6E-A837-470D-8ABB-DED5F853FC59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C2E0EC83-1B55-4C55-AE8E-0258FD6ADF14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuxiliaryTestClasses", "AuxiliaryTestClasses\AuxiliaryTestClasses.csproj", "{7AF2BEE7-78F0-4D9C-831E-A06C193B6A4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuxiliaryTestClasses", "Tests\AuxiliaryTestClasses\AuxiliaryTestClasses.csproj", "{7AF2BEE7-78F0-4D9C-831E-A06C193B6A4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
