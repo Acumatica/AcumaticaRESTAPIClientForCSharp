@@ -18,8 +18,8 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
-    <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+    <ProjectReference Include="..\..\Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj" />
+    <ProjectReference Include="..\..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
     <ProjectReference Include="..\AuxiliaryTestClasses\AuxiliaryTestClasses.csproj" />
   </ItemGroup>
   
