@@ -12,6 +12,7 @@ using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 using System.Linq;
 using System.Web;
 using System.Threading;
+using System.Diagnostics;
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTests")]
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTestsNetFramework")]
@@ -221,6 +222,7 @@ namespace Acumatica.RESTClient.Client
 
             RequestInterceptor?.Invoke(request);
 
+            Stopwatch stopwatch = Stopwatch.StartNew();
             try
             {
                 HttpResponseMessage response = await HttpClient.SendAsync(request, cancellationToken).ConfigureAwait(false);
@@ -230,11 +232,15 @@ namespace Acumatica.RESTClient.Client
             }
             catch (TaskCanceledException e) when (!cancellationToken.IsCancellationRequested)
             {
-                if (e.InnerException is TimeoutException)
+                if (e.InnerException == null && stopwatch.ElapsedMilliseconds> HttpClient.Timeout.TotalMilliseconds) // in .Net framework the InnerException is null in case of timeout, while in .Net Core it presents
                 {
-                    throw new ApiException(408, "Request timeout");
+                    throw new TaskCanceledException($"Task cancelled due to configured Timeout: {HttpClient.Timeout}", e);
                 }
                 else throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
             }
         }
       
