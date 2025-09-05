@@ -36,7 +36,7 @@ namespace RESTClientTests
         }
 
         [Fact]
-        public void Timeout_IsIndicatedInTHeErrorMessage()
+        public void Timeout_IsIndicatedInTheErrorMessage()
         {
             var mockHttpClient = new HttpClientMock(async (request, ct) =>
             {
