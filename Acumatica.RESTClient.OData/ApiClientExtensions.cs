@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
@@ -32,21 +33,27 @@ namespace Acumatica.RESTClient.ODataApi
             return GetODataAsync(client, version, resource, tenant, select, filter, expand, skip, top, orderby).GetAwaiter().GetResult();
         }
         
-        public static async Task<IEnumerable<JObject>> GetODataAsync(this ApiClient client, ODataVersion version, string resource, string? tenant = null, string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null, string? orderby = null)
+        public static async Task<IEnumerable<JObject>> GetODataAsync(
+            this ApiClient client, 
+            ODataVersion version, 
+            string resource, 
+            string? tenant = null, 
+            string? select = null, string? filter = null, string? expand = null, int? skip = null, int? top = null, string? orderby = null,
+            CancellationToken cancellationToken = default)
         {
             //Oauth authentication
             HttpResponseMessage response = await client.CallApiAsync(
-                ConfigurePath(resource, tenant, version),
-                HttpMethod.Get,
-                ComposeQueryParamsOData(select, filter, expand, null, skip, top, orderby),
-                null,
-                HeaderContentType.Json,
-                HeaderContentType.Json,
-                ComposeAuthenticationHeaders(client)
+                resourcePath:       ConfigurePath(resource, tenant, version),
+                method:             HttpMethod.Get,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.Json,
+                queryParams:        ComposeQueryParamsOData(select, filter, expand, null, skip, top, orderby),
+                customHeaders:      ComposeAuthenticationHeaders(client),
+                cancellationToken:  cancellationToken
             ).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Status code: {response.StatusCode}:{response.ReasonPhrase}, Error: {await response.Content.ReadAsStringAsync().ConfigureAwait(false)}");
+                throw new ApiException(((int)response.StatusCode), $"Status code: {response.StatusCode}:{response.ReasonPhrase}, Error: {await response.Content.ReadAsStringAsync().ConfigureAwait(false)}");
             }
             return JsonConvert.DeserializeObject<ODataResults>(await response.Content.ReadAsStringAsync().ConfigureAwait(false)).Results; 
         }

@@ -11,6 +11,7 @@ using Acumatica.RESTClient.AuthApi.Model;
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 using System.Linq;
 using System.Web;
+using System.Threading;
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTests")]
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTestsNetFramework")]
@@ -159,43 +160,82 @@ namespace Acumatica.RESTClient.Client
         #endregion
 
         #region Public Methods
-
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>
         /// <param name="resourcePath">URL path.</param>
         /// <param name="method">HTTP method.</param>
         /// <param name="queryParams">Query parameters.</param>
-        /// <param name="postBody">HTTP body (POST request).</param>
+        /// <param name="body">HTTP body (POST request).</param>
         /// <param name="customHeaders">Header parameters.</param>
-        /// <param name="pathParams">Path parameters.</param>
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
         public async Task<HttpResponseMessage> CallApiAsync(
             String resourcePath,
             HttpMethod method,
             List<KeyValuePair<String, String>>? queryParams,
-            Object? postBody,
+            Object? body,
             HeaderContentType acceptType,
             HeaderContentType contentType,
+            Dictionary<String, String>? customHeaders = null)
+        {
+            return await CallApiAsync(
+                resourcePath:       resourcePath,
+                method:             method,
+                acceptType:         acceptType,
+                contentType:        contentType,
+                cancellationToken:  default,
+                body:               body,
+                queryParams:        queryParams,
+                customHeaders:      customHeaders
+            ).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Makes the asynchronous HTTP request.
+        /// </summary>
+        /// <param name="resourcePath">URL path.</param>
+        /// <param name="method">HTTP method.</param>
+        /// <param name="queryParams">Query parameters.</param>
+        /// <param name="body">HTTP body (POST request).</param>
+        /// <param name="customHeaders">Header parameters.</param>
+        /// <param name="contentType">Content type.</param>
+        /// <returns>The Task instance.</returns>
+        public async Task<HttpResponseMessage> CallApiAsync(
+            String resourcePath,
+            HttpMethod method,
+            HeaderContentType acceptType,
+            HeaderContentType contentType,
+            CancellationToken cancellationToken,
+            Object? body = null,
+            List<KeyValuePair<String, String>>? queryParams = null,
             Dictionary<String, String>? customHeaders = null)
         {
             var request = PrepareRequest(
                 resourcePath,
                 method,
                 queryParams,
-                postBody,
+                body,
                 customHeaders,
                 acceptType: ComposeAcceptHeaders(acceptType),
                 contentType: ComposeContentHeaders(contentType));
 
             RequestInterceptor?.Invoke(request);
 
-            HttpResponseMessage response = await HttpClient.SendAsync(request).ConfigureAwait(false);
+            try
+            {
+                HttpResponseMessage response = await HttpClient.SendAsync(request, cancellationToken).ConfigureAwait(false);
+                ResponseInterceptor?.Invoke(response);
 
-            ResponseInterceptor?.Invoke(response);
-
-            return response;
+                return response;
+            }
+            catch (TaskCanceledException e) when (!cancellationToken.IsCancellationRequested)
+            {
+                if (e.InnerException is TimeoutException)
+                {
+                    throw new ApiException(408, "Request timeout");
+                }
+                else throw;
+            }
         }
       
         public bool HasToken()

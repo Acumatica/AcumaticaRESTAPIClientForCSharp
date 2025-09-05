@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
@@ -17,15 +18,15 @@ namespace Acumatica.RESTClient.DACBrowserApi
             return GetAllDACsAsync(client).GetAwaiter().GetResult();
         }
 
-        public async static Task<ItemsRoot> GetAllDACsAsync(this ApiClient client)
+        public async static Task<ItemsRoot> GetAllDACsAsync(this ApiClient client, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response = await client.CallApiAsync(
-                $"/dacBrowser",
-                HttpMethod.Get,
-                null,
-                null,
-                HeaderContentType.Json,
-                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm).ConfigureAwait(false);
+                resourcePath:       $"/dacBrowser",
+                method:             HttpMethod.Get,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
             return await DeserializeAsync<ItemsRoot>(response).ConfigureAwait(false);
@@ -35,9 +36,16 @@ namespace Acumatica.RESTClient.DACBrowserApi
             return GetDACAsync(client, DACNamespace, DACName).GetAwaiter().GetResult();
         }
 
-        public async static Task<DAC> GetDACAsync(this ApiClient client, string DACNamespace, string DACName)
+        public async static Task<DAC> GetDACAsync(this ApiClient client, string DACNamespace, string DACName,
+            CancellationToken cancellationToken = default)
         {
-            HttpResponseMessage response = await client.CallApiAsync($"/dacBrowser/{DACNamespace}/{DACName}", HttpMethod.Get, null, null, HeaderContentType.Json, HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm).ConfigureAwait(false);
+            HttpResponseMessage response = await client.CallApiAsync(
+                resourcePath:       $"/dacBrowser/{DACNamespace}/{DACName}", 
+                method:             HttpMethod.Get, 
+                acceptType:         HeaderContentType.Json, 
+                contentType:        HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
             return await DeserializeAsync<DAC>(response).ConfigureAwait(false);
@@ -47,9 +55,16 @@ namespace Acumatica.RESTClient.DACBrowserApi
             return GetFieldAsync(client, DACNamespace, DACName, fieldName).GetAwaiter().GetResult();
         }
 
-        public async static Task<Field> GetFieldAsync(this ApiClient client, string DACNamespace, string DACName, string fieldName)
+        public async static Task<Field> GetFieldAsync(this ApiClient client, string DACNamespace, string DACName, string fieldName,
+            CancellationToken cancellationToken = default)
         {
-            HttpResponseMessage response = await client.CallApiAsync($"/dacBrowser/{DACNamespace}/{DACName}/{fieldName}", HttpMethod.Get, null, null, HeaderContentType.Json, HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm).ConfigureAwait(false);
+            HttpResponseMessage response = await client.CallApiAsync(
+                resourcePath:       $"/dacBrowser/{DACNamespace}/{DACName}/{fieldName}", 
+                method:             HttpMethod.Get, 
+                acceptType:         HeaderContentType.Json, 
+                contentType:        HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm, 
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
             return await DeserializeAsync<Field>(response).ConfigureAwait(false);

@@ -22,7 +22,8 @@ namespace Acumatica.RESTClient.CustomizationApi
             string projectName,
             string projectDescription = "",
             bool replaceIfExists = true,
-            int? level = null)
+            int? level = null, 
+            CancellationToken cancellationToken = default)
         {
             if (customizationPackageContent == null)
                 ThrowMissingParameter("Import", nameof(customizationPackageContent));
@@ -37,12 +38,13 @@ namespace Acumatica.RESTClient.CustomizationApi
             customizationImport.ProjectContentBase64 = ConvertToBase64(customizationPackageContent!);
 
             HttpResponseMessage response = await client.CallApiAsync(
-                "/CustomizationApi/Import",
-                HttpMethod.Post,
-                null,
-                customizationImport,
-                HeaderContentType.Json,
-                HeaderContentType.Json).ConfigureAwait(false);
+                resourcePath:       "/CustomizationApi/Import",
+                method:             HttpMethod.Post,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.Json,
+                body:               customizationImport,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
             return await DeserializeAsync<CustomizationPublishLog>(response).ConfigureAwait(false);
@@ -151,8 +153,8 @@ namespace Acumatica.RESTClient.CustomizationApi
             bool isOnlyValidation = false,
             bool isOnlyDbUpdates = false,
             bool isReplayPreviouslyExecutedScripts = false,
-           TenantMode tenantMode = TenantMode.Current
-            )
+           TenantMode tenantMode = TenantMode.Current,
+           CancellationToken cancellationToken = default)
         {
             if (projectNames == null)
                 ThrowMissingParameter("PublishBegin", nameof(projectNames));
@@ -172,40 +174,40 @@ namespace Acumatica.RESTClient.CustomizationApi
             }
 
             HttpResponseMessage response = await client.CallApiAsync(
-                "/CustomizationApi/PublishBegin",
-                HttpMethod.Post,
-                null,
-                publishParams,
-                HeaderContentType.Json,
-                HeaderContentType.Json).ConfigureAwait(false);
+                resourcePath:       "/CustomizationApi/PublishBegin",
+                method:             HttpMethod.Post,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.Json,
+                body:               publishParams,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
             return await DeserializeAsync<CustomizationPublishLog>(response).ConfigureAwait(false);
         }
 
         public static CustomizationPublishLog PublishBegin(this ApiClient client,
-                       List<string> projectNames,
-                                  bool isMergeWithExistingPackages = false,
-                                             bool isOnlyValidation = false,
-                                                        bool isOnlyDbUpdates = false,
-                                                                   bool isReplayPreviouslyExecutedScripts = false,
-                                                                              TenantMode tenantMode = TenantMode.Current
-                       )
+            List<string> projectNames,
+            bool isMergeWithExistingPackages = false,
+            bool isOnlyValidation = false,
+            bool isOnlyDbUpdates = false,
+            bool isReplayPreviouslyExecutedScripts = false,
+            TenantMode tenantMode = TenantMode.Current)
         {
             return PublishBeginAsync(client, projectNames, isMergeWithExistingPackages, isOnlyValidation, isOnlyDbUpdates, isReplayPreviouslyExecutedScripts, tenantMode).GetAwaiter().GetResult();
         }
 
 
 
-        public static async Task<CustomizationPublishEnd> CustomizationPublishEndAsync(this ApiClient client)
+        public static async Task<CustomizationPublishEnd> CustomizationPublishEndAsync(this ApiClient client, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response = await client.CallApiAsync(
-                "/CustomizationApi/PublishEnd",
-                HttpMethod.Post,
-                null,
-                null,
-                HeaderContentType.Json,
-                HeaderContentType.Json).ConfigureAwait(false);
+                resourcePath:       "/CustomizationApi/PublishEnd",
+                method:             HttpMethod.Post,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.Json, 
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
             return await DeserializeAsync<CustomizationPublishEnd>(response).ConfigureAwait(false);

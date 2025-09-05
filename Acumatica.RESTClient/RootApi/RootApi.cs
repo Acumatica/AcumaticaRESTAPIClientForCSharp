@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
@@ -32,15 +33,15 @@ namespace Acumatica.RESTClient.RootApi
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of VersionAndEndpoints</returns>
-        public static async Task<VersionAndEndpoints> RootGetAsync(this ApiClient client)
+        public static async Task<VersionAndEndpoints> RootGetAsync(this ApiClient client, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response = await client.CallApiAsync(
-                "/entity",
-                HttpMethod.Get,
-                null,
-                null,
-                HeaderContentType.Json | HeaderContentType.Xml,
-                HeaderContentType.None).ConfigureAwait(false);
+                resourcePath:       "/entity",
+                method:             HttpMethod.Get,
+                acceptType:         HeaderContentType.Json | HeaderContentType.Xml,
+                contentType:        HeaderContentType.None, 
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
 

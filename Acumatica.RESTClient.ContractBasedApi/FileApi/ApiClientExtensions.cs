@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
@@ -49,16 +50,16 @@ namespace Acumatica.RESTClient.FileApi
         {
             return GetFileAsync(client, fileID, endpointName, endpointVersion).Result;
         }
-        public async static Task<Stream> GetFileAsync(this ApiClient client, string fileID, string endpointName, string endpointVersion)
+        public async static Task<Stream> GetFileAsync(this ApiClient client, string fileID, string endpointName, string endpointVersion,
+            CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response = await client.CallApiAsync(
-                $"/entity/{endpointName}/{endpointVersion}/files/{fileID}",
-                HttpMethod.Get,
-                null,
-                null,
-                HeaderContentType.OctetStream,
-                HeaderContentType.Json
-                ).ConfigureAwait(false);
+                resourcePath:       $"/entity/{endpointName}/{endpointVersion}/files/{fileID}",
+                method:             HttpMethod.Get,
+                acceptType:         HeaderContentType.OctetStream,
+                contentType:        HeaderContentType.Json, 
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
@@ -84,20 +85,22 @@ namespace Acumatica.RESTClient.FileApi
         /// <param name="content"></param>
         /// <param name="comment">Starting from Acumatica 2024r2 it is possible to specify the file comment.</param>
         /// <returns></returns>
-        public async static Task PutFileAsync(this ApiClient client, Entity entity, string filename, byte[] content, string? comment = null)
+        public async static Task PutFileAsync(this ApiClient client, Entity entity, string filename, byte[] content, string? comment = null, 
+            CancellationToken cancellationToken = default)
         {
             if (String.IsNullOrWhiteSpace(entity.Links?.FileUploadLink))
                 ThrowMissingParameter(nameof(PutFileAsync), nameof(Links.FileUploadLink));
             FilePutLocation parsedLocation = UrlParser.ParseFilePutLocation(entity.Links!.FileUploadLink!);
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/files/{parsedLocation.GraphType}/{parsedLocation.ViewName}/{parsedLocation.ID}/{filename}",
-                HttpMethod.Put,
-                null,
-                content,
-                HeaderContentType.Json,
-                HeaderContentType.OctetStream,
-                ComposeFileUploadHeaders(comment)).ConfigureAwait(false);
+                resourcePath:       $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/files/{parsedLocation.GraphType}/{parsedLocation.ViewName}/{parsedLocation.ID}/{filename}",
+                method:             HttpMethod.Put,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.OctetStream,
+                body:               content,
+                customHeaders:      ComposeFileUploadHeaders(comment),
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
         }
