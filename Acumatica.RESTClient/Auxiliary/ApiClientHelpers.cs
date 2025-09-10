@@ -57,7 +57,7 @@ namespace Acumatica.RESTClient.Auxiliary
 
             };
 
-            return (T?)JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync(), typeof(T), serializerSettings);
+            return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync().ConfigureAwait(false), serializerSettings);
         }
         public static string ComposeContentHeaders(HeaderContentType contentTypes)
         {
@@ -92,7 +92,7 @@ namespace Acumatica.RESTClient.Auxiliary
         /// <returns>The Content-Type header to use.</returns>
         private static String SelectHeaderContentType(IEnumerable<string> contentTypes)
         {
-            if (contentTypes.Count() == 0)
+            if (!contentTypes.Any())
                 return ApplicationJsonAcceptContentType;
 
             foreach (var contentType in contentTypes)
@@ -138,7 +138,7 @@ namespace Acumatica.RESTClient.Auxiliary
             throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");
         }
 
-        private static IEnumerable<string> ComposeHeadersArray(HeaderContentType contentTypes)
+        private static List<string> ComposeHeadersArray(HeaderContentType contentTypes)
         {
             List<string> headers = new List<string>();
             if ((contentTypes & HeaderContentType.Json) == HeaderContentType.Json)
@@ -194,7 +194,7 @@ namespace Acumatica.RESTClient.Auxiliary
         public async static Task<string> ToFormUrlEncodedAsync(IDictionary<string, string> keyValueContent)
         {
             var formUrlEncodedContent = new FormUrlEncodedContent(keyValueContent);
-            return await formUrlEncodedContent.ReadAsStringAsync();
+            return await formUrlEncodedContent.ReadAsStringAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Encodes string in base64 format.

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ApplicationIcon>images\AcumaticaRESTClientLogo.ico</ApplicationIcon>
-    <Version>5.5.0</Version>
+    <Version>5.6.2-beta</Version>
     <Company>Acumatica</Company>
     <Description>A simple client allowing to use Acumatica REST API from C#. </Description>
     <Copyright>Acumatica</Copyright>
@@ -12,7 +12,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
     <PackageTags>Acumatica;REST;client;</PackageTags>
-    <PackageReleaseNotes>Changed the date serialization/deserialization settings to always be UTC</PackageReleaseNotes>
+    <PackageReleaseNotes>Allowed passing HttpClient to API clent to allow using it in applications with DI</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <OutputType>Library</OutputType>
@@ -24,7 +24,7 @@
     <LangVersion>9.0</LangVersion>
     <nullable>Enable</nullable>
   </PropertyGroup>
-
+	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>False</Optimize>
   </PropertyGroup>
@@ -32,12 +32,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Optimize>True</Optimize>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Properties\**" />
-    <EmbeddedResource Remove="Properties\**" />
-    <None Remove="Properties\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Include="images\AcumaticaRESTClientLogo.ico" />
@@ -51,9 +45,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-rc.2.23479.6" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0-rc.2.23479.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	  <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+	  </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

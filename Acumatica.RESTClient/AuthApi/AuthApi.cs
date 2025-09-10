@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.AuthApi.Model;
-using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.Client;
 
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
@@ -17,40 +15,42 @@ using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 namespace Acumatica.RESTClient.AuthApi
 {
-	/// <summary>
-	/// Represents a collection of functions to interact with the Authorization endpoint
-	/// </summary>
-	public static class AuthApiExtensions
+    /// <summary>
+    /// Represents a collection of functions to interact with the Authorization endpoint
+    /// </summary>
+    public static class AuthApiExtensions
     {
 		#region Public Methods
 		#region OAuth
 		public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
         {
-            Task.Run(() => RefreshAccessTokenAsync(client, clientID, clientSecret)).GetAwaiter().GetResult();
+            RefreshAccessTokenAsync(client, clientID, clientSecret).GetAwaiter().GetResult();
         }
 
-        public async static Task RefreshAccessTokenAsync(this ApiClient client, string clientID, string clientSecret)
+        public async static Task RefreshAccessTokenAsync(this ApiClient client, string clientID, string clientSecret, CancellationToken cancellationToken = default)
         {
             if (client == null || string.IsNullOrEmpty(client.Token?.Refresh_token))
-                ApiClientHelpers.ThrowMissingParameter(nameof(RefreshAccessToken), "Refresh_Token");
+                ThrowMissingParameter(nameof(RefreshAccessToken), "Refresh_Token");
 
             HttpResponseMessage response = await client!.CallApiAsync(
-               "/identity/connect/token",
-               HttpMethod.Post,
-               null,
-               await ApiClientHelpers.ToFormUrlEncodedAsync(new Dictionary<string, string>()
-               {
-                    {"grant_type", "refresh_token" },
-                    {"client_id", clientID },
-                    {"client_secret", clientSecret },
-                    {"refresh_token", client.Token!.Refresh_token! },
-               }),
-               HeaderContentType.None,
-               HeaderContentType.WwwForm);
+                resourcePath:       "/identity/connect/token",
+                method:             HttpMethod.Post,
+                queryParams:        null,
+                body:               await ToFormUrlEncodedAsync(new Dictionary<string, string>()
+                                    {
+                                        {"grant_type", "refresh_token" },
+                                        {"client_id", clientID },
+                                        {"client_secret", clientSecret },
+                                        {"refresh_token", client.Token!.Refresh_token! },
+                                    }).ConfigureAwait(false),
+                acceptType:         HeaderContentType.None,
+                contentType:        HeaderContentType.WwwForm,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
 
-            client.Token = await DeserializeAsync<Token>(response);
+            client.Token = await DeserializeAsync<Token>(response).ConfigureAwait(false);
         }
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
@@ -62,7 +62,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="scope"></param>
         public static void ReceiveAccessToken(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
         {
-            Task.Run(() => ReceiveAccessTokenAsync(client, clientID, clientSecret, username, password, scope)).GetAwaiter().GetResult();
+            ReceiveAccessTokenAsync(client, clientID, clientSecret, username, password, scope).GetAwaiter().GetResult();
         }
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
@@ -72,27 +72,35 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="scope"></param>
-        public async static Task ReceiveAccessTokenAsync(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
+        public async static Task ReceiveAccessTokenAsync(
+            this ApiClient client, 
+            string clientID, 
+            string clientSecret, 
+            string username, 
+            string password, 
+            OAuthScope scope, 
+            CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response = await client.CallApiAsync(
-               "identity/connect/token",
-               HttpMethod.Post,
-               null,
-               await ApiClientHelpers.ToFormUrlEncodedAsync(new Dictionary<string, string>
-               {
-                    {"grant_type", "password" },
-                    {"client_id", clientID },
-                    {"client_secret", clientSecret },
-                    {"username", username },
-                    {"password", password },
-                    {"scope", PrepareScopeParameter(scope) }
-               }),
-               HeaderContentType.None,
-               HeaderContentType.WwwForm);
+               resourcePath:        "identity/connect/token",
+               method:              HttpMethod.Post,
+               acceptType:          HeaderContentType.None,
+               contentType:         HeaderContentType.WwwForm,
+               body:                await ToFormUrlEncodedAsync(new Dictionary<string, string>
+                                    {
+                                        {"grant_type", "password" },
+                                        {"client_id", clientID },
+                                        {"client_secret", clientSecret },
+                                        {"username", username },
+                                        {"password", password },
+                                        {"scope", PrepareScopeParameter(scope) }
+                                    }).ConfigureAwait(false),
+               cancellationToken:   cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(client, response, nameof(ReceiveAccessTokenAsync));
+            await VerifyResponseAsync(client, response, nameof(ReceiveAccessTokenAsync)).ConfigureAwait(false);
 
-            client.Token = await DeserializeAsync<Token>(response);
+            client.Token = await DeserializeAsync<Token>(response).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -113,7 +121,13 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="clientSecret"></param>
         /// <param name="redirectUrl"></param>
         /// <param name="scope"></param>
-        public async static Task<string> AuthorizeAsync(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
+        public async static Task<string> AuthorizeAsync(
+            this ApiClient client, 
+            string clientID, 
+            string clientSecret, 
+            string redirectUrl, 
+            OAuthScope scope, 
+            CancellationToken cancellationToken = default)
         {
             List<KeyValuePair<string, string>> queryParams = new List<KeyValuePair<string, string>>
             {
@@ -124,14 +138,15 @@ namespace Acumatica.RESTClient.AuthApi
             };
 
             HttpResponseMessage response = await client.CallApiAsync(
-                "identity/connect/authorize",
-                HttpMethod.Get,
-                queryParams,
-                null,
-                HeaderContentType.Any,
-                HeaderContentType.None);
+                resourcePath:       "identity/connect/authorize",
+                method:             HttpMethod.Get,
+                acceptType:         HeaderContentType.Any,
+                contentType:        HeaderContentType.None,
+                queryParams:        queryParams,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(client, response, "RequestToken");
+            await VerifyResponseAsync(client, response, "RequestToken").ConfigureAwait(false);
 
             var locationHeader = response.Headers.Where(_ => _.Key == "Location").FirstOrDefault();
             if (!response.Headers.Where(_ => _.Key == "Location").Any())
@@ -152,7 +167,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="code"></param>
         public static void ReceiveAccessTokenAuthCode(this ApiClient client, string clientID, string clientSecret, string redirectUrl, string code)
         {
-            Task.Run(() => ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, redirectUrl, code)).GetAwaiter().GetResult();
+            ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, redirectUrl, code).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -163,31 +178,39 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="clientSecret"></param>
         /// <param name="redirectUrl"></param>
         /// <param name="code"></param>
-        public static async Task ReceiveAccessTokenAuthCodeAsync(this ApiClient client, string clientID, string clientSecret, string redirectUrl, string code)
+        public static async Task ReceiveAccessTokenAuthCodeAsync(
+            this ApiClient client, 
+            string clientID, 
+            string clientSecret, 
+            string redirectUrl, 
+            string code, 
+            CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response = await client.CallApiAsync(
-               "/identity/connect/token",
-               HttpMethod.Post,
-               null,
-               await ApiClientHelpers.ToFormUrlEncodedAsync(new Dictionary<string, string>
-               {
-                    {"grant_type", "authorization_code" },
-                    {"code", code },
-                    {"redirect_uri", redirectUrl },
-                    {"client_id", clientID },
-                    {"client_secret", clientSecret }
-                   // ,                    {"scope", PrepareScopeParameter(scope) }
-               }),
-               HeaderContentType.None,
-               HeaderContentType.WwwForm);
+               resourcePath:        "/identity/connect/token",
+               method:              HttpMethod.Post,
+               acceptType:          HeaderContentType.None,
+               contentType:         HeaderContentType.WwwForm,
+               body:                await ToFormUrlEncodedAsync(new Dictionary<string, string>
+                                    {
+                                        {"grant_type", "authorization_code" },
+                                        {"code", code },
+                                        {"redirect_uri", redirectUrl },
+                                        {"client_id", clientID },
+                                        {"client_secret", clientSecret },
+                                     // {"scope", PrepareScopeParameter(scope) }
+                                    }).ConfigureAwait(false),
+               cancellationToken:   cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(client, response, "RequestToken");
+            await VerifyResponseAsync(client, response, "RequestToken").ConfigureAwait(false);
 
-            client.Token = await DeserializeAsync<Token>(response);
+            client.Token = await DeserializeAsync<Token>(response).ConfigureAwait(false);
         }
         #endregion
 
         #region Login
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
@@ -197,14 +220,12 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="tenant">Defines the tenant to log in.</param>
         /// <param name="branch">Defines the branch to log in.</param>
         /// <param name="locale">Defines the locale to use for localizable data.</param>
-        /// <returns>
-        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
-        /// </returns>
         public static void Login(this ApiClient client, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
         {
             Login(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
         }
 
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
@@ -214,14 +235,18 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="tenant">Defines the tenant to log in.</param>
         /// <param name="branch">Defines the branch to log in.</param>
         /// <param name="locale">Defines the locale to use for localizable data.</param>
-        /// <returns>
-        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
-        /// </returns>
-        public async static Task LoginAsync(this ApiClient client, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
+        public async static Task LoginAsync(this ApiClient client, 
+            string username, string password, string? tenant = null, string? branch = null, string? locale = null,
+            CancellationToken cancellationToken = default)
         {
-            await LoginAsync(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
+            await LoginAsync(
+                client:             client,
+                credentials:        new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale),
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
         }
 
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
@@ -229,13 +254,12 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="credentials">
         /// <see cref="Credentials"/> object that provides information required to log into the web service.
         /// </param>
-        /// <returns>
-        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
-        /// </returns>
         public static void Login(this ApiClient client, Credentials credentials)
         {
-           Task.Run(() => LoginAsync(client, credentials)).GetAwaiter().GetResult();
+           LoginAsync(client, credentials).GetAwaiter().GetResult();
 		}
+
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
@@ -243,23 +267,24 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="credentials">
         /// <see cref="Credentials"/> object that provides information required to log into the web service.
         /// </param>
-        /// <returns>
-        /// <see cref="Configuration"></see> that is required to make subsequent REST API calls.
-        /// </returns>
-        public async static Task LoginAsync(this ApiClient client, Credentials credentials)
+        public async static Task LoginAsync(
+            this ApiClient client, 
+            Credentials credentials, 
+            CancellationToken cancellationToken = default)
         {
             if (credentials == null)
-                ApiClientHelpers.ThrowMissingParameter(nameof(LoginAsync), nameof(credentials));
+                ThrowMissingParameter(nameof(LoginAsync), nameof(credentials));
 
             HttpResponseMessage response = await client.CallApiAsync(
-                "/entity/auth/login",
-                HttpMethod.Post,
-                null,
-                credentials,
-                HeaderContentType.None,
-                HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm);
+                resourcePath:       "/entity/auth/login",
+                method:             HttpMethod.Post,
+                acceptType:         HeaderContentType.None,
+                contentType:        HeaderContentType.Json | HeaderContentType.Xml | HeaderContentType.WwwForm,
+                body:               credentials,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(client, response, nameof(LoginAsync));
+            await VerifyResponseAsync(client, response, nameof(LoginAsync)).ConfigureAwait(false);
         }
         #endregion
 
@@ -272,7 +297,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <returns></returns>
         public static void Logout(this ApiClient client)
         {
-            Task.Run(() => LogoutAsync(client)).GetAwaiter().GetResult();
+            LogoutAsync(client).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -298,21 +323,21 @@ namespace Acumatica.RESTClient.AuthApi
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
-        public static async Task LogoutAsync(this ApiClient client)
+        public static async Task LogoutAsync(this ApiClient client, CancellationToken cancellationToken = default)
         {
             if (!client.HasSessionInfo())
             {
                 throw new Exception("There is no open session to log out.");
             }
             HttpResponseMessage response = await client.CallApiAsync(
-               "/entity/auth/logout",
-               HttpMethod.Post,
-               null,
-               null,
-               HeaderContentType.None,
-               HeaderContentType.None);
+               resourcePath:        "/entity/auth/logout",
+               method:              HttpMethod.Post,
+               acceptType:          HeaderContentType.None,
+               contentType:         HeaderContentType.None,
+               cancellationToken:   cancellationToken
+            ).ConfigureAwait(false);
 
-             await VerifyResponseAsync(client, response, nameof(LogoutAsync));
+             await VerifyResponseAsync(client, response, nameof(LogoutAsync)).ConfigureAwait(false);
         }
 
         #endregion
@@ -323,7 +348,7 @@ namespace Acumatica.RESTClient.AuthApi
         {
             if (!response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
+                var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 if (content?.Contains("API Login Limit") == true)
                 {
                     throw new ApiException(429, $"Error when calling {methodName}: API login limit exceeded. Please try again later.");

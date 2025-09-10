@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
@@ -31,10 +31,14 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// query the status of running operation using <see cref="GetProcessStatus(string)"/>
         /// </returns>
         public static string InvokeAction<EntityType>(
-            this ApiClient client, EntityAction<EntityType> action, string? endpointPath = null, DateTime? businessDate = null, string? branch = null)
+                this ApiClient client, 
+                EntityAction<EntityType> action, 
+                string? endpointPath = null, 
+                DateTime? businessDate = null, 
+                string? branch = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return Task.Run(() => InvokeActionAsync(client, action, endpointPath, businessDate, branch)).GetAwaiter().GetResult();
+            return InvokeActionAsync(client, action, endpointPath, businessDate, branch).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -44,7 +48,12 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
         /// <returns>Task of void</returns>
         public static async Task<string> InvokeActionAsync<EntityType>(
-            this ApiClient client, EntityAction<EntityType> action, string? endpointPath = null, DateTime? businessDate = null, string? branch = null)
+                this ApiClient client, 
+                EntityAction<EntityType> action, 
+                string? endpointPath = null, 
+                DateTime? businessDate = null, 
+                string? branch = null, 
+                CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (action == null)
@@ -54,15 +63,16 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 endpointPath = GetEndpointPath<EntityType>();
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{action!.GetType().Name}",
-                HttpMethod.Post,
-                null,
-                action,
-                HeaderContentType.Json,
-                HeaderContentType.Json,
-                ComposePutHeaders(PutMethod.Any, businessDate, branch));
+                resourcePath:       $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{action!.GetType().Name}",
+                method:             HttpMethod.Post,
+                body:               action,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.Json,
+                customHeaders:      ComposePutHeaders(PutMethod.Any, businessDate, branch),
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(InvokeActionAsync));
+            await VerifyResponseAsync(response, nameof(InvokeActionAsync)).ConfigureAwait(false);
 
             return response.Headers.GetValues("Location").First();
         }
@@ -92,12 +102,17 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="TimeoutException">
         /// Throws the the exception if the operation did not finish in specified timeout interval. 
         /// </exception>
-        public static async Task WaitActionCompletionAsync(this ApiClient client, string location, int millisecondsInterval = 1000, int secondsTimeout = 360)
+        public static async Task WaitActionCompletionAsync(
+            this ApiClient client, 
+            string location, 
+            int millisecondsInterval = 1000, 
+            int secondsTimeout = 360, 
+            CancellationToken cancellationToken = default)
         {
             while (true)
             {
                 var startTime = DateTime.Now;
-                var processResult = await GetProcessStatusAsync(client, location);
+                var processResult = await GetProcessStatusAsync(client, location, cancellationToken).ConfigureAwait(false);
 
                 switch (processResult)
                 {
@@ -112,7 +127,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                         }
                         else
                         {
-                            await Task.Delay(millisecondsInterval);
+                            await Task.Delay(millisecondsInterval).ConfigureAwait(false);
                             continue;
                         }
                     default:
@@ -141,7 +156,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// </exception>
         public static void WaitActionCompletion(this ApiClient client, string location, int millisecondsInterval = 1000)
         {
-            Task.Run(() => WaitActionCompletionAsync(client, location, millisecondsInterval)).GetAwaiter().GetResult();
+            WaitActionCompletionAsync(client, location, millisecondsInterval).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -155,7 +170,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <returns>Returns HTTP status code of the running operation.</returns>
         public static HttpStatusCode GetProcessStatus(this ApiClient client, string location)
         {
-            return Task.Run(() => GetProcessStatusAsync(client, location)).GetAwaiter().GetResult();
+            return GetProcessStatusAsync(client, location).GetAwaiter().GetResult();
         }
         /// <summary>
         /// Gets the status of an operation started by invoking an action.
@@ -166,7 +181,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/>
         /// </param>
         /// <returns>Returns HTTP status code of the running operation.</returns>
-        public static async Task<HttpStatusCode> GetProcessStatusAsync(this ApiClient client, string location)
+        public static async Task<HttpStatusCode> GetProcessStatusAsync(this ApiClient client, string location, CancellationToken cancellationToken = default)
         {
             if (location == null)
                 ThrowMissingParameter(nameof(GetProcessStatusAsync), nameof(location));
@@ -176,14 +191,14 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 return HttpStatusCode.NoContent;
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/{parsedLocation.EntityName}/{parsedLocation.ActionName}/{parsedLocation.Status}/{parsedLocation.ID}",
-                HttpMethod.Get,
-                null,
-                null,
-                HeaderContentType.Json,
-                HeaderContentType.None);
+                resourcePath:       $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/{parsedLocation.EntityName}/{parsedLocation.ActionName}/{parsedLocation.Status}/{parsedLocation.ID}",
+                method:             HttpMethod.Get, 
+                acceptType:         HeaderContentType.Json, 
+                contentType:        HeaderContentType.None,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(GetProcessStatusAsync));
+            await VerifyResponseAsync(response, nameof(GetProcessStatusAsync)).ConfigureAwait(false);
 
             return response.StatusCode;
         }
@@ -232,7 +247,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
             where EntityType : Entity, ITopLevelEntity
         {
-            return Task.Run(() => PutAsync(client, entity, endpointPath, select, filter, expand, custom, method, businessDate, branch)).GetAwaiter().GetResult();
+            return PutAsync(client, entity, endpointPath, select, filter, expand, custom, method, businessDate, branch).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -264,26 +279,29 @@ namespace Acumatica.RESTClient.ContractBasedApi
             EntityType entity,
             string? endpointPath = null,
             string? select = null, string? filter = null, string? expand = null, string? custom = null,
-            PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
+            PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null,
+            CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity
         {
             if (entity == null)
                 ThrowMissingParameter(nameof(PutAsync), nameof(entity));
             if (endpointPath == null)
-                endpointPath = GetEndpointPath(entity);
+                endpointPath = GetEndpointPath(entity!);
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(entity)}",
-                HttpMethod.Put,
-                ComposeQueryParams(select, filter, expand, custom),
-                entity,
-                HeaderContentType.Json,
-                HeaderContentType.Json,
-                ComposePutHeaders(method, businessDate, branch));
+                resourcePath:       $"{endpointPath}/{GetEntityName(entity!)}",
+                method:             HttpMethod.Put,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.Json,
+                body:               entity,
+                queryParams:        ComposeQueryParams(select, filter, expand, custom),
+                customHeaders:      ComposePutHeaders(method, businessDate, branch),
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync<EntityType>(response, nameof(PutAsync));
+            await VerifyResponseAsync<EntityType>(response, nameof(PutAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<EntityType>(response);
+            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }
         #endregion
         #region PutFile
@@ -299,7 +317,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            Task.Run(() => PutFileAsync<EntityType>(client, new List<string>() { id }, filename, content, endpointPath)).GetAwaiter().GetResult();
+            PutFileAsync<EntityType>(client, new List<string>() { id }, filename, content, endpointPath).GetAwaiter().GetResult();
         }
         /// <summary>
         /// Attaches a file to a record. 
@@ -313,7 +331,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            await PutFileAsync<EntityType>(client, new List<string>() { id }, filename, content, endpointPath);
+            await PutFileAsync<EntityType>(client, new List<string>() { id }, filename, content, endpointPath).ConfigureAwait(false);
         }
         /// <summary>
         /// Attaches a file to a record. 
@@ -327,7 +345,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            Task.Run(() => PutFileAsync<EntityType>(client, ids, filename, content, endpointPath)).GetAwaiter().GetResult();
+            PutFileAsync<EntityType>(client, ids, filename, content, endpointPath).GetAwaiter().GetResult();
         }
         /// <summary>
         /// Attaches a file to a record. 
@@ -338,7 +356,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFileAsync method instead")]
         public static async Task PutFileAsync<EntityType>(
             this ApiClient client, IEnumerable<string> ids, string filename, byte[] content,
-            string? endpointPath = null)
+            string? endpointPath = null, 
+            CancellationToken cancellationToken = default)
             where EntityType : ITopLevelEntity, new()
         {
             if (ids == null)
@@ -349,14 +368,15 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 endpointPath = GetEndpointPath<EntityType>();
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}/files/{filename}",
-                HttpMethod.Put,
-                null,
-                content,
-                HeaderContentType.Json,
-                HeaderContentType.OctetStream);
+                resourcePath:       $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}/files/{filename}",
+                method:             HttpMethod.Put,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.OctetStream,
+                body:               content,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(PutFileAsync));
+            await VerifyResponseAsync(response, nameof(PutFileAsync)).ConfigureAwait(false);
         }
         #endregion
         #region Get
@@ -375,7 +395,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, string? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return await GetByKeysAsync<EntityType>(client, new List<string> { key }, endpointPath, select, expand, custom);
+            return await GetByKeysAsync<EntityType>(client, new List<string> { key }, endpointPath, select, expand, custom).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a record by the values of its key fields from the system. 
@@ -387,9 +407,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of Entity</returns>
         public static async Task<EntityType> GetByKeysAsync<EntityType>(
-            this ApiClient client, IEnumerable<string> ids,
-            string? endpointPath = null,
-            string? select = null, string? expand = null, string? custom = null)
+                this ApiClient client, IEnumerable<string> ids,
+                string? endpointPath = null,
+                string? select = null, string? expand = null, string? custom = null,
+                CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (ids == null)
@@ -398,16 +419,17 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 endpointPath = GetEndpointPath<EntityType>();
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}",
-                HttpMethod.Get,
-                ComposeQueryParams(select, null, expand, custom),
-                null,
-                HeaderContentType.Json,
-                HeaderContentType.None);
+                resourcePath:       $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}", 
+                method:             HttpMethod.Get, 
+                queryParams:        ComposeQueryParams(select, null, expand, custom), 
+                acceptType:         HeaderContentType.Json, 
+                contentType:        HeaderContentType.None,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(GetByKeysAsync));
+            await VerifyResponseAsync(response, nameof(GetByKeysAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<EntityType>(response);
+            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -425,7 +447,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, string? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return Task.Run(() => GetByKeysAsync<EntityType>(client, key, endpointPath, select, expand, custom)).GetAwaiter().GetResult();
+            return GetByKeysAsync<EntityType>(client, key, endpointPath, select, expand, custom).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -443,7 +465,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, string? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return Task.Run(() => GetByKeysAsync<EntityType>(client, ids, endpointPath, select, expand, custom)).GetAwaiter().GetResult();
+            return GetByKeysAsync<EntityType>(client, ids, endpointPath, select, expand, custom).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -465,7 +487,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 ThrowMissingParameter(nameof(GetById), nameof(entity));
             if (entity!.ID == null)
                 ThrowMissingParameter(nameof(GetById), nameof(entity.ID));
-            return await GetByIdAsync<EntityType>(client, entity.ID, endpointPath, select, expand, custom);
+            return await GetByIdAsync<EntityType>(client, entity.ID, endpointPath, select, expand, custom).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -478,9 +500,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <returns>Task of Entity</returns>
         public static async Task<EntityType> GetByIdAsync<EntityType>(
-            this ApiClient client, Guid? id,
-            string? endpointPath = null,
-            string? select = null, string? expand = null, string? custom = null)
+                this ApiClient client, 
+                Guid? id,
+                string? endpointPath = null,
+                string? select = null, string? expand = null, string? custom = null,
+                CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (id == null)
@@ -489,16 +513,17 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 endpointPath = GetEndpointPath<EntityType>();
 
             HttpResponseMessage response = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{id}",
-                HttpMethod.Get,
-                ComposeQueryParams(select, null, expand, custom),
-                null,
-                HeaderContentType.Json,
-                HeaderContentType.None);
+                resourcePath:       $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{id}", 
+                method:             HttpMethod.Get, 
+                acceptType:         HeaderContentType.Json, 
+                contentType:        HeaderContentType.None,
+                queryParams:        ComposeQueryParams(select, null, expand, custom),
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(GetByIdAsync));
+            await VerifyResponseAsync(response, nameof(GetByIdAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<EntityType>(response);
+            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -515,7 +540,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, string? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return Task.Run(() => GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand, custom)).GetAwaiter().GetResult();
+            return GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand, custom).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -532,7 +557,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, string? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return Task.Run(() => GetByIdAsync<EntityType>(client, id, endpointPath, select, expand, custom)).GetAwaiter().GetResult();
+            return GetByIdAsync<EntityType>(client, id, endpointPath, select, expand, custom).GetAwaiter().GetResult();
         }
         #endregion
         #region GetList
@@ -548,10 +573,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
         /// <returns>Task of List&lt;Entity&gt;</returns>
         public static async Task<List<EntityType>> GetListAsync<EntityType>(
-            this ApiClient client,
-            string? endpointPath = null,
-            string? select = null, string? filter = null, string? expand = null, string? custom = null,
-            int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null)
+                this ApiClient client,
+                string? endpointPath = null,
+                string? select = null, string? filter = null, string? expand = null, string? custom = null,
+                int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null, 
+                CancellationToken cancellationToken = default)
             where EntityType : ITopLevelEntity, new()
         {
 
@@ -559,17 +585,18 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 endpointPath = GetEndpointPath<EntityType>();
 
             HttpResponseMessage response = await client.CallApiAsync(
-              $"{endpointPath}/{GetEntityName(typeof(EntityType))}",
-              HttpMethod.Get,
-              ComposeQueryParams(select, filter, expand, custom, skip, top),
-              null,
-              HeaderContentType.Json,
-              HeaderContentType.None,
-              customHeaders);
+                resourcePath:       $"{endpointPath}/{GetEntityName(typeof(EntityType))}",
+                method:             HttpMethod.Get,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.None,
+                queryParams:        ComposeQueryParams(select, filter, expand, custom, skip, top),
+                customHeaders:      customHeaders, 
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(GetListAsync));
+            await VerifyResponseAsync(response, nameof(GetListAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<List<EntityType>>(response);
+            return await DeserializeAsync<List<EntityType>>(response).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves records that satisfy the specified conditions from the system. 
@@ -589,28 +616,28 @@ namespace Acumatica.RESTClient.ContractBasedApi
             int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null)
             where EntityType : ITopLevelEntity, new()
         {
-            return Task.Run(() => GetListAsync<EntityType>(client, endpointPath, select, filter, expand, custom, skip, top, customHeaders)).GetAwaiter().GetResult();
+            return GetListAsync<EntityType>(client, endpointPath, select, filter, expand, custom, skip, top, customHeaders).GetAwaiter().GetResult();
         }
         #endregion
         #region GetSchema
 
         public static string GetSwagger(this ApiClient client, string endpointPath)
         {
-            return Task.Run(() => GetSwaggerAsync(client, endpointPath)).GetAwaiter().GetResult();
+            return GetSwaggerAsync(client, endpointPath).GetAwaiter().GetResult();
         }
-        public async static Task<string> GetSwaggerAsync(this ApiClient client, string endpointPath)
+        public async static Task<string> GetSwaggerAsync(this ApiClient client, string endpointPath, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response = await client.CallApiAsync(
-            $"{endpointPath}/swagger.json",
-            HttpMethod.Get,
-            null,
-            null,
-            HeaderContentType.Json,
-            HeaderContentType.None);
+                resourcePath:       $"{endpointPath}/swagger.json",
+                method:             HttpMethod.Get,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.None, 
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(GetSwaggerAsync));
+            await VerifyResponseAsync(response, nameof(GetSwaggerAsync)).ConfigureAwait(false);
 
-            return await response.Content.ReadAsStringAsync();
+            return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the schema of custom fields of the entity from the system. 
@@ -618,7 +645,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Entity</returns>
         public async static Task<EntityType> GetAdHocSchemaAsync<EntityType>(this ApiClient client,
-            string? endpointPath = null)
+                string? endpointPath = null, 
+                CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
 
@@ -626,16 +654,16 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 endpointPath = GetEndpointPath<EntityType>();
 
             HttpResponseMessage response = await client.CallApiAsync(
-               $"{endpointPath}/{GetEntityName(typeof(EntityType))}/$adHocSchema",
-               HttpMethod.Get,
-               null,
-               null,
-               HeaderContentType.Json,
-               HeaderContentType.None);
+                resourcePath:       $"{endpointPath}/{GetEntityName(typeof(EntityType))}/$adHocSchema",
+                method:             HttpMethod.Get,
+                acceptType:         HeaderContentType.Json,
+                contentType:        HeaderContentType.None, 
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(GetAdHocSchemaAsync));
+            await VerifyResponseAsync(response, nameof(GetAdHocSchemaAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<EntityType>(response);
+            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the schema of custom fields of the entity from the system. 
@@ -646,7 +674,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return Task.Run(() => GetAdHocSchemaAsync<EntityType>(client, endpointPath)).GetAwaiter().GetResult();
+            return GetAdHocSchemaAsync<EntityType>(client, endpointPath).GetAwaiter().GetResult();
         }
         #endregion
         #region Delete
@@ -655,14 +683,38 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
-        /// <returns></returns>
         public static void DeleteByKeys<EntityType>(this ApiClient client, IEnumerable<string> ids,
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            Task.Run(() => DeleteByKeysAsync<EntityType>(client, ids, endpointPath)).GetAwaiter().GetResult();
+            DeleteByKeysAsync<EntityType>(client, ids, endpointPath).GetAwaiter().GetResult();
+        }        
+
+        /// <summary>
+        /// Deletes the record by the values of its key fields. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The values of the key field of the record.</param>
+        public static void DeleteByKeys<EntityType>(this ApiClient client, string key,
+            string? endpointPath = null)
+            where EntityType : Entity, ITopLevelEntity, new()
+        {
+            DeleteByKeysAsync<EntityType>(client, key, endpointPath).GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        /// Deletes the record by the values of its key fields. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The value of the key field of the record.</param>
+        /// <returns>Task of void</returns>
+        public static async Task DeleteByKeysAsync<EntityType>(this ApiClient client, string key,
+                string? endpointPath = null,
+                CancellationToken cancellationToken = default)
+            where EntityType : Entity, ITopLevelEntity, new()
+        {
+            await DeleteByKeysAsync<EntityType>(client, new List<string> { key }, endpointPath, cancellationToken).ConfigureAwait(false);
+        }
         /// <summary>
         /// Deletes the record by the values of its key fields. 
         /// </summary>
@@ -670,7 +722,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <returns>Task of void</returns>
         public static async Task DeleteByKeysAsync<EntityType>(this ApiClient client, IEnumerable<string> ids,
-            string? endpointPath = null)
+                string? endpointPath = null,
+                CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (ids == null)
@@ -679,15 +732,15 @@ namespace Acumatica.RESTClient.ContractBasedApi
             if (endpointPath == null)
                 endpointPath = GetEndpointPath<EntityType>();
 
-            HttpResponseMessage localVarResponse = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}",
-                HttpMethod.Delete,
-                null,
-                null,
-                HeaderContentType.Any,
-                HeaderContentType.None);
+            HttpResponseMessage response = await client.CallApiAsync(
+                resourcePath:       $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{string.Join("/", ids)}",
+                method:             HttpMethod.Delete,
+                acceptType:         HeaderContentType.Any,
+                contentType:        HeaderContentType.None,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(localVarResponse, nameof(DeleteByKeysAsync));
+            await VerifyResponseAsync(response, nameof(DeleteByKeysAsync)).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -700,7 +753,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            Task.Run(() => DeleteAsync(client, entity, endpointPath)).GetAwaiter().GetResult();
+            DeleteAsync(client, entity, endpointPath).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -709,26 +762,28 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="entity">The record.</param>
         public static async Task DeleteAsync<EntityType>(
-            this ApiClient client, EntityType entity,
-            string? endpointPath = null)
+                this ApiClient client, EntityType entity,
+                string? endpointPath = null, 
+                CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            if (entity == null || entity.ID == null)
+            if (entity == null)
                 ThrowMissingParameter(nameof(DeleteAsync), nameof(entity));
-
+            if (entity.ID == null)
+                ThrowMissingParameter(nameof(DeleteAsync), nameof(entity.ID));
 
             if (endpointPath == null)
                 endpointPath = GetEndpointPath(entity!);
 
-            HttpResponseMessage localVarResponse = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{entity!.ID}",
-                HttpMethod.Delete,
-                null,
-                null,
-                HeaderContentType.Any,
-                HeaderContentType.None);
+            HttpResponseMessage response = await client.CallApiAsync(
+                resourcePath:       $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{entity!.ID}",
+                method:             HttpMethod.Delete,
+                acceptType:         HeaderContentType.Any,
+                contentType:        HeaderContentType.None, 
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(localVarResponse, nameof(DeleteAsync));
+            await VerifyResponseAsync(response, nameof(DeleteAsync)).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -741,7 +796,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            Task.Run(() => DeleteByIdAsync<EntityType>(client, id, endpointPath)).GetAwaiter().GetResult();
+            DeleteByIdAsync<EntityType>(client, id, endpointPath).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -751,7 +806,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <param name="id">The session ID of the record.</param>
         /// <returns>Task of void</returns>
         public static async Task DeleteByIdAsync<EntityType>(this ApiClient client, Guid? id,
-            string? endpointPath = null)
+            string? endpointPath = null,
+            CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             if (id == null)
@@ -759,15 +815,15 @@ namespace Acumatica.RESTClient.ContractBasedApi
             if (endpointPath == null)
                 endpointPath = GetEndpointPath<EntityType>();
 
-            HttpResponseMessage localVarResponse = await client.CallApiAsync(
-                $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{id}",
-                HttpMethod.Delete,
-                null,
-                null,
-                HeaderContentType.Any,
-                HeaderContentType.None);
+            HttpResponseMessage response = await client.CallApiAsync(
+                resourcePath:       $"{endpointPath}/{GetEntityName(typeof(EntityType))}/{id}",
+                method:             HttpMethod.Delete,
+                acceptType:         HeaderContentType.Any,
+                contentType:        HeaderContentType.None,
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(localVarResponse, nameof(DeleteByIdAsync));
+            await VerifyResponseAsync(response, nameof(DeleteByIdAsync)).ConfigureAwait(false);
         }
         #endregion
         #endregion
@@ -800,17 +856,17 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 string? responseMessage = null;
                 if (string.IsNullOrEmpty(responseMessage))
                 {
-                    responseMessage = await GetErrorMessageFromErrorAsync(response);
+                    responseMessage = await GetErrorMessageFromErrorAsync(response).ConfigureAwait(false);
                 }
                 if (string.IsNullOrEmpty(responseMessage))
                 {
-                    responseMessage = await GetErrorMessageFromErrorAsync(response);
+                    responseMessage = await GetErrorMessageFromErrorAsync(response).ConfigureAwait(false);
                 }
                 if (string.IsNullOrEmpty(responseMessage))
                 {
                     //it should be html at that point
                     //remove tags from html
-                    responseMessage = System.Text.RegularExpressions.Regex.Replace((await response.Content.ReadAsStringAsync()).Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
+                    responseMessage = System.Text.RegularExpressions.Regex.Replace((await response.Content.ReadAsStringAsync().ConfigureAwait(false)).Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
                 }
                 throw new ApiException(
                   (int)response.StatusCode,
@@ -823,7 +879,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? responseMessage = null;
             try
             {
-                ErrorMessage? error = await DeserializeAsync<ErrorMessage>(response);
+                ErrorMessage? error = await DeserializeAsync<ErrorMessage>(response).ConfigureAwait(false);
                 if (error == null || (String.IsNullOrEmpty(error.message) && String.IsNullOrEmpty(error.exceptionMessage)))
                 {
                 }
@@ -843,15 +899,15 @@ namespace Acumatica.RESTClient.ContractBasedApi
             if (!response.IsSuccessStatusCode)
             {
                 string? responseMessage = null;
-                responseMessage = await GetErrorMessageFromEntityAsync<EntityType>(response);
+                responseMessage = await GetErrorMessageFromEntityAsync<EntityType>(response).ConfigureAwait(false);
                 if (string.IsNullOrEmpty(responseMessage))
                 {
-                    responseMessage = await GetErrorMessageFromErrorAsync(response);
+                    responseMessage = await GetErrorMessageFromErrorAsync(response).ConfigureAwait(false);
                 }
                 if (string.IsNullOrEmpty(responseMessage))
                 {
                     //it should be html at that point
-                    responseMessage = await GetErrorMessageFromHTMLAsync(response);
+                    responseMessage = await GetErrorMessageFromHTMLAsync(response).ConfigureAwait(false);
                 }
                 throw new ApiException(
                   (int)response.StatusCode,
@@ -862,7 +918,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         private static async Task<string> GetErrorMessageFromHTMLAsync(HttpResponseMessage response)
         {
             //remove tags from html
-            return System.Text.RegularExpressions.Regex.Replace((await response.Content.ReadAsStringAsync()).Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
+            return System.Text.RegularExpressions.Regex.Replace((await response.Content.ReadAsStringAsync().ConfigureAwait(false)).Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
         }
 
         private static async Task<string?> GetErrorMessageFromEntityAsync<EntityType>(HttpResponseMessage response)
@@ -871,7 +927,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? responseMessage = null;
             try
             {
-                EntityType? entity = await DeserializeAsync<EntityType>(response);
+                EntityType? entity = await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
                 responseMessage = CollectErrorsFromEntity(entity);
             }
             catch (Newtonsoft.Json.JsonReaderException) { }

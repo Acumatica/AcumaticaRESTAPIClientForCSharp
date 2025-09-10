@@ -13,12 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Acumatica.Default_20.200.001\Acumatica.Default_20.200.001.csproj" />
-    <ProjectReference Include="..\Acumatica.Default_23.200.001\Acumatica.Default_23.200.001.csproj" />
     <ProjectReference Include="..\Acumatica.RESTClient.Customization\Acumatica.RESTClient.CustomizationApi.csproj" />
     <ProjectReference Include="..\Acumatica.RESTClient.Maintenance\Acumatica.RESTClient.MaintenanceApi.csproj" />
     <ProjectReference Include="..\Acumatica.RESTClient.OData\Acumatica.RESTClient.ODataApi.csproj" />
     <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+    <ProjectReference Include="..\Endpoints\Acumatica.Default_24.200.001\Acumatica.Default_24.200.001.csproj" />
     <ProjectReference Include="..\Loggers\Acumatica.RESTClient.Loggers.csproj" />
   </ItemGroup>
 

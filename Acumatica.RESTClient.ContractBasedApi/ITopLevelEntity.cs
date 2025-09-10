@@ -1,6 +1,4 @@
-﻿using Acumatica.RESTClient.ContractBasedApi.Model;
-
-namespace Acumatica.RESTClient.ContractBasedApi
+﻿namespace Acumatica.RESTClient.ContractBasedApi
 {
     public interface ITopLevelEntity
     {

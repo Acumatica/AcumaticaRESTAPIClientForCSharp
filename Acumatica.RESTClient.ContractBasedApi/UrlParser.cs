@@ -11,7 +11,7 @@ namespace Acumatica.RESTClient.Api
     internal static class UrlParser
     {
         private const string entityKeyword = "/entity/";
-        private static char[] pathSeparators = new char[] { '/' };
+        private static readonly char[] pathSeparators = new char[] { '/' };
 
         public static ActionLocation ParseActionLocation(string location)
         {

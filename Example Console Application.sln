@@ -7,19 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica REST API Example 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient", "Acumatica.RESTClient\Acumatica.RESTClient.csproj", "{A7B8559E-DE04-4762-B2E4-6EE005D85C2D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_20.200.001", "Acumatica.Default_20.200.001\Acumatica.Default_20.200.001.csproj", "{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.ODataApi", "Acumatica.RESTClient.OData\Acumatica.RESTClient.ODataApi.csproj", "{B88CEF24-1C9D-4A92-A8D1-5DDCFCF53C7D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.CustomizationApi", "Acumatica.RESTClient.Customization\Acumatica.RESTClient.CustomizationApi.csproj", "{F899BF49-694E-4AB4-9202-20C709E7BF72}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.ContractBasedApi", "Acumatica.RESTClient.ContractBasedApi\Acumatica.RESTClient.ContractBasedApi.csproj", "{B0ED9019-5F24-4297-8121-967E108589FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.Default_23.200.001", "Acumatica.Default_23.200.001\Acumatica.Default_23.200.001.csproj", "{B6EA31C2-C9F0-4D01-9CC3-A0CA2DB7ABD7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acumatica.RESTClient.MaintenanceApi", "Acumatica.RESTClient.Maintenance\Acumatica.RESTClient.MaintenanceApi.csproj", "{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.RESTClient.Loggers", "Loggers\Acumatica.RESTClient.Loggers.csproj", "{8F09008A-DDF6-46ED-BB99-4FD6C7F46624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.Default_24.200.001", "Endpoints\Acumatica.Default_24.200.001\Acumatica.Default_24.200.001.csproj", "{D86736CE-E5FD-4965-B62A-A073107DF4C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{A7B8559E-DE04-4762-B2E4-6EE005D85C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7B8559E-DE04-4762-B2E4-6EE005D85C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7B8559E-DE04-4762-B2E4-6EE005D85C2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D6C8C23-A7E0-4133-B0FC-3C1986778DC5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B88CEF24-1C9D-4A92-A8D1-5DDCFCF53C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B88CEF24-1C9D-4A92-A8D1-5DDCFCF53C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B88CEF24-1C9D-4A92-A8D1-5DDCFCF53C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,10 +45,6 @@ Global
 		{B0ED9019-5F24-4297-8121-967E108589FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0ED9019-5F24-4297-8121-967E108589FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0ED9019-5F24-4297-8121-967E108589FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6EA31C2-C9F0-4D01-9CC3-A0CA2DB7ABD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6EA31C2-C9F0-4D01-9CC3-A0CA2DB7ABD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6EA31C2-C9F0-4D01-9CC3-A0CA2DB7ABD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6EA31C2-C9F0-4D01-9CC3-A0CA2DB7ABD7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D069E7B-0D28-41CF-B597-E7201B1A3C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +53,10 @@ Global
 		{8F09008A-DDF6-46ED-BB99-4FD6C7F46624}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F09008A-DDF6-46ED-BB99-4FD6C7F46624}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F09008A-DDF6-46ED-BB99-4FD6C7F46624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86736CE-E5FD-4965-B62A-A073107DF4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86736CE-E5FD-4965-B62A-A073107DF4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86736CE-E5FD-4965-B62A-A073107DF4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86736CE-E5FD-4965-B62A-A073107DF4C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

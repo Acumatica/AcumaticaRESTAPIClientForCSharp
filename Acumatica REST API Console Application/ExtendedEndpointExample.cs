@@ -20,14 +20,14 @@ using Acumatica.RESTClient.Loggers;
 namespace AcumaticaRestApiExample
 {
 	[DataContract]
-	public class Invoice : Acumatica.Default_23_200_001.Model.Invoice
+	public class Invoice : Acumatica.Default_24_200_001.Model.Invoice
 	{
 		[DataMember(Name = "ExtendedField", EmitDefaultValue = false)]
 		public DecimalValue? ExtendedField { get; set; }
 
         public override string GetEndpointPath()
         {
-            return "entity/DefaultExtended/23.200.001"; ;
+            return "entity/DefaultExtended/24.200.001"; ;
         }
     }
 	public class ExtendedEndpointExample
