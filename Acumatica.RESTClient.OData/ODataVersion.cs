@@ -2,6 +2,7 @@
 
 namespace Acumatica.RESTClient.ODataApi
 {
+    [Obsolete]
     public enum ODataVersion
     {
         [Obsolete("Starting from Acumatica 2024r2, use GIBasedOData instead.")]
@@ -11,5 +12,4 @@ namespace Acumatica.RESTClient.ODataApi
         GIBasedOData, 
         DACBasedOData
     } 
-
 }
