@@ -7,8 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-using Acumatica.Default_20_200_001.Api;
-using Acumatica.Default_20_200_001.Model;
+using Acumatica.Default_24_200_001.Model;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.Loggers;
 

@@ -683,14 +683,38 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The values of the key fields of the record.</param>
-        /// <returns></returns>
         public static void DeleteByKeys<EntityType>(this ApiClient client, IEnumerable<string> ids,
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             DeleteByKeysAsync<EntityType>(client, ids, endpointPath).GetAwaiter().GetResult();
+        }        
+
+        /// <summary>
+        /// Deletes the record by the values of its key fields. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The values of the key field of the record.</param>
+        public static void DeleteByKeys<EntityType>(this ApiClient client, string key,
+            string? endpointPath = null)
+            where EntityType : Entity, ITopLevelEntity, new()
+        {
+            DeleteByKeysAsync<EntityType>(client, key, endpointPath).GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        /// Deletes the record by the values of its key fields. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The value of the key field of the record.</param>
+        /// <returns>Task of void</returns>
+        public static async Task DeleteByKeysAsync<EntityType>(this ApiClient client, string key,
+                string? endpointPath = null,
+                CancellationToken cancellationToken = default)
+            where EntityType : Entity, ITopLevelEntity, new()
+        {
+            await DeleteByKeysAsync<EntityType>(client, new List<string> { key }, endpointPath, cancellationToken).ConfigureAwait(false);
+        }
         /// <summary>
         /// Deletes the record by the values of its key fields. 
         /// </summary>
@@ -743,9 +767,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            if (entity == null || entity.ID == null)
+            if (entity == null)
                 ThrowMissingParameter(nameof(DeleteAsync), nameof(entity));
-
+            if (entity.ID == null)
+                ThrowMissingParameter(nameof(DeleteAsync), nameof(entity.ID));
 
             if (endpointPath == null)
                 endpointPath = GetEndpointPath(entity!);
