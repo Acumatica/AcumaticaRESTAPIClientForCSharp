@@ -42,7 +42,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// <summary>
         /// Returns true if instances are equal
         /// </summary>
-        /// <param name="input">Instance of RestValueBase<T> to be compared</param>
+        /// <param name="input">Instance of <see cref="RestValueBase{TValue}"/> to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(RestValueBase<TValue>? input)
         {

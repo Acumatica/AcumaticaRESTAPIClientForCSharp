@@ -14,7 +14,7 @@ namespace ModelGeneratorConsole
         const bool GenerateArraysInstedOfLists = false;
         const bool GenerateAPISectionForBackWardCompatibility = true;
 
-        const string OutputDirectoryTemplate = @"\Acumatica.{0}";
+        const string OutputDirectoryTemplate = @"\Endpoints\Acumatica.{0}";
         const string EndpointSchemaDirectory = @"\EndpointDefinitions\";
         const string EndpointMetadataDirectory = @"\EndpointMetadata\";
         const string DefaultNamespaceTemplate = @"Acumatica.{0}";
@@ -64,8 +64,10 @@ namespace ModelGeneratorConsole
                 //}
                 //writer.Close();
 
+                string pathToWrite = solutionFolderPath + string.Format(OutputDirectoryTemplate, endpoint);
+                Console.WriteLine($"Writing in {pathToWrite}");
                 SchemaGenerator.WriteCSharp(
-                    solutionFolderPath + string.Format(OutputDirectoryTemplate, endpoint),
+                   pathToWrite,
                      endpoint,
                     endpointSchema,
                        (_) => Console.WriteLine(_),

@@ -15,6 +15,11 @@
         public const string TextXmlAcceptContentType = "text/xml";
         public const string WwwFormEncoded = "application/x-www-form-urlencoded";
         public const string OctetStream = "application/octet-stream";
+
+        public const string ApplicationPDFAcceptContentType = "application/pdf";
+        public const string TextHTMLAcceptContentType = "text/html";
+        public const string ApplicationExcelAcceptContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
         public const string AnyAcceptContentType = "*/*";
     }
 }

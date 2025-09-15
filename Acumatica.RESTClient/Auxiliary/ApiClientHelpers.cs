@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -45,7 +46,6 @@ namespace Acumatica.RESTClient.Auxiliary
         /// Deserialize the JSON string into a proper object.
         /// </summary>
         /// <param name="response">The HTTP response.</param>
-        /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
         public static async Task<T?> DeserializeAsync<T>(HttpResponseMessage response)
             where T : class
@@ -106,7 +106,7 @@ namespace Acumatica.RESTClient.Auxiliary
 
         public static string ComposeAcceptHeaders(HeaderContentType contentTypes)
         {
-            return string.Join(",", ApiClientHelpers.ComposeHeadersArray(contentTypes));
+            return string.Join(",", ComposeHeadersArray(contentTypes));
         }
 
 
@@ -114,10 +114,14 @@ namespace Acumatica.RESTClient.Auxiliary
         /// Convert params to key/value pairs. 
         /// Use collectionFormat to properly format lists and collections.
         /// </summary>
+        /// <param name="collectionFormat"></param>
         /// <param name="name">Key name.</param>
         /// <param name="value">Value object.</param>
         /// <returns>A list of KeyValuePairs</returns>
-        public static IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
+        public static IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(
+            string collectionFormat, 
+            string name, 
+            object value)
         {
             var parameters = new List<KeyValuePair<string, string>>();
 
@@ -163,6 +167,18 @@ namespace Acumatica.RESTClient.Auxiliary
             if ((contentTypes & HeaderContentType.OctetStream) == HeaderContentType.OctetStream)
             {
                 headers.Add(OctetStream);
+            }
+            if ((contentTypes & HeaderContentType.PDF) == HeaderContentType.PDF)
+            {
+                headers.Add(ApplicationPDFAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.HTML) == HeaderContentType.HTML)
+            {
+                headers.Add(TextHTMLAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.Excel) == HeaderContentType.Excel)
+            {
+                headers.Add(ApplicationExcelAcceptContentType);
             }
             return headers;
         }

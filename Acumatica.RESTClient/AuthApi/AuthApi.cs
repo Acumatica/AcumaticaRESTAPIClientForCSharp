@@ -55,6 +55,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
         /// </summary>
+        /// <param name="client"></param>
         /// <param name="clientID"></param>
         /// <param name="clientSecret"></param>
         /// <param name="username"></param>
@@ -67,11 +68,13 @@ namespace Acumatica.RESTClient.AuthApi
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
         /// </summary>
+        /// <param name="client"></param>
         /// <param name="clientID"></param>
         /// <param name="clientSecret"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="scope"></param>
+        /// <param name="cancellationToken"></param>
         public async static Task ReceiveAccessTokenAsync(
             this ApiClient client, 
             string clientID, 
@@ -106,6 +109,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="client"></param>
         /// <param name="clientID"></param>
         /// <param name="clientSecret"></param>
         /// <param name="redirectUrl"></param>
@@ -117,10 +121,12 @@ namespace Acumatica.RESTClient.AuthApi
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="client"></param>
         /// <param name="clientID"></param>
         /// <param name="clientSecret"></param>
         /// <param name="redirectUrl"></param>
         /// <param name="scope"></param>
+        /// <param name="cancellationToken"></param>
         public async static Task<string> AuthorizeAsync(
             this ApiClient client, 
             string clientID, 
@@ -178,6 +184,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="clientSecret"></param>
         /// <param name="redirectUrl"></param>
         /// <param name="code"></param>
+        /// <param name="cancellationToken"></param>
         public static async Task ReceiveAccessTokenAuthCodeAsync(
             this ApiClient client, 
             string clientID, 
@@ -210,31 +217,34 @@ namespace Acumatica.RESTClient.AuthApi
         #endregion
 
         #region Login
-        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="username">Name of the user that is used to open a new session (required).</param>
         /// <param name="password">User password (required).</param>
         /// <param name="tenant">Defines the tenant to log in.</param>
         /// <param name="branch">Defines the branch to log in.</param>
         /// <param name="locale">Defines the locale to use for localizable data.</param>
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         public static void Login(this ApiClient client, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
         {
             Login(client, new Credentials(name: username, password: password, tenant: tenant, branch: branch, locale: locale));
         }
 
-        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="username">Name of the user that is used to open a new session (required).</param>
         /// <param name="password">User password (required).</param>
         /// <param name="tenant">Defines the tenant to log in.</param>
         /// <param name="branch">Defines the branch to log in.</param>
         /// <param name="locale">Defines the locale to use for localizable data.</param>
+        /// <param name="cancellationToken"></param>
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         public async static Task LoginAsync(this ApiClient client, 
             string username, string password, string? tenant = null, string? branch = null, string? locale = null,
             CancellationToken cancellationToken = default)
@@ -246,27 +256,30 @@ namespace Acumatica.RESTClient.AuthApi
             ).ConfigureAwait(false);
         }
 
-        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="credentials">
         /// <see cref="Credentials"/> object that provides information required to log into the web service.
         /// </param>
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         public static void Login(this ApiClient client, Credentials credentials)
         {
            LoginAsync(client, credentials).GetAwaiter().GetResult();
 		}
 
-        [Obsolete("Use OAuth 2.0 methods instead.")]
         /// <summary>
         /// Logs in to the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="credentials">
         /// <see cref="Credentials"/> object that provides information required to log into the web service.
         /// </param>
+        /// <param name="cancellationToken"></param>
+        [Obsolete("Use OAuth 2.0 methods instead.")]
         public async static Task LoginAsync(
             this ApiClient client, 
             Credentials credentials, 

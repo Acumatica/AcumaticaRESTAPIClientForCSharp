@@ -23,7 +23,10 @@ namespace AcumaticaRestApiExample
         const string RedirectUrl = "https://localhost/test/";
 
         static async Task Main(string[] args)
-		{
+        {
+            Console.WriteLine("Report example");
+            Console.WriteLine("----------------------------------------");
+            RESTExample.TestReportDownload(SiteURL, Username, Password, Tenant, Branch, Locale);
 
             Console.WriteLine("REST API example");
             Console.WriteLine("----------------------------------------");

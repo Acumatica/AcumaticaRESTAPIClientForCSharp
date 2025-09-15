@@ -29,10 +29,12 @@ namespace EndpointSchemaGenerator
             {
                 (schema.Definitions ?? schema.Components.Schemas).Remove(item);
             }
-
+            schema.Reports = GetReports(schema);
             schema.Entities = new Dictionary<string, EntityDefinition>();
             foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
             {
+                if (schema.Reports.Contains(item.Key))
+                    continue;
                 var fieldsSchema = ParseFieldsSchema(item);
                 if (fieldsSchema != null)
                 {
@@ -58,13 +60,30 @@ namespace EndpointSchemaGenerator
                     schema.Parameters.Add(item.Key, ParseParameters(item));
                 }
             }
-            //Dictionary<string, Dictionary<string, string>> parameters = new Dictionary<string, Dictionary<string, string>>();
-            //foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
-            //{
-            //    //    entities.Add(item.Key, ParseObject(item));
-            //}
+
+            schema.ReportParameters = new Dictionary<string, Dictionary<string, string>>();
+            foreach (var item in (schema.Definitions ?? schema.Components.Schemas))
+            {
+                if (schema.Reports.Contains(item.Key))
+                {
+                    schema.ReportParameters.Add(item.Key, ParseReportParameters(item));
+                }
+            }
 
             return schema;
+        }
+
+        private static HashSet<string> GetReports(Schema schema)
+        {
+            HashSet<string> reports = new HashSet<string>();
+            foreach (var path in schema.Paths)
+            {
+                if (path.Value.Count == 1 && path.Value.First().Key == "post" && path.Value.First().Value.OperationId.Contains("StartReport"))
+                {
+                    reports.Add(path.Key.Remove(0, 1));
+                }
+            }
+            return reports;
         }
 
         private static bool IsTopLevelEntity(Schema schema, string key)
@@ -188,6 +207,28 @@ namespace EndpointSchemaGenerator
                 string entityName = ParseParentRef(k.Properties);
                 //action with parameters
                 return entityName;
+            }
+            else return null;
+        }
+        private static Dictionary<string, string>? ParseReportParameters(KeyValuePair<string, JObject> item)
+        {
+            var s = JsonConvert.DeserializeObject<EntitySchemaInternal>(item.Value.ToString());
+            var fieldsSchema = new Dictionary<string, string>();
+            if (TryParseParentRef(item.Value) == "Entity")
+            {
+                s.AllOf.Remove(null);
+                if (s.AllOf.Count() > 0)
+                {
+                    var schema = s.AllOf.First();
+                    if (schema?.Properties != null)
+                    {
+                        foreach (var property in schema.Properties)
+                        {
+                            fieldsSchema.Add(property.Key, ParseParentRef(property.Value));
+                        }
+                    }
+                }
+                return fieldsSchema;
             }
             else return null;
         }

@@ -1,26 +1,28 @@
-﻿namespace EndpointSchemaGenerator
+﻿using System.Runtime.Serialization;
+
+namespace EndpointSchemaGenerator
 {
 	public static class Templates
 	{
 		public static string BaseNamespace = "Acumatica.RESTClient";
 		public static string ModelNamespace = $"{BaseNamespace}.ContractBasedApi.Model";
 		public static string ApiNamespace = $"{BaseNamespace}.ContractBasedApi";
-        public static string ClientNamespace = $"{BaseNamespace}.Client";
+		public static string ClientNamespace = $"{BaseNamespace}.Client";
 
-        public static string UsingModelNamespace = $"using {ModelNamespace};";
+		public static string UsingModelNamespace = $"using {ModelNamespace};";
 		public static string UsingApiNamespace = $"using {ApiNamespace};";
-        public static string UsingClientNamespace = $"using {ClientNamespace};";
+		public static string UsingClientNamespace = $"using {ClientNamespace};";
 		public static string UsingSystem = "using System;";
-        public static string UsingSerialization = "using System.Runtime.Serialization;";
-        public static string UsingGenericCollections = "using System.Collections.Generic;";
+		public static string UsingSerialization = "using System.Runtime.Serialization;";
+		public static string UsingGenericCollections = "using System.Collections.Generic;";
 		public static string UsingNewtonsoftJson = "using Newtonsoft.Json;";
 
-        public static string Usings = $"{UsingSystem}\r\n{UsingGenericCollections}\r\n{UsingSerialization}\r\n\r\n{UsingNewtonsoftJson}\r\n\r\n{UsingClientNamespace}\r\n{UsingApiNamespace}\r\n{UsingModelNamespace}\r\n\r\n";
+		public static string Usings = $"{UsingSystem}\r\n{UsingGenericCollections}\r\n{UsingSerialization}\r\n\r\n{UsingNewtonsoftJson}\r\n\r\n{UsingClientNamespace}\r\n{UsingApiNamespace}\r\n{UsingModelNamespace}\r\n\r\n";
 
-        public static string NewtonsoftJsonVersion = "\"13.0.1\"";
+		public static string NewtonsoftJsonVersion = "\"13.0.1\"";
 
 
-       	//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
+		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
 		//{2} = EntityName
 		public static string ActionTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n";
@@ -100,8 +102,13 @@
 		//{1} = Endpoint Path
 		public static string BaseEndpointApiTemplate = Usings + "namespace {0}.Api\r\n{{\r\n\t[Obsolete(\"For backward compatibility\")]\r\n\tpublic abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>\r\n\t\twhere EntityType : Entity, ITopLevelEntity, new()\r\n\t{{\r\n\t\tpublic BaseEndpointApi(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t\tpublic override string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{1}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
-		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup> \r\n{0}\r\n </PropertyGroup>\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n    <LangVersion>8.0</LangVersion>\r\n    <nullable>Enable</nullable>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version=" + NewtonsoftJsonVersion+ " />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n\t{1}\r\n\t<ProjectReference Include = \"..\\Acumatica.RESTClient.ContractBasedApi\\Acumatica.RESTClient.ContractBasedApi.csproj\" />\r\n  </ItemGroup >\r\n\r\n</Project >\r\n";
+		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup> \r\n{0}\r\n </PropertyGroup>\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n    <LangVersion>8.0</LangVersion>\r\n    <nullable>Enable</nullable>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version=" + NewtonsoftJsonVersion + " />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n\t{1}\r\n\t<ProjectReference Include = \"..\\..\\Acumatica.RESTClient.ContractBasedApi\\Acumatica.RESTClient.ContractBasedApi.csproj\" />\r\n  </ItemGroup >\r\n\r\n</Project >\r\n";
 
+		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
+		//{1} = Report Name
+		//{2} = Content
+		//{3} = Endpoint path
+		public static string ReportTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : IReport\r\n\t{{\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t\t{2}\r\n\t}}\r\n}}";
 
 	}
 }

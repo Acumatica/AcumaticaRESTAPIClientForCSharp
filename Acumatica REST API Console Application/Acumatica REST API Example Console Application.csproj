@@ -18,6 +18,7 @@
     <ProjectReference Include="..\Acumatica.RESTClient.OData\Acumatica.RESTClient.ODataApi.csproj" />
     <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
     <ProjectReference Include="..\Endpoints\Acumatica.Default_24.200.001\Acumatica.Default_24.200.001.csproj" />
+    <ProjectReference Include="..\Endpoints\Acumatica.Report_1\Acumatica.Report_1.csproj" />
     <ProjectReference Include="..\Loggers\Acumatica.RESTClient.Loggers.csproj" />
   </ItemGroup>
 

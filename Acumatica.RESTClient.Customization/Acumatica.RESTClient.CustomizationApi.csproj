@@ -1,42 +1,45 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Title>Acumatica REST API for Publishing Customization Packages</Title>
-    <Version>5.6.0-beta</Version>
-    <Company>Acumatica</Company>
-    <Description>An extension for Acumatica REST API client for C# allowing interaction with Customization packages via API</Description>
-    <Copyright>Acumatica</Copyright>
-    <PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
-    <PackageTags>Acumatica;REST;client;</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Authors>Dmitrii-Naumov</Authors>
-    <PackageReleaseNotes>Implement proper wrappers for Async operations
-Newtonsoft.JSON dependency updated to version 13.0.1 in order to follow Acumatica ERP dependency version</PackageReleaseNotes>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Title>Acumatica REST API for Publishing Customization Packages</Title>
+		<Version>5.6.0-beta</Version>
+		<Company>Acumatica</Company>
+		<Description>An extension for Acumatica REST API client for C# allowing interaction with Customization packages via API</Description>
+		<Copyright>Acumatica</Copyright>
+		<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
+		<PackageTags>Acumatica;REST;client;</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<Authors>Dmitrii-Naumov</Authors>
+		<PackageReleaseNotes>
+			Implement proper wrappers for Async operations
+			Newtonsoft.JSON dependency updated to version 13.0.1 in order to follow Acumatica ERP dependency version
+		</PackageReleaseNotes>
 
-    <LangVersion>8.0</LangVersion>
-    <nullable>Enable</nullable>
-  </PropertyGroup>
+		<LangVersion>8.0</LangVersion>
+		<nullable>Enable</nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
-	
-  <ItemGroup>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+	</ItemGroup>
 
 </Project>

@@ -29,7 +29,7 @@ namespace Acumatica.RESTClient.Client
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
         /// </summary> 
         /// <param name="httpClient">
-        /// An instance of <see cref="HttpClient"/> that is going to be used for performing API requests.</c>
+        /// An instance of <see cref="HttpClient"/> that is going to be used for performing API requests.
         /// </param>
         /// <param name="requestInterceptor">
         /// An action delegate that will be executed along with sending an API request. 
@@ -168,6 +168,7 @@ namespace Acumatica.RESTClient.Client
         /// <param name="method">HTTP method.</param>
         /// <param name="queryParams">Query parameters.</param>
         /// <param name="body">HTTP body (POST request).</param>
+        /// <param name="acceptType"></param>
         /// <param name="customHeaders">Header parameters.</param>
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
@@ -196,10 +197,12 @@ namespace Acumatica.RESTClient.Client
         /// </summary>
         /// <param name="resourcePath">URL path.</param>
         /// <param name="method">HTTP method.</param>
+        /// <param name="acceptType"></param>
         /// <param name="queryParams">Query parameters.</param>
         /// <param name="body">HTTP body (POST request).</param>
         /// <param name="customHeaders">Header parameters.</param>
         /// <param name="contentType">Content type.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>The Task instance.</returns>
         public async Task<HttpResponseMessage> CallApiAsync(
             String resourcePath,
@@ -326,7 +329,7 @@ namespace Acumatica.RESTClient.Client
             return HasSessionCookie(new Uri(BasePath), SessionCookieName);
         }
 
-        protected readonly CookieContainer Cookies;
+        protected readonly CookieContainer? Cookies;
 
 
         public bool HasSessionCookie(Uri path, string sessionCookieName)

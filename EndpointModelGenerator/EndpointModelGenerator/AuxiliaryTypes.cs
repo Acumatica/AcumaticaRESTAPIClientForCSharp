@@ -35,11 +35,13 @@ namespace EndpointSchemaGenerator
         public string? BaseEndpoint { get; set; }
 
         public List<NameDescrObject> Tags { get; set; }
-     //   public Dictionary<string, Dictionary<string, object>> Paths { get; set; }
+        public Dictionary<string, Dictionary<string, PathDefinition>> Paths { get; set; }
         public Dictionary<string, JObject> Definitions { get; set; }
         public Components Components { get; set; }
         public Dictionary<string, EntityDefinition> Entities { get; set; }
         public Dictionary<string, string> Actions { get; set; }
+        public HashSet<string> Reports { get; set; }
+        public Dictionary<string, Dictionary<string, string>> ReportParameters { get; set; }
         public Dictionary<string, Dictionary<string, string>> Parameters { get; set; }
     }
 
@@ -54,6 +56,12 @@ namespace EndpointSchemaGenerator
             Fields = fields;
             IsTopLevel = isTopLevel;
         }
+    }
+
+    public class PathDefinition
+    {
+        public string Summary;
+        public string OperationId;
     }
     [DebuggerDisplay("{Name} {Type}")]
     public class EntityField
