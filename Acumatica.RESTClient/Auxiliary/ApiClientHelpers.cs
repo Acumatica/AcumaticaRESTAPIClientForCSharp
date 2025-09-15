@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -105,7 +106,7 @@ namespace Acumatica.RESTClient.Auxiliary
 
         public static string ComposeAcceptHeaders(HeaderContentType contentTypes)
         {
-            return string.Join(",", ApiClientHelpers.ComposeHeadersArray(contentTypes));
+            return string.Join(",", ComposeHeadersArray(contentTypes));
         }
 
 
@@ -166,6 +167,18 @@ namespace Acumatica.RESTClient.Auxiliary
             if ((contentTypes & HeaderContentType.OctetStream) == HeaderContentType.OctetStream)
             {
                 headers.Add(OctetStream);
+            }
+            if ((contentTypes & HeaderContentType.PDF) == HeaderContentType.PDF)
+            {
+                headers.Add(ApplicationPDFAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.HTML) == HeaderContentType.HTML)
+            {
+                headers.Add(TextHTMLAcceptContentType);
+            }
+            if ((contentTypes & HeaderContentType.Excel) == HeaderContentType.Excel)
+            {
+                headers.Add(ApplicationExcelAcceptContentType);
             }
             return headers;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -207,17 +208,173 @@ namespace Acumatica.RESTClient.ContractBasedApi
             if (parsedLocation.ActionName == null)
                 return HttpStatusCode.NoContent;
 
+            var result = await GetProcessResultAsync(
+                            client: client,
+                            resourcePath: $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/{parsedLocation.EntityName}/{parsedLocation.ActionName}/{parsedLocation.Status}/{parsedLocation.ID}",
+                            cancellationToken: cancellationToken).ConfigureAwait(false);
+            return result.StatusCode;
+        }
+        #endregion
+        #region Report
+        /// <summary>
+        /// Starts report generation in the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
+        /// <param name="report">The report to generate.</param>
+        /// <param name="format">Format of the report file to generate</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="report"/></param>
+        /// <param name="businessDate"></param>
+        /// <param name="branch"></param>
+        /// <returns>Task of void</returns>
+        public static string StartReport(
+                this ApiClient client,
+                IReport report,
+                ReportFormat format = ReportFormat.PDF,
+                string? endpointPath = null,
+                DateTime? businessDate = null,
+                string? branch = null)
+        {
+            return StartReportAsync(client, report, format, endpointPath, businessDate, branch).GetAwaiter().GetResult();
+        }
+        /// <summary>
+        /// Starts report generation in the system. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
+        /// <param name="report">The report to generate.</param>
+        /// <param name="format">Format of the report file to generate</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="report"/></param>
+        /// <param name="businessDate"></param>
+        /// <param name="branch"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Task of void</returns>
+        public static async Task<string> StartReportAsync(
+                this ApiClient client,
+                IReport report,
+                ReportFormat format = ReportFormat.PDF,
+                string? endpointPath = null,
+                DateTime? businessDate = null,
+                string? branch = null,
+                CancellationToken cancellationToken = default)
+        {
+            if (report == null)
+                ThrowMissingParameter(nameof(StartReportAsync), nameof(report));
+
+            if (endpointPath == null)
+                endpointPath = GetEndpointPath(report!);
+
             HttpResponseMessage response = await client.CallApiAsync(
-                resourcePath:       $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/{parsedLocation.EntityName}/{parsedLocation.ActionName}/{parsedLocation.Status}/{parsedLocation.ID}",
-                method:             HttpMethod.Get, 
-                acceptType:         HeaderContentType.Json, 
-                contentType:        HeaderContentType.None,
-                cancellationToken:  cancellationToken
+                resourcePath: $"{endpointPath}/{report!.GetType().Name}",
+                method: HttpMethod.Post,
+                body: report,
+                acceptType: (HeaderContentType)format,
+                contentType: HeaderContentType.Json,
+                customHeaders: ComposePutHeaders(PutMethod.Any, businessDate, branch),
+                cancellationToken: cancellationToken
             ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(GetProcessStatusAsync)).ConfigureAwait(false);
+            await VerifyResponseAsync(response, nameof(StartReportAsync)).ConfigureAwait(false);
 
-            return response.StatusCode;
+            return response.Headers.GetValues("Location").First();
+        }
+        /// <summary>
+        /// Queries the system with the specified <paramref name="millisecondsInterval"/> 
+        /// to get status of a running operation
+        /// untill the operation status is Completed.
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="location">
+        /// Value of the Location header returned 
+        /// from <see cref="StartReportAsync(ApiClient, IReport, ReportFormat, string?, DateTime?, string?, CancellationToken)"/>
+        /// </param>
+        /// <param name="millisecondsInterval">
+        /// Time that the system waits between querying for the operation status in milliseconds.
+        /// Default value is <c>1000</c>.
+        /// </param>
+        /// <param name="secondsTimeout">
+        /// Time that the system waits for the process completion. 
+        /// Default value is <c>360</c>.
+        /// </param>
+        /// <param name="cancellationToken"></param>
+        /// <exception cref="InvalidOperationException">
+        /// Throws the the exception if the operation finishes with a status code not indicating 
+        /// successful completion.
+        /// </exception>
+        /// <exception cref="TimeoutException">
+        /// Throws the the exception if the operation did not finish in specified timeout interval. 
+        /// </exception>
+        public static async Task<Stream> GetReportAsync(
+            this ApiClient client,
+            string location,
+            int millisecondsInterval = 1000,
+            int secondsTimeout = 360,
+            CancellationToken cancellationToken = default)
+        {
+            var parsedLocation = UrlParser.ParseReportLocation(location);
+            while (true)
+            {
+                var startTime = DateTime.Now;
+                var processResult = await GetProcessResultAsync(
+                                            client,
+                                            resourcePath: $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/{parsedLocation.EntityName}/report/{parsedLocation.Locale}/{parsedLocation.Format}/{parsedLocation.ID}",
+                                            cancellationToken).ConfigureAwait(false);
+
+                switch (processResult.StatusCode)
+                {
+                    case HttpStatusCode.NotFound:
+                        throw new ApiException(404, "Process Not Found. Probably it has been started in another session.");
+                    case HttpStatusCode.OK:
+                        {
+                            return await processResult.Content.ReadAsStreamAsync().ConfigureAwait(false);
+                        }
+                    case HttpStatusCode.Accepted:
+                        if ((startTime - DateTime.Now).Seconds > secondsTimeout)
+                        {
+                            throw new TimeoutException();
+                        }
+                        else
+                        {
+                            await Task.Delay(millisecondsInterval).ConfigureAwait(false);
+                            continue;
+                        }
+                    default:
+                        throw new InvalidOperationException($"Process status: {processResult}");
+                }
+            }           
+        }
+        /// <summary>
+        /// Queries the system with the specified <paramref name="millisecondsInterval"/> 
+        /// to get status of a running operation
+        /// untill the operation status is Completed.
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="location">
+        /// Value of the Location header returned 
+        /// from <see cref="StartReport(ApiClient, IReport, ReportFormat, string?, DateTime?, string?)"/>
+        /// </param>
+        /// <param name="millisecondsInterval">
+        /// Time that the system waits between querying for the operation status in milliseconds.
+        /// Default value is <c>1000</c>.
+        /// </param>
+        /// <param name="secondsTimeout">
+        /// Time that the system waits for the process completion. 
+        /// Default value is <c>360</c>.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// Throws the the exception if the operation finishes with a status code not indicating 
+        /// successful completion.
+        /// </exception>
+        /// <exception cref="TimeoutException">
+        /// Throws the the exception if the operation did not finish in specified timeout interval. 
+        /// </exception>
+        public static Stream GetReport(
+            this ApiClient client,
+            string location,
+            int millisecondsInterval = 1000,
+            int secondsTimeout = 360)
+        {
+           return GetReportAsync(client, location, millisecondsInterval, secondsTimeout).GetAwaiter().GetResult();
         }
         #endregion
         #region Put
@@ -750,7 +907,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             where EntityType : Entity, ITopLevelEntity, new()
         {
             DeleteByKeysAsync<EntityType>(client, ids, endpointPath).GetAwaiter().GetResult();
-        }        
+        }
 
         /// <summary>
         /// Deletes the record by the values of its key fields. 
@@ -953,7 +1110,20 @@ namespace Acumatica.RESTClient.ContractBasedApi
                   $"Error {(int)response.StatusCode} calling {methodName}: {response.ReasonPhrase} \r\n {responseMessage}");
             }
         }
+        public static async Task<HttpResponseMessage> GetProcessResultAsync(this ApiClient client, string resourcePath, CancellationToken cancellationToken = default)
+        {
+            HttpResponseMessage response = await client.CallApiAsync(
+                resourcePath: resourcePath,
+                method: HttpMethod.Get,
+                acceptType: HeaderContentType.Json,
+                contentType: HeaderContentType.None,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
 
+            await VerifyResponseAsync(response, nameof(GetProcessStatusAsync)).ConfigureAwait(false);
+
+            return response;
+        }
         private static async Task<string?> GetErrorMessageFromErrorAsync(HttpResponseMessage response)
         {
             string? responseMessage = null;

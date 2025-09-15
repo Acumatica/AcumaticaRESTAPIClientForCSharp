@@ -35,6 +35,26 @@ namespace Acumatica.RESTClient.Api
 
             return result;
         }
+        public static ReportLocation ParseReportLocation(string location)
+        {
+            var result = new ReportLocation();
+
+            int indexOfEntity = FindEntityKeyword(location);
+            result.Site = location.Substring(0, indexOfEntity);
+
+            string restOfLocation = location.Substring(indexOfEntity);
+            var parts = restOfLocation.Split(pathSeparators, StringSplitOptions.RemoveEmptyEntries);
+
+            result.ID = parts[parts.Length - 1];
+            result.EndpointName = parts[1];
+            result.EndpointVersion = parts[2];
+            result.EntityName = parts[3];
+            result.Locale = parts[5];
+            result.Format = parts[6];
+
+
+            return result;
+        }
 
 
         public static FileLocation ParseFileLocation(string location)

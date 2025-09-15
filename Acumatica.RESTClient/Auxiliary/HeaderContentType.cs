@@ -10,6 +10,9 @@ namespace Acumatica.RESTClient.Api
         Xml = 2,
         Any = 4,
         WwwForm = 8,
-        OctetStream = 16
+        OctetStream = 16, 
+        PDF = 32,
+        HTML = 64,
+        Excel = 128,
     };
 }

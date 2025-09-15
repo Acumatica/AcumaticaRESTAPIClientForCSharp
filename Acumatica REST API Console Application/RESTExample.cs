@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 
 using Acumatica.Default_24_200_001.Model;
+using Acumatica.Report_1.Model;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.Loggers;
 
@@ -16,7 +17,44 @@ namespace AcumaticaRestApiExample
 {
     public class RESTExample
 	{
-		public static void TestFileUpload(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+        public static void TestReportDownload(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+        {
+            var client = new ApiClient(siteURL,
+                requestInterceptor: FileRequestLogger.LogRequest,
+                responseInterceptor: FileRequestLogger.LogResponse,
+                 ignoreSslErrors: true // this is here to allow testing with self-signed certificates
+                );
+
+            try
+            {
+                client.Login(username, password, tenant, branch, locale);
+
+                Console.WriteLine("Starting report");
+                var location = client.StartReport(new ARInvoice() { DocumentType = "Invoice", ReferenceNumber = "AR014526" });
+                var reportData = client.GetReport(location);
+
+                Console.WriteLine($"Received {reportData.Length} bytes of report data");
+              
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //we use logout in finally block because we need to always logout, even if the request failed for some reason
+                if (client.TryLogout())
+                {
+                    Console.WriteLine("Logged out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("An error occured during logout.");
+                }
+            }
+        }
+
+        public static void TestFileUpload(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
             var client = new ApiClient(siteURL,
 				requestInterceptor: FileRequestLogger.LogRequest, 

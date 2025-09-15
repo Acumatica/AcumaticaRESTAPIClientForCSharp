@@ -55,6 +55,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C2E0EC83
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuxiliaryTestClasses", "Tests\AuxiliaryTestClasses\AuxiliaryTestClasses.csproj", "{7AF2BEE7-78F0-4D9C-831E-A06C193B6A4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acumatica.Report_1", "Endpoints\Acumatica.Report_1\Acumatica.Report_1.csproj", "{DF48A00D-EBFF-4FB6-8062-9172120A36C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,10 @@ Global
 		{7AF2BEE7-78F0-4D9C-831E-A06C193B6A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AF2BEE7-78F0-4D9C-831E-A06C193B6A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AF2BEE7-78F0-4D9C-831E-A06C193B6A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF48A00D-EBFF-4FB6-8062-9172120A36C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF48A00D-EBFF-4FB6-8062-9172120A36C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF48A00D-EBFF-4FB6-8062-9172120A36C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF48A00D-EBFF-4FB6-8062-9172120A36C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,6 +186,7 @@ Global
 		{E5660818-2C5D-457F-B30D-426A3CD9A884} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 		{F9C0AE6E-A837-470D-8ABB-DED5F853FC59} = {C2E0EC83-1B55-4C55-AE8E-0258FD6ADF14}
 		{7AF2BEE7-78F0-4D9C-831E-A06C193B6A4A} = {C2E0EC83-1B55-4C55-AE8E-0258FD6ADF14}
+		{DF48A00D-EBFF-4FB6-8062-9172120A36C3} = {F0B2BD45-79AE-43AF-B737-3018CD95C6E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3A45447-0EDA-45D2-94CE-C3BFFBFE2717}
