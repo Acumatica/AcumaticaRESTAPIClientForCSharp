@@ -62,6 +62,7 @@ namespace Acumatica.RESTClient.CustomizationApi
         /// <summary>
         /// Starts publishing of a customization package.
         /// </summary>
+        /// <param name="client"></param>
         /// <param name="projectName">Name of the customization project to publish.</param>
         /// <param name="isMergeWithExistingPackages">
         /// Indicator of whether the currently published projects should be merged 
@@ -80,7 +81,7 @@ namespace Acumatica.RESTClient.CustomizationApi
         /// should be executed again. Corresponds to the 
         /// Execute All Database Scripts (Including Prevously Executed) check box 
         /// and Publish with Clean Up menu command in the UI.</param>
-        /// <param name="tenantMode">
+        /// <param name="tenantMode"></param>
         /// <returns>
         /// If sucessfull, returns log record with the following message: 
         /// "Publishing has started."
@@ -124,7 +125,8 @@ namespace Acumatica.RESTClient.CustomizationApi
         /// <summary>
         /// Starts publishing of multiple customization packages.
         /// </summary>
-        /// <param name="projectName">Name of the customization project to publish.</param>
+        /// <param name="client"></param>
+        /// <param name="projectNames">Names of the customization project to publish.</param>
         /// <param name="isMergeWithExistingPackages">
         /// Indicator of whether the currently published projects should be merged 
         /// with the customization projects listed in the projectNames parameter. 
@@ -142,7 +144,8 @@ namespace Acumatica.RESTClient.CustomizationApi
         /// should be executed again. Corresponds to the 
         /// Execute All Database Scripts (Including Prevously Executed) check box 
         /// and Publish with Clean Up menu command in the UI.</param>
-        /// <param name="tenantMode">
+        /// <param name="tenantMode"></param>
+        /// <param name="cancellationToken"></param>
         /// <returns>
         /// If sucessfull, returns log record with the following message: 
         /// "Publishing has started."

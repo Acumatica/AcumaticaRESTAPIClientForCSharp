@@ -25,10 +25,14 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Performs an action in the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="action">The action that should be executed.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
+        /// <param name="businessDate"></param>
+        /// <param name="branch"></param>
         /// <returns>
         /// Returns value of Location header. The value can be used to 
-        /// query the status of running operation using <see cref="GetProcessStatus(string)"/>
+        /// query the status of running operation using <see cref="GetProcessStatus(ApiClient, string)"/>
         /// </returns>
         public static string InvokeAction<EntityType>(
                 this ApiClient client, 
@@ -45,8 +49,16 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Performs an action in the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="action">The record to which the action should be applied and the parameters of the action.</param>
-        /// <returns>Task of void</returns>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
+        /// <param name="businessDate"></param>
+        /// <param name="branch"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>
+        /// Returns value of Location header. The value can be used to 
+        /// query the status of running operation using <see cref="GetProcessStatusAsync(ApiClient, string, CancellationToken)"/>
+        /// </returns>
         public static async Task<string> InvokeActionAsync<EntityType>(
                 this ApiClient client, 
                 EntityAction<EntityType> action, 
@@ -82,10 +94,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// to get status of a running operation
         /// untill the operation status is Completed.
         /// </summary>
+        /// <param name="client"></param>
         /// <param name="location">
         /// Value of the Location header returned 
-        /// from <see cref="InvokeAction(EntityAction{EntityType})"/> or
-        /// <see cref="InvokeActionAsync(EntityAction{EntityType})"/>
+        /// from <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?, CancellationToken)"/>
         /// </param>
         /// <param name="millisecondsInterval">
         /// Time that the system waits between querying for the operation status in milliseconds.
@@ -95,6 +107,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Time that the system waits for the process completion. 
         /// Default value is <c>360</c>.
         /// </param>
+        /// <param name="cancellationToken"></param>
         /// <exception cref="InvalidOperationException">
         /// Throws the the exception if the operation finishes with a status code not indicating 
         /// successful completion.
@@ -141,10 +154,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// to get status of a running operation
         /// untill the operation status is Completed.
         /// </summary>
+        /// <param name="client"></param>
         /// <param name="location">
         /// Value of the Location header returned 
         /// from <see cref=" InvokeAction{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/> or
-        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/>
+        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?, CancellationToken)"/>
         /// </param>
         /// <param name="millisecondsInterval">
         /// Time that the system waits between querying for the operation status in milliseconds.
@@ -162,10 +176,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <summary>
         /// Gets the status of an operation started by invoking an action.
         /// </summary>
+        /// <param name="client"></param>
         /// <param name="location">
         /// Value of the Location header returned 
         /// from <see cref="InvokeAction{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/> or
-        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/>
+        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?, CancellationToken)"/>
         /// </param>
         /// <returns>Returns HTTP status code of the running operation.</returns>
         public static HttpStatusCode GetProcessStatus(this ApiClient client, string location)
@@ -175,11 +190,13 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <summary>
         /// Gets the status of an operation started by invoking an action.
         /// </summary>
+        /// <param name="client"></param>
         /// <param name="location">
         /// Value of the Location header returned 
         /// from <see cref="InvokeAction{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/> or
-        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/>
+        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?, CancellationToken)"/>
         /// </param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Returns HTTP status code of the running operation.</returns>
         public static async Task<HttpStatusCode> GetProcessStatusAsync(this ApiClient client, string location, CancellationToken cancellationToken = default)
         {
@@ -220,7 +237,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <c>id</c> field value or key fields values.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="entity">The record to be passed to the system.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
@@ -255,7 +274,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <c>id</c> field value or key fields values. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="entity">The record to be passed to the system.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
@@ -274,6 +295,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// The branch should be specified as a branch name. 
         /// If you omit this header, the branch that you specified when signing in is used as the current branch.
         /// </param>
+        /// <param name="cancellationToken"></param>
         /// <returns><see cref="Task"/> of <typeparamref name="EntityType"/></returns>
         public static async Task<EntityType> PutAsync<EntityType>(this ApiClient client,
             EntityType entity,
@@ -309,8 +331,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Attaches a file to a record. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="id"> The id of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
+        /// <param name="content"></param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFile method instead")]
         public static void PutFile<EntityType>(
             this ApiClient client, string id, string filename, byte[] content,
@@ -323,8 +348,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Attaches a file to a record. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="id">The id of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
+        /// <param name="content"></param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFileAsync method instead")]
         public static async Task PutFileAsync<EntityType>(
             this ApiClient client, string id, string filename, byte[] content,
@@ -337,8 +365,11 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Attaches a file to a record. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
+        /// <param name="content"></param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFile method instead")]
         public static void PutFile<EntityType>(
             this ApiClient client, IEnumerable<string> ids, string filename, byte[] content,
@@ -351,8 +382,12 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Attaches a file to a record. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="ids">The values of the key fields of the record.</param>
         /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
+        /// <param name="content"></param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
+        /// <param name="cancellationToken"></param>
         [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFileAsync method instead")]
         public static async Task PutFileAsync<EntityType>(
             this ApiClient client, IEnumerable<string> ids, string filename, byte[] content,
@@ -384,7 +419,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves a record by the values of its key fields from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="key">The values of the key field of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
@@ -401,10 +438,13 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves a record by the values of its key fields from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="ids">The values of the key fields of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task of Entity</returns>
         public static async Task<EntityType> GetByKeysAsync<EntityType>(
                 this ApiClient client, IEnumerable<string> ids,
@@ -436,7 +476,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves a record by the values of its key fields from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="key">The value of the key field of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
@@ -454,7 +496,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves a record by the values of its key fields from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="ids">The values of the key fields of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
@@ -472,7 +516,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves a record by the value of the session entity ID from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="entity">The record from which the ID will be taken.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
@@ -494,10 +540,13 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves a record by the value of the session entity ID from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="id">The session ID of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task of Entity</returns>
         public static async Task<EntityType> GetByIdAsync<EntityType>(
                 this ApiClient client, 
@@ -530,7 +579,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves a record by the value of the session entity ID from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The session ID of the record.</param>
+        /// <param name="client"></param>
+        /// <param name="entity">The object from which the ID of the record will be taken.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
@@ -547,7 +598,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves a record by the value of the session entity ID from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="id">The session ID of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
@@ -565,12 +618,16 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves records that satisfy the specified conditions from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
+        /// <param name="customHeaders"></param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task of List&lt;Entity&gt;</returns>
         public static async Task<List<EntityType>> GetListAsync<EntityType>(
                 this ApiClient client,
@@ -602,12 +659,15 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Retrieves records that satisfy the specified conditions from the system. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
         /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
         /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
         /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
         /// <param name="top">The number of records to be returned from the system. (optional)</param>
+        /// <param name="customHeaders"></param>
         /// <returns>List&lt;Entity&gt;</returns>
         public static List<EntityType> GetList<EntityType>(
             this ApiClient client,
@@ -682,7 +742,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Deletes the record by the values of its key fields. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="ids">The values of the key fields of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         public static void DeleteByKeys<EntityType>(this ApiClient client, IEnumerable<string> ids,
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
@@ -694,7 +756,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Deletes the record by the values of its key fields. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="key">The values of the key field of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         public static void DeleteByKeys<EntityType>(this ApiClient client, string key,
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
@@ -706,7 +770,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Deletes the record by the values of its key fields. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="key">The value of the key field of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task of void</returns>
         public static async Task DeleteByKeysAsync<EntityType>(this ApiClient client, string key,
                 string? endpointPath = null,
@@ -719,7 +786,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Deletes the record by the values of its key fields. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="ids">The values of the key fields of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task of void</returns>
         public static async Task DeleteByKeysAsync<EntityType>(this ApiClient client, IEnumerable<string> ids,
                 string? endpointPath = null,
@@ -747,7 +817,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Deletes the record. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="entity">The record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
         public static void Delete<EntityType>(
             this ApiClient client, EntityType entity,
             string? endpointPath = null)
@@ -760,7 +832,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Deletes the record. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="entity">The record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
+        /// <param name="cancellationToken"></param>
         public static async Task DeleteAsync<EntityType>(
                 this ApiClient client, EntityType entity,
                 string? endpointPath = null, 
@@ -790,7 +865,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Deletes the record by its session identifier. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="id">The session ID of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <returns></returns>
         public static void DeleteById<EntityType>(this ApiClient client, Guid? id,
             string? endpointPath = null)
@@ -803,7 +880,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// Deletes the record by its session identifier. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
         /// <param name="id">The session ID of the record.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task of void</returns>
         public static async Task DeleteByIdAsync<EntityType>(this ApiClient client, Guid? id,
             string? endpointPath = null,

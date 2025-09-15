@@ -45,7 +45,6 @@ namespace Acumatica.RESTClient.Auxiliary
         /// Deserialize the JSON string into a proper object.
         /// </summary>
         /// <param name="response">The HTTP response.</param>
-        /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
         public static async Task<T?> DeserializeAsync<T>(HttpResponseMessage response)
             where T : class
@@ -114,10 +113,14 @@ namespace Acumatica.RESTClient.Auxiliary
         /// Convert params to key/value pairs. 
         /// Use collectionFormat to properly format lists and collections.
         /// </summary>
+        /// <param name="collectionFormat"></param>
         /// <param name="name">Key name.</param>
         /// <param name="value">Value object.</param>
         /// <returns>A list of KeyValuePairs</returns>
-        public static IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
+        public static IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(
+            string collectionFormat, 
+            string name, 
+            object value)
         {
             var parameters = new List<KeyValuePair<string, string>>();
 

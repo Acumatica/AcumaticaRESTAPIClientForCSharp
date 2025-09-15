@@ -11,6 +11,7 @@ namespace Acumatica.RESTClient.AuthApi.Model
         /// </summary>
         /// <param name="name">Username (required).</param>
         /// <param name="password">User password (required).</param>
+        /// <param name="company">Obsolete, do not use</param>
         /// <param name="tenant">Defines the tenant to log in.</param>
         /// <param name="branch">Defines the branch to log in.</param>
         /// <param name="locale">Defines the locale to use for localizable data.</param>

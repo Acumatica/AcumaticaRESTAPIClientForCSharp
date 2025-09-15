@@ -84,8 +84,14 @@ namespace Acumatica.RESTClient.FileApi
         /// <param name="filename"></param>
         /// <param name="content"></param>
         /// <param name="comment">Starting from Acumatica 2024r2 it is possible to specify the file comment.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async static Task PutFileAsync(this ApiClient client, Entity entity, string filename, byte[] content, string? comment = null, 
+        public async static Task PutFileAsync(
+            this ApiClient client, 
+            Entity entity, 
+            string filename, 
+            byte[] content, 
+            string? comment = null, 
             CancellationToken cancellationToken = default)
         {
             if (String.IsNullOrWhiteSpace(entity.Links?.FileUploadLink))

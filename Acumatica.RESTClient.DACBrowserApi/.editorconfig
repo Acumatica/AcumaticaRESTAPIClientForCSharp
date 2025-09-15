@@ -2,6 +2,15 @@
 
 # IDE0090: Use 'new(...)'
 dotnet_diagnostic.IDE0090.severity = none
-dotnet_diagnostic.CA2007.severity = error
 # IDE0074: Use compound assignment
 dotnet_diagnostic.IDE0074.severity = none
+
+dotnet_diagnostic.CA2007.severity = error
+
+dotnet_diagnostic.CS1570.severity = error
+dotnet_diagnostic.CS1572.severity = error
+dotnet_diagnostic.CS1573.severity = error
+dotnet_diagnostic.CS1574.severity = error
+dotnet_diagnostic.CS1580.severity = error
+dotnet_diagnostic.CS1584.severity = error
+dotnet_diagnostic.CS1734.severity = error
