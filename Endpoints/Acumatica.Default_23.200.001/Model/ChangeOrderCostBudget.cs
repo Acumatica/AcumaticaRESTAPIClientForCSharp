@@ -19,7 +19,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// DAC Field Name: AccountGroupID 
 		/// DAC: PX.Objects.PM.PMChangeOrderCostBudget 
 		/// Display Name: Account Group 
-		/// Key Field
 		/// </summary>
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
 		public StringValue? AccountGroup { get; set; }
@@ -83,7 +82,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// DAC Field Name: CostCodeID 
 		/// DAC: PX.Objects.PM.PMChangeOrderCostBudget 
 		/// Display Name: Cost Code 
-		/// Key Field
 		/// </summary>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
@@ -116,7 +114,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// The identifier of the inventory item associated with the change order line.
 		/// DAC: PX.Objects.PM.PMChangeOrderCostBudget 
 		/// Display Name: Inventory ID 
-		/// Key Field
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -158,7 +155,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <summary>
 		/// DAC: PX.Objects.PM.PMChangeOrderCostBudget 
 		/// Display Name: Project Task 
-		/// Key Field
 		/// </summary>
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }

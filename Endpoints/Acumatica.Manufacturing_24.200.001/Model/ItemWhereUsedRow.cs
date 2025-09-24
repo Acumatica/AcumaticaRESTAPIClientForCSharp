@@ -80,7 +80,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// DAC Field Name: ParentItemClassID 
 		/// DAC: PX.Objects.AM.BomWhereUsedDetail 
 		/// Display Name: Parent Item Class 
-		/// SQL Type: nvarchar(30) 
 		/// </summary>
 		[DataMember(Name="ParentItemClass", EmitDefaultValue=false)]
 		public StringValue? ParentItemClass { get; set; }

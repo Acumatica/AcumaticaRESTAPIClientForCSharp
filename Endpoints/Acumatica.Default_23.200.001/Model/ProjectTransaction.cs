@@ -37,6 +37,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <summary>
 		/// The identifier of the functional area, to which the batch belongs.
 		/// DAC: PX.Objects.PM.PMRegister 
+		/// Display Name: Source 
 		/// SQL Type: char(2) 
 		/// Key Field
 		/// </summary>

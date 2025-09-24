@@ -112,7 +112,7 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Picking Location for Non-Stock Items 
+		/// Display Name: Non-Stock Location 
 		/// </summary>
 		[DataMember(Name="NonStockPickingLocationID", EmitDefaultValue=false)]
 		public StringValue? NonStockPickingLocationID { get; set; }

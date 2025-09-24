@@ -21,7 +21,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// The external reference number of the business account.
 		/// DAC Field Name: AcctReferenceNbr 
 		/// DAC: PX.Objects.AP.Vendor 
-		/// Display Name: Ext Ref Nbr 
+		/// Display Name: Ext. Ref. Nbr. 
 		/// SQL Type: nvarchar(50) 
 		/// </summary>
 		/// <remarks>
@@ -436,7 +436,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// DAC Field Name: IsLaborUnion 
 		/// DAC: PX.Objects.AP.Vendor 
-		/// Display Name: Vendor Is Labor Union 
 		/// </summary>
 		[DataMember(Name="VendorIsLaborUnion", EmitDefaultValue=false)]
 		public BooleanValue? VendorIsLaborUnion { get; set; }

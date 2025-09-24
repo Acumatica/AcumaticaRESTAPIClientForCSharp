@@ -116,7 +116,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// DAC Field Name: SpecialOrderCostCenterID 
 		/// DAC: PX.Objects.IN.INTran 
 		/// Display Name: Special Order Nbr. 
-		/// SQL Type: nvarchar(255) 
 		/// </summary>
 		[DataMember(Name="SpecialOrderNbr", EmitDefaultValue=false)]
 		public StringValue? SpecialOrderNbr { get; set; }

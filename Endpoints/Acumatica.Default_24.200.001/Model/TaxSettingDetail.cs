@@ -68,7 +68,6 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// DAC: PX.Objects.PR.PREmployeeAttribute 
-		/// Display Name: Use Default 
 		/// </summary>
 		[DataMember(Name="UseDefault", EmitDefaultValue=false)]
 		public BooleanValue? UseDefault { get; set; }

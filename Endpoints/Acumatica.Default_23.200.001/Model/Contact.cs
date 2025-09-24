@@ -30,7 +30,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// Specifies whether the address information of this contact differs from the address informationof the business account associated with this contact.IF it is so, the address information is synchronized with the associatedbusiness account.
 		/// DAC Field Name: OverrideAddress 
 		/// DAC: PX.Objects.CR.Contact 
-		/// Display Name: Override 
+		/// Display Name: Override Address 
 		/// </summary>
 		/// <remarks>
 		/// The behavior is controlled by the ContactBAccountSharedAddressOverrideGraphExtgraph extension.

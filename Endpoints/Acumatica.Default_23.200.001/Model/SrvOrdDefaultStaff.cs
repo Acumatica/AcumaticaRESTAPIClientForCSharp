@@ -76,7 +76,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// DAC Field Name: EmployeeID 
 		/// DAC: PX.Objects.FS.FSProfitability 
 		/// Display Name: Staff Member 
-		/// SQL Type: nvarchar(30) 
 		/// </summary>
 		[DataMember(Name="StaffMemberID", EmitDefaultValue=false)]
 		public StringValue? StaffMemberID { get; set; }

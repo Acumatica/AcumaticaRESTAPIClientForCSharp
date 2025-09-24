@@ -119,7 +119,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// DAC Field Name: ImageUrl 
 		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// SQL Type: varchar(255) 
+		/// SQL Type: nvarchar(255) 
 		/// </summary>
 		[DataMember(Name="ImageURL", EmitDefaultValue=false)]
 		public StringValue? ImageURL { get; set; }

@@ -63,7 +63,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// DAC Field Name: ItemClassID 
 		/// DAC: PX.Objects.AM.SelectedProdMatl 
 		/// Display Name: Item Class 
-		/// SQL Type: nvarchar(30) 
 		/// </summary>
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }

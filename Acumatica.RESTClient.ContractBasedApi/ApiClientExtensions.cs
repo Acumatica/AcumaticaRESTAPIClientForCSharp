@@ -13,6 +13,7 @@ using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.ContractBasedApi.Model;
 
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
+using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
 using static Acumatica.RESTClient.ContractBasedApi.EntityStructureHelper;
 
 namespace Acumatica.RESTClient.ContractBasedApi
@@ -479,6 +480,89 @@ namespace Acumatica.RESTClient.ContractBasedApi
             ).ConfigureAwait(false);
 
             await VerifyResponseAsync<EntityType>(response, nameof(PutAsync)).ConfigureAwait(false);
+
+            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
+        }
+        #endregion
+        #region Patch
+        /// <summary>
+        /// Updates an existing record if <paramref name="entity"/> can be mathed to an existing record by <c>id</c> field value or key field values.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
+        /// <param name="entity">The record to be passed to the system.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="businessDate">
+        /// Optional. Specifies the new business date. If you omit this header, 
+        /// the current date is used as the business date.
+        /// </param>
+        /// <param name="branch">
+        /// Optional. Specifies the new current branch. 
+        /// The branch should be specified as a branch name. 
+        /// If you omit this header, the branch that you specified when signing in is used as the current branch.
+        /// </param>
+        /// <returns>Object of <typeparamref name="EntityType"/> type.</returns>
+        public static EntityType Patch<EntityType>(
+            this ApiClient client, EntityType entity,
+            string? endpointPath = null,
+            string? select = null, string? filter = null, string? expand = null, string? custom = null,
+            DateTime? businessDate = null, string? branch = null)
+            where EntityType : Entity, ITopLevelEntity
+        {
+            return PatchAsync(client, entity, endpointPath, select, filter, expand, custom, businessDate, branch).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Updates an existing record if <paramref name="entity"/> can be mathed to an existing record by <c>id</c> field value or key field values. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="client"></param>
+        /// <param name="entity">The record to be passed to the system.</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="businessDate">
+        /// Optional. Specifies the new business date. If you omit this header, 
+        /// the current date is used as the business date.
+        /// </param>
+        /// <param name="branch">
+        /// Optional. Specifies the new current branch. 
+        /// The branch should be specified as a branch name. 
+        /// If you omit this header, the branch that you specified when signing in is used as the current branch.
+        /// </param>
+        /// <param name="cancellationToken"></param>
+        /// <returns><see cref="Task"/> of <typeparamref name="EntityType"/></returns>
+        public static async Task<EntityType> PatchAsync<EntityType>(this ApiClient client,
+            EntityType entity,
+            string? endpointPath = null,
+            string? select = null, string? filter = null, string? expand = null, string? custom = null,
+            DateTime? businessDate = null, string? branch = null,
+            CancellationToken cancellationToken = default)
+            where EntityType : Entity, ITopLevelEntity
+        {
+            if (entity == null)
+                ThrowMissingParameter(nameof(PatchAsync), nameof(entity));
+            if (endpointPath == null)
+                endpointPath = GetEndpointPath(entity!);
+
+            HttpResponseMessage response = await client.CallApiAsync(
+                resourcePath: $"{endpointPath}/{GetEntityName(entity!)}",
+                method: new HttpMethod("PATCH"),
+                acceptType: HeaderContentType.Json,
+                contentType: HeaderContentType.Json,
+                body: entity,
+                queryParams: ComposeQueryParams(select, filter, expand, custom),
+                customHeaders: ComposePutHeaders(PutMethod.Update, businessDate, branch),
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            await VerifyResponseAsync<EntityType>(response, nameof(PatchAsync)).ConfigureAwait(false);
 
             return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }

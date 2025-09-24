@@ -21,7 +21,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// The external reference number of the business account.
 		/// DAC Field Name: AcctReferenceNbr 
 		/// DAC: PX.Objects.CR.BAccount 
-		/// Display Name: Ext Ref Nbr 
+		/// Display Name: Ext. Ref. Nbr. 
 		/// SQL Type: nvarchar(50) 
 		/// </summary>
 		/// <remarks>

@@ -142,7 +142,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// DAC Field Name: InitResponse 
 		/// DAC: PX.Objects.CR.CRCase 
 		/// Display Name: Init. Response 
-		/// SQL Type: nvarchar(6) 
 		/// </summary>
 		[DataMember(Name="InitialResponse", EmitDefaultValue=false)]
 		public StringValue? InitialResponse { get; set; }
@@ -178,7 +177,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// DAC: PX.Objects.CR.CRCase 
 		/// </summary>
 		/// <remarks>
-		/// Also, the Location.BAccountID value must be equal tothe CRCase.CustomerID value of the current case.
+		/// Also, the BAccountID value must be equal tothe CustomerID value of the current case.
 		/// </remarks>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
@@ -243,7 +242,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// DAC Field Name: TimeResolution 
 		/// DAC: PX.Objects.CR.CRCase 
 		/// Display Name: Resolution Time 
-		/// SQL Type: nvarchar(6) 
 		/// </summary>
 		[DataMember(Name="ResolutionTime", EmitDefaultValue=false)]
 		public StringValue? ResolutionTime { get; set; }

@@ -20,7 +20,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// DAC: PX.Objects.FS.FSAppointment 
 		/// Display Name: Actual Duration 
-		/// SQL Type: nvarchar(6) 
 		/// </summary>
 		[DataMember(Name="ActualDuration", EmitDefaultValue=false)]
 		public StringValue? ActualDuration { get; set; }

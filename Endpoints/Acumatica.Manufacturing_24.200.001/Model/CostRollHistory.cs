@@ -279,6 +279,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// The warehouse for the BOM ID.
 		/// DAC Field Name: SiteID 
 		/// DAC: PX.Objects.AM.AMBomCostHistory 
+		/// Key Field
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
