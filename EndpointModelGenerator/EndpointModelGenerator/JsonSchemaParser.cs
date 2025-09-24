@@ -178,9 +178,12 @@ namespace EndpointSchemaGenerator
                     {
                         foreach (var property in schema.Properties)
                         {
+                            if (property.Key != "_workflowActions")
+                        {
                             fieldsSchema.Add(new EntityField(property.Key, ParseParentRef(property.Value)));
                         }
                     }
+                }
                 }
                 return fieldsSchema;
             }
