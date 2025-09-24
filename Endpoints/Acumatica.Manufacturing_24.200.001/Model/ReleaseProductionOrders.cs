@@ -121,7 +121,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// DAC Field Name: OrdNbr 
 		/// DAC: PX.Objects.AM.AMProdItem 
-		/// Display Name: SO Order Nbr 
+		/// Display Name: SO Order Nbr. 
 		/// SQL Type: nvarchar(15) 
 		/// </summary>
 		[DataMember(Name="SOOrderNbr", EmitDefaultValue=false)]

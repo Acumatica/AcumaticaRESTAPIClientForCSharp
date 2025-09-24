@@ -74,7 +74,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// When set to true indicates that the document line is not billable in the project.The field is relevant only in case Project module is enabled.
+		/// When set to true indicates that the document line is not billable in the project.The field is relevant only in case Project Accounting feature is enabled.
 		/// DAC: PX.Objects.AP.APTran 
 		/// Display Name: Non Billable 
 		/// </summary>

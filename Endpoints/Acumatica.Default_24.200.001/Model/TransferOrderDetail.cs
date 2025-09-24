@@ -106,7 +106,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// DAC Field Name: SpecialOrderCostCenterID 
 		/// DAC: PX.Objects.IN.INTran 
 		/// Display Name: Special Order Nbr. 
-		/// SQL Type: nvarchar(255) 
 		/// </summary>
 		[DataMember(Name="SpecialOrderNbr", EmitDefaultValue=false)]
 		public StringValue? SpecialOrderNbr { get; set; }
@@ -161,7 +160,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// DAC Field Name: ToSpecialOrderCostCenterID 
 		/// DAC: PX.Objects.IN.INTran 
 		/// Display Name: To Special Order Nbr. 
-		/// SQL Type: nvarchar(255) 
 		/// </summary>
 		[DataMember(Name="ToSpecialOrderNbr", EmitDefaultValue=false)]
 		public StringValue? ToSpecialOrderNbr { get; set; }

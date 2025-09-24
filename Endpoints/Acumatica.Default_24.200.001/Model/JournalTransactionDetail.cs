@@ -104,7 +104,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// Identifier of the Project Transaction associated with this transaction.
 		/// DAC Field Name: PMTranID 
 		/// DAC: PX.Objects.GL.GLTran 
-		/// Display Name: Project Tran. ID 
+		/// Display Name: PM Tran. 
 		/// </summary>
 		[DataMember(Name="ProjectTransactionID", EmitDefaultValue=false)]
 		public LongValue? ProjectTransactionID { get; set; }
