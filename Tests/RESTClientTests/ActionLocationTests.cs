@@ -1,11 +1,6 @@
-﻿using FluentAssertions;
-using System.Linq;
-using Xunit;
-using System;
-using System.Globalization;
+﻿using Acumatica.RESTClient.Api;
 
-using Acumatica.RESTClient.ContractBasedApi.Model;
-using Acumatica.RESTClient.Api;
+using Xunit;
 
 namespace RESTClientTests
 {
@@ -35,10 +30,10 @@ namespace RESTClientTests
 		{
 			var parsedLocation = UrlParser.ParseActionLocation(
 				string.Format(inputLocation, expectedSite, expectedEndpoint, expectedEdnpointVersion, expectedAction));
-			parsedLocation.EndpointName.Should().Be(expectedEndpoint);
-			parsedLocation.EndpointVersion.Should().Be(expectedEdnpointVersion);
-			parsedLocation.ActionName.Should().Be(expectedAction);
-			parsedLocation.Site.Should().Be(expectedSite);
+			Assert.Equal(expectedEndpoint, parsedLocation.EndpointName);
+			Assert.Equal(expectedEdnpointVersion, parsedLocation.EndpointVersion);
+			Assert.Equal(expectedAction, parsedLocation.ActionName);
+			Assert.Equal(expectedSite, parsedLocation.Site);
 		}
 
 		[Theory]
@@ -51,10 +46,10 @@ namespace RESTClientTests
 		public void ParseLocationTestWithoutAction(string expectedSite, string expectedEndpoint, string inputLocation)
 		{
 			var parsedLocation = UrlParser.ParseActionLocation(string.Format(inputLocation, expectedSite, expectedEndpoint));
-			parsedLocation.EndpointName.Should().Be(expectedEndpoint);
-			parsedLocation.EndpointVersion.Should().Be("18.200.001");
-			parsedLocation.ActionName.Should().BeNull();
-			parsedLocation.Site.Should().Be(expectedSite);
+			Assert.Equal(expectedEndpoint, parsedLocation.EndpointName);
+			Assert.Equal("18.200.001", parsedLocation.EndpointVersion);
+			Assert.Null(parsedLocation.ActionName);
+			Assert.Equal(expectedSite, parsedLocation.Site);
 		}
 	}
 }

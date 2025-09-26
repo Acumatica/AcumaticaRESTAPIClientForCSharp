@@ -1,15 +1,13 @@
-﻿using FluentAssertions;
-using System.Linq;
-using Xunit;
-using System;
-using System.Globalization;
-
-using Acumatica.RESTClient.ContractBasedApi;
-using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Client;
-using RESTClientTests.Mocks;
-using System.Net.Http;
+﻿using System;
 using System.Net;
+using System.Net.Http;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+
+using RESTClientTests.Mocks;
+
+using Xunit;
 
 namespace RESTClientTests
 {
@@ -28,7 +26,7 @@ namespace RESTClientTests
                    { Content = new StringContent(response) };
                }));
             var order = client.GetById<SalesOrder>(new Guid());
-            order!.Date!.Value!.Should().Be(expectedValue);
+            Assert.Equal(expectedValue, order!.Date!.Value!);
         }
 
         [Theory]
@@ -44,7 +42,7 @@ namespace RESTClientTests
                new HttpClientMock(async (request, ct) =>
                {
                    string serializedContent = request.Content.ReadAsStringAsync().Result;
-                   serializedContent.Should().Contain($"Date\":{{\"value\":\"{expectedDateTime}\"");
+                   Assert.Contains($"Date\":{{\"value\":\"{expectedDateTime}\"", serializedContent);
                    return new HttpResponseMessage(HttpStatusCode.OK);
                }));
             var order = client.Put(so);
@@ -67,7 +65,7 @@ namespace RESTClientTests
                    { Content = new StringContent(response) };
                }));
             var appointment = client.GetById<Appointment>(new Guid());
-            appointment!.DateTime!.Value!.Should().Be(expectedValue);
+            Assert.Equal(expectedValue, appointment!.DateTime!.Value!);
         }
 
         [Fact]
@@ -81,7 +79,7 @@ namespace RESTClientTests
                    { Content = new StringContent(response) };
                }));
             var appointment = client.GetById<Appointment>(new Guid());
-            appointment!.DateTime!.Value!.Value.Kind.Should().Be(DateTimeKind.Utc);
+            Assert.Equal(DateTimeKind.Utc, appointment!.DateTime!.Value!.Value.Kind);
         }
 
         [Theory]
@@ -97,7 +95,7 @@ namespace RESTClientTests
             var client = new ApiClient(new HttpClientMock(async (request, ct) =>
                {
                    string serializedContent = request.Content.ReadAsStringAsync().Result;
-                   serializedContent.Should().Contain($"DateTime\":{{\"value\":\"{expectedDateTime}\"");
+                   Assert.Contains($"DateTime\":{{\"value\":\"{expectedDateTime}\"", serializedContent);
                    return new HttpResponseMessage(HttpStatusCode.OK);
                }));
             var order = client.Put(appointment);

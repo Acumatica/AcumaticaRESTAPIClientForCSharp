@@ -1,11 +1,6 @@
-﻿using FluentAssertions;
-using System.Linq;
-using Xunit;
-using System;
-using System.Globalization;
+﻿using Acumatica.RESTClient.Api;
 
-using Acumatica.RESTClient.ContractBasedApi.Model;
-using Acumatica.RESTClient.Api;
+using Xunit;
 
 namespace RESTClientTests
 {
@@ -25,10 +20,10 @@ namespace RESTClientTests
 		{
 			var parsedLocation = UrlParser.ParseFileLocation(
 				string.Format(inputLocation, expectedSite, expectedEndpoint, expectedEdnpointVersion, expectedID));
-			parsedLocation.EndpointName.Should().Be(expectedEndpoint);
-			parsedLocation.EndpointVersion.Should().Be(expectedEdnpointVersion);
-			parsedLocation.ID.Should().Be(expectedID);
-			parsedLocation.Site.Should().Be(expectedSite);
+			Assert.Equal(expectedEndpoint, parsedLocation.EndpointName);
+			Assert.Equal(expectedEdnpointVersion, parsedLocation.EndpointVersion);
+			Assert.Equal(expectedID, parsedLocation.ID);
+			Assert.Equal(expectedSite, parsedLocation.Site);
 		}
 	}
 }
