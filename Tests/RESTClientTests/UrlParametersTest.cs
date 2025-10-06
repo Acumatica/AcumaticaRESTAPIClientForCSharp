@@ -1,16 +1,14 @@
-﻿using FluentAssertions;
-using System.Linq;
-using Xunit;
-using System;
-using System.Globalization;
-using Acumatica.RESTClient.Api;
-using RESTClientTests.Mocks;
-using Acumatica.RESTClient.Client;
+﻿using System.Net;
 using System.Net.Http;
-using System.Net;
-using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
-using System.Collections.Generic;
+
+using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.ContractBasedApi;
+
+using RESTClientTests.Mocks;
+
+using Xunit;
+
+using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
 
 namespace RESTClientTests
 {
