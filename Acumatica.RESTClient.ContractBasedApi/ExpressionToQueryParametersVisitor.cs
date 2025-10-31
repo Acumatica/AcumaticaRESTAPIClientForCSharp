@@ -50,12 +50,20 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
                     case "Take":
                         Visit(node.Arguments[0]);
-                        _parameters.Top = (int)((ConstantExpression)node.Arguments[1]).Value!;
+                        var takeValue = ((ConstantExpression)node.Arguments[1]).Value;
+                        if (takeValue != null)
+                        {
+                            _parameters.Top = (int)takeValue;
+                        }
                         return node;
 
                     case "Skip":
                         Visit(node.Arguments[0]);
-                        _parameters.Skip = (int)((ConstantExpression)node.Arguments[1]).Value!;
+                        var skipValue = ((ConstantExpression)node.Arguments[1]).Value;
+                        if (skipValue != null)
+                        {
+                            _parameters.Skip = (int)skipValue;
+                        }
                         return node;
 
                     case "First":
@@ -302,8 +310,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 return $"guid'{guid}'";
             }
 
-            // Numeric types
-            return value.ToString()!;
+            // Numeric types and other value types
+            var strValue = value.ToString();
+            return strValue ?? string.Empty;
         }
 
         private string TranslateSelect(Expression expression)
