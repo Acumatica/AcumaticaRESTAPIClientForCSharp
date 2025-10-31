@@ -140,10 +140,16 @@ namespace Acumatica.RESTClient.ContractBasedApi
                     {
                         case "First":
                         case "FirstOrDefault":
-                            return (TResult)(resultList.FirstOrDefault() ?? default(TResult)!);
+                            {
+                                var firstResult = resultList.FirstOrDefault();
+                                return firstResult != null ? (TResult)firstResult : default!;
+                            }
                         case "Single":
                         case "SingleOrDefault":
-                            return (TResult)(resultList.SingleOrDefault() ?? default(TResult)!);
+                            {
+                                var singleResult = resultList.SingleOrDefault();
+                                return singleResult != null ? (TResult)singleResult : default!;
+                            }
                         case "Count":
                         case "LongCount":
                             return (TResult)(object)resultList.Count;

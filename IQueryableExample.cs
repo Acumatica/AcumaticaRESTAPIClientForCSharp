@@ -52,7 +52,8 @@ namespace IQueryableExample
             Console.WriteLine("\nExample 5: Pagination");
             var page2Customers = client.AsQueryable<Customer>()
                 .Where(c => c.Status.Value == "Active")
-                .OrderBy(c => c.CustomerID.Value) // Note: OrderBy must be done server-side
+                // Note: OrderBy is not supported in LINQ translation. 
+                // Use the $orderby parameter on the REST API directly if ordering is needed.
                 .Skip(20)
                 .Take(10)
                 .ToList();

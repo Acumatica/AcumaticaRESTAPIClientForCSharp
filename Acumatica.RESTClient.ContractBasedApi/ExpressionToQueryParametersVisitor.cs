@@ -292,7 +292,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             if (value is string str)
             {
-                return $"'{str.Replace("'", "''")}'";
+                // Escape single quotes for OData string literals
+                // Also escape backslashes to prevent injection
+                var escaped = str.Replace("\\", "\\\\").Replace("'", "''");
+                return $"'{escaped}'";
             }
 
             if (value is DateTime dateTime)
