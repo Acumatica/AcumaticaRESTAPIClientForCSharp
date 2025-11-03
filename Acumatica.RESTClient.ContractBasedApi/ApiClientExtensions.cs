@@ -461,7 +461,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
             where EntityType : Entity, ITopLevelEntity
         {
-            return Put(client, entity, endpointPath, select, filter, expand != null ? string.Join(",", expand) : null, custom, method, businessDate, branch);
+            return Put(client, entity, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, method, businessDate, branch);
         }
 
         /// <summary>
@@ -557,7 +557,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity
         {
-            return await PutAsync(client, entity, endpointPath, select, filter, expand != null ? string.Join(",", expand) : null, custom, method, businessDate, branch, cancellationToken).ConfigureAwait(false);
+            return await PutAsync(client, entity, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, method, businessDate, branch, cancellationToken).ConfigureAwait(false);
         }
         #endregion
         #region Patch
@@ -620,7 +620,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             DateTime? businessDate = null, string? branch = null)
             where EntityType : Entity, ITopLevelEntity
         {
-            return Patch(client, entity, endpointPath, select, filter, expand != null ? string.Join(",", expand) : null, custom, businessDate, branch);
+            return Patch(client, entity, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, businessDate, branch);
         }
 
         /// <summary>
@@ -704,7 +704,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity
         {
-            return await PatchAsync(client, entity, endpointPath, select, filter, expand != null ? string.Join(",", expand) : null, custom, businessDate, branch, cancellationToken).ConfigureAwait(false);
+            return await PatchAsync(client, entity, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, businessDate, branch, cancellationToken).ConfigureAwait(false);
         }
         #endregion
         #region PutFile
@@ -870,7 +870,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, IEnumerable<string>? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return await GetByKeysAsync<EntityType>(client, key, endpointPath, select, expand != null ? string.Join(",", expand) : null, custom).ConfigureAwait(false);
+            return await GetByKeysAsync<EntityType>(client, key, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -892,7 +892,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return await GetByKeysAsync<EntityType>(client, ids, endpointPath, select, expand != null ? string.Join(",", expand) : null, custom, cancellationToken).ConfigureAwait(false);
+            return await GetByKeysAsync<EntityType>(client, ids, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -932,7 +932,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, IEnumerable<string>? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return GetByKeys<EntityType>(client, key, endpointPath, select, expand != null ? string.Join(",", expand) : null, custom);
+            return GetByKeys<EntityType>(client, key, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom);
         }
 
         /// <summary>
@@ -972,7 +972,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, IEnumerable<string>? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return GetByKeys<EntityType>(client, ids, endpointPath, select, expand != null ? string.Join(",", expand) : null, custom);
+            return GetByKeys<EntityType>(client, ids, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom);
         }
 
         /// <summary>
@@ -1016,7 +1016,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, IEnumerable<string>? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return await GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand != null ? string.Join(",", expand) : null, custom).ConfigureAwait(false);
+            return await GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1078,7 +1078,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 CancellationToken cancellationToken = default)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return await GetByIdAsync<EntityType>(client, id, endpointPath, select, expand != null ? string.Join(",", expand) : null, custom, cancellationToken).ConfigureAwait(false);
+            return await GetByIdAsync<EntityType>(client, id, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1116,7 +1116,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, IEnumerable<string>? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand != null ? string.Join(",", expand) : null, custom).GetAwaiter().GetResult();
+            return GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -1154,7 +1154,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             string? select = null, IEnumerable<string>? expand = null, string? custom = null)
             where EntityType : Entity, ITopLevelEntity, new()
         {
-            return GetByIdAsync<EntityType>(client, id, endpointPath, select, expand != null ? string.Join(",", expand) : null, custom).GetAwaiter().GetResult();
+            return GetByIdAsync<EntityType>(client, id, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom).GetAwaiter().GetResult();
         }
         #endregion
         #region GetList
@@ -1223,7 +1223,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 CancellationToken cancellationToken = default)
             where EntityType : ITopLevelEntity, new()
         {
-            return await GetListAsync<EntityType>(client, endpointPath, select, filter, expand != null ? string.Join(",", expand) : null, custom, skip, top, customHeaders, cancellationToken).ConfigureAwait(false);
+            return await GetListAsync<EntityType>(client, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, skip, top, customHeaders, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves records that satisfy the specified conditions from the system. 
@@ -1270,7 +1270,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null)
             where EntityType : ITopLevelEntity, new()
         {
-            return GetList<EntityType>(client, endpointPath, select, filter, expand != null ? string.Join(",", expand) : null, custom, skip, top, customHeaders);
+            return GetList<EntityType>(client, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, skip, top, customHeaders);
         }
         #endregion
         #region GetSchema

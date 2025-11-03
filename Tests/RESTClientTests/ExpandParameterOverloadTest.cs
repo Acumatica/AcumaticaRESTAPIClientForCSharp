@@ -52,7 +52,8 @@ namespace RESTClientTests
             var client = new ApiClient(
                 new HttpClientMock(async (request, ct) =>
                 {
-                    // Empty collection should result in empty string which should not be added to URL
+                    // Empty collection should not add expand parameter to URL  
+                    // (empty string handling ensures no parameter is included)
                     Assert.DoesNotContain("$expand=", request.RequestUri.ToString());
                     return new HttpResponseMessage(HttpStatusCode.OK)
                     { Content = new StringContent("[]") };
