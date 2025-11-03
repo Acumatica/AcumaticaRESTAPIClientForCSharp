@@ -20,6 +20,12 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<ItemImageDetails>? Results { get; set; }
 
+		public static class Expand
+		{
+			public const string Results = "Results";
+
+			public const string All = "Results";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/23.200.001";

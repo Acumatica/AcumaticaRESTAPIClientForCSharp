@@ -58,6 +58,11 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public IntValue? SortOrder { get; set; }
 
+		public static class Expand
+		{
+
+			public const string All = "";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/24.200.001";

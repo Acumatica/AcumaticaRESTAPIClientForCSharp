@@ -235,7 +235,7 @@ namespace EndpointSchemaGenerator
                         parentReference: baseEntity,
                         isDerived: !isNotDerived,
                         screenID: entity.Value.ScreenID,
-                        Templates.GetExpands(expandsAppend));
+                        isNotDerived ? Templates.GetExpands(expandsAppend) : "");
                 }
                 else
                 {

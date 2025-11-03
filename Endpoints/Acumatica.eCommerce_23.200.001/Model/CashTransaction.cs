@@ -74,6 +74,12 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		[DataMember(Name="PostedDate", EmitDefaultValue=false)]
 		public DateTimeValue? PostedDate { get; set; }
 
+		public static class Expand
+		{
+			public const string Details = "Details";
+
+			public const string All = "Details";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/eCommerce/23.200.001";
