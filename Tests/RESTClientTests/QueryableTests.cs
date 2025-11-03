@@ -182,8 +182,39 @@ namespace RESTClientTests
             var result = query.ToList();
 
             Assert.NotNull(capturedFilter);
-            Assert.Contains("Date/value", capturedFilter);
+            Assert.Contains("Date", capturedFilter);
             Assert.Contains("eq", capturedFilter);
+            Assert.Contains("2024-01-01", capturedFilter);
+            Assert.Equal("10", capturedTop);
+            Assert.Equal("5", capturedSkip);
+        }
+
+        [Fact]
+        public void AsQueryable_WithCombinedConditionsGT_GeneratesCorrectParameters()
+        {
+            string? capturedFilter = null;
+            string? capturedTop = null;
+            string? capturedSkip = null;
+            var client = new ApiClient(
+                new HttpClientMock(async (request, ct) =>
+                {
+                    capturedFilter = GetQueryParameter(request.RequestUri, "$filter");
+                    capturedTop = GetQueryParameter(request.RequestUri, "$top");
+                    capturedSkip = GetQueryParameter(request.RequestUri, "$skip");
+                    return new HttpResponseMessage(HttpStatusCode.OK)
+                    { Content = new StringContent("[]") };
+                }));
+
+            var query = client.AsQueryable<SalesOrder>()
+                .Where(so => so.Date > new DateTime(2024, 1, 1))
+                .Skip(5)
+                .Take(10);
+
+            var result = query.ToList();
+
+            Assert.NotNull(capturedFilter);
+            Assert.Contains("Date", capturedFilter);
+            Assert.Contains("gt", capturedFilter);
             Assert.Contains("2024-01-01", capturedFilter);
             Assert.Equal("10", capturedTop);
             Assert.Equal("5", capturedSkip);
