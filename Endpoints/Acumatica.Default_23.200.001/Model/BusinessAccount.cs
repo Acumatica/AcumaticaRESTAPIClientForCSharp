@@ -255,6 +255,42 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="EnableCurrencyOverride", EmitDefaultValue=false)]
 		public BooleanValue? EnableCurrencyOverride { get; set; }
 
+		public static class Expand
+		{
+			public const string Activities = "Activities";
+			public const string Attributes = "Attributes";
+			public const string Campaigns = "Campaigns";
+			public const string Cases = "Cases";
+			public const string Contacts = "Contacts";
+			public const string Contracts = "Contracts";
+			public const string DefaultLocationSettings = "DefaultLocationSettings";
+			public const string Duplicates = "Duplicates";
+			public const string Locations = "Locations";
+			public const string MainAddress = "MainAddress";
+			public const string MainContact = "MainContact";
+			public const string MarketingLists = "MarketingLists";
+			public const string Opportunities = "Opportunities";
+			public const string Orders = "Orders";
+			public const string PrimaryContact = "PrimaryContact";
+			public const string PrimaryContact_Activities = "PrimaryContact/Activities";
+			public const string PrimaryContact_Address = "PrimaryContact/Address";
+			public const string PrimaryContact_Attributes = "PrimaryContact/Attributes";
+			public const string PrimaryContact_Campaigns = "PrimaryContact/Campaigns";
+			public const string PrimaryContact_Cases = "PrimaryContact/Cases";
+			public const string PrimaryContact_Duplicates = "PrimaryContact/Duplicates";
+			public const string PrimaryContact_MarketingLists = "PrimaryContact/MarketingLists";
+			public const string PrimaryContact_Notifications = "PrimaryContact/Notifications";
+			public const string PrimaryContact_Opportunities = "PrimaryContact/Opportunities";
+			public const string PrimaryContact_Relations = "PrimaryContact/Relations";
+			public const string PrimaryContact_RoleAssignments = "PrimaryContact/RoleAssignments";
+			public const string PrimaryContact_UserInfo = "PrimaryContact/UserInfo";
+			public const string PrimaryContact_UserInfo_Roles = "PrimaryContact/UserInfo/Roles";
+			public const string Relations = "Relations";
+			public const string ShippingAddress = "ShippingAddress";
+			public const string ShippingContact = "ShippingContact";
+
+			public const string All = "Activities,Attributes,Campaigns,Cases,Contacts,Contracts,DefaultLocationSettings,Duplicates,Locations,MainAddress,MainContact,MarketingLists,Opportunities,Orders,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Cases,PrimaryContact/Duplicates,PrimaryContact/MarketingLists,PrimaryContact/Notifications,PrimaryContact/Opportunities,PrimaryContact/Relations,PrimaryContact/RoleAssignments,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,Relations,ShippingAddress,ShippingContact";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

@@ -49,7 +49,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="IncludeUnreleased", EmitDefaultValue=false)]
 		public BooleanValue? IncludeUnreleased { get; set; }
+		public static class Expand
+		{
+			public const string Results = "Results";
 
+			public const string All = "Results";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

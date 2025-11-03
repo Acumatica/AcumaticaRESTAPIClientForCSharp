@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
+using EndpointModelGenerator;
+
 namespace EndpointSchemaGenerator
 {
     public static class SchemaGenerator
@@ -218,6 +220,8 @@ namespace EndpointSchemaGenerator
                 {
                     body.Append(Templates.GenerateFieldCode(entity.Key, field));
                 }
+                List<string> expandsAppend = CollectExpands(schema, entity.Value);
+
                 string result;
                 bool isNotDerived = string.IsNullOrEmpty(schema.BaseEndpoint) || string.IsNullOrEmpty(entity.Value.ParentReference);
                 string baseEntity = isNotDerived ? "Entity" : $"{GetEndpointNamespace(defaultNamespaceTemplate, schema.BaseEndpoint)}.Model.{entity.Value.ParentReference}";
@@ -230,7 +234,8 @@ namespace EndpointSchemaGenerator
                         endpointPath: schema.Info.Title,
                         parentReference: baseEntity,
                         isDerived: !isNotDerived,
-                        screenID: entity.Value.ScreenID);
+                        screenID: entity.Value.ScreenID,
+                        Templates.GetExpands(expandsAppend));
                 }
                 else
                 {
@@ -240,6 +245,24 @@ namespace EndpointSchemaGenerator
                 writer.Write(result);
                 writer.Close();
             }
+        }
+
+        private static List<string> CollectExpands(Schema schema, EntityDefinition entity)
+        {
+            List<string> expandsAppend = new List<string>();
+            foreach (var field in entity.Fields)
+            {
+                if (!NonExpandableTypes.Types.Contains(field.Type))
+                {
+                    expandsAppend.Add(field.Name);
+                    if (schema.Entities.ContainsKey(field.Type))
+                    {
+                        expandsAppend.AddRange(CollectExpands(schema, schema.Entities[field.Type]).Select(_ => $"{field.Name}/{_}"));
+                    }
+                }
+            }
+
+            return expandsAppend;
         }
 
         private static void RegenerateDirectories(string outputPath, 

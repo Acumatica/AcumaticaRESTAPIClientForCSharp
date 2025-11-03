@@ -103,7 +103,13 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
+		public static class Expand
+		{
+			public const string CustomerAccounts = "CustomerAccounts";
+			public const string PlugInParameters = "PlugInParameters";
 
+			public const string All = "CustomerAccounts,PlugInParameters";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

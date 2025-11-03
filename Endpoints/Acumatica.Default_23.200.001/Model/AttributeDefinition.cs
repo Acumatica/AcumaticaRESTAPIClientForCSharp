@@ -71,7 +71,12 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="Values", EmitDefaultValue=false)]
 		public List<AttributeDefinitionValue>? Values { get; set; }
+		public static class Expand
+		{
+			public const string Values = "Values";
 
+			public const string All = "Values";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

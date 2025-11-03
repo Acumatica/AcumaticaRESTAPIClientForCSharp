@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace EndpointSchemaGenerator
 {
@@ -66,12 +67,14 @@ namespace EndpointSchemaGenerator
 		/// <param name="virtualModifier"></param>
 		/// <param name="screenID"></param>
 		/// <returns></returns>
-		public static string GenerateTopLevelEntityCode(string endpointNamespace, string entityName, string content, string endpointPath, string parentReference, bool isDerived, string? screenID)
+		public static string GenerateTopLevelEntityCode(string endpointNamespace, string entityName, string content, string endpointPath, string parentReference, bool isDerived, string? screenID, string? expands)
 		{
 			string virtualModifier = isDerived ? "override" : "virtual";
 			return Usings + $"namespace {endpointNamespace}.Model\r\n{{"
 				+ (string.IsNullOrEmpty(screenID) ? "" : $"\r\n\t/// <summary>\r\n\t/// Corresponds to the screen {screenID} in the Acumatica ERP\r\n\t/// </summary>")
-				+ $"\r\n\t[DataContract]\r\n\tpublic class {entityName} : {parentReference}, ITopLevelEntity\r\n\t{{\r\n{content}\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}\r\n\t}}\r\n}}";
+				+ $"\r\n\t[DataContract]\r\n\tpublic class {entityName} : {parentReference}, ITopLevelEntity\r\n\t{{\r\n{content}"
+				+ expands
+				+ $"\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
 		}
 
@@ -109,6 +112,20 @@ namespace EndpointSchemaGenerator
 		//{2} = Content
 		//{3} = Endpoint path
 		public static string ReportTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : IReport\r\n\t{{\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t\t{2}\r\n\t}}\r\n}}";
+
+
+		public static string ExpandsTemplate = "\t\tpublic static class Expand\r\n\t\t{{\r\n{0}\r\n\t\t\tpublic const string All = \"{1}\";\r\n\t\t}}";
+		public static string ExpandFieldTemplate = "\t\t\tpublic const string {0} = \"{1}\";\r\n";
+
+		public static string GetExpands(List<string> expands)
+		{
+			string expandFields = "";
+			foreach (var expandField in expands)
+			{
+				expandFields += string.Format(ExpandFieldTemplate, expandField.Replace('/', '_'), expandField);
+			}
+			return string.Format(ExpandsTemplate, expandFields, string.Join(',', expands));
+		}
 
 	}
 }
