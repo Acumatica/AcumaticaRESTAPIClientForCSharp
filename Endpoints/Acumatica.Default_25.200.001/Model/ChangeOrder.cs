@@ -206,6 +206,16 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
+		public static class Expand
+		{
+			public const string ApprovalDetails = "ApprovalDetails";
+			public const string Attributes = "Attributes";
+			public const string Commitments = "Commitments";
+			public const string CostBudget = "CostBudget";
+			public const string RevenueBudget = "RevenueBudget";
+
+			public const string All = "ApprovalDetails,Attributes,Commitments,CostBudget,RevenueBudget";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

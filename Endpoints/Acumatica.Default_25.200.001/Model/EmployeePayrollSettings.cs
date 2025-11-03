@@ -126,6 +126,26 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="WorkLocations", EmitDefaultValue=false)]
 		public EmployeeWorkLocations? WorkLocations { get; set; }
 
+		public static class Expand
+		{
+			public const string AddressInfo = "AddressInfo";
+			public const string Compensation = "Compensation";
+			public const string DeductionsAndBenefits = "DeductionsAndBenefits";
+			public const string DeductionsAndBenefits_DeductionsAndBenefitsDetails = "DeductionsAndBenefits/DeductionsAndBenefitsDetails";
+			public const string DirectDepositDetails = "DirectDepositDetails";
+			public const string EmploymentDates = "EmploymentDates";
+			public const string EmploymentRecords = "EmploymentRecords";
+			public const string GeneralInfo = "GeneralInfo";
+			public const string GLAccounts = "GLAccounts";
+			public const string PaidTimeOff = "PaidTimeOff";
+			public const string PaidTimeOff_PaidTimeOffDetails = "PaidTimeOff/PaidTimeOffDetails";
+			public const string Taxes = "Taxes";
+			public const string TaxSettings = "TaxSettings";
+			public const string WorkLocations = "WorkLocations";
+			public const string WorkLocations_WorkLocationDetails = "WorkLocations/WorkLocationDetails";
+
+			public const string All = "AddressInfo,Compensation,DeductionsAndBenefits,DeductionsAndBenefits/DeductionsAndBenefitsDetails,DirectDepositDetails,EmploymentDates,EmploymentRecords,GeneralInfo,GLAccounts,PaidTimeOff,PaidTimeOff/PaidTimeOffDetails,Taxes,TaxSettings,WorkLocations,WorkLocations/WorkLocationDetails";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

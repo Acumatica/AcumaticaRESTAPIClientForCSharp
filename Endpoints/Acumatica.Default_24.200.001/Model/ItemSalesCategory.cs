@@ -61,6 +61,12 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
+		public static class Expand
+		{
+			public const string Members = "Members";
+
+			public const string All = "Members";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

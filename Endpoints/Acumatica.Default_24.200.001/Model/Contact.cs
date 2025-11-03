@@ -503,6 +503,24 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="ExtRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExtRefNbr { get; set; }
 
+		public static class Expand
+		{
+			public const string Activities = "Activities";
+			public const string Address = "Address";
+			public const string Attributes = "Attributes";
+			public const string Campaigns = "Campaigns";
+			public const string Cases = "Cases";
+			public const string Duplicates = "Duplicates";
+			public const string MarketingLists = "MarketingLists";
+			public const string Notifications = "Notifications";
+			public const string Opportunities = "Opportunities";
+			public const string Relations = "Relations";
+			public const string RoleAssignments = "RoleAssignments";
+			public const string UserInfo = "UserInfo";
+			public const string UserInfo_Roles = "UserInfo/Roles";
+
+			public const string All = "Activities,Address,Attributes,Campaigns,Cases,Duplicates,MarketingLists,Notifications,Opportunities,Relations,RoleAssignments,UserInfo,UserInfo/Roles";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

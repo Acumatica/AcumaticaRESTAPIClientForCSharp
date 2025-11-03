@@ -185,6 +185,16 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATTaxableTotal { get; set; }
 
+		public static class Expand
+		{
+			public const string ApprovalDetails = "ApprovalDetails";
+			public const string Details = "Details";
+			public const string FinancialDetails = "FinancialDetails";
+			public const string FinancialDetails_APDocuments = "FinancialDetails/APDocuments";
+			public const string TaxDetails = "TaxDetails";
+
+			public const string All = "ApprovalDetails,Details,FinancialDetails,FinancialDetails/APDocuments,TaxDetails";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

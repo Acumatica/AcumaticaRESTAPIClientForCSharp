@@ -172,6 +172,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="UseDefaultSubaccount", EmitDefaultValue=false)]
 		public BooleanValue? UseDefaultSubaccount { get; set; }
+
 		public static class Expand
 		{
 

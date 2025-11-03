@@ -205,6 +205,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
+
 		public static class Expand
 		{
 			public const string ApprovalDetails = "ApprovalDetails";

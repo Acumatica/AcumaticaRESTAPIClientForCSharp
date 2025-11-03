@@ -128,6 +128,12 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="RelatedEntityDescription", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityDescription { get; set; }
 
+		public static class Expand
+		{
+			public const string TimeActivity = "TimeActivity";
+
+			public const string All = "TimeActivity";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

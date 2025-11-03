@@ -68,6 +68,31 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+			public const string ContactInfo = "ContactInfo";
+			public const string ContactInfo_Activities = "ContactInfo/Activities";
+			public const string ContactInfo_Address = "ContactInfo/Address";
+			public const string ContactInfo_Attributes = "ContactInfo/Attributes";
+			public const string ContactInfo_Campaigns = "ContactInfo/Campaigns";
+			public const string ContactInfo_Cases = "ContactInfo/Cases";
+			public const string ContactInfo_Duplicates = "ContactInfo/Duplicates";
+			public const string ContactInfo_MarketingLists = "ContactInfo/MarketingLists";
+			public const string ContactInfo_Notifications = "ContactInfo/Notifications";
+			public const string ContactInfo_Opportunities = "ContactInfo/Opportunities";
+			public const string ContactInfo_Relations = "ContactInfo/Relations";
+			public const string ContactInfo_RoleAssignments = "ContactInfo/RoleAssignments";
+			public const string ContactInfo_UserInfo = "ContactInfo/UserInfo";
+			public const string ContactInfo_UserInfo_Roles = "ContactInfo/UserInfo/Roles";
+			public const string Delegates = "Delegates";
+			public const string EmployeeSettings = "EmployeeSettings";
+			public const string EmploymentHistory = "EmploymentHistory";
+			public const string FinancialSettings = "FinancialSettings";
+			public const string FinancialSettings_PaymentInstructions = "FinancialSettings/PaymentInstructions";
+
+			public const string All = "Attributes,ContactInfo,ContactInfo/Activities,ContactInfo/Address,ContactInfo/Attributes,ContactInfo/Campaigns,ContactInfo/Cases,ContactInfo/Duplicates,ContactInfo/MarketingLists,ContactInfo/Notifications,ContactInfo/Opportunities,ContactInfo/Relations,ContactInfo/RoleAssignments,ContactInfo/UserInfo,ContactInfo/UserInfo/Roles,Delegates,EmployeeSettings,EmploymentHistory,FinancialSettings,FinancialSettings/PaymentInstructions";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

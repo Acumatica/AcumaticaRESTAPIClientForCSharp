@@ -344,6 +344,17 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
+		public static class Expand
+		{
+			public const string Details = "Details";
+			public const string Orders = "Orders";
+			public const string Packages = "Packages";
+			public const string ShippingSettings = "ShippingSettings";
+			public const string ShippingSettings_ShipToAddress = "ShippingSettings/ShipToAddress";
+			public const string ShippingSettings_ShipToContact = "ShippingSettings/ShipToContact";
+
+			public const string All = "Details,Orders,Packages,ShippingSettings,ShippingSettings/ShipToAddress,ShippingSettings/ShipToContact";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

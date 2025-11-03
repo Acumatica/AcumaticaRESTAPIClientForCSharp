@@ -232,6 +232,18 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
+		public static class Expand
+		{
+			public const string ApplicationsCreditMemo = "ApplicationsCreditMemo";
+			public const string ApplicationsDefault = "ApplicationsDefault";
+			public const string BillToContact = "BillToContact";
+			public const string Details = "Details";
+			public const string DiscountDetails = "DiscountDetails";
+			public const string ShipToContact = "ShipToContact";
+			public const string TaxDetails = "TaxDetails";
+
+			public const string All = "ApplicationsCreditMemo,ApplicationsDefault,BillToContact,Details,DiscountDetails,ShipToContact,TaxDetails";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

@@ -128,6 +128,17 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="Warehouses", EmitDefaultValue=false)]
 		public List<DiscountWarehouseDetail>? Warehouses { get; set; }
 
+		public static class Expand
+		{
+			public const string CustomerPriceClasses = "CustomerPriceClasses";
+			public const string Customers = "Customers";
+			public const string DiscountBreakpoints = "DiscountBreakpoints";
+			public const string ItemPriceClasses = "ItemPriceClasses";
+			public const string Items = "Items";
+			public const string Warehouses = "Warehouses";
+
+			public const string All = "CustomerPriceClasses,Customers,DiscountBreakpoints,ItemPriceClasses,Items,Warehouses";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

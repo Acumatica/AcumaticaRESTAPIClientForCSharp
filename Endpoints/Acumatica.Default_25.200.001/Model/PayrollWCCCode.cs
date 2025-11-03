@@ -27,6 +27,12 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="WCCCodes", EmitDefaultValue=false)]
 		public List<WCCCode>? WCCCodes { get; set; }
 
+		public static class Expand
+		{
+			public const string WCCCodes = "WCCCodes";
+
+			public const string All = "WCCCodes";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

@@ -115,6 +115,13 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
+		public static class Expand
+		{
+			public const string FreightRates = "FreightRates";
+			public const string Packages = "Packages";
+
+			public const string All = "FreightRates,Packages";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

@@ -73,6 +73,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="TrackingMethod", EmitDefaultValue=false)]
 		public StringValue? TrackingMethod { get; set; }
 
+		public static class Expand
+		{
+			public const string Segments = "Segments";
+
+			public const string All = "Segments";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

@@ -163,6 +163,12 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="ValuationMethod", EmitDefaultValue=false)]
 		public StringValue? ValuationMethod { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+
+			public const string All = "Attributes";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

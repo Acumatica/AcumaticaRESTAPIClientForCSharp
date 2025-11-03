@@ -177,6 +177,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="PTOBankID", EmitDefaultValue=false)]
 		public StringValue? PTOBankID { get; set; }
 
+		public static class Expand
+		{
+			public const string GLAccounts = "GLAccounts";
+
+			public const string All = "GLAccounts";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

@@ -41,6 +41,13 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="PayrollDefaults", EmitDefaultValue=false)]
 		public EmployeePayrollClassDefaults? PayrollDefaults { get; set; }
 
+		public static class Expand
+		{
+			public const string PayrollDefaults = "PayrollDefaults";
+			public const string PayrollDefaults_WorkLocations = "PayrollDefaults/WorkLocations";
+
+			public const string All = "PayrollDefaults,PayrollDefaults/WorkLocations";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

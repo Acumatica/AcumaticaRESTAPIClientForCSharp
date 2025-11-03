@@ -327,6 +327,22 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="WorkflowStage", EmitDefaultValue=false)]
 		public StringValue? WorkflowStage { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+			public const string Details = "Details";
+			public const string FinancialSettings = "FinancialSettings";
+			public const string Logs = "Logs";
+			public const string OtherInformation = "OtherInformation";
+			public const string Prepayments = "Prepayments";
+			public const string Profitability = "Profitability";
+			public const string ResourceEquipment = "ResourceEquipment";
+			public const string Staff = "Staff";
+			public const string TaxDetails = "TaxDetails";
+			public const string Totals = "Totals";
+
+			public const string All = "Attributes,Details,FinancialSettings,Logs,OtherInformation,Prepayments,Profitability,ResourceEquipment,Staff,TaxDetails,Totals";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

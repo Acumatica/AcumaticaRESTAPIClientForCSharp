@@ -199,6 +199,11 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="UserRole", EmitDefaultValue=false)]
 		public StringValue? UserRole { get; set; }
 
+		public static class Expand
+		{
+
+			public const string All = "";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

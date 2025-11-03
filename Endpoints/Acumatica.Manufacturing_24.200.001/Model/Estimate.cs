@@ -420,6 +420,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
+		public static class Expand
+		{
+			public const string History = "History";
+			public const string Operation = "Operation";
+			public const string Totals = "Totals";
+
+			public const string All = "History,Operation,Totals";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

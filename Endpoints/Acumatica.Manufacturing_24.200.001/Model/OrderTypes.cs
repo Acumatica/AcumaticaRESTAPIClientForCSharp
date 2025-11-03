@@ -308,6 +308,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="WorkInProcessSubaccount", EmitDefaultValue=false)]
 		public StringValue? WorkInProcessSubaccount { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+
+			public const string All = "Attributes";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

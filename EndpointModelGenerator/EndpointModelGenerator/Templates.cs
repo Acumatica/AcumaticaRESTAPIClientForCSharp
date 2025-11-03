@@ -114,7 +114,7 @@ namespace EndpointSchemaGenerator
 		public static string ReportTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : IReport\r\n\t{{\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t\t{2}\r\n\t}}\r\n}}";
 
 
-		public static string ExpandsTemplate = "\t\tpublic static class Expand\r\n\t\t{{\r\n{0}\r\n\t\t\tpublic const string All = \"{1}\";\r\n\t\t}}";
+		public static string ExpandsTemplate = "\r\n\t\tpublic static class Expand\r\n\t\t{{\r\n{0}\r\n\t\t\tpublic const string All = \"{1}\";\r\n\t\t}}";
 		public static string ExpandFieldTemplate = "\t\t\tpublic const string {0} = \"{1}\";\r\n";
 
 		public static string GetExpands(List<string> expands)

@@ -183,6 +183,19 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="TimeAndMaterialTotal", EmitDefaultValue=false)]
 		public DecimalValue? TimeAndMaterialTotal { get; set; }
 
+		public static class Expand
+		{
+			public const string ApprovalDetails = "ApprovalDetails";
+			public const string BillingSettings = "BillingSettings";
+			public const string BillingSettings_BillToAddress = "BillingSettings/BillToAddress";
+			public const string BillingSettings_BillToContact = "BillingSettings/BillToContact";
+			public const string FinancialDetails = "FinancialDetails";
+			public const string ProgressBilling = "ProgressBilling";
+			public const string TaxDetails = "TaxDetails";
+			public const string TimeAndMaterial = "TimeAndMaterial";
+
+			public const string All = "ApprovalDetails,BillingSettings,BillingSettings/BillToAddress,BillingSettings/BillToContact,FinancialDetails,ProgressBilling,TaxDetails,TimeAndMaterial";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

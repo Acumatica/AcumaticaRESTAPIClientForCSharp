@@ -289,6 +289,27 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="TaxCalcMode", EmitDefaultValue=false)]
 		public StringValue? TaxCalcMode { get; set; }
 
+		public static class Expand
+		{
+			public const string ApplicationsCreditMemo = "ApplicationsCreditMemo";
+			public const string ApplicationsInvoice = "ApplicationsInvoice";
+			public const string BillingSettings = "BillingSettings";
+			public const string BillingSettings_BillToAddress = "BillingSettings/BillToAddress";
+			public const string BillingSettings_BillToContact = "BillingSettings/BillToContact";
+			public const string Commissions = "Commissions";
+			public const string Commissions_SalesPersons = "Commissions/SalesPersons";
+			public const string Details = "Details";
+			public const string DiscountDetails = "DiscountDetails";
+			public const string FinancialDetails = "FinancialDetails";
+			public const string FreightDetails = "FreightDetails";
+			public const string TaxDetails = "TaxDetails";
+			public const string BillToAddress = "BillToAddress";
+			public const string BillToContact = "BillToContact";
+			public const string ShipToAddress = "ShipToAddress";
+			public const string ShipToContact = "ShipToContact";
+
+			public const string All = "ApplicationsCreditMemo,ApplicationsInvoice,BillingSettings,BillingSettings/BillToAddress,BillingSettings/BillToContact,Commissions,Commissions/SalesPersons,Details,DiscountDetails,FinancialDetails,FreightDetails,TaxDetails,BillToAddress,BillToContact,ShipToAddress,ShipToContact";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

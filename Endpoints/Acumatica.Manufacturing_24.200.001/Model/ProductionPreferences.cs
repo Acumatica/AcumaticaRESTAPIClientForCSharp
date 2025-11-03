@@ -254,6 +254,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="WipAdjustNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? WipAdjustNumberingSequence { get; set; }
 
+		public static class Expand
+		{
+			public const string DataCollectionSettings = "DataCollectionSettings";
+
+			public const string All = "DataCollectionSettings";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

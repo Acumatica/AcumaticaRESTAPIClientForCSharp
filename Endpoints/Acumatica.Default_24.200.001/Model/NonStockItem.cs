@@ -490,6 +490,17 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Visibility", EmitDefaultValue=false)]
 		public StringValue? Visibility { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+			public const string CrossReferences = "CrossReferences";
+			public const string SalesCategories = "SalesCategories";
+			public const string VendorDetails = "VendorDetails";
+			public const string Categories = "Categories";
+			public const string FileUrls = "FileUrls";
+
+			public const string All = "Attributes,CrossReferences,SalesCategories,VendorDetails,Categories,FileUrls";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

@@ -63,6 +63,16 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="VisibilitySettings", EmitDefaultValue=false)]
 		public VisibilitySettings? VisibilitySettings { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
+			public const string DefaultValues = "DefaultValues";
+			public const string Properties = "Properties";
+			public const string VisibilitySettings = "VisibilitySettings";
+
+			public const string All = "Attributes,BillingAndAllocationSettings,DefaultValues,Properties,VisibilitySettings";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

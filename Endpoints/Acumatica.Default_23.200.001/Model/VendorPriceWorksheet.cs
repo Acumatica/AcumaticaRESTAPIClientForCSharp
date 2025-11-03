@@ -83,6 +83,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="VendorSalesPrices", EmitDefaultValue=false)]
 		public List<VendorPriceWorksheetDetail>? VendorSalesPrices { get; set; }
 
+		public static class Expand
+		{
+			public const string VendorSalesPrices = "VendorSalesPrices";
+
+			public const string All = "VendorSalesPrices";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

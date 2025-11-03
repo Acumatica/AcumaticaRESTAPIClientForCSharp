@@ -63,6 +63,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="Year", EmitDefaultValue=false)]
 		public StringValue? Year { get; set; }
 
+		public static class Expand
+		{
+			public const string PaymentPeriods = "PaymentPeriods";
+
+			public const string All = "PaymentPeriods";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

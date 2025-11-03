@@ -521,6 +521,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="WIPVarianceSubaccount", EmitDefaultValue=false)]
 		public StringValue? WIPVarianceSubaccount { get; set; }
 
+		public static class Expand
+		{
+			public const string Allocations = "Allocations";
+			public const string EventHistory = "EventHistory";
+			public const string OrderAttributes = "OrderAttributes";
+			public const string OrderTotals = "OrderTotals";
+
+			public const string All = "Allocations,EventHistory,OrderAttributes,OrderTotals";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

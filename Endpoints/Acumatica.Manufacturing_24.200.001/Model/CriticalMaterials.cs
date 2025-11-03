@@ -52,6 +52,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="ShowAllocated", EmitDefaultValue=false)]
 		public BooleanValue? ShowAllocated { get; set; }
 
+		public static class Expand
+		{
+			public const string Detail = "Detail";
+
+			public const string All = "Detail";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

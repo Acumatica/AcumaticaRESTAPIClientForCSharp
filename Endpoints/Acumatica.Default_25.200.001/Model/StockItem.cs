@@ -731,6 +731,20 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="NotAvailable", EmitDefaultValue=false)]
 		public StringValue? NotAvailable { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+			public const string Boxes = "Boxes";
+			public const string Categories = "Categories";
+			public const string CrossReferences = "CrossReferences";
+			public const string ReplenishmentParameters = "ReplenishmentParameters";
+			public const string UOMConversions = "UOMConversions";
+			public const string VendorDetails = "VendorDetails";
+			public const string WarehouseDetails = "WarehouseDetails";
+			public const string FileURLs = "FileURLs";
+
+			public const string All = "Attributes,Boxes,Categories,CrossReferences,ReplenishmentParameters,UOMConversions,VendorDetails,WarehouseDetails,FileURLs";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

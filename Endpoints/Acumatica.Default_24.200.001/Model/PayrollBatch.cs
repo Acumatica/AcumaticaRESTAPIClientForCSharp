@@ -135,6 +135,16 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="TransactionDate", EmitDefaultValue=false)]
 		public DateTimeValue? TransactionDate { get; set; }
 
+		public static class Expand
+		{
+			public const string DeductionsAndBenefitsDetails = "DeductionsAndBenefitsDetails";
+			public const string EarningDetails = "EarningDetails";
+			public const string EmployeeSummary = "EmployeeSummary";
+			public const string OvertimeRules = "OvertimeRules";
+			public const string OvertimeRules_OvertimeRulesDetails = "OvertimeRules/OvertimeRulesDetails";
+
+			public const string All = "DeductionsAndBenefitsDetails,EarningDetails,EmployeeSummary,OvertimeRules,OvertimeRules/OvertimeRulesDetails";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

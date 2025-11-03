@@ -125,6 +125,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 
+		public static class Expand
+		{
+			public const string Documents = "Documents";
+
+			public const string All = "Documents";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

@@ -33,6 +33,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		public static class Expand
+		{
+			public const string Results = "Results";
+
+			public const string All = "Results";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

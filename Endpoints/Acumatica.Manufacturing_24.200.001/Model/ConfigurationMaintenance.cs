@@ -93,6 +93,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
+		public static class Expand
+		{
+			public const string ConfigAttributes = "ConfigAttributes";
+			public const string Features = "Features";
+			public const string Keys = "Keys";
+			public const string Price = "Price";
+
+			public const string All = "ConfigAttributes,Features,Keys,Price";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

@@ -109,6 +109,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
+		public static class Expand
+		{
+			public const string Details = "Details";
+			public const string ShippingSettings = "ShippingSettings";
+			public const string ShippingSettings_ShipToAddress = "ShippingSettings/ShipToAddress";
+			public const string ShippingSettings_ShipToContact = "ShippingSettings/ShipToContact";
+
+			public const string All = "Details,ShippingSettings,ShippingSettings/ShipToAddress,ShippingSettings/ShipToContact";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

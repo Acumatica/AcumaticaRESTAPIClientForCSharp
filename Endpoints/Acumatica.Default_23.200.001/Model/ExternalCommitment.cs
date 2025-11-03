@@ -173,6 +173,11 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
+		public static class Expand
+		{
+
+			public const string All = "";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

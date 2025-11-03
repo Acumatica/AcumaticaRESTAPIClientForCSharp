@@ -123,6 +123,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="WebDAVUsername", EmitDefaultValue=false)]
 		public StringValue? WebDAVUsername { get; set; }
+
 		public static class Expand
 		{
 

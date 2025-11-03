@@ -97,6 +97,13 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
 
+		public static class Expand
+		{
+			public const string ReceiptDetails = "ReceiptDetails";
+			public const string TaxDetails = "TaxDetails";
+
+			public const string All = "ReceiptDetails,TaxDetails";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

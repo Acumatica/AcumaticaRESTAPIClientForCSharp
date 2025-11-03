@@ -38,6 +38,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="UpdateWorkCenterSchedulefromCalendar", EmitDefaultValue=false)]
 		public BooleanValue? UpdateWorkCenterSchedulefromCalendar { get; set; }
 
+		public static class Expand
+		{
+			public const string History = "History";
+
+			public const string All = "History";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

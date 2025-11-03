@@ -56,6 +56,13 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
+		public static class Expand
+		{
+			public const string DeductionsAndBenefits = "DeductionsAndBenefits";
+			public const string EarningRates = "EarningRates";
+
+			public const string All = "DeductionsAndBenefits,EarningRates";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

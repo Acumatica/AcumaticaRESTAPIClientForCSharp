@@ -110,6 +110,11 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		[DataMember(Name="ScannerName", EmitDefaultValue=false)]
 		public StringValue? ScannerName { get; set; }
 
+		public static class Expand
+		{
+
+			public const string All = "";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/DeviceHub/23.200.001";

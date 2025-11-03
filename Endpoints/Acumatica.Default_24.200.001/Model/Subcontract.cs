@@ -122,6 +122,15 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="VendorContactInfo", EmitDefaultValue=false)]
 		public SubcontractVendorContactInfo? VendorContactInfo { get; set; }
 
+		public static class Expand
+		{
+			public const string Details = "Details";
+			public const string TaxDetails = "TaxDetails";
+			public const string VendorAddressInfo = "VendorAddressInfo";
+			public const string VendorContactInfo = "VendorContactInfo";
+
+			public const string All = "Details,TaxDetails,VendorAddressInfo,VendorContactInfo";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

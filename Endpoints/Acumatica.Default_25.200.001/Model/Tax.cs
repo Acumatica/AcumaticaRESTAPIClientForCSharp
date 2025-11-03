@@ -220,6 +220,13 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="Zones", EmitDefaultValue=false)]
 		public List<TaxZoneDetail>? Zones { get; set; }
 
+		public static class Expand
+		{
+			public const string TaxSchedule = "TaxSchedule";
+			public const string Zones = "Zones";
+
+			public const string All = "TaxSchedule,Zones";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

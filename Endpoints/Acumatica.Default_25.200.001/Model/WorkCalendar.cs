@@ -48,6 +48,13 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]
 		public StringValue? WorkCalendarID { get; set; }
 
+		public static class Expand
+		{
+			public const string CalendarExceptions = "CalendarExceptions";
+			public const string CalendarSettings = "CalendarSettings";
+
+			public const string All = "CalendarExceptions,CalendarSettings";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

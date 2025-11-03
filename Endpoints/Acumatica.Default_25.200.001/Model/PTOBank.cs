@@ -169,6 +169,17 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="TransferDateType", EmitDefaultValue=false)]
 		public StringValue? TransferDateType { get; set; }
 
+		public static class Expand
+		{
+			public const string ApplicableEarningTypes = "ApplicableEarningTypes";
+			public const string ApplicableEarningTypes_ApplicableEarningTypeDetail = "ApplicableEarningTypes/ApplicableEarningTypeDetail";
+			public const string BandingRules = "BandingRules";
+			public const string BandingRules_BandingRuleDetails = "BandingRules/BandingRuleDetails";
+			public const string EmployeeClassSettings = "EmployeeClassSettings";
+			public const string GLAccounts = "GLAccounts";
+
+			public const string All = "ApplicableEarningTypes,ApplicableEarningTypes/ApplicableEarningTypeDetail,BandingRules,BandingRules/BandingRuleDetails,EmployeeClassSettings,GLAccounts";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

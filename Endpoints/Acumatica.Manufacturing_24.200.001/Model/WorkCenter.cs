@@ -156,6 +156,16 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="WorkCenterID", EmitDefaultValue=false)]
 		public StringValue? WorkCenterID { get; set; }
 
+		public static class Expand
+		{
+			public const string Machines = "Machines";
+			public const string Overheads = "Overheads";
+			public const string Shifts = "Shifts";
+			public const string SubstituteWorkCenters = "SubstituteWorkCenters";
+			public const string WhereUsed = "WhereUsed";
+
+			public const string All = "Machines,Overheads,Shifts,SubstituteWorkCenters,WhereUsed";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

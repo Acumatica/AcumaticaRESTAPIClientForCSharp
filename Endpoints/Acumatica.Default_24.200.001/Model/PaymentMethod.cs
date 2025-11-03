@@ -113,6 +113,14 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="SettingsForPR", EmitDefaultValue=false)]
 		public SettingsForPR? SettingsForPR { get; set; }
 
+		public static class Expand
+		{
+			public const string AllowedCashAccounts = "AllowedCashAccounts";
+			public const string ProcessingCenters = "ProcessingCenters";
+			public const string SettingsForPR = "SettingsForPR";
+
+			public const string All = "AllowedCashAccounts,ProcessingCenters,SettingsForPR";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

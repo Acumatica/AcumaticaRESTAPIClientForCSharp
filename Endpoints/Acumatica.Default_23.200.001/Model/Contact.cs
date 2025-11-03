@@ -494,6 +494,24 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="FullName", EmitDefaultValue=false)]
 		public StringValue? FullName { get; set; }
 
+		public static class Expand
+		{
+			public const string Activities = "Activities";
+			public const string Address = "Address";
+			public const string Attributes = "Attributes";
+			public const string Campaigns = "Campaigns";
+			public const string Cases = "Cases";
+			public const string Duplicates = "Duplicates";
+			public const string MarketingLists = "MarketingLists";
+			public const string Notifications = "Notifications";
+			public const string Opportunities = "Opportunities";
+			public const string Relations = "Relations";
+			public const string RoleAssignments = "RoleAssignments";
+			public const string UserInfo = "UserInfo";
+			public const string UserInfo_Roles = "UserInfo/Roles";
+
+			public const string All = "Activities,Address,Attributes,Campaigns,Cases,Duplicates,MarketingLists,Notifications,Opportunities,Relations,RoleAssignments,UserInfo,UserInfo/Roles";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

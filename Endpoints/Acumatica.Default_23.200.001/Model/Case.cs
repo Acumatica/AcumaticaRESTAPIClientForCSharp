@@ -305,6 +305,7 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
+
 		public static class Expand
 		{
 			public const string Activities = "Activities";

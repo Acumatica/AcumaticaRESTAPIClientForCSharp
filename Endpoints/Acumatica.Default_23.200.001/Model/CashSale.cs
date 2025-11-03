@@ -133,6 +133,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
+
 		public static class Expand
 		{
 			public const string Details = "Details";

@@ -158,6 +158,33 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
 		public DeductionBenefitWCCCode? WCCCode { get; set; }
 
+		public static class Expand
+		{
+			public const string ACAInformation = "ACAInformation";
+			public const string ACAInformation_ACAInfoDetails = "ACAInformation/ACAInfoDetails";
+			public const string ApplicableWage = "ApplicableWage";
+			public const string ApplicableWage_BenefitIncreasingApplWage = "ApplicableWage/BenefitIncreasingApplWage";
+			public const string ApplicableWage_BenefitIncreasingApplWage_BenefitIncreasingApplWageDetails = "ApplicableWage/BenefitIncreasingApplWage/BenefitIncreasingApplWageDetails";
+			public const string ApplicableWage_DeductionsDecreasingApplWage = "ApplicableWage/DeductionsDecreasingApplWage";
+			public const string ApplicableWage_DeductionsDecreasingApplWage_DeductionIncreasingApplWageDetails = "ApplicableWage/DeductionsDecreasingApplWage/DeductionIncreasingApplWageDetails";
+			public const string ApplicableWage_EarningIncreasingApplWage = "ApplicableWage/EarningIncreasingApplWage";
+			public const string ApplicableWage_EarningIncreasingApplWage_EarningIncreasingApplWageDetails = "ApplicableWage/EarningIncreasingApplWage/EarningIncreasingApplWageDetails";
+			public const string ApplicableWage_EmployeeTaxesDecreasingApplWage = "ApplicableWage/EmployeeTaxesDecreasingApplWage";
+			public const string ApplicableWage_EmployeeTaxesDecreasingApplWage_EmployeeTaxesDecreasingApplWageDetails = "ApplicableWage/EmployeeTaxesDecreasingApplWage/EmployeeTaxesDecreasingApplWageDetails";
+			public const string ApplicableWage_EmployerTaxesIncreasingApplWage = "ApplicableWage/EmployerTaxesIncreasingApplWage";
+			public const string ApplicableWage_EmployerTaxesIncreasingApplWage_EmployerTaxesIncreasingApplWageDetails = "ApplicableWage/EmployerTaxesIncreasingApplWage/EmployerTaxesIncreasingApplWageDetails";
+			public const string EmployeeDeduction = "EmployeeDeduction";
+			public const string EmployerContribution = "EmployerContribution";
+			public const string GLAccounts = "GLAccounts";
+			public const string TaxSettingsCA = "TaxSettingsCA";
+			public const string TaxSettingsCA_TaxDetailsCA = "TaxSettingsCA/TaxDetailsCA";
+			public const string TaxSettingsUS = "TaxSettingsUS";
+			public const string TaxSettingsUS_TaxDetailsUS = "TaxSettingsUS/TaxDetailsUS";
+			public const string WCCCode = "WCCCode";
+			public const string WCCCode_WCCCodeRates = "WCCCode/WCCCodeRates";
+
+			public const string All = "ACAInformation,ACAInformation/ACAInfoDetails,ApplicableWage,ApplicableWage/BenefitIncreasingApplWage,ApplicableWage/BenefitIncreasingApplWage/BenefitIncreasingApplWageDetails,ApplicableWage/DeductionsDecreasingApplWage,ApplicableWage/DeductionsDecreasingApplWage/DeductionIncreasingApplWageDetails,ApplicableWage/EarningIncreasingApplWage,ApplicableWage/EarningIncreasingApplWage/EarningIncreasingApplWageDetails,ApplicableWage/EmployeeTaxesDecreasingApplWage,ApplicableWage/EmployeeTaxesDecreasingApplWage/EmployeeTaxesDecreasingApplWageDetails,ApplicableWage/EmployerTaxesIncreasingApplWage,ApplicableWage/EmployerTaxesIncreasingApplWage/EmployerTaxesIncreasingApplWageDetails,EmployeeDeduction,EmployerContribution,GLAccounts,TaxSettingsCA,TaxSettingsCA/TaxDetailsCA,TaxSettingsUS,TaxSettingsUS/TaxDetailsUS,WCCCode,WCCCode/WCCCodeRates";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

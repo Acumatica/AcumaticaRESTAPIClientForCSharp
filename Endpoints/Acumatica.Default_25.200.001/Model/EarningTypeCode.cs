@@ -108,6 +108,17 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="TaxAndReportingUS", EmitDefaultValue=false)]
 		public TaxAndReportingUS? TaxAndReportingUS { get; set; }
 
+		public static class Expand
+		{
+			public const string GLAccounts = "GLAccounts";
+			public const string ProjectSettings = "ProjectSettings";
+			public const string TaxAndReportingCA = "TaxAndReportingCA";
+			public const string TaxAndReportingCA_TaxDetailsCA = "TaxAndReportingCA/TaxDetailsCA";
+			public const string TaxAndReportingUS = "TaxAndReportingUS";
+			public const string TaxAndReportingUS_TaxDetailsUS = "TaxAndReportingUS/TaxDetailsUS";
+
+			public const string All = "GLAccounts,ProjectSettings,TaxAndReportingCA,TaxAndReportingCA/TaxDetailsCA,TaxAndReportingUS,TaxAndReportingUS/TaxDetailsUS";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

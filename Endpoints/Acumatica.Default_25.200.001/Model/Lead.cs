@@ -408,6 +408,18 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="QualificationDate", EmitDefaultValue=false)]
 		public DateTimeValue? QualificationDate { get; set; }
 
+		public static class Expand
+		{
+			public const string Activities = "Activities";
+			public const string Address = "Address";
+			public const string Attributes = "Attributes";
+			public const string Campaigns = "Campaigns";
+			public const string Duplicates = "Duplicates";
+			public const string MarketingLists = "MarketingLists";
+			public const string Relations = "Relations";
+
+			public const string All = "Activities,Address,Attributes,Campaigns,Duplicates,MarketingLists,Relations";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

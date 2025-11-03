@@ -494,6 +494,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="WriteOffLimit", EmitDefaultValue=false)]
 		public DecimalValue? WriteOffLimit { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+
+			public const string All = "Attributes";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

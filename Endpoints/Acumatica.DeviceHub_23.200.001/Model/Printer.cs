@@ -50,6 +50,11 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		[DataMember(Name="PrinterName", EmitDefaultValue=false)]
 		public StringValue? PrinterName { get; set; }
 
+		public static class Expand
+		{
+
+			public const string All = "";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/DeviceHub/23.200.001";

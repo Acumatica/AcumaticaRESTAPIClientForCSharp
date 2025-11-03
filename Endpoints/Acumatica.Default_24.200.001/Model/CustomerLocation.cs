@@ -290,6 +290,26 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="ExtRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExtRefNbr { get; set; }
 
+		public static class Expand
+		{
+			public const string LocationContact = "LocationContact";
+			public const string LocationContact_Activities = "LocationContact/Activities";
+			public const string LocationContact_Address = "LocationContact/Address";
+			public const string LocationContact_Attributes = "LocationContact/Attributes";
+			public const string LocationContact_Campaigns = "LocationContact/Campaigns";
+			public const string LocationContact_Cases = "LocationContact/Cases";
+			public const string LocationContact_Duplicates = "LocationContact/Duplicates";
+			public const string LocationContact_MarketingLists = "LocationContact/MarketingLists";
+			public const string LocationContact_Notifications = "LocationContact/Notifications";
+			public const string LocationContact_Opportunities = "LocationContact/Opportunities";
+			public const string LocationContact_Relations = "LocationContact/Relations";
+			public const string LocationContact_RoleAssignments = "LocationContact/RoleAssignments";
+			public const string LocationContact_UserInfo = "LocationContact/UserInfo";
+			public const string LocationContact_UserInfo_Roles = "LocationContact/UserInfo/Roles";
+			public const string RoleAssignments = "RoleAssignments";
+
+			public const string All = "LocationContact,LocationContact/Activities,LocationContact/Address,LocationContact/Attributes,LocationContact/Campaigns,LocationContact/Cases,LocationContact/Duplicates,LocationContact/MarketingLists,LocationContact/Notifications,LocationContact/Opportunities,LocationContact/Relations,LocationContact/RoleAssignments,LocationContact/UserInfo,LocationContact/UserInfo/Roles,RoleAssignments";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

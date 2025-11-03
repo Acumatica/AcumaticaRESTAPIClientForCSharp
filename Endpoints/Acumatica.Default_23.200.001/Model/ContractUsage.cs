@@ -36,6 +36,13 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="UnbilledTransactions", EmitDefaultValue=false)]
 		public List<ContractUsageTransactionDetail>? UnbilledTransactions { get; set; }
 
+		public static class Expand
+		{
+			public const string BilledTransactions = "BilledTransactions";
+			public const string UnbilledTransactions = "UnbilledTransactions";
+
+			public const string All = "BilledTransactions,UnbilledTransactions";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

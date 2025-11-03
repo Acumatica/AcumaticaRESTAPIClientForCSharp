@@ -215,6 +215,16 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="VendorTaxZone", EmitDefaultValue=false)]
 		public StringValue? VendorTaxZone { get; set; }
 
+		public static class Expand
+		{
+			public const string Details = "Details";
+			public const string ShippingInstructions = "ShippingInstructions";
+			public const string ShippingInstructions_ShipToAddress = "ShippingInstructions/ShipToAddress";
+			public const string ShippingInstructions_ShipToContact = "ShippingInstructions/ShipToContact";
+			public const string TaxDetails = "TaxDetails";
+
+			public const string All = "Details,ShippingInstructions,ShippingInstructions/ShipToAddress,ShippingInstructions/ShipToContact,TaxDetails";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

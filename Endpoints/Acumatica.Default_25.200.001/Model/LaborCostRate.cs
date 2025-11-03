@@ -68,6 +68,12 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<LaborRate>? Results { get; set; }
 
+		public static class Expand
+		{
+			public const string Results = "Results";
+
+			public const string All = "Results";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

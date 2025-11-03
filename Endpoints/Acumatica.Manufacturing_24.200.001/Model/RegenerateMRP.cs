@@ -36,6 +36,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="Messages", EmitDefaultValue=false)]
 		public List<RegenerateMRPMessage>? Messages { get; set; }
 
+		public static class Expand
+		{
+			public const string Messages = "Messages";
+
+			public const string All = "Messages";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/MANUFACTURING/24.200.001";

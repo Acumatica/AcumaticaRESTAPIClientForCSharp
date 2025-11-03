@@ -65,6 +65,13 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="StockComponents", EmitDefaultValue=false)]
 		public List<KitStockComponent>? StockComponents { get; set; }
 
+		public static class Expand
+		{
+			public const string NonStockComponents = "NonStockComponents";
+			public const string StockComponents = "StockComponents";
+
+			public const string All = "NonStockComponents,StockComponents";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

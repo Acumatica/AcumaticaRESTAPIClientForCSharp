@@ -84,6 +84,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="TreeNodeFilter", EmitDefaultValue=false)]
 		public StringValue? TreeNodeFilter { get; set; }
+
 		public static class Expand
 		{
 			public const string Details = "Details";

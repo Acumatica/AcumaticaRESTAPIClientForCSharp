@@ -61,6 +61,12 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="WorkLocationName", EmitDefaultValue=false)]
 		public StringValue? WorkLocationName { get; set; }
 
+		public static class Expand
+		{
+			public const string AddressInfo = "AddressInfo";
+
+			public const string All = "AddressInfo";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

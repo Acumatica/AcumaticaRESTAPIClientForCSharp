@@ -104,6 +104,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="TransferNbr", EmitDefaultValue=false)]
 		public StringValue? TransferNbr { get; set; }
 
+		public static class Expand
+		{
+			public const string Details = "Details";
+
+			public const string All = "Details";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

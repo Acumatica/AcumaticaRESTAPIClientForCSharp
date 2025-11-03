@@ -233,6 +233,17 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="AppliedToOrders", EmitDefaultValue=false)]
 		public DecimalValue? AppliedToOrders { get; set; }
 
+		public static class Expand
+		{
+			public const string ApplicationHistory = "ApplicationHistory";
+			public const string Charges = "Charges";
+			public const string CreditCardProcessingInfo = "CreditCardProcessingInfo";
+			public const string DocumentsToApply = "DocumentsToApply";
+			public const string OrdersToApply = "OrdersToApply";
+			public const string CreditCardTransactionInfo = "CreditCardTransactionInfo";
+
+			public const string All = "ApplicationHistory,Charges,CreditCardProcessingInfo,DocumentsToApply,OrdersToApply,CreditCardTransactionInfo";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

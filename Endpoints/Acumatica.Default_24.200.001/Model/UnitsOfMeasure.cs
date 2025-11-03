@@ -40,6 +40,12 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Conversion", EmitDefaultValue=false)]
 		public List<Units>? Conversion { get; set; }
 
+		public static class Expand
+		{
+			public const string Conversion = "Conversion";
+
+			public const string All = "Conversion";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

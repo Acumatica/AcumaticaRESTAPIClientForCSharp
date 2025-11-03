@@ -147,6 +147,29 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="ProjectAddress", EmitDefaultValue=false)]
 		public ProjectAddress? ProjectAddress { get; set; }
 
+		public static class Expand
+		{
+			public const string ActivityHistory = "ActivityHistory";
+			public const string ApprovalDetails = "ApprovalDetails";
+			public const string Attributes = "Attributes";
+			public const string Balances = "Balances";
+			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
+			public const string BillToSettings = "BillToSettings";
+			public const string BillToSettings_BillToAddress = "BillToSettings/BillToAddress";
+			public const string BillToSettings_BillToContact = "BillToSettings/BillToContact";
+			public const string Employees = "Employees";
+			public const string Equipments = "Equipments";
+			public const string GLAccounts = "GLAccounts";
+			public const string GLAccounts_DefaultTaskForGLAccounts = "GLAccounts/DefaultTaskForGLAccounts";
+			public const string Invoices = "Invoices";
+			public const string ProjectProperties = "ProjectProperties";
+			public const string UnionLocals = "UnionLocals";
+			public const string VisibilitySettings = "VisibilitySettings";
+			public const string Retainage = "Retainage";
+			public const string ProjectAddress = "ProjectAddress";
+
+			public const string All = "ActivityHistory,ApprovalDetails,Attributes,Balances,BillingAndAllocationSettings,BillToSettings,BillToSettings/BillToAddress,BillToSettings/BillToContact,Employees,Equipments,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,Invoices,ProjectProperties,UnionLocals,VisibilitySettings,Retainage,ProjectAddress";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

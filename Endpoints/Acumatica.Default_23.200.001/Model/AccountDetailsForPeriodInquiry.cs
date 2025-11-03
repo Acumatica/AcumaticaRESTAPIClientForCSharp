@@ -49,6 +49,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="IncludeUnreleased", EmitDefaultValue=false)]
 		public BooleanValue? IncludeUnreleased { get; set; }
+
 		public static class Expand
 		{
 			public const string Results = "Results";

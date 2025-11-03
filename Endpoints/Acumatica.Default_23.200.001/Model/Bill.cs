@@ -201,6 +201,7 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 		public static class Expand
 		{
 			public const string Applications = "Applications";

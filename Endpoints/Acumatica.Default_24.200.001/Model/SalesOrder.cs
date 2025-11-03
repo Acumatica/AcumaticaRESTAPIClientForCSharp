@@ -513,6 +513,28 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDate { get; set; }
 
+		public static class Expand
+		{
+			public const string BillToAddress = "BillToAddress";
+			public const string BillToContact = "BillToContact";
+			public const string Commissions = "Commissions";
+			public const string Commissions_SalesPersons = "Commissions/SalesPersons";
+			public const string Details = "Details";
+			public const string DiscountDetails = "DiscountDetails";
+			public const string FinancialSettings = "FinancialSettings";
+			public const string OrderRisks = "OrderRisks";
+			public const string Payments = "Payments";
+			public const string Relations = "Relations";
+			public const string Shipments = "Shipments";
+			public const string ShippingSettings = "ShippingSettings";
+			public const string ShippingSettings_ShopForRates = "ShippingSettings/ShopForRates";
+			public const string ShipToAddress = "ShipToAddress";
+			public const string ShipToContact = "ShipToContact";
+			public const string TaxDetails = "TaxDetails";
+			public const string Totals = "Totals";
+
+			public const string All = "BillToAddress,BillToContact,Commissions,Commissions/SalesPersons,Details,DiscountDetails,FinancialSettings,OrderRisks,Payments,Relations,Shipments,ShippingSettings,ShippingSettings/ShopForRates,ShipToAddress,ShipToContact,TaxDetails,Totals";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

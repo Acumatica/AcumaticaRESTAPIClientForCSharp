@@ -45,6 +45,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="TaxZoneID", EmitDefaultValue=false)]
 		public StringValue? TaxZoneID { get; set; }
 
+		public static class Expand
+		{
+			public const string ApplicableTaxes = "ApplicableTaxes";
+
+			public const string All = "ApplicableTaxes";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

@@ -44,6 +44,14 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="PTODefaults", EmitDefaultValue=false)]
 		public List<EmployeeClassPTOBankDefault>? PTODefaults { get; set; }
 
+		public static class Expand
+		{
+			public const string PayrollDefaults = "PayrollDefaults";
+			public const string PayrollDefaults_WorkLocations = "PayrollDefaults/WorkLocations";
+			public const string PTODefaults = "PTODefaults";
+
+			public const string All = "PayrollDefaults,PayrollDefaults/WorkLocations,PTODefaults";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";

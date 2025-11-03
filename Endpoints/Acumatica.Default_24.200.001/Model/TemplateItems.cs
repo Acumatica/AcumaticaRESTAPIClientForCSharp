@@ -262,6 +262,16 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="VendorDetails", EmitDefaultValue=false)]
 		public List<TemplateItemVendorDetail>? VendorDetails { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+			public const string Categories = "Categories";
+			public const string FileURLs = "FileURLs";
+			public const string Matrix = "Matrix";
+			public const string VendorDetails = "VendorDetails";
+
+			public const string All = "Attributes,Categories,FileURLs,Matrix,VendorDetails";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/24.200.001";

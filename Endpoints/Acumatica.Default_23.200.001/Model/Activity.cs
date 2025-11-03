@@ -127,6 +127,7 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="RelatedEntityDescription", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityDescription { get; set; }
+
 		public static class Expand
 		{
 			public const string TimeActivity = "TimeActivity";

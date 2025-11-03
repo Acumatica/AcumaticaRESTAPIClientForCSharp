@@ -537,6 +537,72 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="IsGuestCustomer", EmitDefaultValue=false)]
 		public BooleanValue? IsGuestCustomer { get; set; }
 
+		public static class Expand
+		{
+			public const string Attributes = "Attributes";
+			public const string BillingContact = "BillingContact";
+			public const string BillingContact_Activities = "BillingContact/Activities";
+			public const string BillingContact_Address = "BillingContact/Address";
+			public const string BillingContact_Attributes = "BillingContact/Attributes";
+			public const string BillingContact_Campaigns = "BillingContact/Campaigns";
+			public const string BillingContact_Cases = "BillingContact/Cases";
+			public const string BillingContact_Duplicates = "BillingContact/Duplicates";
+			public const string BillingContact_MarketingLists = "BillingContact/MarketingLists";
+			public const string BillingContact_Notifications = "BillingContact/Notifications";
+			public const string BillingContact_Opportunities = "BillingContact/Opportunities";
+			public const string BillingContact_Relations = "BillingContact/Relations";
+			public const string BillingContact_RoleAssignments = "BillingContact/RoleAssignments";
+			public const string BillingContact_UserInfo = "BillingContact/UserInfo";
+			public const string BillingContact_UserInfo_Roles = "BillingContact/UserInfo/Roles";
+			public const string Contacts = "Contacts";
+			public const string CreditVerificationRules = "CreditVerificationRules";
+			public const string MainContact = "MainContact";
+			public const string MainContact_Activities = "MainContact/Activities";
+			public const string MainContact_Address = "MainContact/Address";
+			public const string MainContact_Attributes = "MainContact/Attributes";
+			public const string MainContact_Campaigns = "MainContact/Campaigns";
+			public const string MainContact_Cases = "MainContact/Cases";
+			public const string MainContact_Duplicates = "MainContact/Duplicates";
+			public const string MainContact_MarketingLists = "MainContact/MarketingLists";
+			public const string MainContact_Notifications = "MainContact/Notifications";
+			public const string MainContact_Opportunities = "MainContact/Opportunities";
+			public const string MainContact_Relations = "MainContact/Relations";
+			public const string MainContact_RoleAssignments = "MainContact/RoleAssignments";
+			public const string MainContact_UserInfo = "MainContact/UserInfo";
+			public const string MainContact_UserInfo_Roles = "MainContact/UserInfo/Roles";
+			public const string PaymentInstructions = "PaymentInstructions";
+			public const string PrimaryContact = "PrimaryContact";
+			public const string PrimaryContact_Activities = "PrimaryContact/Activities";
+			public const string PrimaryContact_Address = "PrimaryContact/Address";
+			public const string PrimaryContact_Attributes = "PrimaryContact/Attributes";
+			public const string PrimaryContact_Campaigns = "PrimaryContact/Campaigns";
+			public const string PrimaryContact_Cases = "PrimaryContact/Cases";
+			public const string PrimaryContact_Duplicates = "PrimaryContact/Duplicates";
+			public const string PrimaryContact_MarketingLists = "PrimaryContact/MarketingLists";
+			public const string PrimaryContact_Notifications = "PrimaryContact/Notifications";
+			public const string PrimaryContact_Opportunities = "PrimaryContact/Opportunities";
+			public const string PrimaryContact_Relations = "PrimaryContact/Relations";
+			public const string PrimaryContact_RoleAssignments = "PrimaryContact/RoleAssignments";
+			public const string PrimaryContact_UserInfo = "PrimaryContact/UserInfo";
+			public const string PrimaryContact_UserInfo_Roles = "PrimaryContact/UserInfo/Roles";
+			public const string Salespersons = "Salespersons";
+			public const string ShippingContact = "ShippingContact";
+			public const string ShippingContact_Activities = "ShippingContact/Activities";
+			public const string ShippingContact_Address = "ShippingContact/Address";
+			public const string ShippingContact_Attributes = "ShippingContact/Attributes";
+			public const string ShippingContact_Campaigns = "ShippingContact/Campaigns";
+			public const string ShippingContact_Cases = "ShippingContact/Cases";
+			public const string ShippingContact_Duplicates = "ShippingContact/Duplicates";
+			public const string ShippingContact_MarketingLists = "ShippingContact/MarketingLists";
+			public const string ShippingContact_Notifications = "ShippingContact/Notifications";
+			public const string ShippingContact_Opportunities = "ShippingContact/Opportunities";
+			public const string ShippingContact_Relations = "ShippingContact/Relations";
+			public const string ShippingContact_RoleAssignments = "ShippingContact/RoleAssignments";
+			public const string ShippingContact_UserInfo = "ShippingContact/UserInfo";
+			public const string ShippingContact_UserInfo_Roles = "ShippingContact/UserInfo/Roles";
+
+			public const string All = "Attributes,BillingContact,BillingContact/Activities,BillingContact/Address,BillingContact/Attributes,BillingContact/Campaigns,BillingContact/Cases,BillingContact/Duplicates,BillingContact/MarketingLists,BillingContact/Notifications,BillingContact/Opportunities,BillingContact/Relations,BillingContact/RoleAssignments,BillingContact/UserInfo,BillingContact/UserInfo/Roles,Contacts,CreditVerificationRules,MainContact,MainContact/Activities,MainContact/Address,MainContact/Attributes,MainContact/Campaigns,MainContact/Cases,MainContact/Duplicates,MainContact/MarketingLists,MainContact/Notifications,MainContact/Opportunities,MainContact/Relations,MainContact/RoleAssignments,MainContact/UserInfo,MainContact/UserInfo/Roles,PaymentInstructions,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Cases,PrimaryContact/Duplicates,PrimaryContact/MarketingLists,PrimaryContact/Notifications,PrimaryContact/Opportunities,PrimaryContact/Relations,PrimaryContact/RoleAssignments,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,Salespersons,ShippingContact,ShippingContact/Activities,ShippingContact/Address,ShippingContact/Attributes,ShippingContact/Campaigns,ShippingContact/Cases,ShippingContact/Duplicates,ShippingContact/MarketingLists,ShippingContact/Notifications,ShippingContact/Opportunities,ShippingContact/Relations,ShippingContact/RoleAssignments,ShippingContact/UserInfo,ShippingContact/UserInfo/Roles";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/25.200.001";

@@ -29,6 +29,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="TaxAgency", EmitDefaultValue=false)]
 		public StringValue? TaxAgency { get; set; }
 
+		public static class Expand
+		{
+			public const string ReportingGroups = "ReportingGroups";
+
+			public const string All = "ReportingGroups";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/Default/23.200.001";
