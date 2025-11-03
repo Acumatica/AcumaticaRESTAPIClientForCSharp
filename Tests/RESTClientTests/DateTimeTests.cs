@@ -25,7 +25,7 @@ namespace RESTClientTests
                    return new HttpResponseMessage(HttpStatusCode.OK)
                    { Content = new StringContent(response) };
                }));
-            var order = client.GetById<SalesOrder>(new Guid());
+            var order = client.GetById<SalesOrder>(new Guid(), expand: (string?)null);
             Assert.Equal(expectedValue, order!.Date!.Value!);
         }
 
@@ -45,7 +45,7 @@ namespace RESTClientTests
                    Assert.Contains($"Date\":{{\"value\":\"{expectedDateTime}\"", serializedContent);
                    return new HttpResponseMessage(HttpStatusCode.OK);
                }));
-            var order = client.Put(so);
+            var order = client.Put(so, expand: (string?)null);
         }
 
         [Theory]
@@ -64,7 +64,7 @@ namespace RESTClientTests
                    return new HttpResponseMessage(HttpStatusCode.OK)
                    { Content = new StringContent(response) };
                }));
-            var appointment = client.GetById<Appointment>(new Guid());
+            var appointment = client.GetById<Appointment>(new Guid(), expand: (string?)null);
             Assert.Equal(expectedValue, appointment!.DateTime!.Value!);
         }
 
@@ -78,7 +78,7 @@ namespace RESTClientTests
                    return new HttpResponseMessage(HttpStatusCode.OK)
                    { Content = new StringContent(response) };
                }));
-            var appointment = client.GetById<Appointment>(new Guid());
+            var appointment = client.GetById<Appointment>(new Guid(), expand: (string?)null);
             Assert.Equal(DateTimeKind.Utc, appointment!.DateTime!.Value!.Value.Kind);
         }
 
@@ -98,7 +98,7 @@ namespace RESTClientTests
                    Assert.Contains($"DateTime\":{{\"value\":\"{expectedDateTime}\"", serializedContent);
                    return new HttpResponseMessage(HttpStatusCode.OK);
                }));
-            var order = client.Put(appointment);
+            var order = client.Put(appointment, expand: (string?)null);
         }
     }
 }

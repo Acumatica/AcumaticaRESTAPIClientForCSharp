@@ -32,7 +32,7 @@ namespace RESTClientTests
                 }));
                 Assert.Contains("Project 'TES2323T  ' cannot be found in the system.", 
                     Assert.Throws<ApiException>(()=>
-                client.Put(new Bill())).MessageText);
+                client.Put(new Bill(), expand: (string?)null)).MessageText);
         }
 
         [Fact]
