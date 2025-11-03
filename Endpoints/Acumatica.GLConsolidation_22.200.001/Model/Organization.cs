@@ -42,6 +42,11 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }
 
+		public static class Expand
+		{
+
+			public const string All = "";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/GLConsolidation/22.200.001";

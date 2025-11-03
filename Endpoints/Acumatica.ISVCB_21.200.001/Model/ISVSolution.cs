@@ -50,6 +50,14 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<Attribute>? Attributes { get; set; }
 
+		public static class Expand
+		{
+			public const string Customers = "Customers";
+			public const string Repository = "Repository";
+			public const string Attributes = "Attributes";
+
+			public const string All = "Customers,Repository,Attributes";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/ISVCB/21.200.001";

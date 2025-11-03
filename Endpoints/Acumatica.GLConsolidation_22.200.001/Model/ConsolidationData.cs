@@ -32,6 +32,12 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		[DataMember(Name="Result", EmitDefaultValue=false)]
 		public List<ConsolidationItem>? Result { get; set; }
 
+		public static class Expand
+		{
+			public const string Result = "Result";
+
+			public const string All = "Result";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/GLConsolidation/22.200.001";

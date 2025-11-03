@@ -20,6 +20,12 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		[DataMember(Name="EducatedResourcesDetails", EmitDefaultValue=false)]
 		public List<EducatedResourcesDetail>? EducatedResourcesDetails { get; set; }
 
+		public static class Expand
+		{
+			public const string EducatedResourcesDetails = "EducatedResourcesDetails";
+
+			public const string All = "EducatedResourcesDetails";
+		}
 		public virtual string GetEndpointPath()
 		{
 			return "entity/ISVCB/21.200.001";
