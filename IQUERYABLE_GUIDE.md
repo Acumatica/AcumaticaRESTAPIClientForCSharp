@@ -12,7 +12,7 @@ The client automatically translates LINQ `Where` clauses to OData `$filter` para
 
 ```csharp
 // LINQ query
-var activeCustomers = client.AsQueryable<Customer>()
+var activeCustomers = client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active")
     .ToList();
 
@@ -30,7 +30,7 @@ var activeCustomers = client.AsQueryable<Customer>()
 - `<=` → `le` (less than or equal)
 
 ```csharp
-var orders = client.AsQueryable<SalesOrder>()
+var orders = client.GetList<SalesOrder>(asQueryable: true)
     .Where(so => so.OrderTotal.Value >= 1000)
     .ToList();
 // Generates: $filter=OrderTotal/value ge 1000
@@ -42,7 +42,7 @@ var orders = client.AsQueryable<SalesOrder>()
 - `!` → `not`
 
 ```csharp
-var customers = client.AsQueryable<Customer>()
+var customers = client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active" && c.CustomerClass.Value == "RETAIL")
     .ToList();
 // Generates: $filter=(Status/value eq 'Active') and (CustomerClass/value eq 'RETAIL')
@@ -54,7 +54,7 @@ var customers = client.AsQueryable<Customer>()
 - `EndsWith()` → `endswith()`
 
 ```csharp
-var customers = client.AsQueryable<Customer>()
+var customers = client.GetList<Customer>(asQueryable: true)
     .Where(c => c.CustomerName.Value.Contains("ABC"))
     .ToList();
 // Generates: $filter=contains(CustomerName/value,'ABC')
@@ -65,7 +65,7 @@ var customers = client.AsQueryable<Customer>()
 Use `Take()` and `Skip()` for pagination:
 
 ```csharp
-var page2 = client.AsQueryable<Customer>()
+var page2 = client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active")
     .Skip(20)
     .Take(10)
@@ -79,22 +79,22 @@ All queries support async execution:
 
 ```csharp
 // ToListAsync
-var customers = await client.AsQueryable<Customer>()
+var customers = await client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active")
     .ToListAsync();
 
 // FirstOrDefaultAsync
-var customer = await ((EntityQueryable<Customer>)client.AsQueryable<Customer>()
+var customer = await ((EntityQueryable<Customer>)client.GetList<Customer>(asQueryable: true)
     .Where(c => c.CustomerID.Value == "CUST001"))
     .FirstOrDefaultAsync();
 
 // CountAsync
-var count = await ((EntityQueryable<Customer>)client.AsQueryable<Customer>()
+var count = await ((EntityQueryable<Customer>)client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active"))
     .CountAsync();
 
 // AnyAsync
-var hasActive = await ((EntityQueryable<Customer>)client.AsQueryable<Customer>()
+var hasActive = await ((EntityQueryable<Customer>)client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active"))
     .AnyAsync();
 ```
@@ -104,7 +104,7 @@ var hasActive = await ((EntityQueryable<Customer>)client.AsQueryable<Customer>()
 You can combine initial filters with LINQ queries:
 
 ```csharp
-var customers = client.AsQueryable<Customer>(
+var customers = client.GetList<Customer>(asQueryable: true,
     filter: "Status eq 'Active'",
     expand: "Contacts",
     select: "CustomerID,CustomerName"
@@ -119,14 +119,14 @@ var customers = client.AsQueryable<Customer>(
 
 ### Example 1: Simple Query
 ```csharp
-var activeCustomers = client.AsQueryable<Customer>()
+var activeCustomers = client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active")
     .ToList();
 ```
 
 ### Example 2: Multiple Conditions
 ```csharp
-var orders = client.AsQueryable<SalesOrder>()
+var orders = client.GetList<SalesOrder>(asQueryable: true)
     .Where(so => so.Status.Value == "Open" && so.OrderTotal.Value > 1000)
     .Take(10)
     .ToList();
@@ -137,14 +137,14 @@ var orders = client.AsQueryable<SalesOrder>()
 var startDate = new DateTime(2024, 1, 1);
 var endDate = new DateTime(2024, 12, 31);
 
-var orders = client.AsQueryable<SalesOrder>()
+var orders = client.GetList<SalesOrder>(asQueryable: true)
     .Where(so => so.Date.Value >= startDate && so.Date.Value <= endDate)
     .ToList();
 ```
 
 ### Example 4: Pattern Matching
 ```csharp
-var customers = client.AsQueryable<Customer>()
+var customers = client.GetList<Customer>(asQueryable: true)
     .Where(c => c.CustomerName.Value.StartsWith("A") && 
                 c.CustomerClass.Value != "INACTIVE")
     .ToList();
@@ -155,7 +155,7 @@ var customers = client.AsQueryable<Customer>()
 int pageSize = 20;
 int pageNumber = 2;
 
-var customers = client.AsQueryable<Customer>()
+var customers = client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active")
     .Skip((pageNumber - 1) * pageSize)
     .Take(pageSize)
@@ -164,7 +164,7 @@ var customers = client.AsQueryable<Customer>()
 
 ### Example 6: Async with LINQ
 ```csharp
-var activeWholesaleCustomers = await client.AsQueryable<Customer>()
+var activeWholesaleCustomers = await client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active" && c.CustomerClass.Value == "WHOLESALE")
     .ToListAsync();
 ```
@@ -185,7 +185,7 @@ The `AsQueryable<T>()` method requires entities that implement `ITopLevelEntity`
 
 2. **Select Projection**: While `Select()` for field projection is supported in the underlying API, complex LINQ projections are not translated. Use the `select` parameter for field selection:
 ```csharp
-var customers = client.AsQueryable<Customer>(select: "CustomerID,CustomerName")
+var customers = client.GetList<Customer>(asQueryable: true, select: "CustomerID,CustomerName")
     .Where(c => c.Status.Value == "Active")
     .ToList();
 ```
@@ -207,7 +207,7 @@ var customers = client.GetList<Customer>(
 
 ### After (with IQueryable):
 ```csharp
-var customers = client.AsQueryable<Customer>()
+var customers = client.GetList<Customer>(asQueryable: true)
     .Where(c => c.Status.Value == "Active" && c.CustomerClass.Value == "RETAIL")
     .Skip(20)
     .Take(10)
@@ -230,7 +230,7 @@ If an expression cannot be translated to OData, you'll receive a `NotSupportedEx
 ```csharp
 try
 {
-    var result = client.AsQueryable<Customer>()
+    var result = client.GetList<Customer>(asQueryable: true)
         .Where(c => SomeUnsupportedMethod(c.Status.Value))
         .ToList();
 }

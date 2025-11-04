@@ -919,14 +919,15 @@ namespace Acumatica.RESTClient.ContractBasedApi
         {
             return GetListAsync<EntityType>(client, endpointPath, select, filter, expand, custom, skip, top, customHeaders).GetAwaiter().GetResult();
         }
-        #endregion
-        #region AsQueryable
+        
         /// <summary>
         /// Returns an IQueryable for the entity type, allowing LINQ queries to be translated to REST API calls.
         /// LINQ Where clauses will be automatically converted to OData $filter parameters.
+        /// This overload provides deferred execution - the query is not executed until enumerated.
         /// </summary>
         /// <typeparam name="EntityType">The entity type</typeparam>
         /// <param name="client">The API client</param>
+        /// <param name="asQueryable">Set to true to return IQueryable for LINQ support</param>
         /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
         /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
         /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
@@ -937,24 +938,25 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <example>
         /// <code>
         /// // Simple Where clause
-        /// var activeCustomers = client.AsQueryable&lt;Customer&gt;()
+        /// var activeCustomers = client.GetList&lt;Customer&gt;(asQueryable: true)
         ///     .Where(c =&gt; c.Status == "Active")
         ///     .ToList();
         /// 
         /// // Multiple conditions
-        /// var customers = client.AsQueryable&lt;Customer&gt;()
+        /// var customers = client.GetList&lt;Customer&gt;(asQueryable: true)
         ///     .Where(c =&gt; c.Status == "Active" &amp;&amp; c.CustomerName.Contains("ABC"))
         ///     .Take(10)
         ///     .ToList();
         /// 
         /// // Async execution
-        /// var customers = await client.AsQueryable&lt;Customer&gt;()
+        /// var customers = await client.GetList&lt;Customer&gt;(asQueryable: true)
         ///     .Where(c =&gt; c.Status == "Active")
         ///     .ToListAsync();
         /// </code>
         /// </example>
-        public static IQueryable<EntityType> AsQueryable<EntityType>(
+        public static IQueryable<EntityType> GetList<EntityType>(
             this ApiClient client,
+            bool asQueryable,
             string? endpointPath = null,
             string? select = null,
             string? filter = null,
@@ -963,6 +965,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
             Dictionary<string, string>? customHeaders = null)
             where EntityType : ITopLevelEntity, new()
         {
+            if (!asQueryable)
+                throw new ArgumentException("This overload requires asQueryable to be true. Use the other GetList overload for immediate execution.", nameof(asQueryable));
+            
             var provider = new EntityQueryProvider(client, endpointPath, select, filter, expand, custom, customHeaders);
             return new EntityQueryable<EntityType>(provider);
         }

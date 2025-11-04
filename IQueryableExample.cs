@@ -19,14 +19,14 @@ namespace IQueryableExample
             
             // Example 1: Simple Where clause
             Console.WriteLine("Example 1: Simple Where clause");
-            var activeCustomers = client.AsQueryable<Customer>()
+            var activeCustomers = client.GetList<Customer>(asQueryable: true)
                 .Where(c => c.Status.Value == "Active")
                 .ToList();
             Console.WriteLine($"Found {activeCustomers.Count} active customers");
 
             // Example 2: Multiple conditions with AND
             Console.WriteLine("\nExample 2: Multiple conditions");
-            var specificCustomers = client.AsQueryable<Customer>()
+            var specificCustomers = client.GetList<Customer>(asQueryable: true)
                 .Where(c => c.Status.Value == "Active" && c.CustomerClass.Value == "WHOLESALE")
                 .Take(10)
                 .ToList();
@@ -34,7 +34,7 @@ namespace IQueryableExample
 
             // Example 3: Using Contains for pattern matching
             Console.WriteLine("\nExample 3: String Contains");
-            var searchResults = client.AsQueryable<Customer>()
+            var searchResults = client.GetList<Customer>(asQueryable: true)
                 .Where(c => c.CustomerName.Value.Contains("ABC"))
                 .ToList();
             Console.WriteLine($"Found {searchResults.Count} customers with 'ABC' in name");
@@ -43,14 +43,14 @@ namespace IQueryableExample
             Console.WriteLine("\nExample 4: Date range");
             var startDate = new DateTime(2024, 1, 1);
             var endDate = new DateTime(2024, 12, 31);
-            var salesOrders = client.AsQueryable<SalesOrder>()
+            var salesOrders = client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date.Value >= startDate && so.Date.Value <= endDate)
                 .ToList();
             Console.WriteLine($"Found {salesOrders.Count} sales orders in 2024");
 
             // Example 5: Pagination with Skip and Take
             Console.WriteLine("\nExample 5: Pagination");
-            var page2Customers = client.AsQueryable<Customer>()
+            var page2Customers = client.GetList<Customer>(asQueryable: true)
                 .Where(c => c.Status.Value == "Active")
                 // Note: OrderBy is not supported in LINQ translation. 
                 // Use the $orderby parameter on the REST API directly if ordering is needed.
@@ -61,21 +61,21 @@ namespace IQueryableExample
 
             // Example 6: Async execution
             Console.WriteLine("\nExample 6: Async execution");
-            var asyncCustomers = await client.AsQueryable<Customer>()
+            var asyncCustomers = await client.GetList<Customer>(asQueryable: true)
                 .Where(c => c.Status.Value == "Active")
                 .ToListAsync();
             Console.WriteLine($"Async query found {asyncCustomers.Count} customers");
 
             // Example 7: Count without loading all data
             Console.WriteLine("\nExample 7: Count");
-            var count = await ((EntityQueryable<Customer>)client.AsQueryable<Customer>()
+            var count = await ((EntityQueryable<Customer>)client.GetList<Customer>(asQueryable: true)
                 .Where(c => c.Status.Value == "Active"))
                 .CountAsync();
             Console.WriteLine($"Total active customers: {count}");
 
             // Example 8: First or default
             Console.WriteLine("\nExample 8: First or Default");
-            var firstCustomer = await ((EntityQueryable<Customer>)client.AsQueryable<Customer>()
+            var firstCustomer = await ((EntityQueryable<Customer>)client.GetList<Customer>(asQueryable: true)
                 .Where(c => c.CustomerID.Value == "CUST001"))
                 .FirstOrDefaultAsync();
             if (firstCustomer != null)
@@ -85,14 +85,14 @@ namespace IQueryableExample
 
             // Example 9: Combining initial filter with LINQ
             Console.WriteLine("\nExample 9: Combining filters");
-            var combined = client.AsQueryable<Customer>(filter: "Status eq 'Active'")
+            var combined = client.GetList<Customer>(asQueryable: true, filter: "Status eq 'Active'")
                 .Where(c => c.CustomerClass.Value == "RETAIL")
                 .ToList();
             Console.WriteLine($"Active retail customers: {combined.Count}");
 
             // Example 10: Complex boolean logic
             Console.WriteLine("\nExample 10: Complex boolean logic");
-            var complexQuery = client.AsQueryable<Customer>()
+            var complexQuery = client.GetList<Customer>(asQueryable: true)
                 .Where(c => (c.Status.Value == "Active" || c.Status.Value == "OnHold") 
                     && c.CustomerClass.Value != "INACTIVE")
                 .ToList();

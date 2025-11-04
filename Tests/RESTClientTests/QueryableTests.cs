@@ -28,7 +28,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[]") };
                 }));
 
-            var query = client.AsQueryable<SalesOrder>()
+            var query = client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date.Value == new DateTime(2024, 1, 1));
 
             var result = query.ToList();
@@ -51,7 +51,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[]") };
                 }));
 
-            var query = client.AsQueryable<SalesOrder>()
+            var query = client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date.Value == new DateTime(2024, 1, 1))
                 .Where(so => so.Date.Value > new DateTime(2023, 12, 31));
 
@@ -80,7 +80,7 @@ namespace RESTClientTests
 
             var minDate = new DateTime(2023, 12, 31);
             var maxDate = new DateTime(2024, 1, 1);
-            var query = client.AsQueryable<SalesOrder>()
+            var query = client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date.Value > minDate && so.Date.Value == maxDate);
 
             var result = query.ToList();
@@ -106,7 +106,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[]") };
                 }));
 
-            var query = client.AsQueryable<SalesOrder>()
+            var query = client.GetList<SalesOrder>(asQueryable: true)
                 .Take(5);
 
             var result = query.ToList();
@@ -126,7 +126,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[]") };
                 }));
 
-            var query = client.AsQueryable<SalesOrder>()
+            var query = client.GetList<SalesOrder>(asQueryable: true)
                 .Skip(10);
 
             var result = query.ToList();
@@ -148,7 +148,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[]") };
                 }));
 
-            var query = client.AsQueryable<SalesOrder>()
+            var query = client.GetList<SalesOrder>(asQueryable: true)
                 .Skip(10)
                 .Take(5);
 
@@ -174,7 +174,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[]") };
                 }));
 
-            var query = client.AsQueryable<SalesOrder>()
+            var query = client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date.Value == new DateTime(2024, 1, 1))
                 .Skip(5)
                 .Take(10);
@@ -205,7 +205,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[]") };
                 }));
 
-            var query = client.AsQueryable<SalesOrder>()
+            var query = client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date > new DateTime(2024, 1, 1))
                 .Skip(5)
                 .Take(10);
@@ -232,7 +232,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[]") };
                 }));
 
-            var query = (EntityQueryable<SalesOrder>)client.AsQueryable<SalesOrder>()
+            var query = (EntityQueryable<SalesOrder>)client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date.Value == new DateTime(2024, 1, 1));
 
             var result = await query.ToListAsync();
@@ -253,7 +253,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[]") };
                 }));
 
-            var query = client.AsQueryable<SalesOrder>(filter: "OrderNbr eq 'SO1234'")
+            var query = client.GetList<SalesOrder>(asQueryable: true, filter: "OrderNbr eq 'SO1234'")
                 .Where(so => so.Date.Value == new DateTime(2024, 1, 1));
 
             var result = query.ToList();
@@ -278,7 +278,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[{\"Date\": {\"value\": \"2024-01-01T00:00:00\"}}]") };
                 }));
 
-            var query = (EntityQueryable<SalesOrder>)client.AsQueryable<SalesOrder>()
+            var query = (EntityQueryable<SalesOrder>)client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date.Value == new DateTime(2024, 1, 1));
 
             var result = await query.FirstOrDefaultAsync();
@@ -298,7 +298,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[{\"Date\": {\"value\": \"2024-01-01T00:00:00\"}}, {\"Date\": {\"value\": \"2024-01-02T00:00:00\"}}]") };
                 }));
 
-            var query = (EntityQueryable<SalesOrder>)client.AsQueryable<SalesOrder>()
+            var query = (EntityQueryable<SalesOrder>)client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date.Value > new DateTime(2023, 12, 31));
 
             var count = await query.CountAsync();
@@ -317,7 +317,7 @@ namespace RESTClientTests
                     { Content = new StringContent("[{\"Date\": {\"value\": \"2024-01-01T00:00:00\"}}]") };
                 }));
 
-            var query = client.AsQueryable<SalesOrder>();
+            var query = client.GetList<SalesOrder>(asQueryable: true);
 
             int count = 0;
             foreach (var item in query)
@@ -345,7 +345,7 @@ namespace RESTClientTests
             var startDate = new DateTime(2024, 1, 1);
             var endDate = new DateTime(2024, 12, 31);
 
-            var result = client.AsQueryable<SalesOrder>()
+            var result = client.GetList<SalesOrder>(asQueryable: true)
                 .Where(so => so.Date.Value >= startDate && so.Date.Value <= endDate)
                 .Take(100)
                 .ToList();
