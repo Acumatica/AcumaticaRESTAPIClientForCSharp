@@ -42,9 +42,12 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Conversion = "Conversion";
+			public const string Conversion_Files = "Conversion/Files";
 
-			public const string All = "Conversion";
+			//Intentionally excluded
+			//public const string All = "Files,Conversion,Conversion/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

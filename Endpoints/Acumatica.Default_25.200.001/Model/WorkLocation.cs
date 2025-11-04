@@ -63,9 +63,11 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string AddressInfo = "AddressInfo";
 
-			public const string All = "AddressInfo";
+			//Intentionally excluded
+			//public const string All = "Files,AddressInfo";
 		}
 		public virtual string GetEndpointPath()
 		{

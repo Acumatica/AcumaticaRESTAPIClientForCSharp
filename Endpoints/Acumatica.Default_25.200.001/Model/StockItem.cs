@@ -733,17 +733,27 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Attributes = "Attributes";
 			public const string Boxes = "Boxes";
+			public const string Boxes_Files = "Boxes/Files";
 			public const string Categories = "Categories";
+			public const string Categories_Files = "Categories/Files";
 			public const string CrossReferences = "CrossReferences";
+			public const string CrossReferences_Files = "CrossReferences/Files";
 			public const string ReplenishmentParameters = "ReplenishmentParameters";
+			public const string ReplenishmentParameters_Files = "ReplenishmentParameters/Files";
 			public const string UOMConversions = "UOMConversions";
+			public const string UOMConversions_Files = "UOMConversions/Files";
 			public const string VendorDetails = "VendorDetails";
+			public const string VendorDetails_Files = "VendorDetails/Files";
 			public const string WarehouseDetails = "WarehouseDetails";
+			public const string WarehouseDetails_Files = "WarehouseDetails/Files";
 			public const string FileURLs = "FileURLs";
+			public const string FileURLs_Files = "FileURLs/Files";
 
-			public const string All = "Attributes,Boxes,Categories,CrossReferences,ReplenishmentParameters,UOMConversions,VendorDetails,WarehouseDetails,FileURLs";
+			//Intentionally excluded
+			//public const string All = "Files,Attributes,Boxes,Boxes/Files,Categories,Categories/Files,CrossReferences,CrossReferences/Files,ReplenishmentParameters,ReplenishmentParameters/Files,UOMConversions,UOMConversions/Files,VendorDetails,VendorDetails/Files,WarehouseDetails,WarehouseDetails/Files,FileURLs,FileURLs/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -515,25 +515,41 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string BillToAddress = "BillToAddress";
 			public const string BillToContact = "BillToContact";
 			public const string Commissions = "Commissions";
 			public const string Commissions_SalesPersons = "Commissions/SalesPersons";
+			public const string Commissions_SalesPersons_Files = "Commissions/SalesPersons/Files";
 			public const string Details = "Details";
+			public const string Details_Files = "Details/Files";
+			public const string Details_Allocations = "Details/Allocations";
+			public const string Details_Allocations_Files = "Details/Allocations/Files";
+			public const string Details_PurchasingDetails = "Details/PurchasingDetails";
+			public const string Details_PurchasingDetails_Files = "Details/PurchasingDetails/Files";
 			public const string DiscountDetails = "DiscountDetails";
+			public const string DiscountDetails_Files = "DiscountDetails/Files";
 			public const string FinancialSettings = "FinancialSettings";
 			public const string OrderRisks = "OrderRisks";
+			public const string OrderRisks_Files = "OrderRisks/Files";
 			public const string Payments = "Payments";
+			public const string Payments_Files = "Payments/Files";
+			public const string Payments_CreditCardTransactionInfo = "Payments/CreditCardTransactionInfo";
+			public const string Payments_CreditCardTransactionInfo_Files = "Payments/CreditCardTransactionInfo/Files";
 			public const string Relations = "Relations";
+			public const string Relations_Files = "Relations/Files";
 			public const string Shipments = "Shipments";
+			public const string Shipments_Files = "Shipments/Files";
 			public const string ShippingSettings = "ShippingSettings";
 			public const string ShippingSettings_ShopForRates = "ShippingSettings/ShopForRates";
 			public const string ShipToAddress = "ShipToAddress";
 			public const string ShipToContact = "ShipToContact";
 			public const string TaxDetails = "TaxDetails";
+			public const string TaxDetails_Files = "TaxDetails/Files";
 			public const string Totals = "Totals";
 
-			public const string All = "BillToAddress,BillToContact,Commissions,Commissions/SalesPersons,Details,DiscountDetails,FinancialSettings,OrderRisks,Payments,Relations,Shipments,ShippingSettings,ShippingSettings/ShopForRates,ShipToAddress,ShipToContact,TaxDetails,Totals";
+			//Intentionally excluded
+			//public const string All = "Files,BillToAddress,BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,Details/Allocations,Details/Allocations/Files,Details/PurchasingDetails,Details/PurchasingDetails/Files,DiscountDetails,DiscountDetails/Files,FinancialSettings,OrderRisks,OrderRisks/Files,Payments,Payments/Files,Payments/CreditCardTransactionInfo,Payments/CreditCardTransactionInfo/Files,Relations,Relations/Files,Shipments,Shipments/Files,ShippingSettings,ShippingSettings/ShopForRates,ShipToAddress,ShipToContact,TaxDetails,TaxDetails/Files,Totals";
 		}
 		public virtual string GetEndpointPath()
 		{

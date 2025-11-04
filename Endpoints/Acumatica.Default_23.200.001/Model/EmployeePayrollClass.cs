@@ -46,11 +46,15 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string PayrollDefaults = "PayrollDefaults";
 			public const string PayrollDefaults_WorkLocations = "PayrollDefaults/WorkLocations";
+			public const string PayrollDefaults_WorkLocations_Files = "PayrollDefaults/WorkLocations/Files";
 			public const string PTODefaults = "PTODefaults";
+			public const string PTODefaults_Files = "PTODefaults/Files";
 
-			public const string All = "PayrollDefaults,PayrollDefaults/WorkLocations,PTODefaults";
+			//Intentionally excluded
+			//public const string All = "Files,PayrollDefaults,PayrollDefaults/WorkLocations,PayrollDefaults/WorkLocations/Files,PTODefaults,PTODefaults/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

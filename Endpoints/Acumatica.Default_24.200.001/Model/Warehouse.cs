@@ -256,9 +256,12 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Locations = "Locations";
+			public const string Locations_Files = "Locations/Files";
 
-			public const string All = "Locations";
+			//Intentionally excluded
+			//public const string All = "Files,Locations,Locations/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

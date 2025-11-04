@@ -89,7 +89,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string ActivityHistory = "ActivityHistory";
+			public const string ActivityHistory_Files = "ActivityHistory/Files";
 			public const string Attributes = "Attributes";
 			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
 			public const string CRMLink = "CRMLink";
@@ -97,7 +99,8 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string Properties = "Properties";
 			public const string VisibilitySettings = "VisibilitySettings";
 
-			public const string All = "ActivityHistory,Attributes,BillingAndAllocationSettings,CRMLink,DefaultValues,Properties,VisibilitySettings";
+			//Intentionally excluded
+			//public const string All = "Files,ActivityHistory,ActivityHistory/Files,Attributes,BillingAndAllocationSettings,CRMLink,DefaultValues,Properties,VisibilitySettings";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -523,12 +523,17 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Allocations = "Allocations";
+			public const string Allocations_Files = "Allocations/Files";
 			public const string EventHistory = "EventHistory";
+			public const string EventHistory_Files = "EventHistory/Files";
 			public const string OrderAttributes = "OrderAttributes";
+			public const string OrderAttributes_Files = "OrderAttributes/Files";
 			public const string OrderTotals = "OrderTotals";
 
-			public const string All = "Allocations,EventHistory,OrderAttributes,OrderTotals";
+			//Intentionally excluded
+			//public const string All = "Files,Allocations,Allocations/Files,EventHistory,EventHistory/Files,OrderAttributes,OrderAttributes/Files,OrderTotals";
 		}
 		public virtual string GetEndpointPath()
 		{

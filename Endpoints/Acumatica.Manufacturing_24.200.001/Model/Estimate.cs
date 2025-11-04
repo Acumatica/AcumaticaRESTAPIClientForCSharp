@@ -422,11 +422,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string History = "History";
+			public const string History_Files = "History/Files";
 			public const string Operation = "Operation";
+			public const string Operation_Files = "Operation/Files";
 			public const string Totals = "Totals";
 
-			public const string All = "History,Operation,Totals";
+			//Intentionally excluded
+			//public const string All = "Files,History,History/Files,Operation,Operation/Files,Totals";
 		}
 		public virtual string GetEndpointPath()
 		{

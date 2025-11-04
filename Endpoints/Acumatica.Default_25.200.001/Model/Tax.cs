@@ -222,10 +222,14 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string TaxSchedule = "TaxSchedule";
+			public const string TaxSchedule_Files = "TaxSchedule/Files";
 			public const string Zones = "Zones";
+			public const string Zones_Files = "Zones/Files";
 
-			public const string All = "TaxSchedule,Zones";
+			//Intentionally excluded
+			//public const string All = "Files,TaxSchedule,TaxSchedule/Files,Zones,Zones/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

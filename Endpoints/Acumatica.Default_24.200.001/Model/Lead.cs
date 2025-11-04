@@ -410,15 +410,22 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Activities = "Activities";
+			public const string Activities_Files = "Activities/Files";
 			public const string Address = "Address";
 			public const string Attributes = "Attributes";
 			public const string Campaigns = "Campaigns";
+			public const string Campaigns_Files = "Campaigns/Files";
 			public const string Duplicates = "Duplicates";
+			public const string Duplicates_Files = "Duplicates/Files";
 			public const string MarketingLists = "MarketingLists";
+			public const string MarketingLists_Files = "MarketingLists/Files";
 			public const string Relations = "Relations";
+			public const string Relations_Files = "Relations/Files";
 
-			public const string All = "Activities,Address,Attributes,Campaigns,Duplicates,MarketingLists,Relations";
+			//Intentionally excluded
+			//public const string All = "Files,Activities,Activities/Files,Address,Attributes,Campaigns,Campaigns/Files,Duplicates,Duplicates/Files,MarketingLists,MarketingLists/Files,Relations,Relations/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -137,13 +137,20 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string DeductionsAndBenefitsDetails = "DeductionsAndBenefitsDetails";
+			public const string DeductionsAndBenefitsDetails_Files = "DeductionsAndBenefitsDetails/Files";
 			public const string EarningDetails = "EarningDetails";
+			public const string EarningDetails_Files = "EarningDetails/Files";
 			public const string EmployeeSummary = "EmployeeSummary";
+			public const string EmployeeSummary_Files = "EmployeeSummary/Files";
+			public const string EmployeeSummary_EmployeePaycheckEarnings = "EmployeeSummary/EmployeePaycheckEarnings";
 			public const string OvertimeRules = "OvertimeRules";
 			public const string OvertimeRules_OvertimeRulesDetails = "OvertimeRules/OvertimeRulesDetails";
+			public const string OvertimeRules_OvertimeRulesDetails_Files = "OvertimeRules/OvertimeRulesDetails/Files";
 
-			public const string All = "DeductionsAndBenefitsDetails,EarningDetails,EmployeeSummary,OvertimeRules,OvertimeRules/OvertimeRulesDetails";
+			//Intentionally excluded
+			//public const string All = "Files,DeductionsAndBenefitsDetails,DeductionsAndBenefitsDetails/Files,EarningDetails,EarningDetails/Files,EmployeeSummary,EmployeeSummary/Files,EmployeeSummary/EmployeePaycheckEarnings,OvertimeRules,OvertimeRules/OvertimeRulesDetails,OvertimeRules/OvertimeRulesDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -75,10 +75,14 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Branches = "Branches";
+			public const string Branches_Files = "Branches/Files";
 			public const string Companies = "Companies";
+			public const string Companies_Files = "Companies/Files";
 
-			public const string All = "Branches,Companies";
+			//Intentionally excluded
+			//public const string All = "Files,Branches,Branches/Files,Companies,Companies/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

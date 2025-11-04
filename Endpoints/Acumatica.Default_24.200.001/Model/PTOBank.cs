@@ -171,14 +171,19 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string ApplicableEarningTypes = "ApplicableEarningTypes";
 			public const string ApplicableEarningTypes_ApplicableEarningTypeDetail = "ApplicableEarningTypes/ApplicableEarningTypeDetail";
+			public const string ApplicableEarningTypes_ApplicableEarningTypeDetail_Files = "ApplicableEarningTypes/ApplicableEarningTypeDetail/Files";
 			public const string BandingRules = "BandingRules";
 			public const string BandingRules_BandingRuleDetails = "BandingRules/BandingRuleDetails";
+			public const string BandingRules_BandingRuleDetails_Files = "BandingRules/BandingRuleDetails/Files";
 			public const string EmployeeClassSettings = "EmployeeClassSettings";
+			public const string EmployeeClassSettings_Files = "EmployeeClassSettings/Files";
 			public const string GLAccounts = "GLAccounts";
 
-			public const string All = "ApplicableEarningTypes,ApplicableEarningTypes/ApplicableEarningTypeDetail,BandingRules,BandingRules/BandingRuleDetails,EmployeeClassSettings,GLAccounts";
+			//Intentionally excluded
+			//public const string All = "Files,ApplicableEarningTypes,ApplicableEarningTypes/ApplicableEarningTypeDetail,ApplicableEarningTypes/ApplicableEarningTypeDetail/Files,BandingRules,BandingRules/BandingRuleDetails,BandingRules/BandingRuleDetails/Files,EmployeeClassSettings,EmployeeClassSettings/Files,GLAccounts";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -149,26 +149,36 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string ActivityHistory = "ActivityHistory";
+			public const string ActivityHistory_Files = "ActivityHistory/Files";
 			public const string ApprovalDetails = "ApprovalDetails";
+			public const string ApprovalDetails_Files = "ApprovalDetails/Files";
 			public const string Attributes = "Attributes";
 			public const string Balances = "Balances";
+			public const string Balances_Files = "Balances/Files";
 			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
 			public const string BillToSettings = "BillToSettings";
 			public const string BillToSettings_BillToAddress = "BillToSettings/BillToAddress";
 			public const string BillToSettings_BillToContact = "BillToSettings/BillToContact";
 			public const string Employees = "Employees";
+			public const string Employees_Files = "Employees/Files";
 			public const string Equipments = "Equipments";
+			public const string Equipments_Files = "Equipments/Files";
 			public const string GLAccounts = "GLAccounts";
 			public const string GLAccounts_DefaultTaskForGLAccounts = "GLAccounts/DefaultTaskForGLAccounts";
+			public const string GLAccounts_DefaultTaskForGLAccounts_Files = "GLAccounts/DefaultTaskForGLAccounts/Files";
 			public const string Invoices = "Invoices";
+			public const string Invoices_Files = "Invoices/Files";
 			public const string ProjectProperties = "ProjectProperties";
 			public const string UnionLocals = "UnionLocals";
+			public const string UnionLocals_Files = "UnionLocals/Files";
 			public const string VisibilitySettings = "VisibilitySettings";
 			public const string Retainage = "Retainage";
 			public const string ProjectAddress = "ProjectAddress";
 
-			public const string All = "ActivityHistory,ApprovalDetails,Attributes,Balances,BillingAndAllocationSettings,BillToSettings,BillToSettings/BillToAddress,BillToSettings/BillToContact,Employees,Equipments,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,Invoices,ProjectProperties,UnionLocals,VisibilitySettings,Retainage,ProjectAddress";
+			//Intentionally excluded
+			//public const string All = "Files,ActivityHistory,ActivityHistory/Files,ApprovalDetails,ApprovalDetails/Files,Attributes,Balances,Balances/Files,BillingAndAllocationSettings,BillToSettings,BillToSettings/BillToAddress,BillToSettings/BillToContact,Employees,Employees/Files,Equipments,Equipments/Files,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,GLAccounts/DefaultTaskForGLAccounts/Files,Invoices,Invoices/Files,ProjectProperties,UnionLocals,UnionLocals/Files,VisibilitySettings,Retainage,ProjectAddress";
 		}
 		public virtual string GetEndpointPath()
 		{

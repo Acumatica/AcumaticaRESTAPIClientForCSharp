@@ -76,7 +76,7 @@ namespace AcumaticaRestApiExample
                 //client.PutFile<SalesOrder>("SO/SO005207", fileName, initialData);
                 client.PutFile(order, fileName, initialData, fileDesc);
 
-                order = client.GetByKeys<SalesOrder>(new List<string>() { "SO", "SO005207" }, expand: "files");
+                order = client.GetByKeys<SalesOrder>(new List<string>() { "SO", "SO005207" }, expand: SalesOrder.Expand.Files);
 
                 var fileRef = order.Files.Single(fl => fl.Filename.EndsWith(@"\" + fileName));
 
@@ -201,7 +201,7 @@ namespace AcumaticaRestApiExample
                 var shipments = client.GetList<Shipment>();
 
                 Console.WriteLine($"Found {shipments.Count} shipments");
-                var recentShipment = client.GetById<Shipment>(shipments.First().ID, expand: new List<string> { "Details"});
+                var recentShipment = client.GetById<Shipment>(shipments.First().ID, expand: new List<string> { Shipment.Expand.Details, Shipment.Expand.Orders});
                 Console.WriteLine($"Found {recentShipment.Details.Count} shipment details in the Shipment {recentShipment.ShipmentNbr}");
             }
             catch (Exception e)

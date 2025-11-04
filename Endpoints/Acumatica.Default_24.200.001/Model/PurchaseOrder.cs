@@ -217,13 +217,17 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Details = "Details";
+			public const string Details_Files = "Details/Files";
 			public const string ShippingInstructions = "ShippingInstructions";
 			public const string ShippingInstructions_ShipToAddress = "ShippingInstructions/ShipToAddress";
 			public const string ShippingInstructions_ShipToContact = "ShippingInstructions/ShipToContact";
 			public const string TaxDetails = "TaxDetails";
+			public const string TaxDetails_Files = "TaxDetails/Files";
 
-			public const string All = "Details,ShippingInstructions,ShippingInstructions/ShipToAddress,ShippingInstructions/ShipToContact,TaxDetails";
+			//Intentionally excluded
+			//public const string All = "Files,Details,Details/Files,ShippingInstructions,ShippingInstructions/ShipToAddress,ShippingInstructions/ShipToContact,TaxDetails,TaxDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

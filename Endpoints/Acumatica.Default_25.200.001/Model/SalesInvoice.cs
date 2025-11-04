@@ -291,24 +291,33 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string ApplicationsCreditMemo = "ApplicationsCreditMemo";
+			public const string ApplicationsCreditMemo_Files = "ApplicationsCreditMemo/Files";
 			public const string ApplicationsInvoice = "ApplicationsInvoice";
+			public const string ApplicationsInvoice_Files = "ApplicationsInvoice/Files";
 			public const string BillingSettings = "BillingSettings";
 			public const string BillingSettings_BillToAddress = "BillingSettings/BillToAddress";
 			public const string BillingSettings_BillToContact = "BillingSettings/BillToContact";
 			public const string Commissions = "Commissions";
 			public const string Commissions_SalesPersons = "Commissions/SalesPersons";
+			public const string Commissions_SalesPersons_Files = "Commissions/SalesPersons/Files";
 			public const string Details = "Details";
+			public const string Details_Files = "Details/Files";
 			public const string DiscountDetails = "DiscountDetails";
+			public const string DiscountDetails_Files = "DiscountDetails/Files";
 			public const string FinancialDetails = "FinancialDetails";
 			public const string FreightDetails = "FreightDetails";
+			public const string FreightDetails_Files = "FreightDetails/Files";
 			public const string TaxDetails = "TaxDetails";
+			public const string TaxDetails_Files = "TaxDetails/Files";
 			public const string BillToAddress = "BillToAddress";
 			public const string BillToContact = "BillToContact";
 			public const string ShipToAddress = "ShipToAddress";
 			public const string ShipToContact = "ShipToContact";
 
-			public const string All = "ApplicationsCreditMemo,ApplicationsInvoice,BillingSettings,BillingSettings/BillToAddress,BillingSettings/BillToContact,Commissions,Commissions/SalesPersons,Details,DiscountDetails,FinancialDetails,FreightDetails,TaxDetails,BillToAddress,BillToContact,ShipToAddress,ShipToContact";
+			//Intentionally excluded
+			//public const string All = "Files,ApplicationsCreditMemo,ApplicationsCreditMemo/Files,ApplicationsInvoice,ApplicationsInvoice/Files,BillingSettings,BillingSettings/BillToAddress,BillingSettings/BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,DiscountDetails,DiscountDetails/Files,FinancialDetails,FreightDetails,FreightDetails/Files,TaxDetails,TaxDetails/Files,BillToAddress,BillToContact,ShipToAddress,ShipToContact";
 		}
 		public virtual string GetEndpointPath()
 		{

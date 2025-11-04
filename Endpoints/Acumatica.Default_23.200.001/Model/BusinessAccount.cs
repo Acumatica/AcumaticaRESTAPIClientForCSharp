@@ -257,39 +257,62 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Activities = "Activities";
+			public const string Activities_Files = "Activities/Files";
 			public const string Attributes = "Attributes";
 			public const string Campaigns = "Campaigns";
+			public const string Campaigns_Files = "Campaigns/Files";
 			public const string Cases = "Cases";
+			public const string Cases_Files = "Cases/Files";
 			public const string Contacts = "Contacts";
+			public const string Contacts_Files = "Contacts/Files";
 			public const string Contracts = "Contracts";
+			public const string Contracts_Files = "Contracts/Files";
 			public const string DefaultLocationSettings = "DefaultLocationSettings";
 			public const string Duplicates = "Duplicates";
+			public const string Duplicates_Files = "Duplicates/Files";
 			public const string Locations = "Locations";
+			public const string Locations_Files = "Locations/Files";
 			public const string MainAddress = "MainAddress";
 			public const string MainContact = "MainContact";
 			public const string MarketingLists = "MarketingLists";
+			public const string MarketingLists_Files = "MarketingLists/Files";
 			public const string Opportunities = "Opportunities";
+			public const string Opportunities_Files = "Opportunities/Files";
 			public const string Orders = "Orders";
+			public const string Orders_Files = "Orders/Files";
 			public const string PrimaryContact = "PrimaryContact";
 			public const string PrimaryContact_Activities = "PrimaryContact/Activities";
+			public const string PrimaryContact_Activities_Files = "PrimaryContact/Activities/Files";
 			public const string PrimaryContact_Address = "PrimaryContact/Address";
 			public const string PrimaryContact_Attributes = "PrimaryContact/Attributes";
 			public const string PrimaryContact_Campaigns = "PrimaryContact/Campaigns";
+			public const string PrimaryContact_Campaigns_Files = "PrimaryContact/Campaigns/Files";
 			public const string PrimaryContact_Cases = "PrimaryContact/Cases";
+			public const string PrimaryContact_Cases_Files = "PrimaryContact/Cases/Files";
 			public const string PrimaryContact_Duplicates = "PrimaryContact/Duplicates";
+			public const string PrimaryContact_Duplicates_Files = "PrimaryContact/Duplicates/Files";
 			public const string PrimaryContact_MarketingLists = "PrimaryContact/MarketingLists";
+			public const string PrimaryContact_MarketingLists_Files = "PrimaryContact/MarketingLists/Files";
 			public const string PrimaryContact_Notifications = "PrimaryContact/Notifications";
+			public const string PrimaryContact_Notifications_Files = "PrimaryContact/Notifications/Files";
 			public const string PrimaryContact_Opportunities = "PrimaryContact/Opportunities";
+			public const string PrimaryContact_Opportunities_Files = "PrimaryContact/Opportunities/Files";
 			public const string PrimaryContact_Relations = "PrimaryContact/Relations";
+			public const string PrimaryContact_Relations_Files = "PrimaryContact/Relations/Files";
 			public const string PrimaryContact_RoleAssignments = "PrimaryContact/RoleAssignments";
+			public const string PrimaryContact_RoleAssignments_Files = "PrimaryContact/RoleAssignments/Files";
 			public const string PrimaryContact_UserInfo = "PrimaryContact/UserInfo";
 			public const string PrimaryContact_UserInfo_Roles = "PrimaryContact/UserInfo/Roles";
+			public const string PrimaryContact_UserInfo_Roles_Files = "PrimaryContact/UserInfo/Roles/Files";
 			public const string Relations = "Relations";
+			public const string Relations_Files = "Relations/Files";
 			public const string ShippingAddress = "ShippingAddress";
 			public const string ShippingContact = "ShippingContact";
 
-			public const string All = "Activities,Attributes,Campaigns,Cases,Contacts,Contracts,DefaultLocationSettings,Duplicates,Locations,MainAddress,MainContact,MarketingLists,Opportunities,Orders,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Cases,PrimaryContact/Duplicates,PrimaryContact/MarketingLists,PrimaryContact/Notifications,PrimaryContact/Opportunities,PrimaryContact/Relations,PrimaryContact/RoleAssignments,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,Relations,ShippingAddress,ShippingContact";
+			//Intentionally excluded
+			//public const string All = "Files,Activities,Activities/Files,Attributes,Campaigns,Campaigns/Files,Cases,Cases/Files,Contacts,Contacts/Files,Contracts,Contracts/Files,DefaultLocationSettings,Duplicates,Duplicates/Files,Locations,Locations/Files,MainAddress,MainContact,MarketingLists,MarketingLists/Files,Opportunities,Opportunities/Files,Orders,Orders/Files,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Activities/Files,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Campaigns/Files,PrimaryContact/Cases,PrimaryContact/Cases/Files,PrimaryContact/Duplicates,PrimaryContact/Duplicates/Files,PrimaryContact/MarketingLists,PrimaryContact/MarketingLists/Files,PrimaryContact/Notifications,PrimaryContact/Notifications/Files,PrimaryContact/Opportunities,PrimaryContact/Opportunities/Files,PrimaryContact/Relations,PrimaryContact/Relations/Files,PrimaryContact/RoleAssignments,PrimaryContact/RoleAssignments/Files,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,PrimaryContact/UserInfo/Roles/Files,Relations,Relations/Files,ShippingAddress,ShippingContact";
 		}
 		public virtual string GetEndpointPath()
 		{

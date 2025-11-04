@@ -91,9 +91,16 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Details = "Details";
+			public const string Details_Files = "Details/Files";
+			public const string Details_Allocations = "Details/Allocations";
+			public const string Details_Allocations_Files = "Details/Allocations/Files";
+			public const string Details_TransactionAttributes = "Details/TransactionAttributes";
+			public const string Details_TransactionAttributes_Files = "Details/TransactionAttributes/Files";
 
-			public const string All = "Details";
+			//Intentionally excluded
+			//public const string All = "Files,Details,Details/Files,Details/Allocations,Details/Allocations/Files,Details/TransactionAttributes,Details/TransactionAttributes/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

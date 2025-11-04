@@ -115,8 +115,10 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 
-			public const string All = "";
+			//Intentionally excluded
+			//public const string All = "Files";
 		}
 		public virtual string GetEndpointPath()
 		{

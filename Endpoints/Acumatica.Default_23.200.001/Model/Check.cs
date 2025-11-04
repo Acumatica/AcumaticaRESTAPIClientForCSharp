@@ -143,10 +143,14 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Details = "Details";
+			public const string Details_Files = "Details/Files";
 			public const string History = "History";
+			public const string History_Files = "History/Files";
 
-			public const string All = "Details,History";
+			//Intentionally excluded
+			//public const string All = "Files,Details,Details/Files,History,History/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

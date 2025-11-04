@@ -208,13 +208,19 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string ApprovalDetails = "ApprovalDetails";
+			public const string ApprovalDetails_Files = "ApprovalDetails/Files";
 			public const string Attributes = "Attributes";
 			public const string Commitments = "Commitments";
+			public const string Commitments_Files = "Commitments/Files";
 			public const string CostBudget = "CostBudget";
+			public const string CostBudget_Files = "CostBudget/Files";
 			public const string RevenueBudget = "RevenueBudget";
+			public const string RevenueBudget_Files = "RevenueBudget/Files";
 
-			public const string All = "ApprovalDetails,Attributes,Commitments,CostBudget,RevenueBudget";
+			//Intentionally excluded
+			//public const string All = "Files,ApprovalDetails,ApprovalDetails/Files,Attributes,Commitments,Commitments/Files,CostBudget,CostBudget/Files,RevenueBudget,RevenueBudget/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

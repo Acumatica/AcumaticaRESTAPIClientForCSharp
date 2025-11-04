@@ -65,13 +65,15 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Attributes = "Attributes";
 			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
 			public const string DefaultValues = "DefaultValues";
 			public const string Properties = "Properties";
 			public const string VisibilitySettings = "VisibilitySettings";
 
-			public const string All = "Attributes,BillingAndAllocationSettings,DefaultValues,Properties,VisibilitySettings";
+			//Intentionally excluded
+			//public const string All = "Files,Attributes,BillingAndAllocationSettings,DefaultValues,Properties,VisibilitySettings";
 		}
 		public virtual string GetEndpointPath()
 		{

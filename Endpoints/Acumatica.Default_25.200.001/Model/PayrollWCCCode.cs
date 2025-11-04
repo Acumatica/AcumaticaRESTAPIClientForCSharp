@@ -29,9 +29,22 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string WCCCodes = "WCCCodes";
+			public const string WCCCodes_Files = "WCCCodes/Files";
+			public const string WCCCodes_WCCCodeCostCodeSources = "WCCCodes/WCCCodeCostCodeSources";
+			public const string WCCCodes_WCCCodeCostCodeSources_Files = "WCCCodes/WCCCodeCostCodeSources/Files";
+			public const string WCCCodes_WCCCodeLaborItemSources = "WCCCodes/WCCCodeLaborItemSources";
+			public const string WCCCodes_WCCCodeLaborItemSources_Files = "WCCCodes/WCCCodeLaborItemSources/Files";
+			public const string WCCCodes_WCCCodeMaxInsurableWages = "WCCCodes/WCCCodeMaxInsurableWages";
+			public const string WCCCodes_WCCCodeMaxInsurableWages_Files = "WCCCodes/WCCCodeMaxInsurableWages/Files";
+			public const string WCCCodes_WCCCodeProjectSources = "WCCCodes/WCCCodeProjectSources";
+			public const string WCCCodes_WCCCodeProjectSources_Files = "WCCCodes/WCCCodeProjectSources/Files";
+			public const string WCCCodes_WCCCodeRates = "WCCCodes/WCCCodeRates";
+			public const string WCCCodes_WCCCodeRates_Files = "WCCCodes/WCCCodeRates/Files";
 
-			public const string All = "WCCCodes";
+			//Intentionally excluded
+			//public const string All = "Files,WCCCodes,WCCCodes/Files,WCCCodes/WCCCodeCostCodeSources,WCCCodes/WCCCodeCostCodeSources/Files,WCCCodes/WCCCodeLaborItemSources,WCCCodes/WCCCodeLaborItemSources/Files,WCCCodes/WCCCodeMaxInsurableWages,WCCCodes/WCCCodeMaxInsurableWages/Files,WCCCodes/WCCCodeProjectSources,WCCCodes/WCCCodeProjectSources/Files,WCCCodes/WCCCodeRates,WCCCodes/WCCCodeRates/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -505,21 +505,33 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Activities = "Activities";
+			public const string Activities_Files = "Activities/Files";
 			public const string Address = "Address";
 			public const string Attributes = "Attributes";
 			public const string Campaigns = "Campaigns";
+			public const string Campaigns_Files = "Campaigns/Files";
 			public const string Cases = "Cases";
+			public const string Cases_Files = "Cases/Files";
 			public const string Duplicates = "Duplicates";
+			public const string Duplicates_Files = "Duplicates/Files";
 			public const string MarketingLists = "MarketingLists";
+			public const string MarketingLists_Files = "MarketingLists/Files";
 			public const string Notifications = "Notifications";
+			public const string Notifications_Files = "Notifications/Files";
 			public const string Opportunities = "Opportunities";
+			public const string Opportunities_Files = "Opportunities/Files";
 			public const string Relations = "Relations";
+			public const string Relations_Files = "Relations/Files";
 			public const string RoleAssignments = "RoleAssignments";
+			public const string RoleAssignments_Files = "RoleAssignments/Files";
 			public const string UserInfo = "UserInfo";
 			public const string UserInfo_Roles = "UserInfo/Roles";
+			public const string UserInfo_Roles_Files = "UserInfo/Roles/Files";
 
-			public const string All = "Activities,Address,Attributes,Campaigns,Cases,Duplicates,MarketingLists,Notifications,Opportunities,Relations,RoleAssignments,UserInfo,UserInfo/Roles";
+			//Intentionally excluded
+			//public const string All = "Files,Activities,Activities/Files,Address,Attributes,Campaigns,Campaigns/Files,Cases,Cases/Files,Duplicates,Duplicates/Files,MarketingLists,MarketingLists/Files,Notifications,Notifications/Files,Opportunities,Opportunities/Files,Relations,Relations/Files,RoleAssignments,RoleAssignments/Files,UserInfo,UserInfo/Roles,UserInfo/Roles/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

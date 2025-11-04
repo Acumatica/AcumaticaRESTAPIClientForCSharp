@@ -106,10 +106,14 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string CustomerAccounts = "CustomerAccounts";
+			public const string CustomerAccounts_Files = "CustomerAccounts/Files";
 			public const string PlugInParameters = "PlugInParameters";
+			public const string PlugInParameters_Files = "PlugInParameters/Files";
 
-			public const string All = "CustomerAccounts,PlugInParameters";
+			//Intentionally excluded
+			//public const string All = "Files,CustomerAccounts,CustomerAccounts/Files,PlugInParameters,PlugInParameters/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -70,16 +70,21 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Attributes = "Attributes";
 			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
 			public const string Employees = "Employees";
+			public const string Employees_Files = "Employees/Files";
 			public const string Equipments = "Equipments";
+			public const string Equipments_Files = "Equipments/Files";
 			public const string GLAccounts = "GLAccounts";
 			public const string GLAccounts_DefaultTaskForGLAccounts = "GLAccounts/DefaultTaskForGLAccounts";
+			public const string GLAccounts_DefaultTaskForGLAccounts_Files = "GLAccounts/DefaultTaskForGLAccounts/Files";
 			public const string ProjectProperties = "ProjectProperties";
 			public const string VisibilitySettings = "VisibilitySettings";
 
-			public const string All = "Attributes,BillingAndAllocationSettings,Employees,Equipments,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,ProjectProperties,VisibilitySettings";
+			//Intentionally excluded
+			//public const string All = "Files,Attributes,BillingAndAllocationSettings,Employees,Employees/Files,Equipments,Equipments/Files,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,GLAccounts/DefaultTaskForGLAccounts/Files,ProjectProperties,VisibilitySettings";
 		}
 		public virtual string GetEndpointPath()
 		{

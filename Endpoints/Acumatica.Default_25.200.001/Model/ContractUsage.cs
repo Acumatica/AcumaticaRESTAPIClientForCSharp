@@ -38,10 +38,14 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string BilledTransactions = "BilledTransactions";
+			public const string BilledTransactions_Files = "BilledTransactions/Files";
 			public const string UnbilledTransactions = "UnbilledTransactions";
+			public const string UnbilledTransactions_Files = "UnbilledTransactions/Files";
 
-			public const string All = "BilledTransactions,UnbilledTransactions";
+			//Intentionally excluded
+			//public const string All = "Files,BilledTransactions,BilledTransactions/Files,UnbilledTransactions,UnbilledTransactions/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

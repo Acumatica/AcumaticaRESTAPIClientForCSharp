@@ -58,10 +58,14 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string DeductionsAndBenefits = "DeductionsAndBenefits";
+			public const string DeductionsAndBenefits_Files = "DeductionsAndBenefits/Files";
 			public const string EarningRates = "EarningRates";
+			public const string EarningRates_Files = "EarningRates/Files";
 
-			public const string All = "DeductionsAndBenefits,EarningRates";
+			//Intentionally excluded
+			//public const string All = "Files,DeductionsAndBenefits,DeductionsAndBenefits/Files,EarningRates,EarningRates/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

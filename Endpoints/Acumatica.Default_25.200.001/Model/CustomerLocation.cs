@@ -292,23 +292,36 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string LocationContact = "LocationContact";
 			public const string LocationContact_Activities = "LocationContact/Activities";
+			public const string LocationContact_Activities_Files = "LocationContact/Activities/Files";
 			public const string LocationContact_Address = "LocationContact/Address";
 			public const string LocationContact_Attributes = "LocationContact/Attributes";
 			public const string LocationContact_Campaigns = "LocationContact/Campaigns";
+			public const string LocationContact_Campaigns_Files = "LocationContact/Campaigns/Files";
 			public const string LocationContact_Cases = "LocationContact/Cases";
+			public const string LocationContact_Cases_Files = "LocationContact/Cases/Files";
 			public const string LocationContact_Duplicates = "LocationContact/Duplicates";
+			public const string LocationContact_Duplicates_Files = "LocationContact/Duplicates/Files";
 			public const string LocationContact_MarketingLists = "LocationContact/MarketingLists";
+			public const string LocationContact_MarketingLists_Files = "LocationContact/MarketingLists/Files";
 			public const string LocationContact_Notifications = "LocationContact/Notifications";
+			public const string LocationContact_Notifications_Files = "LocationContact/Notifications/Files";
 			public const string LocationContact_Opportunities = "LocationContact/Opportunities";
+			public const string LocationContact_Opportunities_Files = "LocationContact/Opportunities/Files";
 			public const string LocationContact_Relations = "LocationContact/Relations";
+			public const string LocationContact_Relations_Files = "LocationContact/Relations/Files";
 			public const string LocationContact_RoleAssignments = "LocationContact/RoleAssignments";
+			public const string LocationContact_RoleAssignments_Files = "LocationContact/RoleAssignments/Files";
 			public const string LocationContact_UserInfo = "LocationContact/UserInfo";
 			public const string LocationContact_UserInfo_Roles = "LocationContact/UserInfo/Roles";
+			public const string LocationContact_UserInfo_Roles_Files = "LocationContact/UserInfo/Roles/Files";
 			public const string RoleAssignments = "RoleAssignments";
+			public const string RoleAssignments_Files = "RoleAssignments/Files";
 
-			public const string All = "LocationContact,LocationContact/Activities,LocationContact/Address,LocationContact/Attributes,LocationContact/Campaigns,LocationContact/Cases,LocationContact/Duplicates,LocationContact/MarketingLists,LocationContact/Notifications,LocationContact/Opportunities,LocationContact/Relations,LocationContact/RoleAssignments,LocationContact/UserInfo,LocationContact/UserInfo/Roles,RoleAssignments";
+			//Intentionally excluded
+			//public const string All = "Files,LocationContact,LocationContact/Activities,LocationContact/Activities/Files,LocationContact/Address,LocationContact/Attributes,LocationContact/Campaigns,LocationContact/Campaigns/Files,LocationContact/Cases,LocationContact/Cases/Files,LocationContact/Duplicates,LocationContact/Duplicates/Files,LocationContact/MarketingLists,LocationContact/MarketingLists/Files,LocationContact/Notifications,LocationContact/Notifications/Files,LocationContact/Opportunities,LocationContact/Opportunities/Files,LocationContact/Relations,LocationContact/Relations/Files,LocationContact/RoleAssignments,LocationContact/RoleAssignments/Files,LocationContact/UserInfo,LocationContact/UserInfo/Roles,LocationContact/UserInfo/Roles/Files,RoleAssignments,RoleAssignments/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -67,10 +67,14 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string NonStockComponents = "NonStockComponents";
+			public const string NonStockComponents_Files = "NonStockComponents/Files";
 			public const string StockComponents = "StockComponents";
+			public const string StockComponents_Files = "StockComponents/Files";
 
-			public const string All = "NonStockComponents,StockComponents";
+			//Intentionally excluded
+			//public const string All = "Files,NonStockComponents,NonStockComponents/Files,StockComponents,StockComponents/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -57,9 +57,14 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Jobs = "Jobs";
+			public const string Jobs_Files = "Jobs/Files";
+			public const string Jobs_Parameters = "Jobs/Parameters";
+			public const string Jobs_Parameters_Files = "Jobs/Parameters/Files";
 
-			public const string All = "Jobs";
+			//Intentionally excluded
+			//public const string All = "Files,Jobs,Jobs/Files,Jobs/Parameters,Jobs/Parameters/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

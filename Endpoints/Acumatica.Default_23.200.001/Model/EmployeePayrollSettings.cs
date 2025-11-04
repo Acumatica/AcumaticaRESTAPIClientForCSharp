@@ -128,23 +128,36 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string AddressInfo = "AddressInfo";
 			public const string Compensation = "Compensation";
+			public const string Compensation_Files = "Compensation/Files";
 			public const string DeductionsAndBenefits = "DeductionsAndBenefits";
 			public const string DeductionsAndBenefits_DeductionsAndBenefitsDetails = "DeductionsAndBenefits/DeductionsAndBenefitsDetails";
+			public const string DeductionsAndBenefits_DeductionsAndBenefitsDetails_Files = "DeductionsAndBenefits/DeductionsAndBenefitsDetails/Files";
+			public const string DeductionsAndBenefits_DeductionsAndBenefitsDetails_GarnishmentDetails = "DeductionsAndBenefits/DeductionsAndBenefitsDetails/GarnishmentDetails";
 			public const string DirectDepositDetails = "DirectDepositDetails";
+			public const string DirectDepositDetails_Files = "DirectDepositDetails/Files";
 			public const string EmploymentDates = "EmploymentDates";
 			public const string EmploymentRecords = "EmploymentRecords";
+			public const string EmploymentRecords_Files = "EmploymentRecords/Files";
 			public const string GeneralInfo = "GeneralInfo";
 			public const string GLAccounts = "GLAccounts";
 			public const string PaidTimeOff = "PaidTimeOff";
 			public const string PaidTimeOff_PaidTimeOffDetails = "PaidTimeOff/PaidTimeOffDetails";
+			public const string PaidTimeOff_PaidTimeOffDetails_Files = "PaidTimeOff/PaidTimeOffDetails/Files";
 			public const string Taxes = "Taxes";
+			public const string Taxes_Files = "Taxes/Files";
+			public const string Taxes_TaxCodeSettings = "Taxes/TaxCodeSettings";
+			public const string Taxes_TaxCodeSettings_Files = "Taxes/TaxCodeSettings/Files";
 			public const string TaxSettings = "TaxSettings";
+			public const string TaxSettings_Files = "TaxSettings/Files";
 			public const string WorkLocations = "WorkLocations";
 			public const string WorkLocations_WorkLocationDetails = "WorkLocations/WorkLocationDetails";
+			public const string WorkLocations_WorkLocationDetails_Files = "WorkLocations/WorkLocationDetails/Files";
 
-			public const string All = "AddressInfo,Compensation,DeductionsAndBenefits,DeductionsAndBenefits/DeductionsAndBenefitsDetails,DirectDepositDetails,EmploymentDates,EmploymentRecords,GeneralInfo,GLAccounts,PaidTimeOff,PaidTimeOff/PaidTimeOffDetails,Taxes,TaxSettings,WorkLocations,WorkLocations/WorkLocationDetails";
+			//Intentionally excluded
+			//public const string All = "Files,AddressInfo,Compensation,Compensation/Files,DeductionsAndBenefits,DeductionsAndBenefits/DeductionsAndBenefitsDetails,DeductionsAndBenefits/DeductionsAndBenefitsDetails/Files,DeductionsAndBenefits/DeductionsAndBenefitsDetails/GarnishmentDetails,DirectDepositDetails,DirectDepositDetails/Files,EmploymentDates,EmploymentRecords,EmploymentRecords/Files,GeneralInfo,GLAccounts,PaidTimeOff,PaidTimeOff/PaidTimeOffDetails,PaidTimeOff/PaidTimeOffDetails/Files,Taxes,Taxes/Files,Taxes/TaxCodeSettings,Taxes/TaxCodeSettings/Files,TaxSettings,TaxSettings/Files,WorkLocations,WorkLocations/WorkLocationDetails,WorkLocations/WorkLocationDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

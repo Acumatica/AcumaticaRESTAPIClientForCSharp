@@ -318,13 +318,19 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Material = "Material";
+			public const string Material_Files = "Material/Files";
 			public const string OutsideProcessOptions = "OutsideProcessOptions";
 			public const string Overheads = "Overheads";
+			public const string Overheads_Files = "Overheads/Files";
 			public const string Steps = "Steps";
+			public const string Steps_Files = "Steps/Files";
 			public const string Tools = "Tools";
+			public const string Tools_Files = "Tools/Files";
 
-			public const string All = "Material,OutsideProcessOptions,Overheads,Steps,Tools";
+			//Intentionally excluded
+			//public const string All = "Files,Material,Material/Files,OutsideProcessOptions,Overheads,Overheads/Files,Steps,Steps/Files,Tools,Tools/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -40,9 +40,11 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string History = "History";
 
-			public const string All = "History";
+			//Intentionally excluded
+			//public const string All = "Files,History";
 		}
 		public virtual string GetEndpointPath()
 		{

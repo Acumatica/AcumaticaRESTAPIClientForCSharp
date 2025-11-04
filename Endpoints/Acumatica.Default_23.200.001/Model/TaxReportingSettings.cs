@@ -31,9 +31,12 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string ReportingGroups = "ReportingGroups";
+			public const string ReportingGroups_Files = "ReportingGroups/Files";
 
-			public const string All = "ReportingGroups";
+			//Intentionally excluded
+			//public const string All = "Files,ReportingGroups,ReportingGroups/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

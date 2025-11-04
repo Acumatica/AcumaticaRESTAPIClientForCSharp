@@ -270,13 +270,19 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Attributes = "Attributes";
 			public const string Categories = "Categories";
+			public const string Categories_Files = "Categories/Files";
 			public const string FileURLs = "FileURLs";
+			public const string FileURLs_Files = "FileURLs/Files";
 			public const string Matrix = "Matrix";
+			public const string Matrix_Files = "Matrix/Files";
 			public const string VendorDetails = "VendorDetails";
+			public const string VendorDetails_Files = "VendorDetails/Files";
 
-			public const string All = "Attributes,Categories,FileURLs,Matrix,VendorDetails";
+			//Intentionally excluded
+			//public const string All = "Files,Attributes,Categories,Categories/Files,FileURLs,FileURLs/Files,Matrix,Matrix/Files,VendorDetails,VendorDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

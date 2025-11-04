@@ -492,14 +492,21 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Attributes = "Attributes";
 			public const string CrossReferences = "CrossReferences";
+			public const string CrossReferences_Files = "CrossReferences/Files";
 			public const string SalesCategories = "SalesCategories";
+			public const string SalesCategories_Files = "SalesCategories/Files";
 			public const string VendorDetails = "VendorDetails";
+			public const string VendorDetails_Files = "VendorDetails/Files";
 			public const string Categories = "Categories";
+			public const string Categories_Files = "Categories/Files";
 			public const string FileUrls = "FileUrls";
+			public const string FileUrls_Files = "FileUrls/Files";
 
-			public const string All = "Attributes,CrossReferences,SalesCategories,VendorDetails,Categories,FileUrls";
+			//Intentionally excluded
+			//public const string All = "Files,Attributes,CrossReferences,CrossReferences/Files,SalesCategories,SalesCategories/Files,VendorDetails,VendorDetails/Files,Categories,Categories/Files,FileUrls,FileUrls/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -247,22 +247,38 @@ namespace EndpointSchemaGenerator
             }
         }
 
-        private static List<string> CollectExpands(Schema schema, EntityDefinition entity)
+        private static List<string> CollectExpands(Schema schema, EntityDefinition entity, bool addFiles = true)
         {
             List<string> expandsAppend = new List<string>();
+            if(addFiles)
+            {
+                expandsAppend.Add("Files");
+            }
             foreach (var field in entity.Fields)
             {
                 if (!NonExpandableTypes.Types.Contains(field.Type))
                 {
                     expandsAppend.Add(field.Name);
-                    if (schema.Entities.ContainsKey(field.Type))
+                    bool isDetail = field.Type.StartsWith("List<");
+
+                    string fieldType = ExtractFieldType(field.Type);
+                    if (schema.Entities.ContainsKey(fieldType))
                     {
-                        expandsAppend.AddRange(CollectExpands(schema, schema.Entities[field.Type]).Select(_ => $"{field.Name}/{_}"));
+                        //we do not want to add files expand for linked entities as usually they don't have their own files
+                        //and Attributes do not have files either
+                        expandsAppend.AddRange(CollectExpands(schema, schema.Entities[fieldType], isDetail && fieldType != "AttributeValue" && field.Name!="Attributes").Select(_ => $"{field.Name}/{_}"));
                     }
                 }
             }
 
             return expandsAppend;
+        }
+
+        private static string ExtractFieldType(string type)
+        {
+            if (type.StartsWith("List<"))
+                return type.Substring(5).TrimEnd('>');
+            else return type;
         }
 
         private static void RegenerateDirectories(string outputPath, 

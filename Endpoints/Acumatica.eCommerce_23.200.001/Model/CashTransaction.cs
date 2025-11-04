@@ -76,9 +76,12 @@ namespace Acumatica.eCommerce_23_200_001.Model
 
 		public static class Expand
 		{
+			public const string Files = "Files";
 			public const string Details = "Details";
+			public const string Details_Files = "Details/Files";
 
-			public const string All = "Details";
+			//Intentionally excluded
+			//public const string All = "Files,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{
