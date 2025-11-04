@@ -6,7 +6,7 @@ namespace AcumaticaRestApiExample
 {
 	class Program
 	{
-		const string SiteURL = "https://localhost/25r100/";
+		const string SiteURL = "https://localhost/25r200/";
         const string Username = "admin";
 		const string Password = "123";
         const string Tenant = null;//"Company";

@@ -201,7 +201,7 @@ namespace AcumaticaRestApiExample
                 var shipments = client.GetList<Shipment>();
 
                 Console.WriteLine($"Found {shipments.Count} shipments");
-                var recentShipment = client.GetById<Shipment>(shipments.First().ID, expand: "Details");
+                var recentShipment = client.GetById<Shipment>(shipments.First().ID, expand: new List<string> { "Details"});
                 Console.WriteLine($"Found {recentShipment.Details.Count} shipment details in the Shipment {recentShipment.ShipmentNbr}");
             }
             catch (Exception e)
