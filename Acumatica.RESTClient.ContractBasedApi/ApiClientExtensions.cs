@@ -457,8 +457,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static EntityType Put<EntityType>(
             this ApiClient client, EntityType entity,
             string? endpointPath = null,
-            string? select = null, string? filter = null, IEnumerable<string>? expand = null, string? custom = null,
-            PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null)
+            string? select = null, string? filter = null, string? custom = null,
+            PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity
         {
             return Put(client, entity, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, method, businessDate, branch);
@@ -552,9 +553,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static async Task<EntityType> PutAsync<EntityType>(this ApiClient client,
             EntityType entity,
             string? endpointPath = null,
-            string? select = null, string? filter = null, IEnumerable<string>? expand = null, string? custom = null,
+            string? select = null, string? filter = null, string? custom = null,
             PutMethod method = PutMethod.Any, DateTime? businessDate = null, string? branch = null,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken = default,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity
         {
             return await PutAsync(client, entity, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, method, businessDate, branch, cancellationToken).ConfigureAwait(false);
@@ -616,8 +618,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static EntityType Patch<EntityType>(
             this ApiClient client, EntityType entity,
             string? endpointPath = null,
-            string? select = null, string? filter = null, IEnumerable<string>? expand = null, string? custom = null,
-            DateTime? businessDate = null, string? branch = null)
+            string? select = null, string? filter = null, string? custom = null,
+            DateTime? businessDate = null, string? branch = null,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity
         {
             return Patch(client, entity, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, businessDate, branch);
@@ -699,9 +702,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static async Task<EntityType> PatchAsync<EntityType>(this ApiClient client,
             EntityType entity,
             string? endpointPath = null,
-            string? select = null, string? filter = null, IEnumerable<string>? expand = null, string? custom = null,
+            string? select = null, string? filter = null, string? custom = null,
             DateTime? businessDate = null, string? branch = null,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken = default,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity
         {
             return await PatchAsync(client, entity, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, businessDate, branch, cancellationToken).ConfigureAwait(false);
@@ -867,7 +871,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static async Task<EntityType> GetByKeysAsync<EntityType>(
             this ApiClient client, string key,
             string? endpointPath = null,
-            string? select = null, IEnumerable<string>? expand = null, string? custom = null)
+            string? select = null, string? custom = null,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             return await GetByKeysAsync<EntityType>(client, key, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom).ConfigureAwait(false);
@@ -888,8 +893,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static async Task<EntityType> GetByKeysAsync<EntityType>(
                 this ApiClient client, IEnumerable<string> ids,
                 string? endpointPath = null,
-                string? select = null, IEnumerable<string>? expand = null, string? custom = null,
-                CancellationToken cancellationToken = default)
+                string? select = null, string? custom = null,
+                CancellationToken cancellationToken = default,
+                IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             return await GetByKeysAsync<EntityType>(client, ids, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom, cancellationToken).ConfigureAwait(false);
@@ -929,7 +935,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static EntityType GetByKeys<EntityType>(
             this ApiClient client, string key,
             string? endpointPath = null,
-            string? select = null, IEnumerable<string>? expand = null, string? custom = null)
+            string? select = null, string? custom = null,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             return GetByKeys<EntityType>(client, key, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom);
@@ -969,7 +976,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static EntityType GetByKeys<EntityType>(
             this ApiClient client, IEnumerable<string> ids,
             string? endpointPath = null,
-            string? select = null, IEnumerable<string>? expand = null, string? custom = null)
+            string? select = null, string? custom = null,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             return GetByKeys<EntityType>(client, ids, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom);
@@ -1013,7 +1021,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static async Task<EntityType> GetByIdAsync<EntityType>(
             this ApiClient client, EntityType entity,
             string? endpointPath = null,
-            string? select = null, IEnumerable<string>? expand = null, string? custom = null)
+            string? select = null, string? custom = null,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             return await GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom).ConfigureAwait(false);
@@ -1074,8 +1083,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 this ApiClient client, 
                 Guid? id,
                 string? endpointPath = null,
-                string? select = null, IEnumerable<string>? expand = null, string? custom = null,
-                CancellationToken cancellationToken = default)
+                string? select = null, string? custom = null,
+                CancellationToken cancellationToken = default,
+                IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             return await GetByIdAsync<EntityType>(client, id, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom, cancellationToken).ConfigureAwait(false);
@@ -1113,7 +1123,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <returns>Entity</returns>
         public static EntityType GetById<EntityType>(this ApiClient client, EntityType entity,
             string? endpointPath = null,
-            string? select = null, IEnumerable<string>? expand = null, string? custom = null)
+            string? select = null, string? custom = null,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             return GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom).GetAwaiter().GetResult();
@@ -1151,7 +1162,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
         /// <returns>Entity</returns>
         public static EntityType GetById<EntityType>(this ApiClient client, Guid? id,
             string? endpointPath = null,
-            string? select = null, IEnumerable<string>? expand = null, string? custom = null)
+            string? select = null, string? custom = null,
+            IEnumerable<string>? expand = default!)
             where EntityType : Entity, ITopLevelEntity, new()
         {
             return GetByIdAsync<EntityType>(client, id, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom).GetAwaiter().GetResult();
@@ -1218,9 +1230,10 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static async Task<List<EntityType>> GetListAsync<EntityType>(
                 this ApiClient client,
                 string? endpointPath = null,
-                string? select = null, string? filter = null, IEnumerable<string>? expand = null, string? custom = null,
-                int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null, 
-                CancellationToken cancellationToken = default)
+                string? select = null, string? filter = null, string? custom = null,
+                int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null,
+                CancellationToken cancellationToken = default,
+                IEnumerable<string>? expand = default!)
             where EntityType : ITopLevelEntity, new()
         {
             return await GetListAsync<EntityType>(client, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, skip, top, customHeaders, cancellationToken).ConfigureAwait(false);
@@ -1266,8 +1279,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
         public static List<EntityType> GetList<EntityType>(
             this ApiClient client,
             string? endpointPath = null,
-            string? select = null, string? filter = null, IEnumerable<string>? expand = null, string? custom = null,
-            int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null)
+            string? select = null, string? filter = null, string? custom = null,
+            int? skip = null, int? top = null, Dictionary<string, string>? customHeaders = null,
+            IEnumerable<string>? expand = default!)
             where EntityType : ITopLevelEntity, new()
         {
             return GetList<EntityType>(client, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, skip, top, customHeaders);
