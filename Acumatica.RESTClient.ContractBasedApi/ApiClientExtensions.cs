@@ -1287,6 +1287,53 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return GetList<EntityType>(client, endpointPath, select, filter, expand?.Any() == true ? string.Join(",", expand) : null, custom, skip, top, customHeaders);
         }
         #endregion
+        #region AsQueryable
+        /// <summary>
+        /// Returns an IQueryable for the entity type, allowing LINQ queries to be translated to REST API calls.
+        /// LINQ Where clauses will be automatically converted to OData $filter parameters.
+        /// </summary>
+        /// <typeparam name="EntityType">The entity type</typeparam>
+        /// <param name="client">The API client</param>
+        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
+        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
+        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
+        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
+        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
+        /// <param name="customHeaders">Custom headers to include in the request. (optional)</param>
+        /// <returns>IQueryable that can be used with LINQ</returns>
+        /// <example>
+        /// <code>
+        /// // Simple Where clause
+        /// var activeCustomers = client.AsQueryable&lt;Customer&gt;()
+        ///     .Where(c =&gt; c.Status == "Active")
+        ///     .ToList();
+        /// 
+        /// // Multiple conditions
+        /// var customers = client.AsQueryable&lt;Customer&gt;()
+        ///     .Where(c =&gt; c.Status == "Active" &amp;&amp; c.CustomerName.Contains("ABC"))
+        ///     .Take(10)
+        ///     .ToList();
+        /// 
+        /// // Async execution
+        /// var customers = await client.AsQueryable&lt;Customer&gt;()
+        ///     .Where(c =&gt; c.Status == "Active")
+        ///     .ToListAsync();
+        /// </code>
+        /// </example>
+        public static IQueryable<EntityType> AsQueryable<EntityType>(
+            this ApiClient client,
+            string? endpointPath = null,
+            string? select = null,
+            string? filter = null,
+            string? expand = null,
+            string? custom = null,
+            Dictionary<string, string>? customHeaders = null)
+            where EntityType : ITopLevelEntity, new()
+        {
+            var provider = new EntityQueryProvider(client, endpointPath, select, filter, expand, custom, customHeaders);
+            return new EntityQueryable<EntityType>(provider);
+        }
+        #endregion
         #region GetSchema
 
         public static string GetSwagger(this ApiClient client, string endpointPath)
