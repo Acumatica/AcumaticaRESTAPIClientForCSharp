@@ -16,82 +16,82 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The date on which the transaction was billed.
-		/// DAC Field Name: BilledDate 
-		/// DAC: PX.Objects.PM.PMTran 
-		/// Display Name: Billed Date 
+		/// <para>DAC Field Name: BilledDate</para>
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
+		/// <para>Display Name: Billed Date</para>
 		/// </summary>
 		[DataMember(Name="BillingDate", EmitDefaultValue=false)]
 		public DateTimeValue? BillingDate { get; set; }
 
 		/// <summary>
 		/// The identifier of the Branch to which the transaction belongs.
-		/// DAC Field Name: BranchID 
-		/// DAC: PX.Objects.PM.PMTran 
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
 		/// </summary>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CRCase__CaseCD 
-		/// DAC: PX.Objects.PM.PMTran 
+		/// <para>DAC Field Name: CRCase__CaseCD</para>
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
 		/// </summary>
 		[DataMember(Name="CaseID", EmitDefaultValue=false)]
 		public StringValue? CaseID { get; set; }
 
 		/// <summary>
 		/// The date of the transaction, which is specified by the user.
-		/// DAC: PX.Objects.PM.PMTran 
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
 		/// </summary>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
 		/// The description provided for the transaction.
-		/// DAC: PX.Objects.PM.PMTran 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The transaction end date.
-		/// DAC: PX.Objects.PM.PMTran 
-		/// Display Name: End Date 
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
+		/// <para>Display Name: End Date</para>
 		/// </summary>
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
 		/// <summary>
 		/// The identifier of the stock or non-stock item associated with the transaction.
-		/// DAC: PX.Objects.PM.PMTran 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// The quantity that is used for billing the customer.
-		/// DAC Field Name: BillableQty 
-		/// DAC: PX.Objects.PM.PMTran 
-		/// Display Name: Billable Quantity 
+		/// <para>DAC Field Name: BillableQty</para>
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
+		/// <para>Display Name: Billable Quantity</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
 		/// The reference number of the accounts receivable document associated with the transaction.
-		/// DAC Field Name: ARRefNbr 
-		/// DAC: PX.Objects.PM.PMTran 
-		/// Display Name: AR Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: ARRefNbr</para>
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
+		/// <para>Display Name: AR Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
 		/// The transaction start date.
-		/// DAC: PX.Objects.PM.PMTran 
-		/// Display Name: Start Date 
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
@@ -101,17 +101,17 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The type of the accounts receivable document associated with the transaction.
-		/// DAC Field Name: ARTranType 
-		/// DAC: PX.Objects.PM.PMTran 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: ARTranType</para>
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// The unit of measure used to estimate the quantity for the transaction.
-		/// DAC: PX.Objects.PM.PMTran 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.PM.PMTran</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }

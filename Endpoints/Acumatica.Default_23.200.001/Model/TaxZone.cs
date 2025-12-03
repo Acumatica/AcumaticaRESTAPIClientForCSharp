@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen TX206000 in the Acumatica ERP
+	/// Corresponds to the screen <c>TX206000</c> in the Acumatica ERP
+	/// <para>Key Fields: TaxZoneID</para>
 	/// </summary>
 	[DataContract]
 	public class TaxZone : Entity, ITopLevelEntity
@@ -25,9 +26,9 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The description of the tax zone, which can be specified by the user.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.TX.TaxZone 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.TX.TaxZone</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -37,9 +38,9 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// A key field, which can be specified by the user.
-		/// DAC: PX.Objects.TX.TaxZone 
-		/// Display Name: Tax Zone ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.TX.TaxZone</para>
+		/// <para>Display Name: Tax Zone ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxZoneID", EmitDefaultValue=false)]

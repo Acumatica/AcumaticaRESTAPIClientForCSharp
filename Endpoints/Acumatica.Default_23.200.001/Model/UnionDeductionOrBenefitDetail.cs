@@ -16,88 +16,88 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The contribution amount to be used if the calculation method is set to either FixedAmount or AmountPerHour.
-		/// DAC Field Name: BenefitAmount 
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
-		/// Display Name: Contribution Amount 
+		/// <para>DAC Field Name: BenefitAmount</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// <para>Display Name: Contribution Amount</para>
 		/// </summary>
 		[DataMember(Name="ContributionAmount", EmitDefaultValue=false)]
 		public DecimalValue? ContributionAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PRDeductCode__CntCalcType 
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
+		/// <para>DAC Field Name: PRDeductCode__CntCalcType</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
 		/// </summary>
 		[DataMember(Name="ContributionCalculationMethod", EmitDefaultValue=false)]
 		public StringValue? ContributionCalculationMethod { get; set; }
 
 		/// <summary>
 		/// The contribution percentage to be used if the calculation method is set to either PercentOfGross or PercentOfNet.
-		/// DAC Field Name: BenefitRate 
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
-		/// Display Name: Contribution Percent 
+		/// <para>DAC Field Name: BenefitRate</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// <para>Display Name: Contribution Percent</para>
 		/// </summary>
 		[DataMember(Name="ContributionPercent", EmitDefaultValue=false)]
 		public DecimalValue? ContributionPercent { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PRDeductCode__ContribType 
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
+		/// <para>DAC Field Name: PRDeductCode__ContribType</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
 		/// </summary>
 		[DataMember(Name="ContributionType", EmitDefaultValue=false)]
 		public StringValue? ContributionType { get; set; }
 
 		/// <summary>
 		/// The deduction amount to be used if the calculation method is set to either FixedAmount or AmountPerHour.
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
-		/// Display Name: Deduction Amount 
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// <para>Display Name: Deduction Amount</para>
 		/// </summary>
 		[DataMember(Name="DeductionAmount", EmitDefaultValue=false)]
 		public DecimalValue? DeductionAmount { get; set; }
 
 		/// <summary>
 		/// The unique identifier of the deduction or benefit code.The field is included in DeductionCode.
-		/// DAC Field Name: DeductionAndBenefitCodeID 
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
-		/// Display Name: Deduction and Benefit Code 
+		/// <para>DAC Field Name: DeductionAndBenefitCodeID</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// <para>Display Name: Deduction and Benefit Code</para>
 		/// </summary>
 		[DataMember(Name="DeductionAndBenefitCode", EmitDefaultValue=false)]
 		public StringValue? DeductionAndBenefitCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PRDeductCode__DedCalcType 
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
+		/// <para>DAC Field Name: PRDeductCode__DedCalcType</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
 		/// </summary>
 		[DataMember(Name="DeductionCalculationMethod", EmitDefaultValue=false)]
 		public StringValue? DeductionCalculationMethod { get; set; }
 
 		/// <summary>
 		/// The deduction percentage to be used if the calculation method is set to either PercentOfGross or PercentOfNet.
-		/// DAC Field Name: DeductionRate 
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
-		/// Display Name: Deduction Percent 
+		/// <para>DAC Field Name: DeductionRate</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// <para>Display Name: Deduction Percent</para>
 		/// </summary>
 		[DataMember(Name="DeductionPercent", EmitDefaultValue=false)]
 		public DecimalValue? DeductionPercent { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PRDeductCode__Description 
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
+		/// <para>DAC Field Name: PRDeductCode__Description</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PM.PMLaborCostRate 
-		/// Display Name: Effective Date 
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>Display Name: Effective Date</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
 		/// A labor item associated with the union pay rate.The field is included in LaborItem.
-		/// DAC Field Name: LaborItemID 
-		/// DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage 
-		/// Display Name: Labor Item 
+		/// <para>DAC Field Name: LaborItemID</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// <para>Display Name: Labor Item</para>
 		/// </summary>
 		[DataMember(Name="LaborItem", EmitDefaultValue=false)]
 		public StringValue? LaborItem { get; set; }

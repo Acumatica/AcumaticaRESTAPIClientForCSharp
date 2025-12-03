@@ -15,88 +15,88 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: AnnualSalary 
-		/// DAC: PX.Objects.PM.PMLaborCostRate 
-		/// Display Name: Annual Rate 
+		/// <para>DAC Field Name: AnnualSalary</para>
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>Display Name: Annual Rate</para>
 		/// </summary>
 		[DataMember(Name="AnnualRate", EmitDefaultValue=false)]
 		public DecimalValue? AnnualRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.PM.PMLaborCostRate 
-		/// Display Name: Currency 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PM.PMLaborCostRate 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
 		public StringValue? EmployeeID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EmployeeID_description 
-		/// DAC: PX.Objects.PM.PMLaborCostRate 
+		/// <para>DAC Field Name: EmployeeID_description</para>
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
 		/// </summary>
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExtRefNbr 
-		/// DAC: PX.Objects.PM.PMLaborCostRate 
-		/// Display Name: External Ref. Nbr 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: ExtRefNbr</para>
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>Display Name: External Ref. Nbr</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExternalRefNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Rate 
-		/// DAC: PX.Objects.PM.PMLaborCostRate 
-		/// Display Name: Cost Rate 
+		/// <para>DAC Field Name: Rate</para>
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>Display Name: Cost Rate</para>
 		/// </summary>
 		[DataMember(Name="HourlyRate", EmitDefaultValue=false)]
 		public DecimalValue? HourlyRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InventoryID 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: InventoryID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="LaborItem", EmitDefaultValue=false)]
 		public StringValue? LaborItem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Type 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: Type</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="LaborRateType", EmitDefaultValue=false)]
 		public StringValue? LaborRateType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaskID 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
@@ -105,25 +105,25 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? RecordID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RegularHours 
-		/// DAC: PX.Objects.PM.PMLaborCostRate 
-		/// Display Name: Regular Hours per week 
+		/// <para>DAC Field Name: RegularHours</para>
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>Display Name: Regular Hours per week</para>
 		/// </summary>
 		[DataMember(Name="RegularHoursPerWeek", EmitDefaultValue=false)]
 		public DecimalValue? RegularHoursPerWeek { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EmploymentType 
-		/// DAC: PX.Objects.PM.PMLaborCostRate 
-		/// Display Name: Type of Employment 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: EmploymentType</para>
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>Display Name: Type of Employment</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="TypeOfEmployment", EmitDefaultValue=false)]
 		public StringValue? TypeOfEmployment { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UnionID 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: UnionID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="UnionLocalID", EmitDefaultValue=false)]
 		public StringValue? UnionLocalID { get; set; }

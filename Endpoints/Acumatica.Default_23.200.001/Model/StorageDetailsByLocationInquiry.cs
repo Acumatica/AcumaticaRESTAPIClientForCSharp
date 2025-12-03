@@ -11,15 +11,15 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN408055 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN408055</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class StorageDetailsByLocationInquiry : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: SplitLocations 
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC Field Name: SplitLocations</para>
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="SplitByLocation", EmitDefaultValue=false)]
 		public BooleanValue? SplitByLocation { get; set; }
@@ -28,8 +28,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<StorageDetailByLocation>? StorageDetailsByLocation { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Warehouse 
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC Field Name: Warehouse</para>
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }

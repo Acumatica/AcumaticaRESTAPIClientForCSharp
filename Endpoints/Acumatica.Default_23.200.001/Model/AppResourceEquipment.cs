@@ -15,43 +15,43 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.FS.FSAppointment 
-		/// Display Name: Appointment Nbr. 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Appointment Nbr.</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="AppointmentNbr", EmitDefaultValue=false)]
 		public StringValue? AppointmentNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSAppointmentDet 
-		/// Display Name: Equipment Action Comment 
-		/// SQL Type: varchar(255) 
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Equipment Action Comment</para>
+		/// <para>SQL Type: varchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Comment", EmitDefaultValue=false)]
 		public StringValue? Comment { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FSEquipment__Descr 
-		/// DAC: PX.Objects.FS.FSAppointmentResource 
+		/// <para>DAC Field Name: FSEquipment__Descr</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentResource</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SMEquipmentID 
-		/// DAC: PX.Objects.FS.FSAppointmentDet 
-		/// Display Name: Target Equipment ID 
+		/// <para>DAC Field Name: SMEquipmentID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Target Equipment ID</para>
 		/// </summary>
 		[DataMember(Name="EquipmentID", EmitDefaultValue=false)]
 		public StringValue? EquipmentID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SrvOrdType 
-		/// DAC: PX.Objects.FS.FSAppointment 
-		/// Display Name: Service Order Type 
-		/// SQL Type: char(4) 
+		/// <para>DAC Field Name: SrvOrdType</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Service Order Type</para>
+		/// <para>SQL Type: char(4)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]

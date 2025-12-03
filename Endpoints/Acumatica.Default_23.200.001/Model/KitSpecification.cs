@@ -11,37 +11,38 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN209500 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN209500</c> in the Acumatica ERP
+	/// <para>Key Fields: KitInventoryID, RevisionID</para>
 	/// </summary>
 	[DataContract]
 	public class KitSpecification : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.IN.INKitSpecHdr 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.IN.INKitSpecHdr 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitSpecHdr 
-		/// Display Name: Non-Stock 
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// <para>Display Name: Non-Stock</para>
 		/// </summary>
 		[DataMember(Name="IsNonStock", EmitDefaultValue=false)]
 		public BooleanValue? IsNonStock { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitSpecHdr 
-		/// Display Name: Kit Inventory ID 
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// <para>Display Name: Kit Inventory ID</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="KitInventoryID", EmitDefaultValue=false)]
@@ -54,9 +55,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<KitNonStockComponent>? NonStockComponents { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitSpecHdr 
-		/// Display Name: Revision 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// <para>Display Name: Revision</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="RevisionID", EmitDefaultValue=false)]

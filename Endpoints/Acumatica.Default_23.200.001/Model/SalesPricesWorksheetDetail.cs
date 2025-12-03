@@ -15,33 +15,33 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPriceWorksheetDetail 
-		/// Display Name: Break Qty 
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheetDetail</para>
+		/// <para>Display Name: Break Qty</para>
 		/// </summary>
 		[DataMember(Name="BreakQty", EmitDefaultValue=false)]
 		public DecimalValue? BreakQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.AR.ARPriceWorksheetDetail 
-		/// Display Name: Currency 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheetDetail</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InventoryCD 
-		/// DAC: PX.Objects.AR.ARAddItemSelected 
-		/// Display Name: Inventory ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: InventoryCD</para>
+		/// <para>DAC: PX.Objects.AR.ARAddItemSelected</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPriceWorksheetDetail 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheetDetail</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -50,57 +50,57 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? LineID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPriceWorksheetDetail 
-		/// Display Name: Pending Price 
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheetDetail</para>
+		/// <para>Display Name: Pending Price</para>
 		/// </summary>
 		[DataMember(Name="PendingPrice", EmitDefaultValue=false)]
 		public DecimalValue? PendingPrice { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPriceWorksheetDetail 
-		/// Display Name: Price Code 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheetDetail</para>
+		/// <para>Display Name: Price Code</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="PriceCode", EmitDefaultValue=false)]
 		public StringValue? PriceCode { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPriceWorksheetDetail 
-		/// Display Name: Price Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheetDetail</para>
+		/// <para>Display Name: Price Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="PriceType", EmitDefaultValue=false)]
 		public StringValue? PriceType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.AR.ARPriceWorksheet 
-		/// Display Name: Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CurrentPrice 
-		/// DAC: PX.Objects.AR.ARPriceWorksheetDetail 
-		/// Display Name: Source Price 
+		/// <para>DAC Field Name: CurrentPrice</para>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheetDetail</para>
+		/// <para>Display Name: Source Price</para>
 		/// </summary>
 		[DataMember(Name="SourcePrice", EmitDefaultValue=false)]
 		public DecimalValue? SourcePrice { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxID 
-		/// DAC: PX.Objects.AR.ARPriceWorksheetDetail 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: TaxID</para>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheetDetail</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Tax", EmitDefaultValue=false)]
 		public StringValue? Tax { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPriceWorksheetDetail 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheetDetail</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }

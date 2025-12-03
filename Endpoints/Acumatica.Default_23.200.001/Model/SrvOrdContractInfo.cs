@@ -15,17 +15,17 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: BillContractPeriodID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Contract Period 
+		/// <para>DAC Field Name: BillContractPeriodID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Contract Period</para>
 		/// </summary>
 		[DataMember(Name="ContractPeriod", EmitDefaultValue=false)]
 		public StringValue? ContractPeriod { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BillServiceContractID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Service Contract 
+		/// <para>DAC Field Name: BillServiceContractID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Service Contract</para>
 		/// </summary>
 		[DataMember(Name="ServiceContract", EmitDefaultValue=false)]
 		public StringValue? ServiceContract { get; set; }

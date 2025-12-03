@@ -11,29 +11,29 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN401000 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN401000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class InventorySummaryInquiry : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
-		/// Display Name: Expand by Lot/Serial Numbers 
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
+		/// <para>Display Name: Expand by Lot/Serial Numbers</para>
 		/// </summary>
 		[DataMember(Name="ExpandByLotSerialNbr", EmitDefaultValue=false)]
 		public BooleanValue? ExpandByLotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
-		/// Display Name: Location 
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
+		/// <para>Display Name: Location</para>
 		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
@@ -42,17 +42,17 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<InventorySummaryRow>? Results { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemCD 
-		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: SubItemCD</para>
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.IN.InventorySummaryEnqFilter 
-		/// Display Name: Warehouse 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
+		/// <para>Display Name: Warehouse</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }

@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AR202010 in the Acumatica ERP
+	/// Corresponds to the screen <c>AR202010</c> in the Acumatica ERP
+	/// <para>Key Fields: ReferenceNbr</para>
 	/// </summary>
 	[DataContract]
 	public class SalesPriceWorksheet : Entity, ITopLevelEntity
@@ -21,23 +22,23 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AR.ARPriceWorksheet 
-		/// SQL Type: nvarchar(150) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>SQL Type: nvarchar(150)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPriceWorksheet 
-		/// Display Name: Effective Date 
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>Display Name: Effective Date</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPriceWorksheet 
-		/// Display Name: Expiration Date 
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
@@ -49,18 +50,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OverwriteOverlapping 
-		/// DAC: PX.Objects.AR.ARPriceWorksheet 
-		/// Display Name: Overwrite Overlapping Prices 
+		/// <para>DAC Field Name: OverwriteOverlapping</para>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>Display Name: Overwrite Overlapping Prices</para>
 		/// </summary>
 		[DataMember(Name="OverwriteOverlappingPrices", EmitDefaultValue=false)]
 		public BooleanValue? OverwriteOverlappingPrices { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.AR.ARPriceWorksheet 
-		/// Display Name: Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
@@ -70,8 +71,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<SalesPricesWorksheetDetail>? SalesPrices { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPriceWorksheet 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

@@ -11,23 +11,24 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AR209500 in the Acumatica ERP
+	/// Corresponds to the screen <c>AR209500</c> in the Acumatica ERP
+	/// <para>Key Fields: DiscountCode, Sequence</para>
 	/// </summary>
 	[DataContract]
 	public class Discount : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.DiscountSequence 
-		/// Display Name: Break By 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>Display Name: Break By</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="BreakBy", EmitDefaultValue=false)]
 		public StringValue? BreakBy { get; set; }
@@ -42,8 +43,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<DiscountCustomerDetail>? Customers { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.DiscountSequence 
-		/// SQL Type: nvarchar(250) 
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>SQL Type: nvarchar(250)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -52,36 +53,36 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<DiscountBreakpointDetail>? DiscountBreakpoints { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DiscountedFor 
-		/// DAC: PX.Objects.AR.DiscountSequence 
-		/// Display Name: Discount By 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: DiscountedFor</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>Display Name: Discount By</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="DiscountBy", EmitDefaultValue=false)]
 		public StringValue? DiscountBy { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DiscountID 
-		/// DAC: PX.Objects.AR.DiscountSequence 
-		/// Display Name: Discount Code 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: DiscountID</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>Display Name: Discount Code</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StartDate 
-		/// DAC: PX.Objects.AR.DiscountSequence 
-		/// Display Name: Effective Date 
+		/// <para>DAC Field Name: StartDate</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>Display Name: Effective Date</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EndDate 
-		/// DAC: PX.Objects.AR.DiscountSequence 
-		/// Display Name: Expiration Date 
+		/// <para>DAC Field Name: EndDate</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
@@ -96,31 +97,31 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsPromotion 
-		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// <para>DAC Field Name: IsPromotion</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// </summary>
 		[DataMember(Name="Promotional", EmitDefaultValue=false)]
 		public BooleanValue? Promotional { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Prorate 
-		/// DAC: PX.Objects.AR.DiscountSequence 
-		/// Display Name: Prorate Discount 
+		/// <para>DAC Field Name: Prorate</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>Display Name: Prorate Discount</para>
 		/// </summary>
 		[DataMember(Name="ProrateDiscount", EmitDefaultValue=false)]
 		public BooleanValue? ProrateDiscount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DiscountSequenceID 
-		/// DAC: PX.Objects.AR.DiscountSequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: DiscountSequenceID</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Sequence", EmitDefaultValue=false)]
 		public StringValue? Sequence { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.DiscountSequence 
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// </summary>
 		[DataMember(Name="ShowFreeItem", EmitDefaultValue=false)]
 		public BooleanValue? ShowFreeItem { get; set; }

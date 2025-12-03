@@ -16,20 +16,20 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The identifier of the Currency,which is applied to the documents of the business account.
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.CR.BAccount 
-		/// Display Name: Currency ID 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
+		/// <para>Display Name: Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
 		/// The reference number of the original customer document that the sales order is based on.
-		/// DAC Field Name: CustomerOrderNbr 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Customer Order Nbr. 
-		/// SQL Type: nvarchar(40) 
+		/// <para>DAC Field Name: CustomerOrderNbr</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Customer Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
 		/// <remarks>
 		/// A reference number must be specified if theRequire Customer Order Nbr field istrue for the order type.This field is available for orders of the TR type.
@@ -39,18 +39,18 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// A brief description of the document.
-		/// DAC Field Name: OrderDesc 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: OrderDesc</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The summarized quantity of all items that have been added to the child order from the blanket sales order.
-		/// DAC Field Name: OrderQty 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Ordered Qty. 
+		/// <para>DAC Field Name: OrderQty</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Ordered Qty.</para>
 		/// </summary>
 		/// <remarks>
 		/// If any items that are not from the current blanket sales order have been added to the child order,their quantity is not summed up to the value in this field.
@@ -60,9 +60,9 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The unique reference number of the order.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		/// <remarks>
@@ -73,18 +73,18 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The total amount of the document (in the currency of the document).
-		/// DAC Field Name: CuryOrderTotal 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Total 
+		/// <para>DAC Field Name: CuryOrderTotal</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Total</para>
 		/// </summary>
 		[DataMember(Name="OrderTotal", EmitDefaultValue=false)]
 		public DecimalValue? OrderTotal { get; set; }
 
 		/// <summary>
 		/// The type of the document, which is a part of the identifier of the order.The identifier of the order type.The field is included in the OrderType foreign key.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		/// <remarks>
@@ -95,25 +95,25 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The total volume of goods according to the document.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Volume 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Volume</para>
 		/// </summary>
 		[DataMember(Name="OrderVolume", EmitDefaultValue=false)]
 		public DecimalValue? OrderVolume { get; set; }
 
 		/// <summary>
 		/// The total weight of the goods according to the document.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Weight 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Weight</para>
 		/// </summary>
 		[DataMember(Name="OrderWeight", EmitDefaultValue=false)]
 		public DecimalValue? OrderWeight { get; set; }
 
 		/// <summary>
 		/// The date when the customer wants to receive the goods.
-		/// DAC Field Name: RequestDate 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Requested On 
+		/// <para>DAC Field Name: RequestDate</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Requested On</para>
 		/// </summary>
 		/// <remarks>
 		/// This date provides the default values for the requestDate dates for order lines.
@@ -123,9 +123,9 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The date when the ordered goods are scheduled to be shipped.
-		/// DAC Field Name: ShipDate 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Sched. Shipment 
+		/// <para>DAC Field Name: ShipDate</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Sched. Shipment</para>
 		/// </summary>
 		/// <remarks>
 		/// By default, it is the date that is specified in requestDate minus the number of lead days,but it is not earlier than the current business date.
@@ -135,19 +135,19 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The identifier of the shipping zone of the customer to be used tocalculate freight.The field is included in the ShippingZone foreign key.
-		/// DAC Field Name: ShipZoneID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Shipping Zone 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: ShipZoneID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Shipping Zone</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ShippingZone", EmitDefaultValue=false)]
 		public StringValue? ShippingZone { get; set; }
 
 		/// <summary>
 		/// The identifier of the ship via code that represents the carrier andits service to be used for shipping the ordered goods.The field is included in the Carrier foreign key.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Ship Via 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Ship Via</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		/// <remarks>
 		/// For this ship via code, if Manual is specified as the freight calculation method, the freight amount mustbe specified in the Freight Price field.Changing the Ship Via code for an open sales order may update thecustomer tax zone field.
@@ -156,9 +156,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ShipVia { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.BAccount 
-		/// Display Name: Customer Status 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
+		/// <para>Display Name: Customer Status</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

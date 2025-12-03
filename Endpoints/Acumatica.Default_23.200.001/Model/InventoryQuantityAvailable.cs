@@ -11,15 +11,15 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GI640590 in the Acumatica ERP
+	/// Corresponds to the screen <c>GI640590</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class InventoryQuantityAvailable : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: InventoryItem 
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC Field Name: InventoryItem</para>
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -28,7 +28,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<InventoryQuantityAvailableDetail>? Results { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }

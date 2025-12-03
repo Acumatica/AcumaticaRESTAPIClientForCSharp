@@ -11,16 +11,17 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AR209000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AR209000</c> in the Acumatica ERP
+	/// <para>Key Fields: DiscountCodeID</para>
 	/// </summary>
 	[DataContract]
 	public class DiscountCode : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARDiscount 
-		/// Display Name: Applicable To 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
+		/// <para>Display Name: Applicable To</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="ApplicableTo", EmitDefaultValue=false)]
 		public StringValue? ApplicableTo { get; set; }
@@ -29,27 +30,27 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARDiscount 
-		/// SQL Type: nvarchar(250) 
+		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
+		/// <para>SQL Type: nvarchar(250)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DiscountID 
-		/// DAC: PX.Objects.AR.ARDiscount 
-		/// Display Name: Discount Code 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: DiscountID</para>
+		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
+		/// <para>Display Name: Discount Code</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="DiscountCodeID", EmitDefaultValue=false)]
 		public StringValue? DiscountCodeID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Type 
-		/// DAC: PX.Objects.AR.ARDiscount 
-		/// Display Name: Discount Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: Type</para>
+		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
+		/// <para>Display Name: Discount Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="DiscountType", EmitDefaultValue=false)]
 		public StringValue? DiscountType { get; set; }

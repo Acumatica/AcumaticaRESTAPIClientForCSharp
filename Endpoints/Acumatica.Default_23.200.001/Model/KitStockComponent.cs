@@ -15,55 +15,55 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: AllowQtyVariation 
-		/// DAC: PX.Objects.IN.INKitSpecStkDet 
-		/// Display Name: Allow Component Qty. Variance 
+		/// <para>DAC Field Name: AllowQtyVariation</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecStkDet</para>
+		/// <para>Display Name: Allow Component Qty. Variance</para>
 		/// </summary>
 		[DataMember(Name="AllowComponentQtyVariance", EmitDefaultValue=false)]
 		public BooleanValue? AllowComponentQtyVariance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DfltCompQty 
-		/// DAC: PX.Objects.IN.INKitSpecStkDet 
-		/// Display Name: Component Qty. 
+		/// <para>DAC Field Name: DfltCompQty</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecStkDet</para>
+		/// <para>Display Name: Component Qty.</para>
 		/// </summary>
 		[DataMember(Name="ComponentQty", EmitDefaultValue=false)]
 		public DecimalValue? ComponentQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MaxCompQty 
-		/// DAC: PX.Objects.IN.INKitSpecStkDet 
-		/// Display Name: Max. Component Qty. 
+		/// <para>DAC Field Name: MaxCompQty</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecStkDet</para>
+		/// <para>Display Name: Max. Component Qty.</para>
 		/// </summary>
 		[DataMember(Name="MaxComponentQty", EmitDefaultValue=false)]
 		public DecimalValue? MaxComponentQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MinCompQty 
-		/// DAC: PX.Objects.IN.INKitSpecStkDet 
-		/// Display Name: Min. Component Qty. 
+		/// <para>DAC Field Name: MinCompQty</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecStkDet</para>
+		/// <para>Display Name: Min. Component Qty.</para>
 		/// </summary>
 		[DataMember(Name="MinComponentQty", EmitDefaultValue=false)]
 		public DecimalValue? MinComponentQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CompInventoryID 
-		/// DAC: PX.Objects.IN.INKitSpecStkDet 
-		/// Display Name: Component ID 
+		/// <para>DAC Field Name: CompInventoryID</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecStkDet</para>
+		/// <para>Display Name: Component ID</para>
 		/// </summary>
 		[DataMember(Name="StockInventoryID", EmitDefaultValue=false)]
 		public StringValue? StockInventoryID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CompSubItemID 
-		/// DAC: PX.Objects.IN.INKitSpecStkDet 
+		/// <para>DAC Field Name: CompSubItemID</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecStkDet</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitSpecStkDet 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.IN.INKitSpecStkDet</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }

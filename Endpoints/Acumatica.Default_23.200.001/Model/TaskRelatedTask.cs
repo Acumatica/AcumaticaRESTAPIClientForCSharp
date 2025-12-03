@@ -16,9 +16,9 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The date and time when activity was completed(UIStatus was set to Completed).
-		/// DAC Field Name: CompletedDate 
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// Display Name: Completed On 
+		/// <para>DAC Field Name: CompletedDate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Completed On</para>
 		/// </summary>
 		[DataMember(Name="CompletedAt", EmitDefaultValue=false)]
 		public DateTimeValue? CompletedAt { get; set; }
@@ -31,26 +31,26 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The start date and time of the event.
-		/// DAC: PX.Objects.CR.CRChildActivity 
-		/// Display Name: Start Date 
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
 		/// The status of the activity.
-		/// DAC Field Name: UIStatus 
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// SQL Type: char(2) 
+		/// <para>DAC Field Name: UIStatus</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// The summary description of the activity.
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// Display Name: Summary 
-		/// SQL Type: nvarchar(998) 
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Summary</para>
+		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }

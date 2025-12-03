@@ -15,31 +15,31 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: AttributeID 
-		/// DAC: PX.Objects.CS.CSAnswers 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: AttributeID</para>
+		/// <para>DAC: PX.Objects.CS.CSAnswers</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Attribute", EmitDefaultValue=false)]
 		public StringValue? Attribute { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODetSplit 
-		/// Display Name: Related Document 
+		/// <para>DAC: PX.Objects.FS.FSSODetSplit</para>
+		/// <para>Display Name: Related Document</para>
 		/// </summary>
 		[DataMember(Name="RefNoteID", EmitDefaultValue=false)]
 		public GuidValue? RefNoteID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: isRequired 
-		/// DAC: PX.Objects.CS.CSAnswers 
+		/// <para>DAC Field Name: isRequired</para>
+		/// <para>DAC: PX.Objects.CS.CSAnswers</para>
 		/// </summary>
 		[DataMember(Name="Required", EmitDefaultValue=false)]
 		public BooleanValue? Required { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAnswers 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.CS.CSAnswers</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }

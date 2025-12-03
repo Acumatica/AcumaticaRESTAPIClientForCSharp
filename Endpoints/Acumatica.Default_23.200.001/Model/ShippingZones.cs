@@ -11,23 +11,24 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CS207510 in the Acumatica ERP
+	/// Corresponds to the screen <c>CS207510</c> in the Acumatica ERP
+	/// <para>Key Fields: ZoneID</para>
 	/// </summary>
 	[DataContract]
 	public class ShippingZones : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.ShippingZone 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.CS.ShippingZone</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.ShippingZone 
-		/// Display Name: Zone ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.CS.ShippingZone</para>
+		/// <para>Display Name: Zone ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ZoneID", EmitDefaultValue=false)]

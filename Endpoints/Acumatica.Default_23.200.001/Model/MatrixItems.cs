@@ -16,32 +16,32 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The price used as the default price, if there are no other prices defined for this item in any price list in the Accounts Receivable module.
-		/// DAC Field Name: BasePrice 
-		/// DAC: PX.Objects.IN.InventoryItemCurySettings 
-		/// Display Name: Default Price 
+		/// <para>DAC Field Name: BasePrice</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
+		/// <para>Display Name: Default Price</para>
 		/// </summary>
 		[DataMember(Name="DefaultPrice", EmitDefaultValue=false)]
 		public DecimalValue? DefaultPrice { get; set; }
 
 		/// <summary>
 		/// The description of the Inventory Item.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.IN.InventoryItem 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.Matrix.GraphExtensions.ItemsGridExt+MatrixInventoryItem 
+		/// <para>DAC: PX.Objects.IN.Matrix.GraphExtensions.ItemsGridExt+MatrixInventoryItem</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// The manufacturer's suggested retail price of the item.
-		/// DAC Field Name: RecPrice 
-		/// DAC: PX.Objects.IN.InventoryItemCurySettings 
+		/// <para>DAC Field Name: RecPrice</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// </summary>
 		[DataMember(Name="MSRP", EmitDefaultValue=false)]
 		public DecimalValue? MSRP { get; set; }

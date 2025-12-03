@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen FS300100 in the Acumatica ERP
+	/// Corresponds to the screen <c>FS300100</c> in the Acumatica ERP
+	/// <para>Key Fields: ServiceOrderNbr, ServiceOrderType</para>
 	/// </summary>
 	[DataContract]
 	public class ServiceOrder : Entity, ITopLevelEntity
@@ -21,9 +22,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public SrvOrdAddress? Address { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ApptDurationTotal 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Appointment Duration 
+		/// <para>DAC Field Name: ApptDurationTotal</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Appointment Duration</para>
 		/// </summary>
 		[DataMember(Name="AppointmentDuration", EmitDefaultValue=false)]
 		public StringValue? AppointmentDuration { get; set; }
@@ -32,8 +33,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<SrvOrdAppointments>? Appointments { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Appointments Needed 
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Appointments Needed</para>
 		/// </summary>
 		[DataMember(Name="AppointmentsNeeded", EmitDefaultValue=false)]
 		public BooleanValue? AppointmentsNeeded { get; set; }
@@ -42,17 +43,17 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<SrvOrdAttributes>? Attributes { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryEffectiveBillableDocTotal 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Invoice Total 
+		/// <para>DAC Field Name: CuryEffectiveBillableDocTotal</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Invoice Total</para>
 		/// </summary>
 		[DataMember(Name="BillableTotal", EmitDefaultValue=false)]
 		public DecimalValue? BillableTotal { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BranchLocationID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Branch Location 
+		/// <para>DAC Field Name: BranchLocationID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Branch Location</para>
 		/// </summary>
 		[DataMember(Name="BranchLocation", EmitDefaultValue=false)]
 		public StringValue? BranchLocation { get; set; }
@@ -64,40 +65,40 @@ namespace Acumatica.Default_23_200_001.Model
 		public SrvOrdContractInfo? ContractInfo { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="Currency", EmitDefaultValue=false)]
 		public StringValue? Currency { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CustomerID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
+		/// <para>DAC Field Name: CustomerID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// </summary>
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CustPORefNbr 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Customer Order 
-		/// SQL Type: nvarchar(40) 
+		/// <para>DAC Field Name: CustPORefNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Customer Order</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
 		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
 		public StringValue? CustomerOrder { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OrderDate 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
+		/// <para>DAC Field Name: OrderDate</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// </summary>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DfltProjectTaskID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Default Project Task 
+		/// <para>DAC Field Name: DfltProjectTaskID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Default Project Task</para>
 		/// </summary>
 		[DataMember(Name="DefaultProjectTask", EmitDefaultValue=false)]
 		public StringValue? DefaultProjectTask { get; set; }
@@ -106,9 +107,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<SrvOrdDefaultStaff>? DefaultStaff { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DocDesc 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -117,18 +118,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<SrvOrdDetails>? Details { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EstimatedDurationTotal 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Estimated Duration 
+		/// <para>DAC Field Name: EstimatedDurationTotal</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Estimated Duration</para>
 		/// </summary>
 		[DataMember(Name="EstimatedDuration", EmitDefaultValue=false)]
 		public StringValue? EstimatedDuration { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CustWorkOrderRefNbr 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: External Reference 
-		/// SQL Type: nvarchar(40) 
+		/// <para>DAC Field Name: CustWorkOrderRefNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: External Reference</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
 		[DataMember(Name="ExternalReference", EmitDefaultValue=false)]
 		public StringValue? ExternalReference { get; set; }
@@ -143,8 +144,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LocationID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// </summary>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
@@ -159,85 +160,85 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<SrvOrdPrepayments>? Prepayments { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Priority", EmitDefaultValue=false)]
 		public StringValue? Priority { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProblemID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
+		/// <para>DAC Field Name: ProblemID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// </summary>
 		[DataMember(Name="Problem", EmitDefaultValue=false)]
 		public StringValue? Problem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProjectID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// </summary>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ServiceOrderNbr", EmitDefaultValue=false)]
 		public StringValue? ServiceOrderNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryDocTotal 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Estimated Total 
+		/// <para>DAC Field Name: CuryDocTotal</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Estimated Total</para>
 		/// </summary>
 		[DataMember(Name="ServiceOrderTotal", EmitDefaultValue=false)]
 		public DecimalValue? ServiceOrderTotal { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SrvOrdType 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Order Type 
-		/// SQL Type: char(4) 
+		/// <para>DAC Field Name: SrvOrdType</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(4)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
 		public StringValue? ServiceOrderType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Severity", EmitDefaultValue=false)]
 		public StringValue? Severity { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SLAETA_Date 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
+		/// <para>DAC Field Name: SLAETA_Date</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// </summary>
 		[DataMember(Name="SLA", EmitDefaultValue=false)]
 		public DateTimeValue? SLA { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SLAETA_Time 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
+		/// <para>DAC Field Name: SLAETA_Time</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// </summary>
 		[DataMember(Name="SLATime", EmitDefaultValue=false)]
 		public DateTimeValue? SLATime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: AssignedEmpID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
+		/// <para>DAC Field Name: AssignedEmpID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// </summary>
 		[DataMember(Name="Supervisor", EmitDefaultValue=false)]
 		public StringValue? Supervisor { get; set; }
@@ -246,9 +247,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<SrvOrdTaxDetails>? TaxDetails { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTaxTotal 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Estimated Tax Total 
+		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Estimated Tax Total</para>
 		/// </summary>
 		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
@@ -257,17 +258,17 @@ namespace Acumatica.Default_23_200_001.Model
 		public SrvOrdTotals? Totals { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WaitingForParts 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Waiting for Purchased Items 
+		/// <para>DAC Field Name: WaitingForParts</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Waiting for Purchased Items</para>
 		/// </summary>
 		[DataMember(Name="WaitingforPurchasedItems", EmitDefaultValue=false)]
 		public BooleanValue? WaitingforPurchasedItems { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WFStageID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Workflow Stage 
+		/// <para>DAC Field Name: WFStageID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Workflow Stage</para>
 		/// </summary>
 		[DataMember(Name="WorkflowStage", EmitDefaultValue=false)]
 		public StringValue? WorkflowStage { get; set; }

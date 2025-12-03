@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen EP203000 in the Acumatica ERP
+	/// Corresponds to the screen <c>EP203000</c> in the Acumatica ERP
+	/// <para>Key Fields: EmployeeID</para>
 	/// </summary>
 	[DataContract]
 	public class Employee : Entity, ITopLevelEntity
@@ -28,10 +29,10 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The human-readable identifier of the employee that isspecified by the user or defined by the EMPLOYEE auto-numbering sequence during thecreation of the employee. This field is a natural key, as opposedto the surrogate key BAccountID.
-		/// DAC Field Name: AcctCD 
-		/// DAC: PX.Objects.EP.EPEmployee 
-		/// Display Name: Employee ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: AcctCD</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Employee ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
@@ -39,10 +40,10 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The employee name, which is usually a concatenation of thefirst and last nameof the appropriate contact.
-		/// DAC Field Name: AcctName 
-		/// DAC: PX.Objects.EP.EPEmployee 
-		/// Display Name: Employee Name 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC Field Name: AcctName</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Employee Name</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
@@ -61,9 +62,9 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The status of the employee.
-		/// DAC Field Name: VStatus 
-		/// DAC: PX.Objects.EP.EPEmployee 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: VStatus</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

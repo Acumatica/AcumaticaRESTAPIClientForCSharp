@@ -11,41 +11,41 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen SM507000 in the Acumatica ERP
+	/// Corresponds to the screen <c>SM507000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class EmailProcessing : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter 
+		/// <para>DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter</para>
 		/// </summary>
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public IntValue? Account { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Account_description 
-		/// DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter 
+		/// <para>DAC Field Name: Account_description</para>
+		/// <para>DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter</para>
 		/// </summary>
 		[DataMember(Name="AccountEmailAccountID", EmitDefaultValue=false)]
 		public StringValue? AccountEmailAccountID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MyOwner 
-		/// DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter 
+		/// <para>DAC Field Name: MyOwner</para>
+		/// <para>DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter</para>
 		/// </summary>
 		[DataMember(Name="AssignedToMe", EmitDefaultValue=false)]
 		public BooleanValue? AssignedToMe { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OwnerID 
-		/// DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter 
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter</para>
 		/// </summary>
 		[DataMember(Name="AssignedToOwner", EmitDefaultValue=false)]
 		public StringValue? AssignedToOwner { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter 
+		/// <para>DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter</para>
 		/// </summary>
 		[DataMember(Name="IncludeFailed", EmitDefaultValue=false)]
 		public BooleanValue? IncludeFailed { get; set; }
@@ -54,7 +54,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<EmailProcessingRow>? Result { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter 
+		/// <para>DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }

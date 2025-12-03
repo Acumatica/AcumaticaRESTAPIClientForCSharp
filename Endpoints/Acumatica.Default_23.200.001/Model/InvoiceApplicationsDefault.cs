@@ -15,60 +15,60 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: CuryAdjdAmt 
-		/// DAC: PX.Objects.AR.ARAdjust2 
-		/// Display Name: Amount Paid 
+		/// <para>DAC Field Name: CuryAdjdAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
+		/// <para>Display Name: Amount Paid</para>
 		/// </summary>
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
 		public DecimalValue? AmountPaid { get; set; }
 
 		/// <summary>
 		/// The open balance of the document.Given in the currency of the document.
-		/// DAC Field Name: CuryDocBal 
-		/// DAC: PX.Objects.AR.ARInvoice 
+		/// <para>DAC Field Name: CuryDocBal</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
 		/// </summary>
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
 		/// The cash discount amount displayed for the document.Given in the  currency of the adjusted document.
-		/// DAC Field Name: CuryAdjdPPDAmt 
-		/// DAC: PX.Objects.AR.ARAdjust2 
-		/// Display Name: Cash Discount Taken 
+		/// <para>DAC Field Name: CuryAdjdPPDAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
+		/// <para>Display Name: Cash Discount Taken</para>
 		/// </summary>
 		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
 		public DecimalValue? CashDiscountTaken { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: AdjgDocType 
-		/// DAC: PX.Objects.AR.ARAdjust2 
-		/// Display Name: Doc. Type 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: AdjgDocType</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
+		/// <para>Display Name: Doc. Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
 		public StringValue? DocType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ARPayment__DocDate 
-		/// DAC: PX.Objects.AR.ARAdjust2 
+		/// <para>DAC Field Name: ARPayment__DocDate</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
 		/// </summary>
 		[DataMember(Name="PaymentDate", EmitDefaultValue=false)]
 		public DateTimeValue? PaymentDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: AdjgRefNbr 
-		/// DAC: PX.Objects.AR.ARAdjust2 
-		/// Display Name: Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: AdjgRefNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ARPayment__Status 
-		/// DAC: PX.Objects.AR.ARAdjust2 
+		/// <para>DAC Field Name: ARPayment__Status</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

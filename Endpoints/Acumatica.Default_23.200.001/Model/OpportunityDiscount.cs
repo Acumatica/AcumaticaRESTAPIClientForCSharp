@@ -15,95 +15,95 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: CuryDiscountableAmt 
-		/// DAC: PX.Objects.CR.CROpportunityDiscountDetail 
-		/// Display Name: Discountable Amt. 
+		/// <para>DAC Field Name: CuryDiscountableAmt</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Discountable Amt.</para>
 		/// </summary>
 		[DataMember(Name="DiscountableAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountableAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CROpportunityDiscountDetail 
-		/// Display Name: Discountable Qty. 
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Discountable Qty.</para>
 		/// </summary>
 		[DataMember(Name="DiscountableQty", EmitDefaultValue=false)]
 		public DecimalValue? DiscountableQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryDiscountAmt 
-		/// DAC: PX.Objects.CR.CROpportunityDiscountDetail 
-		/// Display Name: Discount Amt. 
+		/// <para>DAC Field Name: CuryDiscountAmt</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Discount Amt.</para>
 		/// </summary>
 		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DiscountID 
-		/// DAC: PX.Objects.CR.CROpportunityProducts 
-		/// Display Name: Discount Code 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: DiscountID</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
+		/// <para>Display Name: Discount Code</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DiscountPct 
-		/// DAC: PX.Objects.CR.CROpportunityDiscountDetail 
-		/// Display Name: Discount Percent 
+		/// <para>DAC Field Name: DiscountPct</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Discount Percent</para>
 		/// </summary>
 		[DataMember(Name="DiscountPercent", EmitDefaultValue=false)]
 		public DecimalValue? DiscountPercent { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FreeItemID 
-		/// DAC: PX.Objects.CR.CROpportunityDiscountDetail 
-		/// Display Name: Free Item 
+		/// <para>DAC Field Name: FreeItemID</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Free Item</para>
 		/// </summary>
 		[DataMember(Name="FreeItem", EmitDefaultValue=false)]
 		public StringValue? FreeItem { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CROpportunityDiscountDetail 
-		/// Display Name: Free Item Qty. 
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Free Item Qty.</para>
 		/// </summary>
 		[DataMember(Name="FreeItemQty", EmitDefaultValue=false)]
 		public DecimalValue? FreeItemQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CROpportunityProducts 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsManual 
-		/// DAC: PX.Objects.CR.CROpportunityDiscountDetail 
-		/// Display Name: Manual Discount 
+		/// <para>DAC Field Name: IsManual</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Manual Discount</para>
 		/// </summary>
 		[DataMember(Name="ManualDiscount", EmitDefaultValue=false)]
 		public BooleanValue? ManualDiscount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DiscountSequenceID 
-		/// DAC: PX.Objects.CR.CROpportunityProducts 
-		/// Display Name: Discount Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: DiscountSequenceID</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
+		/// <para>Display Name: Discount Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="SequenceID", EmitDefaultValue=false)]
 		public StringValue? SequenceID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CROpportunityDiscountDetail 
-		/// Display Name: Skip Discount 
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Skip Discount</para>
 		/// </summary>
 		[DataMember(Name="SkipDiscount", EmitDefaultValue=false)]
 		public BooleanValue? SkipDiscount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CROpportunityDiscountDetail 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }

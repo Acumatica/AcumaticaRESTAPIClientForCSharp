@@ -11,44 +11,45 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN207000 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN207000</c> in the Acumatica ERP
+	/// <para>Key Fields: ClassID</para>
 	/// </summary>
 	[DataContract]
 	public class LotSerialClass : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: LotSerAssign 
-		/// DAC: PX.Objects.IN.INLotSerClass 
-		/// Display Name: Assignment Method 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: LotSerAssign</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
+		/// <para>Display Name: Assignment Method</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="AssignmentMethod", EmitDefaultValue=false)]
 		public StringValue? AssignmentMethod { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LotSerClassID 
-		/// DAC: PX.Objects.IN.INLotSerClass 
-		/// Display Name: Class ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: LotSerClassID</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
+		/// <para>Display Name: Class ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.IN.INLotSerClass 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LotSerIssueMethod 
-		/// DAC: PX.Objects.IN.INLotSerClass 
-		/// Display Name: Issue Method 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: LotSerIssueMethod</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
+		/// <para>Display Name: Issue Method</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="IssueMethod", EmitDefaultValue=false)]
 		public StringValue? IssueMethod { get; set; }
@@ -57,18 +58,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<LotSerialClassSegment>? Segments { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LotSerTrackExpiration 
-		/// DAC: PX.Objects.IN.INLotSerClass 
-		/// Display Name: Track Expiration Date 
+		/// <para>DAC Field Name: LotSerTrackExpiration</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
+		/// <para>Display Name: Track Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="TrackExpirationDate", EmitDefaultValue=false)]
 		public BooleanValue? TrackExpirationDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LotSerTrack 
-		/// DAC: PX.Objects.IN.INLotSerClass 
-		/// Display Name: Tracking Method 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: LotSerTrack</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
+		/// <para>Display Name: Tracking Method</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="TrackingMethod", EmitDefaultValue=false)]
 		public StringValue? TrackingMethod { get; set; }

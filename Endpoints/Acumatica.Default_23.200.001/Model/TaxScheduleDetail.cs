@@ -15,33 +15,33 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: NonDeductibleTaxRate 
-		/// DAC: PX.Objects.TX.TaxRev 
-		/// Display Name: Deductible Tax Rate 
+		/// <para>DAC Field Name: NonDeductibleTaxRate</para>
+		/// <para>DAC: PX.Objects.TX.TaxRev</para>
+		/// <para>Display Name: Deductible Tax Rate</para>
 		/// </summary>
 		[DataMember(Name="DeductibleTaxRate", EmitDefaultValue=false)]
 		public DecimalValue? DeductibleTaxRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxableMax 
-		/// DAC: PX.Objects.TX.TaxRev 
-		/// Display Name: Max. Taxable Amount 
+		/// <para>DAC Field Name: TaxableMax</para>
+		/// <para>DAC: PX.Objects.TX.TaxRev</para>
+		/// <para>Display Name: Max. Taxable Amount</para>
 		/// </summary>
 		[DataMember(Name="MaxTaxableAmount", EmitDefaultValue=false)]
 		public DecimalValue? MaxTaxableAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxableMin 
-		/// DAC: PX.Objects.TX.TaxRev 
-		/// Display Name: Min. Taxable Amount 
+		/// <para>DAC Field Name: TaxableMin</para>
+		/// <para>DAC: PX.Objects.TX.TaxRev</para>
+		/// <para>Display Name: Min. Taxable Amount</para>
 		/// </summary>
 		[DataMember(Name="MinTaxableAmount", EmitDefaultValue=false)]
 		public DecimalValue? MinTaxableAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxBucketID 
-		/// DAC: PX.Objects.TX.TaxRev 
-		/// Display Name: Reporting Group 
+		/// <para>DAC Field Name: TaxBucketID</para>
+		/// <para>DAC: PX.Objects.TX.TaxRev</para>
+		/// <para>Display Name: Reporting Group</para>
 		/// </summary>
 		[DataMember(Name="ReportingGroup", EmitDefaultValue=false)]
 		public StringValue? ReportingGroup { get; set; }
@@ -50,25 +50,25 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? RevisionID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.TX.TaxRev 
-		/// Display Name: Start Date 
+		/// <para>DAC: PX.Objects.TX.TaxRev</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
 		/// The tax ID. This is the key field, which can be specified by the user.
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax ID 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.TX.TaxRev 
-		/// Display Name: Tax Rate 
+		/// <para>DAC: PX.Objects.TX.TaxRev</para>
+		/// <para>Display Name: Tax Rate</para>
 		/// </summary>
 		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
 		public DecimalValue? TaxRate { get; set; }

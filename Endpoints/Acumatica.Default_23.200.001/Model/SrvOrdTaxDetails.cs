@@ -15,15 +15,15 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: Tax__ExemptTax 
-		/// DAC: PX.Objects.FS.FSServiceOrderTaxTran 
+		/// <para>DAC Field Name: Tax__ExemptTax</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrderTaxTran</para>
 		/// </summary>
 		[DataMember(Name="IncludeinVATExemptTotal", EmitDefaultValue=false)]
 		public BooleanValue? IncludeinVATExemptTotal { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__PendingTax 
-		/// DAC: PX.Objects.FS.FSServiceOrderTaxTran 
+		/// <para>DAC Field Name: Tax__PendingTax</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrderTaxTran</para>
 		/// </summary>
 		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
 		public BooleanValue? PendingVAT { get; set; }
@@ -32,74 +32,74 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? RecordID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__ReverseTax 
-		/// DAC: PX.Objects.FS.FSServiceOrderTaxTran 
+		/// <para>DAC Field Name: Tax__ReverseTax</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrderTaxTran</para>
 		/// </summary>
 		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
 		public BooleanValue? ReverseVAT { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ServiceOrderNbr", EmitDefaultValue=false)]
 		public StringValue? ServiceOrderNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SrvOrdType 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Order Type 
-		/// SQL Type: char(4) 
+		/// <para>DAC Field Name: SrvOrdType</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(4)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
 		public StringValue? ServiceOrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__StatisticalTax 
-		/// DAC: PX.Objects.FS.FSServiceOrderTaxTran 
+		/// <para>DAC Field Name: Tax__StatisticalTax</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrderTaxTran</para>
 		/// </summary>
 		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
 		public BooleanValue? StatisticalVAT { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTaxableAmt 
-		/// DAC: PX.Objects.FS.FSServiceOrderTaxTran 
-		/// Display Name: Taxable Amount 
+		/// <para>DAC Field Name: CuryTaxableAmt</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrderTaxTran</para>
+		/// <para>Display Name: Taxable Amount</para>
 		/// </summary>
 		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxableAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTaxAmt 
-		/// DAC: PX.Objects.FS.FSServiceOrderTaxTran 
-		/// Display Name: Tax Amount 
+		/// <para>DAC Field Name: CuryTaxAmt</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrderTaxTran</para>
+		/// <para>Display Name: Tax Amount</para>
 		/// </summary>
 		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSServiceOrderTaxTran 
-		/// Display Name: Tax ID 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.FS.FSServiceOrderTaxTran</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSServiceOrderTaxTran 
-		/// Display Name: Tax Rate 
+		/// <para>DAC: PX.Objects.FS.FSServiceOrderTaxTran</para>
+		/// <para>Display Name: Tax Rate</para>
 		/// </summary>
 		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
 		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__TaxType 
-		/// DAC: PX.Objects.FS.FSServiceOrderTaxTran 
+		/// <para>DAC Field Name: Tax__TaxType</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrderTaxTran</para>
 		/// </summary>
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }

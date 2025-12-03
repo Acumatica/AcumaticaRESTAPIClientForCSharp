@@ -15,30 +15,30 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: Organization__Active 
-		/// DAC: PX.Objects.GL.DAC.OrganizationLedgerLink 
+		/// <para>DAC Field Name: Organization__Active</para>
+		/// <para>DAC: PX.Objects.GL.DAC.OrganizationLedgerLink</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OrganizationID 
-		/// DAC: PX.Objects.GL.DAC.OrganizationLedgerLink 
+		/// <para>DAC Field Name: OrganizationID</para>
+		/// <para>DAC: PX.Objects.GL.DAC.OrganizationLedgerLink</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Company", EmitDefaultValue=false)]
 		public StringValue? Company { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Organization__OrganizationName 
-		/// DAC: PX.Objects.GL.Branch 
+		/// <para>DAC Field Name: Organization__OrganizationName</para>
+		/// <para>DAC: PX.Objects.GL.Branch</para>
 		/// </summary>
 		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
 		public StringValue? CompanyName { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Organization__OrganizationType 
-		/// DAC: PX.Objects.GL.DAC.OrganizationLedgerLink 
+		/// <para>DAC Field Name: Organization__OrganizationType</para>
+		/// <para>DAC: PX.Objects.GL.DAC.OrganizationLedgerLink</para>
 		/// </summary>
 		[DataMember(Name="CompanyType", EmitDefaultValue=false)]
 		public StringValue? CompanyType { get; set; }

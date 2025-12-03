@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen SO302000 in the Acumatica ERP
+	/// Corresponds to the screen <c>SO302000</c> in the Acumatica ERP
+	/// <para>Key Fields: ShipmentNbr</para>
 	/// </summary>
 	[DataContract]
 	public class Shipment : Entity, ITopLevelEntity
@@ -19,17 +20,17 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// Identifier of the base Currency.
-		/// DAC Field Name: BaseCuryID 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Base Currency ID 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Base Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
 		public StringValue? BaseCurrencyID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Control Quantity 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Control Quantity</para>
 		/// </summary>
 		[DataMember(Name="ControlQty", EmitDefaultValue=false)]
 		public DecimalValue? ControlQty { get; set; }
@@ -39,33 +40,33 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// DAC Field Name: SampleCuryRate 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Curr. Rate 
+		/// <para>DAC Field Name: SampleCuryRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate</para>
 		/// </summary>
 		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyRate { get; set; }
 
 		/// <summary>
 		/// The identifier of the Rate Type associated with this object.
-		/// DAC Field Name: CuryRateTypeID 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Curr. Rate Type ID 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: CuryRateTypeID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate Type ID</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyRateTypeID", EmitDefaultValue=false)]
 		public StringValue? CurrencyRateTypeID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryViewState 
-		/// DAC: PX.Objects.SO.SOShipment 
+		/// <para>DAC Field Name: CuryViewState</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
 		/// </summary>
 		[DataMember(Name="CurrencyViewState", EmitDefaultValue=false)]
 		public BooleanValue? CurrencyViewState { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Customer 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Customer</para>
 		/// </summary>
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
@@ -77,66 +78,66 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<ShipmentDetail>? Details { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentDesc 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: ShipmentDesc</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The date, starting from which the specified rate is considered current.
-		/// DAC Field Name: CuryEffDate 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Effective Date 
+		/// <para>DAC Field Name: CuryEffDate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Effective Date</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: FOB Point 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: FOB Point</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
 		public StringValue? FOBPoint { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OverrideFreightAmount 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Override Freight Price 
+		/// <para>DAC Field Name: OverrideFreightAmount</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Override Freight Price</para>
 		/// </summary>
 		[DataMember(Name="OverrideFreightPrice", EmitDefaultValue=false)]
 		public BooleanValue? OverrideFreightPrice { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryFreightAmt 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Freight Price 
+		/// <para>DAC Field Name: CuryFreightAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Freight Price</para>
 		/// </summary>
 		[DataMember(Name="FreightPrice", EmitDefaultValue=false)]
 		public DecimalValue? FreightPrice { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryFreightCost 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Freight Cost 
+		/// <para>DAC Field Name: CuryFreightCost</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Freight Cost</para>
 		/// </summary>
 		[DataMember(Name="FreightCost", EmitDefaultValue=false)]
 		public DecimalValue? FreightCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Freight Currency 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Freight Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="FreightCurrencyID", EmitDefaultValue=false)]
 		public StringValue? FreightCurrencyID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Ground Collect 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Ground Collect</para>
 		/// </summary>
 		[DataMember(Name="GroundCollect", EmitDefaultValue=false)]
 		public BooleanValue? GroundCollect { get; set; }
@@ -145,7 +146,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
 		/// </summary>
 		[DataMember(Name="Insurance", EmitDefaultValue=false)]
 		public BooleanValue? Insurance { get; set; }
@@ -154,16 +155,16 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CustomerLocationID 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Location 
+		/// <para>DAC Field Name: CustomerLocationID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Location</para>
 		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Operation", EmitDefaultValue=false)]
 		public StringValue? Operation { get; set; }
@@ -172,15 +173,15 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<ShipmentOrderDetail>? Orders { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OwnerID 
-		/// DAC: PX.Objects.SO.SOShipment 
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
 		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Packages 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Packages</para>
 		/// </summary>
 		[DataMember(Name="PackageCount", EmitDefaultValue=false)]
 		public IntValue? PackageCount { get; set; }
@@ -189,8 +190,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<ShipmentPackage>? Packages { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Package Weight 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Package Weight</para>
 		/// </summary>
 		[DataMember(Name="PackageWeight", EmitDefaultValue=false)]
 		public DecimalValue? PackageWeight { get; set; }
@@ -200,65 +201,65 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// DAC Field Name: SampleRecipRate 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Reciprocal Rate 
+		/// <para>DAC Field Name: SampleRecipRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Reciprocal Rate</para>
 		/// </summary>
 		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
 		public DecimalValue? ReciprocalRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Resedential 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Residential Delivery 
+		/// <para>DAC Field Name: Resedential</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Residential Delivery</para>
 		/// </summary>
 		[DataMember(Name="ResidentialDelivery", EmitDefaultValue=false)]
 		public BooleanValue? ResidentialDelivery { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Saturday Delivery 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Saturday Delivery</para>
 		/// </summary>
 		[DataMember(Name="SaturdayDelivery", EmitDefaultValue=false)]
 		public BooleanValue? SaturdayDelivery { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipDate 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipment Date 
+		/// <para>DAC Field Name: ShipDate</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipment Date</para>
 		/// </summary>
 		[DataMember(Name="ShipmentDate", EmitDefaultValue=false)]
 		public DateTimeValue? ShipmentDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipment Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipment Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ShipmentNbr", EmitDefaultValue=false)]
 		public StringValue? ShipmentNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentQty 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipped Quantity 
+		/// <para>DAC Field Name: ShipmentQty</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipped Quantity</para>
 		/// </summary>
 		[DataMember(Name="ShippedQty", EmitDefaultValue=false)]
 		public DecimalValue? ShippedQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentVolume 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipped Volume 
+		/// <para>DAC Field Name: ShipmentVolume</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipped Volume</para>
 		/// </summary>
 		[DataMember(Name="ShippedVolume", EmitDefaultValue=false)]
 		public DecimalValue? ShippedVolume { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentWeight 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipped Weight 
+		/// <para>DAC Field Name: ShipmentWeight</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipped Weight</para>
 		/// </summary>
 		[DataMember(Name="ShippedWeight", EmitDefaultValue=false)]
 		public DecimalValue? ShippedWeight { get; set; }
@@ -267,73 +268,73 @@ namespace Acumatica.Default_23_200_001.Model
 		public ShipToSettings? ShippingSettings { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipTermsID 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipping Terms 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: ShipTermsID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipping Terms</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
 		public StringValue? ShippingTerms { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipZoneID 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipping Zone ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: ShipZoneID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipping Zone ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ShippingZoneID", EmitDefaultValue=false)]
 		public StringValue? ShippingZoneID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Ship Via 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Ship Via</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
 		public StringValue? ShipVia { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DestinationSiteID 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: To Warehouse 
+		/// <para>DAC Field Name: DestinationSiteID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: To Warehouse</para>
 		/// </summary>
 		[DataMember(Name="ToWarehouseID", EmitDefaultValue=false)]
 		public StringValue? ToWarehouseID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentType 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: ShipmentType</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UseCustomerAccount 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Use Customer's Account 
+		/// <para>DAC Field Name: UseCustomerAccount</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Use Customer's Account</para>
 		/// </summary>
 		[DataMember(Name="UseCustomersAccount", EmitDefaultValue=false)]
 		public BooleanValue? UseCustomersAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Warehouse ID 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Warehouse ID</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Workgroup 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Workgroup</para>
 		/// </summary>
 		[DataMember(Name="WorkgroupID", EmitDefaultValue=false)]
 		public StringValue? WorkgroupID { get; set; }

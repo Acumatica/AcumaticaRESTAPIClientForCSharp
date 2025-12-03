@@ -15,23 +15,23 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: ExpenseAcctID 
-		/// DAC: PX.Objects.PO.POLine 
+		/// <para>DAC Field Name: ExpenseAcctID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// </summary>
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Alternate ID 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Alternate ID</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		[DataMember(Name="AlternateID", EmitDefaultValue=false)]
 		public StringValue? AlternateID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POOrder 
-		/// Display Name: Branch 
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Branch</para>
 		/// </summary>
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
@@ -40,181 +40,181 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? CalculateDiscountsOnImport { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
+		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// </summary>
 		[DataMember(Name="Cancelled", EmitDefaultValue=false)]
 		public BooleanValue? Cancelled { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
+		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// </summary>
 		[DataMember(Name="Completed", EmitDefaultValue=false)]
 		public BooleanValue? Completed { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RcptQtyThreshold 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Complete On (%) 
+		/// <para>DAC Field Name: RcptQtyThreshold</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Complete On (%)</para>
 		/// </summary>
 		[DataMember(Name="CompleteOn", EmitDefaultValue=false)]
 		public DecimalValue? CompleteOn { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CostCodeID 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Cost Code 
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Cost Code</para>
 		/// </summary>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExpenseAcctID_Account_description 
-		/// DAC: PX.Objects.PO.POLine 
+		/// <para>DAC Field Name: ExpenseAcctID_Account_description</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryLineAmt 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Ext. Cost 
+		/// <para>DAC Field Name: CuryLineAmt</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Ext. Cost</para>
 		/// </summary>
 		[DataMember(Name="ExtendedCost", EmitDefaultValue=false)]
 		public DecimalValue? ExtendedCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranDesc 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Line Description 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Line Description</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="LineDescription", EmitDefaultValue=false)]
 		public StringValue? LineDescription { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Line Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Line Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="LineType", EmitDefaultValue=false)]
 		public StringValue? LineType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RcptQtyMax 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Max. Receipt (%) 
+		/// <para>DAC Field Name: RcptQtyMax</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Max. Receipt (%)</para>
 		/// </summary>
 		[DataMember(Name="MaxReceiptPercent", EmitDefaultValue=false)]
 		public DecimalValue? MaxReceiptPercent { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RcptQtyMin 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Min. Receipt (%) 
+		/// <para>DAC Field Name: RcptQtyMin</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Min. Receipt (%)</para>
 		/// </summary>
 		[DataMember(Name="MinReceiptPercent", EmitDefaultValue=false)]
 		public DecimalValue? MinReceiptPercent { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POOrder 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Order Qty. 
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Order Qty.</para>
 		/// </summary>
 		[DataMember(Name="OrderQty", EmitDefaultValue=false)]
 		public DecimalValue? OrderQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Qty. On Orders 
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Qty. On Orders</para>
 		/// </summary>
 		[DataMember(Name="OrderedQty", EmitDefaultValue=false)]
 		public DecimalValue? OrderedQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POOrder 
-		/// Display Name: Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PONbr 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Blanket PO Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: PONbr</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Blanket PO Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="OrigPONbr", EmitDefaultValue=false)]
 		public StringValue? OrigPONbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: POType 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Blanket PO Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC Field Name: POType</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Blanket PO Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="OrigPOType", EmitDefaultValue=false)]
 		public StringValue? OrigPOType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProjectID 
-		/// DAC: PX.Objects.PO.POOrder 
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
 		/// </summary>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaskID 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Project Task 
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Project Task</para>
 		/// </summary>
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PromisedDate 
-		/// DAC: PX.Objects.PO.POLine 
+		/// <para>DAC Field Name: PromisedDate</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// </summary>
 		[DataMember(Name="Promised", EmitDefaultValue=false)]
 		public DateTimeValue? Promised { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ReceivedQty 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Qty. On Receipts 
+		/// <para>DAC Field Name: ReceivedQty</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Qty. On Receipts</para>
 		/// </summary>
 		[DataMember(Name="QtyOnReceipts", EmitDefaultValue=false)]
 		public DecimalValue? QtyOnReceipts { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RcptQtyAction 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Receipt Action 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: RcptQtyAction</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Receipt Action</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="ReceiptAction", EmitDefaultValue=false)]
 		public StringValue? ReceiptAction { get; set; }
@@ -223,55 +223,55 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? ReceivedAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RequestedDate 
-		/// DAC: PX.Objects.PO.POLine 
+		/// <para>DAC Field Name: RequestedDate</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// </summary>
 		[DataMember(Name="Requested", EmitDefaultValue=false)]
 		public DateTimeValue? Requested { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExpenseSubID 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Sub. 
+		/// <para>DAC Field Name: ExpenseSubID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Sub.</para>
 		/// </summary>
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.PO.POLine 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxCategoryID 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Tax Category 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: TaxCategoryID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryUnitCost 
-		/// DAC: PX.Objects.PO.POLine 
-		/// Display Name: Unit Cost 
+		/// <para>DAC Field Name: CuryUnitCost</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PO.POLine 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.PO.POOrder 
-		/// Display Name: Warehouse 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Warehouse</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }

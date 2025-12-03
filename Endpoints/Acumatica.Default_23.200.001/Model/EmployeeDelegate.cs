@@ -15,48 +15,48 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: WingmanID 
-		/// DAC: PX.Objects.EP.EPWingman 
-		/// Display Name: Delegated To 
+		/// <para>DAC Field Name: WingmanID</para>
+		/// <para>DAC: PX.Objects.EP.EPWingman</para>
+		/// <para>Display Name: Delegated To</para>
 		/// </summary>
 		[DataMember(Name="Delegate", EmitDefaultValue=false)]
 		public StringValue? Delegate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WingmanID_EPEmployee_acctName 
-		/// DAC: PX.Objects.EP.EPWingman 
+		/// <para>DAC Field Name: WingmanID_EPEmployee_acctName</para>
+		/// <para>DAC: PX.Objects.EP.EPWingman</para>
 		/// </summary>
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
 		/// <summary>
 		/// Represents the type of the delegation.
-		/// DAC: PX.Objects.EP.EPWingman 
-		/// Display Name: Delegation Of 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.EP.EPWingman</para>
+		/// <para>Display Name: Delegation Of</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="DelegationOf", EmitDefaultValue=false)]
 		public StringValue? DelegationOf { get; set; }
 
 		/// <summary>
 		/// Delegation start date
-		/// DAC: PX.Objects.EP.EPWingman 
-		/// Display Name: Starts On 
+		/// <para>DAC: PX.Objects.EP.EPWingman</para>
+		/// <para>Display Name: Starts On</para>
 		/// </summary>
 		[DataMember(Name="StartsOn", EmitDefaultValue=false)]
 		public DateTimeValue? StartsOn { get; set; }
 
 		/// <summary>
 		/// Delegation end date
-		/// DAC: PX.Objects.EP.EPWingman 
-		/// Display Name: Expires On 
+		/// <para>DAC: PX.Objects.EP.EPWingman</para>
+		/// <para>Display Name: Expires On</para>
 		/// </summary>
 		[DataMember(Name="ExpiresOn", EmitDefaultValue=false)]
 		public DateTimeValue? ExpiresOn { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.EPEmployeePosition 
-		/// Display Name: Active 
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Active</para>
 		/// </summary>
 		[DataMember(Name="IsActive", EmitDefaultValue=false)]
 		public BooleanValue? IsActive { get; set; }

@@ -15,8 +15,8 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.PR.PREmployeeEarning 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
@@ -25,9 +25,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxID 
-		/// DAC: PX.Objects.PR.PREmployeeTax 
-		/// Display Name: Tax Code 
+		/// <para>DAC Field Name: TaxID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeTax</para>
+		/// <para>Display Name: Tax Code</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxCode", EmitDefaultValue=false)]
@@ -37,8 +37,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<TaxCodeSetting>? TaxCodeSettings { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxID_Description 
-		/// DAC: PX.Objects.PR.PREmployeeTax 
+		/// <para>DAC Field Name: TaxID_Description</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeTax</para>
 		/// </summary>
 		[DataMember(Name="TaxDescription", EmitDefaultValue=false)]
 		public StringValue? TaxDescription { get; set; }

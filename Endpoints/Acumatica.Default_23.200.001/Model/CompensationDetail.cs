@@ -15,31 +15,31 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.PR.PREmployeeEarning 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TypeCD 
-		/// DAC: PX.Objects.PR.PREmployeeEarning 
-		/// Display Name: Earning Type 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: TypeCD</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
+		/// <para>Display Name: Earning Type</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="EarningCode", EmitDefaultValue=false)]
 		public StringValue? EarningCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TypeCD_Description 
-		/// DAC: PX.Objects.PR.PREmployeeEarning 
+		/// <para>DAC Field Name: TypeCD_Description</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
 		/// </summary>
 		[DataMember(Name="EarningDescription", EmitDefaultValue=false)]
 		public StringValue? EarningDescription { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PREmployeeEarning 
-		/// Display Name: End Date 
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
+		/// <para>Display Name: End Date</para>
 		/// </summary>
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
@@ -48,24 +48,24 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PREmployeeEarning 
-		/// Display Name: Pay Rate 
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
+		/// <para>Display Name: Pay Rate</para>
 		/// </summary>
 		[DataMember(Name="PayRate", EmitDefaultValue=false)]
 		public DecimalValue? PayRate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PREmployeeEarning 
-		/// Display Name: Start Date 
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UnitType 
-		/// DAC: PX.Objects.PR.PREmployeeEarning 
-		/// Display Name: Unit of Pay 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: UnitType</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
+		/// <para>Display Name: Unit of Pay</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="UnitOfPay", EmitDefaultValue=false)]
 		public StringValue? UnitOfPay { get; set; }

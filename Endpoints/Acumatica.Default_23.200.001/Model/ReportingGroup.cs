@@ -16,10 +16,10 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The type of the reporting group.
-		/// DAC Field Name: BucketType 
-		/// DAC: PX.Objects.TX.TaxBucket 
-		/// Display Name: Group Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: BucketType</para>
+		/// <para>DAC: PX.Objects.TX.TaxBucket</para>
+		/// <para>Display Name: Group Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="GroupType", EmitDefaultValue=false)]
 		public StringValue? GroupType { get; set; }
@@ -29,8 +29,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The name of the reporting group, which can be specified by the user.
-		/// DAC: PX.Objects.TX.TaxBucket 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.TX.TaxBucket</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Name", EmitDefaultValue=false)]
 		public StringValue? Name { get; set; }

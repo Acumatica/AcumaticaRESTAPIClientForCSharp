@@ -16,16 +16,16 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// Hire date.
-		/// DAC: PX.Objects.PR.EmploymentHistory 
-		/// Display Name: Hire Date 
+		/// <para>DAC: PX.Objects.PR.EmploymentHistory</para>
+		/// <para>Display Name: Hire Date</para>
 		/// </summary>
 		[DataMember(Name="HireDate", EmitDefaultValue=false)]
 		public DateTimeValue? HireDate { get; set; }
 
 		/// <summary>
 		/// Termination date.
-		/// DAC: PX.Objects.PR.EmploymentHistory 
-		/// Display Name: Termination Date 
+		/// <para>DAC: PX.Objects.PR.EmploymentHistory</para>
+		/// <para>Display Name: Termination Date</para>
 		/// </summary>
 		[DataMember(Name="TerminationDate", EmitDefaultValue=false)]
 		public DateTimeValue? TerminationDate { get; set; }

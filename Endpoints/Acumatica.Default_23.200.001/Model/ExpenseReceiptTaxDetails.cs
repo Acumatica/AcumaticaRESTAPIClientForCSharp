@@ -15,69 +15,69 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: NonDeductibleTaxRate 
-		/// DAC: PX.Objects.EP.EPTaxTran 
-		/// Display Name: Deductible Tax Rate 
+		/// <para>DAC Field Name: NonDeductibleTaxRate</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Deductible Tax Rate</para>
 		/// </summary>
 		[DataMember(Name="DeductibleTaxRate", EmitDefaultValue=false)]
 		public DecimalValue? DeductibleTaxRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryExpenseAmt 
-		/// DAC: PX.Objects.EP.EPTaxTran 
-		/// Display Name: Expense Amount 
+		/// <para>DAC Field Name: CuryExpenseAmt</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Expense Amount</para>
 		/// </summary>
 		[DataMember(Name="ExpenseAmount", EmitDefaultValue=false)]
 		public DecimalValue? ExpenseAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__ExemptTax 
-		/// DAC: PX.Objects.EP.EPTaxTran 
+		/// <para>DAC Field Name: Tax__ExemptTax</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
 		/// </summary>
 		[DataMember(Name="IncludeInVATExemptTotal", EmitDefaultValue=false)]
 		public BooleanValue? IncludeInVATExemptTotal { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__PendingTax 
-		/// DAC: PX.Objects.EP.EPTaxTran 
+		/// <para>DAC Field Name: Tax__PendingTax</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
 		/// </summary>
 		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
 		public BooleanValue? PendingVAT { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__ReverseTax 
-		/// DAC: PX.Objects.EP.EPTaxTran 
+		/// <para>DAC Field Name: Tax__ReverseTax</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
 		/// </summary>
 		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
 		public BooleanValue? ReverseVAT { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__StatisticalTax 
-		/// DAC: PX.Objects.EP.EPTaxTran 
+		/// <para>DAC Field Name: Tax__StatisticalTax</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
 		/// </summary>
 		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
 		public BooleanValue? StatisticalVAT { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTaxableAmt 
-		/// DAC: PX.Objects.EP.EPTaxTran 
-		/// Display Name: Taxable Amount 
+		/// <para>DAC Field Name: CuryTaxableAmt</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Taxable Amount</para>
 		/// </summary>
 		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxableAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTaxAmt 
-		/// DAC: PX.Objects.EP.EPTaxTran 
-		/// Display Name: Tax Amount 
+		/// <para>DAC Field Name: CuryTaxAmt</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Tax Amount</para>
 		/// </summary>
 		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.EPTaxTran 
-		/// Display Name: Tax ID 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
@@ -85,15 +85,15 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The tax rate of the relevant Tax record.
-		/// DAC: PX.Objects.EP.EPTaxTran 
-		/// Display Name: Tax Rate 
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Tax Rate</para>
 		/// </summary>
 		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
 		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__TaxType 
-		/// DAC: PX.Objects.EP.EPTaxTran 
+		/// <para>DAC Field Name: Tax__TaxType</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
 		/// </summary>
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }

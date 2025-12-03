@@ -15,19 +15,19 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: {} 
+		/// <para>DAC: {}</para>
 		/// </summary>
 		[DataMember(Name="Message", EmitDefaultValue=false)]
 		public StringValue? Message { get; set; }
 
 		/// <summary>
-		/// DAC: {} 
+		/// <para>DAC: {}</para>
 		/// </summary>
 		[DataMember(Name="Recommendation", EmitDefaultValue=false)]
 		public StringValue? Recommendation { get; set; }
 
 		/// <summary>
-		/// DAC: {} 
+		/// <para>DAC: {}</para>
 		/// </summary>
 		[DataMember(Name="Score", EmitDefaultValue=false)]
 		public DecimalValue? Score { get; set; }

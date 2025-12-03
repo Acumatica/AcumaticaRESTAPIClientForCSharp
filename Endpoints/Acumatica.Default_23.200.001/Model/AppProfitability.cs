@@ -18,16 +18,16 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? ActualAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSAppointment 
-		/// Display Name: Actual Duration 
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Actual Duration</para>
 		/// </summary>
 		[DataMember(Name="ActualDuration", EmitDefaultValue=false)]
 		public StringValue? ActualDuration { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ActualQty 
-		/// DAC: PX.Objects.FS.FSAppointmentDet 
-		/// Display Name: Actual Quantity 
+		/// <para>DAC Field Name: ActualQty</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Actual Quantity</para>
 		/// </summary>
 		[DataMember(Name="ActualQuantity", EmitDefaultValue=false)]
 		public DecimalValue? ActualQuantity { get; set; }
@@ -36,9 +36,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? BillableAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BillableQty 
-		/// DAC: PX.Objects.FS.FSAppointmentDet 
-		/// Display Name: Billable Quantity 
+		/// <para>DAC Field Name: BillableQty</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Billable Quantity</para>
 		/// </summary>
 		[DataMember(Name="BillableQuantity", EmitDefaultValue=false)]
 		public DecimalValue? BillableQuantity { get; set; }
@@ -47,9 +47,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? ExtCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.FS.FSAppointmentLog 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -58,32 +58,32 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? EstimatedAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSAppointmentDet 
-		/// Display Name: Estimated Quantity 
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Estimated Quantity</para>
 		/// </summary>
 		[DataMember(Name="EstimatedQty", EmitDefaultValue=false)]
 		public DecimalValue? EstimatedQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ItemID 
-		/// DAC: PX.Objects.FS.FSProfitability 
-		/// Display Name: Inventory ID 
+		/// <para>DAC Field Name: ItemID</para>
+		/// <para>DAC: PX.Objects.FS.FSProfitability</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSAppointmentDet 
-		/// Display Name: Ref. Nbr. 
-		/// SQL Type: char(4) 
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Ref. Nbr.</para>
+		/// <para>SQL Type: char(4)</para>
 		/// </summary>
 		[DataMember(Name="LineRef", EmitDefaultValue=false)]
 		public StringValue? LineRef { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSAppointmentDet 
-		/// Display Name: Line Type 
-		/// SQL Type: char(5) 
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Line Type</para>
+		/// <para>SQL Type: char(5)</para>
 		/// </summary>
 		[DataMember(Name="LineType", EmitDefaultValue=false)]
 		public StringValue? LineType { get; set; }
@@ -92,16 +92,16 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? Profit { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSAppointment 
-		/// Display Name: Profit Markup (%) 
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Profit Markup (%)</para>
 		/// </summary>
 		[DataMember(Name="ProfitPercent", EmitDefaultValue=false)]
 		public DecimalValue? ProfitPercent { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EmployeeID 
-		/// DAC: PX.Objects.FS.FSAppointmentEmployee 
-		/// Display Name: Staff Member 
+		/// <para>DAC Field Name: EmployeeID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentEmployee</para>
+		/// <para>Display Name: Staff Member</para>
 		/// </summary>
 		[DataMember(Name="StaffMember", EmitDefaultValue=false)]
 		public StringValue? StaffMember { get; set; }

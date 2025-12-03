@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CT303000 in the Acumatica ERP
+	/// Corresponds to the screen <c>CT303000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class ContractUsage : Entity, ITopLevelEntity
@@ -21,14 +21,14 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<ContractUsageTransactionDetail>? BilledTransactions { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CT.UsageMaint+UsageFilter 
+		/// <para>DAC: PX.Objects.CT.UsageMaint+UsageFilter</para>
 		/// </summary>
 		[DataMember(Name="ContractID", EmitDefaultValue=false)]
 		public StringValue? ContractID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InvFinPeriodID 
-		/// DAC: PX.Objects.CT.UsageMaint+UsageFilter 
+		/// <para>DAC Field Name: InvFinPeriodID</para>
+		/// <para>DAC: PX.Objects.CT.UsageMaint+UsageFilter</para>
 		/// </summary>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }

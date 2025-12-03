@@ -16,26 +16,26 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The expiration date of the order, by which the order can be selected for canceling onthe Process Orders (SO501000) form.
-		/// DAC Field Name: CancelDate 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Cancel By 
+		/// <para>DAC Field Name: CancelDate</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Cancel By</para>
 		/// </summary>
 		[DataMember(Name="CancelByDate", EmitDefaultValue=false)]
 		public DateTimeValue? CancelByDate { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates (if set to true) that the order has been canceled on thedate specified in CancelDate.
-		/// DAC Field Name: Cancelled 
-		/// DAC: PX.Objects.SO.SOOrder 
+		/// <para>DAC Field Name: Cancelled</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
 		[DataMember(Name="Canceled", EmitDefaultValue=false)]
 		public BooleanValue? Canceled { get; set; }
 
 		/// <summary>
 		/// The identifier of the point where ownership ofthe goods is transferred to the customer.The field is included in the FOBPoint foreign key.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: FOB Point 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: FOB Point</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only for blanket sales orders and cannot be empty.
@@ -45,8 +45,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// A Boolean value that indicates whether a user selects to use the FedEx Ground Collect option.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Ground Collect 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Ground Collect</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if theShipping Carrier Integrationfeature is enabled on the Enable/Disable Features (CS100000) form, integration with the FedEx carrieris established, and FedEx is selected in the Ship Via field.
@@ -56,16 +56,16 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// A Boolean value that indicates whether a user selects to indicate that insurance is required for this order.
-		/// DAC: PX.Objects.SO.SOOrder 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
 		[DataMember(Name="Insurance", EmitDefaultValue=false)]
 		public BooleanValue? Insurance { get; set; }
 
 		/// <summary>
 		/// The identifier of the warehouse from which the goods should be shipped.The field is included in the DefaultSite foreign key.
-		/// DAC Field Name: DefaultSiteID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Preferred Warehouse ID 
+		/// <para>DAC Field Name: DefaultSiteID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Preferred Warehouse ID</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.
@@ -75,33 +75,33 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The level of priority for processing orders of this customer, as specifiedcOrderPriority field for the customer.
-		/// DAC: PX.Objects.SO.SOOrder 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
 		[DataMember(Name="Priority", EmitDefaultValue=false)]
 		public ShortValue? Priority { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the shipment should be delivered to a residential area.
-		/// DAC Field Name: Resedential 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Residential Delivery 
+		/// <para>DAC Field Name: Resedential</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Residential Delivery</para>
 		/// </summary>
 		[DataMember(Name="ResidentialDelivery", EmitDefaultValue=false)]
 		public BooleanValue? ResidentialDelivery { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the order may be delivered on Saturday.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Saturday Delivery 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Saturday Delivery</para>
 		/// </summary>
 		[DataMember(Name="SaturdayDelivery", EmitDefaultValue=false)]
 		public BooleanValue? SaturdayDelivery { get; set; }
 
 		/// <summary>
 		/// The date when the ordered goods are scheduled to be shipped.
-		/// DAC Field Name: ShipDate 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Sched. Shipment 
+		/// <para>DAC Field Name: ShipDate</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Sched. Shipment</para>
 		/// </summary>
 		/// <remarks>
 		/// By default, it is the date that is specified in requestDate minus the number of lead days,but it is not earlier than the current business date.
@@ -111,10 +111,10 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// An option that controls whether incomplete and partial shipments for the order are allowed.
-		/// DAC Field Name: ShipComplete 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Shipping Rule 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: ShipComplete</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Shipping Rule</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.form.
@@ -124,28 +124,28 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The identifier of the shipping terms used for this customer.The field is included in the ShipTerms foreign key.
-		/// DAC Field Name: ShipTermsID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Shipping Terms 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: ShipTermsID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Shipping Terms</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
 		public StringValue? ShippingTerms { get; set; }
 
 		/// <summary>
 		/// The identifier of the shipping zone of the customer to be used tocalculate freight.The field is included in the ShippingZone foreign key.
-		/// DAC Field Name: ShipZoneID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Shipping Zone 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: ShipZoneID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Shipping Zone</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ShippingZone", EmitDefaultValue=false)]
 		public StringValue? ShippingZone { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the goods for the customer should be shipped separately for eachsales order.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Ship Separately 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Ship Separately</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.
@@ -155,9 +155,9 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The identifier of the ship via code that represents the carrier andits service to be used for shipping the ordered goods.The field is included in the Carrier foreign key.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Ship Via 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Ship Via</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		/// <remarks>
 		/// For this ship via code, if Manual is specified as the freight calculation method, the freight amount mustbe specified in the Freight Price field.Changing the Ship Via code for an open sales order may update thecustomer tax zone field.
@@ -170,9 +170,9 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// A Boolean value that specifies (if set to true) that the customer account with thecarrier should be billed for the shipping of this order.
-		/// DAC Field Name: UseCustomerAccount 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Use Customer's Account 
+		/// <para>DAC Field Name: UseCustomerAccount</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Use Customer's Account</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if theShipping Carrier Integrationfeature is enabled on the Enable/Disable Features (CS100000) form.
@@ -182,37 +182,37 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The freight amount calculated in accordance withthe shipping terms (in the currency of the document).
-		/// DAC Field Name: CuryFreightAmt 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Freight Price 
+		/// <para>DAC Field Name: CuryFreightAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Freight Price</para>
 		/// </summary>
 		[DataMember(Name="FreightPrice", EmitDefaultValue=false)]
 		public DecimalValue? FreightPrice { get; set; }
 
 		/// <summary>
 		/// The freight cost calculated for the document(in the currency of the document).
-		/// DAC Field Name: CuryFreightCost 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Freight Cost 
+		/// <para>DAC Field Name: CuryFreightCost</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Freight Cost</para>
 		/// </summary>
 		[DataMember(Name="FreightCost", EmitDefaultValue=false)]
 		public DecimalValue? FreightCost { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the freight rates are up to date.
-		/// DAC Field Name: FreightCostIsValid 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Freight Cost Is up-to-date 
+		/// <para>DAC Field Name: FreightCostIsValid</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Freight Cost Is up-to-date</para>
 		/// </summary>
 		[DataMember(Name="FreightCostIsuptodate", EmitDefaultValue=false)]
 		public BooleanValue? FreightCostIsuptodate { get; set; }
 
 		/// <summary>
 		/// The identifier of the tax category that applies to the total freight amount.The field is included in the FreightTaxCategory foreign key.
-		/// DAC Field Name: FreightTaxCategoryID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Freight Tax Category 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: FreightTaxCategoryID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Freight Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		/// <remarks>
 		/// The default value is the tax category associated with the ship via codeship via code of the order.This field is not available for transfer orders.
@@ -222,25 +222,25 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The total volume of goods according to the document.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Volume 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Volume</para>
 		/// </summary>
 		[DataMember(Name="OrderVolume", EmitDefaultValue=false)]
 		public DecimalValue? OrderVolume { get; set; }
 
 		/// <summary>
 		/// The total weight of the goods according to the document.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Weight 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Weight</para>
 		/// </summary>
 		[DataMember(Name="OrderWeight", EmitDefaultValue=false)]
 		public DecimalValue? OrderWeight { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the Freight Price can be changedmanually.
-		/// DAC Field Name: OverrideFreightAmount 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Override Freight Price 
+		/// <para>DAC Field Name: OverrideFreightAmount</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Override Freight Price</para>
 		/// </summary>
 		/// <remarks>
 		/// The system will preserve the manually entered Freight Price value inthe sales order and will not recalculate the value if the quantity, extended price, or amount is modifiedin order lines.
@@ -250,17 +250,17 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// The total (gross) weight of the packages for this sales order, including the weight of the boxes used forpackages.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Package Weight 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Package Weight</para>
 		/// </summary>
 		[DataMember(Name="PackageWeight", EmitDefaultValue=false)]
 		public DecimalValue? PackageWeight { get; set; }
 
 		/// <summary>
 		/// Any additional freight charges for handling the order(in the currency of the document).
-		/// DAC Field Name: CuryPremiumFreightAmt 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Premium Freight Price 
+		/// <para>DAC Field Name: CuryPremiumFreightAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Premium Freight Price</para>
 		/// </summary>
 		[DataMember(Name="PremiumFreight", EmitDefaultValue=false)]
 		public DecimalValue? PremiumFreight { get; set; }

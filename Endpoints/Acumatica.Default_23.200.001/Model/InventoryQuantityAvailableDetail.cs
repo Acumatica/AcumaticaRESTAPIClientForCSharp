@@ -15,22 +15,22 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: INSiteStatusQtyAggregated_inventoryID 
-		/// DAC: PX.Data.GenericResult 
+		/// <para>DAC Field Name: INSiteStatusQtyAggregated_inventoryID</para>
+		/// <para>DAC: PX.Data.GenericResult</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: INSiteStatusQtyAggregated_lastModifiedDateTime 
-		/// DAC: PX.Data.GenericResult 
+		/// <para>DAC Field Name: INSiteStatusQtyAggregated_lastModifiedDateTime</para>
+		/// <para>DAC: PX.Data.GenericResult</para>
 		/// </summary>
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: INSiteStatusQtyAggregated_qtyAvail 
-		/// DAC: PX.Data.GenericResult 
+		/// <para>DAC Field Name: INSiteStatusQtyAggregated_qtyAvail</para>
+		/// <para>DAC: PX.Data.GenericResult</para>
 		/// </summary>
 		[DataMember(Name="QtyAvailable", EmitDefaultValue=false)]
 		public DecimalValue? QtyAvailable { get; set; }

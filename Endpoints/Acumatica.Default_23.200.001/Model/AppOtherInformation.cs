@@ -18,9 +18,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? BatchNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LongDescr 
-		/// DAC: PX.Objects.FS.FSAppointment 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC Field Name: LongDescr</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -35,9 +35,9 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? IssueReferenceNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSchedule 
-		/// Display Name: Recurrence Description 
-		/// SQL Type: varchar(MAX) 
+		/// <para>DAC: PX.Objects.FS.FSSchedule</para>
+		/// <para>Display Name: Recurrence Description</para>
+		/// <para>SQL Type: varchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="RecurrenceDescription", EmitDefaultValue=false)]
 		public StringValue? RecurrenceDescription { get; set; }
@@ -46,32 +46,32 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSAppointment 
-		/// Display Name: Route ID 
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Route ID</para>
 		/// </summary>
 		[DataMember(Name="RouteID", EmitDefaultValue=false)]
 		public StringValue? RouteID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RouteDocumentID 
-		/// DAC: PX.Objects.FS.FSAppointment 
-		/// Display Name: Route Nbr. 
+		/// <para>DAC Field Name: RouteDocumentID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Route Nbr.</para>
 		/// </summary>
 		[DataMember(Name="RouteNbr", EmitDefaultValue=false)]
 		public StringValue? RouteNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ScheduleID 
-		/// DAC: PX.Objects.FS.FSAppointment 
-		/// Display Name: Source Schedule ID 
+		/// <para>DAC Field Name: ScheduleID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Source Schedule ID</para>
 		/// </summary>
 		[DataMember(Name="SourceScheduleID", EmitDefaultValue=false)]
 		public StringValue? SourceScheduleID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ServiceContractID 
-		/// DAC: PX.Objects.FS.FSAppointment 
-		/// Display Name: Source Service Contract ID 
+		/// <para>DAC Field Name: ServiceContractID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Source Service Contract ID</para>
 		/// </summary>
 		[DataMember(Name="SourceServiceContractID", EmitDefaultValue=false)]
 		public StringValue? SourceServiceContractID { get; set; }

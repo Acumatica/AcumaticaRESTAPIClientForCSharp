@@ -11,47 +11,47 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AP202000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AP202000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class VendorPricesInquiry : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AP.APVendorPriceFilter 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ItemClassCD 
-		/// DAC: PX.Objects.AP.APVendorPriceFilter 
-		/// Display Name: Item Class 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: ItemClassCD</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
+		/// <para>Display Name: Item Class</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OwnerID 
-		/// DAC: PX.Objects.AP.APVendorPriceFilter 
-		/// Display Name: Product Manager 
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
+		/// <para>Display Name: Product Manager</para>
 		/// </summary>
 		[DataMember(Name="ProductManager", EmitDefaultValue=false)]
 		public StringValue? ProductManager { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WorkGroupID 
-		/// DAC: PX.Objects.AP.APVendorPriceFilter 
-		/// Display Name: Product Workgroup 
+		/// <para>DAC Field Name: WorkGroupID</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
+		/// <para>Display Name: Product Workgroup</para>
 		/// </summary>
 		[DataMember(Name="ProductWorkgroup", EmitDefaultValue=false)]
 		public StringValue? ProductWorkgroup { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorID 
-		/// DAC: PX.Objects.AP.APVendorPriceFilter 
+		/// <para>DAC Field Name: VendorID</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
 		/// </summary>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }

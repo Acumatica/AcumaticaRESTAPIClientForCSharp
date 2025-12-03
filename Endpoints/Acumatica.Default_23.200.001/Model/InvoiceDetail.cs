@@ -15,23 +15,23 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: AccountID 
-		/// DAC: PX.Objects.AR.ARTran 
+		/// <para>DAC Field Name: AccountID</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
 		/// </summary>
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTranAmt 
-		/// DAC: PX.Objects.AR.ARTran 
+		/// <para>DAC Field Name: CuryTranAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
 		/// </summary>
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
 		/// The identifier of the branch to which the document belongs.
-		/// DAC Field Name: BranchID 
-		/// DAC: PX.Objects.AR.ARInvoice 
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
 		/// </summary>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
@@ -40,32 +40,32 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? CalculateDiscountsOnImport { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CostCodeID 
-		/// DAC: PX.Objects.AR.ARTran 
-		/// Display Name: Cost Code 
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>Display Name: Cost Code</para>
 		/// </summary>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryDiscAmt 
-		/// DAC: PX.Objects.AR.ARTran 
-		/// Display Name: Discount Amount 
+		/// <para>DAC Field Name: CuryDiscAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>Display Name: Discount Amount</para>
 		/// </summary>
 		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryExtPrice 
-		/// DAC: PX.Objects.AR.ARTran 
-		/// Display Name: Ext. Price 
+		/// <para>DAC Field Name: CuryExtPrice</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>Display Name: Ext. Price</para>
 		/// </summary>
 		[DataMember(Name="ExtendedPrice", EmitDefaultValue=false)]
 		public DecimalValue? ExtendedPrice { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARTran 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -77,63 +77,63 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaskID 
-		/// DAC: PX.Objects.AR.ARTran 
-		/// Display Name: Project Task 
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>Display Name: Project Task</para>
 		/// </summary>
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARTran 
-		/// Display Name: Quantity 
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>Display Name: Quantity</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubID 
-		/// DAC: PX.Objects.AR.ARTran 
+		/// <para>DAC Field Name: SubID</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
 		/// </summary>
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.AR.ARTran 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranDesc 
-		/// DAC: PX.Objects.AR.ARTran 
-		/// Display Name: Transaction Descr. 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>Display Name: Transaction Descr.</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="TransactionDescription", EmitDefaultValue=false)]
 		public StringValue? TransactionDescription { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryUnitPrice 
-		/// DAC: PX.Objects.AR.ARTran 
-		/// Display Name: Unit Price 
+		/// <para>DAC Field Name: CuryUnitPrice</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>Display Name: Unit Price</para>
 		/// </summary>
 		[DataMember(Name="UnitPrice", EmitDefaultValue=false)]
 		public DecimalValue? UnitPrice { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARTran 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxCategoryID 
-		/// DAC: PX.Objects.AR.ARTran 
-		/// Display Name: Tax Category 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: TaxCategoryID</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
+		/// <para>Display Name: Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
