@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace EndpointSchemaGenerator
@@ -39,10 +40,10 @@ namespace EndpointSchemaGenerator
 			{
 				string documentation = $"\r\n\t\t/// <summary>" +
 					(string.IsNullOrEmpty(field.Summary) ? "" : $"\r\n\t\t/// {field.Summary?.Replace("\n", "")}") +
-					(string.IsNullOrEmpty(field.DACFieldName) || field.DACFieldName == field.Name ? "" : $"\r\n\t\t/// DAC Field Name: {field.DACFieldName} ") +
-					$"\r\n\t\t/// DAC: {field.DAC} " +
-					(string.IsNullOrEmpty(field.DisplayName) || field.DisplayName == field.Name ? "" : $"\r\n\t\t/// Display Name: {field.DisplayName} ") +
-					((!string.IsNullOrEmpty(field.SqlType)) && field.SqlType.Contains("char") ? $"\r\n\t\t/// SQL Type: {field.SqlType} " : "") +
+					(string.IsNullOrEmpty(field.DACFieldName) || field.DACFieldName == field.Name ? "" : $"\r\n\t\t/// <para>DAC Field Name: {field.DACFieldName}</para>") +
+					$"\r\n\t\t/// <para>DAC: {field.DAC}</para>" +
+					(string.IsNullOrEmpty(field.DisplayName) || field.DisplayName == field.Name ? "" : $"\r\n\t\t/// <para>Display Name: {field.DisplayName}</para>") +
+					((!string.IsNullOrEmpty(field.SqlType)) && field.SqlType.Contains("char") ? $"\r\n\t\t/// <para>SQL Type: {field.SqlType}</para>" : "") +
 					(field.IsKey == true ? $"\r\n\t\t/// Key Field" : "") +
 					$"\r\n\t\t/// </summary>" +
 					(string.IsNullOrEmpty(field.Remarks) ? "" : $"\r\n\t\t/// <remarks>\r\n\t\t/// {field.Remarks?.Replace("\n", "")}\r\n\t\t/// </remarks>");
@@ -67,11 +68,15 @@ namespace EndpointSchemaGenerator
 		/// <param name="virtualModifier"></param>
 		/// <param name="screenID"></param>
 		/// <returns></returns>
-		public static string GenerateTopLevelEntityCode(string endpointNamespace, string entityName, string content, string endpointPath, string parentReference, bool isDerived, string? screenID, string? expands)
+		public static string GenerateTopLevelEntityCode(string endpointNamespace, string entityName, string content, string endpointPath, string parentReference, bool isDerived, string? screenID, string? expands, IEnumerable<EntityField> keyFields = null)
 		{
 			string virtualModifier = isDerived ? "override" : "virtual";
 			return Usings + $"namespace {endpointNamespace}.Model\r\n{{"
-				+ (string.IsNullOrEmpty(screenID) ? "" : $"\r\n\t/// <summary>\r\n\t/// Corresponds to the screen {screenID} in the Acumatica ERP\r\n\t/// </summary>")
+				+ (string.IsNullOrEmpty(screenID) ? "" :
+					$"\r\n\t/// <summary>\r\n\t/// Corresponds to the screen <c>{screenID}</c> in the Acumatica ERP"
+					+ (keyFields != null && keyFields.Any() ?
+						$"\r\n\t/// <para>Key Fields: {string.Join(", ", keyFields.Select(kf => kf.Name))}</para>" : "")
+                    + "\r\n\t/// </summary>")
 				+ $"\r\n\t[DataContract]\r\n\tpublic class {entityName} : {parentReference}, ITopLevelEntity\r\n\t{{\r\n{content}"
 				+ expands
 				+ $"\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}\r\n\t}}\r\n}}";
