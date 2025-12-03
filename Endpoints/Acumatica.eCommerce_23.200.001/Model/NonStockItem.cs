@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN202000 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN202000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class NonStockItem : Acumatica.Default_23_200_001.Model.NonStockItem, ITopLevelEntity

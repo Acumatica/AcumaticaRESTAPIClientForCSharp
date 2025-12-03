@@ -16,34 +16,34 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The date and time when the record was created.
-		/// DAC Field Name: CreatedDateTime 
-		/// DAC: PX.Objects.AM.AMEstimateHistory 
-		/// Display Name: Created At 
+		/// <para>DAC Field Name: CreatedDateTime</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateHistory</para>
+		/// <para>Display Name: Created At</para>
 		/// </summary>
 		[DataMember(Name="CreatedAt", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedAt { get; set; }
 
 		/// <summary>
 		/// The ID of the user who created the record.
-		/// DAC Field Name: CreatedByID 
-		/// DAC: PX.Objects.AM.AMEstimateHistory 
-		/// Display Name: Created By 
+		/// <para>DAC Field Name: CreatedByID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateHistory</para>
+		/// <para>Display Name: Created By</para>
 		/// </summary>
 		[DataMember(Name="CreatedBy", EmitDefaultValue=false)]
 		public StringValue? CreatedBy { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Operation Desc 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Operation Desc</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Estimate ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Estimate ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="EstimateID", EmitDefaultValue=false)]
@@ -53,9 +53,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? HistoryLineNumber { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RevisionID 
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: RevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Revision", EmitDefaultValue=false)]

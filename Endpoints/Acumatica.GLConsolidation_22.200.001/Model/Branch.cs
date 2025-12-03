@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.GLConsolidation_22_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL103002 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL103002</c> in the Acumatica ERP
+	/// <para>Key Fields: BranchCD</para>
 	/// </summary>
 	[DataContract]
 	public class Branch : Entity, ITopLevelEntity
@@ -19,33 +20,33 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 
 		/// <summary>
 		/// The name of the branch.
-		/// DAC: PX.Objects.GL.Branch 
-		/// Display Name: Branch Name 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.GL.Branch</para>
+		/// <para>Display Name: Branch Name</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="AcctName", EmitDefaultValue=false)]
 		public StringValue? AcctName { get; set; }
 
 		/// <summary>
 		/// Key field.User-friendly unique identifier of the Branch.
-		/// DAC: PX.Objects.GL.Branch 
-		/// Display Name: Branch ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.GL.Branch</para>
+		/// <para>Display Name: Branch ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="BranchCD", EmitDefaultValue=false)]
 		public StringValue? BranchCD { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Organization__OrganizationCD 
-		/// DAC: PX.Objects.GL.Branch 
+		/// <para>DAC Field Name: Organization__OrganizationCD</para>
+		/// <para>DAC: PX.Objects.GL.Branch</para>
 		/// </summary>
 		[DataMember(Name="OrganizationCD", EmitDefaultValue=false)]
 		public StringValue? OrganizationCD { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Ledger__LedgerCD 
-		/// DAC: PX.Objects.GL.Branch 
+		/// <para>DAC Field Name: Ledger__LedgerCD</para>
+		/// <para>DAC: PX.Objects.GL.Branch</para>
 		/// </summary>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }

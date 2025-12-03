@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM401000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM401000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class CriticalMaterials : Entity, ITopLevelEntity
@@ -21,33 +21,33 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<CriticalMaterialDetail>? Detail { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.ProdItemFilter 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AM.ProdItemFilter</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProdOrdID 
-		/// DAC: PX.Objects.AM.ProdItemFilter 
-		/// Display Name: Production Nbr. 
-		/// SQL Type: nvarchar(19) 
+		/// <para>DAC Field Name: ProdOrdID</para>
+		/// <para>DAC: PX.Objects.AM.ProdItemFilter</para>
+		/// <para>Display Name: Production Nbr.</para>
+		/// <para>SQL Type: nvarchar(19)</para>
 		/// </summary>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShowAll 
-		/// DAC: PX.Objects.AM.ProdItemFilter 
-		/// Display Name: Show All Items 
+		/// <para>DAC Field Name: ShowAll</para>
+		/// <para>DAC: PX.Objects.AM.ProdItemFilter</para>
+		/// <para>Display Name: Show All Items</para>
 		/// </summary>
 		[DataMember(Name="ShowAllItems", EmitDefaultValue=false)]
 		public BooleanValue? ShowAllItems { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.ProdItemFilter 
-		/// Display Name: Show Allocated 
+		/// <para>DAC: PX.Objects.AM.ProdItemFilter</para>
+		/// <para>Display Name: Show Allocated</para>
 		/// </summary>
 		[DataMember(Name="ShowAllocated", EmitDefaultValue=false)]
 		public BooleanValue? ShowAllocated { get; set; }

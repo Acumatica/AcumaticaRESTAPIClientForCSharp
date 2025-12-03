@@ -15,16 +15,16 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -33,9 +33,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Lot/Serial Nbr. 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
@@ -45,9 +45,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? OperationID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
@@ -57,27 +57,27 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ParentLotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProdOrdID 
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Production Nbr. 
-		/// SQL Type: nvarchar(19) 
+		/// <para>DAC Field Name: ProdOrdID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Production Nbr.</para>
+		/// <para>SQL Type: nvarchar(19)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: QtyIssued 
-		/// DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned 
-		/// Display Name: Qty. Allocated 
+		/// <para>DAC Field Name: QtyIssued</para>
+		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned</para>
+		/// <para>Display Name: Qty. Allocated</para>
 		/// </summary>
 		[DataMember(Name="QtyAllocated", EmitDefaultValue=false)]
 		public DecimalValue? QtyAllocated { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BaseUnit 
-		/// DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: BaseUnit</para>
+		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }

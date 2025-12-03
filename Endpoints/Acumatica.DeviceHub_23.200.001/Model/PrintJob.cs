@@ -16,9 +16,9 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 
 		/// <summary>
 		/// The ID of the user who created the record.
-		/// DAC Field Name: CreatedByID 
-		/// DAC: PX.SM.SMPrintJob 
-		/// Display Name: Created By 
+		/// <para>DAC Field Name: CreatedByID</para>
+		/// <para>DAC: PX.SM.SMPrintJob</para>
+		/// <para>Display Name: Created By</para>
 		/// </summary>
 		[DataMember(Name="CreatedBy", EmitDefaultValue=false)]
 		public StringValue? CreatedBy { get; set; }
@@ -27,24 +27,24 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		public DateTimeValue? CreationDateTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrintJob 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.SM.SMPrintJob</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DeviceHubID 
-		/// DAC: PX.SM.SMPrintJob 
-		/// Display Name: DeviceHub ID 
-		/// SQL Type: varchar(30) 
+		/// <para>DAC Field Name: DeviceHubID</para>
+		/// <para>DAC: PX.SM.SMPrintJob</para>
+		/// <para>Display Name: DeviceHub ID</para>
+		/// <para>SQL Type: varchar(30)</para>
 		/// </summary>
 		[DataMember(Name="DeviceHub", EmitDefaultValue=false)]
 		public StringValue? DeviceHub { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrintJob 
-		/// Display Name: Job ID 
+		/// <para>DAC: PX.SM.SMPrintJob</para>
+		/// <para>Display Name: Job ID</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="JobID", EmitDefaultValue=false)]
@@ -54,8 +54,8 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		public DateTimeValue? ModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrintJob 
-		/// Display Name: Number of Copies 
+		/// <para>DAC: PX.SM.SMPrintJob</para>
+		/// <para>Display Name: Number of Copies</para>
 		/// </summary>
 		[DataMember(Name="NumberOfCopies", EmitDefaultValue=false)]
 		public IntValue? NumberOfCopies { get; set; }
@@ -64,31 +64,31 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		public List<PrintJobParameter>? Parameters { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PrinterName 
-		/// DAC: PX.SM.SMPrintJob 
-		/// SQL Type: varchar(20) 
+		/// <para>DAC Field Name: PrinterName</para>
+		/// <para>DAC: PX.SM.SMPrintJob</para>
+		/// <para>SQL Type: varchar(20)</para>
 		/// </summary>
 		[DataMember(Name="Printer", EmitDefaultValue=false)]
 		public StringValue? Printer { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrintJob 
-		/// Display Name: Report ID 
-		/// SQL Type: varchar(8) 
+		/// <para>DAC: PX.SM.SMPrintJob</para>
+		/// <para>Display Name: Report ID</para>
+		/// <para>SQL Type: varchar(8)</para>
 		/// </summary>
 		[DataMember(Name="ReportID", EmitDefaultValue=false)]
 		public StringValue? ReportID { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
-		/// DAC: PX.SM.SMPrintJob 
+		/// <para>DAC: PX.SM.SMPrintJob</para>
 		/// </summary>
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
 		public BooleanValue? Selected { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrintJob 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.SM.SMPrintJob</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

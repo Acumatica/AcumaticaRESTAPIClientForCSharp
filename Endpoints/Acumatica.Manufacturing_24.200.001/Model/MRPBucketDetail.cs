@@ -15,29 +15,29 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMRPBucketDetail 
+		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Bucket", EmitDefaultValue=false)]
 		public IntValue? Bucket { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMRPBucket 
-		/// Display Name: Bucket ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
+		/// <para>Display Name: Bucket ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="BucketID", EmitDefaultValue=false)]
 		public StringValue? BucketID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMRPBucketDetail 
+		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
 		/// </summary>
 		[DataMember(Name="Interval", EmitDefaultValue=false)]
 		public StringValue? Interval { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMRPBucketDetail 
+		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public IntValue? Value { get; set; }

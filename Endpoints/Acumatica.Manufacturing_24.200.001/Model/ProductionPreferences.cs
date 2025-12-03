@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM102000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM102000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class ProductionPreferences : Entity, ITopLevelEntity
@@ -19,27 +19,27 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// Scheduling block size (in minutes) for APS
-		/// DAC Field Name: SchdBlockSize 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Block Size 
+		/// <para>DAC Field Name: SchdBlockSize</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Block Size</para>
 		/// </summary>
 		[DataMember(Name="BlockSize", EmitDefaultValue=false)]
 		public StringValue? BlockSize { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CTPOrderType 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Capable to Promise Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC Field Name: CTPOrderType</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Capable to Promise Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="CapabletoPromiseOrderType", EmitDefaultValue=false)]
 		public StringValue? CapabletoPromiseOrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProdCostNumberingID 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Cost Numbering Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: ProdCostNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Cost Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="CostNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? CostNumberingSequence { get; set; }
@@ -48,208 +48,208 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public ProductionDataCollectionSettings? DataCollectionSettings { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Default Disassemble Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Default Disassemble Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="DefaultDisassembleOrderType", EmitDefaultValue=false)]
 		public StringValue? DefaultDisassembleOrderType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Default Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Default Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="DefaultOrderType", EmitDefaultValue=false)]
 		public StringValue? DefaultOrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DefaultEmployee 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Default User Employee ID 
+		/// <para>DAC Field Name: DefaultEmployee</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Default User Employee ID</para>
 		/// </summary>
 		[DataMember(Name="DefaultUserEmployeeID", EmitDefaultValue=false)]
 		public BooleanValue? DefaultUserEmployeeID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DisassemblyNumberingID 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Disassembly Numbering Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: DisassemblyNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Disassembly Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="DisassemblyNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? DisassemblyNumberingSequence { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FixMfgCalendarID 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Fixed Mfg Calendar ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: FixMfgCalendarID</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Fixed Mfg Calendar ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="FixedMfgCalendarID", EmitDefaultValue=false)]
 		public StringValue? FixedMfgCalendarID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FMLTimeUnits 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Fixed Mfg Units 
+		/// <para>DAC Field Name: FMLTimeUnits</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Fixed Mfg Units</para>
 		/// </summary>
 		[DataMember(Name="FixedMfgUnits", EmitDefaultValue=false)]
 		public StringValue? FixedMfgUnits { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: HoldEntry 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Hold Documents on Entry 
+		/// <para>DAC Field Name: HoldEntry</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Hold Documents on Entry</para>
 		/// </summary>
 		[DataMember(Name="HoldDocumentsonEntry", EmitDefaultValue=false)]
 		public BooleanValue? HoldDocumentsonEntry { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: HoldShipmentsOnEntry 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Hold Shipments on Entry 
+		/// <para>DAC Field Name: HoldShipmentsOnEntry</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Hold Shipments on Entry</para>
 		/// </summary>
 		[DataMember(Name="HoldShipmentsonEntry", EmitDefaultValue=false)]
 		public BooleanValue? HoldShipmentsonEntry { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InclScrap 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Include Scrap in Completions 
+		/// <para>DAC Field Name: InclScrap</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Include Scrap in Completions</para>
 		/// </summary>
 		[DataMember(Name="IncludeScrapinCompletions", EmitDefaultValue=false)]
 		public BooleanValue? IncludeScrapinCompletions { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LaborNumberingID 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Labor Numbering Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: LaborNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Labor Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="LaborNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? LaborNumberingSequence { get; set; }
 
 		/// <summary>
 		/// Lock status on production order preferrence
-		/// DAC Field Name: LockWorkflowEnabled 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Lock Production Orders before Closing 
+		/// <para>DAC Field Name: LockWorkflowEnabled</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Lock Production Orders before Closing</para>
 		/// </summary>
 		[DataMember(Name="LockProductionOrdersBeforeClosing", EmitDefaultValue=false)]
 		public BooleanValue? LockProductionOrdersBeforeClosing { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Machine Scheduling 
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Machine Scheduling</para>
 		/// </summary>
 		[DataMember(Name="MachineScheduling", EmitDefaultValue=false)]
 		public BooleanValue? MachineScheduling { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MaterialNumberingID 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Material Numbering Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: MaterialNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Material Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="MaterialNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? MaterialNumberingSequence { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MoveNumberingID 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Move Numbering Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: MoveNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Move Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="MoveNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? MoveNumberingSequence { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SummPost 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Post Summary on Updating GL 
+		/// <para>DAC Field Name: SummPost</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Post Summary on Updating GL</para>
 		/// </summary>
 		[DataMember(Name="PostSummaryonUpdatingGL", EmitDefaultValue=false)]
 		public BooleanValue? PostSummaryonUpdatingGL { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RestrictClockCurrentUser 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Restrict Clock Entry to Current User 
+		/// <para>DAC Field Name: RestrictClockCurrentUser</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Restrict Clock Entry to Current User</para>
 		/// </summary>
 		[DataMember(Name="RestrictClockEntrytoCurrentUser", EmitDefaultValue=false)]
 		public BooleanValue? RestrictClockEntrytoCurrentUser { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Tool Scheduling 
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Tool Scheduling</para>
 		/// </summary>
 		[DataMember(Name="ToolScheduling", EmitDefaultValue=false)]
 		public BooleanValue? ToolScheduling { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FMLTime 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Use Fixed Manufacturing Times 
+		/// <para>DAC Field Name: FMLTime</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Use Fixed Manufacturing Times</para>
 		/// </summary>
 		[DataMember(Name="UseFixedManufacturingTimes", EmitDefaultValue=false)]
 		public BooleanValue? UseFixedManufacturingTimes { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DfltLbrRate 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Use Labor Rate 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: DfltLbrRate</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Use Labor Rate</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="UseLaborRate", EmitDefaultValue=false)]
 		public StringValue? UseLaborRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FMLTMRPOrdorOP 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Use Order Start Date for MRP 
+		/// <para>DAC Field Name: FMLTMRPOrdorOP</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Use Order Start Date for MRP</para>
 		/// </summary>
 		[DataMember(Name="UseOrderStartDateforMRP", EmitDefaultValue=false)]
 		public BooleanValue? UseOrderStartDateforMRP { get; set; }
 
 		/// <summary>
 		/// When scheduling a production order should the process use crew size and efficiencyDefault is false to match logic before upgrade. Requires APS
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Use Shift Crew Size 
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Use Shift Crew Size</para>
 		/// </summary>
 		[DataMember(Name="UseShiftCrewSize", EmitDefaultValue=false)]
 		public BooleanValue? UseShiftCrewSize { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RequireControlTotal 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Validate Document Totals on Entry 
+		/// <para>DAC Field Name: RequireControlTotal</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Validate Document Totals on Entry</para>
 		/// </summary>
 		[DataMember(Name="ValidateDocumentTotalsonEntry", EmitDefaultValue=false)]
 		public BooleanValue? ValidateDocumentTotalsonEntry { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ValidateShipmentTotalOnConfirm 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Validate Shipment Total on Confirmation 
+		/// <para>DAC Field Name: ValidateShipmentTotalOnConfirm</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Validate Shipment Total on Confirmation</para>
 		/// </summary>
 		[DataMember(Name="ValidateShipmentTotalonConfirmation", EmitDefaultValue=false)]
 		public BooleanValue? ValidateShipmentTotalonConfirmation { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorShipmentNumberingID 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Vendor Shipment Numbering Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: VendorShipmentNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Vendor Shipment Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="VendorShipmentNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? VendorShipmentNumberingSequence { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WipAdjustNumberingID 
-		/// DAC: PX.Objects.AM.AMPSetup 
-		/// Display Name: Wip Adjust Numbering Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: WipAdjustNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
+		/// <para>Display Name: Wip Adjust Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="WipAdjustNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? WipAdjustNumberingSequence { get; set; }

@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM512000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM512000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class APSMaintenance : Entity, ITopLevelEntity
@@ -19,9 +19,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// Cleanup History
-		/// DAC Field Name: IsHistoryCleanupProcess 
-		/// DAC: PX.Objects.AM.AMAPSMaintenanceFilter 
-		/// Display Name: Cleanup History 
+		/// <para>DAC Field Name: IsHistoryCleanupProcess</para>
+		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceFilter</para>
+		/// <para>Display Name: Cleanup History</para>
 		/// </summary>
 		[DataMember(Name="CleanupHistory", EmitDefaultValue=false)]
 		public BooleanValue? CleanupHistory { get; set; }
@@ -31,9 +31,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// Update Work Center Schedule from Calendar
-		/// DAC Field Name: IsWorkCenterCalendarProcess 
-		/// DAC: PX.Objects.AM.AMAPSMaintenanceFilter 
-		/// Display Name: Update Work Center Schedule from Calendar 
+		/// <para>DAC Field Name: IsWorkCenterCalendarProcess</para>
+		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceFilter</para>
+		/// <para>Display Name: Update Work Center Schedule from Calendar</para>
 		/// </summary>
 		[DataMember(Name="UpdateWorkCenterSchedulefromCalendar", EmitDefaultValue=false)]
 		public BooleanValue? UpdateWorkCenterSchedulefromCalendar { get; set; }

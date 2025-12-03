@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM312000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM312000</c> in the Acumatica ERP
+	/// <para>Key Fields: LotSerialNbr, OrderType, ProductionNbr</para>
 	/// </summary>
 	[DataContract]
 	public class LateAssignment : Entity, ITopLevelEntity
@@ -21,77 +22,77 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<LateAssignmentAllocatedDetail>? AllocatedDetail { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: QtyComplete 
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Complete Qty. 
+		/// <para>DAC Field Name: QtyComplete</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Complete Qty.</para>
 		/// </summary>
 		[DataMember(Name="CompleteQty", EmitDefaultValue=false)]
 		public DecimalValue? CompleteQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Lot/Serial Nbr. 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProdOrdID 
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Production Nbr. 
-		/// SQL Type: nvarchar(19) 
+		/// <para>DAC Field Name: ProdOrdID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Production Nbr.</para>
+		/// <para>SQL Type: nvarchar(19)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Qty 
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Qty. to Produce 
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Qty. to Produce</para>
 		/// </summary>
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
 		public DecimalValue? QtytoProduce { get; set; }
 
 		/// <summary>
 		/// Quantity remaining to be completed on the production order
-		/// DAC Field Name: QtyRemaining 
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Remaining Qty. 
+		/// <para>DAC Field Name: QtyRemaining</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Remaining Qty.</para>
 		/// </summary>
 		[DataMember(Name="RemainingQty", EmitDefaultValue=false)]
 		public DecimalValue? RemainingQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: QtyScrapped 
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// Display Name: Scrapped Qty. 
+		/// <para>DAC Field Name: QtyScrapped</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Scrapped Qty.</para>
 		/// </summary>
 		[DataMember(Name="ScrappedQty", EmitDefaultValue=false)]
 		public DecimalValue? ScrappedQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StatusID 
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: StatusID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
@@ -100,8 +101,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<LateAssignmentUnallocatedDetail>? UnallocatedDetail { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteId 
-		/// DAC: PX.Objects.AM.AMProdItemSplitPreassign 
+		/// <para>DAC Field Name: SiteId</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }

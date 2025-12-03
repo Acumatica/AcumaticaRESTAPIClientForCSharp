@@ -11,45 +11,46 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM205000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM205000</c> in the Acumatica ERP
+	/// <para>Key Fields: Shift</para>
 	/// </summary>
 	[DataContract]
 	public class Shift : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: AMCrewSize 
-		/// DAC: PX.Objects.EP.EPShiftCode 
+		/// <para>DAC Field Name: AMCrewSize</para>
+		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
 		/// </summary>
 		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
 		public DecimalValue? CrewSize { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.EPShiftCode 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.EPShiftCode 
+		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
 		/// </summary>
 		[DataMember(Name="DiffType", EmitDefaultValue=false)]
 		public StringValue? DiffType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShiftCD 
-		/// DAC: PX.Objects.EP.EPShiftCode 
-		/// Display Name: Code 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: ShiftCD</para>
+		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>Display Name: Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="shift", EmitDefaultValue=false)]
 		public StringValue? shift { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShftDiff 
-		/// DAC: PX.Objects.EP.EPShiftCode 
+		/// <para>DAC Field Name: ShftDiff</para>
+		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
 		/// </summary>
 		[DataMember(Name="ShiftDiff", EmitDefaultValue=false)]
 		public DecimalValue? ShiftDiff { get; set; }

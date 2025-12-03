@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM215000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM215000</c> in the Acumatica ERP
+	/// <para>Key Fields: ECOID</para>
 	/// </summary>
 	[DataContract]
 	public class EngineeringChangeOrder : Entity, ITopLevelEntity
@@ -21,49 +22,49 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<EngineeringChangeOrderAttribute>? Attributes { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMECOItem 
-		/// Display Name: BOM ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: BOM ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]
 		public StringValue? BOMID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BOMRevisionID 
-		/// DAC: PX.Objects.AM.AMECOItem 
-		/// Display Name: BOM Revision 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: BOMRevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: BOM Revision</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="BOMRevision", EmitDefaultValue=false)]
 		public StringValue? BOMRevision { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMECOItem 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMECOItem 
-		/// Display Name: ECO ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: ECO ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ECOID", EmitDefaultValue=false)]
 		public StringValue? ECOID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMECOItem 
-		/// Display Name: Effective Date 
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: Effective Date</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMECOItem 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -72,49 +73,49 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<EngineeringChangeOrderOperation>? Operations { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMECOItem 
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
 		/// </summary>
 		[DataMember(Name="Priority", EmitDefaultValue=false)]
 		public IntValue? Priority { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMECOItem 
-		/// Display Name: Request Date 
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: Request Date</para>
 		/// </summary>
 		[DataMember(Name="RequestDate", EmitDefaultValue=false)]
 		public DateTimeValue? RequestDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMECOItem 
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
 		/// </summary>
 		[DataMember(Name="Requestor", EmitDefaultValue=false)]
 		public StringValue? Requestor { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RevisionID 
-		/// DAC: PX.Objects.AM.AMECOItem 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: RevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMECOItem 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.AM.AMECOItem 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.AM.AMECOItem 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }

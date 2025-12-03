@@ -15,81 +15,81 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfiguration 
-		/// Display Name: Configuration ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Configuration ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
 		public StringValue? ConfigurationID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMConfiguration 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Feature ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Feature ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="FeatureID", EmitDefaultValue=false)]
 		public StringValue? FeatureID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="Label", EmitDefaultValue=false)]
 		public StringValue? Label { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Line Nbr 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Line Nbr</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Lot Qty 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Lot Qty</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="LotQty", EmitDefaultValue=false)]
 		public StringValue? LotQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Max Qty 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Max Qty</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
 		public StringValue? MaxQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Max Selection 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Max Selection</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="MaxSelection", EmitDefaultValue=false)]
 		public StringValue? MaxSelection { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Min Qty 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Min Qty</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="MinQty", EmitDefaultValue=false)]
 		public StringValue? MinQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Min Selection 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Min Selection</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="MinSelection", EmitDefaultValue=false)]
 		public StringValue? MinSelection { get; set; }
@@ -99,22 +99,22 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// Flag used for reporting
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Print Results 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Print Results</para>
 		/// </summary>
 		[DataMember(Name="PrintResults", EmitDefaultValue=false)]
 		public BooleanValue? PrintResults { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Results Copy 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Results Copy</para>
 		/// </summary>
 		[DataMember(Name="ResultsCopy", EmitDefaultValue=false)]
 		public BooleanValue? ResultsCopy { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfiguration 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
@@ -124,14 +124,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<ConfigurationMaintFeatureRule>? Rules { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
-		/// Display Name: Sort Order 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Sort Order</para>
 		/// </summary>
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public IntValue? SortOrder { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMConfigurationFeature 
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
 		/// </summary>
 		[DataMember(Name="Visible", EmitDefaultValue=false)]
 		public BooleanValue? Visible { get; set; }

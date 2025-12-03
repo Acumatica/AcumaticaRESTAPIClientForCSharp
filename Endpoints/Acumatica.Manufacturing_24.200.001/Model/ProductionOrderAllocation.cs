@@ -15,75 +15,75 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: QtyComplete 
-		/// DAC: PX.Objects.AM.AMProdItem 
-		/// Display Name: Qty. Complete 
+		/// <para>DAC Field Name: QtyComplete</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Qty. Complete</para>
 		/// </summary>
 		[DataMember(Name="CompleteQty", EmitDefaultValue=false)]
 		public DecimalValue? CompleteQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExpireDate 
-		/// DAC: PX.Objects.AM.AMProdItemSplit 
-		/// Display Name: Expiration Date 
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplit</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LocationID 
-		/// DAC: PX.Objects.AM.AMProdItem 
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// </summary>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItemSplit 
-		/// Display Name: Lot/Serial Nbr. 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplit</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItem 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProdOrdID 
-		/// DAC: PX.Objects.AM.AMProdItem 
-		/// Display Name: Production Nbr. 
-		/// SQL Type: nvarchar(19) 
+		/// <para>DAC Field Name: ProdOrdID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Production Nbr.</para>
+		/// <para>SQL Type: nvarchar(19)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Qty 
-		/// DAC: PX.Objects.AM.AMProdItemSplit 
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplit</para>
 		/// </summary>
 		[DataMember(Name="Quantity", EmitDefaultValue=false)]
 		public DecimalValue? Quantity { get; set; }
 
 		/// <summary>
 		/// Quantity remaining to be completed on the production order
-		/// DAC Field Name: QtyRemaining 
-		/// DAC: PX.Objects.AM.AMProdItem 
-		/// Display Name: Qty. Remaining 
+		/// <para>DAC Field Name: QtyRemaining</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Qty. Remaining</para>
 		/// </summary>
 		[DataMember(Name="RemainingQty", EmitDefaultValue=false)]
 		public DecimalValue? RemainingQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: QtyScrapped 
-		/// DAC: PX.Objects.AM.AMProdItem 
-		/// Display Name: Qty. Scrapped 
+		/// <para>DAC Field Name: QtyScrapped</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Qty. Scrapped</para>
 		/// </summary>
 		[DataMember(Name="ScrappedQty", EmitDefaultValue=false)]
 		public DecimalValue? ScrappedQty { get; set; }
@@ -92,15 +92,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? SplitLineNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.AM.AMProdItem 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItem 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }

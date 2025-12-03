@@ -15,18 +15,18 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: MachAcctID 
-		/// DAC: PX.Objects.AM.AMWCMach 
-		/// Display Name: Machine Account 
+		/// <para>DAC Field Name: MachAcctID</para>
+		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
+		/// <para>Display Name: Machine Account</para>
 		/// </summary>
 		[DataMember(Name="MachineAccount", EmitDefaultValue=false)]
 		public StringValue? MachineAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MachID 
-		/// DAC: PX.Objects.AM.AMWCMach 
-		/// Display Name: Machine ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: MachID</para>
+		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
+		/// <para>Display Name: Machine ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="MachineID", EmitDefaultValue=false)]
@@ -34,24 +34,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// Indicates if the machine record will be used (false value) or should the workcenter machine record be used as overriding values (true value)
-		/// DAC: PX.Objects.AM.AMWCMach 
-		/// Display Name: Machine Override 
+		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
+		/// <para>Display Name: Machine Override</para>
 		/// </summary>
 		[DataMember(Name="MachineOverride", EmitDefaultValue=false)]
 		public BooleanValue? MachineOverride { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MachSubID 
-		/// DAC: PX.Objects.AM.AMWCMach 
-		/// Display Name: Machine Subaccount 
+		/// <para>DAC Field Name: MachSubID</para>
+		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
+		/// <para>Display Name: Machine Subaccount</para>
 		/// </summary>
 		[DataMember(Name="MachineSubaccount", EmitDefaultValue=false)]
 		public StringValue? MachineSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StdCost 
-		/// DAC: PX.Objects.AM.AMWCMach 
-		/// Display Name: Standard Cost 
+		/// <para>DAC Field Name: StdCost</para>
+		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
+		/// <para>Display Name: Standard Cost</para>
 		/// </summary>
 		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
 		public DecimalValue? StandardCost { get; set; }

@@ -15,252 +15,252 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Fixed Overhead 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Fixed Overhead</para>
 		/// </summary>
 		[DataMember(Name="ActualFixedOverhead", EmitDefaultValue=false)]
 		public DecimalValue? ActualFixedOverhead { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Labor 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Labor</para>
 		/// </summary>
 		[DataMember(Name="ActualLabor", EmitDefaultValue=false)]
 		public DecimalValue? ActualLabor { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ActualLaborTimeRaw 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: ActualLaborTimeRaw 
+		/// <para>DAC Field Name: ActualLaborTimeRaw</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: ActualLaborTimeRaw</para>
 		/// </summary>
 		[DataMember(Name="ActualLaborTime", EmitDefaultValue=false)]
 		public IntValue? ActualLaborTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Machine 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Machine</para>
 		/// </summary>
 		[DataMember(Name="ActualMachine", EmitDefaultValue=false)]
 		public DecimalValue? ActualMachine { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Material 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Material</para>
 		/// </summary>
 		[DataMember(Name="ActualMaterial", EmitDefaultValue=false)]
 		public DecimalValue? ActualMaterial { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Subcontract 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Subcontract</para>
 		/// </summary>
 		[DataMember(Name="ActualSubcontract", EmitDefaultValue=false)]
 		public DecimalValue? ActualSubcontract { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Tool 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Tool</para>
 		/// </summary>
 		[DataMember(Name="ActualTool", EmitDefaultValue=false)]
 		public DecimalValue? ActualTool { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Variable Overhead 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Variable Overhead</para>
 		/// </summary>
 		[DataMember(Name="ActualVariableOverhead", EmitDefaultValue=false)]
 		public DecimalValue? ActualVariableOverhead { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WIPAdjustment 
-		/// DAC: PX.Objects.AM.AMProdTotal 
+		/// <para>DAC Field Name: WIPAdjustment</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
 		/// </summary>
 		[DataMember(Name="Adjustments", EmitDefaultValue=false)]
 		public DecimalValue? Adjustments { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VarianceFixedOverhead 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Fixed Overhead 
+		/// <para>DAC Field Name: VarianceFixedOverhead</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Fixed Overhead</para>
 		/// </summary>
 		[DataMember(Name="FixedOverheadVariance", EmitDefaultValue=false)]
 		public DecimalValue? FixedOverheadVariance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VarianceLaborTimeRaw 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: VarianceLaborTimeRaw 
+		/// <para>DAC Field Name: VarianceLaborTimeRaw</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: VarianceLaborTimeRaw</para>
 		/// </summary>
 		[DataMember(Name="LaborTimeVariance", EmitDefaultValue=false)]
 		public IntValue? LaborTimeVariance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VarianceLabor 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Labor 
+		/// <para>DAC Field Name: VarianceLabor</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Labor</para>
 		/// </summary>
 		[DataMember(Name="LaborVariance", EmitDefaultValue=false)]
 		public DecimalValue? LaborVariance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VarianceMachine 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Machine 
+		/// <para>DAC Field Name: VarianceMachine</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Machine</para>
 		/// </summary>
 		[DataMember(Name="MachineVariance", EmitDefaultValue=false)]
 		public DecimalValue? MachineVariance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VarianceMaterial 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Material 
+		/// <para>DAC Field Name: VarianceMaterial</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Material</para>
 		/// </summary>
 		[DataMember(Name="MaterialVariance", EmitDefaultValue=false)]
 		public DecimalValue? MaterialVariance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WIPComp 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: MFG to Inventory 
+		/// <para>DAC Field Name: WIPComp</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: MFG to Inventory</para>
 		/// </summary>
 		[DataMember(Name="MFGtoInventory", EmitDefaultValue=false)]
 		public DecimalValue? MFGtoInventory { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Plan Cost Date 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Plan Cost Date</para>
 		/// </summary>
 		[DataMember(Name="PlanCostDate", EmitDefaultValue=false)]
 		public DateTimeValue? PlanCostDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Fixed Overhead 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Fixed Overhead</para>
 		/// </summary>
 		[DataMember(Name="PlanFixedOverhead", EmitDefaultValue=false)]
 		public DecimalValue? PlanFixedOverhead { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Labor 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Labor</para>
 		/// </summary>
 		[DataMember(Name="PlanLabor", EmitDefaultValue=false)]
 		public DecimalValue? PlanLabor { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PlanLaborTimeRaw 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: PlanLaborTimeRaw 
+		/// <para>DAC Field Name: PlanLaborTimeRaw</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: PlanLaborTimeRaw</para>
 		/// </summary>
 		[DataMember(Name="PlanLaborTime", EmitDefaultValue=false)]
 		public IntValue? PlanLaborTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Machine 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Machine</para>
 		/// </summary>
 		[DataMember(Name="PlanMachine", EmitDefaultValue=false)]
 		public DecimalValue? PlanMachine { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Material 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Material</para>
 		/// </summary>
 		[DataMember(Name="PlanMaterial", EmitDefaultValue=false)]
 		public DecimalValue? PlanMaterial { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PlanReferenceMaterial 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Ref. Material 
+		/// <para>DAC Field Name: PlanReferenceMaterial</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Ref. Material</para>
 		/// </summary>
 		[DataMember(Name="PlanRefMaterial", EmitDefaultValue=false)]
 		public DecimalValue? PlanRefMaterial { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Subcontract 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Subcontract</para>
 		/// </summary>
 		[DataMember(Name="PlanSubcontract", EmitDefaultValue=false)]
 		public DecimalValue? PlanSubcontract { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Tool 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Tool</para>
 		/// </summary>
 		[DataMember(Name="PlanTool", EmitDefaultValue=false)]
 		public DecimalValue? PlanTool { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Plan Total 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Plan Total</para>
 		/// </summary>
 		[DataMember(Name="PlanTotal", EmitDefaultValue=false)]
 		public DecimalValue? PlanTotal { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Unit Cost 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
 		[DataMember(Name="PlanUnitCost", EmitDefaultValue=false)]
 		public DecimalValue? PlanUnitCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Variable Overhead 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Variable Overhead</para>
 		/// </summary>
 		[DataMember(Name="PlanVariableOverhead", EmitDefaultValue=false)]
 		public DecimalValue? PlanVariableOverhead { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Scrap 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Scrap</para>
 		/// </summary>
 		[DataMember(Name="ScrapAmount", EmitDefaultValue=false)]
 		public DecimalValue? ScrapAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VarianceSubcontract 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Subcontract 
+		/// <para>DAC Field Name: VarianceSubcontract</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Subcontract</para>
 		/// </summary>
 		[DataMember(Name="SubcontractVariance", EmitDefaultValue=false)]
 		public DecimalValue? SubcontractVariance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VarianceTool 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Tool 
+		/// <para>DAC Field Name: VarianceTool</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Tool</para>
 		/// </summary>
 		[DataMember(Name="ToolVariance", EmitDefaultValue=false)]
 		public DecimalValue? ToolVariance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VarianceTotal 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Total Variance 
+		/// <para>DAC Field Name: VarianceTotal</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Total Variance</para>
 		/// </summary>
 		[DataMember(Name="TotalVariance", EmitDefaultValue=false)]
 		public DecimalValue? TotalVariance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VarianceVariableOverhead 
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: Variable Overhead 
+		/// <para>DAC Field Name: VarianceVariableOverhead</para>
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: Variable Overhead</para>
 		/// </summary>
 		[DataMember(Name="VariableOverheadVariance", EmitDefaultValue=false)]
 		public DecimalValue? VariableOverheadVariance { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: WIP Balance 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: WIP Balance</para>
 		/// </summary>
 		[DataMember(Name="WIPBalance", EmitDefaultValue=false)]
 		public DecimalValue? WIPBalance { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdTotal 
-		/// Display Name: WIP Total 
+		/// <para>DAC: PX.Objects.AM.AMProdTotal</para>
+		/// <para>Display Name: WIP Total</para>
 		/// </summary>
 		[DataMember(Name="WIPTotal", EmitDefaultValue=false)]
 		public DecimalValue? WIPTotal { get; set; }

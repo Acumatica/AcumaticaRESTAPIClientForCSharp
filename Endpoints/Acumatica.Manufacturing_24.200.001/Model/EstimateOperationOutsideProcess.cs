@@ -15,31 +15,31 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: DropShippedToVendor 
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Drop Shipped to Vendor 
+		/// <para>DAC Field Name: DropShippedToVendor</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Drop Shipped to Vendor</para>
 		/// </summary>
 		[DataMember(Name="DropShippedtoVendor", EmitDefaultValue=false)]
 		public BooleanValue? DropShippedtoVendor { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Outside Process 
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Outside Process</para>
 		/// </summary>
 		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
 		public BooleanValue? OutsideProcess { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorID 
-		/// DAC: PX.Objects.AM.AMEstimateOper 
+		/// <para>DAC Field Name: VendorID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
 		/// </summary>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorLocationID 
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Vendor Location 
+		/// <para>DAC Field Name: VendorLocationID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Vendor Location</para>
 		/// </summary>
 		[DataMember(Name="VendorLocation", EmitDefaultValue=false)]
 		public StringValue? VendorLocation { get; set; }

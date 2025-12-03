@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM405100 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM405100</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class WorkCenterCrewSchedule : Entity, ITopLevelEntity
@@ -21,33 +21,33 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<WorkCenterCrewScheduleDetail>? Details { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter 
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
 		/// </summary>
 		[DataMember(Name="FromDate", EmitDefaultValue=false)]
 		public DateTimeValue? FromDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShiftCD 
-		/// DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter 
+		/// <para>DAC Field Name: ShiftCD</para>
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
 		/// </summary>
 		[DataMember(Name="Shift", EmitDefaultValue=false)]
 		public StringValue? Shift { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter 
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
 		/// </summary>
 		[DataMember(Name="ShowAll", EmitDefaultValue=false)]
 		public BooleanValue? ShowAll { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter 
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
 		/// </summary>
 		[DataMember(Name="ToDate", EmitDefaultValue=false)]
 		public DateTimeValue? ToDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WcID 
-		/// DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter 
+		/// <para>DAC Field Name: WcID</para>
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
 		/// </summary>
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
 		public StringValue? WorkCenter { get; set; }

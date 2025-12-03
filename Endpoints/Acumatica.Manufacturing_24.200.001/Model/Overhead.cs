@@ -11,56 +11,57 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM202500 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM202500</c> in the Acumatica ERP
+	/// <para>Key Fields: OverheadID</para>
 	/// </summary>
 	[DataContract]
 	public class Overhead : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: AcctID 
-		/// DAC: PX.Objects.AM.AMOverhead 
+		/// <para>DAC Field Name: AcctID</para>
+		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
 		/// </summary>
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMOverhead 
-		/// Display Name: Cost Rate 
+		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
+		/// <para>Display Name: Cost Rate</para>
 		/// </summary>
 		[DataMember(Name="CostRate", EmitDefaultValue=false)]
 		public DecimalValue? CostRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMOverhead 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OvhdID 
-		/// DAC: PX.Objects.AM.AMOverhead 
-		/// Display Name: Overhead ID 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC Field Name: OvhdID</para>
+		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
+		/// <para>Display Name: Overhead ID</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OverheadID", EmitDefaultValue=false)]
 		public StringValue? OverheadID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OvhdType 
-		/// DAC: PX.Objects.AM.AMOverhead 
-		/// Display Name: Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: OvhdType</para>
+		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
+		/// <para>Display Name: Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="OverheadType", EmitDefaultValue=false)]
 		public StringValue? OverheadType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubID 
-		/// DAC: PX.Objects.AM.AMOverhead 
+		/// <para>DAC Field Name: SubID</para>
+		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
 		/// </summary>
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }

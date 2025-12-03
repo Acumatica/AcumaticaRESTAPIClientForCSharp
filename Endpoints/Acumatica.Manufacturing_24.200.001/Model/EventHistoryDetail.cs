@@ -15,28 +15,28 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: RefBatNbr 
-		/// DAC: PX.Objects.AM.AMProdEvnt 
-		/// Display Name: Batch Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefBatNbr</para>
+		/// <para>DAC: PX.Objects.AM.AMProdEvnt</para>
+		/// <para>Display Name: Batch Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
 		public StringValue? BatchNbr { get; set; }
 
 		/// <summary>
 		/// The date and time when the record was created.
-		/// DAC Field Name: CreatedDateTime 
-		/// DAC: PX.Objects.AM.AMProdEvnt 
-		/// Display Name: Created At 
+		/// <para>DAC Field Name: CreatedDateTime</para>
+		/// <para>DAC: PX.Objects.AM.AMProdEvnt</para>
+		/// <para>Display Name: Created At</para>
 		/// </summary>
 		[DataMember(Name="CreatedAt", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedAt { get; set; }
 
 		/// <summary>
 		/// The ID of the user who created the record.
-		/// DAC Field Name: CreatedByID 
-		/// DAC: PX.Objects.AM.AMProdEvnt 
-		/// Display Name: Created By 
+		/// <para>DAC Field Name: CreatedByID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdEvnt</para>
+		/// <para>Display Name: Created By</para>
 		/// </summary>
 		[DataMember(Name="CreatedBy", EmitDefaultValue=false)]
 		public StringValue? CreatedBy { get; set; }
@@ -46,53 +46,53 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The ID of the form that was used for the creation of the record.
-		/// DAC Field Name: CreatedByScreenID 
-		/// DAC: PX.Objects.AM.AMProdEvnt 
-		/// Display Name: Created Screen ID 
-		/// SQL Type: char(8) 
+		/// <para>DAC Field Name: CreatedByScreenID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdEvnt</para>
+		/// <para>Display Name: Created Screen ID</para>
+		/// <para>SQL Type: char(8)</para>
 		/// </summary>
 		[DataMember(Name="CreatedScreenID", EmitDefaultValue=false)]
 		public StringValue? CreatedScreenID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdEvnt 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC: PX.Objects.AM.AMProdEvnt</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RefDocType 
-		/// DAC: PX.Objects.AM.AMProdEvnt 
-		/// Display Name: Doc Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: RefDocType</para>
+		/// <para>DAC: PX.Objects.AM.AMProdEvnt</para>
+		/// <para>Display Name: Doc Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
 		public StringValue? DocType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LineNbr 
-		/// DAC: PX.Objects.AM.AMProdEvnt 
-		/// Display Name: Event Line Number 
+		/// <para>DAC Field Name: LineNbr</para>
+		/// <para>DAC: PX.Objects.AM.AMProdEvnt</para>
+		/// <para>Display Name: Event Line Number</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="EventLineNumber", EmitDefaultValue=false)]
 		public IntValue? EventLineNumber { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMProdItem 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProdOrdID 
-		/// DAC: PX.Objects.AM.AMProdItem 
-		/// Display Name: Production Nbr. 
-		/// SQL Type: nvarchar(19) 
+		/// <para>DAC Field Name: ProdOrdID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Production Nbr.</para>
+		/// <para>SQL Type: nvarchar(19)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
@@ -102,8 +102,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public GuidValue? RelatedDocument { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EventType 
-		/// DAC: PX.Objects.AM.AMProdEvnt 
+		/// <para>DAC Field Name: EventType</para>
+		/// <para>DAC: PX.Objects.AM.AMProdEvnt</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }

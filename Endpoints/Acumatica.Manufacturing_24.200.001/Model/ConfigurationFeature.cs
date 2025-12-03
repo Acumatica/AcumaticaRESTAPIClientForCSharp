@@ -11,22 +11,23 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM203500 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM203500</c> in the Acumatica ERP
+	/// <para>Key Fields: FeatureID</para>
 	/// </summary>
 	[DataContract]
 	public class ConfigurationFeature : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: ActiveFlg 
-		/// DAC: PX.Objects.AM.AMFeature 
+		/// <para>DAC Field Name: ActiveFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMFeature</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMFeature 
-		/// Display Name: Allow Non-Inventory Options 
+		/// <para>DAC: PX.Objects.AM.AMFeature</para>
+		/// <para>Display Name: Allow Non-Inventory Options</para>
 		/// </summary>
 		[DataMember(Name="AllowNonInventoryOptions", EmitDefaultValue=false)]
 		public BooleanValue? AllowNonInventoryOptions { get; set; }
@@ -38,24 +39,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<FeatureOptions>? ConfigurationFeatureOption { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMFeature 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMFeature</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMFeature 
-		/// Display Name: Display Option Attributes 
+		/// <para>DAC: PX.Objects.AM.AMFeature</para>
+		/// <para>Display Name: Display Option Attributes</para>
 		/// </summary>
 		[DataMember(Name="DisplayOptionAttributes", EmitDefaultValue=false)]
 		public BooleanValue? DisplayOptionAttributes { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMFeature 
-		/// Display Name: Feature ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.AM.AMFeature</para>
+		/// <para>Display Name: Feature ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="FeatureID", EmitDefaultValue=false)]
@@ -63,8 +64,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// Flag used for reporting
-		/// DAC: PX.Objects.AM.AMFeature 
-		/// Display Name: Print Results 
+		/// <para>DAC: PX.Objects.AM.AMFeature</para>
+		/// <para>Display Name: Print Results</para>
 		/// </summary>
 		[DataMember(Name="PrintResults", EmitDefaultValue=false)]
 		public BooleanValue? PrintResults { get; set; }

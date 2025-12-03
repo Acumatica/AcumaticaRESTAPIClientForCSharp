@@ -11,24 +11,25 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.GLConsolidation_22_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL103001 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL103001</c> in the Acumatica ERP
+	/// <para>Key Fields: AccountCD</para>
 	/// </summary>
 	[DataContract]
 	public class ConsolAccount : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.GL.GLConsolAccount 
-		/// Display Name: Account 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.GL.GLConsolAccount</para>
+		/// <para>Display Name: Account</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="AccountCD", EmitDefaultValue=false)]
 		public StringValue? AccountCD { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.GL.GLConsolAccount 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.GL.GLConsolAccount</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }

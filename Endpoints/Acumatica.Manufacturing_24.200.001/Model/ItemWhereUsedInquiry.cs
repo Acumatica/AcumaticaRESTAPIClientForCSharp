@@ -11,30 +11,30 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM402000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM402000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class ItemWhereUsedInquiry : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ItemClassID 
-		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
-		/// Display Name: Item Class 
+		/// <para>DAC Field Name: ItemClassID</para>
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
+		/// <para>Display Name: Item Class</para>
 		/// </summary>
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
-		/// Display Name: Show Multilevel Results 
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
+		/// <para>Display Name: Show Multilevel Results</para>
 		/// </summary>
 		[DataMember(Name="MultiLevel", EmitDefaultValue=false)]
 		public BooleanValue? MultiLevel { get; set; }
@@ -43,16 +43,16 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<ItemWhereUsedRow>? Results { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.AM.BomWhereUsedFilter 
-		/// Display Name: BOM Warehouse 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
+		/// <para>Display Name: BOM Warehouse</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }

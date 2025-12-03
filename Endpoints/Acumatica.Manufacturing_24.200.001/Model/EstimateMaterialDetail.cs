@@ -16,49 +16,49 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// Determine whether user need to release material manually or not 
-		/// DAC Field Name: BackFlush 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Backflush Materials 
+		/// <para>DAC Field Name: BackFlush</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Backflush Materials</para>
 		/// </summary>
 		[DataMember(Name="Backflush", EmitDefaultValue=false)]
 		public BooleanValue? Backflush { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Batch Size 
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Batch Size</para>
 		/// </summary>
 		[DataMember(Name="BatchSize", EmitDefaultValue=false)]
 		public DecimalValue? BatchSize { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ItemDesc 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: ItemDesc</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InventoryCD 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Inventory ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: InventoryCD</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ItemClassID 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Item Class 
+		/// <para>DAC Field Name: ItemClassID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Item Class</para>
 		/// </summary>
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LineID 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC Field Name: LineID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
@@ -68,96 +68,96 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? LineOrder { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Material Type 
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Material Type</para>
 		/// </summary>
 		[DataMember(Name="MaterialType", EmitDefaultValue=false)]
 		public StringValue? MaterialType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsNonInventory 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Non-Inventory 
+		/// <para>DAC Field Name: IsNonInventory</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Non-Inventory</para>
 		/// </summary>
 		[DataMember(Name="NonInventory", EmitDefaultValue=false)]
 		public BooleanValue? NonInventory { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Phantom Routing 
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Phantom Routing</para>
 		/// </summary>
 		[DataMember(Name="PhantomRouting", EmitDefaultValue=false)]
 		public StringValue? PhantomRouting { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: QtyReq 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Qty Required 
+		/// <para>DAC Field Name: QtyReq</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Qty Required</para>
 		/// </summary>
 		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
 		public DecimalValue? QtyRequired { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Qty Round Up 
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Qty Round Up</para>
 		/// </summary>
 		[DataMember(Name="QtyRoundUp", EmitDefaultValue=false)]
 		public BooleanValue? QtyRoundUp { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Scrap Factor 
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Scrap Factor</para>
 		/// </summary>
 		[DataMember(Name="ScrapFactor", EmitDefaultValue=false)]
 		public DecimalValue? ScrapFactor { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Subcontract Source 
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Subcontract Source</para>
 		/// </summary>
 		[DataMember(Name="SubcontractSource", EmitDefaultValue=false)]
 		public StringValue? SubcontractSource { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MaterialOperCost 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Total Cost 
+		/// <para>DAC Field Name: MaterialOperCost</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Total Cost</para>
 		/// </summary>
 		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
 		public DecimalValue? TotalCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TotalQtyRequired 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Total Required 
+		/// <para>DAC Field Name: TotalQtyRequired</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Total Required</para>
 		/// </summary>
 		[DataMember(Name="TotalRequired", EmitDefaultValue=false)]
 		public DecimalValue? TotalRequired { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Unit Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }

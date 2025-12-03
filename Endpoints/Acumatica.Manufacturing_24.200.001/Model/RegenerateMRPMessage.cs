@@ -16,57 +16,57 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The date and time when the record was created.
-		/// DAC Field Name: CreatedDateTime 
-		/// DAC: PX.Objects.AM.AMRPAuditTable 
-		/// Display Name: Created At 
+		/// <para>DAC Field Name: CreatedDateTime</para>
+		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
+		/// <para>Display Name: Created At</para>
 		/// </summary>
 		[DataMember(Name="CreatedAt", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedAt { get; set; }
 
 		/// <summary>
 		/// The ID of the user who created the record.
-		/// DAC Field Name: CreatedByID 
-		/// DAC: PX.Objects.AM.AMRPAuditTable 
-		/// Display Name: Created By 
+		/// <para>DAC Field Name: CreatedByID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
+		/// <para>Display Name: Created By</para>
 		/// </summary>
 		[DataMember(Name="CreatedBy", EmitDefaultValue=false)]
 		public StringValue? CreatedBy { get; set; }
 
 		/// <summary>
 		/// The ID of the form that was used for the creation of the record.
-		/// DAC Field Name: CreatedByScreenID 
-		/// DAC: PX.Objects.AM.AMRPAuditTable 
-		/// Display Name: Created Screen ID 
-		/// SQL Type: char(8) 
+		/// <para>DAC Field Name: CreatedByScreenID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
+		/// <para>Display Name: Created Screen ID</para>
+		/// <para>SQL Type: char(8)</para>
 		/// </summary>
 		[DataMember(Name="CreatedScreenID", EmitDefaultValue=false)]
 		public StringValue? CreatedScreenID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MsgText 
-		/// DAC: PX.Objects.AM.AMRPAuditTable 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC Field Name: MsgText</para>
+		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="Message", EmitDefaultValue=false)]
 		public StringValue? Message { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MsgType 
-		/// DAC: PX.Objects.AM.AMRPAuditTable 
-		/// Display Name: Message Type 
+		/// <para>DAC Field Name: MsgType</para>
+		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
+		/// <para>Display Name: Message Type</para>
 		/// </summary>
 		[DataMember(Name="MessageType", EmitDefaultValue=false)]
 		public StringValue? MessageType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMRPAuditTable 
-		/// Display Name: Process ID 
+		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
+		/// <para>Display Name: Process ID</para>
 		/// </summary>
 		[DataMember(Name="ProcessID", EmitDefaultValue=false)]
 		public GuidValue? ProcessID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMRPAuditTable 
+		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Recno", EmitDefaultValue=false)]

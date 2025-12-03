@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM515000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM515000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class CapableToPromise : Entity, ITopLevelEntity
@@ -21,28 +21,28 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<CapableToPromiseDetail>? Details { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.CTPProcess+CTPFilter 
+		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
 		[DataMember(Name="ProcessAction", EmitDefaultValue=false)]
 		public StringValue? ProcessAction { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DefaultOrderType 
-		/// DAC: PX.Objects.AM.CTPProcess+CTPFilter 
+		/// <para>DAC Field Name: DefaultOrderType</para>
+		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
 		[DataMember(Name="RegularProductionOrderType", EmitDefaultValue=false)]
 		public StringValue? RegularProductionOrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SOOrderNbr 
-		/// DAC: PX.Objects.AM.CTPProcess+CTPFilter 
+		/// <para>DAC Field Name: SOOrderNbr</para>
+		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
 		[DataMember(Name="SONbr", EmitDefaultValue=false)]
 		public StringValue? SONbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SOOrderType 
-		/// DAC: PX.Objects.AM.CTPProcess+CTPFilter 
+		/// <para>DAC Field Name: SOOrderType</para>
+		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
 		[DataMember(Name="SOType", EmitDefaultValue=false)]
 		public StringValue? SOType { get; set; }

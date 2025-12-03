@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.GLConsolidation_22_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL103003 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL103003</c> in the Acumatica ERP
+	/// <para>Key Fields: LedgerCD</para>
 	/// </summary>
 	[DataContract]
 	public class Ledger : Entity, ITopLevelEntity
@@ -19,27 +20,27 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 
 		/// <summary>
 		/// The type of the balance of the ledger.
-		/// DAC: PX.Objects.GL.Ledger 
-		/// Display Name: Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>Display Name: Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="BalanceType", EmitDefaultValue=false)]
 		public StringValue? BalanceType { get; set; }
 
 		/// <summary>
 		/// The description of the Ledger.
-		/// DAC: PX.Objects.GL.Ledger 
-		/// Display Name: Description 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>Display Name: Description</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Descr", EmitDefaultValue=false)]
 		public StringValue? Descr { get; set; }
 
 		/// <summary>
 		/// Key field.Unique user-friendly identifier of the Ledger.
-		/// DAC: PX.Objects.GL.Ledger 
-		/// Display Name: Ledger ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>Display Name: Ledger ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]

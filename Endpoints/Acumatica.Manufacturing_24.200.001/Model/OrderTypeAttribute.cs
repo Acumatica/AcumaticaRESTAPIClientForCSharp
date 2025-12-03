@@ -15,52 +15,52 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMOrderTypeAttribute 
-		/// Display Name: Attribute ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
+		/// <para>Display Name: Attribute ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
 		public StringValue? AttributeID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMOrderType 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMOrderType</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMOrderTypeAttribute 
+		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
 		/// </summary>
 		[DataMember(Name="Enabled", EmitDefaultValue=false)]
 		public BooleanValue? Enabled { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMOrderTypeAttribute 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="Label", EmitDefaultValue=false)]
 		public StringValue? Label { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMOrderTypeAttribute 
-		/// Display Name: Line Nbr 
+		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
+		/// <para>Display Name: Line Nbr</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMOrderTypeAttribute 
-		/// Display Name: Transaction Required 
+		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
+		/// <para>Display Name: Transaction Required</para>
 		/// </summary>
 		[DataMember(Name="TransactionRequired", EmitDefaultValue=false)]
 		public BooleanValue? TransactionRequired { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMOrderTypeAttribute 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }

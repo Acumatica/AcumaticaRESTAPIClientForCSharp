@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM501000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM501000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class RoughCutPlanning : Entity, ITopLevelEntity
@@ -22,32 +22,32 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// Show/hide orders which are schedule status Firm
-		/// DAC: PX.Objects.AM.APSRoughCutProcessFilter 
-		/// Display Name: Exclude Firm Orders 
+		/// <para>DAC: PX.Objects.AM.APSRoughCutProcessFilter</para>
+		/// <para>Display Name: Exclude Firm Orders</para>
 		/// </summary>
 		[DataMember(Name="ExcludeFirmOrders", EmitDefaultValue=false)]
 		public BooleanValue? ExcludeFirmOrders { get; set; }
 
 		/// <summary>
 		/// Show/hide planning type orders
-		/// DAC: PX.Objects.AM.APSRoughCutProcessFilter 
-		/// Display Name: Exclude Planning Orders 
+		/// <para>DAC: PX.Objects.AM.APSRoughCutProcessFilter</para>
+		/// <para>Display Name: Exclude Planning Orders</para>
 		/// </summary>
 		[DataMember(Name="ExcludePlanningOrders", EmitDefaultValue=false)]
 		public BooleanValue? ExcludePlanningOrders { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.APSRoughCutProcessFilter 
-		/// Display Name: Action 
-		/// SQL Type: nchar(1) 
+		/// <para>DAC: PX.Objects.AM.APSRoughCutProcessFilter</para>
+		/// <para>Display Name: Action</para>
+		/// <para>SQL Type: nchar(1)</para>
 		/// </summary>
 		[DataMember(Name="ProcessAction", EmitDefaultValue=false)]
 		public StringValue? ProcessAction { get; set; }
 
 		/// <summary>
 		/// During processing, should the selected orders be released (true)
-		/// DAC: PX.Objects.AM.APSRoughCutProcessFilter 
-		/// Display Name: Release Orders 
+		/// <para>DAC: PX.Objects.AM.APSRoughCutProcessFilter</para>
+		/// <para>Display Name: Release Orders</para>
 		/// </summary>
 		[DataMember(Name="ReleaseOrders", EmitDefaultValue=false)]
 		public BooleanValue? ReleaseOrders { get; set; }

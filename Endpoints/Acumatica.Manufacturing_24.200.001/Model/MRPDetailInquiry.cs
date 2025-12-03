@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM404000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM404000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class MRPDetailInquiry : Entity, ITopLevelEntity
@@ -19,50 +19,50 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// U o m
-		/// DAC Field Name: UOM 
-		/// DAC: PX.Objects.AM.InvLookup 
-		/// Display Name: Base Unit 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC Field Name: UOM</para>
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Base Unit</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="BaseUnit", EmitDefaultValue=false)]
 		public StringValue? BaseUnit { get; set; }
 
 		/// <summary>
 		/// Inventory ID
-		/// DAC: PX.Objects.AM.InvLookup 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// Lot qty
-		/// DAC: PX.Objects.AM.InvLookup 
-		/// Display Name: Lot Qty 
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Lot Qty</para>
 		/// </summary>
 		[DataMember(Name="LotQty", EmitDefaultValue=false)]
 		public DecimalValue? LotQty { get; set; }
 
 		/// <summary>
 		/// Max order qty
-		/// DAC: PX.Objects.AM.InvLookup 
-		/// Display Name: Max. Order Qty 
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Max. Order Qty</para>
 		/// </summary>
 		[DataMember(Name="MaxOrderQty", EmitDefaultValue=false)]
 		public DecimalValue? MaxOrderQty { get; set; }
 
 		/// <summary>
 		/// Min order qty
-		/// DAC: PX.Objects.AM.InvLookup 
-		/// Display Name: Min. Order Qty 
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Min. Order Qty</para>
 		/// </summary>
 		[DataMember(Name="MinOrderQty", EmitDefaultValue=false)]
 		public DecimalValue? MinOrderQty { get; set; }
 
 		/// <summary>
 		/// Qty on hand
-		/// DAC: PX.Objects.AM.InvLookup 
-		/// Display Name: Qty On Hand 
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Qty On Hand</para>
 		/// </summary>
 		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
 		public DecimalValue? QtyOnHand { get; set; }
@@ -72,24 +72,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// Safety stock
-		/// DAC: PX.Objects.AM.InvLookup 
-		/// Display Name: Safety Stock 
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Safety Stock</para>
 		/// </summary>
 		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
 		public DecimalValue? SafetyStock { get; set; }
 
 		/// <summary>
 		/// Sub item ID
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.AM.InvLookup 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
 		/// Warehouse
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.AM.InvLookup 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }

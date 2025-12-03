@@ -15,17 +15,17 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Operation Desc 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Operation Desc</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LineID 
-		/// DAC: PX.Objects.AM.AMEstimateMatl 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC Field Name: LineID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]

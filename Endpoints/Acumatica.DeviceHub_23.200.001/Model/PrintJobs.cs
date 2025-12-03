@@ -11,15 +11,16 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.DeviceHub_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen SM206500 in the Acumatica ERP
+	/// Corresponds to the screen <c>SM206500</c> in the Acumatica ERP
+	/// <para>Key Fields: JobID</para>
 	/// </summary>
 	[DataContract]
 	public class PrintJobs : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrintJobFilter 
-		/// Display Name: End Date 
+		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
+		/// <para>Display Name: End Date</para>
 		/// </summary>
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
@@ -28,15 +29,15 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		public DateTimeValue? EndModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrintJobFilter 
-		/// Display Name: Hide Processed 
+		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
+		/// <para>Display Name: Hide Processed</para>
 		/// </summary>
 		[DataMember(Name="HideProcessed", EmitDefaultValue=false)]
 		public BooleanValue? HideProcessed { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrintJob 
-		/// Display Name: Job ID 
+		/// <para>DAC: PX.SM.SMPrintJob</para>
+		/// <para>Display Name: Job ID</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="JobID", EmitDefaultValue=false)]
@@ -46,8 +47,8 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		public List<PrintJob>? Jobs { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrintJobFilter 
-		/// Display Name: Start Date 
+		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }

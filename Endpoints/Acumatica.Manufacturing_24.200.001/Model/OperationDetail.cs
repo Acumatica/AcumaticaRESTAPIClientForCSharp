@@ -16,18 +16,18 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// A Boolean value that indicates whether a labor transaction is needed to report labor hours spent for the operation.
-		/// DAC Field Name: BFlush 
-		/// DAC: PX.Objects.AM.AMBomOper 
-		/// Display Name: Backflush Labor 
+		/// <para>DAC Field Name: BFlush</para>
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Backflush Labor</para>
 		/// </summary>
 		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]
 		public BooleanValue? BackflushLabor { get; set; }
 
 		/// <summary>
 		/// The identifier of the bill of material.
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// Display Name: BOM ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: BOM ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]
@@ -35,17 +35,17 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// A Boolean value that indicates whether the operation is a control point.
-		/// DAC: PX.Objects.AM.AMBomOper 
-		/// Display Name: Control Point 
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Control Point</para>
 		/// </summary>
 		[DataMember(Name="ControlPoint", EmitDefaultValue=false)]
 		public BooleanValue? ControlPoint { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the operation has been drop shipped to the vendor.
-		/// DAC Field Name: DropShippedToVendor 
-		/// DAC: PX.Objects.AM.AMBomOper 
-		/// Display Name: Drop Shipped to Vendor 
+		/// <para>DAC Field Name: DropShippedToVendor</para>
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Drop Shipped to Vendor</para>
 		/// </summary>
 		[DataMember(Name="DropShippedtoVendor", EmitDefaultValue=false)]
 		public BooleanValue? DropShippedtoVendor { get; set; }
@@ -58,8 +58,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The number of units produced during the specified machine time for the operation.
-		/// DAC: PX.Objects.AM.AMBomOper 
-		/// Display Name: Machine Units 
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Machine Units</para>
 		/// </summary>
 		[DataMember(Name="MachineUnits", EmitDefaultValue=false)]
 		public DecimalValue? MachineUnits { get; set; }
@@ -72,20 +72,20 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// A description of the bill of material. The system copies the description to production orders that are created by using the bill of material.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// Display Name: Description 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: Description</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="OperationDescription", EmitDefaultValue=false)]
 		public StringValue? OperationDescription { get; set; }
 
 		/// <summary>
 		/// The numeric identifier of the operation, which is displayed in the operation.
-		/// DAC Field Name: OperationCD 
-		/// DAC: PX.Objects.AM.AMBomOper 
-		/// Display Name: Operation ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: OperationCD</para>
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Operation ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OperationNbr", EmitDefaultValue=false)]
@@ -93,8 +93,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The outside process.
-		/// DAC: PX.Objects.AM.AMBomOper 
-		/// Display Name: Outside Process 
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Outside Process</para>
 		/// </summary>
 		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
 		public BooleanValue? OutsideProcess { get; set; }
@@ -107,9 +107,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the BOM revision, which is the modification of the bill of material.
-		/// DAC Field Name: RevisionID 
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: RevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
@@ -120,16 +120,16 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The number of units produced during the specified run time for the operation.
-		/// DAC: PX.Objects.AM.AMBomOper 
-		/// Display Name: Run Units 
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Run Units</para>
 		/// </summary>
 		[DataMember(Name="RunUnits", EmitDefaultValue=false)]
 		public DecimalValue? RunUnits { get; set; }
 
 		/// <summary>
 		/// The default scrap action for the operation in new production orders.
-		/// DAC: PX.Objects.AM.AMBomOper 
-		/// Display Name: Scrap Action 
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Scrap Action</para>
 		/// </summary>
 		[DataMember(Name="ScrapAction", EmitDefaultValue=false)]
 		public StringValue? ScrapAction { get; set; }
@@ -145,27 +145,27 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The vendor ID.
-		/// DAC Field Name: VendorID 
-		/// DAC: PX.Objects.AM.AMBomOperCury 
+		/// <para>DAC Field Name: VendorID</para>
+		/// <para>DAC: PX.Objects.AM.AMBomOperCury</para>
 		/// </summary>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
 		/// The vendor location.
-		/// DAC Field Name: VendorLocationID 
-		/// DAC: PX.Objects.AM.AMBomOperCury 
-		/// Display Name: Vendor Location 
+		/// <para>DAC Field Name: VendorLocationID</para>
+		/// <para>DAC: PX.Objects.AM.AMBomOperCury</para>
+		/// <para>Display Name: Vendor Location</para>
 		/// </summary>
 		[DataMember(Name="VendorLocation", EmitDefaultValue=false)]
 		public StringValue? VendorLocation { get; set; }
 
 		/// <summary>
 		/// The active work center where the operation takes place.
-		/// DAC Field Name: WcID 
-		/// DAC: PX.Objects.AM.AMBomOper 
-		/// Display Name: Work Center 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC Field Name: WcID</para>
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Work Center</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
 		public StringValue? WorkCenter { get; set; }

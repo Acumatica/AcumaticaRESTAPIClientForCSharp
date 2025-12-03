@@ -11,16 +11,17 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM310000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM310000</c> in the Acumatica ERP
+	/// <para>Key Fields: ShipmentID</para>
 	/// </summary>
 	[DataContract]
 	public class VendorShipment : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: ControlQty 
-		/// DAC: PX.Objects.AM.AMVendorShipment 
-		/// Display Name: Control Quantity 
+		/// <para>DAC Field Name: ControlQty</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Control Quantity</para>
 		/// </summary>
 		[DataMember(Name="ControlQuantity", EmitDefaultValue=false)]
 		public DecimalValue? ControlQuantity { get; set; }
@@ -32,40 +33,40 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorLocationID 
-		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// <para>DAC Field Name: VendorLocationID</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
 		/// </summary>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EmployeeID 
-		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// <para>DAC Field Name: EmployeeID</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
 		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMVendorShipment 
-		/// Display Name: Shipment Date 
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Shipment Date</para>
 		/// </summary>
 		[DataMember(Name="ShipmentDate", EmitDefaultValue=false)]
 		public DateTimeValue? ShipmentDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentNbr 
-		/// DAC: PX.Objects.AM.AMVendorShipment 
-		/// Display Name: Shipment ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: ShipmentNbr</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Shipment ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ShipmentID", EmitDefaultValue=false)]
 		public StringValue? ShipmentID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentQty 
-		/// DAC: PX.Objects.AM.AMVendorShipment 
-		/// Display Name: Shipped Quantity 
+		/// <para>DAC Field Name: ShipmentQty</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Shipped Quantity</para>
 		/// </summary>
 		[DataMember(Name="ShippedQuantity", EmitDefaultValue=false)]
 		public DecimalValue? ShippedQuantity { get; set; }
@@ -74,37 +75,37 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public ShipToSettings? ShippingSettings { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMVendorShipment 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentType 
-		/// DAC: PX.Objects.AM.AMVendorShipment 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: ShipmentType</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorID 
-		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// <para>DAC Field Name: VendorID</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
 		/// </summary>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WorkgroupID 
-		/// DAC: PX.Objects.AM.AMVendorShipment 
+		/// <para>DAC Field Name: WorkgroupID</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
 		/// </summary>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }

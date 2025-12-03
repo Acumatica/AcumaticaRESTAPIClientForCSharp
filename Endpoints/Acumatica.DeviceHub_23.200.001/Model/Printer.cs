@@ -11,40 +11,41 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.DeviceHub_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen SM206510 in the Acumatica ERP
+	/// Corresponds to the screen <c>SM206510</c> in the Acumatica ERP
+	/// <para>Key Fields: DeviceHub, PrinterName</para>
 	/// </summary>
 	[DataContract]
 	public class Printer : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrinter 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.SM.SMPrinter</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DeviceHubID 
-		/// DAC: PX.SM.SMPrinter 
-		/// Display Name: DeviceHub ID 
-		/// SQL Type: varchar(30) 
+		/// <para>DAC Field Name: DeviceHubID</para>
+		/// <para>DAC: PX.SM.SMPrinter</para>
+		/// <para>Display Name: DeviceHub ID</para>
+		/// <para>SQL Type: varchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="DeviceHub", EmitDefaultValue=false)]
 		public StringValue? DeviceHub { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrinter 
-		/// Display Name: Active 
+		/// <para>DAC: PX.SM.SMPrinter</para>
+		/// <para>Display Name: Active</para>
 		/// </summary>
 		[DataMember(Name="IsActive", EmitDefaultValue=false)]
 		public BooleanValue? IsActive { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMPrinter 
-		/// Display Name: Printer 
-		/// SQL Type: varchar(20) 
+		/// <para>DAC: PX.SM.SMPrinter</para>
+		/// <para>Display Name: Printer</para>
+		/// <para>SQL Type: varchar(20)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PrinterName", EmitDefaultValue=false)]

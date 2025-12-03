@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM208000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM208000</c> in the Acumatica ERP
+	/// <para>Key Fields: BOMID, Revision</para>
 	/// </summary>
 	[DataContract]
 	public class BillOfMaterial : Entity, ITopLevelEntity
@@ -19,9 +20,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the bill of material.
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// Display Name: BOM ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: BOM ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]
@@ -29,40 +30,40 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// A description of the bill of material. The system copies the description to production orders that are created by using the bill of material.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The last date when the BOM revision was effective.
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// Display Name: End Date 
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: End Date</para>
 		/// </summary>
 		[DataMember(Name="EffEndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffEndDate { get; set; }
 
 		/// <summary>
 		/// The date when the BOM revision becomes effective.
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// Display Name: Start Date 
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="EffStartDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffStartDate { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the BOM item is on hold.
-		/// DAC: PX.Objects.AM.AMBomItem 
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// </summary>
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
 		/// The identifier of the stock item that is produced by using the bill of material.
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -72,9 +73,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the BOM revision, which is the modification of the bill of material.
-		/// DAC Field Name: RevisionID 
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: RevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
@@ -82,24 +83,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// The status of the revision.
-		/// DAC: PX.Objects.AM.AMBomItem 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// The subitem of the stock item.
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.AM.AMBomItem 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
 		/// The warehouse to which the produced stock item is received when the item production is completed.
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.AM.AMBomItem 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }

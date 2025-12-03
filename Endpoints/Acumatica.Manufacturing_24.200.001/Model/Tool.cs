@@ -11,92 +11,93 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM205500 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM205500</c> in the Acumatica ERP
+	/// <para>Key Fields: ToolID</para>
 	/// </summary>
 	[DataContract]
 	public class Tool : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: AcctID 
-		/// DAC: PX.Objects.AM.AMToolMst 
+		/// <para>DAC Field Name: AcctID</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
 		/// </summary>
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMToolMst 
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ActualCost 
-		/// DAC: PX.Objects.AM.AMToolMstCurySettings 
-		/// Display Name: Consumed Cost 
+		/// <para>DAC Field Name: ActualCost</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
+		/// <para>Display Name: Consumed Cost</para>
 		/// </summary>
 		[DataMember(Name="ConsumedCost", EmitDefaultValue=false)]
 		public DecimalValue? ConsumedCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMToolMst 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// Indicates the tool is scheduled in APS.(Only used in APS.)
-		/// DAC Field Name: ScheduleEnabled 
-		/// DAC: PX.Objects.AM.AMToolMst 
+		/// <para>DAC Field Name: ScheduleEnabled</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
 		/// </summary>
 		[DataMember(Name="Schedule", EmitDefaultValue=false)]
 		public BooleanValue? Schedule { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubID 
-		/// DAC: PX.Objects.AM.AMToolMst 
+		/// <para>DAC Field Name: SubID</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
 		/// </summary>
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMToolMst 
-		/// Display Name: Tool ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// <para>Display Name: Tool ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ToolID", EmitDefaultValue=false)]
 		public StringValue? ToolID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMToolMstCurySettings 
-		/// Display Name: Total Cost 
+		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
+		/// <para>Display Name: Total Cost</para>
 		/// </summary>
 		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
 		public DecimalValue? TotalCost { get; set; }
 
 		/// <summary>
 		/// APS Schedule qty/units for scheduling tools. The number of tools available for scheduling.
-		/// DAC Field Name: ScheduleQty 
-		/// DAC: PX.Objects.AM.AMToolMst 
-		/// Display Name: Total Schedule Qty 
+		/// <para>DAC Field Name: ScheduleQty</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// <para>Display Name: Total Schedule Qty</para>
 		/// </summary>
 		[DataMember(Name="TotalScheduleQty", EmitDefaultValue=false)]
 		public IntValue? TotalScheduleQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ActualUses 
-		/// DAC: PX.Objects.AM.AMToolMst 
-		/// Display Name: Total Uses 
+		/// <para>DAC Field Name: ActualUses</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// <para>Display Name: Total Uses</para>
 		/// </summary>
 		[DataMember(Name="TotalUses", EmitDefaultValue=false)]
 		public DecimalValue? TotalUses { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMToolMstCurySettings 
-		/// Display Name: Unit Cost 
+		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
+		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }

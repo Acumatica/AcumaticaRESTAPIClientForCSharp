@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM401500 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM401500</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class ProductionAttributes : Entity, ITopLevelEntity
@@ -21,34 +21,34 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<ProductionAttributesDetail>? Detail { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShowOrderAttributes 
-		/// DAC: PX.Objects.AM.ProductionAttributesFilter 
-		/// Display Name: Order Attributes 
+		/// <para>DAC Field Name: ShowOrderAttributes</para>
+		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
+		/// <para>Display Name: Order Attributes</para>
 		/// </summary>
 		[DataMember(Name="OrderAttributes", EmitDefaultValue=false)]
 		public BooleanValue? OrderAttributes { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.ProductionAttributesFilter 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProdOrdID 
-		/// DAC: PX.Objects.AM.ProductionAttributesFilter 
-		/// Display Name: Production Nbr. 
-		/// SQL Type: nvarchar(19) 
+		/// <para>DAC Field Name: ProdOrdID</para>
+		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
+		/// <para>Display Name: Production Nbr.</para>
+		/// <para>SQL Type: nvarchar(19)</para>
 		/// </summary>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShowTransactionAttributes 
-		/// DAC: PX.Objects.AM.ProductionAttributesFilter 
-		/// Display Name: Transaction Attributes 
+		/// <para>DAC Field Name: ShowTransactionAttributes</para>
+		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
+		/// <para>Display Name: Transaction Attributes</para>
 		/// </summary>
 		[DataMember(Name="TransactionAttributes", EmitDefaultValue=false)]
 		public BooleanValue? TransactionAttributes { get; set; }

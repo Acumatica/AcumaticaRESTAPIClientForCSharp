@@ -11,26 +11,27 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.DeviceHub_23_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen SM206505 in the Acumatica ERP
+	/// Corresponds to the screen <c>SM206505</c> in the Acumatica ERP
+	/// <para>Key Fields: ScanJobID</para>
 	/// </summary>
 	[DataContract]
 	public class ScanJobs : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: DeviceHubID 
-		/// DAC: PX.SM.SMScanJob 
-		/// Display Name: DeviceHub ID 
-		/// SQL Type: varchar(30) 
+		/// <para>DAC Field Name: DeviceHubID</para>
+		/// <para>DAC: PX.SM.SMScanJob</para>
+		/// <para>Display Name: DeviceHub ID</para>
+		/// <para>SQL Type: varchar(30)</para>
 		/// </summary>
 		[DataMember(Name="DeviceHub", EmitDefaultValue=false)]
 		public StringValue? DeviceHub { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Error 
-		/// DAC: PX.SM.SMScanJob 
-		/// Display Name: Error 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC Field Name: Error</para>
+		/// <para>DAC: PX.SM.SMScanJob</para>
+		/// <para>Display Name: Error</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="ErrorMessage", EmitDefaultValue=false)]
 		public StringValue? ErrorMessage { get; set; }
@@ -39,25 +40,25 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		public StringValue? ErrorTrace { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMScanJob 
-		/// Display Name: Job ID 
+		/// <para>DAC: PX.SM.SMScanJob</para>
+		/// <para>Display Name: Job ID</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ScanJobID", EmitDefaultValue=false)]
 		public IntValue? ScanJobID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ScannerName 
-		/// DAC: PX.SM.SMScanJob 
-		/// Display Name: Scanner ID 
-		/// SQL Type: varchar(20) 
+		/// <para>DAC Field Name: ScannerName</para>
+		/// <para>DAC: PX.SM.SMScanJob</para>
+		/// <para>Display Name: Scanner ID</para>
+		/// <para>SQL Type: varchar(20)</para>
 		/// </summary>
 		[DataMember(Name="Scanner", EmitDefaultValue=false)]
 		public StringValue? Scanner { get; set; }
 
 		/// <summary>
-		/// DAC: PX.SM.SMScanJob 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.SM.SMScanJob</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

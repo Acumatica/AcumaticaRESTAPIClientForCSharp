@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.GLConsolidation_22_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL103004 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL103004</c> in the Acumatica ERP
+	/// <para>Key Fields: OrganizationCD</para>
 	/// </summary>
 	[DataContract]
 	public class Organization : Entity, ITopLevelEntity
@@ -19,25 +20,25 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 
 		/// <summary>
 		/// The name of the organization.
-		/// DAC: PX.Objects.GL.DAC.Organization 
-		/// Display Name: Company Name 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.GL.DAC.Organization</para>
+		/// <para>Display Name: Company Name</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="OrganizationName", EmitDefaultValue=false)]
 		public StringValue? OrganizationName { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.GL.DAC.Organization 
-		/// Display Name: Company ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.GL.DAC.Organization</para>
+		/// <para>Display Name: Company ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OrganizationCD", EmitDefaultValue=false)]
 		public StringValue? OrganizationCD { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Ledger__LedgerCD 
-		/// DAC: PX.Objects.GL.DAC.Organization 
+		/// <para>DAC Field Name: Ledger__LedgerCD</para>
+		/// <para>DAC: PX.Objects.GL.DAC.Organization</para>
 		/// </summary>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }

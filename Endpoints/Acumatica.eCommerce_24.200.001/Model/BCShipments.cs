@@ -11,38 +11,38 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.eCommerce_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen BC408030 in the Acumatica ERP
+	/// Corresponds to the screen <c>BC408030</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class BCShipments : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="LastModified", EmitDefaultValue=false)]
 		public DateTimeValue? LastModified { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="ShippingNoteID", EmitDefaultValue=false)]
 		public GuidValue? ShippingNoteID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="BindingID", EmitDefaultValue=false)]
 		public IntValue? BindingID { get; set; }

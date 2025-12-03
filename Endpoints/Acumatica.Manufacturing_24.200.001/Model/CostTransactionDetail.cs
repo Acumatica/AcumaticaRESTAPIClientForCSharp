@@ -15,18 +15,18 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: AcctID 
-		/// DAC: PX.Objects.AM.AMMTran 
+		/// <para>DAC Field Name: AcctID</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
 		/// </summary>
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
 		/// The reference number of the transaction.
-		/// DAC Field Name: BatNbr 
-		/// DAC: PX.Objects.AM.AMBatch 
-		/// Display Name: Batch Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: BatNbr</para>
+		/// <para>DAC: PX.Objects.AM.AMBatch</para>
+		/// <para>Display Name: Batch Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
@@ -36,109 +36,109 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? DocType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranAmt 
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: Ext. Cost 
+		/// <para>DAC Field Name: TranAmt</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Ext. Cost</para>
 		/// </summary>
 		[DataMember(Name="ExtCost", EmitDefaultValue=false)]
 		public DecimalValue? ExtCost { get; set; }
 
 		/// <summary>
 		/// Reference to journal transaction field LineNbr
-		/// DAC Field Name: GLLineNbr 
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: GL Batch Line Nbr 
+		/// <para>DAC Field Name: GLLineNbr</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: GL Batch Line Nbr</para>
 		/// </summary>
 		[DataMember(Name="GLBatchLineNbr", EmitDefaultValue=false)]
 		public IntValue? GLBatchLineNbr { get; set; }
 
 		/// <summary>
 		/// Reference to journal transaction field BatchNbr
-		/// DAC Field Name: GLBatNbr 
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: GL Batch Nbr 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: GLBatNbr</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: GL Batch Nbr</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="GLBatchNbr", EmitDefaultValue=false)]
 		public StringValue? GLBatchNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: Operation ID 
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Operation ID</para>
 		/// </summary>
 		[DataMember(Name="OperationID", EmitDefaultValue=false)]
 		public StringValue? OperationID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProdOrdID 
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: Production Nbr. 
-		/// SQL Type: nvarchar(19) 
+		/// <para>DAC Field Name: ProdOrdID</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Production Nbr.</para>
+		/// <para>SQL Type: nvarchar(19)</para>
 		/// </summary>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Qty 
-		/// DAC: PX.Objects.AM.AMMTran 
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
 		/// </summary>
 		[DataMember(Name="Quantity", EmitDefaultValue=false)]
 		public DecimalValue? Quantity { get; set; }
 
 		/// <summary>
 		/// Cost ID value such as Tool ID, Overhead ID, Machine ID, etc.
-		/// DAC Field Name: ReferenceCostID 
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: Ref. Cost ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: ReferenceCostID</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Ref. Cost ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="RefCostID", EmitDefaultValue=false)]
 		public StringValue? RefCostID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubID 
-		/// DAC: PX.Objects.AM.AMMTran 
+		/// <para>DAC Field Name: SubID</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
 		/// </summary>
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
 		/// A brief description of the transaction.
-		/// DAC Field Name: TranDesc 
-		/// DAC: PX.Objects.AM.AMBatch 
-		/// Display Name: Description 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.AM.AMBatch</para>
+		/// <para>Display Name: Description</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="TranDescription", EmitDefaultValue=false)]
 		public StringValue? TranDescription { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMTran 
-		/// Display Name: Tran. Type 
-		/// SQL Type: nchar(3) 
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Tran. Type</para>
+		/// <para>SQL Type: nchar(3)</para>
 		/// </summary>
 		[DataMember(Name="TranType", EmitDefaultValue=false)]
 		public StringValue? TranType { get; set; }

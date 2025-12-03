@@ -11,40 +11,41 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM203000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM203000</c> in the Acumatica ERP
+	/// <para>Key Fields: TypeID</para>
 	/// </summary>
 	[DataContract]
 	public class MPSType : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMPSType 
+		/// <para>DAC: PX.Objects.AM.AMMPSType</para>
 		/// </summary>
 		[DataMember(Name="Dependent", EmitDefaultValue=false)]
 		public BooleanValue? Dependent { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMMPSType 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMMPSType</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MPSNumberingID 
-		/// DAC: PX.Objects.AM.AMMPSType 
-		/// Display Name: Numbering Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: MPSNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPSType</para>
+		/// <para>Display Name: Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="NumberingSequence", EmitDefaultValue=false)]
 		public StringValue? NumberingSequence { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MPSTypeID 
-		/// DAC: PX.Objects.AM.AMMPSType 
-		/// Display Name: Type ID 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC Field Name: MPSTypeID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPSType</para>
+		/// <para>Display Name: Type ID</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TypeID", EmitDefaultValue=false)]

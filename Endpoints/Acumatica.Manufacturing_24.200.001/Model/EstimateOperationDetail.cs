@@ -15,24 +15,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: BackFlushLabor 
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Backflush Labor 
+		/// <para>DAC Field Name: BackFlushLabor</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Backflush Labor</para>
 		/// </summary>
 		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]
 		public BooleanValue? BackflushLabor { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Control Point 
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Control Point</para>
 		/// </summary>
 		[DataMember(Name="ControlPoint", EmitDefaultValue=false)]
 		public BooleanValue? ControlPoint { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Estimate ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Estimate ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="EstimateID", EmitDefaultValue=false)]
@@ -42,46 +42,46 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? FinishTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Override Fixed Labor Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Override Fixed Labor Cost</para>
 		/// </summary>
 		[DataMember(Name="FixedLaborOverride", EmitDefaultValue=false)]
 		public BooleanValue? FixedLaborOverride { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FixedOverheadOverride 
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Override Fixed Overhead Cost 
+		/// <para>DAC Field Name: FixedOverheadOverride</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Override Fixed Overhead Cost</para>
 		/// </summary>
 		[DataMember(Name="FixedOvhdOverride", EmitDefaultValue=false)]
 		public BooleanValue? FixedOvhdOverride { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FixedLaborCost 
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Fixed Labor Cost 
+		/// <para>DAC Field Name: FixedLaborCost</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Fixed Labor Cost</para>
 		/// </summary>
 		[DataMember(Name="FixLaborCost", EmitDefaultValue=false)]
 		public DecimalValue? FixLaborCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FixedOverheadCost 
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Fixed Overhead Cost 
+		/// <para>DAC Field Name: FixedOverheadCost</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Fixed Overhead Cost</para>
 		/// </summary>
 		[DataMember(Name="FixOverheadCost", EmitDefaultValue=false)]
 		public DecimalValue? FixOverheadCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Machine Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Machine Cost</para>
 		/// </summary>
 		[DataMember(Name="MachineCost", EmitDefaultValue=false)]
 		public DecimalValue? MachineCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Override Machine Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Override Machine Cost</para>
 		/// </summary>
 		[DataMember(Name="MachineOverride", EmitDefaultValue=false)]
 		public BooleanValue? MachineOverride { get; set; }
@@ -90,22 +90,22 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? MachineTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Machine Units 
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Machine Units</para>
 		/// </summary>
 		[DataMember(Name="MachineUnits", EmitDefaultValue=false)]
 		public DecimalValue? MachineUnits { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Material Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Material Cost</para>
 		/// </summary>
 		[DataMember(Name="MaterialCost", EmitDefaultValue=false)]
 		public DecimalValue? MaterialCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Override Material Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Override Material Cost</para>
 		/// </summary>
 		[DataMember(Name="MaterialOverride", EmitDefaultValue=false)]
 		public BooleanValue? MaterialOverride { get; set; }
@@ -114,19 +114,19 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? MoveTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Description 
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Operation Desc 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Description</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Operation Desc</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="OperationDescription", EmitDefaultValue=false)]
 		public StringValue? OperationDescription { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OperationCD 
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Operation ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: OperationCD</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Operation ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OperationID", EmitDefaultValue=false)]
@@ -136,8 +136,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? OperationNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Outside Process 
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Outside Process</para>
 		/// </summary>
 		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
 		public BooleanValue? OutsideProcess { get; set; }
@@ -146,17 +146,17 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? QueueTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ReferenceMaterialCost 
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Ref. Material Cost 
+		/// <para>DAC Field Name: ReferenceMaterialCost</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Ref. Material Cost</para>
 		/// </summary>
 		[DataMember(Name="RefMaterialCost", EmitDefaultValue=false)]
 		public DecimalValue? RefMaterialCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RevisionID 
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: RevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
@@ -166,8 +166,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? RunTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Run Units 
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Run Units</para>
 		/// </summary>
 		[DataMember(Name="RunUnits", EmitDefaultValue=false)]
 		public DecimalValue? RunUnits { get; set; }
@@ -176,69 +176,69 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? SetupTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Subcontract Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Subcontract Cost</para>
 		/// </summary>
 		[DataMember(Name="SubcontractCost", EmitDefaultValue=false)]
 		public DecimalValue? SubcontractCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Override Subcontract Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Override Subcontract Cost</para>
 		/// </summary>
 		[DataMember(Name="SubcontractOverride", EmitDefaultValue=false)]
 		public BooleanValue? SubcontractOverride { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Tool Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Tool Cost</para>
 		/// </summary>
 		[DataMember(Name="ToolCost", EmitDefaultValue=false)]
 		public DecimalValue? ToolCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Override Tool Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Override Tool Cost</para>
 		/// </summary>
 		[DataMember(Name="ToolOverride", EmitDefaultValue=false)]
 		public BooleanValue? ToolOverride { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Override Var. Labor Cost 
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Override Var. Labor Cost</para>
 		/// </summary>
 		[DataMember(Name="VariableLaborOverride", EmitDefaultValue=false)]
 		public BooleanValue? VariableLaborOverride { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VariableOverheadOverride 
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Override Var. Overhead Cost 
+		/// <para>DAC Field Name: VariableOverheadOverride</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Override Var. Overhead Cost</para>
 		/// </summary>
 		[DataMember(Name="VariableOvhdOverride", EmitDefaultValue=false)]
 		public BooleanValue? VariableOvhdOverride { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VariableLaborCost 
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Var. Labor Cost 
+		/// <para>DAC Field Name: VariableLaborCost</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Var. Labor Cost</para>
 		/// </summary>
 		[DataMember(Name="VarLaborCost", EmitDefaultValue=false)]
 		public DecimalValue? VarLaborCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VariableOverheadCost 
-		/// DAC: PX.Objects.AM.AMEstimateItem 
-		/// Display Name: Var. Overhead Cost 
+		/// <para>DAC Field Name: VariableOverheadCost</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Var. Overhead Cost</para>
 		/// </summary>
 		[DataMember(Name="VarOverheadCost", EmitDefaultValue=false)]
 		public DecimalValue? VarOverheadCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WorkCenterID 
-		/// DAC: PX.Objects.AM.AMEstimateOper 
-		/// Display Name: Work Center 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC Field Name: WorkCenterID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Work Center</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
 		public StringValue? WorkCenter { get; set; }

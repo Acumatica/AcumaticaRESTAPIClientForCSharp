@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM506000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM506000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class CloseProductionOrders : Entity, ITopLevelEntity
@@ -21,9 +21,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public List<CloseProductionOrdersDetail>? Details { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FinancialPeriodID 
-		/// DAC: PX.Objects.AM.FinancialPeriod 
-		/// SQL Type: char(6) 
+		/// <para>DAC Field Name: FinancialPeriodID</para>
+		/// <para>DAC: PX.Objects.AM.FinancialPeriod</para>
+		/// <para>SQL Type: char(6)</para>
 		/// </summary>
 		[DataMember(Name="Period", EmitDefaultValue=false)]
 		public StringValue? Period { get; set; }

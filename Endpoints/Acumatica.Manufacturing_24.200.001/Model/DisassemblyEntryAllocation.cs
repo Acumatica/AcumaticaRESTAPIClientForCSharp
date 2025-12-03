@@ -15,39 +15,39 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: ExpireDate 
-		/// DAC: PX.Objects.AM.AMDisassembleTran 
-		/// Display Name: Expiration Date 
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMDisassembleTran 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LocationID 
-		/// DAC: PX.Objects.AM.AMDisassembleBatch 
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
 		/// </summary>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMDisassembleTran 
-		/// Display Name: Lot/Serial Nbr. 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Qty 
-		/// DAC: PX.Objects.AM.AMDisassembleBatch 
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
 		/// </summary>
 		[DataMember(Name="Quantity", EmitDefaultValue=false)]
 		public DecimalValue? Quantity { get; set; }
@@ -56,15 +56,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? SplitLineNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.AM.AMDisassembleBatch 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMDisassembleBatch 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }

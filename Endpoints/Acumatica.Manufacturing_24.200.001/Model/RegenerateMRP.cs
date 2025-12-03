@@ -11,24 +11,24 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM505000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM505000</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class RegenerateMRP : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: LastMrpRegenCompletedDateTime 
-		/// DAC: PX.Objects.AM.MrpProcessingSetup 
-		/// Display Name: Last Completed At 
+		/// <para>DAC Field Name: LastMrpRegenCompletedDateTime</para>
+		/// <para>DAC: PX.Objects.AM.MrpProcessingSetup</para>
+		/// <para>Display Name: Last Completed At</para>
 		/// </summary>
 		[DataMember(Name="LastCompletedAt", EmitDefaultValue=false)]
 		public DateTimeValue? LastCompletedAt { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LastMrpRegenCompletedByID 
-		/// DAC: PX.Objects.AM.MrpProcessingSetup 
-		/// Display Name: Last Completed By 
+		/// <para>DAC Field Name: LastMrpRegenCompletedByID</para>
+		/// <para>DAC: PX.Objects.AM.MrpProcessingSetup</para>
+		/// <para>Display Name: Last Completed By</para>
 		/// </summary>
 		[DataMember(Name="LastCompletedBy", EmitDefaultValue=false)]
 		public StringValue? LastCompletedBy { get; set; }

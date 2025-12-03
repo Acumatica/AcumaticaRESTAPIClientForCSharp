@@ -15,72 +15,72 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: DefaultWarehouse 
-		/// DAC: PX.Objects.AM.AMScanSetup 
-		/// Display Name: Default Warehouse from User Profile 
+		/// <para>DAC Field Name: DefaultWarehouse</para>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Default Warehouse from User Profile</para>
 		/// </summary>
 		[DataMember(Name="DefaultWarehousefromUserProfile", EmitDefaultValue=false)]
 		public BooleanValue? DefaultWarehousefromUserProfile { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RequestLocationForEachItemInMaterials 
-		/// DAC: PX.Objects.AM.AMScanSetup 
-		/// Display Name: Request Location for Each Item in Materials 
+		/// <para>DAC Field Name: RequestLocationForEachItemInMaterials</para>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Request Location for Each Item in Materials</para>
 		/// </summary>
 		[DataMember(Name="RequestLocationforEachIteminMaterials", EmitDefaultValue=false)]
 		public BooleanValue? RequestLocationforEachIteminMaterials { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RequestLocationForEachItemInMove 
-		/// DAC: PX.Objects.AM.AMScanSetup 
-		/// Display Name: Request Location for Each Item in Move/Labor 
+		/// <para>DAC Field Name: RequestLocationForEachItemInMove</para>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Request Location for Each Item in Move/Labor</para>
 		/// </summary>
 		[DataMember(Name="RequestLocationforEachIteminMoveLabor", EmitDefaultValue=false)]
 		public BooleanValue? RequestLocationforEachIteminMoveLabor { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMScanSetup 
-		/// Display Name: Use Default Order Type 
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Use Default Order Type</para>
 		/// </summary>
 		[DataMember(Name="UseDefaultOrderType", EmitDefaultValue=false)]
 		public BooleanValue? UseDefaultOrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UseDefaultQtyInMaterials 
-		/// DAC: PX.Objects.AM.AMScanSetup 
-		/// Display Name: Use Default Quantity in Materials 
+		/// <para>DAC Field Name: UseDefaultQtyInMaterials</para>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Use Default Quantity in Materials</para>
 		/// </summary>
 		[DataMember(Name="UseDefaultQuantityinMaterials", EmitDefaultValue=false)]
 		public BooleanValue? UseDefaultQuantityinMaterials { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UseDefaultQtyInMove 
-		/// DAC: PX.Objects.AM.AMScanSetup 
-		/// Display Name: Use Default Quantity in Move/Labor 
+		/// <para>DAC Field Name: UseDefaultQtyInMove</para>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Use Default Quantity in Move/Labor</para>
 		/// </summary>
 		[DataMember(Name="UseDefaultQuantityinMoveLabor", EmitDefaultValue=false)]
 		public BooleanValue? UseDefaultQuantityinMoveLabor { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExplicitLineConfirmation 
-		/// DAC: PX.Objects.AM.AMScanSetup 
-		/// Display Name: Use Explicit Line Confirmation 
+		/// <para>DAC Field Name: ExplicitLineConfirmation</para>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Use Explicit Line Confirmation</para>
 		/// </summary>
 		[DataMember(Name="UseExplicitLineConfirmation", EmitDefaultValue=false)]
 		public BooleanValue? UseExplicitLineConfirmation { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UseRemainingQtyInMaterials 
-		/// DAC: PX.Objects.AM.AMScanSetup 
-		/// Display Name: Use Remaining Quantity in Materials 
+		/// <para>DAC Field Name: UseRemainingQtyInMaterials</para>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Use Remaining Quantity in Materials</para>
 		/// </summary>
 		[DataMember(Name="UseRemainingQuantityinMaterials", EmitDefaultValue=false)]
 		public BooleanValue? UseRemainingQuantityinMaterials { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UseRemainingQtyInMove 
-		/// DAC: PX.Objects.AM.AMScanSetup 
-		/// Display Name: Use Remaining Quantity in Move 
+		/// <para>DAC Field Name: UseRemainingQtyInMove</para>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Use Remaining Quantity in Move</para>
 		/// </summary>
 		[DataMember(Name="UseRemainingQuantityinMove", EmitDefaultValue=false)]
 		public BooleanValue? UseRemainingQuantityinMove { get; set; }

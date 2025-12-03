@@ -15,25 +15,25 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: SubstituteWcID 
-		/// DAC: PX.Objects.AM.AMWCSubstitute 
-		/// Display Name: Substitute Work Center 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC Field Name: SubstituteWcID</para>
+		/// <para>DAC: PX.Objects.AM.AMWCSubstitute</para>
+		/// <para>Display Name: Substitute Work Center</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		[DataMember(Name="SubstituteWorkCenter", EmitDefaultValue=false)]
 		public StringValue? SubstituteWorkCenter { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UpdateOperDesc 
-		/// DAC: PX.Objects.AM.AMWCSubstitute 
-		/// Display Name: Update Operation Description 
+		/// <para>DAC Field Name: UpdateOperDesc</para>
+		/// <para>DAC: PX.Objects.AM.AMWCSubstitute</para>
+		/// <para>Display Name: Update Operation Description</para>
 		/// </summary>
 		[DataMember(Name="UpdateOperationDescription", EmitDefaultValue=false)]
 		public BooleanValue? UpdateOperationDescription { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.AM.AMWC 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }

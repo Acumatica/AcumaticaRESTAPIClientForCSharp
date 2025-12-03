@@ -11,20 +11,20 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.GLConsolidation_22_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL509001 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL509001</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class ConsolidationData : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter 
+		/// <para>DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter</para>
 		/// </summary>
 		[DataMember(Name="BranchCD", EmitDefaultValue=false)]
 		public StringValue? BranchCD { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter 
+		/// <para>DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter</para>
 		/// </summary>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }

@@ -11,85 +11,86 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AM204500 in the Acumatica ERP
+	/// Corresponds to the screen <c>AM204500</c> in the Acumatica ERP
+	/// <para>Key Fields: MachineID</para>
 	/// </summary>
 	[DataContract]
 	public class Machine : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: MachAcctID 
-		/// DAC: PX.Objects.AM.AMMach 
+		/// <para>DAC Field Name: MachAcctID</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ActiveFlg 
-		/// DAC: PX.Objects.AM.AMMach 
+		/// <para>DAC Field Name: ActiveFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMach 
-		/// Display Name: Asset ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
+		/// <para>Display Name: Asset ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="AssetID", EmitDefaultValue=false)]
 		public StringValue? AssetID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AM.AMMach 
-		/// Display Name: Calendar ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
+		/// <para>Display Name: Calendar ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="CalendarID", EmitDefaultValue=false)]
 		public StringValue? CalendarID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AM.AMMach 
-		/// SQL Type: nvarchar(120) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
+		/// <para>SQL Type: nvarchar(120)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DownFlg 
-		/// DAC: PX.Objects.AM.AMMach 
+		/// <para>DAC Field Name: DownFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
 		[DataMember(Name="Down", EmitDefaultValue=false)]
 		public BooleanValue? Down { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MachEff 
-		/// DAC: PX.Objects.AM.AMMach 
+		/// <para>DAC Field Name: MachEff</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
 		[DataMember(Name="Efficiency", EmitDefaultValue=false)]
 		public DecimalValue? Efficiency { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MachID 
-		/// DAC: PX.Objects.AM.AMMach 
-		/// Display Name: Machine ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: MachID</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
+		/// <para>Display Name: Machine ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="MachineID", EmitDefaultValue=false)]
 		public StringValue? MachineID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StdCost 
-		/// DAC: PX.Objects.AM.AMMachCurySettings 
-		/// Display Name: Standard Cost 
+		/// <para>DAC Field Name: StdCost</para>
+		/// <para>DAC: PX.Objects.AM.AMMachCurySettings</para>
+		/// <para>Display Name: Standard Cost</para>
 		/// </summary>
 		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
 		public DecimalValue? StandardCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MachSubID 
-		/// DAC: PX.Objects.AM.AMMach 
+		/// <para>DAC Field Name: MachSubID</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
