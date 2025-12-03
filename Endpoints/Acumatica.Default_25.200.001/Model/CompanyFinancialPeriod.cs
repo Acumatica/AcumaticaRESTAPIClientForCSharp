@@ -11,15 +11,16 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL201100 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL201100</c> in the Acumatica ERP
+	/// <para>Key Fields: Company, FinancialYear</para>
 	/// </summary>
 	[DataContract]
 	public class CompanyFinancialPeriod : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: OrganizationID 
-		/// DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear 
+		/// <para>DAC Field Name: OrganizationID</para>
+		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Company", EmitDefaultValue=false)]
@@ -30,10 +31,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Key field.The financial year.
-		/// DAC Field Name: Year 
-		/// DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear 
-		/// Display Name: Financial Year 
-		/// SQL Type: char(4) 
+		/// <para>DAC Field Name: Year</para>
+		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
+		/// <para>Display Name: Financial Year</para>
+		/// <para>SQL Type: char(4)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
@@ -41,17 +42,17 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The number of periods in the year.
-		/// DAC Field Name: FinPeriods 
-		/// DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear 
-		/// Display Name: Number of Periods 
+		/// <para>DAC Field Name: FinPeriods</para>
+		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
+		/// <para>Display Name: Number of Periods</para>
 		/// </summary>
 		[DataMember(Name="NbrOfPeriods", EmitDefaultValue=false)]
 		public ShortValue? NbrOfPeriods { get; set; }
 
 		/// <summary>
 		/// The start date of the year.
-		/// DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear 
-		/// Display Name: Start Date 
+		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }

@@ -15,9 +15,9 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: GrnMaxPctuseDflt 
-		/// DAC: PX.Objects.PR.PREmployee 
-		/// Display Name: Use Default 
+		/// <para>DAC Field Name: GrnMaxPctuseDflt</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Default</para>
 		/// </summary>
 		[DataMember(Name="DeductionAndBenefitUseClassDefaults", EmitDefaultValue=false)]
 		public BooleanValue? DeductionAndBenefitUseClassDefaults { get; set; }
@@ -26,18 +26,18 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<EmployeeDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DedSplitType 
-		/// DAC: PX.Objects.PR.PREmployee 
-		/// Display Name: Split Method 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: DedSplitType</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Split Method</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="DeductionSplitMethod", EmitDefaultValue=false)]
 		public StringValue? DeductionSplitMethod { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: GrnMaxPctNet 
-		/// DAC: PX.Objects.PR.PREmployee 
-		/// Display Name: Maximum Percent of Net Pay for All Garnishments 
+		/// <para>DAC Field Name: GrnMaxPctNet</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Maximum Percent of Net Pay for All Garnishments</para>
 		/// </summary>
 		[DataMember(Name="MaxPercOfNetPayForAllGarnishm", EmitDefaultValue=false)]
 		public DecimalValue? MaxPercOfNetPayForAllGarnishm { get; set; }

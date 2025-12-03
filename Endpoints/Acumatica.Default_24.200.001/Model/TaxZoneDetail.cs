@@ -15,24 +15,24 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: TaxZone__DfltTaxCategoryID 
-		/// DAC: PX.Objects.TX.TaxZoneDet 
+		/// <para>DAC Field Name: TaxZone__DfltTaxCategoryID</para>
+		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
 		/// </summary>
 		[DataMember(Name="DefaultTaxCategory", EmitDefaultValue=false)]
 		public StringValue? DefaultTaxCategory { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxZone__Descr 
-		/// DAC: PX.Objects.TX.TaxZoneDet 
+		/// <para>DAC Field Name: TaxZone__Descr</para>
+		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The tax ID. This is the key field, which can be specified by the user.
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax ID 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
@@ -40,9 +40,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The foreign key to TaxZone.
-		/// DAC: PX.Objects.TX.TaxZoneDet 
-		/// Display Name: Tax Zone ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
+		/// <para>Display Name: Tax Zone ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxZoneID", EmitDefaultValue=false)]

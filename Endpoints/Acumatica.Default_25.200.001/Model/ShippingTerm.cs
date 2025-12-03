@@ -11,15 +11,16 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CS208000 in the Acumatica ERP
+	/// Corresponds to the screen <c>CS208000</c> in the Acumatica ERP
+	/// <para>Key Fields: TermID</para>
 	/// </summary>
 	[DataContract]
 	public class ShippingTerm : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.ShipTerms 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.CS.ShipTerms</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -28,10 +29,10 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<ShippingTermDetail>? Details { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipTermsID 
-		/// DAC: PX.Objects.CS.ShipTerms 
-		/// Display Name: Term ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: ShipTermsID</para>
+		/// <para>DAC: PX.Objects.CS.ShipTerms</para>
+		/// <para>Display Name: Term ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TermID", EmitDefaultValue=false)]

@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CR306000 in the Acumatica ERP
+	/// Corresponds to the screen <c>CR306000</c> in the Acumatica ERP
+	/// <para>Key Fields: CaseID</para>
 	/// </summary>
 	[DataContract]
 	public class Case : Entity, ITopLevelEntity
@@ -25,54 +26,54 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The field indicates whether the case is billable.
-		/// DAC Field Name: IsBillable 
-		/// DAC: PX.Objects.CR.CRCase 
+		/// <para>DAC Field Name: IsBillable</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
 		[DataMember(Name="Billable", EmitDefaultValue=false)]
 		public BooleanValue? Billable { get; set; }
 
 		/// <summary>
 		/// The billable overtime (in hours) spent on the case.
-		/// DAC Field Name: OvertimeBillable 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Billable Overtime 
+		/// <para>DAC Field Name: OvertimeBillable</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Billable Overtime</para>
 		/// </summary>
 		[DataMember(Name="BillableOvertime", EmitDefaultValue=false)]
 		public StringValue? BillableOvertime { get; set; }
 
 		/// <summary>
 		/// The billable time (in hours) spent on the case.
-		/// DAC Field Name: TimeBillable 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Billable Time 
+		/// <para>DAC Field Name: TimeBillable</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Billable Time</para>
 		/// </summary>
 		[DataMember(Name="BillableTime", EmitDefaultValue=false)]
 		public StringValue? BillableTime { get; set; }
 
 		/// <summary>
 		/// The business account associated with the case.
-		/// DAC Field Name: CustomerID 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Business Account 
+		/// <para>DAC Field Name: CustomerID</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Business Account</para>
 		/// </summary>
 		[DataMember(Name="BusinessAccount", EmitDefaultValue=false)]
 		public StringValue? BusinessAccount { get; set; }
 
 		/// <summary>
 		/// The business account associated with the case.
-		/// DAC Field Name: CustomerID 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Business Account 
+		/// <para>DAC Field Name: CustomerID</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Business Account</para>
 		/// </summary>
 		[DataMember(Name="BusinessAccountName", EmitDefaultValue=false)]
 		public StringValue? BusinessAccountName { get; set; }
 
 		/// <summary>
 		/// The unique identifier assigned to the case in accordance with the numbering sequence assigned to cases on the Customer Management Preferences (CR101000) form.
-		/// DAC Field Name: CaseCD 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Case ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: CaseCD</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Case ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="CaseID", EmitDefaultValue=false)]
@@ -80,101 +81,101 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the case class.
-		/// DAC Field Name: CaseClassID 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Case Class 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: CaseClassID</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Case Class</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
 		/// The date and time when the case was closed. The field is filled in by the system.
-		/// DAC Field Name: ResolutionDate 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Closed On 
+		/// <para>DAC Field Name: ResolutionDate</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Closed On</para>
 		/// </summary>
 		[DataMember(Name="ClosingDate", EmitDefaultValue=false)]
 		public DateTimeValue? ClosingDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ContactID_description 
-		/// DAC: PX.Objects.CR.CRCase 
+		/// <para>DAC Field Name: ContactID_description</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
 		[DataMember(Name="ContactDisplayName", EmitDefaultValue=false)]
 		public StringValue? ContactDisplayName { get; set; }
 
 		/// <summary>
 		/// The customer representative to be contacted about the case.
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Contact 
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Contact</para>
 		/// </summary>
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public IntValue? ContactID { get; set; }
 
 		/// <summary>
 		/// The contract associated with the case.
-		/// DAC Field Name: ContractID 
-		/// DAC: PX.Objects.CR.CRCase 
+		/// <para>DAC Field Name: ContractID</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
 		[DataMember(Name="Contract", EmitDefaultValue=false)]
 		public StringValue? Contract { get; set; }
 
 		/// <summary>
 		/// Date and time of the case creation.
-		/// DAC Field Name: ReportedOnDateTime 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Reported On 
+		/// <para>DAC Field Name: ReportedOnDateTime</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Reported On</para>
 		/// </summary>
 		[DataMember(Name="DateReported", EmitDefaultValue=false)]
 		public DateTimeValue? DateReported { get; set; }
 
 		/// <summary>
 		/// A detailed description of the case or relevant notes.
-		/// DAC: PX.Objects.CR.CRCase 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The time from the creation of the case to the initial response.
-		/// DAC Field Name: InitResponse 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Init. Response 
+		/// <para>DAC Field Name: InitResponse</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Init. Response</para>
 		/// </summary>
 		[DataMember(Name="InitialResponse", EmitDefaultValue=false)]
 		public StringValue? InitialResponse { get; set; }
 
 		/// <summary>
 		/// The date and time of the last activity of this case.
-		/// DAC Field Name: LastActivity 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Last Activity 
+		/// <para>DAC Field Name: LastActivity</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Last Activity</para>
 		/// </summary>
 		[DataMember(Name="LastActivityDate", EmitDefaultValue=false)]
 		public DateTimeValue? LastActivityDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LastIncomingActivityDate 
-		/// DAC: PX.Objects.CR.CRActivityStatistics 
-		/// Display Name: Last Incoming Activity 
+		/// <para>DAC Field Name: LastIncomingActivityDate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivityStatistics</para>
+		/// <para>Display Name: Last Incoming Activity</para>
 		/// </summary>
 		[DataMember(Name="LastIncomingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastIncomingActivity { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LastOutgoingActivityDate 
-		/// DAC: PX.Objects.CR.CRActivityStatistics 
-		/// Display Name: Last Outgoing Activity 
+		/// <para>DAC Field Name: LastOutgoingActivityDate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivityStatistics</para>
+		/// <para>Display Name: Last Outgoing Activity</para>
 		/// </summary>
 		[DataMember(Name="LastOutgoingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastOutgoingActivity { get; set; }
 
 		/// <summary>
 		/// The identifier of the default Location object linked with the prospective or existing customer that is selected in the Business Account box.
-		/// DAC Field Name: LocationID 
-		/// DAC: PX.Objects.CR.CRCase 
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
 		/// <remarks>
 		/// Also, the BAccountID value must be equal tothe CustomerID value of the current case.
@@ -184,49 +185,49 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The field indicates whether the billable time and billable overtime can be changed manually.
-		/// DAC Field Name: ManualBillableTimes 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Manual Override 
+		/// <para>DAC Field Name: ManualBillableTimes</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Manual Override</para>
 		/// </summary>
 		[DataMember(Name="ManualOverride", EmitDefaultValue=false)]
 		public BooleanValue? ManualOverride { get; set; }
 
 		/// <summary>
 		/// The overtime (in hours) spent on the case activity.
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Overtime Spent 
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Overtime Spent</para>
 		/// </summary>
 		[DataMember(Name="OvertimeSpent", EmitDefaultValue=false)]
 		public StringValue? OvertimeSpent { get; set; }
 
 		/// <summary>
 		/// The user name of the employee assigned to the case.
-		/// DAC Field Name: OwnerID 
-		/// DAC: PX.Objects.CR.CRCase 
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OwnerID_description 
-		/// DAC: PX.Objects.CR.CRCase 
+		/// <para>DAC Field Name: OwnerID_description</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
 		[DataMember(Name="OwnerEmployeeName", EmitDefaultValue=false)]
 		public StringValue? OwnerEmployeeName { get; set; }
 
 		/// <summary>
 		/// The priority of the case.
-		/// DAC: PX.Objects.CR.CRCase 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Priority", EmitDefaultValue=false)]
 		public StringValue? Priority { get; set; }
 
 		/// <summary>
 		/// The reason why the case has been changed to the current status.
-		/// DAC Field Name: Resolution 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// SQL Type: char(2) 
+		/// <para>DAC Field Name: Resolution</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="Reason", EmitDefaultValue=false)]
 		public StringValue? Reason { get; set; }
@@ -239,63 +240,63 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The time (in minutes) of the case resolution.
-		/// DAC Field Name: TimeResolution 
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Resolution Time 
+		/// <para>DAC Field Name: TimeResolution</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Resolution Time</para>
 		/// </summary>
 		[DataMember(Name="ResolutionTime", EmitDefaultValue=false)]
 		public StringValue? ResolutionTime { get; set; }
 
 		/// <summary>
 		/// The severity level of the case.
-		/// DAC: PX.Objects.CR.CRCase 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Severity", EmitDefaultValue=false)]
 		public StringValue? Severity { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ResolutionDueDateTime 
-		/// DAC: PX.Objects.CR.CRCase 
+		/// <para>DAC Field Name: ResolutionDueDateTime</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
 		[DataMember(Name="SLA", EmitDefaultValue=false)]
 		public DateTimeValue? SLA { get; set; }
 
 		/// <summary>
 		/// The current status of the case.
-		/// DAC: PX.Objects.CR.CRCase 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// A subject of the case.
-		/// DAC: PX.Objects.CR.CRCase 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }
 
 		/// <summary>
 		/// The time (in hours) spent on the case activity.
-		/// DAC: PX.Objects.CR.CRCase 
-		/// Display Name: Time Spent 
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Time Spent</para>
 		/// </summary>
 		[DataMember(Name="TimeSpent", EmitDefaultValue=false)]
 		public StringValue? TimeSpent { get; set; }
 
 		/// <summary>
 		/// The company tree workgroup to work on the case.
-		/// DAC Field Name: WorkgroupID 
-		/// DAC: PX.Objects.CR.CRCase 
+		/// <para>DAC Field Name: WorkgroupID</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WorkgroupID_description 
-		/// DAC: PX.Objects.CR.CRCase 
+		/// <para>DAC Field Name: WorkgroupID_description</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
 		[DataMember(Name="WorkgroupDescription", EmitDefaultValue=false)]
 		public StringValue? WorkgroupDescription { get; set; }

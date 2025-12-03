@@ -16,9 +16,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The field contains ID of a tax that would be used to create tax transactions in documents.
-		/// DAC: PX.Objects.TX.TaxZone 
-		/// Display Name: Tax ID 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.TX.TaxZone</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }

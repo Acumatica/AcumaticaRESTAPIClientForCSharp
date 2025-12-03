@@ -15,54 +15,54 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: OvertimeBillable 
-		/// DAC: PX.Objects.CR.CRChildActivity 
-		/// Display Name: Billable Overtime 
+		/// <para>DAC Field Name: OvertimeBillable</para>
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Billable Overtime</para>
 		/// </summary>
 		[DataMember(Name="BillableOvertime", EmitDefaultValue=false)]
 		public StringValue? BillableOvertime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TimeBillable 
-		/// DAC: PX.Objects.CR.CRChildActivity 
-		/// Display Name: Billable Time 
+		/// <para>DAC Field Name: TimeBillable</para>
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Billable Time</para>
 		/// </summary>
 		[DataMember(Name="BillableTime", EmitDefaultValue=false)]
 		public StringValue? BillableTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CostCodeID 
-		/// DAC: PX.Objects.CR.CRChildActivity 
-		/// Display Name: Cost Code 
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Cost Code</para>
 		/// </summary>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OvertimeSpent 
-		/// DAC: PX.Objects.CR.CRChildActivity 
+		/// <para>DAC Field Name: OvertimeSpent</para>
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
 		/// </summary>
 		[DataMember(Name="Overtime", EmitDefaultValue=false)]
 		public StringValue? Overtime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProjectID 
-		/// DAC: PX.Objects.CR.PMTimeActivity 
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.CR.PMTimeActivity</para>
 		/// </summary>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProjectTaskID 
-		/// DAC: PX.Objects.CR.PMTimeActivity 
-		/// Display Name: Project Task 
+		/// <para>DAC Field Name: ProjectTaskID</para>
+		/// <para>DAC: PX.Objects.CR.PMTimeActivity</para>
+		/// <para>Display Name: Project Task</para>
 		/// </summary>
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CRChildActivity 
-		/// Display Name: Time Spent 
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Time Spent</para>
 		/// </summary>
 		[DataMember(Name="TimeSpent", EmitDefaultValue=false)]
 		public StringValue? TimeSpent { get; set; }

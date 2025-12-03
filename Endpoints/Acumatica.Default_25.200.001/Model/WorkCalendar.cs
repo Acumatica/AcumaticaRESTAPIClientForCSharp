@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CS209000 in the Acumatica ERP
+	/// Corresponds to the screen <c>CS209000</c> in the Acumatica ERP
+	/// <para>Key Fields: WorkCalendarID</para>
 	/// </summary>
 	[DataContract]
 	public class WorkCalendar : Entity, ITopLevelEntity
@@ -24,25 +25,25 @@ namespace Acumatica.Default_25_200_001.Model
 		public CalendarSettings? CalendarSettings { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSCalendar 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSCalendar 
-		/// Display Name: Time Zone 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Time Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="TimeZone", EmitDefaultValue=false)]
 		public StringValue? TimeZone { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CalendarID 
-		/// DAC: PX.Objects.CS.CSCalendar 
-		/// Display Name: Calendar ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: CalendarID</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Calendar ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]

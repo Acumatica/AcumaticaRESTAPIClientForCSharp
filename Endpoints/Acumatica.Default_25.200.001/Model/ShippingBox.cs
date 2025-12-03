@@ -11,31 +11,32 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CS207600 in the Acumatica ERP
+	/// Corresponds to the screen <c>CS207600</c> in the Acumatica ERP
+	/// <para>Key Fields: BoxID</para>
 	/// </summary>
 	[DataContract]
 	public class ShippingBox : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSBox 
-		/// Display Name: Active by Default 
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Active by Default</para>
 		/// </summary>
 		[DataMember(Name="ActiveByDefault", EmitDefaultValue=false)]
 		public BooleanValue? ActiveByDefault { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSBox 
-		/// Display Name: Box ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Box ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="BoxID", EmitDefaultValue=false)]
 		public StringValue? BoxID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSBox 
-		/// Display Name: Box Weight 
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Box Weight</para>
 		/// </summary>
 		[DataMember(Name="BoxWeight", EmitDefaultValue=false)]
 		public DecimalValue? BoxWeight { get; set; }
@@ -44,61 +45,61 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? CarriersPackage { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSBox 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSBox 
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// </summary>
 		[DataMember(Name="Height", EmitDefaultValue=false)]
 		public DecimalValue? Height { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSBox 
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// </summary>
 		[DataMember(Name="Length", EmitDefaultValue=false)]
 		public DecimalValue? Length { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSBox 
-		/// Display Name: Max Volume 
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Max Volume</para>
 		/// </summary>
 		[DataMember(Name="MaxVolume", EmitDefaultValue=false)]
 		public DecimalValue? MaxVolume { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSBox 
-		/// Display Name: Max. Weight 
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Max. Weight</para>
 		/// </summary>
 		[DataMember(Name="MaxWeight", EmitDefaultValue=false)]
 		public DecimalValue? MaxWeight { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CommonSetup__VolumeUOM 
-		/// DAC: PX.Objects.CS.CSBox 
+		/// <para>DAC Field Name: CommonSetup__VolumeUOM</para>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// </summary>
 		[DataMember(Name="VolumeUOM", EmitDefaultValue=false)]
 		public StringValue? VolumeUOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CommonSetup__WeightUOM 
-		/// DAC: PX.Objects.CS.CSBox 
+		/// <para>DAC Field Name: CommonSetup__WeightUOM</para>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// </summary>
 		[DataMember(Name="WeightUOM", EmitDefaultValue=false)]
 		public StringValue? WeightUOM { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSBox 
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// </summary>
 		[DataMember(Name="Width", EmitDefaultValue=false)]
 		public DecimalValue? Width { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CommonSetup__LinearUOM 
-		/// DAC: PX.Objects.CS.CSBox 
+		/// <para>DAC Field Name: CommonSetup__LinearUOM</para>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// </summary>
 		[DataMember(Name="LinearUOM", EmitDefaultValue=false)]
 		public StringValue? LinearUOM { get; set; }

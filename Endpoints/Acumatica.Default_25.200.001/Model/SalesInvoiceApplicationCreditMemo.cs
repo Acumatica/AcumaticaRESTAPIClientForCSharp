@@ -19,8 +19,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The open balance of the document.Given in the currency of the document.
-		/// DAC Field Name: CuryDocBal 
-		/// DAC: PX.Objects.AR.ARInvoice 
+		/// <para>DAC Field Name: CuryDocBal</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
 		/// </summary>
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
@@ -32,8 +32,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Customer { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ARInvoice__InvoiceNbr 
-		/// DAC: PX.Objects.AR.ARAdjust 
+		/// <para>DAC Field Name: ARInvoice__InvoiceNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
 		/// </summary>
 		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
 		public StringValue? CustomerOrder { get; set; }

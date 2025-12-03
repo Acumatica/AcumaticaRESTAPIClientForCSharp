@@ -15,8 +15,8 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INItemCategory 
-		/// Display Name: Category 
+		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
+		/// <para>Display Name: Category</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="CategoryID", EmitDefaultValue=false)]

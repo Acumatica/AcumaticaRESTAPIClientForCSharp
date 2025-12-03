@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AR303000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AR303000</c> in the Acumatica ERP
+	/// <para>Key Fields: CustomerID</para>
 	/// </summary>
 	[DataContract]
 	public class Customer : Entity, ITopLevelEntity
@@ -19,10 +20,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The external reference number of the business account.
-		/// DAC Field Name: AcctReferenceNbr 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Ext. Ref. Nbr. 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC Field Name: AcctReferenceNbr</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Ext. Ref. Nbr.</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		/// <remarks>
 		/// It can be an additional number of the business account used in external integration.            
@@ -32,9 +33,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// If set to true, indicates that financial chargescan be calculated for the customer.
-		/// DAC Field Name: FinChargeApply 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Apply Overdue Charges 
+		/// <para>DAC Field Name: FinChargeApply</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Apply Overdue Charges</para>
 		/// </summary>
 		[DataMember(Name="ApplyOverdueCharges", EmitDefaultValue=false)]
 		public BooleanValue? ApplyOverdueCharges { get; set; }
@@ -44,25 +45,25 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// If set to true, indicates that the payments of the customershould be automatically applied to the open invoices upon release.
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Auto-Apply Payments 
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Auto-Apply Payments</para>
 		/// </summary>
 		[DataMember(Name="AutoApplyPayments", EmitDefaultValue=false)]
 		public BooleanValue? AutoApplyPayments { get; set; }
 
 		/// <summary>
 		/// The identifier of the related business account.Along with ContactID, this field is used as an additional reference,but unlike RefNoteID and DocumentNoteID it is used for specific entities.
-		/// DAC: PX.Objects.CR.CRPMTimeActivity 
-		/// Display Name: Related Account 
+		/// <para>DAC: PX.Objects.CR.CRPMTimeActivity</para>
+		/// <para>Display Name: Related Account</para>
 		/// </summary>
 		[DataMember(Name="BAccountID", EmitDefaultValue=false)]
 		public IntValue? BAccountID { get; set; }
 
 		/// <summary>
 		/// A calculated field. If set to false, indicates thatthe customer's billing address is the same as the customer'sdefault address.The field is populated by a formula, working only in the scope of the Customers (AR303000) form. See CustomerBillSharedAddressOverrideGraphExt"
-		/// DAC Field Name: OverrideBillAddress 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Override 
+		/// <para>DAC Field Name: OverrideBillAddress</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Override</para>
 		/// </summary>
 		[DataMember(Name="BillingAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillingAddressOverride { get; set; }
@@ -72,9 +73,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// A calculated field. If set to false, indicates that the customer's billing contact is the same as the customer'sdefault contact.The field is populated by a formula, working only in the scope of the Customers (AR303000) form. See CustomerBillSharedContactOverrideGraphExt"
-		/// DAC Field Name: OverrideBillContact 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Override 
+		/// <para>DAC Field Name: OverrideBillContact</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Override</para>
 		/// </summary>
 		[DataMember(Name="BillingContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillingContactOverride { get; set; }
@@ -84,8 +85,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The date and time when the record was created.
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Created On 
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Created On</para>
 		/// </summary>
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
@@ -95,40 +96,40 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The identifier of the Currency,which is applied to the documents of the customer.
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Currency ID 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
 		/// The identifier of the currency rate type,which is applied to the documents of the customer.
-		/// DAC Field Name: CuryRateTypeID 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Curr. Rate Type 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: CuryRateTypeID</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Curr. Rate Type</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyRateType", EmitDefaultValue=false)]
 		public StringValue? CurrencyRateType { get; set; }
 
 		/// <summary>
 		/// Identifier of the customer class to which the customer belongs.
-		/// DAC Field Name: CustomerClassID 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Customer Class 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: CustomerClassID</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Customer Class</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="CustomerClass", EmitDefaultValue=false)]
 		public StringValue? CustomerClass { get; set; }
 
 		/// <summary>
 		/// The human-readable identifier of the customer account, which isspecified by the user or defined by the auto-numbering sequence duringcreation of the customer. This field is a natural key, as opposedto the surrogate key BAccountID.
-		/// DAC Field Name: AcctCD 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Customer ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: AcctCD</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Customer ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
@@ -136,90 +137,90 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The customer kind, indicating whether the customer is an individual (I) or an organization (O).
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Customer Category 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Customer Category</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="CustomerCategory", EmitDefaultValue=false)]
 		public StringValue? CustomerCategory { get; set; }
 
 		/// <summary>
 		/// The full business account name (as opposed to the short identifier provided by AcctCD).
-		/// DAC Field Name: AcctName 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Customer Name 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC Field Name: AcctName</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Customer Name</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="CustomerName", EmitDefaultValue=false)]
 		public StringValue? CustomerName { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.NotificationRecipient 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC: PX.Objects.CS.NotificationRecipient</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
 		/// <summary>
 		/// If set to true, indicates that the currency of customer documents (which is specified by CuryID)can be overridden by a user during document entry.
-		/// DAC Field Name: AllowOverrideCury 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Enable Currency Override 
+		/// <para>DAC Field Name: AllowOverrideCury</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Enable Currency Override</para>
 		/// </summary>
 		[DataMember(Name="EnableCurrencyOverride", EmitDefaultValue=false)]
 		public BooleanValue? EnableCurrencyOverride { get; set; }
 
 		/// <summary>
 		/// If set to true, indicates that the currency ratefor customer documents (which is calculated by the system from the currency rate history) can be overridden by a user during document entry.
-		/// DAC Field Name: AllowOverrideRate 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Enable Rate Override 
+		/// <para>DAC Field Name: AllowOverrideRate</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Enable Rate Override</para>
 		/// </summary>
 		[DataMember(Name="EnableRateOverride", EmitDefaultValue=false)]
 		public BooleanValue? EnableRateOverride { get; set; }
 
 		/// <summary>
 		/// If set to true, indicates that small balancewrite-offs are allowed for the customer.
-		/// DAC Field Name: SmallBalanceAllow 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Enable Write-Offs 
+		/// <para>DAC Field Name: SmallBalanceAllow</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Enable Write-Offs</para>
 		/// </summary>
 		[DataMember(Name="EnableWriteOffs", EmitDefaultValue=false)]
 		public BooleanValue? EnableWriteOffs { get; set; }
 
 		/// <summary>
 		/// The customer's FOB (free on board) shipping point.
-		/// DAC Field Name: CFOBPointID 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: FOB Point 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: CFOBPointID</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: FOB Point</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
 		public StringValue? FOBPoint { get; set; }
 
 		/// <summary>
 		/// The date and time when the record was last modified.
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Last Modified On 
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Last Modified On</para>
 		/// </summary>
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
 		/// The amount of lead days (the time in days from the moment when the production was finished to the moment when the customer's order was delivered).
-		/// DAC Field Name: CLeadTime 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Lead Time (Days) 
+		/// <para>DAC Field Name: CLeadTime</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Lead Time (Days)</para>
 		/// </summary>
 		[DataMember(Name="LeadTimedays", EmitDefaultValue=false)]
 		public ShortValue? LeadTimedays { get; set; }
 
 		/// <summary>
 		/// The name of the location.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Location Name 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Location Name</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="LocationName", EmitDefaultValue=false)]
 		public StringValue? LocationName { get; set; }
@@ -229,27 +230,27 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// If set to true, indicates that customerstatements should be generated for the customer in multi-currency format.
-		/// DAC Field Name: PrintCuryStatements 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Multi-Currency Statements 
+		/// <para>DAC Field Name: PrintCuryStatements</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Multi-Currency Statements</para>
 		/// </summary>
 		[DataMember(Name="MultiCurrencyStatements", EmitDefaultValue=false)]
 		public BooleanValue? MultiCurrencyStatements { get; set; }
 
 		/// <summary>
 		/// The order priority of the customer's location.
-		/// DAC Field Name: COrderPriority 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Order Priority 
+		/// <para>DAC Field Name: COrderPriority</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Order Priority</para>
 		/// </summary>
 		[DataMember(Name="OrderPriority", EmitDefaultValue=false)]
 		public ShortValue? OrderPriority { get; set; }
 
 		/// <summary>
 		/// The identifier of the parent business account.
-		/// DAC Field Name: ParentBAccountID 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Parent Account 
+		/// <para>DAC Field Name: ParentBAccountID</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Parent Account</para>
 		/// </summary>
 		[DataMember(Name="ParentRecord", EmitDefaultValue=false)]
 		public StringValue? ParentRecord { get; set; }
@@ -259,10 +260,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The price class of the customer.
-		/// DAC Field Name: CPriceClassID 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Price Class 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: CPriceClassID</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Price Class</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
 		public StringValue? PriceClassID { get; set; }
@@ -272,8 +273,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The identifier of the Contact object linked with the business account and marked as primary.
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Primary Contact 
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Primary Contact</para>
 		/// </summary>
 		/// <remarks>
 		/// Also, the Contact.BAccountID value must equal tothe BAccount.BAccountID value of the current business account.
@@ -283,33 +284,33 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// If set to true, indicates that dunning letters should be printed for the customer.
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Print Dunning Letters 
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Print Dunning Letters</para>
 		/// </summary>
 		[DataMember(Name="PrintDunningLetters", EmitDefaultValue=false)]
 		public BooleanValue? PrintDunningLetters { get; set; }
 
 		/// <summary>
 		/// If set to true, indicates that invoicesshould be printed for the customer.
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Print Invoices 
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Print Invoices</para>
 		/// </summary>
 		[DataMember(Name="PrintInvoices", EmitDefaultValue=false)]
 		public BooleanValue? PrintInvoices { get; set; }
 
 		/// <summary>
 		/// If set to true, indicates that customerstatements should be printed for the customer.
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Print Statements 
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Print Statements</para>
 		/// </summary>
 		[DataMember(Name="PrintStatements", EmitDefaultValue=false)]
 		public BooleanValue? PrintStatements { get; set; }
 
 		/// <summary>
 		/// This field indicates whether the residential delivery is available in this location.
-		/// DAC Field Name: CResedential 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Residential Delivery 
+		/// <para>DAC Field Name: CResedential</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Residential Delivery</para>
 		/// </summary>
 		[DataMember(Name="ResidentialDelivery", EmitDefaultValue=false)]
 		public BooleanValue? ResidentialDelivery { get; set; }
@@ -319,53 +320,53 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// This field indicates whether the Saturday delivery is available in this location.
-		/// DAC Field Name: CSaturdayDelivery 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Saturday Delivery 
+		/// <para>DAC Field Name: CSaturdayDelivery</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Saturday Delivery</para>
 		/// </summary>
 		[DataMember(Name="SaturdayDelivery", EmitDefaultValue=false)]
 		public BooleanValue? SaturdayDelivery { get; set; }
 
 		/// <summary>
 		/// If set to true, indicates that dunning letters should be sent to the customer by email.
-		/// DAC Field Name: MailDunningLetters 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Send Dunning Letters by Email 
+		/// <para>DAC Field Name: MailDunningLetters</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Send Dunning Letters by Email</para>
 		/// </summary>
 		[DataMember(Name="SendDunningLettersbyEmail", EmitDefaultValue=false)]
 		public BooleanValue? SendDunningLettersbyEmail { get; set; }
 
 		/// <summary>
 		/// If set to true, indicates that invoicesshould be sent to the customer by email.
-		/// DAC Field Name: MailInvoices 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Send Invoices by Email 
+		/// <para>DAC Field Name: MailInvoices</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Send Invoices by Email</para>
 		/// </summary>
 		[DataMember(Name="SendInvoicesbyEmail", EmitDefaultValue=false)]
 		public BooleanValue? SendInvoicesbyEmail { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SendStatementByEmail 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Send Statements by Email 
+		/// <para>DAC Field Name: SendStatementByEmail</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Send Statements by Email</para>
 		/// </summary>
 		[DataMember(Name="SendStatementsbyEmail", EmitDefaultValue=false)]
 		public BooleanValue? SendStatementsbyEmail { get; set; }
 
 		/// <summary>
 		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
-		/// DAC Field Name: OverrideAddress 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Override 
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Override</para>
 		/// </summary>
 		[DataMember(Name="ShippingAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShippingAddressOverride { get; set; }
 
 		/// <summary>
 		/// The identifier of the default branch of the customer location.
-		/// DAC Field Name: CBranchID 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Shipping Branch 
+		/// <para>DAC Field Name: CBranchID</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Shipping Branch</para>
 		/// </summary>
 		[DataMember(Name="ShippingBranch", EmitDefaultValue=false)]
 		public StringValue? ShippingBranch { get; set; }
@@ -375,138 +376,138 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// If set to true, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
-		/// DAC Field Name: OverrideContact 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Override 
+		/// <para>DAC Field Name: OverrideContact</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Override</para>
 		/// </summary>
 		[DataMember(Name="ShippingContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShippingContactOverride { get; set; }
 
 		/// <summary>
 		/// The shipping rule of the customer location.
-		/// DAC Field Name: CShipComplete 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Shipping Rule 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: CShipComplete</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Shipping Rule</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="ShippingRule", EmitDefaultValue=false)]
 		public StringValue? ShippingRule { get; set; }
 
 		/// <summary>
 		/// The customer's shipping terms.
-		/// DAC Field Name: CShipTermsID 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Shipping Terms 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: CShipTermsID</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Shipping Terms</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
 		public StringValue? ShippingTerms { get; set; }
 
 		/// <summary>
 		/// The customer's shipping zone.
-		/// DAC Field Name: CShipZoneID 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Shipping Zone 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: CShipZoneID</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Shipping Zone</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ShippingZoneID", EmitDefaultValue=false)]
 		public StringValue? ShippingZoneID { get; set; }
 
 		/// <summary>
 		/// The shipping carrier for the vendor location.
-		/// DAC Field Name: CCarrierID 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Ship Via 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: CCarrierID</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Ship Via</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
 		public StringValue? ShipVia { get; set; }
 
 		/// <summary>
 		/// The identifier of the statement cycleto which the customer is assigned.
-		/// DAC Field Name: StatementCycleId 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Statement Cycle ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: StatementCycleId</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Statement Cycle ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="StatementCycleID", EmitDefaultValue=false)]
 		public StringValue? StatementCycleID { get; set; }
 
 		/// <summary>
 		/// The type of customer statements generated for the customer.The list of possible values of the field is determined by StatementTypeAttribute.
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Statement Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Statement Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="StatementType", EmitDefaultValue=false)]
 		public StringValue? StatementType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Customer Status 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Customer Status</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// The registration ID of the company in the state tax authority.
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Tax Registration ID 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Tax Registration ID</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		[DataMember(Name="TaxRegistrationID", EmitDefaultValue=false)]
 		public StringValue? TaxRegistrationID { get; set; }
 
 		/// <summary>
 		/// The customer's tax zone.
-		/// DAC Field Name: CTaxZoneID 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Tax Zone 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: CTaxZoneID</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
 		/// The identifier of the default terms, which are applied to the documents of the customer.
-		/// DAC Field Name: TermsID 
-		/// DAC: PX.Objects.AR.Customer 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: TermsID</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="Terms", EmitDefaultValue=false)]
 		public StringValue? Terms { get; set; }
 
 		/// <summary>
 		/// The warehouse identifier of the customer location.
-		/// DAC Field Name: CSiteID 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Warehouse 
+		/// <para>DAC Field Name: CSiteID</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Warehouse</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 
 		/// <summary>
 		/// If SmallBalanceAllow is set to true, thefield determines the maximum small balance write-off limit for customer documents.
-		/// DAC Field Name: SmallBalanceLimit 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Write-Off Limit 
+		/// <para>DAC Field Name: SmallBalanceLimit</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Write-Off Limit</para>
 		/// </summary>
 		[DataMember(Name="WriteOffLimit", EmitDefaultValue=false)]
 		public DecimalValue? WriteOffLimit { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: COrgBAccountID 
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Restrict Visibility To 
+		/// <para>DAC Field Name: COrgBAccountID</para>
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Restrict Visibility To</para>
 		/// </summary>
 		[DataMember(Name="RestrictVisibilityTo", EmitDefaultValue=false)]
 		public StringValue? RestrictVisibilityTo { get; set; }
 
 		/// <summary>
 		/// If CreditRule enables verification by credit limit,this field determines the maximum amount of credit allowed for the customer.
-		/// DAC: PX.Objects.AR.Customer 
-		/// Display Name: Credit Limit 
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Credit Limit</para>
 		/// </summary>
 		[DataMember(Name="CreditLimit", EmitDefaultValue=false)]
 		public DecimalValue? CreditLimit { get; set; }
@@ -516,20 +517,20 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The customer's entity type for reporting purposes. This field is used if the system is integrated with External Tax Calculationand the External Tax Calculation Integration feature is enabled.
-		/// DAC Field Name: CAvalaraCustomerUsageType 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Tax Exemption Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: CAvalaraCustomerUsageType</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Tax Exemption Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="EntityUsageType", EmitDefaultValue=false)]
 		public StringValue? EntityUsageType { get; set; }
 
 		/// <summary>
 		/// The Avalara Exemption number of the customer location.
-		/// DAC Field Name: CAvalaraExemptionNumber 
-		/// DAC: PX.Objects.CR.Standalone.Location 
-		/// Display Name: Tax Exemption Number 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: CAvalaraExemptionNumber</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
+		/// <para>Display Name: Tax Exemption Number</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="TaxExemptionNumber", EmitDefaultValue=false)]
 		public StringValue? TaxExemptionNumber { get; set; }

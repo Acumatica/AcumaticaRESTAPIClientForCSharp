@@ -11,56 +11,56 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PM209900 in the Acumatica ERP
+	/// Corresponds to the screen <c>PM209900</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class LaborCostRate : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EmployeeID 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: EmployeeID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="Employee", EmitDefaultValue=false)]
 		public StringValue? Employee { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InventoryID 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: InventoryID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="LaborItem", EmitDefaultValue=false)]
 		public StringValue? LaborItem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProjectID 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaskID 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Type 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: Type</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="LaborRateType", EmitDefaultValue=false)]
 		public StringValue? LaborRateType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UnionID 
-		/// DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter 
+		/// <para>DAC Field Name: UnionID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		[DataMember(Name="UnionLocal", EmitDefaultValue=false)]
 		public StringValue? UnionLocal { get; set; }

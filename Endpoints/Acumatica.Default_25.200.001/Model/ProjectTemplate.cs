@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PM208000 in the Acumatica ERP
+	/// Corresponds to the screen <c>PM208000</c> in the Acumatica ERP
+	/// <para>Key Fields: ProjectTemplateID</para>
 	/// </summary>
 	[DataContract]
 	public class ProjectTemplate : Entity, ITopLevelEntity
@@ -25,8 +26,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The project description.
-		/// DAC: PX.Objects.PM.PMProject 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.PM.PMProject</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -48,10 +49,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The project CD. This is a segmented key. Its format is configured on the Segmented Keys (CS202000) form.
-		/// DAC Field Name: ContractCD 
-		/// DAC: PX.Objects.PM.PMProject 
-		/// Display Name: Project ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: ContractCD</para>
+		/// <para>DAC: PX.Objects.PM.PMProject</para>
+		/// <para>Display Name: Project ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
@@ -59,8 +60,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The status of the project.
-		/// DAC: PX.Objects.PM.PMProject 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.PM.PMProject</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

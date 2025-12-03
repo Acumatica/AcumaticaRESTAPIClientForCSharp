@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen TX205000 in the Acumatica ERP
+	/// Corresponds to the screen <c>TX205000</c> in the Acumatica ERP
+	/// <para>Key Fields: TaxID</para>
 	/// </summary>
 	[DataContract]
 	public class Tax : Entity, ITopLevelEntity
@@ -19,20 +20,20 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The aggregated rule of tax calculation based on TaxCalcType and TaxCalcLevel.
-		/// DAC Field Name: TaxCalcRule 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Calculation Rule 
-		/// SQL Type: nchar(2) 
+		/// <para>DAC Field Name: TaxCalcRule</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Calculation Rule</para>
+		/// <para>SQL Type: nchar(2)</para>
 		/// </summary>
 		[DataMember(Name="CalculateOn", EmitDefaultValue=false)]
 		public StringValue? CalculateOn { get; set; }
 
 		/// <summary>
 		/// The method of calculating the tax base amount if a cash discount is applied.
-		/// DAC Field Name: TaxApplyTermsDisc 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Cash Discount 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: TaxApplyTermsDisc</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Cash Discount</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="CashDiscount", EmitDefaultValue=false)]
 		public StringValue? CashDiscount { get; set; }
@@ -42,53 +43,53 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Specifies (if set to true) that the tax is a deductible VAT, which means that a company is allowed to deduct some part of the tax paid to a vendor from its own VAT liability to the government.
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Partially Deductible VAT 
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Partially Deductible VAT</para>
 		/// </summary>
 		[DataMember(Name="DeductibleVAT", EmitDefaultValue=false)]
 		public BooleanValue? DeductibleVAT { get; set; }
 
 		/// <summary>
 		/// The description of the tax, which can be specified by the user.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.TX.Tax 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the tax can be entered only by the documents from the Tax Bills and Adjustments form (TX303000).
-		/// DAC Field Name: DirectTax 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Direct-Entry Tax 
+		/// <para>DAC Field Name: DirectTax</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Direct-Entry Tax</para>
 		/// </summary>
 		[DataMember(Name="EnterFromTaxBill", EmitDefaultValue=false)]
 		public BooleanValue? EnterFromTaxBill { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the system should exclude the first-level/per unit tax amount from the tax basethat is used for calculation of the second-level tax amount in case of first-level taxes or all other taxes in case of per unit taxes.The flag is applicable to only first-level and per unit taxes.
-		/// DAC Field Name: TaxCalcLevel2Exclude 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Exclude from Tax-on-Tax Calculation 
+		/// <para>DAC Field Name: TaxCalcLevel2Exclude</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Exclude from Tax-on-Tax Calculation</para>
 		/// </summary>
 		[DataMember(Name="ExcludeFromTaxonTaxCalculation", EmitDefaultValue=false)]
 		public BooleanValue? ExcludeFromTaxonTaxCalculation { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the calculated amount should be displayed in the VAT Exempt Total box in the documents, such as bills and invoices.
-		/// DAC Field Name: ExemptTax 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Include in VAT Exempt Total 
+		/// <para>DAC Field Name: ExemptTax</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Include in VAT Exempt Total</para>
 		/// </summary>
 		[DataMember(Name="IncludeInVATExemptTotal", EmitDefaultValue=false)]
 		public BooleanValue? IncludeInVATExemptTotal { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the VAT taxable amount should be displayed in the VAT Taxable Total box in the documents, such as bills and invoices. 
-		/// DAC Field Name: IncludeInTaxable 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Include in VAT Taxable Total 
+		/// <para>DAC Field Name: IncludeInTaxable</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Include in VAT Taxable Total</para>
 		/// </summary>
 		[DataMember(Name="IncludeInVATTaxableTotal", EmitDefaultValue=false)]
 		public BooleanValue? IncludeInVATTaxableTotal { get; set; }
@@ -98,90 +99,90 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The date after which the tax is not effective.
-		/// DAC Field Name: OutDate 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Not Valid After 
+		/// <para>DAC Field Name: OutDate</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Not Valid After</para>
 		/// </summary>
 		[DataMember(Name="NotValidAfter", EmitDefaultValue=false)]
 		public DateTimeValue? NotValidAfter { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the tax is a pending VAT. The pending VAT should be calculated in documents, but should not be recorded in the tax report.Later the VAT of the pending type can be converted into the general VAT.
-		/// DAC Field Name: PendingTax 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Pending VAT 
+		/// <para>DAC Field Name: PendingTax</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Pending VAT</para>
 		/// </summary>
 		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
 		public BooleanValue? PendingVAT { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the tax is a reverse VAT. When the reverse VAT is applied to a company that supplies goods or service to other EU countries,the liability of reporting VAT is reversed and goes to the customer rather than to the vendor.
-		/// DAC Field Name: ReverseTax 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Reverse VAT 
+		/// <para>DAC Field Name: ReverseTax</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Reverse VAT</para>
 		/// </summary>
 		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
 		public BooleanValue? ReverseVAT { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the tax is a statistical VAT. The statistical VAT is calculated for statistical purposes; the VAT is reported but not paid.
-		/// DAC Field Name: StatisticalTax 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Statistical VAT 
+		/// <para>DAC Field Name: StatisticalTax</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Statistical VAT</para>
 		/// </summary>
 		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
 		public BooleanValue? StatisticalVAT { get; set; }
 
 		/// <summary>
 		/// The foreign key to Vendor, which specifies the tax agency to which the tax belongs.The key can be NULL.
-		/// DAC Field Name: TaxVendorID 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax Agency 
+		/// <para>DAC Field Name: TaxVendorID</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax Agency</para>
 		/// </summary>
 		[DataMember(Name="TaxAgency", EmitDefaultValue=false)]
 		public StringValue? TaxAgency { get; set; }
 
 		/// <summary>
 		/// The foreign key to Account, which specifies the account that accumulates the tax amounts to be claimed from the tax agency for the tax reporting period.
-		/// DAC Field Name: PurchTaxAcctID 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax Claimable Account 
+		/// <para>DAC Field Name: PurchTaxAcctID</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax Claimable Account</para>
 		/// </summary>
 		[DataMember(Name="TaxClaimableAccount", EmitDefaultValue=false)]
 		public StringValue? TaxClaimableAccount { get; set; }
 
 		/// <summary>
 		/// The foreign key to Sub, which specifies the corresponding tax claimable subaccount.
-		/// DAC Field Name: PurchTaxSubID 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax Claimable Subaccount 
+		/// <para>DAC Field Name: PurchTaxSubID</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax Claimable Subaccount</para>
 		/// </summary>
 		[DataMember(Name="TaxClaimableSubaccount", EmitDefaultValue=false)]
 		public StringValue? TaxClaimableSubaccount { get; set; }
 
 		/// <summary>
 		/// The foreign key to Account, which specifies the expense account that is used to record eitherthe tax amounts of use taxes or the non-deductible tax amounts of deductible value-added taxes.
-		/// DAC Field Name: ExpenseAccountID 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax Expense Account 
+		/// <para>DAC Field Name: ExpenseAccountID</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax Expense Account</para>
 		/// </summary>
 		[DataMember(Name="TaxExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? TaxExpenseAccount { get; set; }
 
 		/// <summary>
 		/// The foreign key to Sub, which specifies the corresponding expense subaccount.
-		/// DAC Field Name: ExpenseSubID 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax Expense Subaccount 
+		/// <para>DAC Field Name: ExpenseSubID</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax Expense Subaccount</para>
 		/// </summary>
 		[DataMember(Name="TaxExpenseSubaccount", EmitDefaultValue=false)]
 		public StringValue? TaxExpenseSubaccount { get; set; }
 
 		/// <summary>
 		/// The tax ID. This is the key field, which can be specified by the user.
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax ID 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
@@ -189,18 +190,18 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The foreign key to Account, which specifies the liability account that accumulates the tax amounts to be paid to a tax agency for the tax reporting period.
-		/// DAC Field Name: SalesTaxAcctID 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax Payable Account 
+		/// <para>DAC Field Name: SalesTaxAcctID</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax Payable Account</para>
 		/// </summary>
 		[DataMember(Name="TaxPayableAccount", EmitDefaultValue=false)]
 		public StringValue? TaxPayableAccount { get; set; }
 
 		/// <summary>
 		/// The foreign key to Sub, which specifies the corresponding tax payable subaccount.
-		/// DAC Field Name: SalesTaxSubID 
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax Payable Subaccount 
+		/// <para>DAC Field Name: SalesTaxSubID</para>
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax Payable Subaccount</para>
 		/// </summary>
 		[DataMember(Name="TaxPayableSubaccount", EmitDefaultValue=false)]
 		public StringValue? TaxPayableSubaccount { get; set; }
@@ -210,9 +211,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The type of the tax.
-		/// DAC: PX.Objects.TX.Tax 
-		/// Display Name: Tax Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.TX.Tax</para>
+		/// <para>Display Name: Tax Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }

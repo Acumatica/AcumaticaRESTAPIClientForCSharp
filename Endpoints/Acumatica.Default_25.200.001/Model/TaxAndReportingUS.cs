@@ -16,19 +16,19 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// A code that determines whether this earning type will appear in Box 12 of the W-2 report and which code it will use.
-		/// DAC Field Name: ReportType 
-		/// DAC: PX.Objects.EP.EPEarningType 
-		/// Display Name: Reporting Type 
+		/// <para>DAC Field Name: ReportType</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Reporting Type</para>
 		/// </summary>
 		[DataMember(Name="ReportingType", EmitDefaultValue=false)]
 		public StringValue? ReportingType { get; set; }
 
 		/// <summary>
 		/// The method to be used to determine the list of applicable taxes.
-		/// DAC Field Name: IncludeType 
-		/// DAC: PX.Objects.EP.EPEarningType 
-		/// Display Name: Subject to Taxes 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: IncludeType</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Subject to Taxes</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="SubjecttoTaxes", EmitDefaultValue=false)]
 		public StringValue? SubjecttoTaxes { get; set; }
@@ -38,9 +38,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The user-friendly unique identifier of the wage type. The tax engine uses this value to determine the rate to apply to the earning code.
-		/// DAC Field Name: WageTypeCD 
-		/// DAC: PX.Objects.EP.EPEarningType 
-		/// Display Name: Wage Type 
+		/// <para>DAC Field Name: WageTypeCD</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Wage Type</para>
 		/// </summary>
 		[DataMember(Name="WageType", EmitDefaultValue=false)]
 		public StringValue? WageType { get; set; }

@@ -15,32 +15,32 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: Tax__TaxCalcRule 
-		/// DAC: PX.Objects.TX.TaxCategoryDet 
+		/// <para>DAC Field Name: Tax__TaxCalcRule</para>
+		/// <para>DAC: PX.Objects.TX.TaxCategoryDet</para>
 		/// </summary>
 		[DataMember(Name="CalculateOn", EmitDefaultValue=false)]
 		public StringValue? CalculateOn { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__TaxApplyTermsDisc 
-		/// DAC: PX.Objects.TX.TaxCategoryDet 
+		/// <para>DAC Field Name: Tax__TaxApplyTermsDisc</para>
+		/// <para>DAC: PX.Objects.TX.TaxCategoryDet</para>
 		/// </summary>
 		[DataMember(Name="CashDiscount", EmitDefaultValue=false)]
 		public StringValue? CashDiscount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__Descr 
-		/// DAC: PX.Objects.TX.TaxCategoryDet 
+		/// <para>DAC Field Name: Tax__Descr</para>
+		/// <para>DAC: PX.Objects.TX.TaxCategoryDet</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The tax category ID. This is the key field, which can be specified by the user.
-		/// DAC Field Name: TaxCategoryID 
-		/// DAC: PX.Objects.TX.TaxCategory 
-		/// Display Name: Tax Category ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: TaxCategoryID</para>
+		/// <para>DAC: PX.Objects.TX.TaxCategory</para>
+		/// <para>Display Name: Tax Category ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
@@ -48,17 +48,17 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The foreign key to Tax.
-		/// DAC: PX.Objects.TX.TaxCategoryDet 
-		/// Display Name: Tax ID 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.TX.TaxCategoryDet</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__TaxType 
-		/// DAC: PX.Objects.TX.TaxCategoryDet 
+		/// <para>DAC Field Name: Tax__TaxType</para>
+		/// <para>DAC: PX.Objects.TX.TaxCategoryDet</para>
 		/// </summary>
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }

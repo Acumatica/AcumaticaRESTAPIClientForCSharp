@@ -15,31 +15,31 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: OvertimeBillable 
-		/// DAC: PX.Objects.CR.CRChildActivity 
-		/// Display Name: Billable Overtime 
+		/// <para>DAC Field Name: OvertimeBillable</para>
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Billable Overtime</para>
 		/// </summary>
 		[DataMember(Name="BillableOvertime", EmitDefaultValue=false)]
 		public StringValue? BillableOvertime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TimeBillable 
-		/// DAC: PX.Objects.CR.CRChildActivity 
-		/// Display Name: Billable Time 
+		/// <para>DAC Field Name: TimeBillable</para>
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Billable Time</para>
 		/// </summary>
 		[DataMember(Name="BillableTime", EmitDefaultValue=false)]
 		public StringValue? BillableTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OvertimeSpent 
-		/// DAC: PX.Objects.CR.CRChildActivity 
+		/// <para>DAC Field Name: OvertimeSpent</para>
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
 		/// </summary>
 		[DataMember(Name="Overtime", EmitDefaultValue=false)]
 		public StringValue? Overtime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CRChildActivity 
-		/// Display Name: Time Spent 
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Time Spent</para>
 		/// </summary>
 		[DataMember(Name="TimeSpent", EmitDefaultValue=false)]
 		public StringValue? TimeSpent { get; set; }

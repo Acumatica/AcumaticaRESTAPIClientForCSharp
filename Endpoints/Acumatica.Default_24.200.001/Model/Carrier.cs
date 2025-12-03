@@ -11,27 +11,28 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CS207700 in the Acumatica ERP
+	/// Corresponds to the screen <c>CS207700</c> in the Acumatica ERP
+	/// <para>Key Fields: CarrierID</para>
 	/// </summary>
 	[DataContract]
 	public class Carrier : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: CarrierPluginID 
-		/// DAC: PX.Objects.CS.CarrierPlugin 
-		/// Display Name: Carrier ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: CarrierPluginID</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>Display Name: Carrier ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="CarrierID", EmitDefaultValue=false)]
 		public StringValue? CarrierID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UnitType 
-		/// DAC: PX.Objects.CS.CarrierPlugin 
-		/// Display Name: Carrier Units 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: UnitType</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>Display Name: Carrier Units</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="CarrierUnits", EmitDefaultValue=false)]
 		public StringValue? CarrierUnits { get; set; }
@@ -43,8 +44,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<CarrierCustomerAccount>? CustomerAccounts { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CarrierPlugin 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -56,50 +57,50 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<CarrierPluginParameter>? PlugInParameters { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PluginTypeName 
-		/// DAC: PX.Objects.CS.CarrierPlugin 
-		/// Display Name: Plug-In 
-		/// SQL Type: varchar(255) 
+		/// <para>DAC Field Name: PluginTypeName</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>Display Name: Plug-In</para>
+		/// <para>SQL Type: varchar(255)</para>
 		/// </summary>
 		[DataMember(Name="PlugInType", EmitDefaultValue=false)]
 		public StringValue? PlugInType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CentimeterUOM 
-		/// DAC: PX.Objects.CS.CarrierPlugin 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: CentimeterUOM</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="Centimeter", EmitDefaultValue=false)]
 		public StringValue? Centimeter { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InchUOM 
-		/// DAC: PX.Objects.CS.CarrierPlugin 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: InchUOM</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="Inch", EmitDefaultValue=false)]
 		public StringValue? Inch { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: KilogramUOM 
-		/// DAC: PX.Objects.CS.CarrierPlugin 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: KilogramUOM</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="Kilogram", EmitDefaultValue=false)]
 		public StringValue? Kilogram { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PoundUOM 
-		/// DAC: PX.Objects.CS.CarrierPlugin 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: PoundUOM</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="Pound", EmitDefaultValue=false)]
 		public StringValue? Pound { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.CS.CarrierPlugin 
-		/// Display Name: Warehouse 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>Display Name: Warehouse</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }

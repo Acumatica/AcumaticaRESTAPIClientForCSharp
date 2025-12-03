@@ -15,62 +15,62 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="AppointmentNbr", EmitDefaultValue=false)]
 		public StringValue? AppointmentNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSAppointment 
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
 		/// </summary>
 		[DataMember(Name="Confirmed", EmitDefaultValue=false)]
 		public BooleanValue? Confirmed { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ScheduledDateTimeEnd_Date 
-		/// DAC: PX.Objects.FS.FSAppointment 
+		/// <para>DAC Field Name: ScheduledDateTimeEnd_Date</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
 		/// </summary>
 		[DataMember(Name="ScheduledEndDate", EmitDefaultValue=false)]
 		public DateTimeValue? ScheduledEndDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ScheduledDateTimeEnd_Time 
-		/// DAC: PX.Objects.FS.FSAppointment 
+		/// <para>DAC Field Name: ScheduledDateTimeEnd_Time</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
 		/// </summary>
 		[DataMember(Name="ScheduledEndTime", EmitDefaultValue=false)]
 		public DateTimeValue? ScheduledEndTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ScheduledDateTimeBegin_Date 
-		/// DAC: PX.Objects.FS.FSAppointment 
+		/// <para>DAC Field Name: ScheduledDateTimeBegin_Date</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
 		/// </summary>
 		[DataMember(Name="ScheduledStartDate", EmitDefaultValue=false)]
 		public DateTimeValue? ScheduledStartDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ScheduledDateTimeBegin_Time 
-		/// DAC: PX.Objects.FS.FSAppointment 
+		/// <para>DAC Field Name: ScheduledDateTimeBegin_Time</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
 		/// </summary>
 		[DataMember(Name="ScheduledStartTime", EmitDefaultValue=false)]
 		public DateTimeValue? ScheduledStartTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SrvOrdType 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Order Type 
-		/// SQL Type: char(4) 
+		/// <para>DAC Field Name: SrvOrdType</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(4)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
 		public StringValue? ServiceOrderType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

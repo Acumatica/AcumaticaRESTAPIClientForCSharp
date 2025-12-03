@@ -15,28 +15,28 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: UnitRate 
-		/// DAC: PX.Objects.IN.INUnit 
-		/// Display Name: Conversion Factor 
+		/// <para>DAC Field Name: UnitRate</para>
+		/// <para>DAC: PX.Objects.IN.INUnit</para>
+		/// <para>Display Name: Conversion Factor</para>
 		/// </summary>
 		[DataMember(Name="ConversionFactor", EmitDefaultValue=false)]
 		public DecimalValue? ConversionFactor { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FromUnit 
-		/// DAC: PX.Objects.IN.INUnit 
-		/// Display Name: From Unit 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: FromUnit</para>
+		/// <para>DAC: PX.Objects.IN.INUnit</para>
+		/// <para>Display Name: From Unit</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="FromUOM", EmitDefaultValue=false)]
 		public StringValue? FromUOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UnitMultDiv 
-		/// DAC: PX.Objects.IN.INUnit 
-		/// Display Name: Multiply/Divide 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: UnitMultDiv</para>
+		/// <para>DAC: PX.Objects.IN.INUnit</para>
+		/// <para>Display Name: Multiply/Divide</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="MultiplyOrDivide", EmitDefaultValue=false)]
 		public StringValue? MultiplyOrDivide { get; set; }

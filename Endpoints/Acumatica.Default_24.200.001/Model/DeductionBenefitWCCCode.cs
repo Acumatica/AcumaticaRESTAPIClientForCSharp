@@ -16,8 +16,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The state or province to which the deduction or benefit corresponds.The field is included in State.
-		/// DAC: PX.Objects.PR.PRDeductCode 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		[DataMember(Name="State", EmitDefaultValue=false)]
 		public StringValue? State { get; set; }

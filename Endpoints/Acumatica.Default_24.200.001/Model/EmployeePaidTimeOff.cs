@@ -19,8 +19,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Indicates (if set to true) that the employee is using customized paid-time-off banks instead of the default ones provided by their payroll class.
-		/// DAC: PX.Objects.PR.PREmployee 
-		/// Display Name: Use Custom Settings 
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Custom Settings</para>
 		/// </summary>
 		[DataMember(Name="UseCustomSettings", EmitDefaultValue=false)]
 		public BooleanValue? UseCustomSettings { get; set; }

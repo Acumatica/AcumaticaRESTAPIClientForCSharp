@@ -15,18 +15,18 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: ChildCaseCD 
-		/// DAC: PX.Objects.CR.CRCaseReference 
-		/// Display Name: Case ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: ChildCaseCD</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
+		/// <para>Display Name: Case ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="CaseID", EmitDefaultValue=false)]
 		public StringValue? CaseID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CRCaseRelated__OwnerID 
-		/// DAC: PX.Objects.CR.CRCaseReference 
+		/// <para>DAC Field Name: CRCaseRelated__OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
 		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
@@ -35,30 +35,30 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? ParentCaseID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CRCaseReference 
-		/// Display Name: Relation Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
+		/// <para>Display Name: Relation Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="RelationType", EmitDefaultValue=false)]
 		public StringValue? RelationType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CRCaseRelated__Status 
-		/// DAC: PX.Objects.CR.CRCaseReference 
+		/// <para>DAC Field Name: CRCaseRelated__Status</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CRCaseRelated__Subject 
-		/// DAC: PX.Objects.CR.CRCaseReference 
+		/// <para>DAC Field Name: CRCaseRelated__Subject</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
 		/// </summary>
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CRCaseRelated__WorkgroupID 
-		/// DAC: PX.Objects.CR.CRCaseReference 
+		/// <para>DAC Field Name: CRCaseRelated__WorkgroupID</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
 		/// </summary>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }

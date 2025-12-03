@@ -15,139 +15,139 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INRegister 
-		/// Display Name: Branch 
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Branch</para>
 		/// </summary>
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CostCodeID 
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Cost Code 
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Cost Code</para>
 		/// </summary>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Cost Layer Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Cost Layer Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="CostLayerType", EmitDefaultValue=false)]
 		public StringValue? CostLayerType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranDesc 
-		/// DAC: PX.Objects.IN.INRegister 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExpireDate 
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Expiration Date 
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranCost 
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Ext. Cost 
+		/// <para>DAC Field Name: TranCost</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Ext. Cost</para>
 		/// </summary>
 		[DataMember(Name="ExtendedCost", EmitDefaultValue=false)]
 		public DecimalValue? ExtendedCost { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Location 
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Location</para>
 		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Lot/Serial Nbr. 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProjectID 
-		/// DAC: PX.Objects.IN.INTran 
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
 		/// </summary>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaskID 
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Project Task 
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Project Task</para>
 		/// </summary>
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Quantity 
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Quantity</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Reason Code 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Reason Code</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
 		public StringValue? ReasonCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OrigRefNbr 
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Receipt Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: OrigRefNbr</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Receipt Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ReceiptNbr", EmitDefaultValue=false)]
 		public StringValue? ReceiptNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SpecialOrderCostCenterID 
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Special Order Nbr. 
+		/// <para>DAC Field Name: SpecialOrderCostCenterID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Special Order Nbr.</para>
 		/// </summary>
 		[DataMember(Name="SpecialOrderNbr", EmitDefaultValue=false)]
 		public StringValue? SpecialOrderNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.IN.INTran 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INTran 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.IN.INTran 
-		/// Display Name: Warehouse 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Warehouse</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }

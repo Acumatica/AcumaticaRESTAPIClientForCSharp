@@ -11,17 +11,18 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PR301000 in the Acumatica ERP
+	/// Corresponds to the screen <c>PR301000</c> in the Acumatica ERP
+	/// <para>Key Fields: BatchID</para>
 	/// </summary>
 	[DataContract]
 	public class PayrollBatch : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: BatchNbr 
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// Display Name: Batch ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: BatchNbr</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Batch ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="BatchID", EmitDefaultValue=false)]
@@ -31,9 +32,9 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<BatchDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DocDesc 
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// SQL Type: nvarchar(128) 
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>SQL Type: nvarchar(128)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -46,7 +47,7 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// When set to true indicates that the document is on hold and thus cannot be released.
-		/// DAC: PX.Objects.PR.PRBatch 
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
 		/// </summary>
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
@@ -55,9 +56,9 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: NumberOfEmployees 
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// Display Name: Number of Employees 
+		/// <para>DAC Field Name: NumberOfEmployees</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Number of Employees</para>
 		/// </summary>
 		[DataMember(Name="NumberofEmployees", EmitDefaultValue=false)]
 		public IntValue? NumberofEmployees { get; set; }
@@ -66,71 +67,71 @@ namespace Acumatica.Default_25_200_001.Model
 		public BatchOvertimeRules? OvertimeRules { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PayGroupID 
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// Display Name: Pay Group 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: PayGroupID</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Pay Group</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="PayGroup", EmitDefaultValue=false)]
 		public StringValue? PayGroup { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PayPeriodID 
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// Display Name: Pay Period 
-		/// SQL Type: char(6) 
+		/// <para>DAC Field Name: PayPeriodID</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Pay Period</para>
+		/// <para>SQL Type: char(6)</para>
 		/// </summary>
 		[DataMember(Name="PayPeriod", EmitDefaultValue=false)]
 		public StringValue? PayPeriod { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PRBatchTotalsFilter 
-		/// Display Name: Total Earnings 
+		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
+		/// <para>Display Name: Total Earnings</para>
 		/// </summary>
 		[DataMember(Name="TotalEarnings", EmitDefaultValue=false)]
 		public DecimalValue? TotalEarnings { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PRBatchTotalsFilter 
-		/// Display Name: Total Hour Qty 
+		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
+		/// <para>Display Name: Total Hour Qty</para>
 		/// </summary>
 		[DataMember(Name="TotalHourQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalHourQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// Display Name: Payroll Type 
-		/// SQL Type: char(3) 
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Payroll Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="PayrollType", EmitDefaultValue=false)]
 		public StringValue? PayrollType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EndDate 
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// Display Name: Period End 
+		/// <para>DAC Field Name: EndDate</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Period End</para>
 		/// </summary>
 		[DataMember(Name="PeriodEnd", EmitDefaultValue=false)]
 		public DateTimeValue? PeriodEnd { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StartDate 
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// Display Name: Period Start 
+		/// <para>DAC Field Name: StartDate</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Period Start</para>
 		/// </summary>
 		[DataMember(Name="PeriodStart", EmitDefaultValue=false)]
 		public DateTimeValue? PeriodStart { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// SQL Type: char(3) 
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// Display Name: Transaction Date 
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Transaction Date</para>
 		/// </summary>
 		[DataMember(Name="TransactionDate", EmitDefaultValue=false)]
 		public DateTimeValue? TransactionDate { get; set; }

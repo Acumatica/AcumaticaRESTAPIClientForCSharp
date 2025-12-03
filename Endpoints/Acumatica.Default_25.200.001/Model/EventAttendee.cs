@@ -16,15 +16,15 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The comment of the event owner for the attendee.
-		/// DAC: PX.Objects.EP.EPAttendee 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.EP.EPAttendee</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Comment", EmitDefaultValue=false)]
 		public StringValue? Comment { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.SendCardFilter 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.EP.SendCardFilter</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
@@ -34,9 +34,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The invitation status of the attendee.
-		/// DAC Field Name: Invitation 
-		/// DAC: PX.Objects.EP.EPAttendee 
-		/// Display Name: Invitation 
+		/// <para>DAC Field Name: Invitation</para>
+		/// <para>DAC: PX.Objects.EP.EPAttendee</para>
+		/// <para>Display Name: Invitation</para>
 		/// </summary>
 		[DataMember(Name="InvitationStatus", EmitDefaultValue=false)]
 		public StringValue? InvitationStatus { get; set; }

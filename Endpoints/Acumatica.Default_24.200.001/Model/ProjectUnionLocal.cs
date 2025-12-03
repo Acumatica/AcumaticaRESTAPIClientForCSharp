@@ -15,17 +15,17 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: UnionID_Description 
-		/// DAC: PX.Objects.PM.PMProjectUnion 
+		/// <para>DAC Field Name: UnionID_Description</para>
+		/// <para>DAC: PX.Objects.PM.PMProjectUnion</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UnionID 
-		/// DAC: PX.Objects.PM.PMProjectUnion 
-		/// Display Name: Union Local 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: UnionID</para>
+		/// <para>DAC: PX.Objects.PM.PMProjectUnion</para>
+		/// <para>Display Name: Union Local</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="UnionLocalID", EmitDefaultValue=false)]

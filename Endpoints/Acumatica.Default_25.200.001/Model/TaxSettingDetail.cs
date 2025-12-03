@@ -15,25 +15,25 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PREmployeeAttribute 
-		/// Display Name: Additional Information 
-		/// SQL Type: nvarchar(2048) 
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>Display Name: Additional Information</para>
+		/// <para>SQL Type: nvarchar(2048)</para>
 		/// </summary>
 		[DataMember(Name="AdditionalInformation", EmitDefaultValue=false)]
 		public StringValue? AdditionalInformation { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PREmployeeAttribute 
-		/// Display Name: Company Notes 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>Display Name: Company Notes</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="CompanyNotes", EmitDefaultValue=false)]
 		public StringValue? CompanyNotes { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PREmployeeAttribute 
-		/// Display Name: Form/Box 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>Display Name: Form/Box</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="FormBox", EmitDefaultValue=false)]
 		public StringValue? FormBox { get; set; }
@@ -42,15 +42,15 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Description 
-		/// DAC: PX.Objects.PR.PREmployeeAttribute 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Description</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Name", EmitDefaultValue=false)]
 		public StringValue? Name { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PREmployeeAttribute 
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
 		/// </summary>
 		[DataMember(Name="Required", EmitDefaultValue=false)]
 		public BooleanValue? Required { get; set; }
@@ -60,31 +60,31 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The string identifier of the state or province part of the address.
-		/// DAC: PX.Objects.CR.Address 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC: PX.Objects.CR.Address</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		[DataMember(Name="State", EmitDefaultValue=false)]
 		public StringValue? State { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UsedForGovernmentReporting 
-		/// DAC: PX.Objects.PR.PREmployeeAttribute 
-		/// Display Name: Used for Government Reporting 
+		/// <para>DAC Field Name: UsedForGovernmentReporting</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>Display Name: Used for Government Reporting</para>
 		/// </summary>
 		[DataMember(Name="UsedforGovernmentReporting", EmitDefaultValue=false)]
 		public BooleanValue? UsedforGovernmentReporting { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UsedForTaxCalculation 
-		/// DAC: PX.Objects.PR.PREmployeeAttribute 
-		/// Display Name: Used for Tax Calculation 
+		/// <para>DAC Field Name: UsedForTaxCalculation</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>Display Name: Used for Tax Calculation</para>
 		/// </summary>
 		[DataMember(Name="UsedforTaxCalculation", EmitDefaultValue=false)]
 		public BooleanValue? UsedforTaxCalculation { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PR.PREmployeeAttribute 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }

@@ -15,9 +15,9 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: ExpireDate 
-		/// DAC: PX.Objects.IN.INComponentTranSplit 
-		/// Display Name: Expiration Date 
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.IN.INComponentTranSplit</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
@@ -26,23 +26,23 @@ namespace Acumatica.Default_25_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// Display Name: Location 
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Location</para>
 		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INComponentTranSplit 
-		/// Display Name: Lot/Serial Nbr. 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC: PX.Objects.IN.INComponentTranSplit</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// Display Name: Quantity 
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Quantity</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
@@ -51,15 +51,15 @@ namespace Acumatica.Default_25_200_001.Model
 		public IntValue? SplitLineNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.IN.INKitRegister 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }

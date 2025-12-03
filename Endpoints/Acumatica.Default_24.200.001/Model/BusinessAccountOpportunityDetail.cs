@@ -15,97 +15,97 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: BAccount__AcctCD 
-		/// DAC: PX.Objects.CR.CROpportunity 
+		/// <para>DAC Field Name: BAccount__AcctCD</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
 		[DataMember(Name="BusinessAccountID", EmitDefaultValue=false)]
 		public StringValue? BusinessAccountID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BAccount__AcctName 
-		/// DAC: PX.Objects.CR.CROpportunity 
+		/// <para>DAC Field Name: BAccount__AcctName</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
 		[DataMember(Name="BusinessAccountName", EmitDefaultValue=false)]
 		public StringValue? BusinessAccountName { get; set; }
 
 		/// <summary>
 		/// The identifier of the Currency,which is applied to the documents of the business account.
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.CR.BAccount 
-		/// Display Name: Currency ID 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
+		/// <para>Display Name: Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Contact__DisplayName 
-		/// DAC: PX.Objects.CR.CROpportunity 
+		/// <para>DAC Field Name: Contact__DisplayName</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
 		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
 		public StringValue? DisplayName { get; set; }
 
 		/// <summary>
 		/// The estimated date of closing the deal.
-		/// DAC Field Name: CloseDate 
-		/// DAC: PX.Objects.CR.CROpportunity 
-		/// Display Name: Estimated Close Date 
+		/// <para>DAC Field Name: CloseDate</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
+		/// <para>Display Name: Estimated Close Date</para>
 		/// </summary>
 		[DataMember(Name="Estimation", EmitDefaultValue=false)]
 		public DateTimeValue? Estimation { get; set; }
 
 		/// <summary>
 		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
-		/// DAC Field Name: OwnerID 
-		/// DAC: PX.Objects.CR.BAccount 
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
 		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CROpportunityProbability__Probability 
-		/// DAC: PX.Objects.CR.CROpportunity 
+		/// <para>DAC Field Name: CROpportunityProbability__Probability</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
 		[DataMember(Name="Probability", EmitDefaultValue=false)]
 		public IntValue? Probability { get; set; }
 
 		/// <summary>
 		/// The current stage of the opportunity.
-		/// DAC Field Name: StageID 
-		/// DAC: PX.Objects.CR.CROpportunity 
-		/// SQL Type: varchar(2) 
+		/// <para>DAC Field Name: StageID</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
+		/// <para>SQL Type: varchar(2)</para>
 		/// </summary>
 		[DataMember(Name="Stage", EmitDefaultValue=false)]
 		public StringValue? Stage { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.BAccount 
-		/// Display Name: Customer Status 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
+		/// <para>Display Name: Customer Status</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// The subject or description of the opportunity.
-		/// DAC: PX.Objects.CR.CROpportunity 
-		/// Display Name: Description 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
+		/// <para>Display Name: Description</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryProductsAmount 
-		/// DAC: PX.Objects.CR.CROpportunity 
+		/// <para>DAC Field Name: CuryProductsAmount</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
 		[DataMember(Name="Total", EmitDefaultValue=false)]
 		public DecimalValue? Total { get; set; }
 
 		/// <summary>
 		/// The identifier of the workgroup responsible for the current document.
-		/// DAC Field Name: WorkgroupID 
-		/// DAC: PX.Objects.CR.BAccount 
+		/// <para>DAC Field Name: WorkgroupID</para>
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
 		/// </summary>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }

@@ -15,57 +15,57 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: CuryAmt 
-		/// DAC: PX.Objects.AP.APTranPostBal 
-		/// Display Name: Amount 
+		/// <para>DAC Field Name: CuryAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Amount</para>
 		/// </summary>
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
 		public DecimalValue? AmountPaid { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryBalanceAmt 
-		/// DAC: PX.Objects.AP.APTranPostBal 
+		/// <para>DAC Field Name: CuryBalanceAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
 		/// </summary>
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryDiscBalanceAmt 
-		/// DAC: PX.Objects.AP.APTranPostBal 
-		/// Display Name: Cash Discount Balance 
+		/// <para>DAC Field Name: CuryDiscBalanceAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Cash Discount Balance</para>
 		/// </summary>
 		[DataMember(Name="CashDiscountBalance", EmitDefaultValue=false)]
 		public DecimalValue? CashDiscountBalance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryPPDAmt 
-		/// DAC: PX.Objects.AP.APTranPostBal 
-		/// Display Name: Cash Discount Taken 
+		/// <para>DAC Field Name: CuryPPDAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Cash Discount Taken</para>
 		/// </summary>
 		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
 		public DecimalValue? CashDiscountTaken { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SourceDocType 
-		/// DAC: PX.Objects.AP.APTranPostBal 
-		/// Display Name: Source Doc. Type 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: SourceDocType</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Source Doc. Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
 		public StringValue? DocType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SourceRefNbr 
-		/// DAC: PX.Objects.AP.APTranPostBal 
-		/// Display Name: Source Ref. Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: SourceRefNbr</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Source Ref. Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: APInvoice__InvoiceNbr 
-		/// DAC: PX.Objects.AP.APAdjust 
+		/// <para>DAC Field Name: APInvoice__InvoiceNbr</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
 		/// </summary>
 		[DataMember(Name="VendorRef", EmitDefaultValue=false)]
 		public StringValue? VendorRef { get; set; }

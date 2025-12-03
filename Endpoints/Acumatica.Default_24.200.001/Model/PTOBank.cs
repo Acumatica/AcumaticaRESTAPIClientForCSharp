@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PR204000 in the Acumatica ERP
+	/// Corresponds to the screen <c>PR204000</c> in the Acumatica ERP
+	/// <para>Key Fields: PTOBankID</para>
 	/// </summary>
 	[DataContract]
 	public class PTOBank : Entity, ITopLevelEntity
@@ -19,26 +20,26 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The method of PTO hours accrual that defines whether PTO hours should be calculated as a percentage or a specific number should be used for every pay period.
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Accrual Method 
-		/// SQL Type: char(3) 
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Accrual Method</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="AccrualMethod", EmitDefaultValue=false)]
 		public StringValue? AccrualMethod { get; set; }
 
 		/// <summary>
 		/// Indicates (if set to true) that hours are accumulated only for the earning lines withthe selected Certified check box in the released paycheck.
-		/// DAC Field Name: IsCertifiedJobAccrual 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Accrue Only on Certified Job 
+		/// <para>DAC Field Name: IsCertifiedJobAccrual</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Accrue Only on Certified Job</para>
 		/// </summary>
 		[DataMember(Name="AccrueonCertifiedJobOnly", EmitDefaultValue=false)]
 		public BooleanValue? AccrueonCertifiedJobOnly { get; set; }
 
 		/// <summary>
 		/// Indicates (if set to true) that the PTO bank should be accruing during the paycheck process.
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.PR.PRPTOBank 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
@@ -48,8 +49,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Indicates (if set to true) that banding rules will be applied.
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Apply Banding Rules 
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Apply Banding Rules</para>
 		/// </summary>
 		[DataMember(Name="ApplyBandingRules", EmitDefaultValue=false)]
 		public BooleanValue? ApplyBandingRules { get; set; }
@@ -59,46 +60,46 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The way accruals are to be carried over from year to year starting the date specified in the Start Date box.
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Carryover Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Carryover Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="CarryoverType", EmitDefaultValue=false)]
 		public StringValue? CarryoverType { get; set; }
 
 		/// <summary>
 		/// Enable the money calculation and the creation of general ledger transaction for paid time off on Paychecks and Adjustments
-		/// DAC Field Name: CreateFinancialTransaction 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Create GL Transactions on Accrual 
+		/// <para>DAC Field Name: CreateFinancialTransaction</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Create GL Transactions on Accrual</para>
 		/// </summary>
 		[DataMember(Name="CreateFinTransactions", EmitDefaultValue=false)]
 		public BooleanValue? CreateFinTransactions { get; set; }
 
 		/// <summary>
 		/// The disbursing type.
-		/// DAC Field Name: DisbursingType 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Default Disbursing Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: DisbursingType</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Default Disbursing Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="DefaultDisbursingType", EmitDefaultValue=false)]
 		public StringValue? DefaultDisbursingType { get; set; }
 
 		/// <summary>
 		/// The description.
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The user-friendly unique identifier of the earning type used for dispersal on a paycheck.The field is included in DisbursingEarningType.
-		/// DAC Field Name: EarningTypeCD 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Disbursing Earning Type 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: EarningTypeCD</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Disbursing Earning Type</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="DisbursingEarningType", EmitDefaultValue=false)]
 		public StringValue? DisbursingEarningType { get; set; }
@@ -114,20 +115,20 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The rule that will be applied to the PTO bank when a final paycheck is calculated for an employee who is assigned this PTO bank.
-		/// DAC Field Name: SettlementBalanceType 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: On Settlement 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: SettlementBalanceType</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: On Settlement</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="OnSettlement", EmitDefaultValue=false)]
 		public StringValue? OnSettlement { get; set; }
 
 		/// <summary>
 		/// The unique identifier of a PTO bank to be used for the paid time off calculation.
-		/// DAC Field Name: BankID 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Bank ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: BankID</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Bank ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PTOBankID", EmitDefaultValue=false)]
@@ -135,36 +136,36 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The date at which the system adds the front loading number of hours to an employee PTO bank. You specify the number of hours in the Front Loading Amount box on the General Settings tab.
-		/// DAC Field Name: StartDate 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Transfer Date 
+		/// <para>DAC Field Name: StartDate</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Transfer Date</para>
 		/// </summary>
 		[DataMember(Name="TransferDate", EmitDefaultValue=false)]
 		public DateTimeValue? TransferDate { get; set; }
 
 		/// <summary>
 		/// The day of the date at which the system adds the front loading number of hours to an employee PTO bank.
-		/// DAC Field Name: StartDateDay 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Start Date 
+		/// <para>DAC Field Name: StartDateDay</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="TransferDateDay", EmitDefaultValue=false)]
 		public IntValue? TransferDateDay { get; set; }
 
 		/// <summary>
 		/// The month of the date at which the system adds the front loading number of hours to an employee PTO bank. 
-		/// DAC Field Name: StartDateMonth 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Start Date 
+		/// <para>DAC Field Name: StartDateMonth</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="TransferDateMonth", EmitDefaultValue=false)]
 		public StringValue? TransferDateMonth { get; set; }
 
 		/// <summary>
 		/// The transfer date type of the PTO bank.
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Transfer Date Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Transfer Date Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="TransferDateType", EmitDefaultValue=false)]
 		public StringValue? TransferDateType { get; set; }

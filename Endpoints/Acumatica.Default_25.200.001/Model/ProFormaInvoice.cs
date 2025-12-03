@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PM307000 in the Acumatica ERP
+	/// Corresponds to the screen <c>PM307000</c> in the Acumatica ERP
+	/// <para>Key Fields: RefNbr</para>
 	/// </summary>
 	[DataContract]
 	public class ProFormaInvoice : Entity, ITopLevelEntity
@@ -19,9 +20,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The amount due.
-		/// DAC Field Name: CuryAmountDue 
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Amount Due 
+		/// <para>DAC Field Name: CuryAmountDue</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Amount Due</para>
 		/// </summary>
 		[DataMember(Name="AmountDue", EmitDefaultValue=false)]
 		public DecimalValue? AmountDue { get; set; }
@@ -34,26 +35,26 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The identifier of the pro forma invoice currency.
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Currency 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
 		/// The identifier of the Customer associated with the pro forma invoice.
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Customer 
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Customer</para>
 		/// </summary>
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
 		/// The description of the pro forma invoice, which is provided by the billing ruleand can be manually modified.
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -69,24 +70,24 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Specifies (if set to true) that the document is on hold.
-		/// DAC: PX.Objects.PM.PMProforma 
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// </summary>
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
 		/// The date on which the pro forma invoice was created.
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Invoice Date 
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Invoice Date</para>
 		/// </summary>
 		[DataMember(Name="InvoiceDate", EmitDefaultValue=false)]
 		public DateTimeValue? InvoiceDate { get; set; }
 
 		/// <summary>
 		/// The invoice total.
-		/// DAC Field Name: CuryDocTotal 
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Invoice Total 
+		/// <para>DAC Field Name: CuryDocTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Invoice Total</para>
 		/// </summary>
 		[DataMember(Name="InvoiceTotal", EmitDefaultValue=false)]
 		public DecimalValue? InvoiceTotal { get; set; }
@@ -96,18 +97,18 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The identifier of the Location associated with the pro forma invoice.
-		/// DAC Field Name: LocationID 
-		/// DAC: PX.Objects.PM.PMProforma 
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// </summary>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
 		/// The financial period that corresponds to the invoice date.
-		/// DAC Field Name: FinPeriodID 
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Post Period 
-		/// SQL Type: char(6) 
+		/// <para>DAC Field Name: FinPeriodID</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Post Period</para>
+		/// <para>SQL Type: char(6)</para>
 		/// </summary>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
@@ -117,26 +118,26 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The total amount to invoice of the progress billing lines of the document.
-		/// DAC Field Name: CuryProgressiveTotal 
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Progress Billing Total 
+		/// <para>DAC Field Name: CuryProgressiveTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Progress Billing Total</para>
 		/// </summary>
 		[DataMember(Name="ProgressBillingTotal", EmitDefaultValue=false)]
 		public DecimalValue? ProgressBillingTotal { get; set; }
 
 		/// <summary>
 		/// The identifier of the project associated with the pro forma invoice.
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Project 
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Project</para>
 		/// </summary>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
 		/// <summary>
 		/// The reference number of the pro forma invoice.
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="RefNbr", EmitDefaultValue=false)]
@@ -144,17 +145,17 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The total retained amount.
-		/// DAC Field Name: CuryRetainageTotal 
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Retainage Total 
+		/// <para>DAC Field Name: CuryRetainageTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Retainage Total</para>
 		/// </summary>
 		[DataMember(Name="RetainageTotal", EmitDefaultValue=false)]
 		public DecimalValue? RetainageTotal { get; set; }
 
 		/// <summary>
 		/// The read-only status of the document.
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
@@ -164,9 +165,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The total tax amount of the document.
-		/// DAC Field Name: CuryTaxTotal 
-		/// DAC: PX.Objects.PM.PMProformaRevision 
-		/// Display Name: Tax Total 
+		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProformaRevision</para>
+		/// <para>Display Name: Tax Total</para>
 		/// </summary>
 		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
@@ -176,9 +177,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The total amount to invoice of the time and material lines of the document.
-		/// DAC Field Name: CuryTransactionalTotal 
-		/// DAC: PX.Objects.PM.PMProforma 
-		/// Display Name: Time and Material Total 
+		/// <para>DAC Field Name: CuryTransactionalTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Time and Material Total</para>
 		/// </summary>
 		[DataMember(Name="TimeAndMaterialTotal", EmitDefaultValue=false)]
 		public DecimalValue? TimeAndMaterialTotal { get; set; }

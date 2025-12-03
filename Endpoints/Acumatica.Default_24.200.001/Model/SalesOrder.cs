@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen SO301000 in the Acumatica ERP
+	/// Corresponds to the screen <c>SO301000</c> in the Acumatica ERP
+	/// <para>Key Fields: OrderNbr, OrderType</para>
 	/// </summary>
 	[DataContract]
 	public class SalesOrder : Entity, ITopLevelEntity
@@ -22,10 +23,10 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Identifier of the base Currency.
-		/// DAC Field Name: BaseCuryID 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Base Currency ID 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Base Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
 		public StringValue? BaseCurrencyID { get; set; }
@@ -35,18 +36,18 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Specifies (if set to true) that the address is overriden.
-		/// DAC Field Name: OverrideAddress 
-		/// DAC: PX.Objects.SO.SOBillingAddress 
-		/// Display Name: Override Address 
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
+		/// <para>Display Name: Override Address</para>
 		/// </summary>
 		[DataMember(Name="BillToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillToAddressOverride { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the address has been validated with a third-party specialized software or service.
-		/// DAC Field Name: IsValidated 
-		/// DAC: PX.Objects.SO.SOBillingAddress 
-		/// Display Name: Validated 
+		/// <para>DAC Field Name: IsValidated</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
+		/// <para>Display Name: Validated</para>
 		/// </summary>
 		[DataMember(Name="BillToAddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? BillToAddressValidated { get; set; }
@@ -56,26 +57,26 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Specifies (if set to true) that the contact is overriden.
-		/// DAC Field Name: OverrideContact 
-		/// DAC: PX.Objects.SO.SOBillingContact 
-		/// Display Name: Override Contact 
+		/// <para>DAC Field Name: OverrideContact</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingContact</para>
+		/// <para>Display Name: Override Contact</para>
 		/// </summary>
 		[DataMember(Name="BillToContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillToContactOverride { get; set; }
 
 		/// <summary>
 		/// The identifier of the branch.The field is included in the Branch foreign key.
-		/// DAC Field Name: BranchID 
-		/// DAC: PX.Objects.SO.SOOrder 
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
 		/// The identifier of the cash account associated with the customer payment method.The field is included in the CashAccount foreign key.
-		/// DAC Field Name: CashAccountID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Cash Account 
+		/// <para>DAC Field Name: CashAccountID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Cash Account</para>
 		/// </summary>
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
@@ -85,17 +86,17 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the contact.The field is included in the Contact foreign key.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Contact 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Contact</para>
 		/// </summary>
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public StringValue? ContactID { get; set; }
 
 		/// <summary>
 		/// The control total of the document (in the currency of the document).A user enters this amount manually.
-		/// DAC Field Name: CuryControlTotal 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Control Total 
+		/// <para>DAC Field Name: CuryControlTotal</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Control Total</para>
 		/// </summary>
 		[DataMember(Name="ControlTotal", EmitDefaultValue=false)]
 		public DecimalValue? ControlTotal { get; set; }
@@ -105,10 +106,10 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the currency of the document.The field is included in the Currency foreign key.
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Currency 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if theMulticurrency Accounting feature is enabled onthe Enable/Disable Features (CS100000) form.
@@ -118,37 +119,37 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// DAC Field Name: SampleCuryRate 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Curr. Rate 
+		/// <para>DAC Field Name: SampleCuryRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate</para>
 		/// </summary>
 		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyRate { get; set; }
 
 		/// <summary>
 		/// The identifier of the Rate Type associated with this object.
-		/// DAC Field Name: CuryRateTypeID 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Curr. Rate Type ID 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: CuryRateTypeID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate Type ID</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyRateTypeID", EmitDefaultValue=false)]
 		public StringValue? CurrencyRateTypeID { get; set; }
 
 		/// <summary>
 		/// The identifier of the customer. The field is a part of the identifier of thecustomer location.The field is included in the foreign keys Customer and CustomerLocation.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Customer 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Customer</para>
 		/// </summary>
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
 		/// The reference number of the original customer document that the sales order is based on.
-		/// DAC Field Name: CustomerOrderNbr 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Customer Order Nbr. 
-		/// SQL Type: nvarchar(40) 
+		/// <para>DAC Field Name: CustomerOrderNbr</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Customer Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
 		/// <remarks>
 		/// A reference number must be specified if theRequire Customer Order Nbr field istrue for the order type.This field is available for orders of the TR type.
@@ -158,26 +159,26 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The date of the document.
-		/// DAC Field Name: OrderDate 
-		/// DAC: PX.Objects.SO.SOOrder 
+		/// <para>DAC Field Name: OrderDate</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
 		/// A brief description of the document.
-		/// DAC Field Name: OrderDesc 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: OrderDesc</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The identifier of the destination warehouse for the items to be transferred.The field is included in the foreign keys DestinationSite and ToSite.
-		/// DAC Field Name: DestinationSiteID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Destination Warehouse 
+		/// <para>DAC Field Name: DestinationSiteID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Destination Warehouse</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if the Multiple Warehousesfeature is enabled on the Enable/Disable Features (CS100000) form.
@@ -190,17 +191,17 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// A Boolean value that indicates whether the system treats discounts that have already been applied to theselected sales order as manual.
-		/// DAC Field Name: DisableAutomaticDiscountCalculation 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Disable Automatic Discount Update 
+		/// <para>DAC Field Name: DisableAutomaticDiscountCalculation</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Disable Automatic Discount Update</para>
 		/// </summary>
 		[DataMember(Name="DisableAutomaticDiscountUpdate", EmitDefaultValue=false)]
 		public BooleanValue? DisableAutomaticDiscountUpdate { get; set; }
 
 		/// <summary>
 		/// A Boolean value that specifies (if set to true)that the system does not need to calculate taxes, because they are already calculated.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Disable Automatic Tax Calculation 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Disable Automatic Tax Calculation</para>
 		/// </summary>
 		[DataMember(Name="DisableAutomaticTaxCalculation", EmitDefaultValue=false)]
 		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
@@ -210,19 +211,19 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The date, starting from which the specified rate is considered current.
-		/// DAC Field Name: CuryEffDate 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Effective Date 
+		/// <para>DAC Field Name: CuryEffDate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Effective Date</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
 		/// The reference number of the sales order in a third-party application if Acumatica ERP is integrated withsuch an application and imports the sales orders from it.
-		/// DAC Field Name: CustomerRefNbr 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: External Reference 
-		/// SQL Type: nvarchar(40) 
+		/// <para>DAC Field Name: CustomerRefNbr</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: External Reference</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
 		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
 		public StringValue? ExternalRef { get; set; }
@@ -241,9 +242,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the customer location.The field is included in the CustomerLocation foreign key.
-		/// DAC Field Name: CustomerLocationID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Location 
+		/// <para>DAC Field Name: CustomerLocationID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Location</para>
 		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
@@ -253,9 +254,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The summarized quantity of all items that have been added to the child order from the blanket sales order.
-		/// DAC Field Name: OrderQty 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Ordered Qty. 
+		/// <para>DAC Field Name: OrderQty</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Ordered Qty.</para>
 		/// </summary>
 		/// <remarks>
 		/// If any items that are not from the current blanket sales order have been added to the child order,their quantity is not summed up to the value in this field.
@@ -265,9 +266,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The unique reference number of the order.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		/// <remarks>
@@ -281,18 +282,18 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The total amount of the document (in the currency of the document).
-		/// DAC Field Name: CuryOrderTotal 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Total 
+		/// <para>DAC Field Name: CuryOrderTotal</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Total</para>
 		/// </summary>
 		[DataMember(Name="OrderTotal", EmitDefaultValue=false)]
 		public DecimalValue? OrderTotal { get; set; }
 
 		/// <summary>
 		/// The type of the document, which is a part of the identifier of the order.The identifier of the order type.The field is included in the OrderType foreign key.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		/// <remarks>
@@ -303,10 +304,10 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the payment method to be used to pay for the salesorder. The field is included in the PaymentMethod foreign key.
-		/// DAC Field Name: PaymentMethodID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Payment Method 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: PaymentMethodID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Payment Method</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
@@ -316,9 +317,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the warehouse from which the goods should be shipped.The field is included in the DefaultSite foreign key.
-		/// DAC Field Name: DefaultSiteID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Preferred Warehouse ID 
+		/// <para>DAC Field Name: DefaultSiteID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Preferred Warehouse ID</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.
@@ -328,8 +329,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the project.The field is included in the Project foreign key.
-		/// DAC Field Name: ProjectID 
-		/// DAC: PX.Objects.SO.SOOrder 
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if theProject Accountingfeature is enabled on the Enable/Disable Features (CS100000) form and the integration of the Projectssubmodule with Sales Orders has been enabled(that is,  is .
@@ -339,9 +340,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// DAC Field Name: SampleRecipRate 
-		/// DAC: PX.Objects.CM.CurrencyInfo 
-		/// Display Name: Reciprocal Rate 
+		/// <para>DAC Field Name: SampleRecipRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Reciprocal Rate</para>
 		/// </summary>
 		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
 		public DecimalValue? ReciprocalRate { get; set; }
@@ -351,9 +352,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The date when the customer wants to receive the goods.
-		/// DAC Field Name: RequestDate 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Requested On 
+		/// <para>DAC Field Name: RequestDate</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Requested On</para>
 		/// </summary>
 		/// <remarks>
 		/// This date provides the default values for the requestDate dates for order lines.
@@ -372,18 +373,18 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Specifies (if set to true) that the address is overriden.
-		/// DAC Field Name: OverrideAddress 
-		/// DAC: PX.Objects.SO.SOBillingAddress 
-		/// Display Name: Override Address 
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
+		/// <para>Display Name: Override Address</para>
 		/// </summary>
 		[DataMember(Name="ShipToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressOverride { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the address has been validated with a third-party specialized software or service.
-		/// DAC Field Name: IsValidated 
-		/// DAC: PX.Objects.SO.SOBillingAddress 
-		/// Display Name: Validated 
+		/// <para>DAC Field Name: IsValidated</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
+		/// <para>Display Name: Validated</para>
 		/// </summary>
 		[DataMember(Name="ShipToAddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressValidated { get; set; }
@@ -393,18 +394,18 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Specifies (if set to true) that the contact is overriden.
-		/// DAC Field Name: OverrideContact 
-		/// DAC: PX.Objects.SO.SOBillingContact 
-		/// Display Name: Override Contact 
+		/// <para>DAC Field Name: OverrideContact</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingContact</para>
+		/// <para>Display Name: Override Contact</para>
 		/// </summary>
 		[DataMember(Name="ShipToContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToContactOverride { get; set; }
 
 		/// <summary>
 		/// The identifier of the ship via code that represents the carrier andits service to be used for shipping the ordered goods.The field is included in the Carrier foreign key.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Ship Via 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Ship Via</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		/// <remarks>
 		/// For this ship via code, if Manual is specified as the freight calculation method, the freight amount mustbe specified in the Freight Price field.Changing the Ship Via code for an open sales order may update thecustomer tax zone field.
@@ -414,8 +415,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The status of the order.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
@@ -425,9 +426,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The total amount of tax paid on the document (in the currency of the document).
-		/// DAC Field Name: CuryTaxTotal 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Tax Total 
+		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Tax Total</para>
 		/// </summary>
 		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
@@ -437,18 +438,18 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The document total that is exemptfrom VAT (in the currency of the document).
-		/// DAC Field Name: CuryVatExemptTotal 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Tax Exempt Total 
+		/// <para>DAC Field Name: CuryVatExemptTotal</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Tax Exempt Total</para>
 		/// </summary>
 		[DataMember(Name="VATExemptTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATExemptTotal { get; set; }
 
 		/// <summary>
 		/// The document total that is subjectto VAT (in the currency of the document).
-		/// DAC Field Name: CuryVatTaxableTotal 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Taxable Total 
+		/// <para>DAC Field Name: CuryVatTaxableTotal</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Taxable Total</para>
 		/// </summary>
 		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATTaxableTotal { get; set; }
@@ -461,18 +462,18 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// A Boolean value that indicates whether the customer picks the goods from the warehouse (will call).
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Will Call 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Will Call</para>
 		/// </summary>
 		[DataMember(Name="WillCall", EmitDefaultValue=false)]
 		public BooleanValue? WillCall { get; set; }
 
 		/// <summary>
 		/// The reference number of the payment.
-		/// DAC Field Name: ExtRefNbr 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Payment Ref. 
-		/// SQL Type: nvarchar(40) 
+		/// <para>DAC Field Name: ExtRefNbr</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Payment Ref.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only for sales orders of the Cash Sales or Cash Return type.
@@ -494,9 +495,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The tax calculation mode to be used for the sales order.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Tax Calculation Mode 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Tax Calculation Mode</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		/// <remarks>
 		/// This field is available only if theNet/Gross Entry Modefeature has been enabled on the Enable/Disable Features (CS100000) form.
@@ -506,9 +507,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The date and time when the record was created.
-		/// DAC Field Name: CreatedDateTime 
-		/// DAC: PX.Objects.EP.EPApproval 
-		/// Display Name: Assignment Date 
+		/// <para>DAC Field Name: CreatedDateTime</para>
+		/// <para>DAC: PX.Objects.EP.EPApproval</para>
+		/// <para>Display Name: Assignment Date</para>
 		/// </summary>
 		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDate { get; set; }

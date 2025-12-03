@@ -15,455 +15,455 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: AcctID 
-		/// DAC: PX.Objects.FS.FSSODet 
+		/// <para>DAC Field Name: AcctID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
 		/// </summary>
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryBillableTranAmt 
-		/// DAC: PX.Objects.FS.FSSODet 
+		/// <para>DAC Field Name: CuryBillableTranAmt</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
 		/// </summary>
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryApptTranAmt 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Appointment Amount 
+		/// <para>DAC Field Name: CuryApptTranAmt</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Appointment Amount</para>
 		/// </summary>
 		[DataMember(Name="AppointmentAmount", EmitDefaultValue=false)]
 		public DecimalValue? AppointmentAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ApptCntr 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Appointment Count 
+		/// <para>DAC Field Name: ApptCntr</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Appointment Count</para>
 		/// </summary>
 		[DataMember(Name="AppointmentCount", EmitDefaultValue=false)]
 		public IntValue? AppointmentCount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ApptDuration 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Appointment Duration 
+		/// <para>DAC Field Name: ApptDuration</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Appointment Duration</para>
 		/// </summary>
 		[DataMember(Name="AppointmentDuration", EmitDefaultValue=false)]
 		public StringValue? AppointmentDuration { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ApptEstimatedDuration 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Appointment Estimated Duration 
+		/// <para>DAC Field Name: ApptEstimatedDuration</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Appointment Estimated Duration</para>
 		/// </summary>
 		[DataMember(Name="AppointmentEstimatedDuration", EmitDefaultValue=false)]
 		public StringValue? AppointmentEstimatedDuration { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ApptQty 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Appointment Quantity 
+		/// <para>DAC Field Name: ApptQty</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Appointment Quantity</para>
 		/// </summary>
 		[DataMember(Name="AppointmentQty", EmitDefaultValue=false)]
 		public DecimalValue? AppointmentQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsBillable 
-		/// DAC: PX.Objects.FS.FSSODet 
+		/// <para>DAC Field Name: IsBillable</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
 		/// </summary>
 		[DataMember(Name="Billable", EmitDefaultValue=false)]
 		public BooleanValue? Billable { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Billing Rule 
-		/// SQL Type: char(4) 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Billing Rule</para>
+		/// <para>SQL Type: char(4)</para>
 		/// </summary>
 		[DataMember(Name="BillingRule", EmitDefaultValue=false)]
 		public StringValue? BillingRule { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BranchID 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// </summary>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Component ID 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Component ID</para>
 		/// </summary>
 		[DataMember(Name="ComponentID", EmitDefaultValue=false)]
 		public StringValue? ComponentID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EquipmentLineRef 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Component Ref. Nbr. 
+		/// <para>DAC Field Name: EquipmentLineRef</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Component Ref. Nbr.</para>
 		/// </summary>
 		[DataMember(Name="ComponentLineRef", EmitDefaultValue=false)]
 		public StringValue? ComponentLineRef { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CostCodeID 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Cost Code 
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Cost Code</para>
 		/// </summary>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Covered Quantity 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Covered Quantity</para>
 		/// </summary>
 		[DataMember(Name="CoveredQty", EmitDefaultValue=false)]
 		public DecimalValue? CoveredQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranDesc 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryDiscAmt 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Discount Amount 
+		/// <para>DAC Field Name: CuryDiscAmt</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Discount Amount</para>
 		/// </summary>
 		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DiscPct 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Discount Percent 
+		/// <para>DAC Field Name: DiscPct</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Discount Percent</para>
 		/// </summary>
 		[DataMember(Name="DiscountPercent", EmitDefaultValue=false)]
 		public DecimalValue? DiscountPercent { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Equipment Action 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Equipment Action</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="EquipmentAction", EmitDefaultValue=false)]
 		public StringValue? EquipmentAction { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Comment 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Equipment Action Comment 
-		/// SQL Type: varchar(255) 
+		/// <para>DAC Field Name: Comment</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Equipment Action Comment</para>
+		/// <para>SQL Type: varchar(255)</para>
 		/// </summary>
 		[DataMember(Name="EquipmentActionComment", EmitDefaultValue=false)]
 		public StringValue? EquipmentActionComment { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryEstimatedTranAmt 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Estimated Amount 
+		/// <para>DAC Field Name: CuryEstimatedTranAmt</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Estimated Amount</para>
 		/// </summary>
 		[DataMember(Name="EstimatedAmount", EmitDefaultValue=false)]
 		public DecimalValue? EstimatedAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Estimated Duration 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Estimated Duration</para>
 		/// </summary>
 		[DataMember(Name="EstimatedDuration", EmitDefaultValue=false)]
 		public StringValue? EstimatedDuration { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSProfitability 
-		/// Display Name: Estimated Quantity 
+		/// <para>DAC: PX.Objects.FS.FSProfitability</para>
+		/// <para>Display Name: Estimated Quantity</para>
 		/// </summary>
 		[DataMember(Name="EstimatedQty", EmitDefaultValue=false)]
 		public DecimalValue? EstimatedQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryBillableExtPrice 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Ext. Price 
+		/// <para>DAC Field Name: CuryBillableExtPrice</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Ext. Price</para>
 		/// </summary>
 		[DataMember(Name="ExtPrice", EmitDefaultValue=false)]
 		public DecimalValue? ExtPrice { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Mem_LastReferencedBy 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Last Reference 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC Field Name: Mem_LastReferencedBy</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Last Reference</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		[DataMember(Name="LastReference", EmitDefaultValue=false)]
 		public StringValue? LastReference { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSProfitability 
-		/// Display Name: Ref. Nbr. 
-		/// SQL Type: nchar(4) 
+		/// <para>DAC: PX.Objects.FS.FSProfitability</para>
+		/// <para>Display Name: Ref. Nbr.</para>
+		/// <para>SQL Type: nchar(4)</para>
 		/// </summary>
 		[DataMember(Name="LineRef", EmitDefaultValue=false)]
 		public StringValue? LineRef { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Status 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Status 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: Status</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Status</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="LineStatus", EmitDefaultValue=false)]
 		public StringValue? LineStatus { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSProfitability 
-		/// Display Name: Line Type 
-		/// SQL Type: nchar(5) 
+		/// <para>DAC: PX.Objects.FS.FSProfitability</para>
+		/// <para>Display Name: Line Type</para>
+		/// <para>SQL Type: nchar(5)</para>
 		/// </summary>
 		[DataMember(Name="LineType", EmitDefaultValue=false)]
 		public StringValue? LineType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteLocationID 
-		/// DAC: PX.Objects.FS.FSSODet 
+		/// <para>DAC Field Name: SiteLocationID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
 		/// </summary>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Lot/Serial Nbr. 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Manual Price 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Manual Price</para>
 		/// </summary>
 		[DataMember(Name="ManualPrice", EmitDefaultValue=false)]
 		public BooleanValue? ManualPrice { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EnablePO 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Mark for PO 
+		/// <para>DAC Field Name: EnablePO</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Mark for PO</para>
 		/// </summary>
 		[DataMember(Name="MarkforPO", EmitDefaultValue=false)]
 		public BooleanValue? MarkforPO { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: NewTargetEquipmentLineNbr 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Model Equipment Ref. Nbr. 
-		/// SQL Type: char(4) 
+		/// <para>DAC Field Name: NewTargetEquipmentLineNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Model Equipment Ref. Nbr.</para>
+		/// <para>SQL Type: char(4)</para>
 		/// </summary>
 		[DataMember(Name="ModelEquipmentLineRef", EmitDefaultValue=false)]
 		public StringValue? ModelEquipmentLineRef { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExtraUsageQty 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Overage Quantity 
+		/// <para>DAC Field Name: ExtraUsageQty</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Overage Quantity</para>
 		/// </summary>
 		[DataMember(Name="OverageQty", EmitDefaultValue=false)]
 		public DecimalValue? OverageQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryExtraUsageUnitPrice 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Overage Unit Price 
+		/// <para>DAC Field Name: CuryExtraUsageUnitPrice</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Overage Unit Price</para>
 		/// </summary>
 		[DataMember(Name="OverageUnitPrice", EmitDefaultValue=false)]
 		public DecimalValue? OverageUnitPrice { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: PO Completed 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: PO Completed</para>
 		/// </summary>
 		[DataMember(Name="POCompleted", EmitDefaultValue=false)]
 		public BooleanValue? POCompleted { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: PO Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: PO Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="PONbr", EmitDefaultValue=false)]
 		public StringValue? PONbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: PO Status 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: PO Status</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="POStatus", EmitDefaultValue=false)]
 		public StringValue? POStatus { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsPrepaid 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Prepaid Item 
+		/// <para>DAC Field Name: IsPrepaid</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Prepaid Item</para>
 		/// </summary>
 		[DataMember(Name="PrepaidItem", EmitDefaultValue=false)]
 		public BooleanValue? PrepaidItem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProjectTaskID 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Project Task 
+		/// <para>DAC Field Name: ProjectTaskID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Project Task</para>
 		/// </summary>
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BillableQty 
-		/// DAC: PX.Objects.FS.FSProfitability 
-		/// Display Name: Billable Quantity 
+		/// <para>DAC Field Name: BillableQty</para>
+		/// <para>DAC: PX.Objects.FS.FSProfitability</para>
+		/// <para>Display Name: Billable Quantity</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ContractRelated 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Service Contract Item 
+		/// <para>DAC Field Name: ContractRelated</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Service Contract Item</para>
 		/// </summary>
 		[DataMember(Name="ServiceContractItem", EmitDefaultValue=false)]
 		public BooleanValue? ServiceContractItem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ServiceOrderNbr", EmitDefaultValue=false)]
 		public StringValue? ServiceOrderNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SrvOrdType 
-		/// DAC: PX.Objects.FS.FSServiceOrder 
-		/// Display Name: Order Type 
-		/// SQL Type: char(4) 
+		/// <para>DAC Field Name: SrvOrdType</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(4)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
 		public StringValue? ServiceOrderType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Sort Order 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Sort Order</para>
 		/// </summary>
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public IntValue? SortOrder { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StaffID 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Staff Member ID 
+		/// <para>DAC Field Name: StaffID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Staff Member ID</para>
 		/// </summary>
 		[DataMember(Name="StaffMemberID", EmitDefaultValue=false)]
 		public StringValue? StaffMemberID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubID 
-		/// DAC: PX.Objects.FS.FSSODet 
+		/// <para>DAC Field Name: SubID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
 		/// </summary>
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.FS.FSSODet 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SMEquipmentID 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Target Equipment ID 
+		/// <para>DAC Field Name: SMEquipmentID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Target Equipment ID</para>
 		/// </summary>
 		[DataMember(Name="TargetEquipmentID", EmitDefaultValue=false)]
 		public StringValue? TargetEquipmentID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TaxCategoryID 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Tax Category 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: TaxCategoryID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryUnitCost 
-		/// DAC: PX.Objects.FS.FSProfitability 
-		/// Display Name: Unit Cost 
+		/// <para>DAC Field Name: CuryUnitCost</para>
+		/// <para>DAC: PX.Objects.FS.FSProfitability</para>
+		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryUnitPrice 
-		/// DAC: PX.Objects.FS.FSProfitability 
-		/// Display Name: Unit Price 
+		/// <para>DAC Field Name: CuryUnitPrice</para>
+		/// <para>DAC: PX.Objects.FS.FSProfitability</para>
+		/// <para>Display Name: Unit Price</para>
 		/// </summary>
 		[DataMember(Name="UnitPrice", EmitDefaultValue=false)]
 		public DecimalValue? UnitPrice { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: POVendorID 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Vendor ID 
+		/// <para>DAC Field Name: POVendorID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Vendor ID</para>
 		/// </summary>
 		[DataMember(Name="VendorID", EmitDefaultValue=false)]
 		public StringValue? VendorID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: POVendorLocationID 
-		/// DAC: PX.Objects.FS.FSSODet 
-		/// Display Name: Vendor Location ID 
+		/// <para>DAC Field Name: POVendorLocationID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
+		/// <para>Display Name: Vendor Location ID</para>
 		/// </summary>
 		[DataMember(Name="VendorLocationID", EmitDefaultValue=false)]
 		public StringValue? VendorLocationID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.FS.FSSODet 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSSODet 
+		/// <para>DAC: PX.Objects.FS.FSSODet</para>
 		/// </summary>
 		[DataMember(Name="Warranty", EmitDefaultValue=false)]
 		public BooleanValue? Warranty { get; set; }

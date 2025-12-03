@@ -15,26 +15,26 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: SegmentID 
-		/// DAC: PX.Objects.IN.INLotSerSegment 
-		/// Display Name: Segment Number 
+		/// <para>DAC Field Name: SegmentID</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerSegment</para>
+		/// <para>Display Name: Segment Number</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="SegmentNbr", EmitDefaultValue=false)]
 		public ShortValue? SegmentNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SegmentType 
-		/// DAC: PX.Objects.IN.INLotSerSegment 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: SegmentType</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerSegment</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SegmentValue 
-		/// DAC: PX.Objects.IN.INLotSerSegment 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: SegmentValue</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerSegment</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }

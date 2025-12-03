@@ -11,25 +11,26 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PR202000 in the Acumatica ERP
+	/// Corresponds to the screen <c>PR202000</c> in the Acumatica ERP
+	/// <para>Key Fields: EmployeePayrollClassID</para>
 	/// </summary>
 	[DataContract]
 	public class EmployeePayrollClass : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.PR.PREmployeeClass 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EmployeeClassID 
-		/// DAC: PX.Objects.PR.PREmployeeClass 
-		/// Display Name: Payroll Class ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: EmployeeClassID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
+		/// <para>Display Name: Payroll Class ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="EmployeePayrollClassID", EmitDefaultValue=false)]

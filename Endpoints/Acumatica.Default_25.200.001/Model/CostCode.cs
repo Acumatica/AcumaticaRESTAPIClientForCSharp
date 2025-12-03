@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PM209500 in the Acumatica ERP
+	/// Corresponds to the screen <c>PM209500</c> in the Acumatica ERP
+	/// <para>Key Fields: CostCodeID</para>
 	/// </summary>
 	[DataContract]
 	public class CostCode : Entity, ITopLevelEntity
@@ -19,10 +20,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Get or sets unique identifier.This is a segmented key and format is configured under segmented key maintenance screen in CS module.
-		/// DAC Field Name: CostCodeCD 
-		/// DAC: PX.Objects.PM.PMCostCode 
-		/// Display Name: Cost Code 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: CostCodeCD</para>
+		/// <para>DAC: PX.Objects.PM.PMCostCode</para>
+		/// <para>Display Name: Cost Code</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="CostCodeID", EmitDefaultValue=false)]
@@ -30,8 +31,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Gets or sets description
-		/// DAC: PX.Objects.PM.PMCostCode 
-		/// SQL Type: nvarchar(250) 
+		/// <para>DAC: PX.Objects.PM.PMCostCode</para>
+		/// <para>SQL Type: nvarchar(250)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }

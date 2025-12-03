@@ -15,29 +15,29 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttribute 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttributeDetail 
+		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
 		/// </summary>
 		[DataMember(Name="Disabled", EmitDefaultValue=false)]
 		public BooleanValue? Disabled { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttributeDetail 
-		/// Display Name: Sort Order 
+		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
+		/// <para>Display Name: Sort Order</para>
 		/// </summary>
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public ShortValue? SortOrder { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttributeDetail 
-		/// Display Name: Value ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
+		/// <para>Display Name: Value ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ValueID", EmitDefaultValue=false)]

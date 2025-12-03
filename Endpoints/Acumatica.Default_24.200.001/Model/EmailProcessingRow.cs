@@ -15,62 +15,62 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: EMailAccount__Description 
-		/// DAC: PX.Objects.CR.SMEmail 
+		/// <para>DAC Field Name: EMailAccount__Description</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
 		/// </summary>
 		[DataMember(Name="EmailAccount", EmitDefaultValue=false)]
 		public StringValue? EmailAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MailFrom 
-		/// DAC: PX.Objects.CR.SMEmail 
-		/// SQL Type: nvarchar(500) 
+		/// <para>DAC Field Name: MailFrom</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
+		/// <para>SQL Type: nvarchar(500)</para>
 		/// </summary>
 		[DataMember(Name="From", EmitDefaultValue=false)]
 		public StringValue? From { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MPStatus 
-		/// DAC: PX.Objects.CR.SMEmail 
-		/// Display Name: Email Status 
-		/// SQL Type: char(2) 
+		/// <para>DAC Field Name: MPStatus</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
+		/// <para>Display Name: Email Status</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="MailStatus", EmitDefaultValue=false)]
 		public StringValue? MailStatus { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CRActivity__OwnerID 
-		/// DAC: PX.Objects.CR.SMEmail 
+		/// <para>DAC Field Name: CRActivity__OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
 		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
-		/// DAC: PX.Objects.CR.SMEmail 
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
 		/// </summary>
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
 		public BooleanValue? Selected { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CRActivity__StartDate 
-		/// DAC: PX.Objects.CR.SMEmail 
+		/// <para>DAC Field Name: CRActivity__StartDate</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
 		/// </summary>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.SMEmail 
-		/// Display Name: Summary 
-		/// SQL Type: nvarchar(998) 
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
+		/// <para>Display Name: Summary</para>
+		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MailTo 
-		/// DAC: PX.Objects.CR.SMEmail 
-		/// SQL Type: nvarchar(3000) 
+		/// <para>DAC Field Name: MailTo</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
+		/// <para>SQL Type: nvarchar(3000)</para>
 		/// </summary>
 		[DataMember(Name="To", EmitDefaultValue=false)]
 		public StringValue? To { get; set; }

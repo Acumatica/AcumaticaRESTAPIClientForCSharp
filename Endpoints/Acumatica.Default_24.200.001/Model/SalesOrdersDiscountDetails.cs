@@ -15,41 +15,41 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryDiscountableAmt 
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// Display Name: Discountable Amt. 
+		/// <para>DAC Field Name: CuryDiscountableAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Discountable Amt.</para>
 		/// </summary>
 		[DataMember(Name="DiscountableAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountableAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// Display Name: Discountable Qty. 
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Discountable Qty.</para>
 		/// </summary>
 		[DataMember(Name="DiscountableQty", EmitDefaultValue=false)]
 		public DecimalValue? DiscountableQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryDiscountAmt 
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// Display Name: Discount Amt. 
+		/// <para>DAC Field Name: CuryDiscountAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Discount Amt.</para>
 		/// </summary>
 		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountAmount { get; set; }
 
 		/// <summary>
 		/// The code of the discount of the line.
-		/// DAC Field Name: DiscountID 
-		/// DAC: PX.Objects.SO.SOLine 
-		/// Display Name: Discount Code 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: DiscountID</para>
+		/// <para>DAC: PX.Objects.SO.SOLine</para>
+		/// <para>Display Name: Discount Code</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		/// <remarks>
 		/// The field is included in the following foreign keys:                        . The field is the identifier of the Discount            .            . The field is a part of the identifier of the Discount Sequence            .                        This field is available only if the            Customer Discounts            feature is enabled on the Enable/Disable Features (CS100000) form.            
@@ -58,51 +58,51 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? DiscountCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DiscountPct 
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// Display Name: Discount Percent 
+		/// <para>DAC Field Name: DiscountPct</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Discount Percent</para>
 		/// </summary>
 		[DataMember(Name="DiscountPercent", EmitDefaultValue=false)]
 		public DecimalValue? DiscountPercent { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExtDiscCode 
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// Display Name: External Discount Code 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: ExtDiscCode</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: External Discount Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ExternalDiscountCode", EmitDefaultValue=false)]
 		public StringValue? ExternalDiscountCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FreeItemID 
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// Display Name: Free Item 
+		/// <para>DAC Field Name: FreeItemID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Free Item</para>
 		/// </summary>
 		[DataMember(Name="FreeItem", EmitDefaultValue=false)]
 		public StringValue? FreeItem { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// Display Name: Free Item Qty. 
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Free Item Qty.</para>
 		/// </summary>
 		[DataMember(Name="FreeItemQty", EmitDefaultValue=false)]
 		public DecimalValue? FreeItemQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsManual 
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// Display Name: Manual Discount 
+		/// <para>DAC Field Name: IsManual</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Manual Discount</para>
 		/// </summary>
 		[DataMember(Name="ManualDiscount", EmitDefaultValue=false)]
 		public BooleanValue? ManualDiscount { get; set; }
 
 		/// <summary>
 		/// The identifier of the discount sequence of the line.
-		/// DAC Field Name: DiscountSequenceID 
-		/// DAC: PX.Objects.SO.SOLine 
-		/// Display Name: Discount Sequence 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: DiscountSequenceID</para>
+		/// <para>DAC: PX.Objects.SO.SOLine</para>
+		/// <para>Display Name: Discount Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		/// <remarks>
 		/// The field is included in the  foreign key. The field is a part ofthe identifier of the Discount Sequence..This field is available only if theCustomer Discountsfeature is enabled on the Enable/Disable Features (CS100000) form.
@@ -111,15 +111,15 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? SequenceID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// Display Name: Skip Discount 
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Skip Discount</para>
 		/// </summary>
 		[DataMember(Name="SkipDiscount", EmitDefaultValue=false)]
 		public BooleanValue? SkipDiscount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOOrderDiscountDetail 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }

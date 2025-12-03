@@ -19,10 +19,10 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The rounding method for Years of Service.
-		/// DAC Field Name: BandingRuleRoundingMethod 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Rounding Method for Years of Service 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: BandingRuleRoundingMethod</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Rounding Method for Years of Service</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="RoundingMethodforYearsofService", EmitDefaultValue=false)]
 		public StringValue? RoundingMethodforYearsofService { get; set; }

@@ -15,94 +15,94 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: InvtDocType 
-		/// DAC: PX.Objects.SO.SOOrderShipment 
-		/// Display Name: Inventory Doc. Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: InvtDocType</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderShipment</para>
+		/// <para>Display Name: Inventory Doc. Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="InventoryDocType", EmitDefaultValue=false)]
 		public StringValue? InventoryDocType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InvtRefNbr 
-		/// DAC: PX.Objects.SO.SOOrderShipment 
-		/// Display Name: Inventory Ref. Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: InvtRefNbr</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderShipment</para>
+		/// <para>Display Name: Inventory Ref. Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="InventoryRefNbr", EmitDefaultValue=false)]
 		public StringValue? InventoryRefNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOOrderShipment 
-		/// Display Name: Invoice Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOOrderShipment</para>
+		/// <para>Display Name: Invoice Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="InvoiceNbr", EmitDefaultValue=false)]
 		public StringValue? InvoiceNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOOrderShipment 
-		/// Display Name: Invoice Type 
-		/// SQL Type: char(3) 
+		/// <para>DAC: PX.Objects.SO.SOOrderShipment</para>
+		/// <para>Display Name: Invoice Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="InvoiceType", EmitDefaultValue=false)]
 		public StringValue? InvoiceType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOOrderShipment 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOOrderShipment</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOOrderShipment 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.SO.SOOrderShipment</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipment Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipment Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ShipmentNbr", EmitDefaultValue=false)]
 		public StringValue? ShipmentNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="ShipmentType", EmitDefaultValue=false)]
 		public StringValue? ShipmentType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentQty 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipped Quantity 
+		/// <para>DAC Field Name: ShipmentQty</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipped Quantity</para>
 		/// </summary>
 		[DataMember(Name="ShippedQty", EmitDefaultValue=false)]
 		public DecimalValue? ShippedQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentVolume 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipped Volume 
+		/// <para>DAC Field Name: ShipmentVolume</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipped Volume</para>
 		/// </summary>
 		[DataMember(Name="ShippedVolume", EmitDefaultValue=false)]
 		public DecimalValue? ShippedVolume { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipmentWeight 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Shipped Weight 
+		/// <para>DAC Field Name: ShipmentWeight</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipped Weight</para>
 		/// </summary>
 		[DataMember(Name="ShippedWeight", EmitDefaultValue=false)]
 		public DecimalValue? ShippedWeight { get; set; }

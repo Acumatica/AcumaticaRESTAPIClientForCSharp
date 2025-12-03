@@ -15,64 +15,64 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INSite 
+		/// <para>DAC: PX.Objects.IN.INSite</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: AssemblyValid 
-		/// DAC: PX.Objects.IN.INLocation 
-		/// Display Name: Assembly Allowed 
+		/// <para>DAC Field Name: AssemblyValid</para>
+		/// <para>DAC: PX.Objects.IN.INLocation</para>
+		/// <para>Display Name: Assembly Allowed</para>
 		/// </summary>
 		[DataMember(Name="AssemblyAllowed", EmitDefaultValue=false)]
 		public BooleanValue? AssemblyAllowed { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.IN.INSite 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LocationCD 
-		/// DAC: PX.Objects.IN.INLocation 
-		/// Display Name: Location ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: LocationCD</para>
+		/// <para>DAC: PX.Objects.IN.INLocation</para>
+		/// <para>Display Name: Location ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INLocation 
-		/// Display Name: Pick Priority 
+		/// <para>DAC: PX.Objects.IN.INLocation</para>
+		/// <para>Display Name: Pick Priority</para>
 		/// </summary>
 		[DataMember(Name="PickPriority", EmitDefaultValue=false)]
 		public ShortValue? PickPriority { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ReceiptsValid 
-		/// DAC: PX.Objects.IN.INLocation 
-		/// Display Name: Receipts Allowed 
+		/// <para>DAC Field Name: ReceiptsValid</para>
+		/// <para>DAC: PX.Objects.IN.INLocation</para>
+		/// <para>Display Name: Receipts Allowed</para>
 		/// </summary>
 		[DataMember(Name="ReceiptsAllowed", EmitDefaultValue=false)]
 		public BooleanValue? ReceiptsAllowed { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SalesValid 
-		/// DAC: PX.Objects.IN.INLocation 
-		/// Display Name: Sales Allowed 
+		/// <para>DAC Field Name: SalesValid</para>
+		/// <para>DAC: PX.Objects.IN.INLocation</para>
+		/// <para>Display Name: Sales Allowed</para>
 		/// </summary>
 		[DataMember(Name="SalesAllowed", EmitDefaultValue=false)]
 		public BooleanValue? SalesAllowed { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TransfersValid 
-		/// DAC: PX.Objects.IN.INLocation 
-		/// Display Name: Transfers Allowed 
+		/// <para>DAC Field Name: TransfersValid</para>
+		/// <para>DAC: PX.Objects.IN.INLocation</para>
+		/// <para>Display Name: Transfers Allowed</para>
 		/// </summary>
 		[DataMember(Name="TransfersAllowed", EmitDefaultValue=false)]
 		public BooleanValue? TransfersAllowed { get; set; }

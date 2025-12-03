@@ -11,7 +11,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN408050 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN408050</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class StorageDetailsInquiry : Entity, ITopLevelEntity
@@ -21,8 +21,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<StorageDetail>? StorageDetails { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Warehouse 
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC Field Name: Warehouse</para>
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }

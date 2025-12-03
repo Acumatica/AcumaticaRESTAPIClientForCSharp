@@ -15,23 +15,23 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttributeGroup 
-		/// Display Name: Attribute ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
+		/// <para>Display Name: Attribute ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
 		public StringValue? AttributeID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttributeGroup 
+		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
 		/// </summary>
 		[DataMember(Name="Required", EmitDefaultValue=false)]
 		public BooleanValue? Required { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttributeGroup 
-		/// Display Name: Sort Order 
+		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
+		/// <para>Display Name: Sort Order</para>
 		/// </summary>
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public ShortValue? SortOrder { get; set; }

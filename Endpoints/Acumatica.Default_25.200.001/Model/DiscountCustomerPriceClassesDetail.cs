@@ -15,10 +15,10 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: CustomerPriceClassID 
-		/// DAC: PX.Objects.AR.DiscountCustomerPriceClass 
-		/// Display Name: Price Class ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: CustomerPriceClassID</para>
+		/// <para>DAC: PX.Objects.AR.DiscountCustomerPriceClass</para>
+		/// <para>Display Name: Price Class ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]

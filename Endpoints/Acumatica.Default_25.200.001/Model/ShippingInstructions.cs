@@ -15,26 +15,26 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: ShipDestType 
-		/// DAC: PX.Objects.PO.POOrder 
-		/// Display Name: Shipping Destination Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: ShipDestType</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Shipping Destination Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="ShippingDestinationType", EmitDefaultValue=false)]
 		public StringValue? ShippingDestinationType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipToLocationID 
-		/// DAC: PX.Objects.PO.POOrder 
-		/// Display Name: Shipping Location 
+		/// <para>DAC Field Name: ShipToLocationID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Shipping Location</para>
 		/// </summary>
 		[DataMember(Name="ShippingLocation", EmitDefaultValue=false)]
 		public StringValue? ShippingLocation { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipToBAccountID 
-		/// DAC: PX.Objects.PO.POOrder 
-		/// Display Name: Ship To 
+		/// <para>DAC Field Name: ShipToBAccountID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Ship To</para>
 		/// </summary>
 		[DataMember(Name="ShipTo", EmitDefaultValue=false)]
 		public StringValue? ShipTo { get; set; }
@@ -44,18 +44,18 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Specifies (if set to true) that the address is overriden.
-		/// DAC Field Name: OverrideAddress 
-		/// DAC: PX.Objects.PO.PORemitAddress 
-		/// Display Name: Override 
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.PO.PORemitAddress</para>
+		/// <para>Display Name: Override</para>
 		/// </summary>
 		[DataMember(Name="ShipToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressOverride { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the address has been validated with a third-party specialized software or service.
-		/// DAC Field Name: IsValidated 
-		/// DAC: PX.Objects.PO.PORemitAddress 
-		/// Display Name: Validated 
+		/// <para>DAC Field Name: IsValidated</para>
+		/// <para>DAC: PX.Objects.PO.PORemitAddress</para>
+		/// <para>Display Name: Validated</para>
 		/// </summary>
 		[DataMember(Name="ShipToAddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressValidated { get; set; }
@@ -65,16 +65,16 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Specifies (if set to true) that the contact is overriden.
-		/// DAC Field Name: OverrideContact 
-		/// DAC: PX.Objects.PO.PORemitContact 
-		/// Display Name: Override 
+		/// <para>DAC Field Name: OverrideContact</para>
+		/// <para>DAC: PX.Objects.PO.PORemitContact</para>
+		/// <para>Display Name: Override</para>
 		/// </summary>
 		[DataMember(Name="ShipToContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToContactOverride { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.PO.POOrder 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }

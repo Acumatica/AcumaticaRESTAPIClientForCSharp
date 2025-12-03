@@ -11,38 +11,39 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN204000 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN204000</c> in the Acumatica ERP
+	/// <para>Key Fields: WarehouseID</para>
 	/// </summary>
 	[DataContract]
 	public class Warehouse : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INSite 
+		/// <para>DAC: PX.Objects.IN.INSite</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: COGSAcctID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: COGS/Expense Account 
+		/// <para>DAC Field Name: COGSAcctID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: COGS/Expense Account</para>
 		/// </summary>
 		[DataMember(Name="COGSExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? COGSExpenseAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: COGSSubID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: COGS/Expense Sub. 
+		/// <para>DAC Field Name: COGSSubID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: COGS/Expense Sub.</para>
 		/// </summary>
 		[DataMember(Name="COGSExpenseSubaccount", EmitDefaultValue=false)]
 		public StringValue? COGSExpenseSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.IN.INSite 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -54,8 +55,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? DiscountSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Drop-Ship Location 
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Drop-Ship Location</para>
 		/// </summary>
 		[DataMember(Name="DropShipLocationID", EmitDefaultValue=false)]
 		public StringValue? DropShipLocationID { get; set; }
@@ -67,33 +68,33 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? FreightChargeSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InvtAcctID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Inventory Account 
+		/// <para>DAC Field Name: InvtAcctID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Inventory Account</para>
 		/// </summary>
 		[DataMember(Name="InventoryAccount", EmitDefaultValue=false)]
 		public StringValue? InventoryAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InvtSubID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Inventory Sub. 
+		/// <para>DAC Field Name: InvtSubID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Inventory Sub.</para>
 		/// </summary>
 		[DataMember(Name="InventorySubaccount", EmitDefaultValue=false)]
 		public StringValue? InventorySubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LCVarianceAcctID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Landed Cost Variance Account 
+		/// <para>DAC Field Name: LCVarianceAcctID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Landed Cost Variance Account</para>
 		/// </summary>
 		[DataMember(Name="LandedCostVarianceAccount", EmitDefaultValue=false)]
 		public StringValue? LandedCostVarianceAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LCVarianceSubID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Landed Cost Variance Sub. 
+		/// <para>DAC Field Name: LCVarianceSubID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Landed Cost Variance Sub.</para>
 		/// </summary>
 		[DataMember(Name="LandedCostVarianceSubaccount", EmitDefaultValue=false)]
 		public StringValue? LandedCostVarianceSubaccount { get; set; }
@@ -111,144 +112,144 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? MiscChargeSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Non-Stock Location 
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Non-Stock Location</para>
 		/// </summary>
 		[DataMember(Name="NonStockPickingLocationID", EmitDefaultValue=false)]
 		public StringValue? NonStockPickingLocationID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OverrideInvtAccSub 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Override Inventory Account/Sub. 
+		/// <para>DAC Field Name: OverrideInvtAccSub</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Override Inventory Account/Sub.</para>
 		/// </summary>
 		[DataMember(Name="OverrideInventoryAccountSubaccount", EmitDefaultValue=false)]
 		public BooleanValue? OverrideInventoryAccountSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: POAccrualAcctID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: PO Accrual Account 
+		/// <para>DAC Field Name: POAccrualAcctID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: PO Accrual Account</para>
 		/// </summary>
 		[DataMember(Name="POAccrualAccount", EmitDefaultValue=false)]
 		public StringValue? POAccrualAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: POAccrualSubID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: PO Accrual Sub. 
+		/// <para>DAC Field Name: POAccrualSubID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: PO Accrual Sub.</para>
 		/// </summary>
 		[DataMember(Name="POAccrualSubaccount", EmitDefaultValue=false)]
 		public StringValue? POAccrualSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PPVAcctID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Purchase Price Variance Account 
+		/// <para>DAC Field Name: PPVAcctID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Purchase Price Variance Account</para>
 		/// </summary>
 		[DataMember(Name="PurchasePriceVarianceAccount", EmitDefaultValue=false)]
 		public StringValue? PurchasePriceVarianceAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PPVSubID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Purchase Price Variance Sub. 
+		/// <para>DAC Field Name: PPVSubID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Purchase Price Variance Sub.</para>
 		/// </summary>
 		[DataMember(Name="PurchasePriceVarianceSubaccount", EmitDefaultValue=false)]
 		public StringValue? PurchasePriceVarianceSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ReasonCodeSubID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Reason Code Sub. 
+		/// <para>DAC Field Name: ReasonCodeSubID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Reason Code Sub.</para>
 		/// </summary>
 		[DataMember(Name="ReasonCodeSubaccount", EmitDefaultValue=false)]
 		public StringValue? ReasonCodeSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ReceiptLocationID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Receiving Location 
+		/// <para>DAC Field Name: ReceiptLocationID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Receiving Location</para>
 		/// </summary>
 		[DataMember(Name="ReceivingLocationID", EmitDefaultValue=false)]
 		public StringValue? ReceivingLocationID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ReturnLocationID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: RMA Location 
+		/// <para>DAC Field Name: ReturnLocationID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: RMA Location</para>
 		/// </summary>
 		[DataMember(Name="RMALocationID", EmitDefaultValue=false)]
 		public StringValue? RMALocationID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SalesAcctID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Sales Account 
+		/// <para>DAC Field Name: SalesAcctID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Sales Account</para>
 		/// </summary>
 		[DataMember(Name="SalesAccount", EmitDefaultValue=false)]
 		public StringValue? SalesAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SalesSubID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Sales Sub. 
+		/// <para>DAC Field Name: SalesSubID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Sales Sub.</para>
 		/// </summary>
 		[DataMember(Name="SalesSubaccount", EmitDefaultValue=false)]
 		public StringValue? SalesSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShipLocationID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Shipping Location 
+		/// <para>DAC Field Name: ShipLocationID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Shipping Location</para>
 		/// </summary>
 		[DataMember(Name="ShippingLocationID", EmitDefaultValue=false)]
 		public StringValue? ShippingLocationID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StdCstRevAcctID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Standard Cost Revaluation Account 
+		/// <para>DAC Field Name: StdCstRevAcctID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Standard Cost Revaluation Account</para>
 		/// </summary>
 		[DataMember(Name="StandardCostRevaluationAccount", EmitDefaultValue=false)]
 		public StringValue? StandardCostRevaluationAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StdCstRevSubID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Standard Cost Revaluation Sub. 
+		/// <para>DAC Field Name: StdCstRevSubID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Standard Cost Revaluation Sub.</para>
 		/// </summary>
 		[DataMember(Name="StandardCostRevaluationSubaccount", EmitDefaultValue=false)]
 		public StringValue? StandardCostRevaluationSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StdCstVarAcctID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Standard Cost Variance Account 
+		/// <para>DAC Field Name: StdCstVarAcctID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Standard Cost Variance Account</para>
 		/// </summary>
 		[DataMember(Name="StandardCostVarianceAccount", EmitDefaultValue=false)]
 		public StringValue? StandardCostVarianceAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StdCstVarSubID 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Standard Cost Variance Sub. 
+		/// <para>DAC Field Name: StdCstVarSubID</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Standard Cost Variance Sub.</para>
 		/// </summary>
 		[DataMember(Name="StandardCostVarianceSubaccount", EmitDefaultValue=false)]
 		public StringValue? StandardCostVarianceSubaccount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Use Item Default Location for Picking 
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Use Item Default Location for Picking</para>
 		/// </summary>
 		[DataMember(Name="UseItemDefaultLocationForPicking", EmitDefaultValue=false)]
 		public BooleanValue? UseItemDefaultLocationForPicking { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteCD 
-		/// DAC: PX.Objects.IN.INSite 
-		/// Display Name: Warehouse ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: SiteCD</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>Display Name: Warehouse ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]

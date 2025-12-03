@@ -15,10 +15,10 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: PCTranNumber 
-		/// DAC: PX.Objects.AR.CCProcTran 
-		/// Display Name: Proc. Center Tran. Nbr. 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC Field Name: PCTranNumber</para>
+		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
+		/// <para>Display Name: Proc. Center Tran. Nbr.</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
 		public StringValue? TranNbr { get; set; }
@@ -27,18 +27,18 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? TranApiNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.CCProcTran 
-		/// Display Name: Tran. Type 
-		/// SQL Type: char(3) 
+		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
+		/// <para>Display Name: Tran. Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="TranType", EmitDefaultValue=false)]
 		public StringValue? TranType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: AuthNumber 
-		/// DAC: PX.Objects.AR.CCProcTran 
-		/// Display Name: Proc. Center Auth. Nbr. 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC Field Name: AuthNumber</para>
+		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
+		/// <para>Display Name: Proc. Center Auth. Nbr.</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		[DataMember(Name="AuthNbr", EmitDefaultValue=false)]
 		public StringValue? AuthNbr { get; set; }

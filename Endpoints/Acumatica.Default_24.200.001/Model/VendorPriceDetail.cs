@@ -15,8 +15,8 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.AP.APVendorPrice 
-		/// Display Name: Break Qty 
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// <para>Display Name: Break Qty</para>
 		/// </summary>
 		[DataMember(Name="BreakQty", EmitDefaultValue=false)]
 		public DecimalValue? BreakQty { get; set; }
@@ -25,38 +25,38 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.AP.APVendorPrice 
-		/// Display Name: Currency 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InventoryID_InventoryItem_Descr 
-		/// DAC: PX.Objects.AP.APVendorPrice 
+		/// <para>DAC Field Name: InventoryID_InventoryItem_Descr</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AP.APVendorPrice 
-		/// Display Name: Effective Date 
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// <para>Display Name: Effective Date</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AP.APVendorPrice 
-		/// Display Name: Expiration Date 
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AP.APVendorPriceFilter 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -65,15 +65,15 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SalesPrice 
-		/// DAC: PX.Objects.AP.APVendorPrice 
+		/// <para>DAC Field Name: SalesPrice</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
 		/// </summary>
 		[DataMember(Name="Price", EmitDefaultValue=false)]
 		public DecimalValue? Price { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsPromotionalPrice 
-		/// DAC: PX.Objects.AP.APVendorPrice 
+		/// <para>DAC Field Name: IsPromotionalPrice</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
 		/// </summary>
 		[DataMember(Name="Promotional", EmitDefaultValue=false)]
 		public BooleanValue? Promotional { get; set; }
@@ -82,22 +82,22 @@ namespace Acumatica.Default_24_200_001.Model
 		public IntValue? RecordID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AP.APVendorPrice 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorID 
-		/// DAC: PX.Objects.AP.APVendorPriceFilter 
+		/// <para>DAC Field Name: VendorID</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
 		/// </summary>
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorID_Vendor_AcctName 
-		/// DAC: PX.Objects.AP.APVendorPrice 
+		/// <para>DAC Field Name: VendorID_Vendor_AcctName</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
 		/// </summary>
 		[DataMember(Name="VendorName", EmitDefaultValue=false)]
 		public StringValue? VendorName { get; set; }

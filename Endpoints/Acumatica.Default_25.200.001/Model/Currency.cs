@@ -11,15 +11,16 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CM202000 in the Acumatica ERP
+	/// Corresponds to the screen <c>CM202000</c> in the Acumatica ERP
+	/// <para>Key Fields: CurrencyID</para>
 	/// </summary>
 	[DataContract]
 	public class Currency : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.CM.CurrencyList 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
@@ -28,35 +29,35 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.CM.CurrencyList 
-		/// Display Name: Currency ID 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
+		/// <para>Display Name: Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CurySymbol 
-		/// DAC: PX.Objects.CM.CurrencyList 
-		/// Display Name: Currency Symbol 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: CurySymbol</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
+		/// <para>Display Name: Currency Symbol</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="CurrencySymbol", EmitDefaultValue=false)]
 		public StringValue? CurrencySymbol { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DecimalPlaces 
-		/// DAC: PX.Objects.CM.CurrencyList 
-		/// Display Name: Decimal Precision 
+		/// <para>DAC Field Name: DecimalPlaces</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
+		/// <para>Display Name: Decimal Precision</para>
 		/// </summary>
 		[DataMember(Name="DecimalPrecision", EmitDefaultValue=false)]
 		public ShortValue? DecimalPrecision { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CM.CurrencyList 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -65,9 +66,9 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsFinancial 
-		/// DAC: PX.Objects.CM.CurrencyList 
-		/// Display Name: Use for Accounting 
+		/// <para>DAC Field Name: IsFinancial</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
+		/// <para>Display Name: Use for Accounting</para>
 		/// </summary>
 		[DataMember(Name="UseForAccounting", EmitDefaultValue=false)]
 		public BooleanValue? UseForAccounting { get; set; }

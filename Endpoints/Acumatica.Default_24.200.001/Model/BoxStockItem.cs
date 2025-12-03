@@ -15,52 +15,52 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INItemBoxEx 
-		/// Display Name: Box ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
+		/// <para>Display Name: Box ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="BoxID", EmitDefaultValue=false)]
 		public StringValue? BoxID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INItemBoxEx 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INItemRep 
-		/// Display Name: Max Qty. 
+		/// <para>DAC: PX.Objects.IN.INItemRep</para>
+		/// <para>Display Name: Max Qty.</para>
 		/// </summary>
 		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
 		public DecimalValue? MaxQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INItemBoxEx 
-		/// Display Name: Max Volume 
+		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
+		/// <para>Display Name: Max Volume</para>
 		/// </summary>
 		[DataMember(Name="MaxVolume", EmitDefaultValue=false)]
 		public DecimalValue? MaxVolume { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INItemBoxEx 
-		/// Display Name: Max. Weight 
+		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
+		/// <para>Display Name: Max. Weight</para>
 		/// </summary>
 		[DataMember(Name="MaxWeight", EmitDefaultValue=false)]
 		public DecimalValue? MaxWeight { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INComponent 
-		/// Display Name: Quantity 
+		/// <para>DAC: PX.Objects.IN.INComponent</para>
+		/// <para>Display Name: Quantity</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INComponent 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.IN.INComponent</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }

@@ -15,49 +15,49 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: PTOAssetAcctID 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Asset Account 
+		/// <para>DAC Field Name: PTOAssetAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Asset Account</para>
 		/// </summary>
 		[DataMember(Name="AssetAccount", EmitDefaultValue=false)]
 		public StringValue? AssetAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PTOAssetSubID 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Asset Sub. 
+		/// <para>DAC Field Name: PTOAssetSubID</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Asset Sub.</para>
 		/// </summary>
 		[DataMember(Name="AssetSub", EmitDefaultValue=false)]
 		public StringValue? AssetSub { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PTOExpenseAcctID 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Expense Account 
+		/// <para>DAC Field Name: PTOExpenseAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Expense Account</para>
 		/// </summary>
 		[DataMember(Name="ExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? ExpenseAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PTOExpenseSubID 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Expense Sub. 
+		/// <para>DAC Field Name: PTOExpenseSubID</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Expense Sub.</para>
 		/// </summary>
 		[DataMember(Name="ExpenseSub", EmitDefaultValue=false)]
 		public StringValue? ExpenseSub { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PTOLiabilityAcctID 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Liability Account 
+		/// <para>DAC Field Name: PTOLiabilityAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Liability Account</para>
 		/// </summary>
 		[DataMember(Name="LiabilityAccount", EmitDefaultValue=false)]
 		public StringValue? LiabilityAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PTOLiabilitySubID 
-		/// DAC: PX.Objects.PR.PRPTOBank 
-		/// Display Name: Liability Sub. 
+		/// <para>DAC Field Name: PTOLiabilitySubID</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Liability Sub.</para>
 		/// </summary>
 		[DataMember(Name="LiabilitySub", EmitDefaultValue=false)]
 		public StringValue? LiabilitySub { get; set; }

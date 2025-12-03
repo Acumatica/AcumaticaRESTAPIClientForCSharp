@@ -16,10 +16,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The name of the payment method setting, such as Card Number,Expiration Date. This field is a part of the compound key of the record.
-		/// DAC Field Name: DetailID 
-		/// DAC: PX.Objects.AR.CustomerPaymentMethodDetail 
-		/// Display Name: Description 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: DetailID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethodDetail</para>
+		/// <para>Display Name: Description</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Name", EmitDefaultValue=false)]
@@ -27,8 +27,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The value for the customer payment method setting,such as the actual credit card number, the expiration date.This value in this field can be subject to dynamic valuevalidation depending on the regular expression definedin the corresponding PaymentMethodDetail.
-		/// DAC: PX.Objects.AR.CustomerPaymentMethodDetail 
-		/// SQL Type: nvarchar(1024) 
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethodDetail</para>
+		/// <para>SQL Type: nvarchar(1024)</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }

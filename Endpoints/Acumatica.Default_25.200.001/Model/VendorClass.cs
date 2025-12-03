@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AP201000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AP201000</c> in the Acumatica ERP
+	/// <para>Key Fields: ClassID</para>
 	/// </summary>
 	[DataContract]
 	public class VendorClass : Entity, ITopLevelEntity
@@ -21,10 +22,10 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<BusinessAccountClassAttributeDetail>? Attributes { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorClassID 
-		/// DAC: PX.Objects.AP.VendorClass 
-		/// Display Name: Class ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: VendorClassID</para>
+		/// <para>DAC: PX.Objects.AP.VendorClass</para>
+		/// <para>Display Name: Class ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
@@ -34,9 +35,9 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AP.VendorClass 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AP.VendorClass</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }

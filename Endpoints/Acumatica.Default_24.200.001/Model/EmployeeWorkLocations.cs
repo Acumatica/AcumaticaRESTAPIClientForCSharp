@@ -15,25 +15,25 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: UsePayrollProjectWorkLocationUseDflt 
-		/// DAC: PX.Objects.PR.PREmployee 
-		/// Display Name: Use Class Default Value 
+		/// <para>DAC Field Name: UsePayrollProjectWorkLocationUseDflt</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Class Default Value</para>
 		/// </summary>
 		[DataMember(Name="UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt", EmitDefaultValue=false)]
 		public BooleanValue? UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UsePayrollProjectWorkLocation 
-		/// DAC: PX.Objects.PR.PREmployee 
-		/// Display Name: Use Payroll Work Location from Project 
+		/// <para>DAC Field Name: UsePayrollProjectWorkLocation</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Payroll Work Location from Project</para>
 		/// </summary>
 		[DataMember(Name="UsePayrollWorkLocationfromProject", EmitDefaultValue=false)]
 		public BooleanValue? UsePayrollWorkLocationfromProject { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LocationUseDflt 
-		/// DAC: PX.Objects.PR.PREmployee 
-		/// Display Name: Use Class Default Work Locations 
+		/// <para>DAC Field Name: LocationUseDflt</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Class Default Work Locations</para>
 		/// </summary>
 		[DataMember(Name="WorkLocationClassDefaults", EmitDefaultValue=false)]
 		public BooleanValue? WorkLocationClassDefaults { get; set; }

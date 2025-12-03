@@ -18,141 +18,141 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<ShipmentDetailAllocation>? Allocations { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranDesc 
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExpireDate 
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Expiration Date 
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsFree 
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Free Item 
+		/// <para>DAC Field Name: IsFree</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Free Item</para>
 		/// </summary>
 		[DataMember(Name="FreeItem", EmitDefaultValue=false)]
 		public BooleanValue? FreeItem { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Location 
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Location</para>
 		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Lot/Serial Nbr. 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OpenOrderQty 
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Open Qty. 
+		/// <para>DAC Field Name: OpenOrderQty</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Open Qty.</para>
 		/// </summary>
 		[DataMember(Name="OpenQty", EmitDefaultValue=false)]
 		public DecimalValue? OpenQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OrigOrderQty 
-		/// DAC: PX.Objects.SO.SOShipLine 
+		/// <para>DAC Field Name: OrigOrderQty</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
 		/// </summary>
 		[DataMember(Name="OrderedQty", EmitDefaultValue=false)]
 		public DecimalValue? OrderedQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OrigLineNbr 
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Order Line Nbr. 
+		/// <para>DAC Field Name: OrigLineNbr</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Order Line Nbr.</para>
 		/// </summary>
 		[DataMember(Name="OrderLineNbr", EmitDefaultValue=false)]
 		public IntValue? OrderLineNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OrigOrderNbr 
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: OrigOrderNbr</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OrigOrderType 
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC Field Name: OrigOrderType</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OriginalShippedQty 
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Original Qty. 
+		/// <para>DAC Field Name: OriginalShippedQty</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Original Qty.</para>
 		/// </summary>
 		[DataMember(Name="OriginalQty", EmitDefaultValue=false)]
 		public DecimalValue? OriginalQty { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Reason Code 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Reason Code</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
 		public StringValue? ReasonCode { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// Display Name: Shipped Qty. 
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>Display Name: Shipped Qty.</para>
 		/// </summary>
 		[DataMember(Name="ShippedQty", EmitDefaultValue=false)]
 		public DecimalValue? ShippedQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.SO.SOShipLine 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOShipLine 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.SO.SOShipLine</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.SO.SOShipment 
-		/// Display Name: Warehouse ID 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Warehouse ID</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }

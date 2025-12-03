@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AR208000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AR208000</c> in the Acumatica ERP
+	/// <para>Key Fields: PriceClassID</para>
 	/// </summary>
 	[DataContract]
 	public class CustomerPriceClass : Entity, ITopLevelEntity
@@ -22,8 +23,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The description of the customer price class.
-		/// DAC: PX.Objects.AR.ARPriceClass 
-		/// SQL Type: nvarchar(250) 
+		/// <para>DAC: PX.Objects.AR.ARPriceClass</para>
+		/// <para>SQL Type: nvarchar(250)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -33,9 +34,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The unique identifier of the customer price class.This field is the key field.
-		/// DAC: PX.Objects.AR.ARPriceClass 
-		/// Display Name: Price Class ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.AR.ARPriceClass</para>
+		/// <para>Display Name: Price Class ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]

@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CR306010 in the Acumatica ERP
+	/// Corresponds to the screen <c>CR306010</c> in the Acumatica ERP
+	/// <para>Key Fields: NoteID</para>
 	/// </summary>
 	[DataContract]
 	public class Activity : Entity, ITopLevelEntity
@@ -19,9 +20,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The HTML body of the activity.
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// Display Name: Activity Details 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Activity Details</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="Body", EmitDefaultValue=false)]
 		public StringValue? Body { get; set; }
@@ -31,16 +32,16 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
-		/// DAC Field Name: IsPrivate 
-		/// DAC: PX.Objects.CR.CRActivity 
+		/// <para>DAC Field Name: IsPrivate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// </summary>
 		[DataMember(Name="Internal", EmitDefaultValue=false)]
 		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
 		/// The identifier of the Note object associated with the document.
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// Display Name: ID 
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: ID</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
@@ -48,8 +49,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
-		/// DAC Field Name: OwnerID 
-		/// DAC: PX.Objects.CR.CRActivity 
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
@@ -59,18 +60,18 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The summary description of the activity.
-		/// DAC Field Name: Subject 
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// SQL Type: nvarchar(998) 
+		/// <para>DAC Field Name: Subject</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
 		[DataMember(Name="Summary", EmitDefaultValue=false)]
 		public StringValue? Summary { get; set; }
 
 		/// <summary>
 		/// The identifier of the parent task or event of the current activity.
-		/// DAC Field Name: ParentNoteID 
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// Display Name: Parent Activity 
+		/// <para>DAC Field Name: ParentNoteID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Parent Activity</para>
 		/// </summary>
 		[DataMember(Name="Task", EmitDefaultValue=false)]
 		public StringValue? Task { get; set; }
@@ -80,16 +81,16 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The type of the activity.
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// SQL Type: char(5) 
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: char(5)</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// The identifier of the workgroup responsible for the current document.
-		/// DAC Field Name: WorkgroupID 
-		/// DAC: PX.Objects.CR.CRActivity 
+		/// <para>DAC Field Name: WorkgroupID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// </summary>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
@@ -105,19 +106,19 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Contains the type of the related entity, that is specified in RefNoteID.
-		/// DAC Field Name: RefNoteIDType 
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// Display Name: Related Entity Type 
-		/// SQL Type: nvarchar(MAX) 
+		/// <para>DAC Field Name: RefNoteIDType</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Related Entity Type</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="RelatedEntityType", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityType { get; set; }
 
 		/// <summary>
 		/// Contains the NoteID value of the related entity.This activity is displayed on the Activities tab of the entity's form.
-		/// DAC Field Name: RefNoteID 
-		/// DAC: PX.Objects.CR.CRActivity 
-		/// Display Name: Related Entity 
+		/// <para>DAC Field Name: RefNoteID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Related Entity</para>
 		/// </summary>
 		/// <remarks>
 		/// The related document may or may not implement the INotable interface,            but it must have a field marked with the PXNoteAttribute attribute            with the ShowInReferenceSelector property set to true.            

@@ -11,23 +11,24 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN304000 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN304000</c> in the Acumatica ERP
+	/// <para>Key Fields: ReferenceNbr</para>
 	/// </summary>
 	[DataContract]
 	public class TransferOrder : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: TranDate 
-		/// DAC: PX.Objects.IN.INRegister 
+		/// <para>DAC Field Name: TranDate</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
 		/// </summary>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranDesc 
-		/// DAC: PX.Objects.IN.INRegister 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -36,18 +37,18 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<TransferOrderDetail>? Details { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExtRefNbr 
-		/// DAC: PX.Objects.IN.INRegister 
-		/// Display Name: External Ref. 
-		/// SQL Type: nvarchar(40) 
+		/// <para>DAC Field Name: ExtRefNbr</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: External Ref.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
 		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
 		public StringValue? ExternalRef { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.IN.INRegister 
-		/// Display Name: Warehouse ID 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Warehouse ID</para>
 		/// </summary>
 		[DataMember(Name="FromWarehouseID", EmitDefaultValue=false)]
 		public StringValue? FromWarehouseID { get; set; }
@@ -59,50 +60,50 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FinPeriodID 
-		/// DAC: PX.Objects.IN.INRegister 
-		/// Display Name: Post Period 
-		/// SQL Type: char(6) 
+		/// <para>DAC Field Name: FinPeriodID</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Post Period</para>
+		/// <para>SQL Type: char(6)</para>
 		/// </summary>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.IN.INRegister 
-		/// Display Name: Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INRegister 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INRegister 
-		/// Display Name: Total Qty. 
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Total Qty.</para>
 		/// </summary>
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ToSiteID 
-		/// DAC: PX.Objects.IN.INRegister 
-		/// Display Name: To Warehouse ID 
+		/// <para>DAC Field Name: ToSiteID</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: To Warehouse ID</para>
 		/// </summary>
 		[DataMember(Name="ToWarehouseID", EmitDefaultValue=false)]
 		public StringValue? ToWarehouseID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INRegister 
-		/// Display Name: Transfer Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Transfer Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="TransferType", EmitDefaultValue=false)]
 		public StringValue? TransferType { get; set; }

@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PR102000 in the Acumatica ERP
+	/// Corresponds to the screen <c>PR102000</c> in the Acumatica ERP
+	/// <para>Key Fields: EarningTypeCodeID</para>
 	/// </summary>
 	[DataContract]
 	public class EarningTypeCode : Entity, ITopLevelEntity
@@ -19,50 +20,50 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// A boolean value that specifies (if set to true) that the hours linked with the code will be considered for PTO calculation.The field is obsolete from 2025R1.
-		/// DAC Field Name: AccruePTO 
-		/// DAC: PX.Objects.EP.EPEarningType 
+		/// <para>DAC Field Name: AccruePTO</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// </summary>
 		[DataMember(Name="AccrueTimeOff", EmitDefaultValue=false)]
 		public BooleanValue? AccrueTimeOff { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.EP.EPEarningType 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
 		/// The category to which an earning type belongs.
-		/// DAC Field Name: EarningTypeCategory 
-		/// DAC: PX.Objects.EP.EPEarningType 
-		/// Display Name: Earning Type Category 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: EarningTypeCategory</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Earning Type Category</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="Category", EmitDefaultValue=false)]
 		public StringValue? Category { get; set; }
 
 		/// <summary>
 		/// A boolean value that specifies (if set to true) that the system uses a WC code from the employee time activities or payroll settings when inserting an earning line in a paycheck or in a payroll batch.
-		/// DAC Field Name: IsWCCCalculation 
-		/// DAC: PX.Objects.EP.EPEarningType 
-		/// Display Name: Contributes to WCC Calculation 
+		/// <para>DAC Field Name: IsWCCCalculation</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Contributes to WCC Calculation</para>
 		/// </summary>
 		[DataMember(Name="ContributestoWCCCalculation", EmitDefaultValue=false)]
 		public BooleanValue? ContributestoWCCCalculation { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.EPEarningType 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TypeCD 
-		/// DAC: PX.Objects.EP.EPEarningType 
-		/// Display Name: Code 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: TypeCD</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="EarningTypeCodeID", EmitDefaultValue=false)]
@@ -75,8 +76,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OvertimeMultiplier 
-		/// DAC: PX.Objects.EP.EPEarningType 
+		/// <para>DAC Field Name: OvertimeMultiplier</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// </summary>
 		[DataMember(Name="Multiplier", EmitDefaultValue=false)]
 		public DecimalValue? Multiplier { get; set; }
@@ -86,18 +87,18 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// A boolean value that specifies (if set to true) that the type refers to earnings guaranteed by a mandatory holiday.
-		/// DAC: PX.Objects.EP.EPEarningType 
-		/// Display Name: Public Holiday 
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Public Holiday</para>
 		/// </summary>
 		[DataMember(Name="PublicHoliday", EmitDefaultValue=false)]
 		public BooleanValue? PublicHoliday { get; set; }
 
 		/// <summary>
 		/// The user-friendly unique identifier of the earning type to be used for calculation of the PTO amount.The field is included in RegularEarningType.
-		/// DAC Field Name: RegularTypeCD 
-		/// DAC: PX.Objects.EP.EPEarningType 
-		/// Display Name: Regular Time Type Code 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RegularTypeCD</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Regular Time Type Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="RegularTimeTypeCode", EmitDefaultValue=false)]
 		public StringValue? RegularTimeTypeCode { get; set; }

@@ -11,15 +11,15 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PR209800 in the Acumatica ERP
+	/// Corresponds to the screen <c>PR209800</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class PayrollWCCCode : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: CountryID 
-		/// DAC: PX.Objects.PR.PRWorkCodeMaint+PRWorkCodeFilter 
+		/// <para>DAC Field Name: CountryID</para>
+		/// <para>DAC: PX.Objects.PR.PRWorkCodeMaint+PRWorkCodeFilter</para>
 		/// </summary>
 		[DataMember(Name="Country", EmitDefaultValue=false)]
 		public StringValue? Country { get; set; }

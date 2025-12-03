@@ -11,24 +11,25 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CS205000 in the Acumatica ERP
+	/// Corresponds to the screen <c>CS205000</c> in the Acumatica ERP
+	/// <para>Key Fields: AttributeID</para>
 	/// </summary>
 	[DataContract]
 	public class AttributeDefinition : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttribute 
-		/// Display Name: Attribute ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
+		/// <para>Display Name: Attribute ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
 		public StringValue? AttributeID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttribute 
-		/// Display Name: Control Type 
+		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
+		/// <para>Display Name: Control Type</para>
 		/// </summary>
 		[DataMember(Name="ControlType", EmitDefaultValue=false)]
 		public StringValue? ControlType { get; set; }
@@ -37,23 +38,23 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttribute 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttribute 
-		/// Display Name: Entry Mask 
-		/// SQL Type: varchar(60) 
+		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
+		/// <para>Display Name: Entry Mask</para>
+		/// <para>SQL Type: varchar(60)</para>
 		/// </summary>
 		[DataMember(Name="EntryMask", EmitDefaultValue=false)]
 		public StringValue? EntryMask { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsInternal 
-		/// DAC: PX.Objects.CS.CSAttribute 
+		/// <para>DAC Field Name: IsInternal</para>
+		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
 		/// </summary>
 		[DataMember(Name="Internal", EmitDefaultValue=false)]
 		public BooleanValue? Internal { get; set; }
@@ -62,9 +63,9 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CSAttribute 
-		/// Display Name: Reg. Exp. 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
+		/// <para>Display Name: Reg. Exp.</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="RegExp", EmitDefaultValue=false)]
 		public StringValue? RegExp { get; set; }

@@ -16,9 +16,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The commission amount calculated on this document for the salesperson.Given in the currency of the document.
-		/// DAC Field Name: CuryCommnAmt 
-		/// DAC: PX.Objects.AR.ARInvoice 
-		/// Display Name: Commission Amt. 
+		/// <para>DAC Field Name: CuryCommnAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Commission Amt.</para>
 		/// </summary>
 		[DataMember(Name="CommissionAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommissionAmount { get; set; }
@@ -28,9 +28,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The amount used as the base to calculate commission for this document.Given in the currency of the document.
-		/// DAC Field Name: CuryCommnblAmt 
-		/// DAC: PX.Objects.AR.ARInvoice 
-		/// Display Name: Total Commissionable 
+		/// <para>DAC Field Name: CuryCommnblAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Total Commissionable</para>
 		/// </summary>
 		[DataMember(Name="TotalCommissionableAmount", EmitDefaultValue=false)]
 		public DecimalValue? TotalCommissionableAmount { get; set; }

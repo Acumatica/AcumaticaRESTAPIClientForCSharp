@@ -19,28 +19,28 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The branch of the claim.
-		/// DAC Field Name: BranchID 
-		/// DAC: PX.Objects.EP.EPExpenseClaim 
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// </summary>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
 		/// The period to which the AP document should be posted. The selected period is copied to the Post Period box on the Bills and Adjustments form (AP301000) (which corresponds to the APInvoiceEntry graph) for the AP document created upon the release of the expense claim.
-		/// DAC Field Name: FinPeriodID 
-		/// DAC: PX.Objects.EP.EPExpenseClaim 
-		/// Display Name: Post to Period 
-		/// SQL Type: char(6) 
+		/// <para>DAC Field Name: FinPeriodID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Post to Period</para>
+		/// <para>SQL Type: char(6)</para>
 		/// </summary>
 		[DataMember(Name="PosttoPeriod", EmitDefaultValue=false)]
 		public StringValue? PosttoPeriod { get; set; }
 
 		/// <summary>
 		/// The tax zone associated with the branch.
-		/// DAC Field Name: TaxZoneID 
-		/// DAC: PX.Objects.EP.EPExpenseClaim 
-		/// Display Name: Tax Zone 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: TaxZoneID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }

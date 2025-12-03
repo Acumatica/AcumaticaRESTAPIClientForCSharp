@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PM302000 in the Acumatica ERP
+	/// Corresponds to the screen <c>PM302000</c> in the Acumatica ERP
+	/// <para>Key Fields: ProjectID, ProjectTaskID</para>
 	/// </summary>
 	[DataContract]
 	public class ProjectTask : Entity, ITopLevelEntity
@@ -31,8 +32,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Specifies (if set to true) that the task is default.
-		/// DAC Field Name: IsDefault 
-		/// DAC: PX.Objects.PM.PMTask 
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
 		/// </summary>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
@@ -42,8 +43,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The description of the task.
-		/// DAC: PX.Objects.PM.PMTask 
-		/// SQL Type: nvarchar(250) 
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>SQL Type: nvarchar(250)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -55,8 +56,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PM.PMTask 
-		/// Display Name: Project ID 
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>Display Name: Project ID</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
@@ -64,10 +65,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The unique identifier of the task. This is a segmented key, which format is configured on the Segmented Keys (CS202000) form.
-		/// DAC Field Name: TaskCD 
-		/// DAC: PX.Objects.PM.PMTask 
-		/// Display Name: Task ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: TaskCD</para>
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>Display Name: Task ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
@@ -78,8 +79,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The task status.
-		/// DAC: PX.Objects.PM.PMTask 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

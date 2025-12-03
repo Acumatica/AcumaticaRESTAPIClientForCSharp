@@ -15,80 +15,80 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: AccountID_Account_description 
-		/// DAC: PX.Objects.AR.ARTran 
+		/// <para>DAC Field Name: AccountID_Account_description</para>
+		/// <para>DAC: PX.Objects.AR.ARTran</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The amount of freight associated with the document.Given in the currency of the document.
-		/// DAC Field Name: CuryFreightAmt 
-		/// DAC: PX.Objects.AR.ARInvoice 
-		/// Display Name: Freight Price 
+		/// <para>DAC Field Name: CuryFreightAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Freight Price</para>
 		/// </summary>
 		[DataMember(Name="FreightAmount", EmitDefaultValue=false)]
 		public DecimalValue? FreightAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryFreightCost 
-		/// DAC: PX.Objects.SO.SOFreightDetail 
-		/// Display Name: Freight Cost 
+		/// <para>DAC Field Name: CuryFreightCost</para>
+		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
+		/// <para>Display Name: Freight Cost</para>
 		/// </summary>
 		[DataMember(Name="FreightCost", EmitDefaultValue=false)]
 		public DecimalValue? FreightCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryLineTotal 
-		/// DAC: PX.Objects.SO.SOFreightDetail 
-		/// Display Name: Line Total 
+		/// <para>DAC Field Name: CuryLineTotal</para>
+		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
+		/// <para>Display Name: Line Total</para>
 		/// </summary>
 		[DataMember(Name="LineTotal", EmitDefaultValue=false)]
 		public DecimalValue? LineTotal { get; set; }
 
 		/// <summary>
 		/// The amount of premium freight associated with the document.Given in the currency of the document.
-		/// DAC Field Name: CuryPremiumFreightAmt 
-		/// DAC: PX.Objects.AR.ARInvoice 
-		/// Display Name: Premium Freight Price 
+		/// <para>DAC Field Name: CuryPremiumFreightAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Premium Freight Price</para>
 		/// </summary>
 		[DataMember(Name="PremiumFreightAmount", EmitDefaultValue=false)]
 		public DecimalValue? PremiumFreightAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOFreightDetail 
-		/// Display Name: Shipment Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
+		/// <para>Display Name: Shipment Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ShipmentNbr", EmitDefaultValue=false)]
 		public StringValue? ShipmentNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOFreightDetail 
-		/// Display Name: Shipment Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
+		/// <para>Display Name: Shipment Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ShipmentType", EmitDefaultValue=false)]
 		public StringValue? ShipmentType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTotalFreightAmt 
-		/// DAC: PX.Objects.SO.SOFreightDetail 
-		/// Display Name: Total Freight Price 
+		/// <para>DAC Field Name: CuryTotalFreightAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
+		/// <para>Display Name: Total Freight Price</para>
 		/// </summary>
 		[DataMember(Name="TotalFreightAmount", EmitDefaultValue=false)]
 		public DecimalValue? TotalFreightAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOFreightDetail 
+		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
 		/// </summary>
 		[DataMember(Name="Volume", EmitDefaultValue=false)]
 		public DecimalValue? Volume { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOFreightDetail 
+		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
 		/// </summary>
 		[DataMember(Name="Weight", EmitDefaultValue=false)]
 		public DecimalValue? Weight { get; set; }

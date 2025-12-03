@@ -16,17 +16,17 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// This field indicates whether the system needs to automatically generate the password automatically for this user.
-		/// DAC: PX.SM.Users 
-		/// Display Name: Generate Password 
+		/// <para>DAC: PX.SM.Users</para>
+		/// <para>Display Name: Generate Password</para>
 		/// </summary>
 		[DataMember(Name="GeneratePassword", EmitDefaultValue=false)]
 		public BooleanValue? GeneratePassword { get; set; }
 
 		/// <summary>
 		/// The login name for the user.This field is a key field.
-		/// DAC Field Name: Username 
-		/// DAC: PX.SM.Users 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Username</para>
+		/// <para>DAC: PX.SM.Users</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Login", EmitDefaultValue=false)]
@@ -34,8 +34,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The password of the user.
-		/// DAC: PX.SM.Users 
-		/// SQL Type: nvarchar(512) 
+		/// <para>DAC: PX.SM.Users</para>
+		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
 		[DataMember(Name="Password", EmitDefaultValue=false)]
 		public StringValue? Password { get; set; }
@@ -45,19 +45,19 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The string identifier of the state or province part of the address.
-		/// DAC Field Name: State 
-		/// DAC: PX.Objects.CR.Address 
-		/// Display Name: State 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC Field Name: State</para>
+		/// <para>DAC: PX.Objects.CR.Address</para>
+		/// <para>Display Name: State</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// The type of the user login.
-		/// DAC Field Name: LoginTypeID 
-		/// DAC: PX.SM.Users 
-		/// Display Name: User Type 
+		/// <para>DAC Field Name: LoginTypeID</para>
+		/// <para>DAC: PX.SM.Users</para>
+		/// <para>Display Name: User Type</para>
 		/// </summary>
 		[DataMember(Name="UserType", EmitDefaultValue=false)]
 		public StringValue? UserType { get; set; }

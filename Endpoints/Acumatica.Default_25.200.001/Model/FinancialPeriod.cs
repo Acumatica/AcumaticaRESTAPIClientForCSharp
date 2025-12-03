@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL201000 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL201000</c> in the Acumatica ERP
+	/// <para>Key Fields: FinancialYear</para>
 	/// </summary>
 	[DataContract]
 	public class FinancialPeriod : Entity, ITopLevelEntity
@@ -25,10 +26,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Key field.The financial year.
-		/// DAC Field Name: Year 
-		/// DAC: PX.Objects.GL.FinPeriods.MasterFinYear 
-		/// Display Name: Financial Year 
-		/// SQL Type: char(4) 
+		/// <para>DAC Field Name: Year</para>
+		/// <para>DAC: PX.Objects.GL.FinPeriods.MasterFinYear</para>
+		/// <para>Display Name: Financial Year</para>
+		/// <para>SQL Type: char(4)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
@@ -39,26 +40,26 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The number of periods in the year.
-		/// DAC Field Name: FinPeriods 
-		/// DAC: PX.Objects.GL.FinPeriods.MasterFinYear 
-		/// Display Name: Number of Periods 
+		/// <para>DAC Field Name: FinPeriods</para>
+		/// <para>DAC: PX.Objects.GL.FinPeriods.MasterFinYear</para>
+		/// <para>Display Name: Number of Periods</para>
 		/// </summary>
 		[DataMember(Name="NbrOfPeriods", EmitDefaultValue=false)]
 		public ShortValue? NbrOfPeriods { get; set; }
 
 		/// <summary>
 		/// The start date of the year.
-		/// DAC: PX.Objects.GL.FinPeriods.MasterFinYear 
-		/// Display Name: Start Date 
+		/// <para>DAC: PX.Objects.GL.FinPeriods.MasterFinYear</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
 		/// Indicates whether the periods of the year can be modified by user.
-		/// DAC Field Name: CustomPeriods 
-		/// DAC: PX.Objects.GL.FinPeriods.MasterFinYear 
-		/// Display Name: User-Defined Periods 
+		/// <para>DAC Field Name: CustomPeriods</para>
+		/// <para>DAC: PX.Objects.GL.FinPeriods.MasterFinYear</para>
+		/// <para>Display Name: User-Defined Periods</para>
 		/// </summary>
 		[DataMember(Name="UserDefinedPeriods", EmitDefaultValue=false)]
 		public BooleanValue? UserDefinedPeriods { get; set; }

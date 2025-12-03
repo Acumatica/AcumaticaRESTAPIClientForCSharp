@@ -11,20 +11,20 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL404001 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL404001</c> in the Acumatica ERP
 	/// </summary>
 	[DataContract]
 	public class AccountDetailsForPeriodInquiry : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="FromPeriod", EmitDefaultValue=false)]
 		public StringValue? FromPeriod { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="Ledger", EmitDefaultValue=false)]
 		public StringValue? Ledger { get; set; }
@@ -33,19 +33,19 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<AccountDetailsForPeriodInquiryDetail>? Results { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="ToPeriod", EmitDefaultValue=false)]
 		public StringValue? ToPeriod { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="IncludeUnposted", EmitDefaultValue=false)]
 		public BooleanValue? IncludeUnposted { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Data.GenericFilter 
+		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="IncludeUnreleased", EmitDefaultValue=false)]
 		public BooleanValue? IncludeUnreleased { get; set; }

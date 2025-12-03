@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL301000 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL301000</c> in the Acumatica ERP
+	/// <para>Key Fields: BatchNbr, Module</para>
 	/// </summary>
 	[DataContract]
 	public class JournalTransaction : Entity, ITopLevelEntity
@@ -19,9 +20,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Key field.Auto-generated unique number of the batch.
-		/// DAC: PX.Objects.GL.Batch 
-		/// Display Name: Batch Number 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.GL.Batch</para>
+		/// <para>Display Name: Batch Number</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
@@ -29,34 +30,34 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Identifier of the Branch, to which the batch belongs.
-		/// DAC: PX.Objects.GL.Batch 
-		/// Display Name: Branch 
+		/// <para>DAC: PX.Objects.GL.Batch</para>
+		/// <para>Display Name: Branch</para>
 		/// </summary>
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
 
 		/// <summary>
 		/// The date and time when the record was created.
-		/// DAC: PX.Objects.EP.EPApproval 
-		/// Display Name: Assignment Date 
+		/// <para>DAC: PX.Objects.EP.EPApproval</para>
+		/// <para>Display Name: Assignment Date</para>
 		/// </summary>
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
 		/// The code of the Currency of the batch.
-		/// DAC Field Name: CuryID 
-		/// DAC: PX.Objects.GL.Batch 
-		/// Display Name: Currency 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.GL.Batch</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
 		/// The description of the batch.
-		/// DAC: PX.Objects.GL.Batch 
-		/// SQL Type: nvarchar(512) 
+		/// <para>DAC: PX.Objects.GL.Batch</para>
+		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -72,16 +73,16 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Identifier of the Ledger, to which the batch belongs.
-		/// DAC: PX.Objects.GL.Batch 
-		/// Display Name: Ledger 
+		/// <para>DAC: PX.Objects.GL.Batch</para>
+		/// <para>Display Name: Ledger</para>
 		/// </summary>
 		[DataMember(Name="LedgerID", EmitDefaultValue=false)]
 		public StringValue? LedgerID { get; set; }
 
 		/// <summary>
 		/// Key field.The code of the module, to which the batch belongs.
-		/// DAC: PX.Objects.GL.Batch 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.GL.Batch</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Module", EmitDefaultValue=false)]
@@ -89,27 +90,27 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// Identifier of the Financial Period, to which the batch belongs.
-		/// DAC Field Name: FinPeriodID 
-		/// DAC: PX.Objects.GL.Batch 
-		/// Display Name: Post Period 
-		/// SQL Type: char(6) 
+		/// <para>DAC Field Name: FinPeriodID</para>
+		/// <para>DAC: PX.Objects.GL.Batch</para>
+		/// <para>Display Name: Post Period</para>
+		/// <para>SQL Type: char(6)</para>
 		/// </summary>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
 		/// The read-only status of the batch.
-		/// DAC: PX.Objects.GL.Batch 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.GL.Batch</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// The date of the batch, specified by user.
-		/// DAC Field Name: DateEntered 
-		/// DAC: PX.Objects.GL.Batch 
-		/// Display Name: Transaction Date 
+		/// <para>DAC Field Name: DateEntered</para>
+		/// <para>DAC: PX.Objects.GL.Batch</para>
+		/// <para>Display Name: Transaction Date</para>
 		/// </summary>
 		[DataMember(Name="TransactionDate", EmitDefaultValue=false)]
 		public DateTimeValue? TransactionDate { get; set; }

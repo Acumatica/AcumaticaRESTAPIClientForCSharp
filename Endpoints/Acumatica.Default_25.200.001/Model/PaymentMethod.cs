@@ -11,15 +11,16 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CA204000 in the Acumatica ERP
+	/// Corresponds to the screen <c>CA204000</c> in the Acumatica ERP
+	/// <para>Key Fields: PaymentMethodID</para>
 	/// </summary>
 	[DataContract]
 	public class PaymentMethod : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.CA.PaymentMethod 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
@@ -31,17 +32,17 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ARIsProcessingRequired 
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// Display Name: Integrated Processing 
+		/// <para>DAC Field Name: ARIsProcessingRequired</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Integrated Processing</para>
 		/// </summary>
 		[DataMember(Name="IntegratedProcessing", EmitDefaultValue=false)]
 		public BooleanValue? IntegratedProcessing { get; set; }
@@ -50,18 +51,18 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PaymentType 
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// Display Name: Means of Payment 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: PaymentType</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Means of Payment</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="MeansOfPayment", EmitDefaultValue=false)]
 		public StringValue? MeansOfPayment { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// Display Name:  Payment Method ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name:  Payment Method ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PaymentMethodID", EmitDefaultValue=false)]
@@ -71,41 +72,41 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<PaymentMethodProcessingCenterDetail>? ProcessingCenters { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UseForCA 
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// Display Name: Require Remittance Information for Cash Account 
+		/// <para>DAC Field Name: UseForCA</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Require Remittance Information for Cash Account</para>
 		/// </summary>
 		[DataMember(Name="RequireRemittanceInformationforCashAccount", EmitDefaultValue=false)]
 		public BooleanValue? RequireRemittanceInformationforCashAccount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UseForAP 
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// Display Name: Use in AP 
+		/// <para>DAC Field Name: UseForAP</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Use in AP</para>
 		/// </summary>
 		[DataMember(Name="UseInAP", EmitDefaultValue=false)]
 		public BooleanValue? UseInAP { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UseForAR 
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// Display Name: Use in AR 
+		/// <para>DAC Field Name: UseForAR</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Use in AR</para>
 		/// </summary>
 		[DataMember(Name="UseInAR", EmitDefaultValue=false)]
 		public BooleanValue? UseInAR { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UseForPR 
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// Display Name: Use in PR 
+		/// <para>DAC Field Name: UseForPR</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Use in PR</para>
 		/// </summary>
 		[DataMember(Name="UseInPR", EmitDefaultValue=false)]
 		public BooleanValue? UseInPR { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PaymentDateToBankDate 
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// Display Name: Set Payment Date to Bank Transaction Date 
+		/// <para>DAC Field Name: PaymentDateToBankDate</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Set Payment Date to Bank Transaction Date</para>
 		/// </summary>
 		[DataMember(Name="SetPaymentDatetoBankTransactionDate", EmitDefaultValue=false)]
 		public BooleanValue? SetPaymentDatetoBankTransactionDate { get; set; }

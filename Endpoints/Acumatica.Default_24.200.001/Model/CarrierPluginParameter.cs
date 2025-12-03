@@ -15,26 +15,26 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.CS.CarrierPluginDetail 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPluginDetail</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DetailID 
-		/// DAC: PX.Objects.CS.CarrierPluginDetail 
-		/// Display Name: ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: DetailID</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPluginDetail</para>
+		/// <para>Display Name: ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PluginID", EmitDefaultValue=false)]
 		public StringValue? PluginID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CarrierPluginDetail 
-		/// SQL Type: nvarchar(1024) 
+		/// <para>DAC: PX.Objects.CS.CarrierPluginDetail</para>
+		/// <para>SQL Type: nvarchar(1024)</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }

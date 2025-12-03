@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AR205000 in the Acumatica ERP
+	/// Corresponds to the screen <c>AR205000</c> in the Acumatica ERP
+	/// <para>Key Fields: SalespersonID</para>
 	/// </summary>
 	[DataContract]
 	public class Salesperson : Entity, ITopLevelEntity
@@ -22,17 +23,17 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The default commission percentage of the salesperson.
-		/// DAC Field Name: CommnPct 
-		/// DAC: PX.Objects.AR.SalesPerson 
-		/// Display Name: Default Commission % 
+		/// <para>DAC Field Name: CommnPct</para>
+		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
+		/// <para>Display Name: Default Commission %</para>
 		/// </summary>
 		[DataMember(Name="DefaultCommission", EmitDefaultValue=false)]
 		public DecimalValue? DefaultCommission { get; set; }
 
 		/// <summary>
 		/// Indicates (if set to true) that the salesperson is active and can be used for recording sales in invoice lines or sales order lines.
-		/// DAC: PX.Objects.AR.SalesPerson 
-		/// Display Name: Is Active 
+		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
+		/// <para>Display Name: Is Active</para>
 		/// </summary>
 		[DataMember(Name="IsActive", EmitDefaultValue=false)]
 		public BooleanValue? IsActive { get; set; }
@@ -42,19 +43,19 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The name of the salesperson.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AR.SalesPerson 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Name", EmitDefaultValue=false)]
 		public StringValue? Name { get; set; }
 
 		/// <summary>
 		/// The unique identifier of the salesperson. This field is the key field.
-		/// DAC Field Name: SalesPersonCD 
-		/// DAC: PX.Objects.AR.SalesPerson 
-		/// Display Name: Salesperson ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: SalesPersonCD</para>
+		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
+		/// <para>Display Name: Salesperson ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="SalespersonID", EmitDefaultValue=false)]
@@ -62,9 +63,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The default sales subaccount associated with the salesperson.The value of this field can be used to construct the sales subaccount in the invoice line that references the salesperson according to the rules defined by SalesSubMask.
-		/// DAC Field Name: SalesSubID 
-		/// DAC: PX.Objects.AR.SalesPerson 
-		/// Display Name: Sales Sub. 
+		/// <para>DAC Field Name: SalesSubID</para>
+		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
+		/// <para>Display Name: Sales Sub.</para>
 		/// </summary>
 		[DataMember(Name="SalesSubaccount", EmitDefaultValue=false)]
 		public StringValue? SalesSubaccount { get; set; }

@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN201000 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN201000</c> in the Acumatica ERP
+	/// <para>Key Fields: ClassID</para>
 	/// </summary>
 	[DataContract]
 	public class ItemClass : Entity, ITopLevelEntity
@@ -21,62 +22,62 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<ItemClassAtrribute>? Attributes { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: AvailabilitySchemeID 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Availability Calculation Rule 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: AvailabilitySchemeID</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Availability Calculation Rule</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="AvailabilityCalculationRule", EmitDefaultValue=false)]
 		public StringValue? AvailabilityCalculationRule { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BaseUnit 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Base Unit 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: BaseUnit</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Base Unit</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="BaseUOM", EmitDefaultValue=false)]
 		public StringValue? BaseUOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ItemClassCD 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Class ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: ItemClassCD</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Class ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Country Of Origin 
-		/// SQL Type: nvarchar(2) 
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Country Of Origin</para>
+		/// <para>SQL Type: nvarchar(2)</para>
 		/// </summary>
 		[DataMember(Name="CountryOfOrigin", EmitDefaultValue=false)]
 		public StringValue? CountryOfOrigin { get; set; }
 
 		/// <summary>
 		/// The default Warehouse used to store the items of this kind.Applicable only for Stock Items (see StkItem) and when the Warehouses feature is enabled.
-		/// DAC Field Name: DfltSiteID 
-		/// DAC: PX.Objects.IN.INItemClassCurySettings 
-		/// Display Name: Default Warehouse 
+		/// <para>DAC Field Name: DfltSiteID</para>
+		/// <para>DAC: PX.Objects.IN.INItemClassCurySettings</para>
+		/// <para>Display Name: Default Warehouse</para>
 		/// </summary>
 		[DataMember(Name="DefaultWarehouseID", EmitDefaultValue=false)]
 		public StringValue? DefaultWarehouseID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Item Type 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Item Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="ItemType", EmitDefaultValue=false)]
 		public StringValue? ItemType { get; set; }
@@ -85,80 +86,80 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LotSerClassID 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Lot/Serial Class 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: LotSerClassID</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Lot/Serial Class</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="LotSerialClass", EmitDefaultValue=false)]
 		public StringValue? LotSerialClass { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PostClassID 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Posting Class 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: PostClassID</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Posting Class</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="PostingClass", EmitDefaultValue=false)]
 		public StringValue? PostingClass { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PriceClassID 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Price Class 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: PriceClassID</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Price Class</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
 		public StringValue? PriceClass { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PurchaseUnit 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Purchase Unit 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: PurchaseUnit</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Purchase Unit</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="PurchaseUOM", EmitDefaultValue=false)]
 		public StringValue? PurchaseUOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SalesUnit 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Sales Unit 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC Field Name: SalesUnit</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Sales Unit</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="SalesUOM", EmitDefaultValue=false)]
 		public StringValue? SalesUOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: StkItem 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Stock Item 
+		/// <para>DAC Field Name: StkItem</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Stock Item</para>
 		/// </summary>
 		[DataMember(Name="StockItem", EmitDefaultValue=false)]
 		public BooleanValue? StockItem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: HSTariffCode 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Commodity Code 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: HSTariffCode</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Commodity Code</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="TariffCode", EmitDefaultValue=false)]
 		public StringValue? TariffCode { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Tax Category 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="TaxCategoryID", EmitDefaultValue=false)]
 		public StringValue? TaxCategoryID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ValMethod 
-		/// DAC: PX.Objects.IN.INItemClass 
-		/// Display Name: Valuation Method 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: ValMethod</para>
+		/// <para>DAC: PX.Objects.IN.INItemClass</para>
+		/// <para>Display Name: Valuation Method</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="ValuationMethod", EmitDefaultValue=false)]
 		public StringValue? ValuationMethod { get; set; }

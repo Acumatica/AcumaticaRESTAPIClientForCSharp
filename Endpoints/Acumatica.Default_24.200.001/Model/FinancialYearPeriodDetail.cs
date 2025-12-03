@@ -16,27 +16,27 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The description of the period.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.GL.FinPeriodSetup 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.GL.FinPeriodSetup</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The field used to display and edit the EndDate of the period (inclusive) in the UI.
-		/// DAC Field Name: EndDateUI 
-		/// DAC: PX.Objects.GL.FinPeriodSetup 
-		/// Display Name: End Date 
+		/// <para>DAC Field Name: EndDateUI</para>
+		/// <para>DAC: PX.Objects.GL.FinPeriodSetup</para>
+		/// <para>Display Name: End Date</para>
 		/// </summary>
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
 		/// <summary>
 		/// The number of the period in a year.
-		/// DAC: PX.Objects.GL.FinPeriodSetup 
-		/// Display Name: Period Nbr. 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.GL.FinPeriodSetup</para>
+		/// <para>Display Name: Period Nbr.</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PeriodNbr", EmitDefaultValue=false)]

@@ -15,9 +15,9 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: ApplyOvertimeRules 
-		/// DAC: PX.Objects.PR.PRBatch 
-		/// Display Name: Apply Overtime Rules for the Document 
+		/// <para>DAC Field Name: ApplyOvertimeRules</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Apply Overtime Rules for the Document</para>
 		/// </summary>
 		[DataMember(Name="ApplyOvertimeRulesfortheDocument", EmitDefaultValue=false)]
 		public BooleanValue? ApplyOvertimeRulesfortheDocument { get; set; }

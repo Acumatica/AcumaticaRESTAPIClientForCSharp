@@ -15,62 +15,62 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: PlanDate 
-		/// DAC: PX.Objects.IN.InventoryAllocDetEnqResult 
-		/// Display Name: Allocation Date 
+		/// <para>DAC Field Name: PlanDate</para>
+		/// <para>DAC: PX.Objects.IN.InventoryAllocDetEnqResult</para>
+		/// <para>Display Name: Allocation Date</para>
 		/// </summary>
 		[DataMember(Name="AllocationDate", EmitDefaultValue=false)]
 		public DateTimeValue? AllocationDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.InventoryAllocDetEnqResult 
-		/// Display Name: Allocation Type 
-		/// SQL Type: nvarchar(50) 
+		/// <para>DAC: PX.Objects.IN.InventoryAllocDetEnqResult</para>
+		/// <para>Display Name: Allocation Type</para>
+		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		[DataMember(Name="AllocationType", EmitDefaultValue=false)]
 		public StringValue? AllocationType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: QADocType 
-		/// DAC: PX.Objects.IN.InventoryAllocDetEnqResult 
-		/// Display Name: Document Type 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC Field Name: QADocType</para>
+		/// <para>DAC: PX.Objects.IN.InventoryAllocDetEnqResult</para>
+		/// <para>Display Name: Document Type</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
 		public StringValue? DocType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.InventoryAllocDetEnqResult 
+		/// <para>DAC: PX.Objects.IN.InventoryAllocDetEnqResult</para>
 		/// </summary>
 		[DataMember(Name="Expired", EmitDefaultValue=false)]
 		public BooleanValue? Expired { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: LocationID 
-		/// DAC: PX.Objects.IN.InventoryAllocDetEnqFilter 
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.IN.InventoryAllocDetEnqFilter</para>
 		/// </summary>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.InventoryAllocDetEnqFilter 
-		/// Display Name: Lot/Serial Nbr. 
-		/// SQL Type: nvarchar(100) 
+		/// <para>DAC: PX.Objects.IN.InventoryAllocDetEnqFilter</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.InventoryAllocDetEnqResult 
-		/// SQL Type: nvarchar(2) 
+		/// <para>DAC: PX.Objects.IN.InventoryAllocDetEnqResult</para>
+		/// <para>SQL Type: nvarchar(2)</para>
 		/// </summary>
 		[DataMember(Name="Module", EmitDefaultValue=false)]
 		public StringValue? Module { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PlanQty 
-		/// DAC: PX.Objects.IN.InventoryAllocDetEnqResult 
-		/// Display Name: Qty. 
+		/// <para>DAC Field Name: PlanQty</para>
+		/// <para>DAC: PX.Objects.IN.InventoryAllocDetEnqResult</para>
+		/// <para>Display Name: Qty.</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }

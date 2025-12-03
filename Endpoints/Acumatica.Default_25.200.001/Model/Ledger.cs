@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen GL201500 in the Acumatica ERP
+	/// Corresponds to the screen <c>GL201500</c> in the Acumatica ERP
+	/// <para>Key Fields: LedgerID</para>
 	/// </summary>
 	[DataContract]
 	public class Ledger : Entity, ITopLevelEntity
@@ -25,27 +26,27 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// When set to true, indicates that the system must use the Ledger as a source Ledger for consolidation.
-		/// DAC Field Name: ConsolAllowed 
-		/// DAC: PX.Objects.GL.Ledger 
-		/// Display Name: Consolidation Source 
+		/// <para>DAC Field Name: ConsolAllowed</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>Display Name: Consolidation Source</para>
 		/// </summary>
 		[DataMember(Name="ConsolidationSource", EmitDefaultValue=false)]
 		public BooleanValue? ConsolidationSource { get; set; }
 
 		/// <summary>
 		/// Base Currency of the Ledger.
-		/// DAC Field Name: BaseCuryID 
-		/// DAC: PX.Objects.GL.Ledger 
-		/// SQL Type: nvarchar(5) 
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
 		[DataMember(Name="Currency", EmitDefaultValue=false)]
 		public StringValue? Currency { get; set; }
 
 		/// <summary>
 		/// The description of the Ledger.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.GL.Ledger 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -55,10 +56,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Key field.Unique user-friendly identifier of the Ledger.
-		/// DAC Field Name: LedgerCD 
-		/// DAC: PX.Objects.GL.Ledger 
-		/// Display Name: Ledger ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: LedgerCD</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>Display Name: Ledger ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LedgerID", EmitDefaultValue=false)]
@@ -66,9 +67,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The type of the balance of the ledger.
-		/// DAC Field Name: BalanceType 
-		/// DAC: PX.Objects.GL.Ledger 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: BalanceType</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }

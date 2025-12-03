@@ -16,25 +16,25 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The identifier of the tax zone to be used to process customer sales orders.The field is included in the TaxZone foreign key.
-		/// DAC Field Name: TaxZoneID 
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Customer Tax Zone 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: TaxZoneID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Customer Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
 		public StringValue? CustomerTaxZone { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__ExemptTax 
-		/// DAC: PX.Objects.SO.SOTaxTran 
+		/// <para>DAC Field Name: Tax__ExemptTax</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
 		/// </summary>
 		[DataMember(Name="IncludeInVATExemptTotal", EmitDefaultValue=false)]
 		public BooleanValue? IncludeInVATExemptTotal { get; set; }
 
 		/// <summary>
 		/// The line number of the document.
-		/// DAC: PX.Objects.SO.SOLine 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC: PX.Objects.SO.SOLine</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
@@ -42,9 +42,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The unique reference number of the order.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		/// <remarks>
@@ -55,9 +55,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The type of the document, which is a part of the identifier of the order.The identifier of the order type.The field is included in the OrderType foreign key.
-		/// DAC: PX.Objects.SO.SOOrder 
-		/// Display Name: Order Type 
-		/// SQL Type: char(2) 
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
 		/// <remarks>
@@ -67,8 +67,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__PendingTax 
-		/// DAC: PX.Objects.SO.SOTaxTran 
+		/// <para>DAC Field Name: Tax__PendingTax</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
 		/// </summary>
 		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
 		public BooleanValue? PendingVAT { get; set; }
@@ -77,42 +77,42 @@ namespace Acumatica.Default_24_200_001.Model
 		public IntValue? RecordID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__ReverseTax 
-		/// DAC: PX.Objects.SO.SOTaxTran 
+		/// <para>DAC Field Name: Tax__ReverseTax</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
 		/// </summary>
 		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
 		public BooleanValue? ReverseVAT { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__StatisticalTax 
-		/// DAC: PX.Objects.SO.SOTaxTran 
+		/// <para>DAC Field Name: Tax__StatisticalTax</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
 		/// </summary>
 		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
 		public BooleanValue? StatisticalVAT { get; set; }
 
 		/// <summary>
 		/// The taxable amount for the specific tax calculated through the document(in the currency of the document).
-		/// DAC Field Name: CuryTaxableAmt 
-		/// DAC: PX.Objects.SO.SOTaxTran 
-		/// Display Name: Taxable Amount 
+		/// <para>DAC Field Name: CuryTaxableAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// <para>Display Name: Taxable Amount</para>
 		/// </summary>
 		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxableAmount { get; set; }
 
 		/// <summary>
 		/// The tax amount for the specific tax (in the currency of the document).
-		/// DAC Field Name: CuryTaxAmt 
-		/// DAC: PX.Objects.SO.SOTaxTran 
-		/// Display Name: Tax Amount 
+		/// <para>DAC Field Name: CuryTaxAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// <para>Display Name: Tax Amount</para>
 		/// </summary>
 		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
 		/// The identifier of the specific tax applied to the document.
-		/// DAC: PX.Objects.SO.SOTaxTran 
-		/// Display Name: Tax ID 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
 		/// <remarks>
@@ -122,15 +122,15 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.SO.SOTaxTran 
-		/// Display Name: Tax Rate 
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// <para>Display Name: Tax Rate</para>
 		/// </summary>
 		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
 		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__TaxType 
-		/// DAC: PX.Objects.SO.SOTaxTran 
+		/// <para>DAC Field Name: Tax__TaxType</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
 		/// </summary>
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }

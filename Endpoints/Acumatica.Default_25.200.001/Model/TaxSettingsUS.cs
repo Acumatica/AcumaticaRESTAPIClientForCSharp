@@ -16,27 +16,27 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// A boolean value that specifies (if set to true) that supplemental earnings are included in the calculation of this deduction and benefit code.
-		/// DAC: PX.Objects.PR.PRDeductCode 
-		/// Display Name: Include Supplemental Earnings 
+		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
+		/// <para>Display Name: Include Supplemental Earnings</para>
 		/// </summary>
 		[DataMember(Name="AllowSupplementalElection", EmitDefaultValue=false)]
 		public BooleanValue? AllowSupplementalElection { get; set; }
 
 		/// <summary>
 		/// The user-friendly unique identifier of the benefit type that is used for reporting and calculation purposes.
-		/// DAC Field Name: BenefitTypeCD 
-		/// DAC: PX.Objects.PR.PRDeductCode 
-		/// Display Name: Code Type 
+		/// <para>DAC Field Name: BenefitTypeCD</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
+		/// <para>Display Name: Code Type</para>
 		/// </summary>
 		[DataMember(Name="CodeType", EmitDefaultValue=false)]
 		public StringValue? CodeType { get; set; }
 
 		/// <summary>
 		/// The method to be used to determine the list of applicable taxes.
-		/// DAC Field Name: IncludeType 
-		/// DAC: PX.Objects.PR.PRDeductCode 
-		/// Display Name: Impact on Taxable Wage 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: IncludeType</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
+		/// <para>Display Name: Impact on Taxable Wage</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="ImpactonTaxableWage", EmitDefaultValue=false)]
 		public StringValue? ImpactonTaxableWage { get; set; }

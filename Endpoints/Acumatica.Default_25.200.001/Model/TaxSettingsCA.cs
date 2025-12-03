@@ -16,9 +16,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The benefit type that is used for reporting and calculation purposes in Canada.
-		/// DAC Field Name: BenefitTypeCDCAN 
-		/// DAC: PX.Objects.PR.PRDeductCode 
-		/// Display Name: Code Type 
+		/// <para>DAC Field Name: BenefitTypeCDCAN</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
+		/// <para>Display Name: Code Type</para>
 		/// </summary>
 		[DataMember(Name="CodeType", EmitDefaultValue=false)]
 		public StringValue? CodeType { get; set; }

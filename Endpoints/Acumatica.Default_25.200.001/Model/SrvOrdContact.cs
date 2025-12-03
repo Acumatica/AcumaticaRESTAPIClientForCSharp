@@ -15,41 +15,41 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSContact 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.FS.FSContact</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Attention", EmitDefaultValue=false)]
 		public StringValue? Attention { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FullName 
-		/// DAC: PX.Objects.FS.FSContact 
-		/// Display Name: Account Name 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC Field Name: FullName</para>
+		/// <para>DAC: PX.Objects.FS.FSContact</para>
+		/// <para>Display Name: Account Name</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
 		public StringValue? CompanyName { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: EMail 
-		/// DAC: PX.Objects.FS.FSContact 
-		/// SQL Type: varchar(255) 
+		/// <para>DAC Field Name: EMail</para>
+		/// <para>DAC: PX.Objects.FS.FSContact</para>
+		/// <para>SQL Type: varchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSContact 
-		/// Display Name: Phone 1 
-		/// SQL Type: varchar(50) 
+		/// <para>DAC: PX.Objects.FS.FSContact</para>
+		/// <para>Display Name: Phone 1</para>
+		/// <para>SQL Type: varchar(50)</para>
 		/// </summary>
 		[DataMember(Name="Phone1", EmitDefaultValue=false)]
 		public StringValue? Phone1 { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.FS.FSContact 
-		/// Display Name: Phone 1 Type 
-		/// SQL Type: varchar(3) 
+		/// <para>DAC: PX.Objects.FS.FSContact</para>
+		/// <para>Display Name: Phone 1 Type</para>
+		/// <para>SQL Type: varchar(3)</para>
 		/// </summary>
 		[DataMember(Name="Phone1Type", EmitDefaultValue=false)]
 		public StringValue? Phone1Type { get; set; }

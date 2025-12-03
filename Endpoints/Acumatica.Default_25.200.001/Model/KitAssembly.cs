@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen IN307000 in the Acumatica ERP
+	/// Corresponds to the screen <c>IN307000</c> in the Acumatica ERP
+	/// <para>Key Fields: ReferenceNbr, Type</para>
 	/// </summary>
 	[DataContract]
 	public class KitAssembly : Entity, ITopLevelEntity
@@ -21,16 +22,16 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<KitAssemblyAllocation>? Allocations { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranDate 
-		/// DAC: PX.Objects.IN.INKitRegister 
+		/// <para>DAC Field Name: TranDate</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
 		/// </summary>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranTranDesc 
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: TranTranDesc</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -39,15 +40,15 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// Display Name: Inventory ID 
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="KitInventoryID", EmitDefaultValue=false)]
 		public StringValue? KitInventoryID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// Display Name: Location 
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Location</para>
 		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
@@ -56,17 +57,17 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<KitAssemblyNonStockComponent>? NonStockComponents { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FinPeriodID 
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// Display Name: Post Period 
-		/// SQL Type: char(6) 
+		/// <para>DAC Field Name: FinPeriodID</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Post Period</para>
+		/// <para>SQL Type: char(6)</para>
 		/// </summary>
 		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// Display Name: Quantity 
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Quantity</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
@@ -75,34 +76,34 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// Display Name: Reason Code 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Reason Code</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
 		public StringValue? ReasonCode { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// Display Name: Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: KitRevisionID 
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: KitRevisionID</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
@@ -111,32 +112,32 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<KitAssemblyStockComponent>? StockComponents { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SubItemID 
-		/// DAC: PX.Objects.IN.INKitRegister 
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: DocType 
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// SQL Type: char(1) 
+		/// <para>DAC Field Name: DocType</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>SQL Type: char(1)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// SQL Type: nvarchar(6) 
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.IN.INKitRegister 
-		/// Display Name: Warehouse 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Warehouse</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }

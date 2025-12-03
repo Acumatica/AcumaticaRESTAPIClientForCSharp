@@ -11,14 +11,15 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen TX205500 in the Acumatica ERP
+	/// Corresponds to the screen <c>TX205500</c> in the Acumatica ERP
+	/// <para>Key Fields: TaxCategoryID</para>
 	/// </summary>
 	[DataContract]
 	public class TaxCategory : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.TX.TaxCategory 
+		/// <para>DAC: PX.Objects.TX.TaxCategory</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
@@ -28,9 +29,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The description of the tax category, which can be specified by the user.
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.TX.TaxCategory 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.TX.TaxCategory</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -40,9 +41,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// "Exclude Listed Taxes" flag. Specifies how the taxes that are included in the category should be applied to the document line.false: Only the taxes of the category that are intersected with the taxes of the tax zone should be applied to the document line.true: All taxes of the tax zone except the taxes of the category should be applied to the document line.
-		/// DAC Field Name: TaxCatFlag 
-		/// DAC: PX.Objects.TX.TaxCategory 
-		/// Display Name: Exclude Listed Taxes 
+		/// <para>DAC Field Name: TaxCatFlag</para>
+		/// <para>DAC: PX.Objects.TX.TaxCategory</para>
+		/// <para>Display Name: Exclude Listed Taxes</para>
 		/// </summary>
 		[DataMember(Name="ExcludeListedTaxes", EmitDefaultValue=false)]
 		public BooleanValue? ExcludeListedTaxes { get; set; }
@@ -52,9 +53,9 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The tax category ID. This is the key field, which can be specified by the user.
-		/// DAC: PX.Objects.TX.TaxCategory 
-		/// Display Name: Tax Category ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.TX.TaxCategory</para>
+		/// <para>Display Name: Tax Category ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxCategoryID", EmitDefaultValue=false)]

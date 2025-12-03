@@ -16,34 +16,34 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The actual amount paid on the document.Presented in the currency of the document, see CuryID.
-		/// DAC Field Name: CuryAdjgAmt 
-		/// DAC: PX.Objects.AP.APAdjust 
-		/// Display Name: Amount Paid 
+		/// <para>DAC Field Name: CuryAdjgAmt</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Amount Paid</para>
 		/// </summary>
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
 		public DecimalValue? AmountPaid { get; set; }
 
 		/// <summary>
 		/// The amount of the adjustment before the discount is taken.(Presented in the currency of the document, see CuryID)
-		/// DAC Field Name: CuryDocBal 
-		/// DAC: PX.Objects.AP.APAdjust 
+		/// <para>DAC Field Name: CuryDocBal</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
 		/// </summary>
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
 		/// The difference between the cash discount that was available and the actual amount of cash discount taken.(Presented in the currency of the document, see CuryID)
-		/// DAC Field Name: CuryDiscBal 
-		/// DAC: PX.Objects.AP.APAdjust 
-		/// Display Name: Cash Discount Balance 
+		/// <para>DAC Field Name: CuryDiscBal</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Cash Discount Balance</para>
 		/// </summary>
 		[DataMember(Name="CashDiscountBalance", EmitDefaultValue=false)]
 		public DecimalValue? CashDiscountBalance { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: AdjdLineNbr 
-		/// DAC: PX.Objects.AP.APAdjust 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC Field Name: AdjdLineNbr</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
@@ -51,10 +51,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// The type of the adjusted document.
-		/// DAC Field Name: AdjdDocType 
-		/// DAC: PX.Objects.AP.APAdjust 
-		/// Display Name: Document Type 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: AdjdDocType</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Document Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
@@ -62,10 +62,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// Reference number of the adjusted document.
-		/// DAC Field Name: AdjdRefNbr 
-		/// DAC: PX.Objects.AP.APAdjust 
-		/// Display Name: Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: AdjdRefNbr</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]

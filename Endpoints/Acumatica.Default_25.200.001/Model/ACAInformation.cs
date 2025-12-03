@@ -18,9 +18,9 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<ACAInfoDetail>? ACAInfoDetails { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: MinimumIndividualContribution 
-		/// DAC: PX.Objects.PR.PRDeductCode 
-		/// Display Name: Minimum Individual Contribution 
+		/// <para>DAC Field Name: MinimumIndividualContribution</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
+		/// <para>Display Name: Minimum Individual Contribution</para>
 		/// </summary>
 		[DataMember(Name="MinIndividualContribution", EmitDefaultValue=false)]
 		public DecimalValue? MinIndividualContribution { get; set; }

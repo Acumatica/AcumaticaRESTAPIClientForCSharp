@@ -15,31 +15,31 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.ShipTermsDetail 
-		/// Display Name: Break Amount 
+		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
+		/// <para>Display Name: Break Amount</para>
 		/// </summary>
 		[DataMember(Name="BreakAmount", EmitDefaultValue=false)]
 		public DecimalValue? BreakAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: FreightCostPercent 
-		/// DAC: PX.Objects.CS.ShipTermsDetail 
-		/// Display Name: Freight Cost % 
+		/// <para>DAC Field Name: FreightCostPercent</para>
+		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
+		/// <para>Display Name: Freight Cost %</para>
 		/// </summary>
 		[DataMember(Name="FreightCost", EmitDefaultValue=false)]
 		public DecimalValue? FreightCost { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: InvoiceAmountPercent 
-		/// DAC: PX.Objects.CS.ShipTermsDetail 
-		/// Display Name: Invoice Amount % 
+		/// <para>DAC Field Name: InvoiceAmountPercent</para>
+		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
+		/// <para>Display Name: Invoice Amount %</para>
 		/// </summary>
 		[DataMember(Name="InvoiceAmount", EmitDefaultValue=false)]
 		public DecimalValue? InvoiceAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.ShipTermsDetail 
-		/// Display Name: Line Handling 
+		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
+		/// <para>Display Name: Line Handling</para>
 		/// </summary>
 		[DataMember(Name="LineHandling", EmitDefaultValue=false)]
 		public DecimalValue? LineHandling { get; set; }
@@ -48,9 +48,9 @@ namespace Acumatica.Default_24_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ShippingHandling 
-		/// DAC: PX.Objects.CS.ShipTermsDetail 
-		/// Display Name: Shipping and Handling 
+		/// <para>DAC Field Name: ShippingHandling</para>
+		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
+		/// <para>Display Name: Shipping and Handling</para>
 		/// </summary>
 		[DataMember(Name="ShippingandHandling", EmitDefaultValue=false)]
 		public DecimalValue? ShippingandHandling { get; set; }

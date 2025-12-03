@@ -11,15 +11,16 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen PR209700 in the Acumatica ERP
+	/// Corresponds to the screen <c>PR209700</c> in the Acumatica ERP
+	/// <para>Key Fields: PayrollUnionLocalID</para>
 	/// </summary>
 	[DataContract]
 	public class PayrollUnionLocal : Entity, ITopLevelEntity
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.PM.PMUnion 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PM.PMUnion</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
@@ -28,8 +29,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<UnionDeductionOrBenefitDetail>? DeductionsAndBenefits { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PM.PMUnion 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.PM.PMUnion</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -44,10 +45,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: UnionID 
-		/// DAC: PX.Objects.PM.PMUnion 
-		/// Display Name: Union Local ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: UnionID</para>
+		/// <para>DAC: PX.Objects.PM.PMUnion</para>
+		/// <para>Display Name: Union Local ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PayrollUnionLocalID", EmitDefaultValue=false)]

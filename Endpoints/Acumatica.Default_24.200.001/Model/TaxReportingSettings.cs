@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen TX205100 in the Acumatica ERP
+	/// Corresponds to the screen <c>TX205100</c> in the Acumatica ERP
+	/// <para>Key Fields: TaxAgency</para>
 	/// </summary>
 	[DataContract]
 	public class TaxReportingSettings : Entity, ITopLevelEntity
@@ -21,9 +22,9 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<ReportingGroup>? ReportingGroups { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: VendorID 
-		/// DAC: PX.Objects.TX.TaxReport 
-		/// Display Name: Tax Agency 
+		/// <para>DAC Field Name: VendorID</para>
+		/// <para>DAC: PX.Objects.TX.TaxReport</para>
+		/// <para>Display Name: Tax Agency</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxAgency", EmitDefaultValue=false)]

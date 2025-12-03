@@ -15,40 +15,40 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: BAccount__AcctCD 
-		/// DAC: PX.Objects.CR.CROpportunity 
+		/// <para>DAC Field Name: BAccount__AcctCD</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
 		[DataMember(Name="BusinessAccountID", EmitDefaultValue=false)]
 		public StringValue? BusinessAccountID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: BAccount__AcctName 
-		/// DAC: PX.Objects.CR.CROpportunity 
+		/// <para>DAC Field Name: BAccount__AcctName</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
 		[DataMember(Name="BusinessAccountName", EmitDefaultValue=false)]
 		public StringValue? BusinessAccountName { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ContractCD 
-		/// DAC: PX.Objects.CT.Contract 
-		/// Display Name: Contract ID 
-		/// SQL Type: nvarchar(30) 
+		/// <para>DAC Field Name: ContractCD</para>
+		/// <para>DAC: PX.Objects.CT.Contract</para>
+		/// <para>Display Name: Contract ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ContractID", EmitDefaultValue=false)]
 		public StringValue? ContractID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CT.Contract 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.CT.Contract</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ExpireDate 
-		/// DAC: PX.Objects.CT.Contract 
-		/// Display Name: Expiration Date 
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.CT.Contract</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
@@ -57,9 +57,9 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.BAccount 
-		/// Display Name: Customer Status 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
+		/// <para>Display Name: Customer Status</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

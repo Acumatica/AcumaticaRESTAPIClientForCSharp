@@ -15,15 +15,15 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.EP.EPEmployeePosition 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.EPEmployeePosition 
-		/// Display Name: End Date 
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: End Date</para>
 		/// </summary>
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
@@ -32,48 +32,48 @@ namespace Acumatica.Default_25_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.EPEmployeePosition 
-		/// Display Name: Position 
-		/// SQL Type: nvarchar(20) 
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Position</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		[DataMember(Name="PositionID", EmitDefaultValue=false)]
 		public StringValue? PositionID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsRehirable 
-		/// DAC: PX.Objects.EP.EPEmployeePosition 
-		/// Display Name: Eligible for Rehire 
+		/// <para>DAC Field Name: IsRehirable</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Eligible for Rehire</para>
 		/// </summary>
 		[DataMember(Name="RehireEligible", EmitDefaultValue=false)]
 		public BooleanValue? RehireEligible { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.EPEmployeePosition 
-		/// Display Name: Start Date 
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.EP.EPEmployeePosition 
-		/// Display Name: Start Reason 
-		/// SQL Type: char(3) 
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Start Reason</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="StartReason", EmitDefaultValue=false)]
 		public StringValue? StartReason { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsTerminated 
-		/// DAC: PX.Objects.EP.EPEmployeePosition 
+		/// <para>DAC Field Name: IsTerminated</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
 		/// </summary>
 		[DataMember(Name="Terminated", EmitDefaultValue=false)]
 		public BooleanValue? Terminated { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TermReason 
-		/// DAC: PX.Objects.EP.EPEmployeePosition 
-		/// Display Name: Termination Reason 
-		/// SQL Type: char(3) 
+		/// <para>DAC Field Name: TermReason</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Termination Reason</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="TerminationReason", EmitDefaultValue=false)]
 		public StringValue? TerminationReason { get; set; }

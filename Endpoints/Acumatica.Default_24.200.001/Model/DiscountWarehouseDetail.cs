@@ -15,8 +15,8 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: SiteID 
-		/// DAC: PX.Objects.AR.DiscountSite 
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSite</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]

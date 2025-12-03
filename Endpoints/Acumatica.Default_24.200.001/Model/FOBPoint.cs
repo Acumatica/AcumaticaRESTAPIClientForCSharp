@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen CS208500 in the Acumatica ERP
+	/// Corresponds to the screen <c>CS208500</c> in the Acumatica ERP
+	/// <para>Key Fields: FOBPointID</para>
 	/// </summary>
 	[DataContract]
 	public class FOBPoint : Entity, ITopLevelEntity
@@ -19,17 +20,17 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// The description of the FOB Point.
-		/// DAC: PX.Objects.CS.FOBPoint 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.CS.FOBPoint</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The unique identifier of the FOB Point.
-		/// DAC: PX.Objects.CS.FOBPoint 
-		/// Display Name: FOB Point ID 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.CS.FOBPoint</para>
+		/// <para>Display Name: FOB Point ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="FOBPointID", EmitDefaultValue=false)]

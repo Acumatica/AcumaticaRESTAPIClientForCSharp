@@ -18,48 +18,48 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? AccountID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTranAmt 
-		/// DAC: PX.Objects.AR.ARPaymentChargeTran 
+		/// <para>DAC Field Name: CuryTranAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARPaymentChargeTran</para>
 		/// </summary>
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: TranDesc 
-		/// DAC: PX.Objects.AR.ARPaymentChargeTran 
-		/// SQL Type: nvarchar(256) 
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.AR.ARPaymentChargeTran</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPayment 
-		/// Display Name: Type 
-		/// SQL Type: char(3) 
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
 		public StringValue? DocType { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPaymentChargeTran 
-		/// Display Name: Entry Type 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC: PX.Objects.AR.ARPaymentChargeTran</para>
+		/// <para>Display Name: Entry Type</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="EntryTypeID", EmitDefaultValue=false)]
 		public StringValue? EntryTypeID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARTranPostBal 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC: PX.Objects.AR.ARTranPostBal</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AR.ARPayment 
-		/// Display Name: Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="RefNbr", EmitDefaultValue=false)]

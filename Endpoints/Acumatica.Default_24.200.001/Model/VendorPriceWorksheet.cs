@@ -11,7 +11,8 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
-	/// Corresponds to the screen AP202010 in the Acumatica ERP
+	/// Corresponds to the screen <c>AP202010</c> in the Acumatica ERP
+	/// <para>Key Fields: ReferenceNbr</para>
 	/// </summary>
 	[DataContract]
 	public class VendorPriceWorksheet : Entity, ITopLevelEntity
@@ -21,23 +22,23 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Descr 
-		/// DAC: PX.Objects.AP.APPriceWorksheet 
-		/// SQL Type: nvarchar(150) 
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>SQL Type: nvarchar(150)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AP.APPriceWorksheet 
-		/// Display Name: Effective Date 
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Effective Date</para>
 		/// </summary>
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AP.APPriceWorksheet 
-		/// Display Name: Expiration Date 
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
@@ -49,33 +50,33 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: OverwriteOverlapping 
-		/// DAC: PX.Objects.AP.APPriceWorksheet 
-		/// Display Name: Overwrite Overlapping Prices 
+		/// <para>DAC Field Name: OverwriteOverlapping</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Overwrite Overlapping Prices</para>
 		/// </summary>
 		[DataMember(Name="OverwriteOverlappingPrices", EmitDefaultValue=false)]
 		public BooleanValue? OverwriteOverlappingPrices { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsPromotional 
-		/// DAC: PX.Objects.AP.APPriceWorksheet 
+		/// <para>DAC Field Name: IsPromotional</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
 		/// </summary>
 		[DataMember(Name="Promotional", EmitDefaultValue=false)]
 		public BooleanValue? Promotional { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: RefNbr 
-		/// DAC: PX.Objects.AP.APPriceWorksheet 
-		/// Display Name: Reference Nbr. 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.AP.APPriceWorksheet 
-		/// SQL Type: char(1) 
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }

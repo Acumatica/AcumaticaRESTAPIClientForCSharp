@@ -15,75 +15,75 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: Tax__ExemptTax 
-		/// DAC: PX.Objects.CR.CRTaxTran 
+		/// <para>DAC Field Name: Tax__ExemptTax</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
 		[DataMember(Name="IncludeInVATExemptTotal", EmitDefaultValue=false)]
 		public BooleanValue? IncludeInVATExemptTotal { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CROpportunityProducts 
-		/// Display Name: Line Nbr. 
+		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__PendingTax 
-		/// DAC: PX.Objects.CR.CRTaxTran 
+		/// <para>DAC Field Name: Tax__PendingTax</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
 		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
 		public BooleanValue? PendingVAT { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__ReverseTax 
-		/// DAC: PX.Objects.CR.CRTaxTran 
+		/// <para>DAC Field Name: Tax__ReverseTax</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
 		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
 		public BooleanValue? ReverseVAT { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__StatisticalTax 
-		/// DAC: PX.Objects.CR.CRTaxTran 
+		/// <para>DAC Field Name: Tax__StatisticalTax</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
 		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
 		public BooleanValue? StatisticalVAT { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTaxableAmt 
-		/// DAC: PX.Objects.CR.CRTaxTran 
-		/// Display Name: Taxable Amount 
+		/// <para>DAC Field Name: CuryTaxableAmt</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
+		/// <para>Display Name: Taxable Amount</para>
 		/// </summary>
 		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxableAmount { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CuryTaxAmt 
-		/// DAC: PX.Objects.CR.CRTaxTran 
-		/// Display Name: Tax Amount 
+		/// <para>DAC Field Name: CuryTaxAmt</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
+		/// <para>Display Name: Tax Amount</para>
 		/// </summary>
 		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CRTaxTran 
-		/// Display Name: Tax ID 
-		/// SQL Type: nvarchar(60) 
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CR.CRTaxTran 
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
 		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
 		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: Tax__TaxType 
-		/// DAC: PX.Objects.CR.CRTaxTran 
+		/// <para>DAC Field Name: Tax__TaxType</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }

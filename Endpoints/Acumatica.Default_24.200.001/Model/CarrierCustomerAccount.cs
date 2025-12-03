@@ -15,46 +15,46 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.CS.CarrierPluginCustomer 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CarrierPluginCustomer 
-		/// Display Name: Carrier Billing Account 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
+		/// <para>Display Name: Carrier Billing Account</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="CarrierAccount", EmitDefaultValue=false)]
 		public StringValue? CarrierAccount { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CarrierPluginCustomer 
-		/// Display Name: Customer ID 
+		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
+		/// <para>Display Name: Customer ID</para>
 		/// </summary>
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CustomerID_description 
-		/// DAC: PX.Objects.CS.CarrierPluginCustomer 
+		/// <para>DAC Field Name: CustomerID_description</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
 		/// </summary>
 		[DataMember(Name="CustomerName", EmitDefaultValue=false)]
 		public StringValue? CustomerName { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: CustomerLocationID 
-		/// DAC: PX.Objects.CS.CarrierPluginCustomer 
-		/// Display Name: Customer Location 
+		/// <para>DAC Field Name: CustomerLocationID</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
+		/// <para>Display Name: Customer Location</para>
 		/// </summary>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.CS.CarrierPluginCustomer 
-		/// Display Name: Billing Postal Code 
-		/// SQL Type: varchar(10) 
+		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
+		/// <para>Display Name: Billing Postal Code</para>
+		/// <para>SQL Type: varchar(10)</para>
 		/// </summary>
 		[DataMember(Name="PostalCode", EmitDefaultValue=false)]
 		public StringValue? PostalCode { get; set; }

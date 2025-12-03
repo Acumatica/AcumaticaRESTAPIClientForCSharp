@@ -15,34 +15,34 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.CA.PaymentMethod 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: IsDefault 
-		/// DAC: PX.Objects.CA.CCProcessingCenterPmntMethod 
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.CA.CCProcessingCenterPmntMethod</para>
 		/// </summary>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: PaymentMethodID 
-		/// DAC: PX.Objects.CA.PaymentMethod 
-		/// Display Name:  Payment Method ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: PaymentMethodID</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name:  Payment Method ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: ProcessingCenterID 
-		/// DAC: PX.Objects.CA.CCProcessingCenterPmntMethod 
-		/// Display Name: Proc. Center ID 
-		/// SQL Type: nvarchar(10) 
+		/// <para>DAC Field Name: ProcessingCenterID</para>
+		/// <para>DAC: PX.Objects.CA.CCProcessingCenterPmntMethod</para>
+		/// <para>Display Name: Proc. Center ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="ProcCenterID", EmitDefaultValue=false)]

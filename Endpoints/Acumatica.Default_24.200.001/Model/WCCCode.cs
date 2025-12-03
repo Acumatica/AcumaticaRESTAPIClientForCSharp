@@ -15,15 +15,15 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
-		/// DAC Field Name: IsActive 
-		/// DAC: PX.Objects.PM.PMWorkCode 
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// DAC: PX.Objects.PM.PMWorkCode 
-		/// SQL Type: nvarchar(255) 
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -32,10 +32,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
-		/// DAC Field Name: WorkCodeID 
-		/// DAC: PX.Objects.PM.PMWorkCode 
-		/// Display Name: WCC Code 
-		/// SQL Type: nvarchar(15) 
+		/// <para>DAC Field Name: WorkCodeID</para>
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// <para>Display Name: WCC Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="wcccode", EmitDefaultValue=false)]
