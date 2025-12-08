@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.MANUFACTURING_25_100_001.Model
+{
+	[DataContract]
+	public class EstimateOperationOutsideProcess : Entity
+	{
+
+		/// <summary>
+		/// <para>DAC Field Name: DropShippedToVendor</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Drop Shipped to Vendor</para>
+		/// </summary>
+		[DataMember(Name="DropShippedtoVendor", EmitDefaultValue=false)]
+		public BooleanValue? DropShippedtoVendor { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Outside Process</para>
+		/// </summary>
+		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
+		public BooleanValue? OutsideProcess { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: VendorID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// </summary>
+		[DataMember(Name="Vendor", EmitDefaultValue=false)]
+		public StringValue? Vendor { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: VendorLocationID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Vendor Location</para>
+		/// </summary>
+		[DataMember(Name="VendorLocation", EmitDefaultValue=false)]
+		public StringValue? VendorLocation { get; set; }
+
+	}
+}

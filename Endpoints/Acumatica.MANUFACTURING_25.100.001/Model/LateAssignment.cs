@@ -1,0 +1,126 @@
+using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.MANUFACTURING_25_100_001.Model
+{
+	/// <summary>
+	/// Corresponds to the screen <c>AM312000</c> in the Acumatica ERP
+	/// <para>Key Fields: LotSerialNbr, OrderType, ProductionNbr</para>
+	/// </summary>
+	[DataContract]
+	public class LateAssignment : Entity, ITopLevelEntity
+	{
+
+		[DataMember(Name="AllocatedDetail", EmitDefaultValue=false)]
+		public List<LateAssignmentAllocatedDetail>? AllocatedDetail { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: QtyComplete</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Complete Qty.</para>
+		/// </summary>
+		[DataMember(Name="CompleteQty", EmitDefaultValue=false)]
+		public DecimalValue? CompleteQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
+		public StringValue? LotSerialNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="OrderType", EmitDefaultValue=false)]
+		public StringValue? OrderType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ProdOrdID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Production Nbr.</para>
+		/// <para>SQL Type: nvarchar(19)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
+		public StringValue? ProductionNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Qty. to Produce</para>
+		/// </summary>
+		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
+		public DecimalValue? QtytoProduce { get; set; }
+
+		/// <summary>
+		/// Quantity remaining to be completed on the production order
+		/// <para>DAC Field Name: QtyRemaining</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Remaining Qty.</para>
+		/// </summary>
+		[DataMember(Name="RemainingQty", EmitDefaultValue=false)]
+		public DecimalValue? RemainingQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: QtyScrapped</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Scrapped Qty.</para>
+		/// </summary>
+		[DataMember(Name="ScrappedQty", EmitDefaultValue=false)]
+		public DecimalValue? ScrappedQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: StatusID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
+		[DataMember(Name="UnallocatedDetail", EmitDefaultValue=false)]
+		public List<LateAssignmentUnallocatedDetail>? UnallocatedDetail { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteId</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// </summary>
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
+
+		public static class Expand
+		{
+			public const string Files = "Files";
+			public const string AllocatedDetail = "AllocatedDetail";
+			public const string AllocatedDetail_Files = "AllocatedDetail/Files";
+			public const string UnallocatedDetail = "UnallocatedDetail";
+			public const string UnallocatedDetail_Files = "UnallocatedDetail/Files";
+
+			//Intentionally excluded
+			//public const string All = "Files,AllocatedDetail,AllocatedDetail/Files,UnallocatedDetail,UnallocatedDetail/Files";
+		}
+		public virtual string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/25.100.001";
+		}
+	}
+}
