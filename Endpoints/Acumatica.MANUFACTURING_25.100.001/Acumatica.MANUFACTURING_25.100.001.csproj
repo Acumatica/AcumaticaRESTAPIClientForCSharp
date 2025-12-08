@@ -1,8 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup> 
-
- </PropertyGroup>
+  <PropertyGroup>
+	  <Version>5.7.0</Version>
+	  <Company>Acumatica</Company>
+	  <Description>C# classes generated based on Acumatica Manufacturing endpoint version 25.100.001</Description>
+	  <Copyright>Acumatica</Copyright>
+	  <PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
+	  <PackageTags>Acumatica;REST;API;Endpoint</PackageTags>
+	  <PackageReleaseNotes> </PackageReleaseNotes>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <Title>Manufacturing Acumatica Contract Based API endpoint v.25.100.001 model </Title>
+	  <Authors>Dmitrii-Naumov</Authors>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
