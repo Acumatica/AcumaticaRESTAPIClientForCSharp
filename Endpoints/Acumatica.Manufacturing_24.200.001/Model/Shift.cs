@@ -21,6 +21,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: AMCrewSize</para>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>Display Name: Crew Size</para>
 		/// </summary>
 		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
 		public DecimalValue? CrewSize { get; set; }
@@ -34,6 +35,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>Display Name: Diff Type</para>
+		/// <para>SQL Type: nchar(1)</para>
 		/// </summary>
 		[DataMember(Name="DiffType", EmitDefaultValue=false)]
 		public StringValue? DiffType { get; set; }
@@ -51,6 +54,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: ShftDiff</para>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>Display Name: Shift Diff</para>
 		/// </summary>
 		[DataMember(Name="ShiftDiff", EmitDefaultValue=false)]
 		public DecimalValue? ShiftDiff { get; set; }
