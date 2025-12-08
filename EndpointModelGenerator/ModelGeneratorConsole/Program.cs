@@ -18,6 +18,7 @@ namespace ModelGeneratorConsole
         const string EndpointSchemaDirectory = @"\EndpointDefinitions\";
         const string EndpointMetadataDirectory = @"\EndpointMetadata\";
         const string DefaultNamespaceTemplate = @"Acumatica.{0}";
+        private const string AcumaticaUrlForMetadata = "https://localhost/25r200";
         #endregion
 
         static void Main(string[] args)
@@ -50,7 +51,7 @@ namespace ModelGeneratorConsole
                 try
                 {
                     Console.WriteLine("Getting field descriptions for " + endpoint);
-                    SchemaEnricher.AddFieldDescriptions(endpointSchema, "https://localhost/25r200", "admin", "123");
+                    SchemaEnricher.AddFieldDescriptions(endpointSchema, AcumaticaUrlForMetadata, "admin", "123");
                 }
                 catch (Exception e)
                 {
