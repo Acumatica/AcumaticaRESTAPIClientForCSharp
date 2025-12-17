@@ -249,12 +249,16 @@ namespace EndpointSchemaGenerator
             }
         }
 
-        private static List<string> CollectExpands(Schema schema, EntityDefinition entity, bool addFiles = true)
+        private static List<string> CollectExpands(Schema schema, EntityDefinition entity, bool addFiles = true, bool addTranslations = true)
         {
             List<string> expandsAppend = new List<string>();
             if(addFiles)
             {
                 expandsAppend.Add("Files");
+            }
+            if(entity.IsTopLevel && addTranslations)
+            {
+                expandsAppend.Add("Translations");
             }
             foreach (var field in entity.Fields)
             {
@@ -268,7 +272,7 @@ namespace EndpointSchemaGenerator
                     {
                         //we do not want to add files expand for linked entities as usually they don't have their own files
                         //and Attributes do not have files either
-                        expandsAppend.AddRange(CollectExpands(schema, schema.Entities[fieldType], isDetail && fieldType != "AttributeValue" && field.Name!="Attributes").Select(_ => $"{field.Name}/{_}"));
+                        expandsAppend.AddRange(CollectExpands(schema, schema.Entities[fieldType], isDetail && fieldType != "AttributeValue" && field.Name!="Attributes", false).Select(_ => $"{field.Name}/{_}"));
                     }
                 }
             }
