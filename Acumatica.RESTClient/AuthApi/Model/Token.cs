@@ -1,6 +1,6 @@
-using System.Runtime.Serialization;
-
 using Newtonsoft.Json;
+using System;
+using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.AuthApi.Model
 {
@@ -22,6 +22,7 @@ namespace Acumatica.RESTClient.AuthApi.Model
             Refresh_token = refreshToken;
             Scope = scope;
             Token_type = token_type;
+            SetTokenObtainedDT();
         }
 
         [DataMember(Name = "access_token", EmitDefaultValue = false)]
@@ -39,6 +40,9 @@ namespace Acumatica.RESTClient.AuthApi.Model
         [DataMember(Name = "token_type", EmitDefaultValue = false)]
         public string? Token_type { get; set; }
 
+        public DateTime ObtainedAtUTC{ get; private set; }
+
+        public bool IsValid { get => isValid(); }
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -46,6 +50,16 @@ namespace Acumatica.RESTClient.AuthApi.Model
         public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+
+        public virtual void SetTokenObtainedDT(DateTime? dt = null)
+        {
+            ObtainedAtUTC = dt ?? DateTime.UtcNow;
+        }
+
+        private bool isValid()
+        {
+            return !string.IsNullOrEmpty(Access_token) && (DateTime.UtcNow - ObtainedAtUTC).TotalSeconds < Convert.ToUInt32(Expires_in);
         }
     }
 
