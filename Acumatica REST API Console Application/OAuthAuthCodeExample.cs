@@ -29,7 +29,7 @@ namespace AcumaticaRestApiExample
                 clientID,
                 clientSecret,
                  redirectUrl,
-                 OAuthScope.API //| OAuthScope.OfflineAccess
+                 OAuthScope.API | OAuthScope.OfflineAccess
                 );
             OpenUrl(url);
             var code = ReadCodeFromRedirectURL(redirectUrl);

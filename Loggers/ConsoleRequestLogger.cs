@@ -38,6 +38,7 @@ namespace Acumatica.RESTClient.Loggers
             Console.WriteLine(DateTime.Now.ToString());
             Console.WriteLine("Request");
             Console.WriteLine("\tMethod: " + request.Method);
+            Console.WriteLine("\tHeaders: " + request.Headers);
             Console.WriteLine("\tURL: " + request.RequestUri);
             string body = request.Content?.ReadAsStringAsync().Result;
 
