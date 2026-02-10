@@ -246,33 +246,7 @@ namespace Acumatica.RESTClient.Client
                 stopwatch.Stop();
             }
         }
-
-        public async Task<HttpResponseMessage> CallApiAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            RequestInterceptor?.Invoke(request);
-
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            try
-            {
-                HttpResponseMessage response = await HttpClient.SendAsync(request, cancellationToken).ConfigureAwait(false);
-                ResponseInterceptor?.Invoke(response);
-
-                return response;
-            }
-            catch (TaskCanceledException e) when (!cancellationToken.IsCancellationRequested)
-            {
-                if (e.InnerException == null && stopwatch.ElapsedMilliseconds > HttpClient.Timeout.TotalMilliseconds) // in .Net framework the InnerException is null in case of timeout, while in .Net Core it presents
-                {
-                    throw new TaskCanceledException($"Task cancelled due to configured Timeout: {HttpClient.Timeout}", e);
-                }
-                else throw;
-            }
-            finally
-            {
-                stopwatch.Stop();
-            }
-        }
-
+      
         public bool HasToken()
         {
             return Token?.IsValid == true;

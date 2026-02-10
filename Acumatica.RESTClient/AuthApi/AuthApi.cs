@@ -20,9 +20,9 @@ namespace Acumatica.RESTClient.AuthApi
     /// </summary>
     public static class AuthApiExtensions
     {
-        #region Public Methods
-        #region OAuth
-        public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
+		#region Public Methods
+		#region OAuth
+		public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
         {
             RefreshAccessTokenAsync(client, clientID, clientSecret).GetAwaiter().GetResult();
         }
@@ -78,12 +78,12 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="scope"></param>
         /// <param name="cancellationToken"></param>
         public async static Task ReceiveAccessTokenAsync(
-            this ApiClient client,
-            string clientID,
-            string clientSecret,
-            string username,
-            string password,
-            OAuthScope scope,
+            this ApiClient client, 
+            string clientID, 
+            string clientSecret, 
+            string username, 
+            string password, 
+            OAuthScope scope, 
             CancellationToken cancellationToken = default)
         {
             var time = DateTime.UtcNow;
@@ -190,14 +190,13 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="code"></param>
         /// <param name="cancellationToken"></param>
         public static async Task ReceiveAccessTokenAuthCodeAsync(
-            this ApiClient client,
-            string clientID,
-            string clientSecret,
-            string redirectUrl,
-            string code,
+            this ApiClient client, 
+            string clientID, 
+            string clientSecret, 
+            string redirectUrl, 
+            string code, 
             CancellationToken cancellationToken = default)
         {
-
             var time = DateTime.UtcNow;
             HttpResponseMessage response = await client.CallApiAsync(
                resourcePath:        "/identity/connect/token",
@@ -252,7 +251,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="locale">Defines the locale to use for localizable data.</param>
         /// <param name="cancellationToken"></param>
         [Obsolete("Use OAuth 2.0 methods instead.")]
-        public async static Task LoginAsync(this ApiClient client,
+        public async static Task LoginAsync(this ApiClient client, 
             string username, string password, string? tenant = null, string? branch = null, string? locale = null,
             CancellationToken cancellationToken = default)
         {
@@ -274,8 +273,8 @@ namespace Acumatica.RESTClient.AuthApi
         [Obsolete("Use OAuth 2.0 methods instead.")]
         public static void Login(this ApiClient client, Credentials credentials)
         {
-            LoginAsync(client, credentials).GetAwaiter().GetResult();
-        }
+           LoginAsync(client, credentials).GetAwaiter().GetResult();
+		}
 
         /// <summary>
         /// Logs in to the system. 
@@ -288,8 +287,8 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="cancellationToken"></param>
         [Obsolete("Use OAuth 2.0 methods instead.")]
         public async static Task LoginAsync(
-            this ApiClient client,
-            Credentials credentials,
+            this ApiClient client, 
+            Credentials credentials, 
             CancellationToken cancellationToken = default)
         {
             if (credentials == null)
@@ -328,8 +327,8 @@ namespace Acumatica.RESTClient.AuthApi
         {
             try
             {
-                Logout(client);
-                return true;
+				Logout(client);
+				return true;
             }
             catch
             {
@@ -337,7 +336,7 @@ namespace Acumatica.RESTClient.AuthApi
             }
         }
 
-
+  
         /// <summary>
         /// Logs out from the system. 
         /// </summary>
@@ -357,7 +356,7 @@ namespace Acumatica.RESTClient.AuthApi
                cancellationToken:   cancellationToken
             ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(client, response, nameof(LogoutAsync)).ConfigureAwait(false);
+             await VerifyResponseAsync(client, response, nameof(LogoutAsync)).ConfigureAwait(false);
         }
 
         #endregion
