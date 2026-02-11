@@ -31,7 +31,7 @@ namespace Acumatica.RESTClient.AuthApi
         {
             if (client == null || string.IsNullOrEmpty(client.Token?.Refresh_token))
                 ThrowMissingParameter(nameof(RefreshAccessToken), "Refresh_Token");
-
+            var time = DateTime.UtcNow;
             HttpResponseMessage response = await client!.CallApiAsync(
                 resourcePath:       "/identity/connect/token",
                 method:             HttpMethod.Post,
@@ -51,6 +51,7 @@ namespace Acumatica.RESTClient.AuthApi
             response.EnsureSuccessStatusCode();
 
             client.Token = await DeserializeAsync<Token>(response).ConfigureAwait(false);
+            client.Token?.SetTokenObtainedDT(time);
         }
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
@@ -84,6 +85,7 @@ namespace Acumatica.RESTClient.AuthApi
             OAuthScope scope, 
             CancellationToken cancellationToken = default)
         {
+            var time = DateTime.UtcNow;
             HttpResponseMessage response = await client.CallApiAsync(
                resourcePath:        "identity/connect/token",
                method:              HttpMethod.Post,
@@ -104,6 +106,7 @@ namespace Acumatica.RESTClient.AuthApi
             await VerifyResponseAsync(client, response, nameof(ReceiveAccessTokenAsync)).ConfigureAwait(false);
 
             client.Token = await DeserializeAsync<Token>(response).ConfigureAwait(false);
+            client.Token?.SetTokenObtainedDT(time);
         }
 
         /// <summary>
@@ -193,6 +196,7 @@ namespace Acumatica.RESTClient.AuthApi
             string code, 
             CancellationToken cancellationToken = default)
         {
+            var time = DateTime.UtcNow;
             HttpResponseMessage response = await client.CallApiAsync(
                resourcePath:        "/identity/connect/token",
                method:              HttpMethod.Post,
@@ -213,6 +217,7 @@ namespace Acumatica.RESTClient.AuthApi
             await VerifyResponseAsync(client, response, "RequestToken").ConfigureAwait(false);
 
             client.Token = await DeserializeAsync<Token>(response).ConfigureAwait(false);
+            client.Token?.SetTokenObtainedDT(time);
         }
         #endregion
 

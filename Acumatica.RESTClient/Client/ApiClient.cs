@@ -249,7 +249,7 @@ namespace Acumatica.RESTClient.Client
       
         public bool HasToken()
         {
-            return Token != null;
+            return Token?.IsValid == true;
         }
         public void Dispose()
         {
