@@ -16,7 +16,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
                     && property.Name != nameof(Entity.Custom)
                     && property.Name != nameof(Entity.CustomFields)
                     && property.Name != nameof(Entity.Files)
-                    && property.PropertyType != typeof(CustomField[])
+					&& property.Name != nameof(Entity.Links)
+					&& property.PropertyType != typeof(CustomField[])
                     && property.PropertyType != typeof(string);
         }
         public static bool IsLinkedEntity(PropertyInfo property)

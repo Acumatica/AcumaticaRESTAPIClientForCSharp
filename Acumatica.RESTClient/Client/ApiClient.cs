@@ -214,7 +214,7 @@ namespace Acumatica.RESTClient.Client
             List<KeyValuePair<String, String>>? queryParams = null,
             Dictionary<String, String>? customHeaders = null)
         {
-            var request = PrepareRequest(
+            HttpRequestMessage request = PrepareRequest(
                 resourcePath,
                 method,
                 queryParams,

@@ -344,5 +344,40 @@ namespace AcumaticaRestApiExample
             }
         }
 
-    }
+		public static void UpdateBill(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+		{
+			var client = new ApiClient(siteURL,
+				requestInterceptor: FileRequestLogger.LogRequest,
+				responseInterceptor: FileRequestLogger.LogResponse,
+				ignoreSslErrors: true // this is here to allow testing with self-signed certificates
+				);
+
+			try
+			{
+				client.Login(username, password, tenant, branch, locale);
+
+				Console.WriteLine("Reading Bills");
+                var bill = client.GetList<Bill>(filter: "Status eq 'Balanced'", top: 1, expand: Bill.Expand.Files).First();
+                bill.Description= "Updated description " + DateTime.Now;
+                client.Put(bill);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
+			finally
+			{
+				//we use logout in finally block because we need to always logout, even if the request failed for some reason
+				if (client.TryLogout())
+				{
+					Console.WriteLine("Logged out successfully.");
+				}
+				else
+				{
+					Console.WriteLine("An error occured during logout.");
+				}
+			}
+		}
+
+	}
 }

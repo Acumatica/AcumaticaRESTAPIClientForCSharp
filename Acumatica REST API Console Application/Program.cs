@@ -6,7 +6,7 @@ namespace AcumaticaRestApiExample
 {
 	class Program
 	{
-		const string SiteURL = "https://localhost/25r200/";
+		const string SiteURL = "https://localhost/25r2/";
         const string Username = "admin";
 		const string Password = "123";
         const string Tenant = null;//"Company";
@@ -23,7 +23,12 @@ namespace AcumaticaRestApiExample
         const string RedirectUrl = "https://localhost/test/";
 
         static async Task Main(string[] args)
-        {
+		{
+			Console.WriteLine("Update example");
+			Console.WriteLine("----------------------------------------");
+			RESTExample.UpdateBill(SiteURL, Username, Password, Tenant, Branch, Locale);
+
+
             Console.WriteLine("Report example");
             Console.WriteLine("----------------------------------------");
             RESTExample.TestReportDownload(SiteURL, Username, Password, Tenant, Branch, Locale);

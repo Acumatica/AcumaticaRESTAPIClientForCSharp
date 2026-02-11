@@ -98,18 +98,21 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// </summary>
         [DataMember(Name="files", EmitDefaultValue=false)]
         public List<FileLink>? Files { get; set; }
+		public bool ShouldSerializeFiles() => false;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+		/// <summary>
+		/// 
+		/// </summary>
+		[DataMember(Name = "_links", EmitDefaultValue = false)]
         public Links Links { get; set; }
 
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
+		public bool ShouldSerializeLinks() => false;
+
+		/// <summary>
+		/// Returns the string presentation of the object
+		/// </summary>
+		/// <returns>String presentation of the object</returns>
+		public override string ToString()
         {
            return ToJson().ToString();
         }
