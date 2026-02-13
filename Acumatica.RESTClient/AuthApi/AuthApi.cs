@@ -429,6 +429,8 @@ namespace Acumatica.RESTClient.AuthApi
                 s.Append("offline_access ");
             if (scope.HasFlag(OAuthScope.ConcurrentAccess))
                 s.Append("api:concurrent_access ");
+            if (scope.HasFlag(OAuthScope.OpenID))
+                s.Append("openid ");
 
             return s.ToString().TrimEnd(' ');
         }
