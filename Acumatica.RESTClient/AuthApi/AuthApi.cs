@@ -1,3 +1,6 @@
+using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.AuthApi.Model;
+using Acumatica.RESTClient.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,11 +8,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
-using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.AuthApi.Model;
-using Acumatica.RESTClient.Client;
-
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 
@@ -117,9 +115,12 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="clientSecret"></param>
         /// <param name="redirectUrl"></param>
         /// <param name="scope"></param>
-        public static string Authorize(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope)
+        /// <param name="responseType"></param>
+        /// <param name="usePost"></param>
+        /// <param name="nonce"></param>
+        public static string Authorize(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope, ResponseType? responseType = null, bool usePost = false, string nonce = "")
         {
-            return AuthorizeAsync(client, clientID, clientSecret, redirectUrl, scope).Result;
+            return AuthorizeAsync(client, clientID, clientSecret, redirectUrl, scope, responseType: responseType, usePost: usePost, nonce: nonce).Result;
         }
         /// <summary>
         /// 
@@ -130,20 +131,28 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="redirectUrl"></param>
         /// <param name="scope"></param>
         /// <param name="cancellationToken"></param>
+        /// <param name="responseType"></param>
+        /// <param name="usePost"></param>
+        /// <param name="nonce"></param>
         public async static Task<string> AuthorizeAsync(
             this ApiClient client, 
             string clientID, 
             string clientSecret, 
             string redirectUrl, 
             OAuthScope scope, 
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken = default,
+            ResponseType? responseType = null,
+            bool usePost = false,
+            string nonce = "")
         {
             List<KeyValuePair<string, string>> queryParams = new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("response_type", "code"),
+                new KeyValuePair<string, string>("response_type", PrepareResponseType(responseType)),
                 new KeyValuePair<string, string>("client_id", clientID),
                 new KeyValuePair<string, string>("scope", PrepareScopeParameter(scope)),
-                new KeyValuePair<string, string>("redirect_uri",  redirectUrl)
+                new KeyValuePair<string, string>("redirect_uri",  redirectUrl),
+                new KeyValuePair<string, string>("response_mode",  usePost ? "form_post" : "fragment"),
+                new KeyValuePair<string, string>("nonce",  nonce)
             };
 
             HttpResponseMessage response = await client.CallApiAsync(
@@ -385,7 +394,30 @@ namespace Acumatica.RESTClient.AuthApi
             None = 0,
             API = 1,
             OfflineAccess = 2,
-            ConcurrentAccess = 4
+            ConcurrentAccess = 4,
+            OpenID = 8
+        }
+
+        [Flags]
+        public enum ResponseType
+        {
+            IdToken = 0,
+            Token = 1
+        }
+
+        private static string PrepareResponseType(ResponseType? responseType)
+        {
+            StringBuilder s = new StringBuilder();
+            s.Append("code");
+            if (responseType != null)
+            {
+                if (responseType.Value.HasFlag(ResponseType.IdToken))
+                    s.Append(" id_token");
+                if (responseType.Value.HasFlag(ResponseType.Token))
+                    s.Append(" token");
+            }
+
+            return s.ToString().TrimEnd(' ');
         }
 
         private static string PrepareScopeParameter(OAuthScope scope)

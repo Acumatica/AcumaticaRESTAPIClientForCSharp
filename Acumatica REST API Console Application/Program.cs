@@ -20,13 +20,17 @@ namespace AcumaticaRestApiExample
         private const string ClientSecretAC = "ZJ7sGGDZWOJyJzSpbRjrpg";
         private const string ClientIDAC = "9737F884-8405-42FB-7303-7F1DA7BE8CA7@Company";
         #endregion
+        # region Hybrid flow
+        private const string ClientSecretHybrid = "KzK82VVdqggy4PHaOHMTNw";
+        private const string ClientIDHybrid = "2DC9435C-A596-959E-3E38-8EB84725F089@Company";
+        #endregion
         const string RedirectUrl = "https://localhost/test/";
 
         static async Task Main(string[] args)
-		{
-			Console.WriteLine("Update example");
-			Console.WriteLine("----------------------------------------");
-			RESTExample.UpdateBill(SiteURL, Username, Password, Tenant, Branch, Locale);
+        {
+            Console.WriteLine("Update example");
+            Console.WriteLine("----------------------------------------");
+            RESTExample.UpdateBill(SiteURL, Username, Password, Tenant, Branch, Locale);
 
 
             Console.WriteLine("Report example");
@@ -78,6 +82,12 @@ namespace AcumaticaRestApiExample
             Console.WriteLine("OAuth 2.0 (Authorization Code flow)");
             Console.WriteLine("----------------------------------------");
             OAuthAuthCodeExample.Example(SiteURL, ClientSecretAC, ClientIDAC, RedirectUrl);
+            Console.WriteLine("Ready to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("OAuth 2.0 (Hybrid flow)");
+            Console.WriteLine("----------------------------------------");
+            OAuthHybridExample.Example(SiteURL, ClientSecretHybrid, ClientIDHybrid, RedirectUrl);
             Console.WriteLine("Ready to continue...");
             Console.ReadLine();
             //await TestPerformanceAsync();
