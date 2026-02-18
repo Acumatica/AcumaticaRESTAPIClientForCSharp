@@ -22,12 +22,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
     public abstract class CustomField
     {
         public string? Type { get; set; }
-
-        [Obsolete("ViewName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
-        public string? ViewName;
-
-        [Obsolete("FieldName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
-        public string? FieldName;
     }
     
     [DataContract]

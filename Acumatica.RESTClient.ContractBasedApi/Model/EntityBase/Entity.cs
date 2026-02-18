@@ -13,45 +13,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
     /// </summary>
     public abstract class Entity
     {
-		#region Backward compatibility with SOAP
-		[Obsolete("ReturnBehavior property is for backward compatibility with SOAP only. Please use $select and $expand parameters instead.")]
-        public ReturnBehavior ReturnBehavior { get; set; }
-
-        [Obsolete("CustomFields property is for backward compatibility with SOAP only. Please use Custom property instead.")]
-        public CustomField[] CustomFields
-        {
-            get
-            {
-                List<CustomField> customFields = new List<CustomField>();
-                if (Custom != null)
-                {
-                    foreach (var view in Custom)
-                    {
-                        foreach (var field in view.Value)
-                        {
-                            field.Value.FieldName = field.Key;
-                            field.Value.ViewName = view.Key;
-                            customFields.Add(field.Value);
-                        }
-                    }
-                }
-                return customFields.ToArray();
-            }
-            set
-            {
-                Custom = new Dictionary<string, Dictionary<string, CustomField>>();
-                foreach (var field in value)
-                {
-                    if (!Custom.ContainsKey(field.ViewName))
-                    {
-                        Custom.Add(field.ViewName, new Dictionary<string, CustomField>());
-                    }
-                    Custom[field.ViewName].Add(field.FieldName, field);
-                }
-            }
-        }
-
-		#endregion
 		/// <summary>
 		/// Indicates whether it is needed to delete detail record.
 		/// </summary>
