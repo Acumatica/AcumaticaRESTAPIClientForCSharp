@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_23_200_001.Model
 	/// Corresponds to the screen <c>GL202500</c> in the Acumatica ERP
 	/// <para>Key Fields: AccountCD</para>
 	/// </summary>
-	[DataContract]
 	public class Account : Entity, ITopLevelEntity
 	{
 
@@ -25,7 +23,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="AccountCD", EmitDefaultValue=false)]
 		public StringValue? AccountCD { get; set; }
 
 		/// <summary>
@@ -35,7 +32,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Account Class</para>
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
-		[DataMember(Name="AccountClass", EmitDefaultValue=false)]
 		public StringValue? AccountClass { get; set; }
 
 		/// <summary>
@@ -44,7 +40,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>Display Name: Account Group</para>
 		/// </summary>
-		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
 		public StringValue? AccountGroup { get; set; }
 
 		/// <summary>
@@ -52,14 +47,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>Display Name: Account ID</para>
 		/// </summary>
-		[DataMember(Name="AccountID", EmitDefaultValue=false)]
 		public IntValue? AccountID { get; set; }
 
 		/// <summary>
 		/// Indicates whether the Account is active.
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -68,7 +61,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>Display Name: Cash Account</para>
 		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public BooleanValue? CashAccount { get; set; }
 
 		/// <summary>
@@ -77,7 +69,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>Display Name: COA Order</para>
 		/// </summary>
-		[DataMember(Name="ChartOfAccountsOrder", EmitDefaultValue=false)]
 		public IntValue? ChartOfAccountsOrder { get; set; }
 
 		/// <summary>
@@ -87,10 +78,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Consolidation Account</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="ConsolidationAccount", EmitDefaultValue=false)]
 		public StringValue? ConsolidationAccount { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
@@ -100,7 +89,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Currency</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
@@ -108,10 +96,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -120,7 +106,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Post Option</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="PostOption", EmitDefaultValue=false)]
 		public StringValue? PostOption { get; set; }
 
 		/// <summary>
@@ -128,7 +113,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>Display Name: Require Units</para>
 		/// </summary>
-		[DataMember(Name="RequireUnits", EmitDefaultValue=false)]
 		public BooleanValue? RequireUnits { get; set; }
 
 		/// <summary>
@@ -138,13 +122,11 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Revaluation Rate Type</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="RevaluationRateType", EmitDefaultValue=false)]
 		public StringValue? RevaluationRateType { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// </summary>
-		[DataMember(Name="Secured", EmitDefaultValue=false)]
 		public BooleanValue? Secured { get; set; }
 
 		/// <summary>
@@ -154,7 +136,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Tax Category</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
@@ -162,7 +143,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
@@ -171,15 +151,15 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>Display Name: Use Default Subaccount</para>
 		/// </summary>
-		[DataMember(Name="UseDefaultSubaccount", EmitDefaultValue=false)]
 		public BooleanValue? UseDefaultSubaccount { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

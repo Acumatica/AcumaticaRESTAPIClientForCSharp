@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,11 +9,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class ExpenseClaimFinancialDetail : Entity
 	{
 
-		[DataMember(Name="APDocuments", EmitDefaultValue=false)]
 		public List<ExpenseClaimAPDocument>? APDocuments { get; set; }
 
 		/// <summary>
@@ -22,7 +19,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -32,7 +28,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Post to Period</para>
 		/// <para>SQL Type: char(6)</para>
 		/// </summary>
-		[DataMember(Name="PosttoPeriod", EmitDefaultValue=false)]
 		public StringValue? PosttoPeriod { get; set; }
 
 		/// <summary>
@@ -42,7 +37,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
 	}

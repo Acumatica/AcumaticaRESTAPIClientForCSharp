@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,27 +12,24 @@ namespace Acumatica.Default_25_200_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>SO640590</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class InventoryQuantityAvailable : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
-		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<InventoryQuantityAvailableDetail>? Results { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Results = "Results";
 			public const string Results_Files = "Results/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Results,Results/Files";
+			//public const string All = "Files,Translations,Results,Results/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class DiscountCustomerDetail : Entity
 	{
 
@@ -19,14 +17,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Customer</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Customer__AcctName</para>
 		/// <para>DAC: PX.Objects.AR.DiscountCustomer</para>
 		/// </summary>
-		[DataMember(Name="CustomerName", EmitDefaultValue=false)]
 		public StringValue? CustomerName { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class ExpenseClaimDetails : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: CuryExtCost</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Amount in Claim Curr.</para>
 		/// </summary>
-		[DataMember(Name="AmountInClaimCurrency", EmitDefaultValue=false)]
 		public DecimalValue? AmountInClaimCurrency { get; set; }
 
 		/// <summary>
@@ -37,7 +33,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: AP Reference Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="APRefNbr", EmitDefaultValue=false)]
 		public StringValue? APRefNbr { get; set; }
 
 		/// <summary>
@@ -46,14 +41,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: AR Reference Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="ARRefNbr", EmitDefaultValue=false)]
 		public StringValue? ARRefNbr { get; set; }
 
 		/// <summary>
 		/// Indicates (if set to true) that the customer should be billed for the claim amount.You can use the Bill Expense Claims (EP502000) form to bill the customer if no project is specified.
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// </summary>
-		[DataMember(Name="Billable", EmitDefaultValue=false)]
 		public BooleanValue? Billable { get; set; }
 
 		/// <summary>
@@ -61,7 +54,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -70,7 +62,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Claim Amount</para>
 		/// </summary>
-		[DataMember(Name="ClaimAmount", EmitDefaultValue=false)]
 		public DecimalValue? ClaimAmount { get; set; }
 
 		/// <summary>
@@ -79,7 +70,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
@@ -89,7 +79,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Currency</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
@@ -97,7 +86,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: Customer</para>
 		/// </summary>
-		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
@@ -105,7 +93,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: ExpenseDate</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
@@ -114,7 +101,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -123,7 +109,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Employee Part</para>
 		/// </summary>
-		[DataMember(Name="EmployeePart", EmitDefaultValue=false)]
 		public DecimalValue? EmployeePart { get; set; }
 
 		/// <summary>
@@ -132,7 +117,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Expense Account</para>
 		/// </summary>
-		[DataMember(Name="ExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? ExpenseAccount { get; set; }
 
 		/// <summary>
@@ -141,7 +125,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Expense Item</para>
 		/// </summary>
-		[DataMember(Name="ExpenseItemID", EmitDefaultValue=false)]
 		public StringValue? ExpenseItemID { get; set; }
 
 		/// <summary>
@@ -150,7 +133,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Expense Sub.</para>
 		/// </summary>
-		[DataMember(Name="ExpenseSubaccount", EmitDefaultValue=false)]
 		public StringValue? ExpenseSubaccount { get; set; }
 
 		/// <summary>
@@ -159,7 +141,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: Location</para>
 		/// </summary>
-		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
@@ -168,7 +149,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Net Amount</para>
 		/// </summary>
-		[DataMember(Name="NetAmount", EmitDefaultValue=false)]
 		public DecimalValue? NetAmount { get; set; }
 
 		/// <summary>
@@ -177,7 +157,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Project/Contract</para>
 		/// </summary>
-		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
 		/// <summary>
@@ -186,7 +165,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Project Task</para>
 		/// </summary>
-		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
 
 		/// <summary>
@@ -194,7 +172,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Quantity</para>
 		/// </summary>
-		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
@@ -204,7 +181,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Ref. Nbr.</para>
 		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		[DataMember(Name="RefNbr", EmitDefaultValue=false)]
 		public StringValue? RefNbr { get; set; }
 
 		/// <summary>
@@ -213,7 +189,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Sales Account</para>
 		/// </summary>
-		[DataMember(Name="SalesAccount", EmitDefaultValue=false)]
 		public StringValue? SalesAccount { get; set; }
 
 		/// <summary>
@@ -222,7 +197,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Sales Sub.</para>
 		/// </summary>
-		[DataMember(Name="SalesSubaccount", EmitDefaultValue=false)]
 		public StringValue? SalesSubaccount { get; set; }
 
 		/// <summary>
@@ -230,7 +204,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -239,7 +212,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: Tax Total</para>
 		/// </summary>
-		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
@@ -249,7 +221,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Category</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
@@ -259,7 +230,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
@@ -268,7 +238,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Tip Amount</para>
 		/// </summary>
-		[DataMember(Name="TipAmount", EmitDefaultValue=false)]
 		public DecimalValue? TipAmount { get; set; }
 
 		/// <summary>
@@ -277,7 +246,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
-		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
@@ -285,7 +253,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 	}

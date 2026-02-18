@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_23_200_001.Model
 	/// Corresponds to the screen <c>AR209500</c> in the Acumatica ERP
 	/// <para>Key Fields: DiscountCode, Sequence</para>
 	/// </summary>
-	[DataContract]
 	public class Discount : Entity, ITopLevelEntity
 	{
 
@@ -22,7 +20,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -30,26 +27,20 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Break By</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="BreakBy", EmitDefaultValue=false)]
 		public StringValue? BreakBy { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
-		[DataMember(Name="CustomerPriceClasses", EmitDefaultValue=false)]
 		public List<DiscountCustomerPriceClassesDetail>? CustomerPriceClasses { get; set; }
 
-		[DataMember(Name="Customers", EmitDefaultValue=false)]
 		public List<DiscountCustomerDetail>? Customers { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// <para>SQL Type: nvarchar(250)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="DiscountBreakpoints", EmitDefaultValue=false)]
 		public List<DiscountBreakpointDetail>? DiscountBreakpoints { get; set; }
 
 		/// <summary>
@@ -58,7 +49,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Discount By</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="DiscountBy", EmitDefaultValue=false)]
 		public StringValue? DiscountBy { get; set; }
 
 		/// <summary>
@@ -68,7 +58,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
 
 		/// <summary>
@@ -76,7 +65,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// <para>Display Name: Effective Date</para>
 		/// </summary>
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
@@ -84,23 +72,18 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
-		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
-		[DataMember(Name="ItemPriceClasses", EmitDefaultValue=false)]
 		public List<DiscountItemPriceClassesDetail>? ItemPriceClasses { get; set; }
 
-		[DataMember(Name="Items", EmitDefaultValue=false)]
 		public List<DiscountItemDetail>? Items { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: IsPromotion</para>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// </summary>
-		[DataMember(Name="Promotional", EmitDefaultValue=false)]
 		public BooleanValue? Promotional { get; set; }
 
 		/// <summary>
@@ -108,7 +91,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// <para>Display Name: Prorate Discount</para>
 		/// </summary>
-		[DataMember(Name="ProrateDiscount", EmitDefaultValue=false)]
 		public BooleanValue? ProrateDiscount { get; set; }
 
 		/// <summary>
@@ -117,21 +99,19 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Sequence", EmitDefaultValue=false)]
 		public StringValue? Sequence { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// </summary>
-		[DataMember(Name="ShowFreeItem", EmitDefaultValue=false)]
 		public BooleanValue? ShowFreeItem { get; set; }
 
-		[DataMember(Name="Warehouses", EmitDefaultValue=false)]
 		public List<DiscountWarehouseDetail>? Warehouses { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string CustomerPriceClasses = "CustomerPriceClasses";
 			public const string CustomerPriceClasses_Files = "CustomerPriceClasses/Files";
 			public const string Customers = "Customers";
@@ -146,7 +126,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string Warehouses_Files = "Warehouses/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,CustomerPriceClasses,CustomerPriceClasses/Files,Customers,Customers/Files,DiscountBreakpoints,DiscountBreakpoints/Files,ItemPriceClasses,ItemPriceClasses/Files,Items,Items/Files,Warehouses,Warehouses/Files";
+			//public const string All = "Files,Translations,CustomerPriceClasses,CustomerPriceClasses/Files,Customers,Customers/Files,DiscountBreakpoints,DiscountBreakpoints/Files,ItemPriceClasses,ItemPriceClasses/Files,Items,Items/Files,Warehouses,Warehouses/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class OpportunityTaxDetail : Entity
 	{
 
@@ -18,7 +16,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: Tax__ExemptTax</para>
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
-		[DataMember(Name="IncludeInVATExemptTotal", EmitDefaultValue=false)]
 		public BooleanValue? IncludeInVATExemptTotal { get; set; }
 
 		/// <summary>
@@ -26,28 +23,24 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Tax__PendingTax</para>
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
-		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
 		public BooleanValue? PendingVAT { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Tax__ReverseTax</para>
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
-		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
 		public BooleanValue? ReverseVAT { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Tax__StatisticalTax</para>
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
-		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
 		public BooleanValue? StatisticalVAT { get; set; }
 
 		/// <summary>
@@ -55,7 +48,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// <para>Display Name: Taxable Amount</para>
 		/// </summary>
-		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxableAmount { get; set; }
 
 		/// <summary>
@@ -63,7 +55,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// <para>Display Name: Tax Amount</para>
 		/// </summary>
-		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
@@ -72,20 +63,17 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
-		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
 		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Tax__TaxType</para>
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
-		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }
 
 	}

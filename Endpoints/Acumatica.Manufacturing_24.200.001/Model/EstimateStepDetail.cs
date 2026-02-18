@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
-	[DataContract]
 	public class EstimateStepDetail : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Operation Desc</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -28,10 +25,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
-		[DataMember(Name="LineOrder", EmitDefaultValue=false)]
 		public IntValue? LineOrder { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,11 +13,9 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>SO301000</c> in the Acumatica ERP
 	/// <para>Key Fields: OrderNbr, OrderType</para>
 	/// </summary>
-	[DataContract]
 	public class SalesOrder : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Approved", EmitDefaultValue=false)]
 		public BooleanValue? Approved { get; set; }
 
 		/// <summary>
@@ -28,10 +25,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Base Currency ID</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
 		public StringValue? BaseCurrencyID { get; set; }
 
-		[DataMember(Name="BillToAddress", EmitDefaultValue=false)]
 		public Address? BillToAddress { get; set; }
 
 		/// <summary>
@@ -40,7 +35,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
 		/// <para>Display Name: Override Address</para>
 		/// </summary>
-		[DataMember(Name="BillToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillToAddressOverride { get; set; }
 
 		/// <summary>
@@ -49,10 +43,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
 		/// <para>Display Name: Validated</para>
 		/// </summary>
-		[DataMember(Name="BillToAddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? BillToAddressValidated { get; set; }
 
-		[DataMember(Name="BillToContact", EmitDefaultValue=false)]
 		public DocContact? BillToContact { get; set; }
 
 		/// <summary>
@@ -61,7 +53,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOBillingContact</para>
 		/// <para>Display Name: Override Contact</para>
 		/// </summary>
-		[DataMember(Name="BillToContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillToContactOverride { get; set; }
 
 		/// <summary>
@@ -69,7 +60,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -78,10 +68,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Cash Account</para>
 		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
-		[DataMember(Name="Commissions", EmitDefaultValue=false)]
 		public Commissions? Commissions { get; set; }
 
 		/// <summary>
@@ -89,7 +77,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Contact</para>
 		/// </summary>
-		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public StringValue? ContactID { get; set; }
 
 		/// <summary>
@@ -98,10 +85,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Control Total</para>
 		/// </summary>
-		[DataMember(Name="ControlTotal", EmitDefaultValue=false)]
 		public DecimalValue? ControlTotal { get; set; }
 
-		[DataMember(Name="CreditHold", EmitDefaultValue=false)]
 		public BooleanValue? CreditHold { get; set; }
 
 		/// <summary>
@@ -114,7 +99,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is available only if theMulticurrency Accounting feature is enabled onthe Enable/Disable Features (CS100000) form.
 		/// </remarks>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
@@ -123,7 +107,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
 		/// <para>Display Name: Curr. Rate</para>
 		/// </summary>
-		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyRate { get; set; }
 
 		/// <summary>
@@ -133,7 +116,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Curr. Rate Type ID</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyRateTypeID", EmitDefaultValue=false)]
 		public StringValue? CurrencyRateTypeID { get; set; }
 
 		/// <summary>
@@ -141,7 +123,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Customer</para>
 		/// </summary>
-		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
@@ -154,7 +135,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// A reference number must be specified if theRequire Customer Order Nbr field istrue for the order type.This field is available for orders of the TR type.
 		/// </remarks>
-		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
 		public StringValue? CustomerOrder { get; set; }
 
 		/// <summary>
@@ -162,7 +142,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: OrderDate</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
@@ -171,7 +150,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -183,10 +161,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is available only if the Multiple Warehousesfeature is enabled on the Enable/Disable Features (CS100000) form.
 		/// </remarks>
-		[DataMember(Name="DestinationWarehouseID", EmitDefaultValue=false)]
 		public StringValue? DestinationWarehouseID { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<SalesOrderDetail>? Details { get; set; }
 
 		/// <summary>
@@ -195,7 +171,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Disable Automatic Discount Update</para>
 		/// </summary>
-		[DataMember(Name="DisableAutomaticDiscountUpdate", EmitDefaultValue=false)]
 		public BooleanValue? DisableAutomaticDiscountUpdate { get; set; }
 
 		/// <summary>
@@ -203,10 +178,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Disable Automatic Tax Calculation</para>
 		/// </summary>
-		[DataMember(Name="DisableAutomaticTaxCalculation", EmitDefaultValue=false)]
 		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
 
-		[DataMember(Name="DiscountDetails", EmitDefaultValue=false)]
 		public List<SalesOrdersDiscountDetails>? DiscountDetails { get; set; }
 
 		/// <summary>
@@ -215,7 +188,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
 		/// <para>Display Name: Effective Date</para>
 		/// </summary>
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
@@ -225,19 +197,14 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: External Reference</para>
 		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
 		public StringValue? ExternalRef { get; set; }
 
-		[DataMember(Name="FinancialSettings", EmitDefaultValue=false)]
 		public FinancialSettings? FinancialSettings { get; set; }
 
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
-		[DataMember(Name="IsTaxValid", EmitDefaultValue=false)]
 		public BooleanValue? IsTaxValid { get; set; }
 
-		[DataMember(Name="LastModified", EmitDefaultValue=false)]
 		public DateTimeValue? LastModified { get; set; }
 
 		/// <summary>
@@ -246,10 +213,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Location</para>
 		/// </summary>
-		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
-		[DataMember(Name="MaxRiskScore", EmitDefaultValue=false)]
 		public DecimalValue? MaxRiskScore { get; set; }
 
 		/// <summary>
@@ -261,7 +226,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// If any items that are not from the current blanket sales order have been added to the child order,their quantity is not summed up to the value in this field.
 		/// </remarks>
-		[DataMember(Name="OrderedQty", EmitDefaultValue=false)]
 		public DecimalValue? OrderedQty { get; set; }
 
 		/// <summary>
@@ -274,10 +238,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// When the new sales order is saved for the first time, the system automatically generatesthis number by using the numbering sequence assigned to orders of SOOrderType.
 		/// </remarks>
-		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
 		public StringValue? OrderNbr { get; set; }
 
-		[DataMember(Name="OrderRisks", EmitDefaultValue=false)]
 		public List<OrderRisks>? OrderRisks { get; set; }
 
 		/// <summary>
@@ -286,7 +248,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Order Total</para>
 		/// </summary>
-		[DataMember(Name="OrderTotal", EmitDefaultValue=false)]
 		public DecimalValue? OrderTotal { get; set; }
 
 		/// <summary>
@@ -299,7 +260,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// The type of the document, which is one of the predefined order types or a custom order type created byusing the Order Types (SO201000) form.
 		/// </remarks>
-		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 		/// <summary>
@@ -309,10 +269,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Payment Method</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
-		[DataMember(Name="Payments", EmitDefaultValue=false)]
 		public List<SalesOrderPayment>? Payments { get; set; }
 
 		/// <summary>
@@ -324,7 +282,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.
 		/// </remarks>
-		[DataMember(Name="PreferredWarehouseID", EmitDefaultValue=false)]
 		public StringValue? PreferredWarehouseID { get; set; }
 
 		/// <summary>
@@ -335,7 +292,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is available only if theProject Accountingfeature is enabled on the Enable/Disable Features (CS100000) form and the integration of the Projectssubmodule with Sales Orders has been enabled(that is,  is .
 		/// </remarks>
-		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
@@ -344,10 +300,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
 		/// <para>Display Name: Reciprocal Rate</para>
 		/// </summary>
-		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
 		public DecimalValue? ReciprocalRate { get; set; }
 
-		[DataMember(Name="Relations", EmitDefaultValue=false)]
 		public List<RelationDetail>? Relations { get; set; }
 
 		/// <summary>
@@ -359,16 +313,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This date provides the default values for the requestDate dates for order lines.
 		/// </remarks>
-		[DataMember(Name="RequestedOn", EmitDefaultValue=false)]
 		public DateTimeValue? RequestedOn { get; set; }
 
-		[DataMember(Name="Shipments", EmitDefaultValue=false)]
 		public List<SalesOrderShipment>? Shipments { get; set; }
 
-		[DataMember(Name="ShippingSettings", EmitDefaultValue=false)]
 		public ShippingSettings? ShippingSettings { get; set; }
 
-		[DataMember(Name="ShipToAddress", EmitDefaultValue=false)]
 		public Address? ShipToAddress { get; set; }
 
 		/// <summary>
@@ -377,7 +327,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
 		/// <para>Display Name: Override Address</para>
 		/// </summary>
-		[DataMember(Name="ShipToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressOverride { get; set; }
 
 		/// <summary>
@@ -386,10 +335,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
 		/// <para>Display Name: Validated</para>
 		/// </summary>
-		[DataMember(Name="ShipToAddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressValidated { get; set; }
 
-		[DataMember(Name="ShipToContact", EmitDefaultValue=false)]
 		public DocContact? ShipToContact { get; set; }
 
 		/// <summary>
@@ -398,7 +345,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOBillingContact</para>
 		/// <para>Display Name: Override Contact</para>
 		/// </summary>
-		[DataMember(Name="ShipToContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToContactOverride { get; set; }
 
 		/// <summary>
@@ -410,7 +356,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// For this ship via code, if Manual is specified as the freight calculation method, the freight amount mustbe specified in the Freight Price field.Changing the Ship Via code for an open sales order may update thecustomer tax zone field.
 		/// </remarks>
-		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
 		public StringValue? ShipVia { get; set; }
 
 		/// <summary>
@@ -418,10 +363,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
 		public List<TaxDetail>? TaxDetails { get; set; }
 
 		/// <summary>
@@ -430,10 +373,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Tax Total</para>
 		/// </summary>
-		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
 
-		[DataMember(Name="Totals", EmitDefaultValue=false)]
 		public Totals? Totals { get; set; }
 
 		/// <summary>
@@ -442,7 +383,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Tax Exempt Total</para>
 		/// </summary>
-		[DataMember(Name="VATExemptTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATExemptTotal { get; set; }
 
 		/// <summary>
@@ -451,13 +391,10 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Taxable Total</para>
 		/// </summary>
-		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATTaxableTotal { get; set; }
 
-		[DataMember(Name="ExternalOrderOriginal", EmitDefaultValue=false)]
 		public BooleanValue? ExternalOrderOriginal { get; set; }
 
-		[DataMember(Name="ExternalRefundRef", EmitDefaultValue=false)]
 		public StringValue? ExternalRefundRef { get; set; }
 
 		/// <summary>
@@ -465,7 +402,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Will Call</para>
 		/// </summary>
-		[DataMember(Name="WillCall", EmitDefaultValue=false)]
 		public BooleanValue? WillCall { get; set; }
 
 		/// <summary>
@@ -478,19 +414,14 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is available only for sales orders of the Cash Sales or Cash Return type.
 		/// </remarks>
-		[DataMember(Name="PaymentRef", EmitDefaultValue=false)]
 		public StringValue? PaymentRef { get; set; }
 
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
-		[DataMember(Name="UsrExternalOrderOriginal", EmitDefaultValue=false)]
 		public BooleanValue? UsrExternalOrderOriginal { get; set; }
 
-		[DataMember(Name="ExternalOrderOrigin", EmitDefaultValue=false)]
 		public StringValue? ExternalOrderOrigin { get; set; }
 
-		[DataMember(Name="ExternalOrderSource", EmitDefaultValue=false)]
 		public StringValue? ExternalOrderSource { get; set; }
 
 		/// <summary>
@@ -502,7 +433,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is available only if theNet/Gross Entry Modefeature has been enabled on the Enable/Disable Features (CS100000) form.
 		/// </remarks>
-		[DataMember(Name="TaxCalcMode", EmitDefaultValue=false)]
 		public StringValue? TaxCalcMode { get; set; }
 
 		/// <summary>
@@ -511,12 +441,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPApproval</para>
 		/// <para>Display Name: Assignment Date</para>
 		/// </summary>
-		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDate { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string BillToAddress = "BillToAddress";
 			public const string BillToContact = "BillToContact";
 			public const string Commissions = "Commissions";
@@ -550,7 +480,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string Totals = "Totals";
 
 			//Intentionally excluded
-			//public const string All = "Files,BillToAddress,BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,Details/Allocations,Details/Allocations/Files,Details/PurchasingDetails,Details/PurchasingDetails/Files,DiscountDetails,DiscountDetails/Files,FinancialSettings,OrderRisks,OrderRisks/Files,Payments,Payments/Files,Payments/CreditCardTransactionInfo,Payments/CreditCardTransactionInfo/Files,Relations,Relations/Files,Shipments,Shipments/Files,ShippingSettings,ShippingSettings/ShopForRates,ShipToAddress,ShipToContact,TaxDetails,TaxDetails/Files,Totals";
+			//public const string All = "Files,Translations,BillToAddress,BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,Details/Allocations,Details/Allocations/Files,Details/PurchasingDetails,Details/PurchasingDetails/Files,DiscountDetails,DiscountDetails/Files,FinancialSettings,OrderRisks,OrderRisks/Files,Payments,Payments/Files,Payments/CreditCardTransactionInfo,Payments/CreditCardTransactionInfo/Files,Relations,Relations/Files,Shipments,Shipments/Files,ShippingSettings,ShippingSettings/ShopForRates,ShipToAddress,ShipToContact,TaxDetails,TaxDetails/Files,Totals";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,14 +13,11 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>PM308000</c> in the Acumatica ERP
 	/// <para>Key Fields: RefNbr</para>
 	/// </summary>
-	[DataContract]
 	public class ChangeOrder : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
 		public List<Approval>? ApprovalDetails { get; set; }
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
 		/// <summary>
@@ -30,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>Display Name: Change Date</para>
 		/// </summary>
-		[DataMember(Name="ChangeDate", EmitDefaultValue=false)]
 		public DateTimeValue? ChangeDate { get; set; }
 
 		/// <summary>
@@ -39,10 +34,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="Class", EmitDefaultValue=false)]
 		public StringValue? Class { get; set; }
 
-		[DataMember(Name="Commitments", EmitDefaultValue=false)]
 		public List<ChangeOrderCommitment>? Commitments { get; set; }
 
 		/// <summary>
@@ -51,7 +44,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>Display Name: Commitment Change Total</para>
 		/// </summary>
-		[DataMember(Name="CommitmentsChangeTotal", EmitDefaultValue=false)]
 		public DecimalValue? CommitmentsChangeTotal { get; set; }
 
 		/// <summary>
@@ -59,7 +51,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>Display Name: Approval Date</para>
 		/// </summary>
-		[DataMember(Name="CompletionDate", EmitDefaultValue=false)]
 		public DateTimeValue? CompletionDate { get; set; }
 
 		/// <summary>
@@ -68,10 +59,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>Display Name: Contract Change (Days)</para>
 		/// </summary>
-		[DataMember(Name="ContractTimeChangeDays", EmitDefaultValue=false)]
 		public IntValue? ContractTimeChangeDays { get; set; }
 
-		[DataMember(Name="CostBudget", EmitDefaultValue=false)]
 		public List<ChangeOrderCostBudget>? CostBudget { get; set; }
 
 		/// <summary>
@@ -80,7 +69,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>Display Name: Cost Budget Change Total</para>
 		/// </summary>
-		[DataMember(Name="CostBudgetChangeTotal", EmitDefaultValue=false)]
 		public DecimalValue? CostBudgetChangeTotal { get; set; }
 
 		/// <summary>
@@ -88,7 +76,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: CustomerID</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// </summary>
-		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
 		/// <summary>
@@ -96,7 +83,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -106,7 +92,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Details</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="DetailedDescription", EmitDefaultValue=false)]
 		public StringValue? DetailedDescription { get; set; }
 
 		/// <summary>
@@ -116,7 +101,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: External Ref. Nbr.</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExternalRefNbr { get; set; }
 
 		/// <summary>
@@ -125,7 +109,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>Display Name: Gross Margin (%)</para>
 		/// </summary>
-		[DataMember(Name="GrossMargin", EmitDefaultValue=false)]
 		public DecimalValue? GrossMargin { get; set; }
 
 		/// <summary>
@@ -133,17 +116,14 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>Display Name: Gross Margin Amount</para>
 		/// </summary>
-		[DataMember(Name="GrossMarginAmount", EmitDefaultValue=false)]
 		public DecimalValue? GrossMarginAmount { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the document is on hold.
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// </summary>
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -153,7 +133,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Original CO Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="OriginalCORefNbr", EmitDefaultValue=false)]
 		public StringValue? OriginalCORefNbr { get; set; }
 
 		/// <summary>
@@ -161,7 +140,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>Display Name: Project</para>
 		/// </summary>
-		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
 		/// <summary>
@@ -171,10 +149,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="RefNbr", EmitDefaultValue=false)]
 		public StringValue? RefNbr { get; set; }
 
-		[DataMember(Name="RevenueBudget", EmitDefaultValue=false)]
 		public List<ChangeOrderRevenueBudget>? RevenueBudget { get; set; }
 
 		/// <summary>
@@ -183,20 +159,17 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>Display Name: Revenue Budget Change Total</para>
 		/// </summary>
-		[DataMember(Name="RevenueBudgetChangeTotal", EmitDefaultValue=false)]
 		public DecimalValue? RevenueBudgetChangeTotal { get; set; }
 
 		/// <summary>
 		/// The change number.
 		/// <para>DAC Field Name: ProjectNbr</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
-		/// <para>Display Name: Revenue Change Nbr.</para>
+		/// <para>Display Name: Revenue Change Order Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="RevenueChangeNbr", EmitDefaultValue=false)]
 		public StringValue? RevenueChangeNbr { get; set; }
 
-		[DataMember(Name="ReverseStatus", EmitDefaultValue=false)]
 		public StringValue? ReverseStatus { get; set; }
 
 		/// <summary>
@@ -204,12 +177,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ApprovalDetails = "ApprovalDetails";
 			public const string ApprovalDetails_Files = "ApprovalDetails/Files";
 			public const string Attributes = "Attributes";
@@ -221,7 +194,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string RevenueBudget_Files = "RevenueBudget/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,ApprovalDetails,ApprovalDetails/Files,Attributes,Commitments,Commitments/Files,CostBudget,CostBudget/Files,RevenueBudget,RevenueBudget/Files";
+			//public const string All = "Files,Translations,ApprovalDetails,ApprovalDetails/Files,Attributes,Commitments,Commitments/Files,CostBudget,CostBudget/Files,RevenueBudget,RevenueBudget/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

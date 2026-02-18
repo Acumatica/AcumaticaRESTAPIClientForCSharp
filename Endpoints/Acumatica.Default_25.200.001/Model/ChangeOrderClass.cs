@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>PM203000</c> in the Acumatica ERP
 	/// <para>Key Fields: ClassID</para>
 	/// </summary>
-	[DataContract]
 	public class ChangeOrderClass : Entity, ITopLevelEntity
 	{
 
@@ -23,10 +21,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderClass</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<BusinessAccountClassAttributeDetail>? Attributes { get; set; }
 
 		/// <summary>
@@ -36,7 +32,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
@@ -44,7 +39,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: IsPurchaseOrderEnabled</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderClass</para>
 		/// </summary>
-		[DataMember(Name="Commitments", EmitDefaultValue=false)]
 		public BooleanValue? Commitments { get; set; }
 
 		/// <summary>
@@ -53,7 +47,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderClass</para>
 		/// <para>Display Name: Cost Budget</para>
 		/// </summary>
-		[DataMember(Name="CostBudget", EmitDefaultValue=false)]
 		public BooleanValue? CostBudget { get; set; }
 
 		/// <summary>
@@ -61,10 +54,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderClass</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -73,16 +64,16 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderClass</para>
 		/// <para>Display Name: Revenue Budget</para>
 		/// </summary>
-		[DataMember(Name="RevenueBudget", EmitDefaultValue=false)]
 		public BooleanValue? RevenueBudget { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes";
+			//public const string All = "Files,Translations,Attributes";
 		}
 		public virtual string GetEndpointPath()
 		{

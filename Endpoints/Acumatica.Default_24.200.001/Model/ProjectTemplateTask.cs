@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,17 +13,13 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>PM208010</c> in the Acumatica ERP
 	/// <para>Key Fields: ProjectTemplateID, ProjectTemplateTaskID</para>
 	/// </summary>
-	[DataContract]
 	public class ProjectTemplateTask : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
-		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
 		public ProjectTaskBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
 
-		[DataMember(Name="DefaultValues", EmitDefaultValue=false)]
 		public ProjectTaskDefaultValues? DefaultValues { get; set; }
 
 		/// <summary>
@@ -32,10 +27,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
 		/// <para>SQL Type: nvarchar(250)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -44,7 +37,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Project ID</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateID { get; set; }
 
 		/// <summary>
@@ -55,18 +47,16 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ProjectTemplateTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateTaskID { get; set; }
 
-		[DataMember(Name="Properties", EmitDefaultValue=false)]
 		public ProjectTemplateTaskProperties? Properties { get; set; }
 
-		[DataMember(Name="VisibilitySettings", EmitDefaultValue=false)]
 		public VisibilitySettings? VisibilitySettings { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
 			public const string DefaultValues = "DefaultValues";
@@ -74,7 +64,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string VisibilitySettings = "VisibilitySettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,BillingAndAllocationSettings,DefaultValues,Properties,VisibilitySettings";
+			//public const string All = "Files,Translations,Attributes,BillingAndAllocationSettings,DefaultValues,Properties,VisibilitySettings";
 		}
 		public virtual string GetEndpointPath()
 		{

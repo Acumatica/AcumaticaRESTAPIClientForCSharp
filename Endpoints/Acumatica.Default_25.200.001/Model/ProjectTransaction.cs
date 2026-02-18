@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,11 +13,9 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>PM304000</c> in the Acumatica ERP
 	/// <para>Key Fields: Module, ReferenceNbr</para>
 	/// </summary>
-	[DataContract]
 	public class ProjectTransaction : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
@@ -26,13 +23,10 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMRegister</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<ProjectTransactionDetail>? Details { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -42,7 +36,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Module", EmitDefaultValue=false)]
 		public StringValue? Module { get; set; }
 
 		/// <summary>
@@ -52,7 +45,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Orig. Doc. Nbr.</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="OriginalDocNbr", EmitDefaultValue=false)]
 		public StringValue? OriginalDocNbr { get; set; }
 
 		/// <summary>
@@ -62,7 +54,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Orig. Doc. Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="OriginalDocType", EmitDefaultValue=false)]
 		public StringValue? OriginalDocType { get; set; }
 
 		/// <summary>
@@ -73,7 +64,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
@@ -81,7 +71,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMRegister</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -90,7 +79,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMRegister</para>
 		/// <para>Display Name: Total Amount</para>
 		/// </summary>
-		[DataMember(Name="TotalAmount", EmitDefaultValue=false)]
 		public DecimalValue? TotalAmount { get; set; }
 
 		/// <summary>
@@ -99,7 +87,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMRegister</para>
 		/// <para>Display Name: Total Billable Quantity</para>
 		/// </summary>
-		[DataMember(Name="TotalBillableQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalBillableQty { get; set; }
 
 		/// <summary>
@@ -108,17 +95,17 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMRegister</para>
 		/// <para>Display Name: Total Quantity</para>
 		/// </summary>
-		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files";
+			//public const string All = "Files,Translations,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

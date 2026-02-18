@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	/// Corresponds to the screen <c>AM204500</c> in the Acumatica ERP
 	/// <para>Key Fields: MachineID</para>
 	/// </summary>
-	[DataContract]
 	public class Machine : Entity, ITopLevelEntity
 	{
 
@@ -22,14 +20,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC Field Name: MachAcctID</para>
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ActiveFlg</para>
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -37,7 +33,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Asset ID</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="AssetID", EmitDefaultValue=false)]
 		public StringValue? AssetID { get; set; }
 
 		/// <summary>
@@ -45,7 +40,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Calendar ID</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="CalendarID", EmitDefaultValue=false)]
 		public StringValue? CalendarID { get; set; }
 
 		/// <summary>
@@ -53,21 +47,18 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// <para>SQL Type: nvarchar(120)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: DownFlg</para>
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
-		[DataMember(Name="Down", EmitDefaultValue=false)]
 		public BooleanValue? Down { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: MachEff</para>
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
-		[DataMember(Name="Efficiency", EmitDefaultValue=false)]
 		public DecimalValue? Efficiency { get; set; }
 
 		/// <summary>
@@ -77,7 +68,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="MachineID", EmitDefaultValue=false)]
 		public StringValue? MachineID { get; set; }
 
 		/// <summary>
@@ -85,22 +75,21 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMMachCurySettings</para>
 		/// <para>Display Name: Standard Cost</para>
 		/// </summary>
-		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
 		public DecimalValue? StandardCost { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: MachSubID</para>
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
-		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

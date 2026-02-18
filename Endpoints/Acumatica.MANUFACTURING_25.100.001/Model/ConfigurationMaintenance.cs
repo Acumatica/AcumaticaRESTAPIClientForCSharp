@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	/// Corresponds to the screen <c>AM207500</c> in the Acumatica ERP
 	/// <para>Key Fields: ConfigurationID, Revision</para>
 	/// </summary>
-	[DataContract]
 	public class ConfigurationMaintenance : Entity, ITopLevelEntity
 	{
 
@@ -23,7 +21,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>Display Name: BOM ID</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="BOMID", EmitDefaultValue=false)]
 		public StringValue? BOMID { get; set; }
 
 		/// <summary>
@@ -32,7 +29,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>Display Name: BOM Revision</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="BOMRevision", EmitDefaultValue=false)]
 		public StringValue? BOMRevision { get; set; }
 
 		/// <summary>
@@ -40,10 +36,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: Completion Required Before Production</para>
 		/// </summary>
-		[DataMember(Name="CompletionRequiredBeforeProduction", EmitDefaultValue=false)]
 		public BooleanValue? CompletionRequiredBeforeProduction { get; set; }
 
-		[DataMember(Name="ConfigAttributes", EmitDefaultValue=false)]
 		public List<ConfigurationMaintAttribute>? ConfigAttributes { get; set; }
 
 		/// <summary>
@@ -52,7 +46,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
 		public StringValue? ConfigurationID { get; set; }
 
 		/// <summary>
@@ -60,23 +53,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Features", EmitDefaultValue=false)]
 		public List<ConfigurationMaintenanceFeature>? Features { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
-		[DataMember(Name="Keys", EmitDefaultValue=false)]
 		public ConfigurationMaintKey? Keys { get; set; }
 
-		[DataMember(Name="Price", EmitDefaultValue=false)]
 		public ConfigurationMaintPrice? Price { get; set; }
 
 		/// <summary>
@@ -84,19 +72,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ConfigAttributes = "ConfigAttributes";
 			public const string ConfigAttributes_Files = "ConfigAttributes/Files";
 			public const string ConfigAttributes_Rules = "ConfigAttributes/Rules";
@@ -111,7 +98,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 			public const string Price = "Price";
 
 			//Intentionally excluded
-			//public const string All = "Files,ConfigAttributes,ConfigAttributes/Files,ConfigAttributes/Rules,ConfigAttributes/Rules/Files,Features,Features/Files,Features/Options,Features/Options/Files,Features/Rules,Features/Rules/Files,Keys,Price";
+			//public const string All = "Files,Translations,ConfigAttributes,ConfigAttributes/Files,ConfigAttributes/Rules,ConfigAttributes/Rules/Files,Features,Features/Files,Features/Options,Features/Options/Files,Features/Rules,Features/Rules/Files,Keys,Price";
 		}
 		public virtual string GetEndpointPath()
 		{

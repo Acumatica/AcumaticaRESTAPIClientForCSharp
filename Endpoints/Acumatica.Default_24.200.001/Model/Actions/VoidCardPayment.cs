@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class VoidCardPayment : EntityActionWithParameters<Payment, VoidCardPaymentParameters>
 	{
 		public VoidCardPayment(Payment entity, VoidCardPaymentParameters parameters) : base(entity, parameters)

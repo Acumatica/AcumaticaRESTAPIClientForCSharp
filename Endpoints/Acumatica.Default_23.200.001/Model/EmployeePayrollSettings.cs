@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_23_200_001.Model
 	/// Corresponds to the screen <c>PR203000</c> in the Acumatica ERP
 	/// <para>Key Fields: EmployeeID</para>
 	/// </summary>
-	[DataContract]
 	public class EmployeePayrollSettings : Entity, ITopLevelEntity
 	{
 
@@ -22,10 +20,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: ActiveInPayroll</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
-		[DataMember(Name="AddressInfo", EmitDefaultValue=false)]
 		public Address? AddressInfo { get; set; }
 
 		/// <summary>
@@ -33,7 +29,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Cash Account</para>
 		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
 		/// <summary>
@@ -42,16 +37,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Class ID</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
-		[DataMember(Name="Compensation", EmitDefaultValue=false)]
 		public List<CompensationDetail>? Compensation { get; set; }
 
-		[DataMember(Name="DeductionsAndBenefits", EmitDefaultValue=false)]
 		public DeductionsAndBenefits? DeductionsAndBenefits { get; set; }
 
-		[DataMember(Name="DirectDepositDetails", EmitDefaultValue=false)]
 		public List<DirectDepositDetail>? DirectDepositDetails { get; set; }
 
 		/// <summary>
@@ -61,7 +52,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
 		public StringValue? EmployeeID { get; set; }
 
 		/// <summary>
@@ -71,7 +61,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Employee Name</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
 		/// <summary>
@@ -80,25 +69,18 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Employee Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="EmployeeType", EmitDefaultValue=false)]
 		public StringValue? EmployeeType { get; set; }
 
-		[DataMember(Name="EmploymentDates", EmitDefaultValue=false)]
 		public EmploymentDates? EmploymentDates { get; set; }
 
-		[DataMember(Name="EmploymentRecords", EmitDefaultValue=false)]
 		public List<EmploymentRecord>? EmploymentRecords { get; set; }
 
-		[DataMember(Name="GeneralInfo", EmitDefaultValue=false)]
 		public EmployeeGeneralInfo? GeneralInfo { get; set; }
 
-		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
 		public EmployeeGLAccounts? GLAccounts { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		[DataMember(Name="PaidTimeOff", EmitDefaultValue=false)]
 		public EmployeePaidTimeOff? PaidTimeOff { get; set; }
 
 		/// <summary>
@@ -107,13 +89,10 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Payment Method</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
-		[DataMember(Name="Taxes", EmitDefaultValue=false)]
 		public List<EmployeeTaxDetail>? Taxes { get; set; }
 
-		[DataMember(Name="TaxSettings", EmitDefaultValue=false)]
 		public List<TaxSettingDetail>? TaxSettings { get; set; }
 
 		/// <summary>
@@ -121,15 +100,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Use Default</para>
 		/// </summary>
-		[DataMember(Name="EmployeeTypeClassDefault", EmitDefaultValue=false)]
 		public BooleanValue? EmployeeTypeClassDefault { get; set; }
 
-		[DataMember(Name="WorkLocations", EmitDefaultValue=false)]
 		public EmployeeWorkLocations? WorkLocations { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string AddressInfo = "AddressInfo";
 			public const string Compensation = "Compensation";
 			public const string Compensation_Files = "Compensation/Files";
@@ -158,7 +136,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string WorkLocations_WorkLocationDetails_Files = "WorkLocations/WorkLocationDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,AddressInfo,Compensation,Compensation/Files,DeductionsAndBenefits,DeductionsAndBenefits/DeductionsAndBenefitsDetails,DeductionsAndBenefits/DeductionsAndBenefitsDetails/Files,DeductionsAndBenefits/DeductionsAndBenefitsDetails/GarnishmentDetails,DirectDepositDetails,DirectDepositDetails/Files,EmploymentDates,EmploymentRecords,EmploymentRecords/Files,GeneralInfo,GLAccounts,PaidTimeOff,PaidTimeOff/PaidTimeOffDetails,PaidTimeOff/PaidTimeOffDetails/Files,Taxes,Taxes/Files,Taxes/TaxCodeSettings,Taxes/TaxCodeSettings/Files,TaxSettings,TaxSettings/Files,WorkLocations,WorkLocations/WorkLocationDetails,WorkLocations/WorkLocationDetails/Files";
+			//public const string All = "Files,Translations,AddressInfo,Compensation,Compensation/Files,DeductionsAndBenefits,DeductionsAndBenefits/DeductionsAndBenefitsDetails,DeductionsAndBenefits/DeductionsAndBenefitsDetails/Files,DeductionsAndBenefits/DeductionsAndBenefitsDetails/GarnishmentDetails,DirectDepositDetails,DirectDepositDetails/Files,EmploymentDates,EmploymentRecords,EmploymentRecords/Files,GeneralInfo,GLAccounts,PaidTimeOff,PaidTimeOff/PaidTimeOffDetails,PaidTimeOff/PaidTimeOffDetails/Files,Taxes,Taxes/Files,Taxes/TaxCodeSettings,Taxes/TaxCodeSettings/Files,TaxSettings,TaxSettings/Files,WorkLocations,WorkLocations/WorkLocationDetails,WorkLocations/WorkLocationDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class ReleaseTransactions : EntityAction<ProjectTransaction>
 	{
 		public ReleaseTransactions(ProjectTransaction entity) : base(entity)

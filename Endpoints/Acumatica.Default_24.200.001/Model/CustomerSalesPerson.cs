@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class CustomerSalesPerson : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
 		/// <para>Display Name: Commission %</para>
 		/// </summary>
-		[DataMember(Name="Commission", EmitDefaultValue=false)]
 		public DecimalValue? Commission { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: IsDefault</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>
-		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
 		/// <summary>
@@ -37,21 +33,18 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Location</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LocationID_description</para>
 		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
 		/// </summary>
-		[DataMember(Name="LocationName", EmitDefaultValue=false)]
 		public StringValue? LocationName { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SalesPersonID_SalesPerson_descr</para>
 		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
 		/// </summary>
-		[DataMember(Name="Name", EmitDefaultValue=false)]
 		public StringValue? Name { get; set; }
 
 		/// <summary>
@@ -60,7 +53,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="SalespersonID", EmitDefaultValue=false)]
 		public StringValue? SalespersonID { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
-	[DataContract]
 	public class APSMaintenanceHistory : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: Block Size Sync Process Last Run By</para>
 		/// </summary>
-		[DataMember(Name="BlockSizeChangeLastRunBy", EmitDefaultValue=false)]
 		public StringValue? BlockSizeChangeLastRunBy { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: Block Size Sync Process Last Run Date Time</para>
 		/// </summary>
-		[DataMember(Name="BlockSizeChangeLastRunDate", EmitDefaultValue=false)]
 		public DateTimeValue? BlockSizeChangeLastRunDate { get; set; }
 
 		/// <summary>
@@ -37,7 +33,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: Current Block Size</para>
 		/// </summary>
-		[DataMember(Name="CurrentBlockSize", EmitDefaultValue=false)]
 		public StringValue? CurrentBlockSize { get; set; }
 
 		/// <summary>
@@ -46,7 +41,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: History Cleanup Process Last Run By</para>
 		/// </summary>
-		[DataMember(Name="HistoryCleanupLastRunBy", EmitDefaultValue=false)]
 		public StringValue? HistoryCleanupLastRunBy { get; set; }
 
 		/// <summary>
@@ -55,7 +49,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: History Cleanup Process Last Run Date Time</para>
 		/// </summary>
-		[DataMember(Name="HistoryCleanupLastRunDate", EmitDefaultValue=false)]
 		public DateTimeValue? HistoryCleanupLastRunDate { get; set; }
 
 		/// <summary>
@@ -63,7 +56,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: Last Block Size</para>
 		/// </summary>
-		[DataMember(Name="LastBlockSize", EmitDefaultValue=false)]
 		public StringValue? LastBlockSize { get; set; }
 
 		/// <summary>
@@ -72,7 +64,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: Work Calendar Process Last Run By</para>
 		/// </summary>
-		[DataMember(Name="WorkCalendarLastRunBy", EmitDefaultValue=false)]
 		public StringValue? WorkCalendarLastRunBy { get; set; }
 
 		/// <summary>
@@ -81,7 +72,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: Work Calendar Process Last Run Date Time</para>
 		/// </summary>
-		[DataMember(Name="WorkCalendarLastRunDate", EmitDefaultValue=false)]
 		public DateTimeValue? WorkCalendarLastRunDate { get; set; }
 
 		/// <summary>
@@ -90,7 +80,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: Work Center Calendar Process Last Run By</para>
 		/// </summary>
-		[DataMember(Name="WorkCenterScheduleLastRunBy", EmitDefaultValue=false)]
 		public StringValue? WorkCenterScheduleLastRunBy { get; set; }
 
 		/// <summary>
@@ -99,7 +88,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceSetup</para>
 		/// <para>Display Name: Work Center Calendar Process Last Run Date Time</para>
 		/// </summary>
-		[DataMember(Name="WorkCenterScheduleLastRunDate", EmitDefaultValue=false)]
 		public DateTimeValue? WorkCenterScheduleLastRunDate { get; set; }
 
 	}

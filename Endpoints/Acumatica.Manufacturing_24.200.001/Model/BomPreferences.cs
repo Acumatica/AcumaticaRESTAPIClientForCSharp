@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,7 +12,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>AM101000</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class BomPreferences : Entity, ITopLevelEntity
 	{
 
@@ -23,7 +21,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Allow Archive without Update Pending</para>
 		/// </summary>
-		[DataMember(Name="AllowArchivewithoutUpdatePending", EmitDefaultValue=false)]
 		public BooleanValue? AllowArchivewithoutUpdatePending { get; set; }
 
 		/// <summary>
@@ -32,7 +29,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Allow Empty BOM Item Sub Item ID</para>
 		/// </summary>
-		[DataMember(Name="AllowEmptyBOMItemSubItemID", EmitDefaultValue=false)]
 		public BooleanValue? AllowEmptyBOMItemSubItemID { get; set; }
 
 		/// <summary>
@@ -41,7 +37,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Auto Archive when Update Pending</para>
 		/// </summary>
-		[DataMember(Name="AutoArchivewhenUpdatePending", EmitDefaultValue=false)]
 		public BooleanValue? AutoArchivewhenUpdatePending { get; set; }
 
 		/// <summary>
@@ -51,7 +46,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: BOM Numbering Sequence</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="BOMNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? BOMNumberingSequence { get; set; }
 
 		/// <summary>
@@ -59,7 +53,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Default Finish Time</para>
 		/// </summary>
-		[DataMember(Name="DefaultFinishTime", EmitDefaultValue=false)]
 		public StringValue? DefaultFinishTime { get; set; }
 
 		/// <summary>
@@ -67,7 +60,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Default Move Time</para>
 		/// </summary>
-		[DataMember(Name="DefaultMoveTime", EmitDefaultValue=false)]
 		public StringValue? DefaultMoveTime { get; set; }
 
 		/// <summary>
@@ -75,7 +67,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Default Queue Time</para>
 		/// </summary>
-		[DataMember(Name="DefaultQueueTime", EmitDefaultValue=false)]
 		public StringValue? DefaultQueueTime { get; set; }
 
 		/// <summary>
@@ -85,7 +76,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Default Revision</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="DefaultRevision", EmitDefaultValue=false)]
 		public StringValue? DefaultRevision { get; set; }
 
 		/// <summary>
@@ -95,7 +85,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Default Work Center</para>
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
-		[DataMember(Name="DefaultWorkCenter", EmitDefaultValue=false)]
 		public StringValue? DefaultWorkCenter { get; set; }
 
 		/// <summary>
@@ -105,7 +94,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Duplicates on BOM</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="DuplicatesonBOM", EmitDefaultValue=false)]
 		public StringValue? DuplicatesonBOM { get; set; }
 
 		/// <summary>
@@ -115,7 +103,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Duplicates on Operation</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="DuplicatesonOperation", EmitDefaultValue=false)]
 		public StringValue? DuplicatesonOperation { get; set; }
 
 		/// <summary>
@@ -125,7 +112,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: ECO Numbering Sequence</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ECONumberingSequence", EmitDefaultValue=false)]
 		public StringValue? ECONumberingSequence { get; set; }
 
 		/// <summary>
@@ -134,7 +120,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: ECO Require Approval</para>
 		/// </summary>
-		[DataMember(Name="ECORequireApproval", EmitDefaultValue=false)]
 		public BooleanValue? ECORequireApproval { get; set; }
 
 		/// <summary>
@@ -144,7 +129,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: ECR Numbering Sequence</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ECRNumberingSequence", EmitDefaultValue=false)]
 		public StringValue? ECRNumberingSequence { get; set; }
 
 		/// <summary>
@@ -153,7 +137,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: ECR Require Approval</para>
 		/// </summary>
-		[DataMember(Name="ECRRequireApproval", EmitDefaultValue=false)]
 		public BooleanValue? ECRRequireApproval { get; set; }
 
 		/// <summary>
@@ -162,7 +145,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Hold BOM Revisions on Entry</para>
 		/// </summary>
-		[DataMember(Name="HoldBOMRevisionsonEntry", EmitDefaultValue=false)]
 		public BooleanValue? HoldBOMRevisionsonEntry { get; set; }
 
 		/// <summary>
@@ -170,7 +152,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Operation Time Format</para>
 		/// </summary>
-		[DataMember(Name="OperationTimeFormat", EmitDefaultValue=false)]
 		public StringValue? OperationTimeFormat { get; set; }
 
 		/// <summary>
@@ -179,7 +160,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Require ECR/ECO for New BOM Revisions</para>
 		/// </summary>
-		[DataMember(Name="PreventNewRevisionsWithoutECR", EmitDefaultValue=false)]
 		public BooleanValue? PreventNewRevisionsWithoutECR { get; set; }
 
 		/// <summary>
@@ -188,7 +168,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Require ECR Before Creating ECO</para>
 		/// </summary>
-		[DataMember(Name="RequireECRbeforeCreatingECO", EmitDefaultValue=false)]
 		public BooleanValue? RequireECRbeforeCreatingECO { get; set; }
 
 		/// <summary>
@@ -197,15 +176,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
 		/// <para>Display Name: Total Time Format</para>
 		/// </summary>
-		[DataMember(Name="TotalTimeFormat", EmitDefaultValue=false)]
 		public StringValue? TotalTimeFormat { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

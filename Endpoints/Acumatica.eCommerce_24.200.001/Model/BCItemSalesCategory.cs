@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	/// Corresponds to the screen <c>IN204060</c> in the Acumatica ERP
 	/// <para>Key Fields: CategoryID</para>
 	/// </summary>
-	[DataContract]
 	public class BCItemSalesCategory : Entity, ITopLevelEntity
 	{
 
@@ -23,20 +21,16 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		/// <para>Display Name: Category ID</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
 		public IntValue? CategoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INCategory</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
@@ -44,7 +38,6 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		/// <para>DAC: PX.Objects.IN.INCategory</para>
 		/// <para>Display Name: Parent Category</para>
 		/// </summary>
-		[DataMember(Name="ParentCategoryID", EmitDefaultValue=false)]
 		public IntValue? ParentCategoryID { get; set; }
 
 		/// <summary>
@@ -53,18 +46,17 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		/// <para>Display Name: Description</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Path", EmitDefaultValue=false)]
 		public StringValue? Path { get; set; }
 
-		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public IntValue? SortOrder { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

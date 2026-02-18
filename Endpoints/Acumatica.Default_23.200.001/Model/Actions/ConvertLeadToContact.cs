@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class ConvertLeadToContact : EntityActionWithParameters<Lead, ConvertLeadToContactParameters>
 	{
 		public ConvertLeadToContact(Lead entity, ConvertLeadToContactParameters parameters) : base(entity, parameters)

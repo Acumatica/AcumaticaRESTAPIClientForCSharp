@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,16 +9,14 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class PaymentOrderDetail : Entity
 	{
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryAdjgAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Amount Paid</para>
+		/// <para>Display Name: Amount Paid in Payment Currency</para>
 		/// </summary>
-		[DataMember(Name="AppliedToOrder", EmitDefaultValue=false)]
 		public DecimalValue? AppliedToOrder { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
@@ -39,7 +35,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
 
 	}

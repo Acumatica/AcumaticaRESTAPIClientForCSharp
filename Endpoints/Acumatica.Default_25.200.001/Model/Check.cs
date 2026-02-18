@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>AP302000</c> in the Acumatica ERP
 	/// <para>Key Fields: ReferenceNbr, Type</para>
 	/// </summary>
-	[DataContract]
 	public class Check : Entity, ITopLevelEntity
 	{
 
@@ -24,7 +22,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APPayment</para>
 		/// <para>Display Name: Application Date</para>
 		/// </summary>
-		[DataMember(Name="ApplicationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ApplicationDate { get; set; }
 
 		/// <summary>
@@ -33,7 +30,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APPayment</para>
 		/// <para>Display Name: Cash Account</para>
 		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
 		/// <summary>
@@ -43,7 +39,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Currency</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
@@ -52,16 +47,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APPayment</para>
 		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<CheckDetail>? Details { get; set; }
 
-		[DataMember(Name="History", EmitDefaultValue=false)]
 		public List<CheckHistoryDetail>? History { get; set; }
 
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
@@ -70,7 +61,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APPayment</para>
 		/// <para>Display Name: Payment Amount</para>
 		/// </summary>
-		[DataMember(Name="PaymentAmount", EmitDefaultValue=false)]
 		public DecimalValue? PaymentAmount { get; set; }
 
 		/// <summary>
@@ -80,7 +70,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Payment Method</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
 		/// <summary>
@@ -90,7 +79,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Payment Ref.</para>
 		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		[DataMember(Name="PaymentRef", EmitDefaultValue=false)]
 		public StringValue? PaymentRef { get; set; }
 
 		/// <summary>
@@ -101,7 +89,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
@@ -109,7 +96,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APPayment</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -119,7 +105,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(3)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
@@ -128,7 +113,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APPayment</para>
 		/// <para>Display Name: Unapplied Balance</para>
 		/// </summary>
-		[DataMember(Name="UnappliedBalance", EmitDefaultValue=false)]
 		public DecimalValue? UnappliedBalance { get; set; }
 
 		/// <summary>
@@ -136,22 +120,21 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: VendorID</para>
 		/// <para>DAC: PX.Objects.AP.APPayment</para>
 		/// </summary>
-		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 			public const string History = "History";
 			public const string History_Files = "History/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files,History,History/Files";
+			//public const string All = "Files,Translations,Details,Details/Files,History,History/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

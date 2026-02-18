@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class DeductionOrBenefitCodeGLAccounts : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Benefit Expense Account</para>
 		/// </summary>
-		[DataMember(Name="BenefitExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? BenefitExpenseAccount { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Benefit Expense Sub.</para>
 		/// </summary>
-		[DataMember(Name="BenefitExpenseSub", EmitDefaultValue=false)]
 		public StringValue? BenefitExpenseSub { get; set; }
 
 		/// <summary>
@@ -38,7 +34,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Benefit Liability Account</para>
 		/// </summary>
-		[DataMember(Name="BenefitLiabilityAccount", EmitDefaultValue=false)]
 		public StringValue? BenefitLiabilityAccount { get; set; }
 
 		/// <summary>
@@ -47,7 +42,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Benefit Liability Sub.</para>
 		/// </summary>
-		[DataMember(Name="BenefitLiabilitySub", EmitDefaultValue=false)]
 		public StringValue? BenefitLiabilitySub { get; set; }
 
 		/// <summary>
@@ -56,7 +50,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Deduction Liability Account</para>
 		/// </summary>
-		[DataMember(Name="DeductionLiabilityAccount", EmitDefaultValue=false)]
 		public StringValue? DeductionLiabilityAccount { get; set; }
 
 		/// <summary>
@@ -65,7 +58,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Deduction Liability Sub.</para>
 		/// </summary>
-		[DataMember(Name="DeductionLiabilitySub", EmitDefaultValue=false)]
 		public StringValue? DeductionLiabilitySub { get; set; }
 
 	}

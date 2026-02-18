@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class SalesInvoiceFinancialDetails : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Batch Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
 		public StringValue? BatchNbr { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -38,7 +34,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Customer Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
 		public StringValue? CustomerTaxZone { get; set; }
 
 	}

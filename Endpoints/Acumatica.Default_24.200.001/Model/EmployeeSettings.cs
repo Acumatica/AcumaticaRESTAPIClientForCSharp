@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class EmployeeSettings : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// <para>Display Name: Branch</para>
 		/// </summary>
-		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="Calendar", EmitDefaultValue=false)]
 		public StringValue? Calendar { get; set; }
 
 		/// <summary>
@@ -38,7 +34,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Currency</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
@@ -47,7 +42,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Curr. Rate Type</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyRateTypeID", EmitDefaultValue=false)]
 		public StringValue? CurrencyRateTypeID { get; set; }
 
 		/// <summary>
@@ -56,7 +50,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Department</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="DepartmentID", EmitDefaultValue=false)]
 		public StringValue? DepartmentID { get; set; }
 
 		/// <summary>
@@ -66,7 +59,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Employee Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="EmployeeClass", EmitDefaultValue=false)]
 		public StringValue? EmployeeClass { get; set; }
 
 		/// <summary>
@@ -79,7 +71,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// It can be an additional number of the employee used in external integration.            
 		/// </remarks>
-		[DataMember(Name="EmployeeRefNbr", EmitDefaultValue=false)]
 		public StringValue? EmployeeRefNbr { get; set; }
 
 		/// <summary>
@@ -87,7 +78,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// <para>Display Name: Enable Currency Override</para>
 		/// </summary>
-		[DataMember(Name="EnableCurrencyOverride", EmitDefaultValue=false)]
 		public BooleanValue? EnableCurrencyOverride { get; set; }
 
 		/// <summary>
@@ -95,7 +85,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// <para>Display Name: Enable Rate Override</para>
 		/// </summary>
-		[DataMember(Name="EnableRateOverride", EmitDefaultValue=false)]
 		public BooleanValue? EnableRateOverride { get; set; }
 
 		/// <summary>
@@ -107,7 +96,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// The labor item is a non-stock item (of the Labor type) associated with the employee and used as a source of expense accounts for transactions associated with projects or contracts.
 		/// </remarks>
-		[DataMember(Name="LaborItem", EmitDefaultValue=false)]
 		public StringValue? LaborItem { get; set; }
 
 		/// <summary>
@@ -117,7 +105,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Regular Hours Validation</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="RegularHoursValidation", EmitDefaultValue=false)]
 		public StringValue? RegularHoursValidation { get; set; }
 
 		/// <summary>
@@ -126,7 +113,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// <para>Display Name: Reports to</para>
 		/// </summary>
-		[DataMember(Name="ReportsTo", EmitDefaultValue=false)]
 		public StringValue? ReportsTo { get; set; }
 
 		/// <summary>
@@ -134,7 +120,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// <para>Display Name: Route Emails</para>
 		/// </summary>
-		[DataMember(Name="RouteEmails", EmitDefaultValue=false)]
 		public BooleanValue? RouteEmails { get; set; }
 
 		/// <summary>
@@ -142,7 +127,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: SalesPersonID</para>
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// </summary>
-		[DataMember(Name="Salesperson", EmitDefaultValue=false)]
 		public StringValue? Salesperson { get; set; }
 
 		/// <summary>
@@ -151,7 +135,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// <para>Display Name: Time Card Is Required</para>
 		/// </summary>
-		[DataMember(Name="TimeCardIsRequired", EmitDefaultValue=false)]
 		public BooleanValue? TimeCardIsRequired { get; set; }
 
 		/// <summary>
@@ -161,7 +144,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Union Local ID</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="UnionLocalID", EmitDefaultValue=false)]
 		public StringValue? UnionLocalID { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class EarningCodeGLAccounts : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Benefit Expense Account</para>
 		/// </summary>
-		[DataMember(Name="BenefitExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? BenefitExpenseAccount { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Benefit Expense Sub.</para>
 		/// </summary>
-		[DataMember(Name="BenefitExpenseSub", EmitDefaultValue=false)]
 		public StringValue? BenefitExpenseSub { get; set; }
 
 		/// <summary>
@@ -38,7 +34,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Earnings Account</para>
 		/// </summary>
-		[DataMember(Name="EarningsAccount", EmitDefaultValue=false)]
 		public StringValue? EarningsAccount { get; set; }
 
 		/// <summary>
@@ -47,7 +42,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Earnings Sub.</para>
 		/// </summary>
-		[DataMember(Name="EarningsSub", EmitDefaultValue=false)]
 		public StringValue? EarningsSub { get; set; }
 
 		/// <summary>
@@ -56,7 +50,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: PTO Expense Account</para>
 		/// </summary>
-		[DataMember(Name="PTOExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? PTOExpenseAccount { get; set; }
 
 		/// <summary>
@@ -65,7 +58,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: PTO Expense Sub.</para>
 		/// </summary>
-		[DataMember(Name="PTOExpenseSub", EmitDefaultValue=false)]
 		public StringValue? PTOExpenseSub { get; set; }
 
 		/// <summary>
@@ -74,7 +66,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Tax Expense Account</para>
 		/// </summary>
-		[DataMember(Name="TaxExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? TaxExpenseAccount { get; set; }
 
 		/// <summary>
@@ -83,7 +74,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Tax Expense Sub.</para>
 		/// </summary>
-		[DataMember(Name="TaxExpenseSub", EmitDefaultValue=false)]
 		public StringValue? TaxExpenseSub { get; set; }
 
 	}

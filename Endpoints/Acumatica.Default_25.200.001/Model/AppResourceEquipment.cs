@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class AppResourceEquipment : Entity
 	{
 
@@ -21,7 +19,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="AppointmentNbr", EmitDefaultValue=false)]
 		public StringValue? AppointmentNbr { get; set; }
 
 		/// <summary>
@@ -29,14 +26,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Equipment Action Comment</para>
 		/// <para>SQL Type: varchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Comment", EmitDefaultValue=false)]
 		public StringValue? Comment { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: FSEquipment__Descr</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentResource</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -44,7 +39,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
 		/// <para>Display Name: Target Equipment ID</para>
 		/// </summary>
-		[DataMember(Name="EquipmentID", EmitDefaultValue=false)]
 		public StringValue? EquipmentID { get; set; }
 
 		/// <summary>
@@ -54,7 +48,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(4)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
 		public StringValue? ServiceOrderType { get; set; }
 
 	}

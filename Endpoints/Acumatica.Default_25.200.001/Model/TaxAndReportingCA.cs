@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class TaxAndReportingCA : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Federal Reporting Type</para>
 		/// </summary>
-		[DataMember(Name="ReportingType", EmitDefaultValue=false)]
 		public StringValue? ReportingType { get; set; }
 
 		/// <summary>
@@ -29,10 +26,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Supplemental Income</para>
 		/// </summary>
-		[DataMember(Name="SupplementalIncome", EmitDefaultValue=false)]
 		public BooleanValue? SupplementalIncome { get; set; }
 
-		[DataMember(Name="TaxDetailsCA", EmitDefaultValue=false)]
 		public List<EarningCodeTaxDetailCA>? TaxDetailsCA { get; set; }
 
 		/// <summary>
@@ -41,7 +36,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Wage Type</para>
 		/// </summary>
-		[DataMember(Name="WageType", EmitDefaultValue=false)]
 		public StringValue? WageType { get; set; }
 
 	}

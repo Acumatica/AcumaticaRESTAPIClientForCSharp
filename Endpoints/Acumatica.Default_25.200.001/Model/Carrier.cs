@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>CS207700</c> in the Acumatica ERP
 	/// <para>Key Fields: CarrierID</para>
 	/// </summary>
-	[DataContract]
 	public class Carrier : Entity, ITopLevelEntity
 	{
 
@@ -25,7 +23,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="CarrierID", EmitDefaultValue=false)]
 		public StringValue? CarrierID { get; set; }
 
 		/// <summary>
@@ -34,26 +31,20 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Carrier Units</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="CarrierUnits", EmitDefaultValue=false)]
 		public StringValue? CarrierUnits { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
-		[DataMember(Name="CustomerAccounts", EmitDefaultValue=false)]
 		public List<CarrierCustomerAccount>? CustomerAccounts { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		[DataMember(Name="PlugInParameters", EmitDefaultValue=false)]
 		public List<CarrierPluginParameter>? PlugInParameters { get; set; }
 
 		/// <summary>
@@ -62,7 +53,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Plug-In</para>
 		/// <para>SQL Type: varchar(255)</para>
 		/// </summary>
-		[DataMember(Name="PlugInType", EmitDefaultValue=false)]
 		public StringValue? PlugInType { get; set; }
 
 		/// <summary>
@@ -70,7 +60,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="Centimeter", EmitDefaultValue=false)]
 		public StringValue? Centimeter { get; set; }
 
 		/// <summary>
@@ -78,7 +67,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="Inch", EmitDefaultValue=false)]
 		public StringValue? Inch { get; set; }
 
 		/// <summary>
@@ -86,7 +74,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="Kilogram", EmitDefaultValue=false)]
 		public StringValue? Kilogram { get; set; }
 
 		/// <summary>
@@ -94,7 +81,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="Pound", EmitDefaultValue=false)]
 		public StringValue? Pound { get; set; }
 
 		/// <summary>
@@ -102,19 +88,19 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>Display Name: Warehouse</para>
 		/// </summary>
-		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string CustomerAccounts = "CustomerAccounts";
 			public const string CustomerAccounts_Files = "CustomerAccounts/Files";
 			public const string PlugInParameters = "PlugInParameters";
 			public const string PlugInParameters_Files = "PlugInParameters/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,CustomerAccounts,CustomerAccounts/Files,PlugInParameters,PlugInParameters/Files";
+			//public const string All = "Files,Translations,CustomerAccounts,CustomerAccounts/Files,PlugInParameters,PlugInParameters/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

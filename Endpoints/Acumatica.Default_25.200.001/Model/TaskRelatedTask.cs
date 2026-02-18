@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class TaskRelatedTask : Entity
 	{
 
@@ -20,13 +18,10 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// <para>Display Name: Completed On</para>
 		/// </summary>
-		[DataMember(Name="CompletedAt", EmitDefaultValue=false)]
 		public DateTimeValue? CompletedAt { get; set; }
 
-		[DataMember(Name="DueDate", EmitDefaultValue=false)]
 		public DateTimeValue? DueDate { get; set; }
 
-		[DataMember(Name="RecordID", EmitDefaultValue=false)]
 		public IntValue? RecordID { get; set; }
 
 		/// <summary>
@@ -34,7 +29,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
 		/// <para>Display Name: Start Date</para>
 		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
@@ -43,7 +37,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -52,7 +45,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Summary</para>
 		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
-		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }
 
 	}

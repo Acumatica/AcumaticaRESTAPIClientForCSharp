@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>AP301000</c> in the Acumatica ERP
 	/// <para>Key Fields: ReferenceNbr, Type</para>
 	/// </summary>
-	[DataContract]
 	public class Bill : Entity, ITopLevelEntity
 	{
 
@@ -23,10 +21,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: CuryOrigDocAmt</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
-		[DataMember(Name="Applications", EmitDefaultValue=false)]
 		public List<BillApplicationDetail>? Applications { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>Display Name: Approved for Payment</para>
 		/// </summary>
-		[DataMember(Name="ApprovedForPayment", EmitDefaultValue=false)]
 		public BooleanValue? ApprovedForPayment { get; set; }
 
 		/// <summary>
@@ -43,7 +38,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: CuryDocBal</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
@@ -51,7 +45,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>Display Name: Branch</para>
 		/// </summary>
-		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
 
 		/// <summary>
@@ -60,7 +53,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>Display Name: Cash Account</para>
 		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
 		/// <summary>
@@ -70,7 +62,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Currency</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
@@ -78,7 +69,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: DocDate</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
@@ -87,10 +77,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<BillDetail>? Details { get; set; }
 
 		/// <summary>
@@ -98,10 +86,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>Display Name: Due Date</para>
 		/// </summary>
-		[DataMember(Name="DueDate", EmitDefaultValue=false)]
 		public DateTimeValue? DueDate { get; set; }
 
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
@@ -109,7 +95,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>Display Name: Location</para>
 		/// </summary>
-		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
@@ -119,14 +104,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Post Period</para>
 		/// <para>SQL Type: char(6)</para>
 		/// </summary>
-		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
@@ -137,7 +120,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
@@ -145,10 +127,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
 		public List<BillTaxDetail>? TaxDetails { get; set; }
 
 		/// <summary>
@@ -157,7 +137,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>Display Name: Tax Total</para>
 		/// </summary>
-		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
 
 		/// <summary>
@@ -166,7 +145,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="Terms", EmitDefaultValue=false)]
 		public StringValue? Terms { get; set; }
 
 		/// <summary>
@@ -176,7 +154,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: char(3)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
@@ -184,7 +161,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: VendorID</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
@@ -194,18 +170,16 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Vendor Ref.</para>
 		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		[DataMember(Name="VendorRef", EmitDefaultValue=false)]
 		public StringValue? VendorRef { get; set; }
 
-		[DataMember(Name="IsTaxValid", EmitDefaultValue=false)]
 		public BooleanValue? IsTaxValid { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Applications = "Applications";
 			public const string Applications_Files = "Applications/Files";
 			public const string Details = "Details";
@@ -214,7 +188,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string TaxDetails_Files = "TaxDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Applications,Applications/Files,Details,Details/Files,TaxDetails,TaxDetails/Files";
+			//public const string All = "Files,Translations,Applications,Applications/Files,Details,Details/Files,TaxDetails,TaxDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

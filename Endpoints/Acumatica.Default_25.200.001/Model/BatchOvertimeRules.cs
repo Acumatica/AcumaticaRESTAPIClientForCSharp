@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class BatchOvertimeRules : Entity
 	{
 
@@ -19,10 +17,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
 		/// <para>Display Name: Apply Overtime Rules for the Document</para>
 		/// </summary>
-		[DataMember(Name="ApplyOvertimeRulesfortheDocument", EmitDefaultValue=false)]
 		public BooleanValue? ApplyOvertimeRulesfortheDocument { get; set; }
 
-		[DataMember(Name="OvertimeRulesDetails", EmitDefaultValue=false)]
 		public List<BatchOvertimeRulesDetail>? OvertimeRulesDetails { get; set; }
 
 	}

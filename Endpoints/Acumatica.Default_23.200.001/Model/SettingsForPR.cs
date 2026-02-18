@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class SettingsForPR : Entity
 	{
 
@@ -19,14 +17,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// <para>Display Name: Export Scenario</para>
 		/// </summary>
-		[DataMember(Name="ExportScenario", EmitDefaultValue=false)]
 		public StringValue? ExportScenario { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="PRProcessing", EmitDefaultValue=false)]
 		public StringValue? PRProcessing { get; set; }
 
 		/// <summary>
@@ -34,7 +30,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// <para>SQL Type: varchar(8)</para>
 		/// </summary>
-		[DataMember(Name="Report", EmitDefaultValue=false)]
 		public StringValue? Report { get; set; }
 
 	}

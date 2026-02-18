@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>BC201020</c> in the Acumatica ERP
 	/// <para>Key Fields: BindingName</para>
 	/// </summary>
-	[DataContract]
 	public class AmazonStore : Entity, ITopLevelEntity
 	{
 
@@ -25,7 +23,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="BindingName", EmitDefaultValue=false)]
 		public StringValue? BindingName { get; set; }
 
 		/// <summary>
@@ -34,7 +31,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Locale</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="LocaleName", EmitDefaultValue=false)]
 		public StringValue? LocaleName { get; set; }
 
 		/// <summary>
@@ -42,10 +38,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Commerce.Amazon.BCBindingAmazon</para>
 		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
-		[DataMember(Name="Marketplace", EmitDefaultValue=false)]
 		public StringValue? Marketplace { get; set; }
 
-		[DataMember(Name="RefreshToken", EmitDefaultValue=false)]
 		public StringValue? RefreshToken { get; set; }
 
 		/// <summary>
@@ -53,7 +47,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Commerce.Amazon.BCBindingAmazon</para>
 		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
-		[DataMember(Name="Region", EmitDefaultValue=false)]
 		public StringValue? Region { get; set; }
 
 		/// <summary>
@@ -62,7 +55,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Seller Partner ID</para>
 		/// <para>SQL Type: nvarchar(14)</para>
 		/// </summary>
-		[DataMember(Name="SellerPartnerId", EmitDefaultValue=false)]
 		public StringValue? SellerPartnerId { get; set; }
 
 		/// <summary>
@@ -70,7 +62,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -78,15 +69,15 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: IsDefault</para>
 		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
 		/// </summary>
-		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

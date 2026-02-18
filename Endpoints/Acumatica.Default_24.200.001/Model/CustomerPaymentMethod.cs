@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>AR303010</c> in the Acumatica ERP
 	/// <para>Key Fields: CustomerID, InstanceID</para>
 	/// </summary>
-	[DataContract]
 	public class CustomerPaymentMethod : Entity, ITopLevelEntity
 	{
 
@@ -23,7 +21,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -33,7 +30,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Card/Account Nbr.</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="CardAccountNbr", EmitDefaultValue=false)]
 		public StringValue? CardAccountNbr { get; set; }
 
 		/// <summary>
@@ -42,10 +38,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
 		/// <para>Display Name: Cash Account</para>
 		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
@@ -55,7 +49,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Customer</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
@@ -65,10 +58,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Customer Profile ID</para>
 		/// <para>SQL Type: nvarchar(1024)</para>
 		/// </summary>
-		[DataMember(Name="CustomerProfileID", EmitDefaultValue=false)]
 		public StringValue? CustomerProfileID { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<CustomerPaymentMethodDetail>? Details { get; set; }
 
 		/// <summary>
@@ -78,10 +69,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Card Number</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="InstanceID", EmitDefaultValue=false)]
 		public IntValue? InstanceID { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -91,7 +80,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Payment Method</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
 		/// <summary>
@@ -101,7 +89,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Proc. Center ID</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ProcCenterID", EmitDefaultValue=false)]
 		public StringValue? ProcCenterID { get; set; }
 
 		/// <summary>
@@ -111,17 +98,17 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Card/Account Type</para>
 		/// <para>SQL Type: nchar(20)</para>
 		/// </summary>
-		[DataMember(Name="CardType", EmitDefaultValue=false)]
 		public StringValue? CardType { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files";
+			//public const string All = "Files,Translations,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

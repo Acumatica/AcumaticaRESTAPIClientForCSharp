@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class SrvOrdContractInfo : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Contract Period</para>
 		/// </summary>
-		[DataMember(Name="ContractPeriod", EmitDefaultValue=false)]
 		public StringValue? ContractPeriod { get; set; }
 
 		/// <summary>
@@ -27,7 +24,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Service Contract</para>
 		/// </summary>
-		[DataMember(Name="ServiceContract", EmitDefaultValue=false)]
 		public StringValue? ServiceContract { get; set; }
 
 	}

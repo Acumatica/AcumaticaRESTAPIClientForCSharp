@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class SrvOrdTotals : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Actual Billable Total</para>
 		/// </summary>
-		[DataMember(Name="AppointmentTotal", EmitDefaultValue=false)]
 		public DecimalValue? AppointmentTotal { get; set; }
 
 		/// <summary>
@@ -27,7 +24,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Invoice Total</para>
 		/// </summary>
-		[DataMember(Name="BillableTotal", EmitDefaultValue=false)]
 		public DecimalValue? BillableTotal { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Ext. Price Total</para>
 		/// </summary>
-		[DataMember(Name="EstimatedTotal", EmitDefaultValue=false)]
 		public DecimalValue? EstimatedTotal { get; set; }
 
 		/// <summary>
@@ -43,7 +38,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Estimated Billable Total</para>
 		/// </summary>
-		[DataMember(Name="LineTotal", EmitDefaultValue=false)]
 		public DecimalValue? LineTotal { get; set; }
 
 		/// <summary>
@@ -51,7 +45,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Prepayment Applied</para>
 		/// </summary>
-		[DataMember(Name="PrepaymentApplied", EmitDefaultValue=false)]
 		public DecimalValue? PrepaymentApplied { get; set; }
 
 		/// <summary>
@@ -59,7 +52,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Prepayment Received</para>
 		/// </summary>
-		[DataMember(Name="PrepaymentReceived", EmitDefaultValue=false)]
 		public DecimalValue? PrepaymentReceived { get; set; }
 
 		/// <summary>
@@ -67,7 +59,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Prepayment Remaining</para>
 		/// </summary>
-		[DataMember(Name="PrepaymentRemaining", EmitDefaultValue=false)]
 		public DecimalValue? PrepaymentRemaining { get; set; }
 
 		/// <summary>
@@ -75,7 +66,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Service Order Billable Unpaid Balance</para>
 		/// </summary>
-		[DataMember(Name="ServiceOrderBillableUnpaidBalance", EmitDefaultValue=false)]
 		public DecimalValue? ServiceOrderBillableUnpaidBalance { get; set; }
 
 		/// <summary>
@@ -83,7 +73,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Estimated Total</para>
 		/// </summary>
-		[DataMember(Name="ServiceOrderTotal", EmitDefaultValue=false)]
 		public DecimalValue? ServiceOrderTotal { get; set; }
 
 		/// <summary>
@@ -91,7 +80,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Service Order Unpaid Balance</para>
 		/// </summary>
-		[DataMember(Name="ServiceOrderUnpaidBalance", EmitDefaultValue=false)]
 		public DecimalValue? ServiceOrderUnpaidBalance { get; set; }
 
 		/// <summary>
@@ -99,7 +87,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Estimated Tax Total</para>
 		/// </summary>
-		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
 
 		/// <summary>
@@ -107,7 +94,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: VAT Exempt Total</para>
 		/// </summary>
-		[DataMember(Name="VATExemptTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATExemptTotal { get; set; }
 
 		/// <summary>
@@ -115,7 +101,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: VAT Taxable Total</para>
 		/// </summary>
-		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATTaxableTotal { get; set; }
 
 	}

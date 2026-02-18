@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>PM201000</c> in the Acumatica ERP
 	/// <para>Key Fields: AccountGroupID</para>
 	/// </summary>
-	[DataContract]
 	public class AccountGroup : Entity, ITopLevelEntity
 	{
 
@@ -26,7 +24,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="AccountGroupID", EmitDefaultValue=false)]
 		public StringValue? AccountGroupID { get; set; }
 
 		/// <summary>
@@ -34,17 +31,14 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AccountID</para>
 		/// <para>DAC: PX.Objects.PM.AccountGroupMaint+AccountPtr</para>
 		/// </summary>
-		[DataMember(Name="DefaultAccountID", EmitDefaultValue=false)]
 		public StringValue? DefaultAccountID { get; set; }
 
 		/// <summary>
@@ -52,7 +46,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
 		/// <para>SQL Type: nvarchar(250)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -60,10 +53,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: IsExpense</para>
 		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
 		/// </summary>
-		[DataMember(Name="Expense", EmitDefaultValue=false)]
 		public BooleanValue? Expense { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -71,7 +62,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
 		/// <para>Display Name: Sort Order</para>
 		/// </summary>
-		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public ShortValue? SortOrder { get; set; }
 
 		/// <summary>
@@ -79,16 +69,16 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes";
+			//public const string All = "Files,Translations,Attributes";
 		}
 		public virtual string GetEndpointPath()
 		{

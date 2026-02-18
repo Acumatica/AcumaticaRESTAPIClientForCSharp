@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,14 +9,12 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class ProjectBalance : Entity
 	{
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PM.ProjectEntry+PMProjectBalanceRecord</para>
 		/// </summary>
-		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
 		public StringValue? AccountGroup { get; set; }
 
 		/// <summary>
@@ -26,7 +23,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Actual Amount</para>
 		/// </summary>
-		[DataMember(Name="ActualAmount", EmitDefaultValue=false)]
 		public DecimalValue? ActualAmount { get; set; }
 
 		/// <summary>
@@ -35,14 +31,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Actual + Open Committed Amount</para>
 		/// </summary>
-		[DataMember(Name="ActualOpenCommittedAmount", EmitDefaultValue=false)]
 		public DecimalValue? ActualOpenCommittedAmount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryBudgetedCOAmount</para>
 		/// <para>DAC: PX.Objects.PM.ProjectEntry+PMProjectBalanceRecord</para>
 		/// </summary>
-		[DataMember(Name="BudgetedCOAmount", EmitDefaultValue=false)]
 		public DecimalValue? BudgetedCOAmount { get; set; }
 
 		/// <summary>
@@ -51,7 +45,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Committed CO Amount</para>
 		/// </summary>
-		[DataMember(Name="CommittedCOAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommittedCOAmount { get; set; }
 
 		/// <summary>
@@ -60,7 +53,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Committed Invoiced Amount</para>
 		/// </summary>
-		[DataMember(Name="CommittedInvoicedAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommittedInvoicedAmount { get; set; }
 
 		/// <summary>
@@ -69,7 +61,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Committed Open Amount</para>
 		/// </summary>
-		[DataMember(Name="CommittedOpenAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommittedOpenAmount { get; set; }
 
 		/// <summary>
@@ -77,7 +68,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -86,14 +76,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Original Budgeted Amount</para>
 		/// </summary>
-		[DataMember(Name="OriginalBudgetedAmount", EmitDefaultValue=false)]
 		public DecimalValue? OriginalBudgetedAmount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryOriginalCommittedAmount</para>
 		/// <para>DAC: PX.Objects.PM.ProjectEntry+PMProjectBalanceRecord</para>
 		/// </summary>
-		[DataMember(Name="OriginalCommittedAmount", EmitDefaultValue=false)]
 		public DecimalValue? OriginalCommittedAmount { get; set; }
 
 		/// <summary>
@@ -101,7 +89,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Performance (%)</para>
 		/// </summary>
-		[DataMember(Name="Performance", EmitDefaultValue=false)]
 		public DecimalValue? Performance { get; set; }
 
 		/// <summary>
@@ -110,7 +97,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Revised Budgeted Amount</para>
 		/// </summary>
-		[DataMember(Name="RevisedBudgetedAmount", EmitDefaultValue=false)]
 		public DecimalValue? RevisedBudgetedAmount { get; set; }
 
 		/// <summary>
@@ -119,7 +105,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Revised Committed Amount</para>
 		/// </summary>
-		[DataMember(Name="RevisedCommittedAmount", EmitDefaultValue=false)]
 		public DecimalValue? RevisedCommittedAmount { get; set; }
 
 		/// <summary>
@@ -128,7 +113,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Variance Amount</para>
 		/// </summary>
-		[DataMember(Name="VarianceAmount", EmitDefaultValue=false)]
 		public DecimalValue? VarianceAmount { get; set; }
 
 	}

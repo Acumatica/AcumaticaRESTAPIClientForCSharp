@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>CR306010</c> in the Acumatica ERP
 	/// <para>Key Fields: NoteID</para>
 	/// </summary>
-	[DataContract]
 	public class Activity : Entity, ITopLevelEntity
 	{
 
@@ -24,10 +22,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Activity Details</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="Body", EmitDefaultValue=false)]
 		public StringValue? Body { get; set; }
 
-		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: IsPrivate</para>
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// </summary>
-		[DataMember(Name="Internal", EmitDefaultValue=false)]
 		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
@@ -44,7 +39,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: ID</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
@@ -52,10 +46,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: OwnerID</para>
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// </summary>
-		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -64,7 +56,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
-		[DataMember(Name="Summary", EmitDefaultValue=false)]
 		public StringValue? Summary { get; set; }
 
 		/// <summary>
@@ -73,18 +64,15 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// <para>Display Name: Parent Activity</para>
 		/// </summary>
-		[DataMember(Name="Task", EmitDefaultValue=false)]
 		public StringValue? Task { get; set; }
 
-		[DataMember(Name="TimeActivity", EmitDefaultValue=false)]
 		public TimeActivity? TimeActivity { get; set; }
 
 		/// <summary>
-		/// The type of the activity.
+		/// The type of the activity, which is one of the options defined on the Activity Types (CR102000) form.
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// <para>SQL Type: char(5)</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
@@ -92,16 +80,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: WorkgroupID</para>
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// </summary>
-		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
-		[DataMember(Name="CreatedByID", EmitDefaultValue=false)]
 		public StringValue? CreatedByID { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -111,7 +95,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Related Entity Type</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="RelatedEntityType", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityType { get; set; }
 
 		/// <summary>
@@ -123,19 +106,18 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// The related document may or may not implement the INotable interface,            but it must have a field marked with the PXNoteAttribute attribute            with the ShowInReferenceSelector property set to true.            
 		/// </remarks>
-		[DataMember(Name="RelatedEntityNoteID", EmitDefaultValue=false)]
 		public GuidValue? RelatedEntityNoteID { get; set; }
 
-		[DataMember(Name="RelatedEntityDescription", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityDescription { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string TimeActivity = "TimeActivity";
 
 			//Intentionally excluded
-			//public const string All = "Files,TimeActivity";
+			//public const string All = "Files,Translations,TimeActivity";
 		}
 		public virtual string GetEndpointPath()
 		{

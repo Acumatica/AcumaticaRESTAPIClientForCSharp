@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
-	[DataContract]
 	public class AttributeDetail : Entity
 	{
 
@@ -22,7 +20,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="AttributeBOMID", EmitDefaultValue=false)]
 		public StringValue? AttributeBOMID { get; set; }
 
 		/// <summary>
@@ -31,7 +28,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Attribute ID</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
 		public StringValue? AttributeID { get; set; }
 
 		/// <summary>
@@ -41,7 +37,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Value</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="DefaultValue", EmitDefaultValue=false)]
 		public StringValue? DefaultValue { get; set; }
 
 		/// <summary>
@@ -50,14 +45,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates (if set to true) that the value can be changed in the production order and entered when reporting production.
 		/// <para>DAC: PX.Objects.AM.AMBomAttribute</para>
 		/// </summary>
-		[DataMember(Name="Enabled", EmitDefaultValue=false)]
 		public BooleanValue? Enabled { get; set; }
 
 		/// <summary>
@@ -65,14 +58,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomAttribute</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="Label", EmitDefaultValue=false)]
 		public StringValue? Label { get; set; }
 
 		/// <summary>
 		/// The attribute level, which is specified automatically.
 		/// <para>DAC: PX.Objects.AM.AMBomAttribute</para>
 		/// </summary>
-		[DataMember(Name="Level", EmitDefaultValue=false)]
 		public StringValue? Level { get; set; }
 
 		/// <summary>
@@ -81,7 +72,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
@@ -90,7 +80,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomAttribute</para>
 		/// <para>Display Name: Operation ID</para>
 		/// </summary>
-		[DataMember(Name="OperNbr", EmitDefaultValue=false)]
 		public StringValue? OperNbr { get; set; }
 
 		/// <summary>
@@ -98,7 +87,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomAttribute</para>
 		/// <para>Display Name: Order Function</para>
 		/// </summary>
-		[DataMember(Name="OrderFunction", EmitDefaultValue=false)]
 		public StringValue? OrderFunction { get; set; }
 
 		/// <summary>
@@ -106,7 +94,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomAttribute</para>
 		/// <para>Display Name: Transaction Required</para>
 		/// </summary>
-		[DataMember(Name="TransactionRequired", EmitDefaultValue=false)]
 		public BooleanValue? TransactionRequired { get; set; }
 
 	}

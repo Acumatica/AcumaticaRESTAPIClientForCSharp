@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class PTOBankEmployeeClassSetting : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Accrual %</para>
 		/// </summary>
-		[DataMember(Name="AccrualPercent", EmitDefaultValue=false)]
 		public DecimalValue? AccrualPercent { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -36,7 +32,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Allow Negative Balance</para>
 		/// </summary>
-		[DataMember(Name="AllowNegativeBalance", EmitDefaultValue=false)]
 		public BooleanValue? AllowNegativeBalance { get; set; }
 
 		/// <summary>
@@ -45,7 +40,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Balance Limit</para>
 		/// </summary>
-		[DataMember(Name="BalanceLimit", EmitDefaultValue=false)]
 		public DecimalValue? BalanceLimit { get; set; }
 
 		/// <summary>
@@ -54,7 +48,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Carryover Hours</para>
 		/// </summary>
-		[DataMember(Name="CarryoverHours", EmitDefaultValue=false)]
 		public DecimalValue? CarryoverHours { get; set; }
 
 		/// <summary>
@@ -62,7 +55,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Disburse Only from Carryover</para>
 		/// </summary>
-		[DataMember(Name="DisburseOnlyfromCarryover", EmitDefaultValue=false)]
 		public BooleanValue? DisburseOnlyfromCarryover { get; set; }
 
 		/// <summary>
@@ -71,7 +63,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
 		/// <para>Display Name: Transfer Date</para>
 		/// </summary>
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
@@ -81,7 +72,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Employee Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="EmployeeClass", EmitDefaultValue=false)]
 		public StringValue? EmployeeClass { get; set; }
 
 		/// <summary>
@@ -90,7 +80,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Front Loading Hours</para>
 		/// </summary>
-		[DataMember(Name="FrontLoadingHours", EmitDefaultValue=false)]
 		public DecimalValue? FrontLoadingHours { get; set; }
 
 		/// <summary>
@@ -99,10 +88,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Hours per Year</para>
 		/// </summary>
-		[DataMember(Name="HoursperYear", EmitDefaultValue=false)]
 		public DecimalValue? HoursperYear { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -111,7 +98,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: During Probation Period</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="ProbationPeriodBehaviour", EmitDefaultValue=false)]
 		public StringValue? ProbationPeriodBehaviour { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,7 +12,6 @@ namespace Acumatica.Default_23_200_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>PR209800</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class PayrollWCCCode : Entity, ITopLevelEntity
 	{
 
@@ -21,15 +19,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: CountryID</para>
 		/// <para>DAC: PX.Objects.PR.PRWorkCodeMaint+PRWorkCodeFilter</para>
 		/// </summary>
-		[DataMember(Name="Country", EmitDefaultValue=false)]
 		public StringValue? Country { get; set; }
 
-		[DataMember(Name="WCCCodes", EmitDefaultValue=false)]
 		public List<WCCCode>? WCCCodes { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string WCCCodes = "WCCCodes";
 			public const string WCCCodes_Files = "WCCCodes/Files";
 			public const string WCCCodes_WCCCodeCostCodeSources = "WCCCodes/WCCCodeCostCodeSources";
@@ -44,7 +41,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string WCCCodes_WCCCodeRates_Files = "WCCCodes/WCCCodeRates/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,WCCCodes,WCCCodes/Files,WCCCodes/WCCCodeCostCodeSources,WCCCodes/WCCCodeCostCodeSources/Files,WCCCodes/WCCCodeLaborItemSources,WCCCodes/WCCCodeLaborItemSources/Files,WCCCodes/WCCCodeMaxInsurableWages,WCCCodes/WCCCodeMaxInsurableWages/Files,WCCCodes/WCCCodeProjectSources,WCCCodes/WCCCodeProjectSources/Files,WCCCodes/WCCCodeRates,WCCCodes/WCCCodeRates/Files";
+			//public const string All = "Files,Translations,WCCCodes,WCCCodes/Files,WCCCodes/WCCCodeCostCodeSources,WCCCodes/WCCCodeCostCodeSources/Files,WCCCodes/WCCCodeLaborItemSources,WCCCodes/WCCCodeLaborItemSources/Files,WCCCodes/WCCCodeMaxInsurableWages,WCCCodes/WCCCodeMaxInsurableWages/Files,WCCCodes/WCCCodeProjectSources,WCCCodes/WCCCodeProjectSources/Files,WCCCodes/WCCCodeRates,WCCCodes/WCCCodeRates/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

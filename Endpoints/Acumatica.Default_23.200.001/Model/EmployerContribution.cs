@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class EmployerContribution : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: CNtAmount</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Applicable Earnings</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="ApplicableEarnings", EmitDefaultValue=false)]
 		public StringValue? ApplicableEarnings { get; set; }
 
 		/// <summary>
@@ -39,7 +35,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Calculation Method</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="CalculationMethod", EmitDefaultValue=false)]
 		public StringValue? CalculationMethod { get; set; }
 
 		/// <summary>
@@ -48,7 +43,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Certified Reporting Type</para>
 		/// </summary>
-		[DataMember(Name="CertifiedReportingType", EmitDefaultValue=false)]
 		public StringValue? CertifiedReportingType { get; set; }
 
 		/// <summary>
@@ -57,7 +51,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Contributes to Gross Calculation</para>
 		/// </summary>
-		[DataMember(Name="ContributestoGrossCalculation", EmitDefaultValue=false)]
 		public BooleanValue? ContributestoGrossCalculation { get; set; }
 
 		/// <summary>
@@ -66,7 +59,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Limit Amount</para>
 		/// </summary>
-		[DataMember(Name="MaximumAmount", EmitDefaultValue=false)]
 		public DecimalValue? MaximumAmount { get; set; }
 
 		/// <summary>
@@ -76,7 +68,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Limit Frequency</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="MaximumFrequency", EmitDefaultValue=false)]
 		public StringValue? MaximumFrequency { get; set; }
 
 		/// <summary>
@@ -84,7 +75,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: No Financial Transaction</para>
 		/// </summary>
-		[DataMember(Name="NoFinancialTransaction", EmitDefaultValue=false)]
 		public BooleanValue? NoFinancialTransaction { get; set; }
 
 		/// <summary>
@@ -92,7 +82,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: CntPercent</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// </summary>
-		[DataMember(Name="Percent", EmitDefaultValue=false)]
 		public DecimalValue? Percent { get; set; }
 
 		/// <summary>
@@ -101,7 +90,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Federal Reporting Type</para>
 		/// </summary>
-		[DataMember(Name="ReportingTypeCA", EmitDefaultValue=false)]
 		public StringValue? ReportingTypeCA { get; set; }
 
 		/// <summary>
@@ -110,7 +98,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Reporting Type</para>
 		/// </summary>
-		[DataMember(Name="ReportingTypeUS", EmitDefaultValue=false)]
 		public StringValue? ReportingTypeUS { get; set; }
 
 	}

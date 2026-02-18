@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,11 +9,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class PTOBankBandingRule : Entity
 	{
 
-		[DataMember(Name="BandingRuleDetails", EmitDefaultValue=false)]
 		public List<PTOBankBandingRuleDetail>? BandingRuleDetails { get; set; }
 
 		/// <summary>
@@ -24,7 +21,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Rounding Method for Years of Service</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="RoundingMethodforYearsofService", EmitDefaultValue=false)]
 		public StringValue? RoundingMethodforYearsofService { get; set; }
 
 	}

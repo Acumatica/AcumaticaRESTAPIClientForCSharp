@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_23_200_001.Model
 	/// Corresponds to the screen <c>EP301020</c> in the Acumatica ERP
 	/// <para>Key Fields: ReceiptID</para>
 	/// </summary>
-	[DataContract]
 	public class ExpenseReceipt : Entity, ITopLevelEntity
 	{
 
@@ -23,7 +21,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -32,7 +29,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Claim Amount</para>
 		/// </summary>
-		[DataMember(Name="ClaimAmount", EmitDefaultValue=false)]
 		public DecimalValue? ClaimAmount { get; set; }
 
 		/// <summary>
@@ -41,7 +37,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Claimed by</para>
 		/// </summary>
-		[DataMember(Name="ClaimedBy", EmitDefaultValue=false)]
 		public StringValue? ClaimedBy { get; set; }
 
 		/// <summary>
@@ -49,7 +44,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: ExpenseDate</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
@@ -58,13 +52,10 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Expense Item</para>
 		/// </summary>
-		[DataMember(Name="ExpenseItemID", EmitDefaultValue=false)]
 		public StringValue? ExpenseItemID { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		[DataMember(Name="ReceiptDetails", EmitDefaultValue=false)]
 		public ExpenseReceiptDetails? ReceiptDetails { get; set; }
 
 		/// <summary>
@@ -75,7 +66,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ReceiptID", EmitDefaultValue=false)]
 		public StringValue? ReceiptID { get; set; }
 
 		/// <summary>
@@ -83,10 +73,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
 		public List<ExpenseReceiptTaxDetails>? TaxDetails { get; set; }
 
 		/// <summary>
@@ -95,18 +83,18 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Tax Total</para>
 		/// </summary>
-		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ReceiptDetails = "ReceiptDetails";
 			public const string TaxDetails = "TaxDetails";
 			public const string TaxDetails_Files = "TaxDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,ReceiptDetails,TaxDetails,TaxDetails/Files";
+			//public const string All = "Files,Translations,ReceiptDetails,TaxDetails,TaxDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

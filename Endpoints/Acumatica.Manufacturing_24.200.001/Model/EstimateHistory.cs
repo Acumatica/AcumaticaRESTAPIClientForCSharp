@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
-	[DataContract]
 	public class EstimateHistory : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMEstimateHistory</para>
 		/// <para>Display Name: Created At</para>
 		/// </summary>
-		[DataMember(Name="CreatedAt", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedAt { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMEstimateHistory</para>
 		/// <para>Display Name: Created By</para>
 		/// </summary>
-		[DataMember(Name="CreatedBy", EmitDefaultValue=false)]
 		public StringValue? CreatedBy { get; set; }
 
 		/// <summary>
@@ -37,7 +33,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Operation Desc</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -46,10 +41,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="EstimateID", EmitDefaultValue=false)]
 		public StringValue? EstimateID { get; set; }
 
-		[DataMember(Name="HistoryLineNumber", EmitDefaultValue=false)]
 		public IntValue? HistoryLineNumber { get; set; }
 
 		/// <summary>
@@ -58,7 +51,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
 
 	}

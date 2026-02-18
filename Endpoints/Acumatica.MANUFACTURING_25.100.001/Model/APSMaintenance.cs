@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,7 +12,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>AM512000</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class APSMaintenance : Entity, ITopLevelEntity
 	{
 
@@ -23,10 +21,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceFilter</para>
 		/// <para>Display Name: Cleanup History</para>
 		/// </summary>
-		[DataMember(Name="CleanupHistory", EmitDefaultValue=false)]
 		public BooleanValue? CleanupHistory { get; set; }
 
-		[DataMember(Name="History", EmitDefaultValue=false)]
 		public APSMaintenanceHistory? History { get; set; }
 
 		/// <summary>
@@ -35,16 +31,16 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceFilter</para>
 		/// <para>Display Name: Update Work Center Schedule from Calendar</para>
 		/// </summary>
-		[DataMember(Name="UpdateWorkCenterSchedulefromCalendar", EmitDefaultValue=false)]
 		public BooleanValue? UpdateWorkCenterSchedulefromCalendar { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string History = "History";
 
 			//Intentionally excluded
-			//public const string All = "Files,History";
+			//public const string All = "Files,Translations,History";
 		}
 		public virtual string GetEndpointPath()
 		{

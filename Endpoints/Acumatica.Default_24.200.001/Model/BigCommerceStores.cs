@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>BC201000</c> in the Acumatica ERP
 	/// <para>Key Fields: Connector, StoreName</para>
 	/// </summary>
-	[DataContract]
 	public class BigCommerceStores : Entity, ITopLevelEntity
 	{
 
@@ -25,7 +23,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Access Token</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="AccessToken", EmitDefaultValue=false)]
 		public StringValue? AccessToken { get; set; }
 
 		/// <summary>
@@ -33,7 +30,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -43,7 +39,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: API Path</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="APIPath", EmitDefaultValue=false)]
 		public StringValue? APIPath { get; set; }
 
 		/// <summary>
@@ -53,7 +48,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Client ID</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="ClientID", EmitDefaultValue=false)]
 		public StringValue? ClientID { get; set; }
 
 		/// <summary>
@@ -63,7 +57,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: char(3)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Connector", EmitDefaultValue=false)]
 		public StringValue? Connector { get; set; }
 
 		/// <summary>
@@ -71,7 +64,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: IsDefault</para>
 		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
 		/// </summary>
-		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
 		/// <summary>
@@ -81,7 +73,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Store Admin URL</para>
 		/// <para>SQL Type: nvarchar(200)</para>
 		/// </summary>
-		[DataMember(Name="StoreAdminPath", EmitDefaultValue=false)]
 		public StringValue? StoreAdminPath { get; set; }
 
 		/// <summary>
@@ -92,7 +83,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="StoreName", EmitDefaultValue=false)]
 		public StringValue? StoreName { get; set; }
 
 		/// <summary>
@@ -102,7 +92,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: WebDAV Password</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="WebDAVPassword", EmitDefaultValue=false)]
 		public StringValue? WebDAVPassword { get; set; }
 
 		/// <summary>
@@ -112,7 +101,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: WebDAV Path</para>
 		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
-		[DataMember(Name="WebDAVPath", EmitDefaultValue=false)]
 		public StringValue? WebDAVPath { get; set; }
 
 		/// <summary>
@@ -122,15 +110,15 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: WebDAV Username</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="WebDAVUsername", EmitDefaultValue=false)]
 		public StringValue? WebDAVUsername { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

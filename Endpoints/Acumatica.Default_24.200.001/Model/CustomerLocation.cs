@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,11 +13,9 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>AR303020</c> in the Acumatica ERP
 	/// <para>Key Fields: Customer, LocationID</para>
 	/// </summary>
-	[DataContract]
 	public class CustomerLocation : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -27,7 +24,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Override</para>
 		/// </summary>
-		[DataMember(Name="AddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? AddressOverride { get; set; }
 
 		/// <summary>
@@ -36,7 +32,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="Calendar", EmitDefaultValue=false)]
 		public StringValue? Calendar { get; set; }
 
 		/// <summary>
@@ -45,10 +40,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Override</para>
 		/// </summary>
-		[DataMember(Name="ContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? ContactOverride { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
@@ -58,7 +51,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Account ID</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
 		/// <summary>
@@ -66,7 +58,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: IsDefault</para>
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// </summary>
-		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
 		/// <summary>
@@ -75,7 +66,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Default Project</para>
 		/// </summary>
-		[DataMember(Name="DefaultProject", EmitDefaultValue=false)]
 		public StringValue? DefaultProject { get; set; }
 
 		/// <summary>
@@ -85,7 +75,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Exemption Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="EntityUsageType", EmitDefaultValue=false)]
 		public StringValue? EntityUsageType { get; set; }
 
 		/// <summary>
@@ -94,7 +83,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Ground Collect</para>
 		/// </summary>
-		[DataMember(Name="FedExGroundCollect", EmitDefaultValue=false)]
 		public BooleanValue? FedExGroundCollect { get; set; }
 
 		/// <summary>
@@ -104,7 +92,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: FOB Point</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
 		public StringValue? FOBPoint { get; set; }
 
 		/// <summary>
@@ -112,10 +99,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: CInsurance</para>
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// </summary>
-		[DataMember(Name="Insurance", EmitDefaultValue=false)]
 		public BooleanValue? Insurance { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -124,10 +109,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Lead Time (Days)</para>
 		/// </summary>
-		[DataMember(Name="LeadTimeDays", EmitDefaultValue=false)]
 		public ShortValue? LeadTimeDays { get; set; }
 
-		[DataMember(Name="LocationContact", EmitDefaultValue=false)]
 		public Contact? LocationContact { get; set; }
 
 		/// <summary>
@@ -138,7 +121,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
@@ -148,7 +130,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Location Name</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="LocationName", EmitDefaultValue=false)]
 		public StringValue? LocationName { get; set; }
 
 		/// <summary>
@@ -157,7 +138,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Order Priority</para>
 		/// </summary>
-		[DataMember(Name="OrderPriority", EmitDefaultValue=false)]
 		public ShortValue? OrderPriority { get; set; }
 
 		/// <summary>
@@ -167,7 +147,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Price Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
 		public StringValue? PriceClass { get; set; }
 
 		/// <summary>
@@ -176,10 +155,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Residential Delivery</para>
 		/// </summary>
-		[DataMember(Name="ResidentialDelivery", EmitDefaultValue=false)]
 		public BooleanValue? ResidentialDelivery { get; set; }
 
-		[DataMember(Name="RoleAssignments", EmitDefaultValue=false)]
 		public List<BCRoleAssignment>? RoleAssignments { get; set; }
 
 		/// <summary>
@@ -188,7 +165,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Saturday Delivery</para>
 		/// </summary>
-		[DataMember(Name="SaturdayDelivery", EmitDefaultValue=false)]
 		public BooleanValue? SaturdayDelivery { get; set; }
 
 		/// <summary>
@@ -197,7 +173,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Shipping Branch</para>
 		/// </summary>
-		[DataMember(Name="ShippingBranch", EmitDefaultValue=false)]
 		public StringValue? ShippingBranch { get; set; }
 
 		/// <summary>
@@ -207,7 +182,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Shipping Rule</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="ShippingRule", EmitDefaultValue=false)]
 		public StringValue? ShippingRule { get; set; }
 
 		/// <summary>
@@ -217,7 +191,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Shipping Terms</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
 		public StringValue? ShippingTerms { get; set; }
 
 		/// <summary>
@@ -227,7 +200,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Shipping Zone</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="ShippingZone", EmitDefaultValue=false)]
 		public StringValue? ShippingZone { get; set; }
 
 		/// <summary>
@@ -237,7 +209,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Ship Via</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
 		public StringValue? ShipVia { get; set; }
 
 		/// <summary>
@@ -245,7 +216,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -255,7 +225,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Exemption Number</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="TaxExemptionNbr", EmitDefaultValue=false)]
 		public StringValue? TaxExemptionNbr { get; set; }
 
 		/// <summary>
@@ -264,7 +233,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Registration ID</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="TaxRegistrationID", EmitDefaultValue=false)]
 		public StringValue? TaxRegistrationID { get; set; }
 
 		/// <summary>
@@ -274,7 +242,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
@@ -282,18 +249,16 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: CSiteID</para>
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
-		[DataMember(Name="ExtRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExtRefNbr { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string LocationContact = "LocationContact";
 			public const string LocationContact_Activities = "LocationContact/Activities";
 			public const string LocationContact_Activities_Files = "LocationContact/Activities/Files";
@@ -322,7 +287,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string RoleAssignments_Files = "RoleAssignments/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,LocationContact,LocationContact/Activities,LocationContact/Activities/Files,LocationContact/Address,LocationContact/Attributes,LocationContact/Campaigns,LocationContact/Campaigns/Files,LocationContact/Cases,LocationContact/Cases/Files,LocationContact/Duplicates,LocationContact/Duplicates/Files,LocationContact/MarketingLists,LocationContact/MarketingLists/Files,LocationContact/Notifications,LocationContact/Notifications/Files,LocationContact/Opportunities,LocationContact/Opportunities/Files,LocationContact/Relations,LocationContact/Relations/Files,LocationContact/RoleAssignments,LocationContact/RoleAssignments/Files,LocationContact/UserInfo,LocationContact/UserInfo/Roles,LocationContact/UserInfo/Roles/Files,RoleAssignments,RoleAssignments/Files";
+			//public const string All = "Files,Translations,LocationContact,LocationContact/Activities,LocationContact/Activities/Files,LocationContact/Address,LocationContact/Attributes,LocationContact/Campaigns,LocationContact/Campaigns/Files,LocationContact/Cases,LocationContact/Cases/Files,LocationContact/Duplicates,LocationContact/Duplicates/Files,LocationContact/MarketingLists,LocationContact/MarketingLists/Files,LocationContact/Notifications,LocationContact/Notifications/Files,LocationContact/Opportunities,LocationContact/Opportunities/Files,LocationContact/Relations,LocationContact/Relations/Files,LocationContact/RoleAssignments,LocationContact/RoleAssignments/Files,LocationContact/UserInfo,LocationContact/UserInfo/Roles,LocationContact/UserInfo/Roles/Files,RoleAssignments,RoleAssignments/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

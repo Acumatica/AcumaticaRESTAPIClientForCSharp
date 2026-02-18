@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	/// Corresponds to the screen <c>GL103003</c> in the Acumatica ERP
 	/// <para>Key Fields: LedgerCD</para>
 	/// </summary>
-	[DataContract]
 	public class Ledger : Entity, ITopLevelEntity
 	{
 
@@ -24,7 +22,6 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		/// <para>Display Name: Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="BalanceType", EmitDefaultValue=false)]
 		public StringValue? BalanceType { get; set; }
 
 		/// <summary>
@@ -33,7 +30,6 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		/// <para>Display Name: Description</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Descr", EmitDefaultValue=false)]
 		public StringValue? Descr { get; set; }
 
 		/// <summary>
@@ -43,15 +39,15 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

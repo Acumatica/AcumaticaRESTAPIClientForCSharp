@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class EmployeeDeduction : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: DedAmount</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Applicable Earnings</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="ApplicableEarnings", EmitDefaultValue=false)]
 		public StringValue? ApplicableEarnings { get; set; }
 
 		/// <summary>
@@ -39,7 +35,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Calculation Method</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="CalculationMethod", EmitDefaultValue=false)]
 		public StringValue? CalculationMethod { get; set; }
 
 		/// <summary>
@@ -48,7 +43,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Limit Amount</para>
 		/// </summary>
-		[DataMember(Name="MaximumAmount", EmitDefaultValue=false)]
 		public DecimalValue? MaximumAmount { get; set; }
 
 		/// <summary>
@@ -58,7 +52,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Limit Frequency</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="MaximumFrequency", EmitDefaultValue=false)]
 		public StringValue? MaximumFrequency { get; set; }
 
 		/// <summary>
@@ -66,7 +59,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: DedPercent</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// </summary>
-		[DataMember(Name="Percent", EmitDefaultValue=false)]
 		public DecimalValue? Percent { get; set; }
 
 		/// <summary>
@@ -75,7 +67,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Federal Reporting Type</para>
 		/// </summary>
-		[DataMember(Name="ReportingTypeCA", EmitDefaultValue=false)]
 		public StringValue? ReportingTypeCA { get; set; }
 
 		/// <summary>
@@ -84,7 +75,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Reporting Type</para>
 		/// </summary>
-		[DataMember(Name="ReportingTypeUS", EmitDefaultValue=false)]
 		public StringValue? ReportingTypeUS { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.eCommerce_23_200_001.Model
 {
-	[DataContract]
 	public class CashTransactionDetail : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		/// <para>DAC: PX.Objects.CA.CASplit</para>
 		/// <para>Display Name: Price</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -30,7 +27,6 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		/// <para>Display Name: Description</para>
 		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
-		[DataMember(Name="AmountDescription", EmitDefaultValue=false)]
 		public StringValue? AmountDescription { get; set; }
 
 	}

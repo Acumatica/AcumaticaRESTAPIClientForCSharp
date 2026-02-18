@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class PaymentMethodAllowedCashAccountDetail : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
 		/// <para>Display Name: AP Default</para>
 		/// </summary>
-		[DataMember(Name="APDefault", EmitDefaultValue=false)]
 		public BooleanValue? APDefault { get; set; }
 
 		/// <summary>
@@ -27,7 +24,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: AP Last Reference Number</para>
 		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		[DataMember(Name="APLastRefNbr", EmitDefaultValue=false)]
 		public StringValue? APLastRefNbr { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
 		/// <para>Display Name: AP - Suggest Next Number</para>
 		/// </summary>
-		[DataMember(Name="APSuggestNextNbr", EmitDefaultValue=false)]
 		public BooleanValue? APSuggestNextNbr { get; set; }
 
 		/// <summary>
@@ -43,7 +38,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
 		/// <para>Display Name: AR Default</para>
 		/// </summary>
-		[DataMember(Name="ARDefault", EmitDefaultValue=false)]
 		public BooleanValue? ARDefault { get; set; }
 
 		/// <summary>
@@ -51,7 +45,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
 		/// <para>Display Name: AR Default For Refund</para>
 		/// </summary>
-		[DataMember(Name="ARDefaultForRefund", EmitDefaultValue=false)]
 		public BooleanValue? ARDefaultForRefund { get; set; }
 
 		/// <summary>
@@ -59,7 +52,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: AR Last Reference Number</para>
 		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		[DataMember(Name="ARLastRefNbr", EmitDefaultValue=false)]
 		public StringValue? ARLastRefNbr { get; set; }
 
 		/// <summary>
@@ -67,7 +59,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
 		/// <para>Display Name: AR - Suggest Next Number</para>
 		/// </summary>
-		[DataMember(Name="ARSuggestNextNbr", EmitDefaultValue=false)]
 		public BooleanValue? ARSuggestNextNbr { get; set; }
 
 		/// <summary>
@@ -76,14 +67,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Batch Last Reference Number</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="BatchLastRefNbr", EmitDefaultValue=false)]
 		public StringValue? BatchLastRefNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CashAccount__BranchID</para>
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -92,14 +81,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Cash Account</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CashAccountID_CashAccount_Descr</para>
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -109,7 +96,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
 		/// <summary>
@@ -117,7 +103,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// <para>Display Name: Use in AP</para>
 		/// </summary>
-		[DataMember(Name="UseInAP", EmitDefaultValue=false)]
 		public BooleanValue? UseInAP { get; set; }
 
 		/// <summary>
@@ -125,10 +110,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// <para>Display Name: Use in AR</para>
 		/// </summary>
-		[DataMember(Name="UseInAR", EmitDefaultValue=false)]
 		public BooleanValue? UseInAR { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -136,7 +119,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// <para>Display Name: Use in PR</para>
 		/// </summary>
-		[DataMember(Name="UseInPR", EmitDefaultValue=false)]
 		public BooleanValue? UseInPR { get; set; }
 
 	}

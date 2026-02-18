@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
-	[DataContract]
 	public class SetProductionOrderDetailMaterialsOpen : EntityAction<ProductionOrderDetail>
 	{
 		public SetProductionOrderDetailMaterialsOpen(ProductionOrderDetail entity) : base(entity)

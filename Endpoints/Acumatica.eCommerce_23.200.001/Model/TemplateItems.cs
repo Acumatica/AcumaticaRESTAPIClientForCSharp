@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,7 +12,6 @@ namespace Acumatica.eCommerce_23_200_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>IN203000</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class TemplateItems : Acumatica.Default_23_200_001.Model.TemplateItems, ITopLevelEntity
 	{
 
@@ -22,7 +20,6 @@ namespace Acumatica.eCommerce_23_200_001.Model
 		/// <para>DAC: PX.Objects.IN.Matrix.DAC.Unbound.MatrixInventoryItem</para>
 		/// <para>Display Name: Last Modified On</para>
 		/// </summary>
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public override string GetEndpointPath()

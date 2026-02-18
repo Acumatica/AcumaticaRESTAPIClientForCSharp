@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class ProFormaFinancialDetails : Entity
 	{
 
@@ -21,7 +19,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: AR Doc. Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="ARDocType", EmitDefaultValue=false)]
 		public StringValue? ARDocType { get; set; }
 
 		/// <summary>
@@ -31,7 +28,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: AR Ref. Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="ARRefNbr", EmitDefaultValue=false)]
 		public StringValue? ARRefNbr { get; set; }
 
 		/// <summary>
@@ -39,7 +35,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -48,7 +43,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// <para>Display Name: Cash Discount Date</para>
 		/// </summary>
-		[DataMember(Name="CashDiscountDate", EmitDefaultValue=false)]
 		public DateTimeValue? CashDiscountDate { get; set; }
 
 		/// <summary>
@@ -58,7 +52,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Customer Tax Zone</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
 		public StringValue? CustomerTaxZone { get; set; }
 
 		/// <summary>
@@ -68,7 +61,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Exemption Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="CustomerUsageType", EmitDefaultValue=false)]
 		public StringValue? CustomerUsageType { get; set; }
 
 		/// <summary>
@@ -76,7 +68,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// <para>Display Name: Due Date</para>
 		/// </summary>
-		[DataMember(Name="DueDate", EmitDefaultValue=false)]
 		public DateTimeValue? DueDate { get; set; }
 
 		/// <summary>
@@ -85,7 +76,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="Terms", EmitDefaultValue=false)]
 		public StringValue? Terms { get; set; }
 
 	}

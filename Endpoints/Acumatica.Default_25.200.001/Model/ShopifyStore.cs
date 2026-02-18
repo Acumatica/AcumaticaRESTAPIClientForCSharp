@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>BC201010</c> in the Acumatica ERP
 	/// <para>Key Fields: Connector, StoreName</para>
 	/// </summary>
-	[DataContract]
 	public class ShopifyStore : Entity, ITopLevelEntity
 	{
 
@@ -25,7 +23,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: API Access Token</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="AccessToken", EmitDefaultValue=false)]
 		public StringValue? AccessToken { get; set; }
 
 		/// <summary>
@@ -33,7 +30,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -43,7 +39,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(3)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Connector", EmitDefaultValue=false)]
 		public StringValue? Connector { get; set; }
 
 		/// <summary>
@@ -51,7 +46,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: IsDefault</para>
 		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
 		/// </summary>
-		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
 		/// <summary>
@@ -61,7 +55,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: API Secret Key</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="SharedSecret", EmitDefaultValue=false)]
 		public StringValue? SharedSecret { get; set; }
 
 		/// <summary>
@@ -71,7 +64,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Store Admin URL</para>
 		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
-		[DataMember(Name="StoreAdminURL", EmitDefaultValue=false)]
 		public StringValue? StoreAdminURL { get; set; }
 
 		/// <summary>
@@ -82,15 +74,15 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="StoreName", EmitDefaultValue=false)]
 		public StringValue? StoreName { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

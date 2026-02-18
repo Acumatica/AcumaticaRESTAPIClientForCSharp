@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class FinancialYearPeriodDetail : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinPeriodSetup</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinPeriodSetup</para>
 		/// <para>Display Name: End Date</para>
 		/// </summary>
-		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
 		/// <summary>
@@ -39,10 +35,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="PeriodNbr", EmitDefaultValue=false)]
 		public StringValue? PeriodNbr { get; set; }
 
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 	}

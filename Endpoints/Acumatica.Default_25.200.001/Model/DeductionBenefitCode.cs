@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>PR101060</c> in the Acumatica ERP
 	/// <para>Key Fields: DeductionBenefitCodeID</para>
 	/// </summary>
-	[DataContract]
 	public class DeductionBenefitCode : Entity, ITopLevelEntity
 	{
 
@@ -23,10 +21,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: ACA Applicable</para>
 		/// </summary>
-		[DataMember(Name="ACAApplicable", EmitDefaultValue=false)]
 		public BooleanValue? ACAApplicable { get; set; }
 
-		[DataMember(Name="ACAInformation", EmitDefaultValue=false)]
 		public ACAInformation? ACAInformation { get; set; }
 
 		/// <summary>
@@ -34,7 +30,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -43,10 +38,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Affects Tax Calculation</para>
 		/// </summary>
-		[DataMember(Name="AffectsTaxCalculation", EmitDefaultValue=false)]
 		public BooleanValue? AffectsTaxCalculation { get; set; }
 
-		[DataMember(Name="ApplicableWage", EmitDefaultValue=false)]
 		public ApplicableWage? ApplicableWage { get; set; }
 
 		/// <summary>
@@ -55,7 +48,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Associated With</para>
 		/// <para>SQL Type: nchar(3)</para>
 		/// </summary>
-		[DataMember(Name="AssociatedWith", EmitDefaultValue=false)]
 		public StringValue? AssociatedWith { get; set; }
 
 		/// <summary>
@@ -65,7 +57,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Contribution Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="ContributionType", EmitDefaultValue=false)]
 		public StringValue? ContributionType { get; set; }
 
 		/// <summary>
@@ -76,7 +67,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="DeductionBenefitCodeID", EmitDefaultValue=false)]
 		public StringValue? DeductionBenefitCodeID { get; set; }
 
 		/// <summary>
@@ -84,16 +74,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="EmployeeDeduction", EmitDefaultValue=false)]
 		public EmployeeDeduction? EmployeeDeduction { get; set; }
 
-		[DataMember(Name="EmployerContribution", EmitDefaultValue=false)]
 		public EmployerContribution? EmployerContribution { get; set; }
 
-		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
 		public DeductionOrBenefitCodeGLAccounts? GLAccounts { get; set; }
 
 		/// <summary>
@@ -103,7 +89,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Invoice Description Source</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="InvoiceDescrSource", EmitDefaultValue=false)]
 		public StringValue? InvoiceDescrSource { get; set; }
 
 		/// <summary>
@@ -111,10 +96,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Garnishment</para>
 		/// </summary>
-		[DataMember(Name="IsGarnishment", EmitDefaultValue=false)]
 		public BooleanValue? IsGarnishment { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -123,19 +106,15 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Payable Benefit</para>
 		/// </summary>
-		[DataMember(Name="PayableBenefit", EmitDefaultValue=false)]
 		public BooleanValue? PayableBenefit { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// </summary>
-		[DataMember(Name="ShowApplicableWageTab", EmitDefaultValue=false)]
 		public BooleanValue? ShowApplicableWageTab { get; set; }
 
-		[DataMember(Name="TaxSettingsCA", EmitDefaultValue=false)]
 		public TaxSettingsCA? TaxSettingsCA { get; set; }
 
-		[DataMember(Name="TaxSettingsUS", EmitDefaultValue=false)]
 		public TaxSettingsUS? TaxSettingsUS { get; set; }
 
 		/// <summary>
@@ -143,7 +122,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: BAccountID</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// </summary>
-		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
@@ -153,15 +131,14 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Vendor Invoice Description</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="VendorInvoiceDescription", EmitDefaultValue=false)]
 		public StringValue? VendorInvoiceDescription { get; set; }
 
-		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
 		public DeductionBenefitWCCCode? WCCCode { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ACAInformation = "ACAInformation";
 			public const string ACAInformation_ACAInfoDetails = "ACAInformation/ACAInfoDetails";
 			public const string ACAInformation_ACAInfoDetails_Files = "ACAInformation/ACAInfoDetails/Files";
@@ -197,7 +174,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string WCCCode_WCCCodeRates_WCCCodeMaxInsurableWages_Files = "WCCCode/WCCCodeRates/WCCCodeMaxInsurableWages/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,ACAInformation,ACAInformation/ACAInfoDetails,ACAInformation/ACAInfoDetails/Files,ApplicableWage,ApplicableWage/BenefitIncreasingApplWage,ApplicableWage/BenefitIncreasingApplWage/BenefitIncreasingApplWageDetails,ApplicableWage/BenefitIncreasingApplWage/BenefitIncreasingApplWageDetails/Files,ApplicableWage/DeductionsDecreasingApplWage,ApplicableWage/DeductionsDecreasingApplWage/DeductionIncreasingApplWageDetails,ApplicableWage/DeductionsDecreasingApplWage/DeductionIncreasingApplWageDetails/Files,ApplicableWage/EarningIncreasingApplWage,ApplicableWage/EarningIncreasingApplWage/EarningIncreasingApplWageDetails,ApplicableWage/EarningIncreasingApplWage/EarningIncreasingApplWageDetails/Files,ApplicableWage/EmployeeTaxesDecreasingApplWage,ApplicableWage/EmployeeTaxesDecreasingApplWage/EmployeeTaxesDecreasingApplWageDetails,ApplicableWage/EmployeeTaxesDecreasingApplWage/EmployeeTaxesDecreasingApplWageDetails/Files,ApplicableWage/EmployerTaxesIncreasingApplWage,ApplicableWage/EmployerTaxesIncreasingApplWage/EmployerTaxesIncreasingApplWageDetails,ApplicableWage/EmployerTaxesIncreasingApplWage/EmployerTaxesIncreasingApplWageDetails/Files,EmployeeDeduction,EmployerContribution,GLAccounts,TaxSettingsCA,TaxSettingsCA/TaxDetailsCA,TaxSettingsCA/TaxDetailsCA/Files,TaxSettingsUS,TaxSettingsUS/TaxDetailsUS,TaxSettingsUS/TaxDetailsUS/Files,WCCCode,WCCCode/WCCCodeRates,WCCCode/WCCCodeRates/Files,WCCCode/WCCCodeRates/WCCCodeMaxInsurableWages,WCCCode/WCCCodeRates/WCCCodeMaxInsurableWages/Files";
+			//public const string All = "Files,Translations,ACAInformation,ACAInformation/ACAInfoDetails,ACAInformation/ACAInfoDetails/Files,ApplicableWage,ApplicableWage/BenefitIncreasingApplWage,ApplicableWage/BenefitIncreasingApplWage/BenefitIncreasingApplWageDetails,ApplicableWage/BenefitIncreasingApplWage/BenefitIncreasingApplWageDetails/Files,ApplicableWage/DeductionsDecreasingApplWage,ApplicableWage/DeductionsDecreasingApplWage/DeductionIncreasingApplWageDetails,ApplicableWage/DeductionsDecreasingApplWage/DeductionIncreasingApplWageDetails/Files,ApplicableWage/EarningIncreasingApplWage,ApplicableWage/EarningIncreasingApplWage/EarningIncreasingApplWageDetails,ApplicableWage/EarningIncreasingApplWage/EarningIncreasingApplWageDetails/Files,ApplicableWage/EmployeeTaxesDecreasingApplWage,ApplicableWage/EmployeeTaxesDecreasingApplWage/EmployeeTaxesDecreasingApplWageDetails,ApplicableWage/EmployeeTaxesDecreasingApplWage/EmployeeTaxesDecreasingApplWageDetails/Files,ApplicableWage/EmployerTaxesIncreasingApplWage,ApplicableWage/EmployerTaxesIncreasingApplWage/EmployerTaxesIncreasingApplWageDetails,ApplicableWage/EmployerTaxesIncreasingApplWage/EmployerTaxesIncreasingApplWageDetails/Files,EmployeeDeduction,EmployerContribution,GLAccounts,TaxSettingsCA,TaxSettingsCA/TaxDetailsCA,TaxSettingsCA/TaxDetailsCA/Files,TaxSettingsUS,TaxSettingsUS/TaxDetailsUS,TaxSettingsUS/TaxDetailsUS/Files,WCCCode,WCCCode/WCCCodeRates,WCCCode/WCCCodeRates/Files,WCCCode/WCCCodeRates/WCCCodeMaxInsurableWages,WCCCode/WCCCodeRates/WCCCodeMaxInsurableWages/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	/// Corresponds to the screen <c>GL103001</c> in the Acumatica ERP
 	/// <para>Key Fields: AccountCD</para>
 	/// </summary>
-	[DataContract]
 	public class ConsolAccount : Entity, ITopLevelEntity
 	{
 
@@ -24,22 +22,21 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="AccountCD", EmitDefaultValue=false)]
 		public StringValue? AccountCD { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.GLConsolAccount</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

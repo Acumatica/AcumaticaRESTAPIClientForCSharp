@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,11 +9,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class EmployeePaidTimeOff : Entity
 	{
 
-		[DataMember(Name="PaidTimeOffDetails", EmitDefaultValue=false)]
 		public List<EmployeePaidTimeOffDetail>? PaidTimeOffDetails { get; set; }
 
 		/// <summary>
@@ -22,7 +19,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Use Custom Settings</para>
 		/// </summary>
-		[DataMember(Name="UseCustomSettings", EmitDefaultValue=false)]
 		public BooleanValue? UseCustomSettings { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class CreditCardTransactionDetail : Entity
 	{
 
@@ -20,10 +18,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Proc. Center Tran. Nbr.</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
 		public StringValue? TranNbr { get; set; }
 
-		[DataMember(Name="TranApiNbr", EmitDefaultValue=false)]
 		public StringValue? TranApiNbr { get; set; }
 
 		/// <summary>
@@ -31,7 +27,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tran. Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="TranType", EmitDefaultValue=false)]
 		public StringValue? TranType { get; set; }
 
 		/// <summary>
@@ -40,25 +35,18 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Proc. Center Auth. Nbr.</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="AuthNbr", EmitDefaultValue=false)]
 		public StringValue? AuthNbr { get; set; }
 
-		[DataMember(Name="TranDate", EmitDefaultValue=false)]
 		public DateTimeValue? TranDate { get; set; }
 
-		[DataMember(Name="ExtProfileId", EmitDefaultValue=false)]
 		public StringValue? ExtProfileId { get; set; }
 
-		[DataMember(Name="NeedValidation", EmitDefaultValue=false)]
 		public BooleanValue? NeedValidation { get; set; }
 
-		[DataMember(Name="OrigTranNbr", EmitDefaultValue=false)]
 		public StringValue? OrigTranNbr { get; set; }
 
-		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
-		[DataMember(Name="CardType", EmitDefaultValue=false)]
 		public StringValue? CardType { get; set; }
 
 	}

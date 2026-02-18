@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class AccountSummaryRow : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Account Class</para>
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
-		[DataMember(Name="AccountClass", EmitDefaultValue=false)]
 		public StringValue? AccountClass { get; set; }
 
 		/// <summary>
@@ -37,7 +33,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Beg. Balance</para>
 		/// </summary>
-		[DataMember(Name="BeginningBalance", EmitDefaultValue=false)]
 		public DecimalValue? BeginningBalance { get; set; }
 
 		/// <summary>
@@ -45,7 +40,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -54,7 +48,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Consolidation Account</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="ConsolidationAccount", EmitDefaultValue=false)]
 		public StringValue? ConsolidationAccount { get; set; }
 
 		/// <summary>
@@ -62,7 +55,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Credit Total</para>
 		/// </summary>
-		[DataMember(Name="CreditTotal", EmitDefaultValue=false)]
 		public DecimalValue? CreditTotal { get; set; }
 
 		/// <summary>
@@ -70,7 +62,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Curr. Beg. Balance</para>
 		/// </summary>
-		[DataMember(Name="CurrencyBeginningBalance", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyBeginningBalance { get; set; }
 
 		/// <summary>
@@ -78,7 +69,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Curr. Credit Total</para>
 		/// </summary>
-		[DataMember(Name="CurrencyCreditTotal", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyCreditTotal { get; set; }
 
 		/// <summary>
@@ -86,7 +76,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Curr. Debit Total</para>
 		/// </summary>
-		[DataMember(Name="CurrencyDebitTotal", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyDebitTotal { get; set; }
 
 		/// <summary>
@@ -94,7 +83,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Curr. Ending Balance</para>
 		/// </summary>
-		[DataMember(Name="CurrencyEndingBalance", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyEndingBalance { get; set; }
 
 		/// <summary>
@@ -103,7 +91,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Currency ID</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
@@ -111,7 +98,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Cury. Ptd. Total</para>
 		/// </summary>
-		[DataMember(Name="CurrencyPtdTotal", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyPtdTotal { get; set; }
 
 		/// <summary>
@@ -119,14 +105,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Debit Total</para>
 		/// </summary>
-		[DataMember(Name="DebitTotal", EmitDefaultValue=false)]
 		public DecimalValue? DebitTotal { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -134,7 +118,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Ending Balance</para>
 		/// </summary>
-		[DataMember(Name="EndingBalance", EmitDefaultValue=false)]
 		public DecimalValue? EndingBalance { get; set; }
 
 		/// <summary>
@@ -144,14 +127,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: char(6)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LastActivity", EmitDefaultValue=false)]
 		public StringValue? LastActivity { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnqFilter</para>
 		/// <para>Display Name: Ledger</para>
 		/// </summary>
-		[DataMember(Name="LedgerID", EmitDefaultValue=false)]
 		public IntValue? LedgerID { get; set; }
 
 		/// <summary>
@@ -159,7 +140,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>Display Name: Ptd. Total</para>
 		/// </summary>
-		[DataMember(Name="PtdTotal", EmitDefaultValue=false)]
 		public DecimalValue? PtdTotal { get; set; }
 
 		/// <summary>
@@ -167,14 +147,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnqFilter</para>
 		/// <para>SQL Type: varchar(30)</para>
 		/// </summary>
-		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnquiryResult</para>
 		/// <para>SQL Type: varchar(1)</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 	}

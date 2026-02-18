@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class LotSerialClassSegment : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Segment Number</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="SegmentNbr", EmitDefaultValue=false)]
 		public ShortValue? SegmentNbr { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.INLotSerSegment</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
@@ -36,7 +32,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.INLotSerSegment</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
 
 	}

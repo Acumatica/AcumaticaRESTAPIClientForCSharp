@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_23_200_001.Model
 	/// Corresponds to the screen <c>GL203000</c> in the Acumatica ERP
 	/// <para>Key Fields: SubaccountCD</para>
 	/// </summary>
-	[DataContract]
 	public class Subaccount : Entity, ITopLevelEntity
 	{
 
@@ -22,7 +20,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// Indicates whether the Subaccount is active.Inactive subaccounts do not appear in the lists of available subaccounts andthus can't be selected for documents, transactions and other entities.
 		/// <para>DAC: PX.Objects.GL.Sub</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -30,13 +27,11 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Sub</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.Sub</para>
 		/// </summary>
-		[DataMember(Name="Secured", EmitDefaultValue=false)]
 		public BooleanValue? Secured { get; set; }
 
 		/// <summary>
@@ -47,7 +42,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="SubaccountCD", EmitDefaultValue=false)]
 		public StringValue? SubaccountCD { get; set; }
 
 		/// <summary>
@@ -56,15 +50,15 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Sub</para>
 		/// <para>Display Name: Sub. ID</para>
 		/// </summary>
-		[DataMember(Name="SubaccountID", EmitDefaultValue=false)]
 		public IntValue? SubaccountID { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

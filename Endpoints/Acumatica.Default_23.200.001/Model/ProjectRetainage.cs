@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class ProjectRetainage : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Retainage Mode</para>
 		/// <para>SQL Type: nchar(1)</para>
 		/// </summary>
-		[DataMember(Name="RetainageMode", EmitDefaultValue=false)]
 		public StringValue? RetainageMode { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>Display Name: Include CO</para>
 		/// </summary>
-		[DataMember(Name="IncludeCO", EmitDefaultValue=false)]
 		public BooleanValue? IncludeCO { get; set; }
 
 		/// <summary>
@@ -37,7 +33,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>Display Name: Use Steps</para>
 		/// </summary>
-		[DataMember(Name="UseSteps", EmitDefaultValue=false)]
 		public BooleanValue? UseSteps { get; set; }
 
 		/// <summary>
@@ -46,7 +41,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>Display Name: Cap (%)</para>
 		/// </summary>
-		[DataMember(Name="CapPct", EmitDefaultValue=false)]
 		public DecimalValue? CapPct { get; set; }
 
 		/// <summary>
@@ -55,7 +49,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>Display Name: Cap Amount</para>
 		/// </summary>
-		[DataMember(Name="CapAmount", EmitDefaultValue=false)]
 		public DecimalValue? CapAmount { get; set; }
 
 		/// <summary>
@@ -63,7 +56,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>Display Name: Retainage (%)</para>
 		/// </summary>
-		[DataMember(Name="RetainagePct", EmitDefaultValue=false)]
 		public DecimalValue? RetainagePct { get; set; }
 
 		/// <summary>
@@ -72,7 +64,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMRevenueBudget</para>
 		/// <para>Display Name: Total Retained Amount</para>
 		/// </summary>
-		[DataMember(Name="RetainTotal", EmitDefaultValue=false)]
 		public DecimalValue? RetainTotal { get; set; }
 
 		/// <summary>
@@ -81,7 +72,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
 		/// <para>Display Name: Original Budgeted Amount</para>
 		/// </summary>
-		[DataMember(Name="ContractTotal", EmitDefaultValue=false)]
 		public DecimalValue? ContractTotal { get; set; }
 
 		/// <summary>
@@ -90,7 +80,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProjectRevenueTotal</para>
 		/// <para>Display Name: Completed (%)</para>
 		/// </summary>
-		[DataMember(Name="CompletedPct", EmitDefaultValue=false)]
 		public DecimalValue? CompletedPct { get; set; }
 
 	}

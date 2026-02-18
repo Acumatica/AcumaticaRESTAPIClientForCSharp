@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>PM209500</c> in the Acumatica ERP
 	/// <para>Key Fields: CostCodeID</para>
 	/// </summary>
-	[DataContract]
 	public class CostCode : Entity, ITopLevelEntity
 	{
 
@@ -26,7 +24,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="CostCodeID", EmitDefaultValue=false)]
 		public StringValue? CostCodeID { get; set; }
 
 		/// <summary>
@@ -34,18 +31,17 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMCostCode</para>
 		/// <para>SQL Type: nvarchar(250)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

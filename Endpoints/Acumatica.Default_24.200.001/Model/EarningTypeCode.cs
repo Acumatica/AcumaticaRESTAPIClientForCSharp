@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>PR102000</c> in the Acumatica ERP
 	/// <para>Key Fields: EarningTypeCodeID</para>
 	/// </summary>
-	[DataContract]
 	public class EarningTypeCode : Entity, ITopLevelEntity
 	{
 
@@ -23,14 +21,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: AccruePTO</para>
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// </summary>
-		[DataMember(Name="AccrueTimeOff", EmitDefaultValue=false)]
 		public BooleanValue? AccrueTimeOff { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -40,7 +36,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Earning Type Category</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="Category", EmitDefaultValue=false)]
 		public StringValue? Category { get; set; }
 
 		/// <summary>
@@ -49,14 +44,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Contributes to WCC Calculation</para>
 		/// </summary>
-		[DataMember(Name="ContributestoWCCCalculation", EmitDefaultValue=false)]
 		public BooleanValue? ContributestoWCCCalculation { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -66,23 +59,18 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="EarningTypeCodeID", EmitDefaultValue=false)]
 		public StringValue? EarningTypeCodeID { get; set; }
 
-		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
 		public EarningCodeGLAccounts? GLAccounts { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: OvertimeMultiplier</para>
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// </summary>
-		[DataMember(Name="Multiplier", EmitDefaultValue=false)]
 		public DecimalValue? Multiplier { get; set; }
 
-		[DataMember(Name="ProjectSettings", EmitDefaultValue=false)]
 		public EarningCodeProjectSettings? ProjectSettings { get; set; }
 
 		/// <summary>
@@ -90,7 +78,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Public Holiday</para>
 		/// </summary>
-		[DataMember(Name="PublicHoliday", EmitDefaultValue=false)]
 		public BooleanValue? PublicHoliday { get; set; }
 
 		/// <summary>
@@ -100,18 +87,16 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Regular Time Type Code</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="RegularTimeTypeCode", EmitDefaultValue=false)]
 		public StringValue? RegularTimeTypeCode { get; set; }
 
-		[DataMember(Name="TaxAndReportingCA", EmitDefaultValue=false)]
 		public TaxAndReportingCA? TaxAndReportingCA { get; set; }
 
-		[DataMember(Name="TaxAndReportingUS", EmitDefaultValue=false)]
 		public TaxAndReportingUS? TaxAndReportingUS { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string GLAccounts = "GLAccounts";
 			public const string ProjectSettings = "ProjectSettings";
 			public const string TaxAndReportingCA = "TaxAndReportingCA";
@@ -122,7 +107,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string TaxAndReportingUS_TaxDetailsUS_Files = "TaxAndReportingUS/TaxDetailsUS/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,GLAccounts,ProjectSettings,TaxAndReportingCA,TaxAndReportingCA/TaxDetailsCA,TaxAndReportingCA/TaxDetailsCA/Files,TaxAndReportingUS,TaxAndReportingUS/TaxDetailsUS,TaxAndReportingUS/TaxDetailsUS/Files";
+			//public const string All = "Files,Translations,GLAccounts,ProjectSettings,TaxAndReportingCA,TaxAndReportingCA/TaxDetailsCA,TaxAndReportingCA/TaxDetailsCA/Files,TaxAndReportingUS,TaxAndReportingUS/TaxDetailsUS,TaxAndReportingUS/TaxDetailsUS/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,11 +12,9 @@ namespace Acumatica.Default_24_200_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>GL101000</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class FinancialYear : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="AdjustToPeriodStart", EmitDefaultValue=false)]
 		public BooleanValue? AdjustToPeriodStart { get; set; }
 
 		/// <summary>
@@ -25,10 +22,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Belongs to Next Year</para>
 		/// </summary>
-		[DataMember(Name="BelongsToNextYear", EmitDefaultValue=false)]
 		public BooleanValue? BelongsToNextYear { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
@@ -37,10 +32,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Day of Week</para>
 		/// </summary>
-		[DataMember(Name="DayOfWeek", EmitDefaultValue=false)]
 		public StringValue? DayOfWeek { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<FinancialYearPeriodDetail>? Details { get; set; }
 
 		/// <summary>
@@ -49,7 +42,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Financial Year Starts On</para>
 		/// </summary>
-		[DataMember(Name="FinancialYearStartsOn", EmitDefaultValue=false)]
 		public DateTimeValue? FinancialYearStartsOn { get; set; }
 
 		/// <summary>
@@ -59,7 +51,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: First Financial Year</para>
 		/// <para>SQL Type: char(4)</para>
 		/// </summary>
-		[DataMember(Name="FirstFinancialYear", EmitDefaultValue=false)]
 		public StringValue? FirstFinancialYear { get; set; }
 
 		/// <summary>
@@ -68,7 +59,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: First Period Start Date</para>
 		/// </summary>
-		[DataMember(Name="FirstPeriodStartDate", EmitDefaultValue=false)]
 		public DateTimeValue? FirstPeriodStartDate { get; set; }
 
 		/// <summary>
@@ -76,10 +66,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Has Adjustment Period</para>
 		/// </summary>
-		[DataMember(Name="HasAdjustmentPeriod", EmitDefaultValue=false)]
 		public BooleanValue? HasAdjustmentPeriod { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -88,7 +76,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Length of Financial Period (days)</para>
 		/// </summary>
-		[DataMember(Name="LengthOfFinancialPeriodInDays", EmitDefaultValue=false)]
 		public ShortValue? LengthOfFinancialPeriodInDays { get; set; }
 
 		/// <summary>
@@ -97,7 +84,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Number of Financial Periods </para>
 		/// </summary>
-		[DataMember(Name="NbrOfFinancialPeriods", EmitDefaultValue=false)]
 		public ShortValue? NbrOfFinancialPeriods { get; set; }
 
 		/// <summary>
@@ -106,7 +92,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Periods Start Day of Week</para>
 		/// </summary>
-		[DataMember(Name="PeriodsStartDayOfWeek", EmitDefaultValue=false)]
 		public StringValue? PeriodsStartDayOfWeek { get; set; }
 
 		/// <summary>
@@ -115,7 +100,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Period Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="PeriodType", EmitDefaultValue=false)]
 		public StringValue? PeriodType { get; set; }
 
 		/// <summary>
@@ -124,7 +108,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: User-Defined Periods</para>
 		/// </summary>
-		[DataMember(Name="UserDefinedPeriods", EmitDefaultValue=false)]
 		public BooleanValue? UserDefinedPeriods { get; set; }
 
 		/// <summary>
@@ -134,17 +117,17 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Year End Calculation Method</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="YearEndCalculationMethod", EmitDefaultValue=false)]
 		public StringValue? YearEndCalculationMethod { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files";
+			//public const string All = "Files,Translations,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

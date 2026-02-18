@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class FinancialSettings : Entity
 	{
 
@@ -22,7 +20,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is not available for transfer orders.
 		/// </remarks>
-		[DataMember(Name="BillSeparately", EmitDefaultValue=false)]
 		public BooleanValue? BillSeparately { get; set; }
 
 		/// <summary>
@@ -30,7 +27,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -42,7 +38,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is not available for transfer orders.
 		/// </remarks>
-		[DataMember(Name="CashDiscountDate", EmitDefaultValue=false)]
 		public DateTimeValue? CashDiscountDate { get; set; }
 
 		/// <summary>
@@ -52,7 +47,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Customer Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
 		public StringValue? CustomerTaxZone { get; set; }
 
 		/// <summary>
@@ -63,7 +57,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is not available for transfer orders.
 		/// </remarks>
-		[DataMember(Name="DueDate", EmitDefaultValue=false)]
 		public DateTimeValue? DueDate { get; set; }
 
 		/// <summary>
@@ -76,7 +69,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is available only if theExternal Tax Calculation Integrationfeature is enabled on the Enable/Disable Features (CS100000) form.This field is not available for transfer orders.
 		/// </remarks>
-		[DataMember(Name="EntityUsageType", EmitDefaultValue=false)]
 		public StringValue? EntityUsageType { get; set; }
 
 		/// <summary>
@@ -87,7 +79,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// Date can be entered manually if the Bill Separatelyfield is  for the order type.This field is not available for transfer orders.
 		/// </remarks>
-		[DataMember(Name="InvoiceDate", EmitDefaultValue=false)]
 		public DateTimeValue? InvoiceDate { get; set; }
 
 		/// <summary>
@@ -99,7 +90,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is available for orders of the CR, RC, RR, and RM types.
 		/// </remarks>
-		[DataMember(Name="InvoiceNbr", EmitDefaultValue=false)]
 		public StringValue? InvoiceNbr { get; set; }
 
 		/// <summary>
@@ -112,7 +102,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// The field is used only for returns.
 		/// </remarks>
-		[DataMember(Name="OriginalOrderNbr", EmitDefaultValue=false)]
 		public StringValue? OriginalOrderNbr { get; set; }
 
 		/// <summary>
@@ -125,7 +114,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// The field is used only for returns.
 		/// </remarks>
-		[DataMember(Name="OriginalOrderType", EmitDefaultValue=false)]
 		public StringValue? OriginalOrderType { get; set; }
 
 		/// <summary>
@@ -133,7 +121,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Override Tax Zone</para>
 		/// </summary>
-		[DataMember(Name="OverrideTaxZone", EmitDefaultValue=false)]
 		public BooleanValue? OverrideTaxZone { get; set; }
 
 		/// <summary>
@@ -141,7 +128,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: OwnerID</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
-		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
@@ -151,7 +137,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Post Period</para>
 		/// <para>SQL Type: char(6)</para>
 		/// </summary>
-		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
@@ -163,7 +148,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field is not available for transfer orders.
 		/// </remarks>
-		[DataMember(Name="Terms", EmitDefaultValue=false)]
 		public StringValue? Terms { get; set; }
 
 	}

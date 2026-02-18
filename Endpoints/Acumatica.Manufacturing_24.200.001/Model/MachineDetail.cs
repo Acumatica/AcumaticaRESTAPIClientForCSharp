@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
-	[DataContract]
 	public class MachineDetail : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
 		/// <para>Display Name: Machine Account</para>
 		/// </summary>
-		[DataMember(Name="MachineAccount", EmitDefaultValue=false)]
 		public StringValue? MachineAccount { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="MachineID", EmitDefaultValue=false)]
 		public StringValue? MachineID { get; set; }
 
 		/// <summary>
@@ -37,7 +33,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
 		/// <para>Display Name: Machine Override</para>
 		/// </summary>
-		[DataMember(Name="MachineOverride", EmitDefaultValue=false)]
 		public BooleanValue? MachineOverride { get; set; }
 
 		/// <summary>
@@ -45,7 +40,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
 		/// <para>Display Name: Machine Subaccount</para>
 		/// </summary>
-		[DataMember(Name="MachineSubaccount", EmitDefaultValue=false)]
 		public StringValue? MachineSubaccount { get; set; }
 
 		/// <summary>
@@ -53,7 +47,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
 		/// <para>Display Name: Standard Cost</para>
 		/// </summary>
-		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
 		public DecimalValue? StandardCost { get; set; }
 
 	}

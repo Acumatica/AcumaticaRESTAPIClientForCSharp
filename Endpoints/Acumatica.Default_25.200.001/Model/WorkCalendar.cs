@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,21 +13,17 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>CS209000</c> in the Acumatica ERP
 	/// <para>Key Fields: WorkCalendarID</para>
 	/// </summary>
-	[DataContract]
 	public class WorkCalendar : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="CalendarExceptions", EmitDefaultValue=false)]
 		public List<WorkCalendarExceptionDetail>? CalendarExceptions { get; set; }
 
-		[DataMember(Name="CalendarSettings", EmitDefaultValue=false)]
 		public CalendarSettings? CalendarSettings { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -36,7 +31,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Time Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TimeZone", EmitDefaultValue=false)]
 		public StringValue? TimeZone { get; set; }
 
 		/// <summary>
@@ -46,18 +40,18 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]
 		public StringValue? WorkCalendarID { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string CalendarExceptions = "CalendarExceptions";
 			public const string CalendarExceptions_Files = "CalendarExceptions/Files";
 			public const string CalendarSettings = "CalendarSettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,CalendarExceptions,CalendarExceptions/Files,CalendarSettings";
+			//public const string All = "Files,Translations,CalendarExceptions,CalendarExceptions/Files,CalendarSettings";
 		}
 		public virtual string GetEndpointPath()
 		{

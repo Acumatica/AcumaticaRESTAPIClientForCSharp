@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,29 +13,21 @@ namespace Acumatica.Default_23_200_001.Model
 	/// Corresponds to the screen <c>PM301000</c> in the Acumatica ERP
 	/// <para>Key Fields: ProjectID</para>
 	/// </summary>
-	[DataContract]
 	public class Project : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="ActivityHistory", EmitDefaultValue=false)]
 		public List<ProjectActivity>? ActivityHistory { get; set; }
 
-		[DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
 		public List<Approval>? ApprovalDetails { get; set; }
 
-		[DataMember(Name="Assets", EmitDefaultValue=false)]
 		public DecimalValue? Assets { get; set; }
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
-		[DataMember(Name="Balances", EmitDefaultValue=false)]
 		public List<ProjectBalance>? Balances { get; set; }
 
-		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
 		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
 
-		[DataMember(Name="BillToSettings", EmitDefaultValue=false)]
 		public BillToSettings? BillToSettings { get; set; }
 
 		/// <summary>
@@ -44,7 +35,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: CustomerID</para>
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// </summary>
-		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
 		/// <summary>
@@ -52,13 +42,10 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Employees", EmitDefaultValue=false)]
 		public List<ProjectEmployee>? Employees { get; set; }
 
-		[DataMember(Name="Equipments", EmitDefaultValue=false)]
 		public List<ProjectEquipment>? Equipments { get; set; }
 
 		/// <summary>
@@ -66,7 +53,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMTaskTotal</para>
 		/// <para>Display Name: Expense</para>
 		/// </summary>
-		[DataMember(Name="Expenses", EmitDefaultValue=false)]
 		public DecimalValue? Expenses { get; set; }
 
 		/// <summary>
@@ -76,33 +62,26 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: External Ref. Nbr.</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExternalRefNbr { get; set; }
 
-		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
 		public ProjectGLAccount? GLAccounts { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the project is on hold.
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// </summary>
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryIncome</para>
 		/// <para>DAC: PX.Objects.PM.PMTaskTotal</para>
 		/// </summary>
-		[DataMember(Name="Income", EmitDefaultValue=false)]
 		public DecimalValue? Income { get; set; }
 
-		[DataMember(Name="Invoices", EmitDefaultValue=false)]
 		public List<ProjectProFormaDetails>? Invoices { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		[DataMember(Name="Liabilities", EmitDefaultValue=false)]
 		public DecimalValue? Liabilities { get; set; }
 
 		/// <summary>
@@ -113,10 +92,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
-		[DataMember(Name="ProjectProperties", EmitDefaultValue=false)]
 		public ProjectProperties? ProjectProperties { get; set; }
 
 		/// <summary>
@@ -125,7 +102,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>Display Name: Template</para>
 		/// </summary>
-		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateID { get; set; }
 
 		/// <summary>
@@ -133,24 +109,20 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="UnionLocals", EmitDefaultValue=false)]
 		public List<ProjectUnionLocal>? UnionLocals { get; set; }
 
-		[DataMember(Name="VisibilitySettings", EmitDefaultValue=false)]
 		public VisibilitySettings? VisibilitySettings { get; set; }
 
-		[DataMember(Name="Retainage", EmitDefaultValue=false)]
 		public ProjectRetainage? Retainage { get; set; }
 
-		[DataMember(Name="ProjectAddress", EmitDefaultValue=false)]
 		public ProjectAddress? ProjectAddress { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ActivityHistory = "ActivityHistory";
 			public const string ActivityHistory_Files = "ActivityHistory/Files";
 			public const string ApprovalDetails = "ApprovalDetails";
@@ -179,7 +151,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string ProjectAddress = "ProjectAddress";
 
 			//Intentionally excluded
-			//public const string All = "Files,ActivityHistory,ActivityHistory/Files,ApprovalDetails,ApprovalDetails/Files,Attributes,Balances,Balances/Files,BillingAndAllocationSettings,BillToSettings,BillToSettings/BillToAddress,BillToSettings/BillToContact,Employees,Employees/Files,Equipments,Equipments/Files,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,GLAccounts/DefaultTaskForGLAccounts/Files,Invoices,Invoices/Files,ProjectProperties,UnionLocals,UnionLocals/Files,VisibilitySettings,Retainage,ProjectAddress";
+			//public const string All = "Files,Translations,ActivityHistory,ActivityHistory/Files,ApprovalDetails,ApprovalDetails/Files,Attributes,Balances,Balances/Files,BillingAndAllocationSettings,BillToSettings,BillToSettings/BillToAddress,BillToSettings/BillToContact,Employees,Employees/Files,Equipments,Equipments/Files,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,GLAccounts/DefaultTaskForGLAccounts/Files,Invoices,Invoices/Files,ProjectProperties,UnionLocals,UnionLocals/Files,VisibilitySettings,Retainage,ProjectAddress";
 		}
 		public virtual string GetEndpointPath()
 		{

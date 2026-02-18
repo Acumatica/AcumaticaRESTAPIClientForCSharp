@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class LedgerBranches : Entity
 	{
 
@@ -18,7 +16,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// Indicates whether the Branch is active.
 		/// <para>DAC: PX.Objects.GL.Branch</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
 
 		/// <summary>
@@ -39,14 +35,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Branch Name</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="BranchName", EmitDefaultValue=false)]
 		public StringValue? BranchName { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Organization__OrganizationName</para>
 		/// <para>DAC: PX.Objects.GL.Branch</para>
 		/// </summary>
-		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
 		public StringValue? CompanyName { get; set; }
 
 	}

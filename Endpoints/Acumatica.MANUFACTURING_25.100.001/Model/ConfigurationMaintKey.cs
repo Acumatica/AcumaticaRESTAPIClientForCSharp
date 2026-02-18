@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.MANUFACTURING_25_100_001.Model
 {
-	[DataContract]
 	public class ConfigurationMaintKey : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Format", EmitDefaultValue=false)]
 		public StringValue? Format { get; set; }
 
 		/// <summary>
@@ -27,7 +24,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>SQL Type: nvarchar(240)</para>
 		/// </summary>
-		[DataMember(Name="Formula", EmitDefaultValue=false)]
 		public StringValue? Formula { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>Display Name: Key Description</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="KeyDescription", EmitDefaultValue=false)]
 		public StringValue? KeyDescription { get; set; }
 
 		/// <summary>
@@ -44,7 +39,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>Display Name: Number Sequence</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="NumberSequence", EmitDefaultValue=false)]
 		public StringValue? NumberSequence { get; set; }
 
 		/// <summary>
@@ -53,7 +47,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>Display Name: Tran Description</para>
 		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
-		[DataMember(Name="TranDescription", EmitDefaultValue=false)]
 		public StringValue? TranDescription { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class SalesOrderDetail : Entity
 	{
 
@@ -22,10 +20,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the SalesAccount foreign key. The field is the identifier of theSales Account Account.accountID.
 		/// </remarks>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
-		[DataMember(Name="Allocations", EmitDefaultValue=false)]
 		public List<SalesOrderDetailAllocation>? Allocations { get; set; }
 
 		/// <summary>
@@ -34,7 +30,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Alternate ID</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="AlternateID", EmitDefaultValue=false)]
 		public StringValue? AlternateID { get; set; }
 
 		/// <summary>
@@ -42,7 +37,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: CuryLineAmt</para>
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -51,7 +45,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Auto Create Issue</para>
 		/// </summary>
-		[DataMember(Name="AutoCreateIssue", EmitDefaultValue=false)]
 		public BooleanValue? AutoCreateIssue { get; set; }
 
 		/// <summary>
@@ -60,7 +53,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Average Cost</para>
 		/// </summary>
-		[DataMember(Name="AverageCost", EmitDefaultValue=false)]
 		public DecimalValue? AverageCost { get; set; }
 
 		/// <summary>
@@ -68,10 +60,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
-		[DataMember(Name="CalculateDiscountsOnImport", EmitDefaultValue=false)]
 		public BooleanValue? CalculateDiscountsOnImport { get; set; }
 
 		/// <summary>
@@ -81,14 +71,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// This field is available only if the Commissionsfeature is enabled on the Enable/Disable Features (CS100000) form.This field is not available for orders of the TR type.
 		/// </remarks>
-		[DataMember(Name="Commissionable", EmitDefaultValue=false)]
 		public BooleanValue? Commissionable { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the line is completed.
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// </summary>
-		[DataMember(Name="Completed", EmitDefaultValue=false)]
 		public BooleanValue? Completed { get; set; }
 
 		/// <summary>
@@ -100,7 +88,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the  foreign key. The field is the identifier ofthe cost code ..This field is available only if the Cost Codesfeature is enabled on the Enable/Disable Features (CS100000) form in addition to the integration of theProjects submodule with Sales Orders.
 		/// </remarks>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
@@ -112,7 +99,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// A reference number must be specified if theRequire Customer Order Nbr field istrue for the order type.This field is available for orders of the TR type.
 		/// </remarks>
-		[DataMember(Name="CustomerOrderNbr", EmitDefaultValue=false)]
 		public StringValue? CustomerOrderNbr { get; set; }
 
 		/// <summary>
@@ -121,7 +107,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Discount Amount</para>
 		/// </summary>
-		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountAmount { get; set; }
 
 		/// <summary>
@@ -134,7 +119,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the following foreign keys:                        . The field is the identifier of the Discount            .            . The field is a part of the identifier of the Discount Sequence            .                        This field is available only if the            Customer Discounts            feature is enabled on the Enable/Disable Features (CS100000) form.            
 		/// </remarks>
-		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
 
 		/// <summary>
@@ -143,7 +127,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Disc. Unit Price</para>
 		/// </summary>
-		[DataMember(Name="DiscountedUnitPrice", EmitDefaultValue=false)]
 		public DecimalValue? DiscountedUnitPrice { get; set; }
 
 		/// <summary>
@@ -155,7 +138,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// If the Manual Discount field value is true, it indicatesthat the percent of the discount is specified by the line discount that has been applied manually, or hasbeen entered manually or calculated based on the discount amount of the line.
 		/// </remarks>
-		[DataMember(Name="DiscountPercent", EmitDefaultValue=false)]
 		public DecimalValue? DiscountPercent { get; set; }
 
 		/// <summary>
@@ -164,7 +146,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Ext. Price</para>
 		/// </summary>
-		[DataMember(Name="ExtendedPrice", EmitDefaultValue=false)]
 		public DecimalValue? ExtendedPrice { get; set; }
 
 		/// <summary>
@@ -176,7 +157,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// If the field value is true then the system updates theUnit Price, Discount Percent,Discount Amount, and  Ext. Price amounts with 0 andset Manual Discount field to true.
 		/// </remarks>
-		[DataMember(Name="FreeItem", EmitDefaultValue=false)]
 		public BooleanValue? FreeItem { get; set; }
 
 		/// <summary>
@@ -187,10 +167,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the following foreign keys:. The field is the identifier of the Stock Item or Non-Stock Item.. The field is a part of the identifier of the warehouse container.. The field is a part of the identifier of the Location inventory itemstatus .. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbers.
 		/// </remarks>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
-		[DataMember(Name="InvoiceLineNbr", EmitDefaultValue=false)]
 		public IntValue? InvoiceLineNbr { get; set; }
 
 		/// <summary>
@@ -202,16 +180,13 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// This field is available for orders of the CR, RC, RR, and RM types.
 		/// </remarks>
-		[DataMember(Name="InvoiceNbr", EmitDefaultValue=false)]
 		public StringValue? InvoiceNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="InvoiceType", EmitDefaultValue=false)]
 		public StringValue? InvoiceType { get; set; }
 
-		[DataMember(Name="LastModifiedDate", EmitDefaultValue=false)]
 		public StringValue? LastModifiedDate { get; set; }
 
 		/// <summary>
@@ -221,7 +196,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Line Description</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="LineDescription", EmitDefaultValue=false)]
 		public StringValue? LineDescription { get; set; }
 
 		/// <summary>
@@ -230,7 +204,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
@@ -239,7 +212,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Line Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="LineType", EmitDefaultValue=false)]
 		public StringValue? LineType { get; set; }
 
 		/// <summary>
@@ -250,7 +222,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the following foreign keys:. The field is the identifier of the Location.. The field is a part of the identifier of the Location inventory itemstatus .. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbers.
 		/// </remarks>
-		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
@@ -259,7 +230,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Manual Discount</para>
 		/// </summary>
-		[DataMember(Name="ManualDiscount", EmitDefaultValue=false)]
 		public BooleanValue? ManualDiscount { get; set; }
 
 		/// <summary>
@@ -268,7 +238,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Mark for PO</para>
 		/// </summary>
-		[DataMember(Name="MarkForPO", EmitDefaultValue=false)]
 		public BooleanValue? MarkForPO { get; set; }
 
 		/// <summary>
@@ -279,7 +248,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// That is, the total quantity minus the quantity shipped according to closed shipment documents.
 		/// </remarks>
-		[DataMember(Name="OpenQty", EmitDefaultValue=false)]
 		public DecimalValue? OpenQty { get; set; }
 
 		/// <summary>
@@ -290,7 +258,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// An order of the RR or RM type includes lines with the Receipt operation and lines with theIssue operation. Orders of other return types include only lines withthe Receipt operation.
 		/// </remarks>
-		[DataMember(Name="Operation", EmitDefaultValue=false)]
 		public StringValue? Operation { get; set; }
 
 		/// <summary>
@@ -301,7 +268,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// If any items that are not from the current blanket sales order have been added to the child order,their quantity is not summed up to the value in this field.
 		/// </remarks>
-		[DataMember(Name="OrderQty", EmitDefaultValue=false)]
 		public DecimalValue? OrderQty { get; set; }
 
 		/// <summary>
@@ -310,7 +276,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Overship Threshold (%)</para>
 		/// </summary>
-		[DataMember(Name="OvershipThreshold", EmitDefaultValue=false)]
 		public DecimalValue? OvershipThreshold { get; set; }
 
 		/// <summary>
@@ -319,7 +284,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: PO Source</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="POSource", EmitDefaultValue=false)]
 		public StringValue? POSource { get; set; }
 
 		/// <summary>
@@ -331,7 +295,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the  foreign key. The field is a part of the identifierof the Project Task ..This field is available only if theProject Accountingfeature is enabled on the Enable/Disable Features (CS100000) form and the integration of the Projectssubmodule with Sales Orders has been enabled.
 		/// </remarks>
-		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
@@ -340,10 +303,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Purchase Warehouse</para>
 		/// </summary>
-		[DataMember(Name="PurchaseWarehouse", EmitDefaultValue=false)]
 		public StringValue? PurchaseWarehouse { get; set; }
 
-		[DataMember(Name="PurchasingDetails", EmitDefaultValue=false)]
 		public List<PurchasingDetail>? PurchasingDetails { get; set; }
 
 		/// <summary>
@@ -354,7 +315,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the Vendor foreign key. The field is a part of the identifier ofthe Vendor Vendor.bAccountID.
 		/// </remarks>
-		[DataMember(Name="VendorID", EmitDefaultValue=false)]
 		public StringValue? VendorID { get; set; }
 
 		/// <summary>
@@ -363,7 +323,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Qty. On Shipments</para>
 		/// </summary>
-		[DataMember(Name="QtyOnShipments", EmitDefaultValue=false)]
 		public DecimalValue? QtyOnShipments { get; set; }
 
 		/// <summary>
@@ -375,7 +334,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the ReasonCode foreign key. The field is the identifier of thereason code ReasonCode.reasonCodeID.
 		/// </remarks>
-		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
 		public StringValue? ReasonCode { get; set; }
 
 		/// <summary>
@@ -387,7 +345,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// This date provides the default values for the requestDate dates for order lines.
 		/// </remarks>
-		[DataMember(Name="RequestedOn", EmitDefaultValue=false)]
 		public DateTimeValue? RequestedOn { get; set; }
 
 		/// <summary>
@@ -396,7 +353,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Default Salesperson</para>
 		/// </summary>
-		[DataMember(Name="SalespersonID", EmitDefaultValue=false)]
 		public StringValue? SalespersonID { get; set; }
 
 		/// <summary>
@@ -407,7 +363,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// This field is available only for blanket sales orders.
 		/// </remarks>
-		[DataMember(Name="SchedOrderDate", EmitDefaultValue=false)]
 		public DateTimeValue? SchedOrderDate { get; set; }
 
 		/// <summary>
@@ -419,7 +374,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// By default, it is the date that is specified in requestDate minus the number of lead days,but it is not earlier than the current business date.
 		/// </remarks>
-		[DataMember(Name="ShipOn", EmitDefaultValue=false)]
 		public DateTimeValue? ShipOn { get; set; }
 
 		/// <summary>
@@ -432,7 +386,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.form.
 		/// </remarks>
-		[DataMember(Name="ShippingRule", EmitDefaultValue=false)]
 		public StringValue? ShippingRule { get; set; }
 
 		/// <summary>
@@ -441,7 +394,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Location</para>
 		/// </summary>
-		[DataMember(Name="ShipToLocation", EmitDefaultValue=false)]
 		public StringValue? ShipToLocation { get; set; }
 
 		/// <summary>
@@ -452,7 +404,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the following foreign keys:. The field is the identifier of the Subitem.. The field is a part of the identifier of the warehouse container.. The field is a part of the identifier of the Location inventory itemstatus .. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbers.
 		/// </remarks>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
@@ -465,7 +416,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the  foreign key.The field is the identifier of the tax category..This field is not available for orders of the TR type.
 		/// </remarks>
-		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
@@ -475,7 +425,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Customer Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
@@ -484,7 +433,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Unbilled Amount</para>
 		/// </summary>
-		[DataMember(Name="UnbilledAmount", EmitDefaultValue=false)]
 		public DecimalValue? UnbilledAmount { get; set; }
 
 		/// <summary>
@@ -493,7 +441,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Undership Threshold (%)</para>
 		/// </summary>
-		[DataMember(Name="UndershipThreshold", EmitDefaultValue=false)]
 		public DecimalValue? UndershipThreshold { get; set; }
 
 		/// <summary>
@@ -502,7 +449,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
-		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
@@ -511,7 +457,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>Display Name: Unit Price</para>
 		/// </summary>
-		[DataMember(Name="UnitPrice", EmitDefaultValue=false)]
 		public DecimalValue? UnitPrice { get; set; }
 
 		/// <summary>
@@ -519,7 +464,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
@@ -531,25 +475,18 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The field is included in the following foreign keys:. The field is identifier of the Warehouse.. The field is a part of the identifier of the Warehouse inventory itemstatus .. The field is a part of the identifier of the Location inventory itemstatus .. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbers.This field is available only if the Multiple Warehousesfeature is enabled on the Enable/Disable Features (CS100000) form.
 		/// </remarks>
-		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
 
-		[DataMember(Name="AssociatedOrderLineNbr", EmitDefaultValue=false)]
 		public IntValue? AssociatedOrderLineNbr { get; set; }
 
-		[DataMember(Name="GiftMessage", EmitDefaultValue=false)]
 		public StringValue? GiftMessage { get; set; }
 
-		[DataMember(Name="ManualPrice", EmitDefaultValue=false)]
 		public BooleanValue? ManualPrice { get; set; }
 
-		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
-		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
 		public StringValue? ExternalRef { get; set; }
 
 	}

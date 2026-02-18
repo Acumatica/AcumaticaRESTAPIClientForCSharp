@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class BusinessAccountDefaultLocationSetting : Entity
 	{
 
@@ -21,7 +19,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: FOB Point</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
 		public StringValue? FOBPoint { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: CInsurance</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>
-		[DataMember(Name="Insurance", EmitDefaultValue=false)]
 		public BooleanValue? Insurance { get; set; }
 
 		/// <summary>
@@ -38,7 +34,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Lead Time (Days)</para>
 		/// </summary>
-		[DataMember(Name="LeadTimeInDays", EmitDefaultValue=false)]
 		public ShortValue? LeadTimeInDays { get; set; }
 
 		/// <summary>
@@ -48,7 +43,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Location Name</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="LocationName", EmitDefaultValue=false)]
 		public StringValue? LocationName { get; set; }
 
 		/// <summary>
@@ -57,7 +51,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Order Priority</para>
 		/// </summary>
-		[DataMember(Name="OrderPriority", EmitDefaultValue=false)]
 		public ShortValue? OrderPriority { get; set; }
 
 		/// <summary>
@@ -67,7 +60,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Price Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
 		public StringValue? PriceClass { get; set; }
 
 		/// <summary>
@@ -76,7 +68,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Residential Delivery</para>
 		/// </summary>
-		[DataMember(Name="ResidentialDelivery", EmitDefaultValue=false)]
 		public BooleanValue? ResidentialDelivery { get; set; }
 
 		/// <summary>
@@ -85,7 +76,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Saturday Delivery</para>
 		/// </summary>
-		[DataMember(Name="SaturdayDelivery", EmitDefaultValue=false)]
 		public BooleanValue? SaturdayDelivery { get; set; }
 
 		/// <summary>
@@ -94,7 +84,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Shipping Branch</para>
 		/// </summary>
-		[DataMember(Name="ShippingBranch", EmitDefaultValue=false)]
 		public StringValue? ShippingBranch { get; set; }
 
 		/// <summary>
@@ -104,7 +93,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Shipping Rule</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="ShippingRule", EmitDefaultValue=false)]
 		public StringValue? ShippingRule { get; set; }
 
 		/// <summary>
@@ -114,7 +102,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Shipping Terms</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
 		public StringValue? ShippingTerms { get; set; }
 
 		/// <summary>
@@ -124,7 +111,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Shipping Zone</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="ShippingZone", EmitDefaultValue=false)]
 		public StringValue? ShippingZone { get; set; }
 
 		/// <summary>
@@ -134,7 +120,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Ship Via</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
 		public StringValue? ShipVia { get; set; }
 
 		/// <summary>
@@ -143,7 +128,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Registration ID</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="TaxRegistrationID", EmitDefaultValue=false)]
 		public StringValue? TaxRegistrationID { get; set; }
 
 		/// <summary>
@@ -153,7 +137,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
@@ -161,7 +144,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: CSiteID</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 	}

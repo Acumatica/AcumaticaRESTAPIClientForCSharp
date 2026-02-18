@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class UnionEarningRateDetail : Entity
 	{
 
@@ -18,14 +16,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMUnion</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
 		/// <para>Display Name: Effective Date</para>
 		/// </summary>
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
@@ -33,17 +29,14 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
 		/// <para>Display Name: Labor Item</para>
 		/// </summary>
-		[DataMember(Name="LaborItem", EmitDefaultValue=false)]
 		public StringValue? LaborItem { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
 		/// <para>Display Name: Wage Rate</para>
 		/// </summary>
-		[DataMember(Name="WageRate", EmitDefaultValue=false)]
 		public DecimalValue? WageRate { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class ShippingSettings : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Cancel By</para>
 		/// </summary>
-		[DataMember(Name="CancelByDate", EmitDefaultValue=false)]
 		public DateTimeValue? CancelByDate { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: Cancelled</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
-		[DataMember(Name="Canceled", EmitDefaultValue=false)]
 		public BooleanValue? Canceled { get; set; }
 
 		/// <summary>
@@ -40,7 +36,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// This field is available only for blanket sales orders and cannot be empty.
 		/// </remarks>
-		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
 		public StringValue? FOBPoint { get; set; }
 
 		/// <summary>
@@ -51,14 +46,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// This field is available only if theShipping Carrier Integrationfeature is enabled on the Enable/Disable Features (CS100000) form, integration with the FedEx carrieris established, and FedEx is selected in the Ship Via field.
 		/// </remarks>
-		[DataMember(Name="GroundCollect", EmitDefaultValue=false)]
 		public BooleanValue? GroundCollect { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether a user selects to indicate that insurance is required for this order.
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
-		[DataMember(Name="Insurance", EmitDefaultValue=false)]
 		public BooleanValue? Insurance { get; set; }
 
 		/// <summary>
@@ -70,14 +63,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.
 		/// </remarks>
-		[DataMember(Name="PreferredWarehouseID", EmitDefaultValue=false)]
 		public StringValue? PreferredWarehouseID { get; set; }
 
 		/// <summary>
 		/// The level of priority for processing orders of this customer, as specifiedcOrderPriority field for the customer.
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
-		[DataMember(Name="Priority", EmitDefaultValue=false)]
 		public ShortValue? Priority { get; set; }
 
 		/// <summary>
@@ -86,7 +77,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Residential Delivery</para>
 		/// </summary>
-		[DataMember(Name="ResidentialDelivery", EmitDefaultValue=false)]
 		public BooleanValue? ResidentialDelivery { get; set; }
 
 		/// <summary>
@@ -94,7 +84,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Saturday Delivery</para>
 		/// </summary>
-		[DataMember(Name="SaturdayDelivery", EmitDefaultValue=false)]
 		public BooleanValue? SaturdayDelivery { get; set; }
 
 		/// <summary>
@@ -106,7 +95,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// By default, it is the date that is specified in requestDate minus the number of lead days,but it is not earlier than the current business date.
 		/// </remarks>
-		[DataMember(Name="ScheduledShipmentDate", EmitDefaultValue=false)]
 		public DateTimeValue? ScheduledShipmentDate { get; set; }
 
 		/// <summary>
@@ -119,7 +107,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.form.
 		/// </remarks>
-		[DataMember(Name="ShippingRule", EmitDefaultValue=false)]
 		public StringValue? ShippingRule { get; set; }
 
 		/// <summary>
@@ -129,7 +116,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Shipping Terms</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
 		public StringValue? ShippingTerms { get; set; }
 
 		/// <summary>
@@ -139,7 +125,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Shipping Zone</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="ShippingZone", EmitDefaultValue=false)]
 		public StringValue? ShippingZone { get; set; }
 
 		/// <summary>
@@ -150,7 +135,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.
 		/// </remarks>
-		[DataMember(Name="ShipSeparately", EmitDefaultValue=false)]
 		public BooleanValue? ShipSeparately { get; set; }
 
 		/// <summary>
@@ -162,10 +146,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// For this ship via code, if Manual is specified as the freight calculation method, the freight amount mustbe specified in the Freight Price field.Changing the Ship Via code for an open sales order may update thecustomer tax zone field.
 		/// </remarks>
-		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
 		public StringValue? ShipVia { get; set; }
 
-		[DataMember(Name="ShopForRates", EmitDefaultValue=false)]
 		public ShopForRates? ShopForRates { get; set; }
 
 		/// <summary>
@@ -177,7 +159,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// This field is available only if theShipping Carrier Integrationfeature is enabled on the Enable/Disable Features (CS100000) form.
 		/// </remarks>
-		[DataMember(Name="UseCustomersAccount", EmitDefaultValue=false)]
 		public BooleanValue? UseCustomersAccount { get; set; }
 
 		/// <summary>
@@ -186,7 +167,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Freight Price</para>
 		/// </summary>
-		[DataMember(Name="FreightPrice", EmitDefaultValue=false)]
 		public DecimalValue? FreightPrice { get; set; }
 
 		/// <summary>
@@ -195,7 +175,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Freight Cost</para>
 		/// </summary>
-		[DataMember(Name="FreightCost", EmitDefaultValue=false)]
 		public DecimalValue? FreightCost { get; set; }
 
 		/// <summary>
@@ -204,7 +183,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Freight Cost Is up-to-date</para>
 		/// </summary>
-		[DataMember(Name="FreightCostIsuptodate", EmitDefaultValue=false)]
 		public BooleanValue? FreightCostIsuptodate { get; set; }
 
 		/// <summary>
@@ -217,7 +195,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// The default value is the tax category associated with the ship via codeship via code of the order.This field is not available for transfer orders.
 		/// </remarks>
-		[DataMember(Name="FreightTaxCategory", EmitDefaultValue=false)]
 		public StringValue? FreightTaxCategory { get; set; }
 
 		/// <summary>
@@ -225,7 +202,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Order Volume</para>
 		/// </summary>
-		[DataMember(Name="OrderVolume", EmitDefaultValue=false)]
 		public DecimalValue? OrderVolume { get; set; }
 
 		/// <summary>
@@ -233,7 +209,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Order Weight</para>
 		/// </summary>
-		[DataMember(Name="OrderWeight", EmitDefaultValue=false)]
 		public DecimalValue? OrderWeight { get; set; }
 
 		/// <summary>
@@ -245,7 +220,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// The system will preserve the manually entered Freight Price value inthe sales order and will not recalculate the value if the quantity, extended price, or amount is modifiedin order lines.
 		/// </remarks>
-		[DataMember(Name="OverrideFreightPrice", EmitDefaultValue=false)]
 		public BooleanValue? OverrideFreightPrice { get; set; }
 
 		/// <summary>
@@ -253,7 +227,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Package Weight</para>
 		/// </summary>
-		[DataMember(Name="PackageWeight", EmitDefaultValue=false)]
 		public DecimalValue? PackageWeight { get; set; }
 
 		/// <summary>
@@ -262,7 +235,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Premium Freight Price</para>
 		/// </summary>
-		[DataMember(Name="PremiumFreight", EmitDefaultValue=false)]
 		public DecimalValue? PremiumFreight { get; set; }
 
 	}

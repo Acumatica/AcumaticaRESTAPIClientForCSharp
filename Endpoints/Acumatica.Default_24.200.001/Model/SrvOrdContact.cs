@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class SrvOrdContact : Entity
 	{
 
@@ -18,7 +16,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSContact</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Attention", EmitDefaultValue=false)]
 		public StringValue? Attention { get; set; }
 
 		/// <summary>
@@ -27,7 +24,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Account Name</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
 		public StringValue? CompanyName { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSContact</para>
 		/// <para>SQL Type: varchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
 		/// <summary>
@@ -43,7 +38,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Phone 1</para>
 		/// <para>SQL Type: varchar(50)</para>
 		/// </summary>
-		[DataMember(Name="Phone1", EmitDefaultValue=false)]
 		public StringValue? Phone1 { get; set; }
 
 		/// <summary>
@@ -51,7 +45,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Phone 1 Type</para>
 		/// <para>SQL Type: varchar(3)</para>
 		/// </summary>
-		[DataMember(Name="Phone1Type", EmitDefaultValue=false)]
 		public StringValue? Phone1Type { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,7 +12,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>AM505000</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class RegenerateMRP : Entity, ITopLevelEntity
 	{
 
@@ -22,7 +20,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.MrpProcessingSetup</para>
 		/// <para>Display Name: Last Completed At</para>
 		/// </summary>
-		[DataMember(Name="LastCompletedAt", EmitDefaultValue=false)]
 		public DateTimeValue? LastCompletedAt { get; set; }
 
 		/// <summary>
@@ -30,20 +27,19 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.MrpProcessingSetup</para>
 		/// <para>Display Name: Last Completed By</para>
 		/// </summary>
-		[DataMember(Name="LastCompletedBy", EmitDefaultValue=false)]
 		public StringValue? LastCompletedBy { get; set; }
 
-		[DataMember(Name="Messages", EmitDefaultValue=false)]
 		public List<RegenerateMRPMessage>? Messages { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Messages = "Messages";
 			public const string Messages_Files = "Messages/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Messages,Messages/Files";
+			//public const string All = "Files,Translations,Messages,Messages/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

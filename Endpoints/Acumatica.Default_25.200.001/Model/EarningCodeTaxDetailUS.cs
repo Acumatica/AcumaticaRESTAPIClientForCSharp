@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,14 +9,11 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class EarningCodeTaxDetailUS : Entity
 	{
 
-		[DataMember(Name="TaxCode", EmitDefaultValue=false)]
 		public StringValue? TaxCode { get; set; }
 
-		[DataMember(Name="TaxName", EmitDefaultValue=false)]
 		public StringValue? TaxName { get; set; }
 
 	}

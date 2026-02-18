@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class TaxSettingsUS : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Include Supplemental Earnings</para>
 		/// </summary>
-		[DataMember(Name="AllowSupplementalElection", EmitDefaultValue=false)]
 		public BooleanValue? AllowSupplementalElection { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Code Type</para>
 		/// </summary>
-		[DataMember(Name="CodeType", EmitDefaultValue=false)]
 		public StringValue? CodeType { get; set; }
 
 		/// <summary>
@@ -38,10 +34,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Impact on Taxable Wage</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="ImpactonTaxableWage", EmitDefaultValue=false)]
 		public StringValue? ImpactonTaxableWage { get; set; }
 
-		[DataMember(Name="TaxDetailsUS", EmitDefaultValue=false)]
 		public List<DeductionOrBenefitTaxDetailUS>? TaxDetailsUS { get; set; }
 
 	}

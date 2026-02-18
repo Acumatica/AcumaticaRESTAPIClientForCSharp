@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class TaxCategoryTaxDetail : Entity
 	{
 
@@ -18,21 +16,18 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: Tax__TaxCalcRule</para>
 		/// <para>DAC: PX.Objects.TX.TaxCategoryDet</para>
 		/// </summary>
-		[DataMember(Name="CalculateOn", EmitDefaultValue=false)]
 		public StringValue? CalculateOn { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Tax__TaxApplyTermsDisc</para>
 		/// <para>DAC: PX.Objects.TX.TaxCategoryDet</para>
 		/// </summary>
-		[DataMember(Name="CashDiscount", EmitDefaultValue=false)]
 		public StringValue? CashDiscount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Tax__Descr</para>
 		/// <para>DAC: PX.Objects.TX.TaxCategoryDet</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -43,7 +38,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
@@ -53,14 +47,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Tax__TaxType</para>
 		/// <para>DAC: PX.Objects.TX.TaxCategoryDet</para>
 		/// </summary>
-		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }
 
 	}

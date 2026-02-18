@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,14 +13,11 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>PM208000</c> in the Acumatica ERP
 	/// <para>Key Fields: ProjectTemplateID</para>
 	/// </summary>
-	[DataContract]
 	public class ProjectTemplate : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
-		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
 		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
 
 		/// <summary>
@@ -29,22 +25,16 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Employees", EmitDefaultValue=false)]
 		public List<ProjectEmployee>? Employees { get; set; }
 
-		[DataMember(Name="Equipments", EmitDefaultValue=false)]
 		public List<ProjectEquipment>? Equipments { get; set; }
 
-		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
 		public ProjectGLAccount? GLAccounts { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		[DataMember(Name="ProjectProperties", EmitDefaultValue=false)]
 		public ProjectProperties? ProjectProperties { get; set; }
 
 		/// <summary>
@@ -55,7 +45,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ProjectTemplateID", EmitDefaultValue=false)]
 		public StringValue? ProjectTemplateID { get; set; }
 
 		/// <summary>
@@ -63,15 +52,14 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="VisibilitySettings", EmitDefaultValue=false)]
 		public VisibilitySettings? VisibilitySettings { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
 			public const string Employees = "Employees";
@@ -85,7 +73,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string VisibilitySettings = "VisibilitySettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,BillingAndAllocationSettings,Employees,Employees/Files,Equipments,Equipments/Files,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,GLAccounts/DefaultTaskForGLAccounts/Files,ProjectProperties,VisibilitySettings";
+			//public const string All = "Files,Translations,Attributes,BillingAndAllocationSettings,Employees,Employees/Files,Equipments,Equipments/Files,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,GLAccounts/DefaultTaskForGLAccounts/Files,ProjectProperties,VisibilitySettings";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class CreditCardProcessingDetail : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
 		/// <para>Display Name: Tran. Amount</para>
 		/// </summary>
-		[DataMember(Name="TransactionAmount", EmitDefaultValue=false)]
 		public DecimalValue? TransactionAmount { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tran. Status</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="TransactionStatus", EmitDefaultValue=false)]
 		public StringValue? TransactionStatus { get; set; }
 
 	}

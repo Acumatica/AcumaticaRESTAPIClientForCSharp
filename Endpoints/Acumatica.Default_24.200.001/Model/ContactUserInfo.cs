@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class ContactUserInfo : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.SM.Users</para>
 		/// <para>Display Name: Generate Password</para>
 		/// </summary>
-		[DataMember(Name="GeneratePassword", EmitDefaultValue=false)]
 		public BooleanValue? GeneratePassword { get; set; }
 
 		/// <summary>
@@ -29,7 +26,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Login", EmitDefaultValue=false)]
 		public StringValue? Login { get; set; }
 
 		/// <summary>
@@ -37,10 +33,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.SM.Users</para>
 		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
-		[DataMember(Name="Password", EmitDefaultValue=false)]
 		public StringValue? Password { get; set; }
 
-		[DataMember(Name="Roles", EmitDefaultValue=false)]
 		public List<ContactRoles>? Roles { get; set; }
 
 		/// <summary>
@@ -50,7 +44,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: State</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -59,7 +52,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.SM.Users</para>
 		/// <para>Display Name: User Type</para>
 		/// </summary>
-		[DataMember(Name="UserType", EmitDefaultValue=false)]
 		public StringValue? UserType { get; set; }
 
 	}

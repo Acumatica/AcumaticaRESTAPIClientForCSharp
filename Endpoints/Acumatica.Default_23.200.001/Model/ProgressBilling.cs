@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class ProgressBilling : Entity
 	{
 
@@ -18,7 +16,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: PMRevenueBudget__CuryActualAmount</para>
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// </summary>
-		[DataMember(Name="ActualAmount", EmitDefaultValue=false)]
 		public DecimalValue? ActualAmount { get; set; }
 
 		/// <summary>
@@ -26,7 +23,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: CuryAmount</para>
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Amount to Invoice</para>
 		/// </summary>
-		[DataMember(Name="AmountToInvoice", EmitDefaultValue=false)]
 		public DecimalValue? AmountToInvoice { get; set; }
 
 		/// <summary>
@@ -43,7 +38,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -52,7 +46,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
@@ -61,7 +54,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Currently Invoiced (%)</para>
 		/// </summary>
-		[DataMember(Name="CurrentInvoiced", EmitDefaultValue=false)]
 		public DecimalValue? CurrentInvoiced { get; set; }
 
 		/// <summary>
@@ -71,7 +63,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Deferral Code</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="DeferralCode", EmitDefaultValue=false)]
 		public StringValue? DeferralCode { get; set; }
 
 		/// <summary>
@@ -79,14 +70,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PMRevenueBudget__CuryInvoicedAmount</para>
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// </summary>
-		[DataMember(Name="DraftInvoicesAmount", EmitDefaultValue=false)]
 		public DecimalValue? DraftInvoicesAmount { get; set; }
 
 		/// <summary>
@@ -94,7 +83,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
@@ -103,7 +91,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Previously Invoiced Amount</para>
 		/// </summary>
-		[DataMember(Name="PreviouslyInvoiced", EmitDefaultValue=false)]
 		public DecimalValue? PreviouslyInvoiced { get; set; }
 
 		/// <summary>
@@ -112,7 +99,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Project Task</para>
 		/// </summary>
-		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
 
 		/// <summary>
@@ -121,7 +107,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// <para>Display Name: Retainage (%)</para>
 		/// </summary>
-		[DataMember(Name="Retainage", EmitDefaultValue=false)]
 		public DecimalValue? Retainage { get; set; }
 
 		/// <summary>
@@ -130,14 +115,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Retainage Amount</para>
 		/// </summary>
-		[DataMember(Name="RetainageAmount", EmitDefaultValue=false)]
 		public DecimalValue? RetainageAmount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PMRevenueBudget__CuryRevisedAmount</para>
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// </summary>
-		[DataMember(Name="RevisedBudgetedAmount", EmitDefaultValue=false)]
 		public DecimalValue? RevisedBudgetedAmount { get; set; }
 
 		/// <summary>
@@ -146,7 +129,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Sales Account</para>
 		/// </summary>
-		[DataMember(Name="SalesAccount", EmitDefaultValue=false)]
 		public StringValue? SalesAccount { get; set; }
 
 		/// <summary>
@@ -155,7 +137,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Sales Subaccount</para>
 		/// </summary>
-		[DataMember(Name="SalesSubaccount", EmitDefaultValue=false)]
 		public StringValue? SalesSubaccount { get; set; }
 
 		/// <summary>
@@ -164,7 +145,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Stored Material</para>
 		/// </summary>
-		[DataMember(Name="StoredMaterial", EmitDefaultValue=false)]
 		public DecimalValue? StoredMaterial { get; set; }
 
 		/// <summary>
@@ -174,7 +154,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Tax Category</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
@@ -183,7 +162,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMProformaProgressLine</para>
 		/// <para>Display Name: Total Completed (%)</para>
 		/// </summary>
-		[DataMember(Name="TotalCompleted", EmitDefaultValue=false)]
 		public DecimalValue? TotalCompleted { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class JournalTransactionDetail : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: AccountID</para>
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// </summary>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
@@ -27,7 +24,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Batch</para>
 		/// <para>Display Name: Branch</para>
 		/// </summary>
-		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
@@ -44,7 +39,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>Display Name: Credit Amount</para>
 		/// </summary>
-		[DataMember(Name="CreditAmount", EmitDefaultValue=false)]
 		public DecimalValue? CreditAmount { get; set; }
 
 		/// <summary>
@@ -53,17 +47,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>Display Name: Debit Amount</para>
 		/// </summary>
-		[DataMember(Name="DebitAmount", EmitDefaultValue=false)]
 		public DecimalValue? DebitAmount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AccountID_Account_description</para>
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="IsNonPM", EmitDefaultValue=false)]
 		public BooleanValue? IsNonPM { get; set; }
 
 		/// <summary>
@@ -72,7 +63,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
@@ -80,7 +70,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>Display Name: Non Billable</para>
 		/// </summary>
-		[DataMember(Name="NonBillable", EmitDefaultValue=false)]
 		public BooleanValue? NonBillable { get; set; }
 
 		/// <summary>
@@ -88,7 +77,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// </summary>
-		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
@@ -97,7 +85,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>Display Name: Project Task</para>
 		/// </summary>
-		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
@@ -106,7 +93,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>Display Name: PM Tran.</para>
 		/// </summary>
-		[DataMember(Name="ProjectTransactionID", EmitDefaultValue=false)]
 		public LongValue? ProjectTransactionID { get; set; }
 
 		/// <summary>
@@ -114,7 +100,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>Display Name: Quantity</para>
 		/// </summary>
-		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
@@ -124,7 +109,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Ref. Number</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
@@ -132,7 +116,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: SubID</para>
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// </summary>
-		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
@@ -142,7 +125,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Transaction Description</para>
 		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
-		[DataMember(Name="TransactionDescription", EmitDefaultValue=false)]
 		public StringValue? TransactionDescription { get; set; }
 
 		/// <summary>
@@ -150,7 +132,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
@@ -159,7 +140,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>Display Name: Customer/Vendor</para>
 		/// </summary>
-		[DataMember(Name="VendorOrCustomer", EmitDefaultValue=false)]
 		public StringValue? VendorOrCustomer { get; set; }
 
 	}

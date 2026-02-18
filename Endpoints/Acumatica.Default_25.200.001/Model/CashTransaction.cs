@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,7 +12,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>CA304000</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class CashTransaction : Entity, ITopLevelEntity
 	{
 
@@ -21,7 +19,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// Specifies (if set to true) that the transaction has been approved by a responsible person.This field is displayed if the RequestApproval field is set to true.
 		/// <para>DAC: PX.Objects.CA.CAAdj</para>
 		/// </summary>
-		[DataMember(Name="Approved", EmitDefaultValue=false)]
 		public BooleanValue? Approved { get; set; }
 
 		/// <summary>
@@ -30,7 +27,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.CAAdj</para>
 		/// <para>Display Name: Cash Account</para>
 		/// </summary>
-		[DataMember(Name="CashAccountCD", EmitDefaultValue=false)]
 		public StringValue? CashAccountCD { get; set; }
 
 		/// <summary>
@@ -39,10 +35,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.CAAdj</para>
 		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<CashTransactionDetail>? Details { get; set; }
 
 		/// <summary>
@@ -52,7 +46,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Entry Type</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="EntryTypeCD", EmitDefaultValue=false)]
 		public StringValue? EntryTypeCD { get; set; }
 
 		/// <summary>
@@ -62,7 +55,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Document Ref.</para>
 		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		[DataMember(Name="ExternalReferenceNumber", EmitDefaultValue=false)]
 		public StringValue? ExternalReferenceNumber { get; set; }
 
 		/// <summary>
@@ -71,17 +63,17 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CA.CAAdj</para>
 		/// <para>Display Name: Tran. Date</para>
 		/// </summary>
-		[DataMember(Name="PostedDate", EmitDefaultValue=false)]
 		public DateTimeValue? PostedDate { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files";
+			//public const string All = "Files,Translations,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

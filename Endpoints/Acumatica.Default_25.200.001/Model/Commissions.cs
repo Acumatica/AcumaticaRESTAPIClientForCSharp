@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class Commissions : Entity
 	{
 
@@ -20,10 +18,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Default Salesperson</para>
 		/// </summary>
-		[DataMember(Name="DefaultSalesperson", EmitDefaultValue=false)]
 		public StringValue? DefaultSalesperson { get; set; }
 
-		[DataMember(Name="SalesPersons", EmitDefaultValue=false)]
 		public List<SalesPersonDetail>? SalesPersons { get; set; }
 
 	}

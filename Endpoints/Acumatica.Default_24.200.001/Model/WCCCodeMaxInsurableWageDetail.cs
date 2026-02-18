@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,17 +9,13 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class WCCCodeMaxInsurableWageDetail : Entity
 	{
 
-		[DataMember(Name="DeductionandBenefitCode", EmitDefaultValue=false)]
 		public StringValue? DeductionandBenefitCode { get; set; }
 
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
-		[DataMember(Name="Wage", EmitDefaultValue=false)]
 		public DecimalValue? Wage { get; set; }
 
 	}

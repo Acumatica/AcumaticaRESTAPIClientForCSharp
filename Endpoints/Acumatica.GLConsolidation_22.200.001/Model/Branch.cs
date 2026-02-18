@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	/// Corresponds to the screen <c>GL103002</c> in the Acumatica ERP
 	/// <para>Key Fields: BranchCD</para>
 	/// </summary>
-	[DataContract]
 	public class Branch : Entity, ITopLevelEntity
 	{
 
@@ -24,7 +22,6 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		/// <para>Display Name: Branch Name</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="AcctName", EmitDefaultValue=false)]
 		public StringValue? AcctName { get; set; }
 
 		/// <summary>
@@ -34,29 +31,27 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="BranchCD", EmitDefaultValue=false)]
 		public StringValue? BranchCD { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Organization__OrganizationCD</para>
 		/// <para>DAC: PX.Objects.GL.Branch</para>
 		/// </summary>
-		[DataMember(Name="OrganizationCD", EmitDefaultValue=false)]
 		public StringValue? OrganizationCD { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Ledger__LedgerCD</para>
 		/// <para>DAC: PX.Objects.GL.Branch</para>
 		/// </summary>
-		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

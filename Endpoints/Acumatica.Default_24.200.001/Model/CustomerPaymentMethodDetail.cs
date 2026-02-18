@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class CustomerPaymentMethodDetail : Entity
 	{
 
@@ -22,7 +20,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Name", EmitDefaultValue=false)]
 		public StringValue? Name { get; set; }
 
 		/// <summary>
@@ -30,7 +27,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethodDetail</para>
 		/// <para>SQL Type: nvarchar(1024)</para>
 		/// </summary>
-		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
 
 	}

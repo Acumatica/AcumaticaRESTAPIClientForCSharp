@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class ChangeOrderRevenueBudget : Entity
 	{
 
@@ -20,14 +18,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>Display Name: Account Group</para>
 		/// </summary>
-		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
 		public StringValue? AccountGroup { get; set; }
 
 		/// <summary>
 		/// The amount of the change order line in the base currency. The value can be manually modified.
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -36,7 +32,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
@@ -44,7 +39,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -52,7 +46,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
@@ -60,7 +53,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: OtherDraftRevisedAmount</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// </summary>
-		[DataMember(Name="OtherDraftCOAmount", EmitDefaultValue=false)]
 		public DecimalValue? OtherDraftCOAmount { get; set; }
 
 		/// <summary>
@@ -68,7 +60,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: PreviouslyApprovedAmount</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// </summary>
-		[DataMember(Name="PreviouslyApprovedCOAmount", EmitDefaultValue=false)]
 		public DecimalValue? PreviouslyApprovedCOAmount { get; set; }
 
 		/// <summary>
@@ -76,14 +67,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: PreviouslyApprovedQty</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// </summary>
-		[DataMember(Name="PreviouslyApprovedCOQty", EmitDefaultValue=false)]
 		public DecimalValue? PreviouslyApprovedCOQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>Display Name: Project Task</para>
 		/// </summary>
-		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
 
 		/// <summary>
@@ -91,7 +80,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>Display Name: Quantity</para>
 		/// </summary>
-		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
@@ -100,7 +88,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>Display Name: Revised Budgeted Amount</para>
 		/// </summary>
-		[DataMember(Name="RevisedBudgetedAmount", EmitDefaultValue=false)]
 		public DecimalValue? RevisedBudgetedAmount { get; set; }
 
 		/// <summary>
@@ -109,7 +96,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>Display Name: Revised Budgeted Quantity</para>
 		/// </summary>
-		[DataMember(Name="RevisedBudgetedQty", EmitDefaultValue=false)]
 		public DecimalValue? RevisedBudgetedQty { get; set; }
 
 		/// <summary>
@@ -117,7 +103,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: TotalPotentialRevisedAmount</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// </summary>
-		[DataMember(Name="TotalPotentiallyRevisedAmount", EmitDefaultValue=false)]
 		public DecimalValue? TotalPotentiallyRevisedAmount { get; set; }
 
 		/// <summary>
@@ -126,7 +111,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>Display Name: Unit Rate</para>
 		/// </summary>
-		[DataMember(Name="UnitRate", EmitDefaultValue=false)]
 		public DecimalValue? UnitRate { get; set; }
 
 		/// <summary>
@@ -134,7 +118,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 	}

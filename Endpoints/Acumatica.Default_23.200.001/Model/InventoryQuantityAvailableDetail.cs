@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class InventoryQuantityAvailableDetail : Entity
 	{
 
@@ -18,21 +16,18 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: INSiteStatusQtyAggregated_inventoryID</para>
 		/// <para>DAC: PX.Data.GenericResult</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: INSiteStatusQtyAggregated_lastModifiedDateTime</para>
 		/// <para>DAC: PX.Data.GenericResult</para>
 		/// </summary>
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: INSiteStatusQtyAggregated_qtyAvail</para>
 		/// <para>DAC: PX.Data.GenericResult</para>
 		/// </summary>
-		[DataMember(Name="QtyAvailable", EmitDefaultValue=false)]
 		public DecimalValue? QtyAvailable { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class BusinessAccountContact : Entity
 	{
 
@@ -19,14 +17,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Address__City</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>
-		[DataMember(Name="City", EmitDefaultValue=false)]
 		public StringValue? City { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Contact ID</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public IntValue? ContactID { get; set; }
 
 		/// <summary>
@@ -47,7 +42,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// This field is changed when the fields it depends on are changed.
 		/// </remarks>
-		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
 		public StringValue? DisplayName { get; set; }
 
 		/// <summary>
@@ -56,7 +50,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Contact</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
 		/// <summary>
@@ -66,7 +59,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Job Title</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="JobTitle", EmitDefaultValue=false)]
 		public StringValue? JobTitle { get; set; }
 
 		/// <summary>
@@ -74,7 +66,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: OwnerID</para>
 		/// <para>DAC: PX.Objects.CR.BAccount</para>
 		/// </summary>
-		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
@@ -83,7 +74,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Phone 1</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="Phone1", EmitDefaultValue=false)]
 		public StringValue? Phone1 { get; set; }
 
 		/// <summary>
@@ -92,7 +82,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Contact Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
@@ -100,7 +89,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: WorkgroupID</para>
 		/// <para>DAC: PX.Objects.CR.BAccount</para>
 		/// </summary>
-		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
 	}

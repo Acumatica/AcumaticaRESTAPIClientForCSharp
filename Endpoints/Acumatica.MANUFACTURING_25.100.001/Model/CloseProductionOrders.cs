@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,11 +12,9 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>AM506000</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class CloseProductionOrders : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<CloseProductionOrdersDetail>? Details { get; set; }
 
 		/// <summary>
@@ -25,17 +22,17 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.FinancialPeriod</para>
 		/// <para>SQL Type: char(6)</para>
 		/// </summary>
-		[DataMember(Name="Period", EmitDefaultValue=false)]
 		public StringValue? Period { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files";
+			//public const string All = "Files,Translations,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

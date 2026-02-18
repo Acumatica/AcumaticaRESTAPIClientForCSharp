@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>IN202500</c> in the Acumatica ERP
 	/// <para>Key Fields: InventoryID</para>
 	/// </summary>
-	[DataContract]
 	public class StockItem : Entity, ITopLevelEntity
 	{
 
@@ -25,24 +23,20 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: ABC Code</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="ABCCode", EmitDefaultValue=false)]
 		public StringValue? ABCCode { get; set; }
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LotSerNumVal</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// </summary>
-		[DataMember(Name="AutoIncrementalValue", EmitDefaultValue=false)]
 		public StringValue? AutoIncrementalValue { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AvgCost</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="AverageCost", EmitDefaultValue=false)]
 		public DecimalValue? AverageCost { get; set; }
 
 		/// <summary>
@@ -52,13 +46,10 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Base Unit</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="BaseUOM", EmitDefaultValue=false)]
 		public StringValue? BaseUOM { get; set; }
 
-		[DataMember(Name="Boxes", EmitDefaultValue=false)]
 		public List<BoxStockItem>? Boxes { get; set; }
 
-		[DataMember(Name="Categories", EmitDefaultValue=false)]
 		public List<CategoryStockItem>? Categories { get; set; }
 
 		/// <summary>
@@ -67,7 +58,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: COGS Account</para>
 		/// </summary>
-		[DataMember(Name="COGSAccount", EmitDefaultValue=false)]
 		public StringValue? COGSAccount { get; set; }
 
 		/// <summary>
@@ -76,7 +66,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: COGS Sub.</para>
 		/// </summary>
-		[DataMember(Name="COGSSubaccount", EmitDefaultValue=false)]
 		public StringValue? COGSSubaccount { get; set; }
 
 		/// <summary>
@@ -85,7 +74,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="Content", EmitDefaultValue=false)]
 		public StringValue? Content { get; set; }
 
 		/// <summary>
@@ -93,10 +81,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Country Of Origin</para>
 		/// <para>SQL Type: nvarchar(2)</para>
 		/// </summary>
-		[DataMember(Name="CountryOfOrigin", EmitDefaultValue=false)]
 		public StringValue? CountryOfOrigin { get; set; }
 
-		[DataMember(Name="CrossReferences", EmitDefaultValue=false)]
 		public List<InventoryItemCrossReference>? CrossReferences { get; set; }
 
 		/// <summary>
@@ -105,7 +91,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// <para>Display Name: Current Cost</para>
 		/// </summary>
-		[DataMember(Name="CurrentStdCost", EmitDefaultValue=false)]
 		public DecimalValue? CurrentStdCost { get; set; }
 
 		/// <summary>
@@ -114,7 +99,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// <para>Display Name: Default Issue From</para>
 		/// </summary>
-		[DataMember(Name="DefaultIssueLocationID", EmitDefaultValue=false)]
 		public StringValue? DefaultIssueLocationID { get; set; }
 
 		/// <summary>
@@ -123,7 +107,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// <para>Display Name: Default Price</para>
 		/// </summary>
-		[DataMember(Name="DefaultPrice", EmitDefaultValue=false)]
 		public DecimalValue? DefaultPrice { get; set; }
 
 		/// <summary>
@@ -132,7 +115,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// <para>Display Name: Default Receipt To</para>
 		/// </summary>
-		[DataMember(Name="DefaultReceiptLocationID", EmitDefaultValue=false)]
 		public StringValue? DefaultReceiptLocationID { get; set; }
 
 		/// <summary>
@@ -141,7 +123,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Default Subitem</para>
 		/// </summary>
-		[DataMember(Name="DefaultSubitem", EmitDefaultValue=false)]
 		public StringValue? DefaultSubitem { get; set; }
 
 		/// <summary>
@@ -150,7 +131,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// <para>Display Name: Default Warehouse</para>
 		/// </summary>
-		[DataMember(Name="DefaultWarehouseID", EmitDefaultValue=false)]
 		public StringValue? DefaultWarehouseID { get; set; }
 
 		/// <summary>
@@ -158,7 +138,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Deferral Account</para>
 		/// </summary>
-		[DataMember(Name="DeferralAccount", EmitDefaultValue=false)]
 		public StringValue? DeferralAccount { get; set; }
 
 		/// <summary>
@@ -166,7 +145,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Deferral Sub.</para>
 		/// </summary>
-		[DataMember(Name="DeferralSubaccount", EmitDefaultValue=false)]
 		public StringValue? DeferralSubaccount { get; set; }
 
 		/// <summary>
@@ -175,7 +153,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -184,7 +161,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Volume</para>
 		/// </summary>
-		[DataMember(Name="DimensionVolume", EmitDefaultValue=false)]
 		public DecimalValue? DimensionVolume { get; set; }
 
 		/// <summary>
@@ -193,13 +169,10 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Weight</para>
 		/// </summary>
-		[DataMember(Name="DimensionWeight", EmitDefaultValue=false)]
 		public DecimalValue? DimensionWeight { get; set; }
 
-		[DataMember(Name="DiscountAccount", EmitDefaultValue=false)]
 		public StringValue? DiscountAccount { get; set; }
 
-		[DataMember(Name="DiscountSubaccount", EmitDefaultValue=false)]
 		public StringValue? DiscountSubaccount { get; set; }
 
 		/// <summary>
@@ -208,7 +181,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Image</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="ImageUrl", EmitDefaultValue=false)]
 		public StringValue? ImageUrl { get; set; }
 
 		/// <summary>
@@ -217,7 +189,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Inventory Account</para>
 		/// </summary>
-		[DataMember(Name="InventoryAccount", EmitDefaultValue=false)]
 		public StringValue? InventoryAccount { get; set; }
 
 		/// <summary>
@@ -228,7 +199,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
@@ -237,7 +207,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Inventory Sub.</para>
 		/// </summary>
-		[DataMember(Name="InventorySubaccount", EmitDefaultValue=false)]
 		public StringValue? InventorySubaccount { get; set; }
 
 		/// <summary>
@@ -246,7 +215,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Is a Kit</para>
 		/// </summary>
-		[DataMember(Name="IsAKit", EmitDefaultValue=false)]
 		public BooleanValue? IsAKit { get; set; }
 
 		/// <summary>
@@ -255,7 +223,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Item Class</para>
 		/// </summary>
-		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
@@ -264,7 +231,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Item Status</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="ItemStatus", EmitDefaultValue=false)]
 		public StringValue? ItemStatus { get; set; }
 
 		/// <summary>
@@ -273,7 +239,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="ItemType", EmitDefaultValue=false)]
 		public StringValue? ItemType { get; set; }
 
 		/// <summary>
@@ -282,7 +247,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Landed Cost Variance Account</para>
 		/// </summary>
-		[DataMember(Name="LandedCostVarianceAccount", EmitDefaultValue=false)]
 		public StringValue? LandedCostVarianceAccount { get; set; }
 
 		/// <summary>
@@ -291,19 +255,15 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Landed Cost Variance Sub.</para>
 		/// </summary>
-		[DataMember(Name="LandedCostVarianceSubaccount", EmitDefaultValue=false)]
 		public StringValue? LandedCostVarianceSubaccount { get; set; }
 
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="LastCost", EmitDefaultValue=false)]
 		public DecimalValue? LastCost { get; set; }
 
-		[DataMember(Name="LastModified", EmitDefaultValue=false)]
 		public DateTimeValue? LastModified { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -311,7 +271,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// <para>Display Name: Last Cost</para>
 		/// </summary>
-		[DataMember(Name="LastStdCost", EmitDefaultValue=false)]
 		public DecimalValue? LastStdCost { get; set; }
 
 		/// <summary>
@@ -321,7 +280,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Lot/Serial Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="LotSerialClass", EmitDefaultValue=false)]
 		public StringValue? LotSerialClass { get; set; }
 
 		/// <summary>
@@ -330,19 +288,16 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Markup %</para>
 		/// </summary>
-		[DataMember(Name="Markup", EmitDefaultValue=false)]
 		public DecimalValue? Markup { get; set; }
 
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="MaxCost", EmitDefaultValue=false)]
 		public DecimalValue? MaxCost { get; set; }
 
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="MinCost", EmitDefaultValue=false)]
 		public DecimalValue? MinCost { get; set; }
 
 		/// <summary>
@@ -351,7 +306,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Min. Markup %</para>
 		/// </summary>
-		[DataMember(Name="MinMarkup", EmitDefaultValue=false)]
 		public DecimalValue? MinMarkup { get; set; }
 
 		/// <summary>
@@ -359,7 +313,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: RecPrice</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// </summary>
-		[DataMember(Name="MSRP", EmitDefaultValue=false)]
 		public DecimalValue? MSRP { get; set; }
 
 		/// <summary>
@@ -369,7 +322,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Packaging Option</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="PackagingOption", EmitDefaultValue=false)]
 		public StringValue? PackagingOption { get; set; }
 
 		/// <summary>
@@ -377,7 +329,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Pack Separately</para>
 		/// </summary>
-		[DataMember(Name="PackSeparately", EmitDefaultValue=false)]
 		public BooleanValue? PackSeparately { get; set; }
 
 		/// <summary>
@@ -385,7 +336,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// <para>Display Name: Pending Cost</para>
 		/// </summary>
-		[DataMember(Name="PendingStdCost", EmitDefaultValue=false)]
 		public DecimalValue? PendingStdCost { get; set; }
 
 		/// <summary>
@@ -394,7 +344,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: PO Accrual Account</para>
 		/// </summary>
-		[DataMember(Name="POAccrualAccount", EmitDefaultValue=false)]
 		public StringValue? POAccrualAccount { get; set; }
 
 		/// <summary>
@@ -403,7 +352,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: PO Accrual Sub.</para>
 		/// </summary>
-		[DataMember(Name="POAccrualSubaccount", EmitDefaultValue=false)]
 		public StringValue? POAccrualSubaccount { get; set; }
 
 		/// <summary>
@@ -413,7 +361,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Posting Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PostingClass", EmitDefaultValue=false)]
 		public StringValue? PostingClass { get; set; }
 
 		/// <summary>
@@ -423,7 +370,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Price Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
 		public StringValue? PriceClass { get; set; }
 
 		/// <summary>
@@ -432,7 +378,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Price Manager</para>
 		/// </summary>
-		[DataMember(Name="PriceManager", EmitDefaultValue=false)]
 		public StringValue? PriceManager { get; set; }
 
 		/// <summary>
@@ -441,7 +386,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Price Workgroup</para>
 		/// </summary>
-		[DataMember(Name="PriceWorkgroup", EmitDefaultValue=false)]
 		public StringValue? PriceWorkgroup { get; set; }
 
 		/// <summary>
@@ -450,7 +394,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Product Manager</para>
 		/// </summary>
-		[DataMember(Name="ProductManager", EmitDefaultValue=false)]
 		public StringValue? ProductManager { get; set; }
 
 		/// <summary>
@@ -459,7 +402,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Product Workgroup</para>
 		/// </summary>
-		[DataMember(Name="ProductWorkgroup", EmitDefaultValue=false)]
 		public StringValue? ProductWorkgroup { get; set; }
 
 		/// <summary>
@@ -468,7 +410,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Purchase Price Variance Account</para>
 		/// </summary>
-		[DataMember(Name="PurchasePriceVarianceAccount", EmitDefaultValue=false)]
 		public StringValue? PurchasePriceVarianceAccount { get; set; }
 
 		/// <summary>
@@ -477,7 +418,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Purchase Price Variance Sub.</para>
 		/// </summary>
-		[DataMember(Name="PurchasePriceVarianceSubaccount", EmitDefaultValue=false)]
 		public StringValue? PurchasePriceVarianceSubaccount { get; set; }
 
 		/// <summary>
@@ -487,7 +427,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Purchase Unit</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="PurchaseUOM", EmitDefaultValue=false)]
 		public StringValue? PurchaseUOM { get; set; }
 
 		/// <summary>
@@ -496,10 +435,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Reason Code Sub.</para>
 		/// </summary>
-		[DataMember(Name="ReasonCodeSubaccount", EmitDefaultValue=false)]
 		public StringValue? ReasonCodeSubaccount { get; set; }
 
-		[DataMember(Name="ReplenishmentParameters", EmitDefaultValue=false)]
 		public List<ReplenishmentParameterStockItem>? ReplenishmentParameters { get; set; }
 
 		/// <summary>
@@ -508,7 +445,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Sales Account</para>
 		/// </summary>
-		[DataMember(Name="SalesAccount", EmitDefaultValue=false)]
 		public StringValue? SalesAccount { get; set; }
 
 		/// <summary>
@@ -517,7 +453,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Sales Sub.</para>
 		/// </summary>
-		[DataMember(Name="SalesSubaccount", EmitDefaultValue=false)]
 		public StringValue? SalesSubaccount { get; set; }
 
 		/// <summary>
@@ -527,7 +462,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Sales Unit</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="SalesUOM", EmitDefaultValue=false)]
 		public StringValue? SalesUOM { get; set; }
 
 		/// <summary>
@@ -536,7 +470,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Standard Cost Revaluation Account</para>
 		/// </summary>
-		[DataMember(Name="StandardCostRevaluationAccount", EmitDefaultValue=false)]
 		public StringValue? StandardCostRevaluationAccount { get; set; }
 
 		/// <summary>
@@ -545,7 +478,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Standard Cost Revaluation Sub.</para>
 		/// </summary>
-		[DataMember(Name="StandardCostRevaluationSubaccount", EmitDefaultValue=false)]
 		public StringValue? StandardCostRevaluationSubaccount { get; set; }
 
 		/// <summary>
@@ -554,7 +486,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Standard Cost Variance Account</para>
 		/// </summary>
-		[DataMember(Name="StandardCostVarianceAccount", EmitDefaultValue=false)]
 		public StringValue? StandardCostVarianceAccount { get; set; }
 
 		/// <summary>
@@ -563,7 +494,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Standard Cost Variance Sub.</para>
 		/// </summary>
-		[DataMember(Name="StandardCostVarianceSubaccount", EmitDefaultValue=false)]
 		public StringValue? StandardCostVarianceSubaccount { get; set; }
 
 		/// <summary>
@@ -572,7 +502,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Subject to Commission</para>
 		/// </summary>
-		[DataMember(Name="SubjectToCommission", EmitDefaultValue=false)]
 		public BooleanValue? SubjectToCommission { get; set; }
 
 		/// <summary>
@@ -582,7 +511,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Tax Category</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
@@ -591,10 +519,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Commodity Code</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="TariffCode", EmitDefaultValue=false)]
 		public StringValue? TariffCode { get; set; }
 
-		[DataMember(Name="UOMConversions", EmitDefaultValue=false)]
 		public List<InventoryItemUOMConversion>? UOMConversions { get; set; }
 
 		/// <summary>
@@ -603,7 +529,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Use On Entry</para>
 		/// </summary>
-		[DataMember(Name="UseOnEntry", EmitDefaultValue=false)]
 		public BooleanValue? UseOnEntry { get; set; }
 
 		/// <summary>
@@ -613,10 +538,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Valuation Method</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="ValuationMethod", EmitDefaultValue=false)]
 		public StringValue? ValuationMethod { get; set; }
 
-		[DataMember(Name="VendorDetails", EmitDefaultValue=false)]
 		public List<StockItemVendorDetail>? VendorDetails { get; set; }
 
 		/// <summary>
@@ -625,10 +548,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Volume UOM</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="VolumeUOM", EmitDefaultValue=false)]
 		public StringValue? VolumeUOM { get; set; }
 
-		[DataMember(Name="WarehouseDetails", EmitDefaultValue=false)]
 		public List<StockItemWarehouseDetail>? WarehouseDetails { get; set; }
 
 		/// <summary>
@@ -637,7 +558,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Weight UOM</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="WeightUOM", EmitDefaultValue=false)]
 		public StringValue? WeightUOM { get; set; }
 
 		/// <summary>
@@ -646,7 +566,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// <para>Display Name: MSRP</para>
 		/// </summary>
-		[DataMember(Name="CurySpecificMSRP", EmitDefaultValue=false)]
 		public DecimalValue? CurySpecificMSRP { get; set; }
 
 		/// <summary>
@@ -655,73 +574,47 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
 		/// <para>Display Name: Default Price</para>
 		/// </summary>
-		[DataMember(Name="CurySpecificPrice", EmitDefaultValue=false)]
 		public DecimalValue? CurySpecificPrice { get; set; }
 
 		/// <summary>
-		/// Indicates the availability setting for the inventory item.
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Availability", EmitDefaultValue=false)]
 		public StringValue? Availability { get; set; }
 
 		/// <summary>
-		/// The URL to use for this inventory item.
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Custom URL</para>
-		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
-		[DataMember(Name="CustomURL", EmitDefaultValue=false)]
 		public StringValue? CustomURL { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Export to External System</para>
 		/// </summary>
-		[DataMember(Name="ExportToExternal", EmitDefaultValue=false)]
 		public BooleanValue? ExportToExternal { get; set; }
 
-		[DataMember(Name="FileURLs", EmitDefaultValue=false)]
 		public List<InventoryFileUrls>? FileURLs { get; set; }
 
 		/// <summary>
-		/// The meta description for this item.
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Meta Description</para>
-		/// <para>SQL Type: nvarchar(1024)</para>
 		/// </summary>
-		[DataMember(Name="MetaDescription", EmitDefaultValue=false)]
 		public StringValue? MetaDescription { get; set; }
 
 		/// <summary>
-		/// A comma-separated list of meta keywords for this item.
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Meta Keywords</para>
-		/// <para>SQL Type: nvarchar(1024)</para>
 		/// </summary>
-		[DataMember(Name="MetaKeywords", EmitDefaultValue=false)]
 		public StringValue? MetaKeywords { get; set; }
 
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
-		/// The title to use on this item's page.
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Page Title</para>
-		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
-		[DataMember(Name="PageTitle", EmitDefaultValue=false)]
 		public StringValue? PageTitle { get; set; }
 
 		/// <summary>
-		/// A comma-separated list of search keywords for this item.
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Search Keywords</para>
-		/// <para>SQL Type: nvarchar(1024)</para>
 		/// </summary>
-		[DataMember(Name="SearchKeywords", EmitDefaultValue=false)]
 		public StringValue? SearchKeywords { get; set; }
 
 		/// <summary>
@@ -729,30 +622,26 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Template ID</para>
 		/// </summary>
-		[DataMember(Name="TemplateItemID", EmitDefaultValue=false)]
 		public StringValue? TemplateItemID { get; set; }
 
 		/// <summary>
-		/// Indicates the visibility for this inventory item.
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Visibility", EmitDefaultValue=false)]
 		public StringValue? Visibility { get; set; }
 
 		/// <summary>
-		/// Indicates the Not Available Setting to use when an item has no more quantity available.
 		/// <para>DAC Field Name: NotAvailMode</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: When Qty Unavailable</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="NotAvailable", EmitDefaultValue=false)]
 		public StringValue? NotAvailable { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string Boxes = "Boxes";
 			public const string Boxes_Files = "Boxes/Files";
@@ -772,7 +661,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string FileURLs_Files = "FileURLs/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,Boxes,Boxes/Files,Categories,Categories/Files,CrossReferences,CrossReferences/Files,ReplenishmentParameters,ReplenishmentParameters/Files,UOMConversions,UOMConversions/Files,VendorDetails,VendorDetails/Files,WarehouseDetails,WarehouseDetails/Files,FileURLs,FileURLs/Files";
+			//public const string All = "Files,Translations,Attributes,Boxes,Boxes/Files,Categories,Categories/Files,CrossReferences,CrossReferences/Files,ReplenishmentParameters,ReplenishmentParameters/Files,UOMConversions,UOMConversions/Files,VendorDetails,VendorDetails/Files,WarehouseDetails,WarehouseDetails/Files,FileURLs,FileURLs/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>EP301000</c> in the Acumatica ERP
 	/// <para>Key Fields: RefNbr</para>
 	/// </summary>
-	[DataContract]
 	public class ExpenseClaim : Entity, ITopLevelEntity
 	{
 
@@ -24,10 +22,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: Approval Date</para>
 		/// </summary>
-		[DataMember(Name="ApprovalDate", EmitDefaultValue=false)]
 		public DateTimeValue? ApprovalDate { get; set; }
 
-		[DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
 		public List<Approval>? ApprovalDetails { get; set; }
 
 		/// <summary>
@@ -37,7 +33,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Base Currency ID</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
 		public StringValue? BaseCurrencyID { get; set; }
 
 		/// <summary>
@@ -46,7 +41,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: Claimed By</para>
 		/// </summary>
-		[DataMember(Name="ClaimedBy", EmitDefaultValue=false)]
 		public StringValue? ClaimedBy { get; set; }
 
 		/// <summary>
@@ -55,7 +49,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: Claim Total</para>
 		/// </summary>
-		[DataMember(Name="ClaimTotal", EmitDefaultValue=false)]
 		public DecimalValue? ClaimTotal { get; set; }
 
 		/// <summary>
@@ -65,7 +58,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Currency</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
@@ -74,7 +66,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
 		/// <para>Display Name: Curr. Rate</para>
 		/// </summary>
-		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyRate { get; set; }
 
 		/// <summary>
@@ -82,7 +73,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: Customer</para>
 		/// </summary>
-		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
@@ -90,7 +80,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: DocDate</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
@@ -99,7 +88,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Department ID</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="DepartmentID", EmitDefaultValue=false)]
 		public StringValue? DepartmentID { get; set; }
 
 		/// <summary>
@@ -108,16 +96,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<ExpenseClaimDetails>? Details { get; set; }
 
-		[DataMember(Name="FinancialDetails", EmitDefaultValue=false)]
 		public ExpenseClaimFinancialDetail? FinancialDetails { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -126,7 +110,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: Location</para>
 		/// </summary>
-		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
@@ -135,7 +118,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
 		/// <para>Display Name: Reciprocal Rate</para>
 		/// </summary>
-		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
 		public DecimalValue? ReciprocalRate { get; set; }
 
 		/// <summary>
@@ -145,7 +127,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="RefNbr", EmitDefaultValue=false)]
 		public StringValue? RefNbr { get; set; }
 
 		/// <summary>
@@ -153,10 +134,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
 		public List<ExpenseClaimTaxDetail>? TaxDetails { get; set; }
 
 		/// <summary>
@@ -165,7 +144,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: Tax Total</para>
 		/// </summary>
-		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
 
 		/// <summary>
@@ -174,7 +152,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: VAT Exempt Total</para>
 		/// </summary>
-		[DataMember(Name="VATExemptTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATExemptTotal { get; set; }
 
 		/// <summary>
@@ -183,12 +160,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
 		/// <para>Display Name: VAT Taxable Total</para>
 		/// </summary>
-		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATTaxableTotal { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ApprovalDetails = "ApprovalDetails";
 			public const string ApprovalDetails_Files = "ApprovalDetails/Files";
 			public const string Details = "Details";
@@ -200,7 +177,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string TaxDetails_Files = "TaxDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,ApprovalDetails,ApprovalDetails/Files,Details,Details/Files,FinancialDetails,FinancialDetails/APDocuments,FinancialDetails/APDocuments/Files,TaxDetails,TaxDetails/Files";
+			//public const string All = "Files,Translations,ApprovalDetails,ApprovalDetails/Files,Details,Details/Files,FinancialDetails,FinancialDetails/APDocuments,FinancialDetails/APDocuments/Files,TaxDetails,TaxDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

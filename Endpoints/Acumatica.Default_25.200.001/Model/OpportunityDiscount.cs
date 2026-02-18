@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class OpportunityDiscount : Entity
 	{
 
@@ -19,14 +17,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>Display Name: Discountable Amt.</para>
 		/// </summary>
-		[DataMember(Name="DiscountableAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountableAmount { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>Display Name: Discountable Qty.</para>
 		/// </summary>
-		[DataMember(Name="DiscountableQty", EmitDefaultValue=false)]
 		public DecimalValue? DiscountableQty { get; set; }
 
 		/// <summary>
@@ -34,7 +30,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>Display Name: Discount Amt.</para>
 		/// </summary>
-		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountAmount { get; set; }
 
 		/// <summary>
@@ -43,7 +38,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Discount Code</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
 
 		/// <summary>
@@ -51,7 +45,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>Display Name: Discount Percent</para>
 		/// </summary>
-		[DataMember(Name="DiscountPercent", EmitDefaultValue=false)]
 		public DecimalValue? DiscountPercent { get; set; }
 
 		/// <summary>
@@ -59,14 +52,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>Display Name: Free Item</para>
 		/// </summary>
-		[DataMember(Name="FreeItem", EmitDefaultValue=false)]
 		public StringValue? FreeItem { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>Display Name: Free Item Qty.</para>
 		/// </summary>
-		[DataMember(Name="FreeItemQty", EmitDefaultValue=false)]
 		public DecimalValue? FreeItemQty { get; set; }
 
 		/// <summary>
@@ -74,7 +65,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
@@ -82,7 +72,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>Display Name: Manual Discount</para>
 		/// </summary>
-		[DataMember(Name="ManualDiscount", EmitDefaultValue=false)]
 		public BooleanValue? ManualDiscount { get; set; }
 
 		/// <summary>
@@ -91,21 +80,18 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Discount Sequence</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="SequenceID", EmitDefaultValue=false)]
 		public StringValue? SequenceID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>Display Name: Skip Discount</para>
 		/// </summary>
-		[DataMember(Name="SkipDiscount", EmitDefaultValue=false)]
 		public BooleanValue? SkipDiscount { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 	}

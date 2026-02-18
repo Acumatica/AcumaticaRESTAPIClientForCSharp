@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,14 +13,11 @@ namespace Acumatica.Default_23_200_001.Model
 	/// Corresponds to the screen <c>GL201500</c> in the Acumatica ERP
 	/// <para>Key Fields: LedgerID</para>
 	/// </summary>
-	[DataContract]
 	public class Ledger : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Branches", EmitDefaultValue=false)]
 		public List<LedgerBranches>? Branches { get; set; }
 
-		[DataMember(Name="Companies", EmitDefaultValue=false)]
 		public List<LedgerCompanies>? Companies { get; set; }
 
 		/// <summary>
@@ -30,7 +26,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Ledger</para>
 		/// <para>Display Name: Consolidation Source</para>
 		/// </summary>
-		[DataMember(Name="ConsolidationSource", EmitDefaultValue=false)]
 		public BooleanValue? ConsolidationSource { get; set; }
 
 		/// <summary>
@@ -39,7 +34,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Ledger</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="Currency", EmitDefaultValue=false)]
 		public StringValue? Currency { get; set; }
 
 		/// <summary>
@@ -48,10 +42,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Ledger</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -62,7 +54,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LedgerID", EmitDefaultValue=false)]
 		public StringValue? LedgerID { get; set; }
 
 		/// <summary>
@@ -71,19 +62,19 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.GL.Ledger</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Branches = "Branches";
 			public const string Branches_Files = "Branches/Files";
 			public const string Companies = "Companies";
 			public const string Companies_Files = "Companies/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Branches,Branches/Files,Companies,Companies/Files";
+			//public const string All = "Files,Translations,Branches,Branches/Files,Companies,Companies/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

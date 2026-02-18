@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,20 +13,15 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>EP203000</c> in the Acumatica ERP
 	/// <para>Key Fields: EmployeeID</para>
 	/// </summary>
-	[DataContract]
 	public class Employee : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
-		[DataMember(Name="CompanyTreeInfo", EmitDefaultValue=false)]
 		public List<CompanyTree>? CompanyTreeInfo { get; set; }
 
-		[DataMember(Name="ContactInfo", EmitDefaultValue=false)]
 		public Contact? ContactInfo { get; set; }
 
-		[DataMember(Name="Delegates", EmitDefaultValue=false)]
 		public List<EmployeeDelegate>? Delegates { get; set; }
 
 		/// <summary>
@@ -38,7 +32,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
 		public StringValue? EmployeeID { get; set; }
 
 		/// <summary>
@@ -48,19 +41,14 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Employee Name</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
-		[DataMember(Name="EmployeeSettings", EmitDefaultValue=false)]
 		public EmployeeSettings? EmployeeSettings { get; set; }
 
-		[DataMember(Name="EmploymentHistory", EmitDefaultValue=false)]
 		public List<EmploymentHistoryRecord>? EmploymentHistory { get; set; }
 
-		[DataMember(Name="FinancialSettings", EmitDefaultValue=false)]
 		public EmployeeFinancialSettings? FinancialSettings { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -69,12 +57,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string CompanyTreeInfo = "CompanyTreeInfo";
 			public const string CompanyTreeInfo_Files = "CompanyTreeInfo/Files";
@@ -112,7 +100,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string FinancialSettings_PaymentInstructions_Files = "FinancialSettings/PaymentInstructions/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,CompanyTreeInfo,CompanyTreeInfo/Files,ContactInfo,ContactInfo/Activities,ContactInfo/Activities/Files,ContactInfo/Address,ContactInfo/Attributes,ContactInfo/Campaigns,ContactInfo/Campaigns/Files,ContactInfo/Cases,ContactInfo/Cases/Files,ContactInfo/Duplicates,ContactInfo/Duplicates/Files,ContactInfo/MarketingLists,ContactInfo/MarketingLists/Files,ContactInfo/Notifications,ContactInfo/Notifications/Files,ContactInfo/Opportunities,ContactInfo/Opportunities/Files,ContactInfo/Relations,ContactInfo/Relations/Files,ContactInfo/RoleAssignments,ContactInfo/RoleAssignments/Files,ContactInfo/UserInfo,ContactInfo/UserInfo/Roles,ContactInfo/UserInfo/Roles/Files,Delegates,Delegates/Files,EmployeeSettings,EmploymentHistory,EmploymentHistory/Files,FinancialSettings,FinancialSettings/PaymentInstructions,FinancialSettings/PaymentInstructions/Files";
+			//public const string All = "Files,Translations,Attributes,CompanyTreeInfo,CompanyTreeInfo/Files,ContactInfo,ContactInfo/Activities,ContactInfo/Activities/Files,ContactInfo/Address,ContactInfo/Attributes,ContactInfo/Campaigns,ContactInfo/Campaigns/Files,ContactInfo/Cases,ContactInfo/Cases/Files,ContactInfo/Duplicates,ContactInfo/Duplicates/Files,ContactInfo/MarketingLists,ContactInfo/MarketingLists/Files,ContactInfo/Notifications,ContactInfo/Notifications/Files,ContactInfo/Opportunities,ContactInfo/Opportunities/Files,ContactInfo/Relations,ContactInfo/Relations/Files,ContactInfo/RoleAssignments,ContactInfo/RoleAssignments/Files,ContactInfo/UserInfo,ContactInfo/UserInfo/Roles,ContactInfo/UserInfo/Roles/Files,Delegates,Delegates/Files,EmployeeSettings,EmploymentHistory,EmploymentHistory/Files,FinancialSettings,FinancialSettings/PaymentInstructions,FinancialSettings/PaymentInstructions/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

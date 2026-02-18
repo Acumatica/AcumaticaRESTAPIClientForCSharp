@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class BillDetail : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: AccountID</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// </summary>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		/// <summary>
@@ -27,7 +24,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: CuryTranAmt</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -35,10 +31,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
-		[DataMember(Name="CalculateDiscountsOnImport", EmitDefaultValue=false)]
 		public BooleanValue? CalculateDiscountsOnImport { get; set; }
 
 		/// <summary>
@@ -46,14 +40,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AccountID_Account_description</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -62,7 +54,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: Ext. Cost</para>
 		/// </summary>
-		[DataMember(Name="ExtendedCost", EmitDefaultValue=false)]
 		public DecimalValue? ExtendedCost { get; set; }
 
 		/// <summary>
@@ -70,7 +61,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
@@ -78,7 +68,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: LC Line</para>
 		/// </summary>
-		[DataMember(Name="LCLineNbr", EmitDefaultValue=false)]
 		public IntValue? LCLineNbr { get; set; }
 
 		/// <summary>
@@ -88,7 +77,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: LC Number</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="LCNbr", EmitDefaultValue=false)]
 		public StringValue? LCNbr { get; set; }
 
 		/// <summary>
@@ -98,7 +86,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: LC Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="LCType", EmitDefaultValue=false)]
 		public StringValue? LCType { get; set; }
 
 		/// <summary>
@@ -106,7 +93,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: Non Billable</para>
 		/// </summary>
-		[DataMember(Name="NonBillable", EmitDefaultValue=false)]
 		public BooleanValue? NonBillable { get; set; }
 
 		/// <summary>
@@ -115,7 +101,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: PO Line</para>
 		/// </summary>
-		[DataMember(Name="POLine", EmitDefaultValue=false)]
 		public IntValue? POLine { get; set; }
 
 		/// <summary>
@@ -125,7 +110,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: PO Number</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="POOrderNbr", EmitDefaultValue=false)]
 		public StringValue? POOrderNbr { get; set; }
 
 		/// <summary>
@@ -134,7 +118,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: PO Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="POOrderType", EmitDefaultValue=false)]
 		public StringValue? POOrderType { get; set; }
 
 		/// <summary>
@@ -143,7 +126,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: PO Receipt Line</para>
 		/// </summary>
-		[DataMember(Name="POReceiptLine", EmitDefaultValue=false)]
 		public IntValue? POReceiptLine { get; set; }
 
 		/// <summary>
@@ -152,7 +134,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: PO Receipt Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="POReceiptType", EmitDefaultValue=false)]
 		public StringValue? POReceiptType { get; set; }
 
 		/// <summary>
@@ -162,14 +143,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: PO Receipt Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="POReceiptNbr", EmitDefaultValue=false)]
 		public StringValue? POReceiptNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
@@ -178,7 +157,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: Project Task</para>
 		/// </summary>
-		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
@@ -186,7 +164,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: Quantity</para>
 		/// </summary>
-		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
@@ -194,7 +171,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: SubID</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// </summary>
-		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
@@ -204,7 +180,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Tax Category</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
@@ -214,7 +189,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Transaction Descr.</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="TransactionDescription", EmitDefaultValue=false)]
 		public StringValue? TransactionDescription { get; set; }
 
 		/// <summary>
@@ -223,7 +197,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
-		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
@@ -231,7 +204,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 	}

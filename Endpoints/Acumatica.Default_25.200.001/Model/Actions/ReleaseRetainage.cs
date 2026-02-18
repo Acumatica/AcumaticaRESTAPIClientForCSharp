@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class ReleaseRetainage : EntityActionWithParameters<Bill, ReleaseRetainageParameters>
 	{
 		public ReleaseRetainage(Bill entity, ReleaseRetainageParameters parameters) : base(entity, parameters)

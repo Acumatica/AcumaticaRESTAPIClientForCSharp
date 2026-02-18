@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_23_200_001.Model
 	/// Corresponds to the screen <c>CS207500</c> in the Acumatica ERP
 	/// <para>Key Fields: CarrierID</para>
 	/// </summary>
-	[DataContract]
 	public class ShipVia : Entity, ITopLevelEntity
 	{
 
@@ -25,7 +23,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Calculation Method</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="CalculationMethod", EmitDefaultValue=false)]
 		public StringValue? CalculationMethod { get; set; }
 
 		/// <summary>
@@ -34,7 +31,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CS.Carrier</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="Calendar", EmitDefaultValue=false)]
 		public StringValue? Calendar { get; set; }
 
 		/// <summary>
@@ -44,7 +40,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="CarrierID", EmitDefaultValue=false)]
 		public StringValue? CarrierID { get; set; }
 
 		/// <summary>
@@ -53,7 +48,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CS.Carrier</para>
 		/// <para>Display Name: Common Carrier</para>
 		/// </summary>
-		[DataMember(Name="CommonCarrier", EmitDefaultValue=false)]
 		public BooleanValue? CommonCarrier { get; set; }
 
 		/// <summary>
@@ -61,7 +55,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CS.Carrier</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -70,7 +63,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CS.Carrier</para>
 		/// <para>Display Name: Freight Expense Account</para>
 		/// </summary>
-		[DataMember(Name="FreightExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? FreightExpenseAccount { get; set; }
 
 		/// <summary>
@@ -79,10 +71,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CS.Carrier</para>
 		/// <para>Display Name: Freight Expense Sub.</para>
 		/// </summary>
-		[DataMember(Name="FreightExpenseSubaccount", EmitDefaultValue=false)]
 		public StringValue? FreightExpenseSubaccount { get; set; }
 
-		[DataMember(Name="FreightRates", EmitDefaultValue=false)]
 		public List<ShipViaFreightRate>? FreightRates { get; set; }
 
 		/// <summary>
@@ -91,7 +81,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CS.Carrier</para>
 		/// <para>Display Name: Freight Sales Account</para>
 		/// </summary>
-		[DataMember(Name="FreightSalesAccount", EmitDefaultValue=false)]
 		public StringValue? FreightSalesAccount { get; set; }
 
 		/// <summary>
@@ -100,10 +89,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CS.Carrier</para>
 		/// <para>Display Name: Freight Sales Sub.</para>
 		/// </summary>
-		[DataMember(Name="FreightSalesSubaccount", EmitDefaultValue=false)]
 		public StringValue? FreightSalesSubaccount { get; set; }
 
-		[DataMember(Name="Packages", EmitDefaultValue=false)]
 		public List<ShippingBox>? Packages { get; set; }
 
 		/// <summary>
@@ -113,19 +100,19 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Tax Category</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string FreightRates = "FreightRates";
 			public const string FreightRates_Files = "FreightRates/Files";
 			public const string Packages = "Packages";
 			public const string Packages_Files = "Packages/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,FreightRates,FreightRates/Files,Packages,Packages/Files";
+			//public const string All = "Files,Translations,FreightRates,FreightRates/Files,Packages,Packages/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

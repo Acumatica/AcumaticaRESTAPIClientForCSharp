@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Manufacturing_24_200_001.Model
 {
-	[DataContract]
 	public class ItemWhereUsedRow : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
 		/// <para>Display Name: Batch Size</para>
 		/// </summary>
-		[DataMember(Name="BatchSize", EmitDefaultValue=false)]
 		public DecimalValue? BatchSize { get; set; }
 
 		/// <summary>
@@ -29,21 +26,18 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="BOMID", EmitDefaultValue=false)]
 		public StringValue? BOMID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
@@ -51,13 +45,11 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
 		/// <para>Display Name: Item Class</para>
 		/// </summary>
-		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
 		/// </summary>
-		[DataMember(Name="Level", EmitDefaultValue=false)]
 		public IntValue? Level { get; set; }
 
 		/// <summary>
@@ -66,14 +58,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Parent Desc.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="ParentDesc", EmitDefaultValue=false)]
 		public StringValue? ParentDesc { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
 		/// <para>Display Name: Parent Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="ParentInventoryID", EmitDefaultValue=false)]
 		public StringValue? ParentInventoryID { get; set; }
 
 		/// <summary>
@@ -81,7 +71,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
 		/// <para>Display Name: Parent Item Class</para>
 		/// </summary>
-		[DataMember(Name="ParentItemClass", EmitDefaultValue=false)]
 		public StringValue? ParentItemClass { get; set; }
 
 		/// <summary>
@@ -89,14 +78,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
 		/// <para>Display Name: Parent Subitem</para>
 		/// </summary>
-		[DataMember(Name="ParentSubitem", EmitDefaultValue=false)]
 		public StringValue? ParentSubitem { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>Display Name: Qty Required</para>
+		/// <para>Display Name: Required Qty.</para>
 		/// </summary>
-		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
 		public DecimalValue? QtyRequired { get; set; }
 
 		/// <summary>
@@ -106,7 +93,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
@@ -114,30 +100,26 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Sequence", EmitDefaultValue=false)]
 		public IntValue? Sequence { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="Source", EmitDefaultValue=false)]
 		public StringValue? Source { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the material is a stock item.
 		/// <para>DAC Field Name: IsStockItem</para>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>Display Name: Is stock</para>
+		/// <para>Display Name: Stock</para>
 		/// </summary>
-		[DataMember(Name="StockItem", EmitDefaultValue=false)]
 		public BooleanValue? StockItem { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
 		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
@@ -145,7 +127,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
@@ -153,7 +134,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
 		/// <para>Display Name: BOM Warehouse</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 	}

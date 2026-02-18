@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class BusinessAccountShippingContact : Entity
 	{
 
@@ -22,7 +20,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// Not used in primary graph, only in documents, for instance, CROpportunity, SOOrder, and so on.
 		/// </remarks>
-		[DataMember(Name="Attention", EmitDefaultValue=false)]
 		public StringValue? Attention { get; set; }
 
 		/// <summary>
@@ -31,7 +28,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Contact</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
 		/// <summary>
@@ -39,7 +35,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Contact</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="Fax", EmitDefaultValue=false)]
 		public StringValue? Fax { get; set; }
 
 		/// <summary>
@@ -49,7 +44,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Job Title</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="JobTitle", EmitDefaultValue=false)]
 		public StringValue? JobTitle { get; set; }
 
 		/// <summary>
@@ -58,7 +52,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Phone 1</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="Phone1", EmitDefaultValue=false)]
 		public StringValue? Phone1 { get; set; }
 
 		/// <summary>
@@ -67,7 +60,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Phone 2</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="Phone2", EmitDefaultValue=false)]
 		public StringValue? Phone2 { get; set; }
 
 		/// <summary>
@@ -75,7 +67,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: OverrideContact</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>
-		[DataMember(Name="Override", EmitDefaultValue=false)]
 		public BooleanValue? Override { get; set; }
 
 	}

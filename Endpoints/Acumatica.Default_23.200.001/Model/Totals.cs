@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class Totals : Entity
 	{
 
@@ -20,13 +18,10 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Document Discounts</para>
 		/// </summary>
-		[DataMember(Name="DiscountTotal", EmitDefaultValue=false)]
 		public DecimalValue? DiscountTotal { get; set; }
 
-		[DataMember(Name="LineTotalAmount", EmitDefaultValue=false)]
 		public DecimalValue? LineTotalAmount { get; set; }
 
-		[DataMember(Name="MiscTotalAmount", EmitDefaultValue=false)]
 		public DecimalValue? MiscTotalAmount { get; set; }
 
 		/// <summary>
@@ -35,7 +30,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Tax Total</para>
 		/// </summary>
-		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
 		public DecimalValue? TaxTotal { get; set; }
 
 		/// <summary>
@@ -44,7 +38,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Unbilled Balance</para>
 		/// </summary>
-		[DataMember(Name="UnbilledAmount", EmitDefaultValue=false)]
 		public DecimalValue? UnbilledAmount { get; set; }
 
 		/// <summary>
@@ -56,7 +49,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// This field is not available for transfer orders.
 		/// </remarks>
-		[DataMember(Name="UnbilledQty", EmitDefaultValue=false)]
 		public DecimalValue? UnbilledQty { get; set; }
 
 		/// <summary>
@@ -65,7 +57,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Unpaid Balance</para>
 		/// </summary>
-		[DataMember(Name="UnpaidBalance", EmitDefaultValue=false)]
 		public DecimalValue? UnpaidBalance { get; set; }
 
 		/// <summary>
@@ -74,7 +65,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Freight Price</para>
 		/// </summary>
-		[DataMember(Name="Freight", EmitDefaultValue=false)]
 		public DecimalValue? Freight { get; set; }
 
 		/// <summary>
@@ -83,7 +73,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Freight Cost</para>
 		/// </summary>
-		[DataMember(Name="FreightCost", EmitDefaultValue=false)]
 		public DecimalValue? FreightCost { get; set; }
 
 		/// <summary>
@@ -92,7 +81,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Freight Cost Is up-to-date</para>
 		/// </summary>
-		[DataMember(Name="FreightCostIsuptodate", EmitDefaultValue=false)]
 		public BooleanValue? FreightCostIsuptodate { get; set; }
 
 		/// <summary>
@@ -105,7 +93,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The default value is the tax category associated with the ship via codeship via code of the order.This field is not available for transfer orders.
 		/// </remarks>
-		[DataMember(Name="FreightTaxCategory", EmitDefaultValue=false)]
 		public StringValue? FreightTaxCategory { get; set; }
 
 		/// <summary>
@@ -113,7 +100,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Order Volume</para>
 		/// </summary>
-		[DataMember(Name="OrderVolume", EmitDefaultValue=false)]
 		public DecimalValue? OrderVolume { get; set; }
 
 		/// <summary>
@@ -121,7 +107,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Order Weight</para>
 		/// </summary>
-		[DataMember(Name="OrderWeight", EmitDefaultValue=false)]
 		public DecimalValue? OrderWeight { get; set; }
 
 		/// <summary>
@@ -129,7 +114,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Package Weight</para>
 		/// </summary>
-		[DataMember(Name="PackageWeight", EmitDefaultValue=false)]
 		public DecimalValue? PackageWeight { get; set; }
 
 		/// <summary>
@@ -138,7 +122,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: Premium Freight Price</para>
 		/// </summary>
-		[DataMember(Name="PremiumFreight", EmitDefaultValue=false)]
 		public DecimalValue? PremiumFreight { get; set; }
 
 		/// <summary>
@@ -149,7 +132,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <remarks>
 		/// The system will preserve the manually entered Freight Price value inthe sales order and will not recalculate the value if the quantity, extended price, or amount is modifiedin order lines.
 		/// </remarks>
-		[DataMember(Name="OverrideFreightAmount", EmitDefaultValue=false)]
 		public BooleanValue? OverrideFreightAmount { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class DeductionsAndBenefits : Entity
 	{
 
@@ -19,10 +17,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Use Default</para>
 		/// </summary>
-		[DataMember(Name="DeductionAndBenefitUseClassDefaults", EmitDefaultValue=false)]
 		public BooleanValue? DeductionAndBenefitUseClassDefaults { get; set; }
 
-		[DataMember(Name="DeductionsAndBenefitsDetails", EmitDefaultValue=false)]
 		public List<EmployeeDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
 
 		/// <summary>
@@ -31,7 +27,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Split Method</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="DeductionSplitMethod", EmitDefaultValue=false)]
 		public StringValue? DeductionSplitMethod { get; set; }
 
 		/// <summary>
@@ -39,7 +34,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Maximum Percent of Net Pay for All Garnishments</para>
 		/// </summary>
-		[DataMember(Name="MaxPercOfNetPayForAllGarnishm", EmitDefaultValue=false)]
 		public DecimalValue? MaxPercOfNetPayForAllGarnishm { get; set; }
 
 	}

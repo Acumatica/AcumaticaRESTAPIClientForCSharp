@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class DirectDepositDetail : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Account Number</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="AccountNumber", EmitDefaultValue=false)]
 		public StringValue? AccountNumber { get; set; }
 
 		/// <summary>
@@ -29,13 +26,11 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="AccountType", EmitDefaultValue=false)]
 		public StringValue? AccountType { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -43,7 +38,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Bank Name</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="BankName", EmitDefaultValue=false)]
 		public StringValue? BankName { get; set; }
 
 		/// <summary>
@@ -52,7 +46,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Bank Routing Number</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="BankRoutingNumber", EmitDefaultValue=false)]
 		public StringValue? BankRoutingNumber { get; set; }
 
 		/// <summary>
@@ -60,23 +53,19 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
 		/// <para>Display Name: Sequence</para>
 		/// </summary>
-		[DataMember(Name="DepositSequenceNbr", EmitDefaultValue=false)]
 		public IntValue? DepositSequenceNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
 		/// <para>Display Name: Gets Remainder</para>
 		/// </summary>
-		[DataMember(Name="GetsRemainder", EmitDefaultValue=false)]
 		public BooleanValue? GetsRemainder { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
 		/// </summary>
-		[DataMember(Name="Percent", EmitDefaultValue=false)]
 		public DecimalValue? Percent { get; set; }
 
 	}

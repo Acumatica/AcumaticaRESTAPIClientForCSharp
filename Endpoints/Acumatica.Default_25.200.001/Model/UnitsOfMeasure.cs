@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,7 +12,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>CS203500</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class UnitsOfMeasure : Entity, ITopLevelEntity
 	{
 
@@ -21,33 +19,30 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: Unit</para>
 		/// <para>DAC: PX.Objects.Localizations.CA.CS.UnitOfMeasure</para>
 		/// </summary>
-		[DataMember(Name="UnitID", EmitDefaultValue=false)]
 		public StringValue? UnitID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.Localizations.CA.CS.UnitOfMeasure</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.Localizations.CA.CS.UnitOfMeasure</para>
 		/// </summary>
-		[DataMember(Name="L3Code", EmitDefaultValue=false)]
 		public StringValue? L3Code { get; set; }
 
-		[DataMember(Name="Conversion", EmitDefaultValue=false)]
 		public List<Units>? Conversion { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Conversion = "Conversion";
 			public const string Conversion_Files = "Conversion/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Conversion,Conversion/Files";
+			//public const string All = "Files,Translations,Conversion,Conversion/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>GL201100</c> in the Acumatica ERP
 	/// <para>Key Fields: Company, FinancialYear</para>
 	/// </summary>
-	[DataContract]
 	public class CompanyFinancialPeriod : Entity, ITopLevelEntity
 	{
 
@@ -23,10 +21,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Company", EmitDefaultValue=false)]
 		public StringValue? Company { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<FinancialPeriodDetail>? Details { get; set; }
 
 		/// <summary>
@@ -37,7 +33,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(4)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
 		public StringValue? FinancialYear { get; set; }
 
 		/// <summary>
@@ -46,7 +41,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
 		/// <para>Display Name: Number of Periods</para>
 		/// </summary>
-		[DataMember(Name="NbrOfPeriods", EmitDefaultValue=false)]
 		public ShortValue? NbrOfPeriods { get; set; }
 
 		/// <summary>
@@ -54,17 +48,17 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
 		/// <para>Display Name: Start Date</para>
 		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files";
+			//public const string All = "Files,Translations,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

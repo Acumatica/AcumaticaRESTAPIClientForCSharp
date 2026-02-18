@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class ShippingInstructions : Entity
 	{
 
@@ -20,7 +18,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Shipping Destination Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="ShippingDestinationType", EmitDefaultValue=false)]
 		public StringValue? ShippingDestinationType { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PO.POOrder</para>
 		/// <para>Display Name: Shipping Location</para>
 		/// </summary>
-		[DataMember(Name="ShippingLocation", EmitDefaultValue=false)]
 		public StringValue? ShippingLocation { get; set; }
 
 		/// <summary>
@@ -36,10 +32,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PO.POOrder</para>
 		/// <para>Display Name: Ship To</para>
 		/// </summary>
-		[DataMember(Name="ShipTo", EmitDefaultValue=false)]
 		public StringValue? ShipTo { get; set; }
 
-		[DataMember(Name="ShipToAddress", EmitDefaultValue=false)]
 		public Address? ShipToAddress { get; set; }
 
 		/// <summary>
@@ -48,7 +42,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PO.PORemitAddress</para>
 		/// <para>Display Name: Override</para>
 		/// </summary>
-		[DataMember(Name="ShipToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressOverride { get; set; }
 
 		/// <summary>
@@ -57,10 +50,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PO.PORemitAddress</para>
 		/// <para>Display Name: Validated</para>
 		/// </summary>
-		[DataMember(Name="ShipToAddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressValidated { get; set; }
 
-		[DataMember(Name="ShipToContact", EmitDefaultValue=false)]
 		public DocContact? ShipToContact { get; set; }
 
 		/// <summary>
@@ -69,14 +60,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PO.PORemitContact</para>
 		/// <para>Display Name: Override</para>
 		/// </summary>
-		[DataMember(Name="ShipToContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToContactOverride { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.PO.POOrder</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 	}

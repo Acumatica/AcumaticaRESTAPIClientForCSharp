@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	/// Corresponds to the screen <c>AM408000</c> in the Acumatica ERP
 	/// <para>Key Fields: BOMID, Revision, Warehouse</para>
 	/// </summary>
-	[DataContract]
 	public class CostRollHistory : Entity, ITopLevelEntity
 	{
 
@@ -25,7 +23,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="BOMID", EmitDefaultValue=false)]
 		public StringValue? BOMID { get; set; }
 
 		/// <summary>
@@ -34,14 +31,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Current Cost</para>
 		/// </summary>
-		[DataMember(Name="CurrentCost", EmitDefaultValue=false)]
 		public DecimalValue? CurrentCost { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AMBomItem__Status</para>
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// </summary>
-		[DataMember(Name="CurrentStatus", EmitDefaultValue=false)]
 		public StringValue? CurrentStatus { get; set; }
 
 		/// <summary>
@@ -50,7 +45,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Created Date Time</para>
 		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
@@ -59,14 +53,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Default BOM</para>
 		/// </summary>
-		[DataMember(Name="DefaultBOM", EmitDefaultValue=false)]
 		public BooleanValue? DefaultBOM { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AMBomItem__Descr</para>
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -75,7 +67,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Fixed Labor</para>
 		/// </summary>
-		[DataMember(Name="FixedLabor", EmitDefaultValue=false)]
 		public DecimalValue? FixedLabor { get; set; }
 
 		/// <summary>
@@ -83,7 +74,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Fixed Labor Time</para>
 		/// </summary>
-		[DataMember(Name="FixedLaborTime", EmitDefaultValue=false)]
 		public StringValue? FixedLaborTime { get; set; }
 
 		/// <summary>
@@ -92,7 +82,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Fixed Overhead</para>
 		/// </summary>
-		[DataMember(Name="FixedOverhead", EmitDefaultValue=false)]
 		public DecimalValue? FixedOverhead { get; set; }
 
 		/// <summary>
@@ -100,7 +89,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
@@ -109,7 +97,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Item Class</para>
 		/// </summary>
-		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
@@ -118,14 +105,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Last Updated Date Time</para>
 		/// </summary>
-		[DataMember(Name="LastUpdatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastUpdatedDateTime { get; set; }
 
 		/// <summary>
 		/// BOM Level based on the entered cost roll filter criteria (not max low level).This field is important to the order of processing cost roll boms. Highest value (lowest level) are calculated first
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// </summary>
-		[DataMember(Name="Level", EmitDefaultValue=false)]
 		public IntValue? Level { get; set; }
 
 		/// <summary>
@@ -133,7 +118,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Lot Size</para>
 		/// </summary>
-		[DataMember(Name="LotSize", EmitDefaultValue=false)]
 		public DecimalValue? LotSize { get; set; }
 
 		/// <summary>
@@ -141,7 +125,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC Field Name: MachCost</para>
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// </summary>
-		[DataMember(Name="Machine", EmitDefaultValue=false)]
 		public DecimalValue? Machine { get; set; }
 
 		/// <summary>
@@ -149,7 +132,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Machine Time</para>
 		/// </summary>
-		[DataMember(Name="MachineTime", EmitDefaultValue=false)]
 		public StringValue? MachineTime { get; set; }
 
 		/// <summary>
@@ -158,7 +140,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Manufactured Material</para>
 		/// </summary>
-		[DataMember(Name="ManufacturedMaterial", EmitDefaultValue=false)]
 		public DecimalValue? ManufacturedMaterial { get; set; }
 
 		/// <summary>
@@ -166,7 +147,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC Field Name: MatlCost</para>
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// </summary>
-		[DataMember(Name="Material", EmitDefaultValue=false)]
 		public DecimalValue? Material { get; set; }
 
 		/// <summary>
@@ -175,7 +155,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Multi Level</para>
 		/// </summary>
-		[DataMember(Name="MultiLevel", EmitDefaultValue=false)]
 		public BooleanValue? MultiLevel { get; set; }
 
 		/// <summary>
@@ -184,7 +163,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Pending Cost</para>
 		/// </summary>
-		[DataMember(Name="PendingCost", EmitDefaultValue=false)]
 		public DecimalValue? PendingCost { get; set; }
 
 		/// <summary>
@@ -193,7 +171,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Purchase Material</para>
 		/// </summary>
-		[DataMember(Name="PurchaseMaterial", EmitDefaultValue=false)]
 		public DecimalValue? PurchaseMaterial { get; set; }
 
 		/// <summary>
@@ -202,7 +179,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Ref. Material</para>
 		/// </summary>
-		[DataMember(Name="RefMaterial", EmitDefaultValue=false)]
 		public DecimalValue? RefMaterial { get; set; }
 
 		/// <summary>
@@ -212,10 +188,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
 
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
@@ -223,7 +197,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC Field Name: SubcontractMaterialCost</para>
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// </summary>
-		[DataMember(Name="Subcontract", EmitDefaultValue=false)]
 		public DecimalValue? Subcontract { get; set; }
 
 		/// <summary>
@@ -231,7 +204,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
@@ -239,7 +211,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC Field Name: ToolCost</para>
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// </summary>
-		[DataMember(Name="Tools", EmitDefaultValue=false)]
 		public DecimalValue? Tools { get; set; }
 
 		/// <summary>
@@ -247,7 +218,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
-		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
@@ -256,7 +226,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Variable Labor</para>
 		/// </summary>
-		[DataMember(Name="VariableLabor", EmitDefaultValue=false)]
 		public DecimalValue? VariableLabor { get; set; }
 
 		/// <summary>
@@ -264,7 +233,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Variable Labor Time</para>
 		/// </summary>
-		[DataMember(Name="VariableLaborTime", EmitDefaultValue=false)]
 		public StringValue? VariableLaborTime { get; set; }
 
 		/// <summary>
@@ -273,7 +241,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// <para>Display Name: Variable Overhead</para>
 		/// </summary>
-		[DataMember(Name="VariableOverhead", EmitDefaultValue=false)]
 		public DecimalValue? VariableOverhead { get; set; }
 
 		/// <summary>
@@ -282,15 +249,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomCostHistory</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

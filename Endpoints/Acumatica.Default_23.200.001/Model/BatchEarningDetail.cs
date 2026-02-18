@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_23_200_001.Model
 {
-	[DataContract]
 	public class BatchEarningDetail : Entity
 	{
 
@@ -19,16 +17,13 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: AccountID</para>
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
-		[DataMember(Name="AllowCopy", EmitDefaultValue=false)]
 		public BooleanValue? AllowCopy { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -36,7 +31,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -44,7 +38,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// <para>Display Name: Certified Job</para>
 		/// </summary>
-		[DataMember(Name="CertifiedJob", EmitDefaultValue=false)]
 		public BooleanValue? CertifiedJob { get; set; }
 
 		/// <summary>
@@ -53,7 +46,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="Code", EmitDefaultValue=false)]
 		public StringValue? Code { get; set; }
 
 		/// <summary>
@@ -62,21 +54,18 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
 		/// The date of the transaction.
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TypeCD_EPEarningType_Description</para>
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -84,21 +73,18 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: EmployeeID</para>
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Employee", EmitDefaultValue=false)]
 		public StringValue? Employee { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: EmployeeID_Description</para>
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
 		/// <summary>
 		/// The number of earned hours.
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Hours", EmitDefaultValue=false)]
 		public DecimalValue? Hours { get; set; }
 
 		/// <summary>
@@ -107,10 +93,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// <para>Display Name: Labor Item</para>
 		/// </summary>
-		[DataMember(Name="LaborItem", EmitDefaultValue=false)]
 		public StringValue? LaborItem { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -118,7 +102,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: LocationID</para>
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
@@ -126,7 +109,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// <para>Display Name: Manual Rate</para>
 		/// </summary>
-		[DataMember(Name="ManualRate", EmitDefaultValue=false)]
 		public BooleanValue? ManualRate { get; set; }
 
 		/// <summary>
@@ -134,13 +116,11 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
 		/// </summary>
-		[DataMember(Name="Rate", EmitDefaultValue=false)]
 		public DecimalValue? Rate { get; set; }
 
 		/// <summary>
@@ -149,7 +129,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Record ID</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="ExcelRecordID", EmitDefaultValue=false)]
 		public StringValue? ExcelRecordID { get; set; }
 
 		/// <summary>
@@ -158,7 +137,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// <para>Display Name: Shift Code</para>
 		/// </summary>
-		[DataMember(Name="ShiftCode", EmitDefaultValue=false)]
 		public StringValue? ShiftCode { get; set; }
 
 		/// <summary>
@@ -166,7 +144,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: SubID</para>
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
@@ -175,7 +152,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// <para>Display Name: Project Task</para>
 		/// </summary>
-		[DataMember(Name="Task", EmitDefaultValue=false)]
 		public StringValue? Task { get; set; }
 
 		/// <summary>
@@ -184,7 +160,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// <para>Display Name: Time Activity</para>
 		/// </summary>
-		[DataMember(Name="TimeActivity", EmitDefaultValue=false)]
 		public StringValue? TimeActivity { get; set; }
 
 		/// <summary>
@@ -194,14 +169,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Union Local</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="UnionLocal", EmitDefaultValue=false)]
 		public StringValue? UnionLocal { get; set; }
 
 		/// <summary>
 		/// The quantity of units (pieces) worked.
 		/// <para>DAC: PX.Objects.PR.PREarningDetail</para>
 		/// </summary>
-		[DataMember(Name="Units", EmitDefaultValue=false)]
 		public DecimalValue? Units { get; set; }
 
 		/// <summary>
@@ -210,7 +183,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Unit Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="UnitType", EmitDefaultValue=false)]
 		public StringValue? UnitType { get; set; }
 
 		/// <summary>
@@ -220,7 +192,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: WCC Code</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
 		public StringValue? WCCCode { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	/// Corresponds to the screen <c>AM206500</c> in the Acumatica ERP
 	/// <para>Key Fields: LaborCode</para>
 	/// </summary>
-	[DataContract]
 	public class LaborCodes : Entity, ITopLevelEntity
 	{
 
@@ -23,7 +21,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -31,7 +28,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
 		/// <para>Display Name: Labor Account</para>
 		/// </summary>
-		[DataMember(Name="LaborAccount", EmitDefaultValue=false)]
 		public StringValue? LaborAccount { get; set; }
 
 		/// <summary>
@@ -41,7 +37,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LaborCode", EmitDefaultValue=false)]
 		public StringValue? LaborCode { get; set; }
 
 		/// <summary>
@@ -49,7 +44,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
 		/// <para>Display Name: Labor Sub</para>
 		/// </summary>
-		[DataMember(Name="LaborSub", EmitDefaultValue=false)]
 		public StringValue? LaborSub { get; set; }
 
 		/// <summary>
@@ -57,7 +51,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
 		/// <para>Display Name: Overhead Account</para>
 		/// </summary>
-		[DataMember(Name="OverheadAccount", EmitDefaultValue=false)]
 		public StringValue? OverheadAccount { get; set; }
 
 		/// <summary>
@@ -65,7 +58,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
 		/// <para>Display Name: Overhead Sub</para>
 		/// </summary>
-		[DataMember(Name="OverheadSub", EmitDefaultValue=false)]
 		public StringValue? OverheadSub { get; set; }
 
 		/// <summary>
@@ -73,15 +65,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

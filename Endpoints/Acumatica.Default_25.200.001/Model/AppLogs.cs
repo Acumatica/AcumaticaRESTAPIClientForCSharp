@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class AppLogs : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// <para>Display Name: Add to Actual Duration</para>
 		/// </summary>
-		[DataMember(Name="AddtoActualDuration", EmitDefaultValue=false)]
 		public BooleanValue? AddtoActualDuration { get; set; }
 
 		/// <summary>
@@ -29,14 +26,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="AppointmentNbr", EmitDefaultValue=false)]
 		public StringValue? AppointmentNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ApprovedTime</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// </summary>
-		[DataMember(Name="Approved", EmitDefaultValue=false)]
 		public BooleanValue? Approved { get; set; }
 
 		/// <summary>
@@ -44,7 +39,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// <para>Display Name: Billable Amount</para>
 		/// </summary>
-		[DataMember(Name="BillableAmount", EmitDefaultValue=false)]
 		public DecimalValue? BillableAmount { get; set; }
 
 		/// <summary>
@@ -52,7 +46,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
 		/// <para>Display Name: Billable</para>
 		/// </summary>
-		[DataMember(Name="BillableLabor", EmitDefaultValue=false)]
 		public BooleanValue? BillableLabor { get; set; }
 
 		/// <summary>
@@ -60,7 +53,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// <para>Display Name: Billable Time</para>
 		/// </summary>
-		[DataMember(Name="BillableTime", EmitDefaultValue=false)]
 		public StringValue? BillableTime { get; set; }
 
 		/// <summary>
@@ -68,7 +60,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
 		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
@@ -76,7 +67,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -85,14 +75,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Detail Ref. Nbr.</para>
 		/// <para>SQL Type: nchar(4)</para>
 		/// </summary>
-		[DataMember(Name="DetailLineRef", EmitDefaultValue=false)]
 		public StringValue? DetailLineRef { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TimeDuration</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// </summary>
-		[DataMember(Name="Duration", EmitDefaultValue=false)]
 		public StringValue? Duration { get; set; }
 
 		/// <summary>
@@ -100,35 +88,30 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Earning Type</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="EarningType", EmitDefaultValue=false)]
 		public StringValue? EarningType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: DateTimeEnd_Date</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// </summary>
-		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: DateTimeEnd_Time</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// </summary>
-		[DataMember(Name="EndTime", EmitDefaultValue=false)]
 		public DateTimeValue? EndTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: FSAppointmentDet__InventoryID</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentEmployee</para>
 		/// <para>Display Name: Labor Item</para>
 		/// </summary>
-		[DataMember(Name="LaborItemID", EmitDefaultValue=false)]
 		public StringValue? LaborItemID { get; set; }
 
 		/// <summary>
@@ -136,7 +119,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
@@ -145,7 +127,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Ref. Nbr.</para>
 		/// <para>SQL Type: char(4)</para>
 		/// </summary>
-		[DataMember(Name="LogLineRef", EmitDefaultValue=false)]
 		public StringValue? LogLineRef { get; set; }
 
 		/// <summary>
@@ -154,7 +135,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Status</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="LogLineStatus", EmitDefaultValue=false)]
 		public StringValue? LogLineStatus { get; set; }
 
 		/// <summary>
@@ -162,7 +142,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// <para>Display Name: Manage Time Manually</para>
 		/// </summary>
-		[DataMember(Name="ManageTimeManually", EmitDefaultValue=false)]
 		public BooleanValue? ManageTimeManually { get; set; }
 
 		/// <summary>
@@ -170,7 +149,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
 		/// <para>Display Name: Project Task</para>
 		/// </summary>
-		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
@@ -180,7 +158,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(3)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
 		public StringValue? ServiceOrderType { get; set; }
 
 		/// <summary>
@@ -188,21 +165,18 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// <para>Display Name: Staff Member</para>
 		/// </summary>
-		[DataMember(Name="StaffMember", EmitDefaultValue=false)]
 		public StringValue? StaffMember { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: DateTimeBegin_Date</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: DateTimeBegin_Time</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// </summary>
-		[DataMember(Name="StartTime", EmitDefaultValue=false)]
 		public DateTimeValue? StartTime { get; set; }
 
 		/// <summary>
@@ -211,20 +185,17 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Time Card Ref. Nbr.</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TimeCardRefNbr", EmitDefaultValue=false)]
 		public StringValue? TimeCardRefNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentEmployee</para>
 		/// <para>Display Name: Track Time</para>
 		/// </summary>
-		[DataMember(Name="TrackTime", EmitDefaultValue=false)]
 		public BooleanValue? TrackTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
 		/// </summary>
-		[DataMember(Name="Travel", EmitDefaultValue=false)]
 		public BooleanValue? Travel { get; set; }
 
 	}

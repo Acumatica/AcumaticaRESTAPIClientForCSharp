@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class BillRetainageDocument : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: CuryOrigDocAmt</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
@@ -27,7 +24,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: CuryDocBal</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
@@ -35,7 +31,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: DocDate</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
@@ -44,14 +39,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: APInvoice__PayTypeID</para>
 		/// <para>DAC: PX.Objects.AP.APRetainageInvoice</para>
 		/// </summary>
-		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
 		/// <summary>
@@ -61,7 +54,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Post Period</para>
 		/// <para>SQL Type: char(6)</para>
 		/// </summary>
-		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
 		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
@@ -72,7 +64,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
@@ -80,7 +71,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -90,14 +80,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(3)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: APInvoice__InvoiceNbr</para>
 		/// <para>DAC: PX.Objects.AP.APRetainageInvoice</para>
 		/// </summary>
-		[DataMember(Name="VendorRef", EmitDefaultValue=false)]
 		public StringValue? VendorRef { get; set; }
 
 	}

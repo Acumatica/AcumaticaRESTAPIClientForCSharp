@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>TX205000</c> in the Acumatica ERP
 	/// <para>Key Fields: TaxID</para>
 	/// </summary>
-	[DataContract]
 	public class Tax : Entity, ITopLevelEntity
 	{
 
@@ -25,7 +23,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Calculation Rule</para>
 		/// <para>SQL Type: nchar(2)</para>
 		/// </summary>
-		[DataMember(Name="CalculateOn", EmitDefaultValue=false)]
 		public StringValue? CalculateOn { get; set; }
 
 		/// <summary>
@@ -35,10 +32,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Cash Discount</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="CashDiscount", EmitDefaultValue=false)]
 		public StringValue? CashDiscount { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
@@ -46,7 +41,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Partially Deductible VAT</para>
 		/// </summary>
-		[DataMember(Name="DeductibleVAT", EmitDefaultValue=false)]
 		public BooleanValue? DeductibleVAT { get; set; }
 
 		/// <summary>
@@ -55,7 +49,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -64,7 +57,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Direct-Entry Tax</para>
 		/// </summary>
-		[DataMember(Name="EnterFromTaxBill", EmitDefaultValue=false)]
 		public BooleanValue? EnterFromTaxBill { get; set; }
 
 		/// <summary>
@@ -73,7 +65,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Exclude from Tax-on-Tax Calculation</para>
 		/// </summary>
-		[DataMember(Name="ExcludeFromTaxonTaxCalculation", EmitDefaultValue=false)]
 		public BooleanValue? ExcludeFromTaxonTaxCalculation { get; set; }
 
 		/// <summary>
@@ -82,7 +73,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Include in VAT Exempt Total</para>
 		/// </summary>
-		[DataMember(Name="IncludeInVATExemptTotal", EmitDefaultValue=false)]
 		public BooleanValue? IncludeInVATExemptTotal { get; set; }
 
 		/// <summary>
@@ -91,10 +81,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Include in VAT Taxable Total</para>
 		/// </summary>
-		[DataMember(Name="IncludeInVATTaxableTotal", EmitDefaultValue=false)]
 		public BooleanValue? IncludeInVATTaxableTotal { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -103,7 +91,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Not Valid After</para>
 		/// </summary>
-		[DataMember(Name="NotValidAfter", EmitDefaultValue=false)]
 		public DateTimeValue? NotValidAfter { get; set; }
 
 		/// <summary>
@@ -112,7 +99,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Pending VAT</para>
 		/// </summary>
-		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
 		public BooleanValue? PendingVAT { get; set; }
 
 		/// <summary>
@@ -121,7 +107,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Reverse VAT</para>
 		/// </summary>
-		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
 		public BooleanValue? ReverseVAT { get; set; }
 
 		/// <summary>
@@ -130,7 +115,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Statistical VAT</para>
 		/// </summary>
-		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
 		public BooleanValue? StatisticalVAT { get; set; }
 
 		/// <summary>
@@ -139,7 +123,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Tax Agency</para>
 		/// </summary>
-		[DataMember(Name="TaxAgency", EmitDefaultValue=false)]
 		public StringValue? TaxAgency { get; set; }
 
 		/// <summary>
@@ -148,7 +131,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Tax Claimable Account</para>
 		/// </summary>
-		[DataMember(Name="TaxClaimableAccount", EmitDefaultValue=false)]
 		public StringValue? TaxClaimableAccount { get; set; }
 
 		/// <summary>
@@ -157,7 +139,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Tax Claimable Subaccount</para>
 		/// </summary>
-		[DataMember(Name="TaxClaimableSubaccount", EmitDefaultValue=false)]
 		public StringValue? TaxClaimableSubaccount { get; set; }
 
 		/// <summary>
@@ -166,7 +147,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Tax Expense Account</para>
 		/// </summary>
-		[DataMember(Name="TaxExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? TaxExpenseAccount { get; set; }
 
 		/// <summary>
@@ -175,7 +155,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Tax Expense Subaccount</para>
 		/// </summary>
-		[DataMember(Name="TaxExpenseSubaccount", EmitDefaultValue=false)]
 		public StringValue? TaxExpenseSubaccount { get; set; }
 
 		/// <summary>
@@ -185,7 +164,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }
 
 		/// <summary>
@@ -194,7 +172,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Tax Payable Account</para>
 		/// </summary>
-		[DataMember(Name="TaxPayableAccount", EmitDefaultValue=false)]
 		public StringValue? TaxPayableAccount { get; set; }
 
 		/// <summary>
@@ -203,10 +180,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Tax Payable Subaccount</para>
 		/// </summary>
-		[DataMember(Name="TaxPayableSubaccount", EmitDefaultValue=false)]
 		public StringValue? TaxPayableSubaccount { get; set; }
 
-		[DataMember(Name="TaxSchedule", EmitDefaultValue=false)]
 		public List<TaxScheduleDetail>? TaxSchedule { get; set; }
 
 		/// <summary>
@@ -215,22 +190,21 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Tax Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }
 
-		[DataMember(Name="Zones", EmitDefaultValue=false)]
 		public List<TaxZoneDetail>? Zones { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string TaxSchedule = "TaxSchedule";
 			public const string TaxSchedule_Files = "TaxSchedule/Files";
 			public const string Zones = "Zones";
 			public const string Zones_Files = "Zones/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,TaxSchedule,TaxSchedule/Files,Zones,Zones/Files";
+			//public const string All = "Files,Translations,TaxSchedule,TaxSchedule/Files,Zones,Zones/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

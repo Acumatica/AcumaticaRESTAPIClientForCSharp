@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_25_200_001.Model
 {
-	[DataContract]
 	public class CarrierPluginParameter : Entity
 	{
 
@@ -19,7 +17,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CS.CarrierPluginDetail</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -29,14 +26,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="PluginID", EmitDefaultValue=false)]
 		public StringValue? PluginID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CarrierPluginDetail</para>
 		/// <para>SQL Type: nvarchar(1024)</para>
 		/// </summary>
-		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
 
 	}

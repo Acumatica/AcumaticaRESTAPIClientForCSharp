@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,14 +13,11 @@ namespace Acumatica.Default_24_200_001.Model
 	/// Corresponds to the screen <c>CR304000</c> in the Acumatica ERP
 	/// <para>Key Fields: OpportunityID</para>
 	/// </summary>
-	[DataContract]
 	public class Opportunity : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Activities", EmitDefaultValue=false)]
 		public List<ActivityDetail>? Activities { get; set; }
 
-		[DataMember(Name="Address", EmitDefaultValue=false)]
 		public Address? Address { get; set; }
 
 		/// <summary>
@@ -29,10 +25,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>Display Name: Detail Total</para>
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
 		/// <summary>
@@ -40,7 +34,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
@@ -49,7 +42,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>Display Name: Business Account</para>
 		/// </summary>
-		[DataMember(Name="BusinessAccount", EmitDefaultValue=false)]
 		public StringValue? BusinessAccount { get; set; }
 
 		/// <summary>
@@ -58,14 +50,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Opportunity Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ContactID_description</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
-		[DataMember(Name="ContactDisplayName", EmitDefaultValue=false)]
 		public StringValue? ContactDisplayName { get; set; }
 
 		/// <summary>
@@ -73,20 +63,16 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>Display Name: Contact</para>
 		/// </summary>
-		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public IntValue? ContactID { get; set; }
 
-		[DataMember(Name="ContactInformation", EmitDefaultValue=false)]
 		public OpportunityContact? ContactInformation { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LeadID_description</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
-		[DataMember(Name="ConvertedLeadDisplayName", EmitDefaultValue=false)]
 		public StringValue? ConvertedLeadDisplayName { get; set; }
 
-		[DataMember(Name="ConvertedLeadID", EmitDefaultValue=false)]
 		public IntValue? ConvertedLeadID { get; set; }
 
 		/// <summary>
@@ -96,14 +82,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Currency</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryViewState</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
-		[DataMember(Name="CurrencyViewState", EmitDefaultValue=false)]
 		public BooleanValue? CurrencyViewState { get; set; }
 
 		/// <summary>
@@ -111,7 +95,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public StringValue? Details { get; set; }
 
 		/// <summary>
@@ -120,10 +103,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>Display Name: Document Discounts</para>
 		/// </summary>
-		[DataMember(Name="Discount", EmitDefaultValue=false)]
 		public DecimalValue? Discount { get; set; }
 
-		[DataMember(Name="Discounts", EmitDefaultValue=false)]
 		public List<OpportunityDiscount>? Discounts { get; set; }
 
 		/// <summary>
@@ -132,7 +113,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>Display Name: Estimated Close Date</para>
 		/// </summary>
-		[DataMember(Name="Estimation", EmitDefaultValue=false)]
 		public DateTimeValue? Estimation { get; set; }
 
 		/// <summary>
@@ -144,7 +124,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// Also, the Location.BAccountID value must be equal tothe CROpportunity.BAccountID value of the current opportunity.
 		/// </remarks>
-		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
 		/// <summary>
@@ -152,7 +131,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>Display Name: Manual Amount</para>
 		/// </summary>
-		[DataMember(Name="ManualAmount", EmitDefaultValue=false)]
 		public BooleanValue? ManualAmount { get; set; }
 
 		/// <summary>
@@ -165,7 +143,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// This field depends on opportunityNumberingID.
 		/// </remarks>
-		[DataMember(Name="OpportunityID", EmitDefaultValue=false)]
 		public StringValue? OpportunityID { get; set; }
 
 		/// <summary>
@@ -176,7 +153,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <remarks>
 		/// The behavior is controlled by the ContactAddress graph extension derived from the CROpportunityContactAddressExt`1graph extension.
 		/// </remarks>
-		[DataMember(Name="Override", EmitDefaultValue=false)]
 		public BooleanValue? Override { get; set; }
 
 		/// <summary>
@@ -184,14 +160,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: OwnerID</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
-		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: OwnerID_description</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
-		[DataMember(Name="OwnerEmployeeName", EmitDefaultValue=false)]
 		public StringValue? OwnerEmployeeName { get; set; }
 
 		/// <summary>
@@ -200,10 +174,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>Display Name: Parent Account</para>
 		/// </summary>
-		[DataMember(Name="ParentAccount", EmitDefaultValue=false)]
 		public StringValue? ParentAccount { get; set; }
 
-		[DataMember(Name="Products", EmitDefaultValue=false)]
 		public List<OpportunityProduct>? Products { get; set; }
 
 		/// <summary>
@@ -211,7 +183,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
-		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
 		/// <summary>
@@ -220,17 +191,14 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="Reason", EmitDefaultValue=false)]
 		public StringValue? Reason { get; set; }
 
-		[DataMember(Name="Relations", EmitDefaultValue=false)]
 		public List<RelationDetail>? Relations { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Source", EmitDefaultValue=false)]
 		public StringValue? Source { get; set; }
 
 		/// <summary>
@@ -240,7 +208,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Source Campaign</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="SourceCampaign", EmitDefaultValue=false)]
 		public StringValue? SourceCampaign { get; set; }
 
 		/// <summary>
@@ -249,7 +216,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>SQL Type: varchar(2)</para>
 		/// </summary>
-		[DataMember(Name="Stage", EmitDefaultValue=false)]
 		public StringValue? Stage { get; set; }
 
 		/// <summary>
@@ -257,7 +223,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -266,10 +231,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Description</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }
 
-		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
 		public List<OpportunityTaxDetail>? TaxDetails { get; set; }
 
 		/// <summary>
@@ -279,14 +242,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryProductsAmount</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
-		[DataMember(Name="Total", EmitDefaultValue=false)]
 		public DecimalValue? Total { get; set; }
 
 		/// <summary>
@@ -294,14 +255,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>Display Name: Weight Total</para>
 		/// </summary>
-		[DataMember(Name="WeightTotal", EmitDefaultValue=false)]
 		public DecimalValue? WeightTotal { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: WorkgroupID_description</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
-		[DataMember(Name="WorkgroupDescription", EmitDefaultValue=false)]
 		public StringValue? WorkgroupDescription { get; set; }
 
 		/// <summary>
@@ -309,18 +268,16 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// <para>Display Name: Workgroup</para>
 		/// </summary>
-		[DataMember(Name="WorkgroupID", EmitDefaultValue=false)]
 		public StringValue? WorkgroupID { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Activities = "Activities";
 			public const string Activities_Files = "Activities/Files";
 			public const string Address = "Address";
@@ -336,7 +293,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string TaxDetails_Files = "TaxDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Activities,Activities/Files,Address,Attributes,ContactInformation,Discounts,Discounts/Files,Products,Products/Files,Relations,Relations/Files,TaxDetails,TaxDetails/Files";
+			//public const string All = "Files,Translations,Activities,Activities/Files,Address,Attributes,ContactInformation,Discounts,Discounts/Files,Products,Products/Files,Relations,Relations/Files,TaxDetails,TaxDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

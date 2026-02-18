@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_23_200_001.Model
 	/// Corresponds to the screen <c>PR204000</c> in the Acumatica ERP
 	/// <para>Key Fields: PTOBankID</para>
 	/// </summary>
-	[DataContract]
 	public class PTOBank : Entity, ITopLevelEntity
 	{
 
@@ -23,7 +21,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Balance Limit</para>
 		/// </summary>
-		[DataMember(Name="AccrualLimit", EmitDefaultValue=false)]
 		public DecimalValue? AccrualLimit { get; set; }
 
 		/// <summary>
@@ -32,7 +29,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Accrual Method</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="AccrualMethod", EmitDefaultValue=false)]
 		public StringValue? AccrualMethod { get; set; }
 
 		/// <summary>
@@ -41,7 +37,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
 		/// <para>Display Name: Accrue Only on Certified Job</para>
 		/// </summary>
-		[DataMember(Name="AccrueonCertifiedJobOnly", EmitDefaultValue=false)]
 		public BooleanValue? AccrueonCertifiedJobOnly { get; set; }
 
 		/// <summary>
@@ -49,7 +44,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
@@ -57,7 +51,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Allow Negative Balance</para>
 		/// </summary>
-		[DataMember(Name="AllowNegativeBalance", EmitDefaultValue=false)]
 		public BooleanValue? AllowNegativeBalance { get; set; }
 
 		/// <summary>
@@ -66,7 +59,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
 		/// <para>Display Name: Transfer Date</para>
 		/// </summary>
-		[DataMember(Name="BankStartDate", EmitDefaultValue=false)]
 		public DateTimeValue? BankStartDate { get; set; }
 
 		/// <summary>
@@ -74,7 +66,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Disburse Only from Carryover</para>
 		/// </summary>
-		[DataMember(Name="CanOnlyDisbursefromCarryover", EmitDefaultValue=false)]
 		public BooleanValue? CanOnlyDisbursefromCarryover { get; set; }
 
 		/// <summary>
@@ -82,7 +73,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Carryover Hours</para>
 		/// </summary>
-		[DataMember(Name="CarryoverAmount", EmitDefaultValue=false)]
 		public DecimalValue? CarryoverAmount { get; set; }
 
 		/// <summary>
@@ -91,7 +81,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Carryover Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="CarryoverType", EmitDefaultValue=false)]
 		public StringValue? CarryoverType { get; set; }
 
 		/// <summary>
@@ -100,7 +89,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
 		/// <para>Display Name: Create GL Transactions on Accrual</para>
 		/// </summary>
-		[DataMember(Name="CreateFinTransactions", EmitDefaultValue=false)]
 		public BooleanValue? CreateFinTransactions { get; set; }
 
 		/// <summary>
@@ -109,7 +97,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Accrual %</para>
 		/// </summary>
-		[DataMember(Name="DefaultAccrualPercent", EmitDefaultValue=false)]
 		public DecimalValue? DefaultAccrualPercent { get; set; }
 
 		/// <summary>
@@ -119,7 +106,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Default Disbursing Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="DefaultDisbursingType", EmitDefaultValue=false)]
 		public StringValue? DefaultDisbursingType { get; set; }
 
 		/// <summary>
@@ -127,7 +113,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		/// <summary>
@@ -137,7 +122,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Disbursing Earning Type</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="DisbursingEarningCode", EmitDefaultValue=false)]
 		public StringValue? DisbursingEarningCode { get; set; }
 
 		/// <summary>
@@ -145,13 +129,10 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.PR.PREmployeeClassPTOBank</para>
 		/// <para>Display Name: Front Loading Hours</para>
 		/// </summary>
-		[DataMember(Name="FrontLoadingAmount", EmitDefaultValue=false)]
 		public DecimalValue? FrontLoadingAmount { get; set; }
 
-		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
 		public PTOBankGLAccounts? GLAccounts { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -161,10 +142,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: On Settlement</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="OnSettlement", EmitDefaultValue=false)]
 		public StringValue? OnSettlement { get; set; }
 
-		[DataMember(Name="PayCarryoverafterMonths", EmitDefaultValue=false)]
 		public IntValue? PayCarryoverafterMonths { get; set; }
 
 		/// <summary>
@@ -175,16 +154,16 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="PTOBankID", EmitDefaultValue=false)]
 		public StringValue? PTOBankID { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string GLAccounts = "GLAccounts";
 
 			//Intentionally excluded
-			//public const string All = "Files,GLAccounts";
+			//public const string All = "Files,Translations,GLAccounts";
 		}
 		public virtual string GetEndpointPath()
 		{

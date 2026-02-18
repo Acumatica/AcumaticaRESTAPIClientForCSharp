@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,7 +13,6 @@ namespace Acumatica.Default_25_200_001.Model
 	/// Corresponds to the screen <c>AP303000</c> in the Acumatica ERP
 	/// <para>Key Fields: VendorID</para>
 	/// </summary>
-	[DataContract]
 	public class Vendor : Entity, ITopLevelEntity
 	{
 
@@ -28,7 +26,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <remarks>
 		/// It can be an additional number of the business account used in external integration.            
 		/// </remarks>
-		[DataMember(Name="AccountRef", EmitDefaultValue=false)]
 		public StringValue? AccountRef { get; set; }
 
 		/// <summary>
@@ -37,7 +34,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: AP Account</para>
 		/// </summary>
-		[DataMember(Name="APAccount", EmitDefaultValue=false)]
 		public StringValue? APAccount { get; set; }
 
 		/// <summary>
@@ -46,10 +42,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: AP Sub.</para>
 		/// </summary>
-		[DataMember(Name="APSubaccount", EmitDefaultValue=false)]
 		public StringValue? APSubaccount { get; set; }
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
 		/// <summary>
@@ -58,10 +52,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Cash Account</para>
 		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
-		[DataMember(Name="Contacts", EmitDefaultValue=false)]
 		public List<CustomerContact>? Contacts { get; set; }
 
 		/// <summary>
@@ -69,7 +61,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Created On</para>
 		/// </summary>
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
@@ -78,7 +69,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Currency ID</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
@@ -87,7 +77,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Curr. Rate Type</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="CurrencyRateType", EmitDefaultValue=false)]
 		public StringValue? CurrencyRateType { get; set; }
 
 		/// <summary>
@@ -95,7 +84,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>Display Name: Enable Currency Override</para>
 		/// </summary>
-		[DataMember(Name="EnableCurrencyOverride", EmitDefaultValue=false)]
 		public BooleanValue? EnableCurrencyOverride { get; set; }
 
 		/// <summary>
@@ -103,7 +91,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>Display Name: Enable Rate Override</para>
 		/// </summary>
-		[DataMember(Name="EnableRateOverride", EmitDefaultValue=false)]
 		public BooleanValue? EnableRateOverride { get; set; }
 
 		/// <summary>
@@ -111,7 +98,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>Display Name: 1099 Box</para>
 		/// </summary>
-		[DataMember(Name="F1099Box", EmitDefaultValue=false)]
 		public StringValue? F1099Box { get; set; }
 
 		/// <summary>
@@ -119,13 +105,11 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>Display Name: 1099 Vendor</para>
 		/// </summary>
-		[DataMember(Name="F1099Vendor", EmitDefaultValue=false)]
 		public BooleanValue? F1099Vendor { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// </summary>
-		[DataMember(Name="FATCA", EmitDefaultValue=false)]
 		public BooleanValue? FATCA { get; set; }
 
 		/// <summary>
@@ -135,21 +119,18 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: FOB Point</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
 		public StringValue? FOBPoint { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>Display Name: Foreign Entity</para>
 		/// </summary>
-		[DataMember(Name="ForeignEntity", EmitDefaultValue=false)]
 		public BooleanValue? ForeignEntity { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>Display Name: Landed Cost Vendor</para>
 		/// </summary>
-		[DataMember(Name="LandedCostVendor", EmitDefaultValue=false)]
 		public BooleanValue? LandedCostVendor { get; set; }
 
 		/// <summary>
@@ -157,7 +138,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Last Modified On</para>
 		/// </summary>
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
@@ -166,7 +146,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Lead Time (Days)</para>
 		/// </summary>
-		[DataMember(Name="LeadTimedays", EmitDefaultValue=false)]
 		public ShortValue? LeadTimedays { get; set; }
 
 		/// <summary>
@@ -175,7 +154,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Legal Name</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="LegalName", EmitDefaultValue=false)]
 		public StringValue? LegalName { get; set; }
 
 		/// <summary>
@@ -185,10 +163,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Location Name</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="LocationName", EmitDefaultValue=false)]
 		public StringValue? LocationName { get; set; }
 
-		[DataMember(Name="MainContact", EmitDefaultValue=false)]
 		public Contact? MainContact { get; set; }
 
 		/// <summary>
@@ -197,7 +173,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Max. Receipt (%)</para>
 		/// </summary>
-		[DataMember(Name="MaxReceipt", EmitDefaultValue=false)]
 		public DecimalValue? MaxReceipt { get; set; }
 
 		/// <summary>
@@ -206,7 +181,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Min. Receipt (%)</para>
 		/// </summary>
-		[DataMember(Name="MinReceipt", EmitDefaultValue=false)]
 		public DecimalValue? MinReceipt { get; set; }
 
 		/// <summary>
@@ -215,7 +189,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>Display Name: Parent Account</para>
 		/// </summary>
-		[DataMember(Name="ParentAccount", EmitDefaultValue=false)]
 		public StringValue? ParentAccount { get; set; }
 
 		/// <summary>
@@ -224,10 +197,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Payment By</para>
 		/// </summary>
-		[DataMember(Name="PaymentBy", EmitDefaultValue=false)]
 		public StringValue? PaymentBy { get; set; }
 
-		[DataMember(Name="PaymentInstructions", EmitDefaultValue=false)]
 		public List<BusinessAccountPaymentInstructionDetail>? PaymentInstructions { get; set; }
 
 		/// <summary>
@@ -236,7 +207,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Payment Lead Time (Days)</para>
 		/// </summary>
-		[DataMember(Name="PaymentLeadTimedays", EmitDefaultValue=false)]
 		public ShortValue? PaymentLeadTimedays { get; set; }
 
 		/// <summary>
@@ -246,7 +216,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Payment Method</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
 		/// <summary>
@@ -255,10 +224,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Pay Separately</para>
 		/// </summary>
-		[DataMember(Name="PaySeparately", EmitDefaultValue=false)]
 		public BooleanValue? PaySeparately { get; set; }
 
-		[DataMember(Name="PrimaryContact", EmitDefaultValue=false)]
 		public Contact? PrimaryContact { get; set; }
 
 		/// <summary>
@@ -267,7 +234,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Print Order</para>
 		/// </summary>
-		[DataMember(Name="PrintOrders", EmitDefaultValue=false)]
 		public BooleanValue? PrintOrders { get; set; }
 
 		/// <summary>
@@ -277,7 +243,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Receipt Action</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="ReceiptAction", EmitDefaultValue=false)]
 		public StringValue? ReceiptAction { get; set; }
 
 		/// <summary>
@@ -286,7 +251,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Receiving Branch</para>
 		/// </summary>
-		[DataMember(Name="ReceivingBranch", EmitDefaultValue=false)]
 		public StringValue? ReceivingBranch { get; set; }
 
 		/// <summary>
@@ -295,10 +259,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Override</para>
 		/// </summary>
-		[DataMember(Name="RemittanceAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? RemittanceAddressOverride { get; set; }
 
-		[DataMember(Name="RemittanceContact", EmitDefaultValue=false)]
 		public Contact? RemittanceContact { get; set; }
 
 		/// <summary>
@@ -307,7 +269,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Override</para>
 		/// </summary>
-		[DataMember(Name="RemittanceContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? RemittanceContactOverride { get; set; }
 
 		/// <summary>
@@ -316,7 +277,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Email Order</para>
 		/// </summary>
-		[DataMember(Name="SendOrdersbyEmail", EmitDefaultValue=false)]
 		public BooleanValue? SendOrdersbyEmail { get; set; }
 
 		/// <summary>
@@ -325,7 +285,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Override</para>
 		/// </summary>
-		[DataMember(Name="ShippingContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShippingContactOverride { get; set; }
 
 		/// <summary>
@@ -334,10 +293,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Override</para>
 		/// </summary>
-		[DataMember(Name="ShippingAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShippingAddressOverride { get; set; }
 
-		[DataMember(Name="ShippingContact", EmitDefaultValue=false)]
 		public Contact? ShippingContact { get; set; }
 
 		/// <summary>
@@ -347,7 +304,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Shipping Terms</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
 		public StringValue? ShippingTerms { get; set; }
 
 		/// <summary>
@@ -357,7 +313,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Ship Via</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
 		public StringValue? ShipVia { get; set; }
 
 		/// <summary>
@@ -366,7 +321,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Vendor Status</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -376,7 +330,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Tax Calculation Mode</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="TaxCalculationMode", EmitDefaultValue=false)]
 		public StringValue? TaxCalculationMode { get; set; }
 
 		/// <summary>
@@ -385,7 +338,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Tax Registration ID</para>
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
-		[DataMember(Name="TaxRegistrationID", EmitDefaultValue=false)]
 		public StringValue? TaxRegistrationID { get; set; }
 
 		/// <summary>
@@ -395,7 +347,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
@@ -403,7 +354,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="Terms", EmitDefaultValue=false)]
 		public StringValue? Terms { get; set; }
 
 		/// <summary>
@@ -412,7 +362,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Threshold Receipt (%)</para>
 		/// </summary>
-		[DataMember(Name="ThresholdReceipt", EmitDefaultValue=false)]
 		public DecimalValue? ThresholdReceipt { get; set; }
 
 		/// <summary>
@@ -421,7 +370,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Vendor Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="VendorClass", EmitDefaultValue=false)]
 		public StringValue? VendorClass { get; set; }
 
 		/// <summary>
@@ -431,7 +379,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="VendorID", EmitDefaultValue=false)]
 		public StringValue? VendorID { get; set; }
 
 		/// <summary>
@@ -439,14 +386,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>Display Name: Vendor Is Tax Agency</para>
 		/// </summary>
-		[DataMember(Name="VendorIsTaxAgency", EmitDefaultValue=false)]
 		public BooleanValue? VendorIsTaxAgency { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AcctName</para>
 		/// <para>DAC: PX.Objects.AP.VendorMaint+SuppliedByVendor</para>
 		/// </summary>
-		[DataMember(Name="VendorName", EmitDefaultValue=false)]
 		public StringValue? VendorName { get; set; }
 
 		/// <summary>
@@ -454,12 +399,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC Field Name: VSiteID</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string Contacts = "Contacts";
 			public const string Contacts_Files = "Contacts/Files";
@@ -587,7 +532,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string ShippingContact_UserInfo_Roles_Files = "ShippingContact/UserInfo/Roles/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,Contacts,Contacts/Files,Contacts/Contact,Contacts/Contact/Activities,Contacts/Contact/Activities/Files,Contacts/Contact/Address,Contacts/Contact/Attributes,Contacts/Contact/Campaigns,Contacts/Contact/Campaigns/Files,Contacts/Contact/Cases,Contacts/Contact/Cases/Files,Contacts/Contact/Duplicates,Contacts/Contact/Duplicates/Files,Contacts/Contact/MarketingLists,Contacts/Contact/MarketingLists/Files,Contacts/Contact/Notifications,Contacts/Contact/Notifications/Files,Contacts/Contact/Opportunities,Contacts/Contact/Opportunities/Files,Contacts/Contact/Relations,Contacts/Contact/Relations/Files,Contacts/Contact/RoleAssignments,Contacts/Contact/RoleAssignments/Files,Contacts/Contact/UserInfo,Contacts/Contact/UserInfo/Roles,Contacts/Contact/UserInfo/Roles/Files,MainContact,MainContact/Activities,MainContact/Activities/Files,MainContact/Address,MainContact/Attributes,MainContact/Campaigns,MainContact/Campaigns/Files,MainContact/Cases,MainContact/Cases/Files,MainContact/Duplicates,MainContact/Duplicates/Files,MainContact/MarketingLists,MainContact/MarketingLists/Files,MainContact/Notifications,MainContact/Notifications/Files,MainContact/Opportunities,MainContact/Opportunities/Files,MainContact/Relations,MainContact/Relations/Files,MainContact/RoleAssignments,MainContact/RoleAssignments/Files,MainContact/UserInfo,MainContact/UserInfo/Roles,MainContact/UserInfo/Roles/Files,PaymentInstructions,PaymentInstructions/Files,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Activities/Files,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Campaigns/Files,PrimaryContact/Cases,PrimaryContact/Cases/Files,PrimaryContact/Duplicates,PrimaryContact/Duplicates/Files,PrimaryContact/MarketingLists,PrimaryContact/MarketingLists/Files,PrimaryContact/Notifications,PrimaryContact/Notifications/Files,PrimaryContact/Opportunities,PrimaryContact/Opportunities/Files,PrimaryContact/Relations,PrimaryContact/Relations/Files,PrimaryContact/RoleAssignments,PrimaryContact/RoleAssignments/Files,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,PrimaryContact/UserInfo/Roles/Files,RemittanceContact,RemittanceContact/Activities,RemittanceContact/Activities/Files,RemittanceContact/Address,RemittanceContact/Attributes,RemittanceContact/Campaigns,RemittanceContact/Campaigns/Files,RemittanceContact/Cases,RemittanceContact/Cases/Files,RemittanceContact/Duplicates,RemittanceContact/Duplicates/Files,RemittanceContact/MarketingLists,RemittanceContact/MarketingLists/Files,RemittanceContact/Notifications,RemittanceContact/Notifications/Files,RemittanceContact/Opportunities,RemittanceContact/Opportunities/Files,RemittanceContact/Relations,RemittanceContact/Relations/Files,RemittanceContact/RoleAssignments,RemittanceContact/RoleAssignments/Files,RemittanceContact/UserInfo,RemittanceContact/UserInfo/Roles,RemittanceContact/UserInfo/Roles/Files,ShippingContact,ShippingContact/Activities,ShippingContact/Activities/Files,ShippingContact/Address,ShippingContact/Attributes,ShippingContact/Campaigns,ShippingContact/Campaigns/Files,ShippingContact/Cases,ShippingContact/Cases/Files,ShippingContact/Duplicates,ShippingContact/Duplicates/Files,ShippingContact/MarketingLists,ShippingContact/MarketingLists/Files,ShippingContact/Notifications,ShippingContact/Notifications/Files,ShippingContact/Opportunities,ShippingContact/Opportunities/Files,ShippingContact/Relations,ShippingContact/Relations/Files,ShippingContact/RoleAssignments,ShippingContact/RoleAssignments/Files,ShippingContact/UserInfo,ShippingContact/UserInfo/Roles,ShippingContact/UserInfo/Roles/Files";
+			//public const string All = "Files,Translations,Attributes,Contacts,Contacts/Files,Contacts/Contact,Contacts/Contact/Activities,Contacts/Contact/Activities/Files,Contacts/Contact/Address,Contacts/Contact/Attributes,Contacts/Contact/Campaigns,Contacts/Contact/Campaigns/Files,Contacts/Contact/Cases,Contacts/Contact/Cases/Files,Contacts/Contact/Duplicates,Contacts/Contact/Duplicates/Files,Contacts/Contact/MarketingLists,Contacts/Contact/MarketingLists/Files,Contacts/Contact/Notifications,Contacts/Contact/Notifications/Files,Contacts/Contact/Opportunities,Contacts/Contact/Opportunities/Files,Contacts/Contact/Relations,Contacts/Contact/Relations/Files,Contacts/Contact/RoleAssignments,Contacts/Contact/RoleAssignments/Files,Contacts/Contact/UserInfo,Contacts/Contact/UserInfo/Roles,Contacts/Contact/UserInfo/Roles/Files,MainContact,MainContact/Activities,MainContact/Activities/Files,MainContact/Address,MainContact/Attributes,MainContact/Campaigns,MainContact/Campaigns/Files,MainContact/Cases,MainContact/Cases/Files,MainContact/Duplicates,MainContact/Duplicates/Files,MainContact/MarketingLists,MainContact/MarketingLists/Files,MainContact/Notifications,MainContact/Notifications/Files,MainContact/Opportunities,MainContact/Opportunities/Files,MainContact/Relations,MainContact/Relations/Files,MainContact/RoleAssignments,MainContact/RoleAssignments/Files,MainContact/UserInfo,MainContact/UserInfo/Roles,MainContact/UserInfo/Roles/Files,PaymentInstructions,PaymentInstructions/Files,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Activities/Files,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Campaigns/Files,PrimaryContact/Cases,PrimaryContact/Cases/Files,PrimaryContact/Duplicates,PrimaryContact/Duplicates/Files,PrimaryContact/MarketingLists,PrimaryContact/MarketingLists/Files,PrimaryContact/Notifications,PrimaryContact/Notifications/Files,PrimaryContact/Opportunities,PrimaryContact/Opportunities/Files,PrimaryContact/Relations,PrimaryContact/Relations/Files,PrimaryContact/RoleAssignments,PrimaryContact/RoleAssignments/Files,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,PrimaryContact/UserInfo/Roles/Files,RemittanceContact,RemittanceContact/Activities,RemittanceContact/Activities/Files,RemittanceContact/Address,RemittanceContact/Attributes,RemittanceContact/Campaigns,RemittanceContact/Campaigns/Files,RemittanceContact/Cases,RemittanceContact/Cases/Files,RemittanceContact/Duplicates,RemittanceContact/Duplicates/Files,RemittanceContact/MarketingLists,RemittanceContact/MarketingLists/Files,RemittanceContact/Notifications,RemittanceContact/Notifications/Files,RemittanceContact/Opportunities,RemittanceContact/Opportunities/Files,RemittanceContact/Relations,RemittanceContact/Relations/Files,RemittanceContact/RoleAssignments,RemittanceContact/RoleAssignments/Files,RemittanceContact/UserInfo,RemittanceContact/UserInfo/Roles,RemittanceContact/UserInfo/Roles/Files,ShippingContact,ShippingContact/Activities,ShippingContact/Activities/Files,ShippingContact/Address,ShippingContact/Attributes,ShippingContact/Campaigns,ShippingContact/Campaigns/Files,ShippingContact/Cases,ShippingContact/Cases/Files,ShippingContact/Duplicates,ShippingContact/Duplicates/Files,ShippingContact/MarketingLists,ShippingContact/MarketingLists/Files,ShippingContact/Notifications,ShippingContact/Notifications/Files,ShippingContact/Opportunities,ShippingContact/Opportunities/Files,ShippingContact/Relations,ShippingContact/Relations/Files,ShippingContact/RoleAssignments,ShippingContact/RoleAssignments/Files,ShippingContact/UserInfo,ShippingContact/UserInfo/Roles,ShippingContact/UserInfo/Roles/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

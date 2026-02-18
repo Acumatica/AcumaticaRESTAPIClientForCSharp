@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -10,7 +9,6 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_24_200_001.Model
 {
-	[DataContract]
 	public class CaseDetail : Entity
 	{
 
@@ -22,7 +20,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="CaseID", EmitDefaultValue=false)]
 		public StringValue? CaseID { get; set; }
 
 		/// <summary>
@@ -32,7 +29,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Case Class</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
@@ -41,7 +37,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// <para>Display Name: Closed On</para>
 		/// </summary>
-		[DataMember(Name="ClosingDate", EmitDefaultValue=false)]
 		public DateTimeValue? ClosingDate { get; set; }
 
 		/// <summary>
@@ -50,7 +45,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// <para>Display Name: Reported On</para>
 		/// </summary>
-		[DataMember(Name="DateReported", EmitDefaultValue=false)]
 		public DateTimeValue? DateReported { get; set; }
 
 		/// <summary>
@@ -58,10 +52,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: TimeEstimated</para>
 		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// </summary>
-		[DataMember(Name="Estimation", EmitDefaultValue=false)]
 		public StringValue? Estimation { get; set; }
 
-		[DataMember(Name="InitialResponse", EmitDefaultValue=false)]
 		public StringValue? InitialResponse { get; set; }
 
 		/// <summary>
@@ -69,7 +61,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: OwnerID</para>
 		/// <para>DAC: PX.Objects.CR.Contact</para>
 		/// </summary>
-		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		/// <summary>
@@ -78,7 +69,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="Reason", EmitDefaultValue=false)]
 		public StringValue? Reason { get; set; }
 
 		/// <summary>
@@ -86,7 +76,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRCase</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Severity", EmitDefaultValue=false)]
 		public StringValue? Severity { get; set; }
 
 		/// <summary>
@@ -94,7 +83,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Contact</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -103,7 +91,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Description</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }
 
 		/// <summary>
@@ -111,7 +98,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: WorkgroupID</para>
 		/// <para>DAC: PX.Objects.CR.Contact</para>
 		/// </summary>
-		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
 	}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -13,7 +12,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	/// <summary>
 	/// Corresponds to the screen <c>AM100000</c> in the Acumatica ERP
 	/// </summary>
-	[DataContract]
 	public class MRPPreferences : Entity, ITopLevelEntity
 	{
 
@@ -23,7 +21,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Days After</para>
 		/// </summary>
-		[DataMember(Name="DaysAfter", EmitDefaultValue=false)]
 		public IntValue? DaysAfter { get; set; }
 
 		/// <summary>
@@ -32,7 +29,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Days Before</para>
 		/// </summary>
-		[DataMember(Name="DaysBefore", EmitDefaultValue=false)]
 		public IntValue? DaysBefore { get; set; }
 
 		/// <summary>
@@ -42,7 +38,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Default Type</para>
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
-		[DataMember(Name="DefaultType", EmitDefaultValue=false)]
 		public StringValue? DefaultType { get; set; }
 
 		/// <summary>
@@ -51,7 +46,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Demand Time Fence</para>
 		/// </summary>
-		[DataMember(Name="DemandTimeFence", EmitDefaultValue=false)]
 		public IntValue? DemandTimeFence { get; set; }
 
 		/// <summary>
@@ -59,7 +53,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Grace Period</para>
 		/// </summary>
-		[DataMember(Name="GracePeriod", EmitDefaultValue=false)]
 		public IntValue? GracePeriod { get; set; }
 
 		/// <summary>
@@ -67,7 +60,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Include On-Hold Kit Assemblies</para>
 		/// </summary>
-		[DataMember(Name="IncludeOnHoldKitAssemblies", EmitDefaultValue=false)]
 		public BooleanValue? IncludeOnHoldKitAssemblies { get; set; }
 
 		/// <summary>
@@ -76,7 +68,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Include On-Hold Production Orders</para>
 		/// </summary>
-		[DataMember(Name="IncludeOnHoldProductionOrders", EmitDefaultValue=false)]
 		public BooleanValue? IncludeOnHoldProductionOrders { get; set; }
 
 		/// <summary>
@@ -85,7 +76,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Include On-Hold Purchase Orders</para>
 		/// </summary>
-		[DataMember(Name="IncludeOnHoldPurchaseOrders", EmitDefaultValue=false)]
 		public BooleanValue? IncludeOnHoldPurchaseOrders { get; set; }
 
 		/// <summary>
@@ -94,7 +84,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Include On-Hold Sales Orders</para>
 		/// </summary>
-		[DataMember(Name="IncludeOnHoldSalesOrders", EmitDefaultValue=false)]
 		public BooleanValue? IncludeOnHoldSalesOrders { get; set; }
 
 		/// <summary>
@@ -103,7 +92,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Numbering Sequence</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="NumberingSequence", EmitDefaultValue=false)]
 		public StringValue? NumberingSequence { get; set; }
 
 		/// <summary>
@@ -112,7 +100,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Planning Horizon</para>
 		/// </summary>
-		[DataMember(Name="PlanningHorizon", EmitDefaultValue=false)]
 		public IntValue? PlanningHorizon { get; set; }
 
 		/// <summary>
@@ -121,7 +108,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Plan Order Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="PlanOrderType", EmitDefaultValue=false)]
 		public StringValue? PlanOrderType { get; set; }
 
 		/// <summary>
@@ -129,14 +115,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Purchase Calendar ID</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PurchaseCalendarID", EmitDefaultValue=false)]
 		public StringValue? PurchaseCalendarID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Stocking Method</para>
 		/// </summary>
-		[DataMember(Name="StockingMethod", EmitDefaultValue=false)]
 		public StringValue? StockingMethod { get; set; }
 
 		/// <summary>
@@ -145,7 +129,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: MPS Time Fence</para>
 		/// </summary>
-		[DataMember(Name="TimeFence", EmitDefaultValue=false)]
 		public IntValue? TimeFence { get; set; }
 
 		/// <summary>
@@ -154,15 +137,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Use Fixed Manufacturing Times</para>
 		/// </summary>
-		[DataMember(Name="UseFixedManufacturingTimes", EmitDefaultValue=false)]
 		public BooleanValue? UseFixedManufacturingTimes { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

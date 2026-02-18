@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,11 +13,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	/// Corresponds to the screen <c>AM208500</c> in the Acumatica ERP
 	/// <para>Key Fields: BOMID, Revision</para>
 	/// </summary>
-	[DataContract]
 	public class BomAttributes : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeDetail>? Attributes { get; set; }
 
 		/// <summary>
@@ -28,7 +25,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="BOMID", EmitDefaultValue=false)]
 		public StringValue? BOMID { get; set; }
 
 		/// <summary>
@@ -37,14 +33,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// <para>Display Name: End Date</para>
 		/// </summary>
-		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the BOM item is on hold.
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// </summary>
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
@@ -52,7 +46,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
@@ -62,7 +55,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
@@ -71,7 +63,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// <para>Display Name: Start Date</para>
 		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
@@ -79,7 +70,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
 		/// <summary>
@@ -87,7 +77,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
@@ -95,16 +84,16 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes";
+			//public const string All = "Files,Translations,Attributes";
 		}
 		public virtual string GetEndpointPath()
 		{
