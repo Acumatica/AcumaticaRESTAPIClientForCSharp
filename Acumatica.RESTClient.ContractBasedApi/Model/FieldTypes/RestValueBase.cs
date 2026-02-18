@@ -1,20 +1,15 @@
-﻿using System.Runtime.Serialization;
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
     public interface IRestValueMarker { }
-    [DataContract]
     public abstract class RestFieldWithError : IRestValueMarker
     {
-        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string? Error { get; set; }
     }
-    [DataContract]
+
     public abstract class RestValueBase<TValue> : RestFieldWithError
     {
-        [DataMember(Name = "value", EmitDefaultValue = false)]
         public TValue? Value { get; set; }
 
         /// <summary>

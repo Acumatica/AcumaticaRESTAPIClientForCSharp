@@ -1,17 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-
 using Acumatica.RESTClient.ContractBasedApi.FileApi.Model;
 using Acumatica.RESTClient.FileApi.Model;
+
 using Newtonsoft.Json;
+
+using System;
+using System.Collections.Generic;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
     /// <summary>
     /// Entity
     /// </summary>
-    [DataContract]
     public abstract class Entity
     {
 		#region Backward compatibility with SOAP
@@ -56,26 +55,22 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 		/// <summary>
 		/// Indicates whether it is needed to delete detail record.
 		/// </summary>
-        [DataMember(Name = "delete", EmitDefaultValue = false)]
         public bool? Delete { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
         public Guid? ID { get; set; }
 
         /// <summary>
         /// Gets or Sets RowNumber
         /// </summary>
-        [DataMember(Name="rowNumber", EmitDefaultValue=false)]
         public long? RowNumber { get; set; }
 
 
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string? Error { get; set; }
 
         /// <summary>
@@ -83,27 +78,23 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// The value in the Dictionary is another Dictionary that contains 
         /// FieldName as Key.
         /// </summary>
-        [DataMember(Name="custom", EmitDefaultValue=false)]
         public Dictionary<string, Dictionary<string, CustomField>>? Custom { get; set; }
 
         /// <summary>
         /// Gets or Sets Note
         /// </summary>
-        [DataMember(Name = "note", EmitDefaultValue = false)]
         public StringValue? Note { get; set; }
 
 
         /// <summary>
         /// Gets or Sets Files
         /// </summary>
-        [DataMember(Name="files", EmitDefaultValue=false)]
         public List<FileLink>? Files { get; set; }
 		public bool ShouldSerializeFiles() => false;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		[DataMember(Name = "_links", EmitDefaultValue = false)]
         public Links Links { get; set; }
 
 		public bool ShouldSerializeLinks() => false;

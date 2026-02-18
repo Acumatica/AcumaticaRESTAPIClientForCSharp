@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 
 namespace EndpointSchemaGenerator
 {
@@ -15,11 +14,10 @@ namespace EndpointSchemaGenerator
 		public static string UsingApiNamespace = $"using {ApiNamespace};";
 		public static string UsingClientNamespace = $"using {ClientNamespace};";
 		public static string UsingSystem = "using System;";
-		public static string UsingSerialization = "using System.Runtime.Serialization;";
 		public static string UsingGenericCollections = "using System.Collections.Generic;";
 		public static string UsingNewtonsoftJson = "using Newtonsoft.Json;";
 
-		public static string Usings = $"{UsingSystem}\r\n{UsingGenericCollections}\r\n{UsingSerialization}\r\n\r\n{UsingNewtonsoftJson}\r\n\r\n{UsingClientNamespace}\r\n{UsingApiNamespace}\r\n{UsingModelNamespace}\r\n\r\n";
+		public static string Usings = $"{UsingSystem}\r\n{UsingGenericCollections}\r\n\r\n{UsingNewtonsoftJson}\r\n\r\n{UsingClientNamespace}\r\n{UsingApiNamespace}\r\n{UsingModelNamespace}\r\n\r\n";
 
 		public static string NewtonsoftJsonVersion = "\"13.0.1\"";
 
@@ -27,14 +25,14 @@ namespace EndpointSchemaGenerator
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
 		//{2} = EntityName
-		public static string ActionTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n";
+		public static string ActionTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n";
 
 
 		public static string GenerateFieldCode(string className, EntityField field)
 		{
 			string fieldName = (field.Name == className ? field.Name.ToLowerInvariant() : field.Name);
 
-			string fieldCode = $"\r\n\t\t[DataMember(Name=\"{fieldName}\", EmitDefaultValue=false)]\r\n\t\tpublic {field.Type}? {fieldName} {{ get; set; }}\r\n";
+			string fieldCode = $"\r\n\t\tpublic {field.Type}? {fieldName} {{ get; set; }}\r\n";
 
 			if (!string.IsNullOrEmpty(field.DAC))
 			{
@@ -55,7 +53,7 @@ namespace EndpointSchemaGenerator
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = EntityName
 		//{2} = Content
-		public static string EntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : {3}\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
+		public static string EntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : {3}\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
 
 		/// <summary>
 		/// 
@@ -77,7 +75,7 @@ namespace EndpointSchemaGenerator
 					+ (keyFields != null && keyFields.Any() ?
 						$"\r\n\t/// <para>Key Fields: {string.Join(", ", keyFields.Select(kf => kf.Name))}</para>" : "")
                     + "\r\n\t/// </summary>")
-				+ $"\r\n\t[DataContract]\r\n\tpublic class {entityName} : {parentReference}, ITopLevelEntity\r\n\t{{\r\n{content}"
+				+ $"\r\n\tpublic class {entityName} : {parentReference}, ITopLevelEntity\r\n\t{{\r\n{content}"
 				+ expands
 				+ $"\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
@@ -91,16 +89,16 @@ namespace EndpointSchemaGenerator
 		//{1} = ActionName
 		//{2} = EntityName
 		//{3} = Content
-		public static string ActionWithParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : EntityActionWithParameters<{2}, {1}Parameters>\r\n\t{{\r\n\t\tpublic {1}({2} entity, {1}Parameters parameters) : base(entity, parameters)\r\n\t\t{{ }}\r\n{3}\r\n\t}}\r\n}}";
+		public static string ActionWithParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : EntityActionWithParameters<{2}, {1}Parameters>\r\n\t{{\r\n\t\tpublic {1}({2} entity, {1}Parameters parameters) : base(entity, parameters)\r\n\t\t{{ }}\r\n{3}\r\n\t}}\r\n}}";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
 		//{2} = Content
-		public static string ActionParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1}Parameters\r\n\t{{\r\n\t\tpublic {1}Parameters() {{ }}\r\n{2}\r\n\t}}\r\n}}";
+		public static string ActionParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1}Parameters\r\n\t{{\r\n\t\tpublic {1}Parameters() {{ }}\r\n{2}\r\n\t}}\r\n}}";
 
 		//{0} = Parameter Name
 		//{1} = Parameter Type
-		public static string ParameterTemplate = "\t\t[DataMember(Name=\"{0}\", EmitDefaultValue=false)]\r\n\t\tpublic {1}? {0} {{ get; set; }}";
+		public static string ParameterTemplate = "\r\n\t\tpublic {1}? {0} {{ get; set; }}";
 
 		//{0} = Parameter Name
 		//{1} = Parameter Type
@@ -116,7 +114,7 @@ namespace EndpointSchemaGenerator
 		//{1} = Report Name
 		//{2} = Content
 		//{3} = Endpoint path
-		public static string ReportTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : IReport\r\n\t{{\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t\t{2}\r\n\t}}\r\n}}";
+		public static string ReportTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : IReport\r\n\t{{\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t\t{2}\r\n\t}}\r\n}}";
 
 
 		public static string ExpandsTemplate = "\r\n\t\tpublic static class Expand\r\n\t\t{{\r\n{0}\r\n\t\t\t//Intentionally excluded\r\n\t\t\t//public const string All = \"{1}\";\r\n\t\t}}";

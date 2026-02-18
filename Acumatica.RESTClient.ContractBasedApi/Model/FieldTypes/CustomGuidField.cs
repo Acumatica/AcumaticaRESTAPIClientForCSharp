@@ -1,10 +1,8 @@
 using System;
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DataContract]
     public partial class CustomGuidField : CustomField<Guid?>
     {
         [JsonConstructor]

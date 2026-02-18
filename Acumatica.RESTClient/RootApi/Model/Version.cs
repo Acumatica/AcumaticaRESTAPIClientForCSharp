@@ -1,11 +1,8 @@
-using System.Runtime.Serialization;
-
 namespace Acumatica.RESTClient.RootApi.Model
 {
 	/// <summary>
 	/// Version
 	/// </summary>
-	[DataContract]
     public partial class Version
     {
         /// <summary>
@@ -24,19 +21,16 @@ namespace Acumatica.RESTClient.RootApi.Model
         /// <summary>
         /// Gets or Sets AcumaticaBuildVersion
         /// </summary>
-        [DataMember(Name = "acumaticaBuildVersion", EmitDefaultValue = false)]
         public string? AcumaticaBuildVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets OemBuildVersion
         /// </summary>
-        [DataMember(Name = "oemBuildVersion", EmitDefaultValue = false)]
         public string? OemBuildVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets DatabaseVersion
         /// </summary>
-        [DataMember(Name = "databaseVersion", EmitDefaultValue = false)]
         public string? DatabaseVersion { get; set; }
     }
 }

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-
-    [DataContract]
     public abstract class EntityAction<EntityType>
         where EntityType : Entity, ITopLevelEntity
     {
@@ -26,7 +23,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             }
         }
 
-        [DataMember(Name = "entity", EmitDefaultValue = false)]
         public EntityType Entity
         {
             get;

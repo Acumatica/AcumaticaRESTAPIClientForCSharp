@@ -1,10 +1,9 @@
-using System;
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
+
+using System;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DataContract]
     public partial class CustomDecimalField : CustomField<Decimal?>
     {
         [JsonConstructor]

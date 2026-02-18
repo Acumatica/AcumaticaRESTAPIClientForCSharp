@@ -1,11 +1,8 @@
-using System.Runtime.Serialization;
-
 namespace Acumatica.RESTClient.RootApi.Model
 {
 	/// <summary>
 	/// Endpoint
 	/// </summary>
-	[DataContract]
     public partial class Endpoint
     {
         /// <summary>
@@ -24,19 +21,16 @@ namespace Acumatica.RESTClient.RootApi.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string? Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Version
         /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
         public string? Version { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
         /// </summary>
-        [DataMember(Name = "href", EmitDefaultValue = false)]
         public string? Href { get; set; }
     }
 }

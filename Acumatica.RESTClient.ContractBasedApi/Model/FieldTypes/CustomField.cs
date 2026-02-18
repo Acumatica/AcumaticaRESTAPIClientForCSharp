@@ -1,12 +1,13 @@
+using JsonSubTypes;
+
+using Newtonsoft.Json;
+
 using System;
 using System.IO;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using JsonSubTypes;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DataContract]
     [JsonConverter(typeof(JsonSubtypes), nameof(Type))]
     [JsonSubtypes.KnownSubType(typeof(CustomIntField), nameof(CustomIntField))]
     [JsonSubtypes.KnownSubType(typeof(CustomStringField), nameof(CustomStringField))]
@@ -20,7 +21,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
     [JsonSubtypes.KnownSubType(typeof(CustomGuidField), nameof(CustomGuidField))]
     public abstract class CustomField
     {
-		[DataMember(Name = "Type", EmitDefaultValue = false)]
         public string? Type { get; set; }
 
         [Obsolete("ViewName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
@@ -60,7 +60,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             }
         }
 
-        [DataMember(Name = "value", EmitDefaultValue = false)]
         public TValue? Value { get; set; }
 
         /// <summary>

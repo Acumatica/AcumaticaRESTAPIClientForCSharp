@@ -5,7 +5,6 @@ using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DataContract]
     public abstract class EntityActionWithParameters<EntityType, ParameterType> : EntityAction<EntityType>
         where EntityType : Entity, ITopLevelEntity
         where ParameterType : new()

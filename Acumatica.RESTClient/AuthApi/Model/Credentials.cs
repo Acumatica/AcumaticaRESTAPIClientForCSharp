@@ -1,9 +1,7 @@
 using System.IO;
-using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.AuthApi.Model
 {
-	[DataContract]
     public partial class Credentials
     {
         /// <summary>
@@ -48,31 +46,26 @@ namespace Acumatica.RESTClient.AuthApi.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Password
         /// </summary>
-        [DataMember(Name = "password", EmitDefaultValue = false)]
         public string Password { get; set; }
 
         /// <summary>
         /// Gets or Sets Tenant
         /// </summary>
-        [DataMember(Name = "tenant", EmitDefaultValue = false)]
         public string? Tenant { get; set; }
 
         /// <summary>
         /// Gets or Sets Branch
         /// </summary>
-        [DataMember(Name = "branch", EmitDefaultValue = false)]
         public string? Branch { get; set; }
 
         /// <summary>
         /// Gets or Sets Locale
         /// </summary>
-        [DataMember(Name = "locale", EmitDefaultValue = false)]
         public string? Locale { get; set; }
 
     }

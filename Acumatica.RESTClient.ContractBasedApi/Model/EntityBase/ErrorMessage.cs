@@ -4,22 +4,16 @@ using Newtonsoft.Json;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DataContract]
     public class ErrorMessage
     {
-        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string? message { get; set; }
 
-        [DataMember(Name = "exceptionMessage", EmitDefaultValue = false)]
         public string? exceptionMessage { get; set; }
 
-        [DataMember(Name = "exceptionType", EmitDefaultValue = false)]
         public string? ExceptionType { get; set; }
 
-        [DataMember(Name = "stackTrace", EmitDefaultValue = false)]
         public string? StackTrace { get; set; }
 
-        [DataMember(Name = "innerException", EmitDefaultValue = false)]
         public ErrorMessage? innerException { get; set; }
 
         /// <summary>
