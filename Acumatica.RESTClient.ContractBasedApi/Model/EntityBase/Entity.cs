@@ -56,7 +56,8 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 		/// <summary>
 		/// 
 		/// </summary>
-        public Links Links { get; set; }
+		[JsonProperty("_links")]
+		public Links Links { get; set; }
 
 		public bool ShouldSerializeLinks() => false;
 

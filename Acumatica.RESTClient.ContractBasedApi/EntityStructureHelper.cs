@@ -14,7 +14,6 @@ namespace Acumatica.RESTClient.ContractBasedApi
         {
             return typeof(IEnumerable).IsAssignableFrom(property.PropertyType)
                     && property.Name != nameof(Entity.Custom)
-                    && property.Name != nameof(Entity.CustomFields)
                     && property.Name != nameof(Entity.Files)
 					&& property.Name != nameof(Entity.Links)
 					&& property.PropertyType != typeof(CustomField[])

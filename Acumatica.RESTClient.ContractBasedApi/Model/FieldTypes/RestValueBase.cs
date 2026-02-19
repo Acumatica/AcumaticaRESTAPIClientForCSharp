@@ -10,6 +10,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 
     public abstract class RestValueBase<TValue> : RestFieldWithError
     {
+        [JsonProperty("value")]
         public TValue? Value { get; set; }
 
         /// <summary>

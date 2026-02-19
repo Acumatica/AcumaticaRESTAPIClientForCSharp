@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
+﻿using System.IO;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
@@ -22,7 +19,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             }
         }
 
-        [DataMember(Name = "parameters", EmitDefaultValue = false)]
         public ParameterType Parameters { get; set; }
     }
 

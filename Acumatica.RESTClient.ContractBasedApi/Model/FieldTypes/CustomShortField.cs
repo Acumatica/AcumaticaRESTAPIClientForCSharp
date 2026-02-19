@@ -1,10 +1,7 @@
-using System.Runtime.Serialization;
-
 using Newtonsoft.Json;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DataContract]
     public partial class CustomShortField : CustomField<short?>
     {
         [JsonConstructor]

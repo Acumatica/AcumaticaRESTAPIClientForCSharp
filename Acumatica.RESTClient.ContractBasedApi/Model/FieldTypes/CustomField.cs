@@ -24,7 +24,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         public string? Type { get; set; }
     }
     
-    [DataContract]
     public abstract class CustomField<TValue> : CustomField
     {
         [JsonConstructor]
