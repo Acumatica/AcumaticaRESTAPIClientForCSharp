@@ -17,7 +17,8 @@ namespace RESTClientTests
 {
     public class SerializationTests
 	{
-        const string billJson = "[{\"id\":\"d11d2e19-7c07-f111-8cb1-ac198e472cfe\",\"rowNumber\":1,\"note\":{\"value\":\"\"},\"Amount\":{\"value\":0.0000},\"ApprovedForPayment\":{\"value\":false},\"Balance\":{\"value\":0.0000},\"BranchID\":{\"value\":\"PRODWHOLE\"},\"CashAccount\":{\"value\":\"10200\"},\"CurrencyID\":{\"value\":\"USD\"},\"Date\":{\"value\":\"2026-02-11T00:00:00-05:00\"},\"Description\":{\"value\":\"Updated description 11/02/2026 14:15:12\"},\"DueDate\":{\"value\":\"2026-03-13T00:00:00-04:00\"},\"Hold\":{\"value\":false},\"IsTaxValid\":{},\"LastModifiedDateTime\":{\"value\":\"2026-02-11T14:15:14.04-05:00\"},\"LocationID\":{\"value\":\"MAIN\"},\"PostPeriod\":{\"value\":\"022026\"},\"Project\":{\"value\":\"X\"},\"ReferenceNbr\":{\"value\":\"005933\"},\"Status\":{\"value\":\"Balanced\"},\"TaxTotal\":{\"value\":0.0000},\"Terms\":{\"value\":\"30D\"},\"Type\":{\"value\":\"Bill\"},\"Vendor\":{\"value\":\"ADPSERVICE\"},\"VendorRef\":{\"value\":\"fg\"},\"custom\":{},\"_links\":{\"self\":\"/25r2/entity/Default/24.200.001/Bill/d11d2e19-7c07-f111-8cb1-ac198e472cfe\",\"files:put\":\"/25r2/entity/Default/24.200.001/files/PX.Objects.AP.APInvoiceEntry/Document/d11d2e19-7c07-f111-8cb1-ac198e472cfe/{filename}\"},\"files\":[{\"id\":\"2a2343db-f343-431b-b177-6fc2bab921cd\",\"filename\":\"Bills and Adjustments (INV 005933)\\\\AcumaticaERP_Arena_PLM_Integration.pdf\",\"href\":\"/25r2/entity/Default/24.200.001/files/2a2343db-f343-431b-b177-6fc2bab921cd\"}]}]";
+        const string billsJson = "[{\"id\":\"d11d2e19-7c07-f111-8cb1-ac198e472cfe\",\"rowNumber\":1,\"note\":{\"value\":\"\"},\"Amount\":{\"value\":0.0000},\"ApprovedForPayment\":{\"value\":false},\"Balance\":{\"value\":0.0000},\"BranchID\":{\"value\":\"PRODWHOLE\"},\"CashAccount\":{\"value\":\"10200\"},\"CurrencyID\":{\"value\":\"USD\"},\"Date\":{\"value\":\"2026-02-11T00:00:00-05:00\"},\"Description\":{\"value\":\"Updated description 11/02/2026 14:15:12\"},\"DueDate\":{\"value\":\"2026-03-13T00:00:00-04:00\"},\"Hold\":{\"value\":false},\"IsTaxValid\":{},\"LastModifiedDateTime\":{\"value\":\"2026-02-11T14:15:14.04-05:00\"},\"LocationID\":{\"value\":\"MAIN\"},\"PostPeriod\":{\"value\":\"022026\"},\"Project\":{\"value\":\"X\"},\"ReferenceNbr\":{\"value\":\"005933\"},\"Status\":{\"value\":\"Balanced\"},\"TaxTotal\":{\"value\":0.0000},\"Terms\":{\"value\":\"30D\"},\"Type\":{\"value\":\"Bill\"},\"Vendor\":{\"value\":\"ADPSERVICE\"},\"VendorRef\":{\"value\":\"fg\"},\"custom\":{},\"_links\":{\"self\":\"/25r2/entity/Default/24.200.001/Bill/d11d2e19-7c07-f111-8cb1-ac198e472cfe\",\"files:put\":\"/25r2/entity/Default/24.200.001/files/PX.Objects.AP.APInvoiceEntry/Document/d11d2e19-7c07-f111-8cb1-ac198e472cfe/{filename}\"},\"files\":[{\"id\":\"2a2343db-f343-431b-b177-6fc2bab921cd\",\"filename\":\"Bills and Adjustments (INV 005933)\\\\AcumaticaERP_Arena_PLM_Integration.pdf\",\"href\":\"/25r2/entity/Default/24.200.001/files/2a2343db-f343-431b-b177-6fc2bab921cd\"}]}]";
+		const string billWithErrorJson = "{\"error\": \"'SuppliedByVendorID' cannot be empty.; SuppliedByVendorID: 'SuppliedByVendorID' cannot be empty.\",\"ReferenceNbr\":{\"value\":\"005933\"}}";
 
 		[Fact]
 		public void NullValue_IsNotSerialized()
@@ -89,13 +90,28 @@ namespace RESTClientTests
 		}
 
 		[Fact]
+		public void ErrorSection_Deserializes()
+		{
+			var client = new ApiClient(
+				new HttpClientMock(async (request, ct) =>
+				{
+					return new HttpResponseMessage(HttpStatusCode.UnprocessableEntity)
+					{ Content = new StringContent(billWithErrorJson) };
+				}));
+
+			//assert thows exception when error is returned from API and check that error is deserialized into object
+			var ex = Assert.Throws<ApiException>(() => client.Put(new Bill()));
+			Assert.Contains("'SuppliedByVendorID' cannot be empty.; SuppliedByVendorID: 'SuppliedByVendorID' cannot be empty.", ex.MessageText);
+		}
+
+		[Fact]
 		public void LinksSection_Deserializes()
         {
             var client = new ApiClient(
                 new HttpClientMock(async (request, ct) =>
                 {
                     return new HttpResponseMessage(HttpStatusCode.OK)
-                    { Content = new StringContent(billJson) };
+                    { Content = new StringContent(billsJson) };
                 }));
             var record = client.GetList<Bill>(expand: "Files").First();
             Assert.NotNull(record.Links);
@@ -111,12 +127,33 @@ namespace RESTClientTests
 			   new HttpClientMock(async (request, ct) =>
 			   {
 				   return new HttpResponseMessage(HttpStatusCode.OK)
-				   { Content = new StringContent(billJson) };
+				   { Content = new StringContent(billsJson) };
 			   }));
 			var record = client.GetList<Bill>(expand: "Files").First();
 			Assert.NotNull(record.Files);
             Assert.True(record.Files.Count > 0);
 		}
+
+		[Fact]
+		public void StringValueError_IsNotSerialized()
+		{
+			var bill = new Bill
+			{
+				ReferenceNbr = new Acumatica.RESTClient.ContractBasedApi.Model.StringValue
+				{
+					Error = "Some error"
+				}
+			};
+			new ApiClient(
+			   new HttpClientMock(async (request, ct) =>
+			   {
+				   string? content = await request?.Content?.ReadAsStringAsync();
+				   Assert.DoesNotContain("Some error", content);
+				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
+				   return new HttpResponseMessage(HttpStatusCode.OK);
+			   })).Put(bill);
+		}
+
 
 		[Fact]
 		public void FilesSection_IsNotSerialized()
