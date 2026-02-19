@@ -1,9 +1,12 @@
-﻿namespace ModelGeneratorConsole
+﻿namespace EndpointSchemaGenerator
 {
 	public sealed class GeneratorSettings
 	{
 		public bool GenerateArraysInsteadOfLists { get; set; }
 		public bool GenerateAPISectionForBackWardCompatibility { get; set; }
+		public bool GenerateNullablePragmas { get; set; }
+		public bool AddClientSpecificUsings { get; set; }
+		public bool AddITopLevelEntityInterface { get; set; }
 
 		public string OutputDirectoryTemplate { get; set; } = "";
 		public string EndpointSchemaDirectory { get; set; } = "";

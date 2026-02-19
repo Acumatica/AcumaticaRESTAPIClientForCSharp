@@ -16,8 +16,10 @@ namespace EndpointSchemaGenerator
 		public static string UsingSystem = "using System;";
 		public static string UsingGenericCollections = "using System.Collections.Generic;";
 		public static string UsingNewtonsoftJson = "using Newtonsoft.Json;";
+		public static string NullableEnable = "#nullable enable";
+		public static string NullableDisable = "#nullable disable";
 
-		public static string Usings = $"{UsingSystem}\r\n{UsingGenericCollections}\r\n\r\n{UsingNewtonsoftJson}\r\n\r\n{UsingClientNamespace}\r\n{UsingApiNamespace}\r\n{UsingModelNamespace}\r\n\r\n";
+		public static string GetUsings(GeneratorSettings settings) => $"{UsingSystem}\r\n{UsingGenericCollections}\r\n\r\n{UsingNewtonsoftJson}\r\n\r\n" + (settings.AddClientSpecificUsings ? "{UsingClientNamespace}\r\n{UsingApiNamespace}\r\n{UsingModelNamespace}\r\n\r\n" : "");
 
 		public static string NewtonsoftJsonVersion = "\"13.0.1\"";
 
@@ -25,7 +27,7 @@ namespace EndpointSchemaGenerator
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
 		//{2} = EntityName
-		public static string ActionTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n";
+		public static string ActionTemplate(GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 
 
 		public static string GenerateFieldCode(string className, EntityField field)
@@ -53,7 +55,7 @@ namespace EndpointSchemaGenerator
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = EntityName
 		//{2} = Content
-		public static string EntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : {3}\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
+		public static string EntityTemplate(GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : {3}\r\n\t{{\r\n{2}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 
 		/// <summary>
 		/// 
@@ -66,19 +68,24 @@ namespace EndpointSchemaGenerator
 		/// <param name="virtualModifier"></param>
 		/// <param name="screenID"></param>
 		/// <returns></returns>
-		public static string GenerateTopLevelEntityCode(string endpointNamespace, string entityName, string content, string endpointPath, string parentReference, bool isDerived, string? screenID, string? expands, IEnumerable<EntityField> keyFields = null)
+		public static string GenerateTopLevelEntityCode(string endpointNamespace, string entityName, string content, string endpointPath, string parentReference, bool isDerived, GeneratorSettings settings, string? screenID, string? expands, IEnumerable<EntityField> keyFields = null)
 		{
 			string virtualModifier = isDerived ? "override" : "virtual";
-			return Usings + $"namespace {endpointNamespace}.Model\r\n{{"
+			return GetUsings(settings)
+				+ (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "")
+				+ $"namespace {endpointNamespace}.Model\r\n{{"
 				+ (string.IsNullOrEmpty(screenID) ? "" :
 					$"\r\n\t/// <summary>\r\n\t/// Corresponds to the screen <c>{screenID}</c> in the Acumatica ERP"
 					+ (keyFields != null && keyFields.Any() ?
 						$"\r\n\t/// <para>Key Fields: {string.Join(", ", keyFields.Select(kf => kf.Name))}</para>" : "")
-                    + "\r\n\t/// </summary>")
-				+ $"\r\n\tpublic class {entityName} : {parentReference}, ITopLevelEntity\r\n\t{{\r\n{content}"
+					+ "\r\n\t/// </summary>")
+				+ $"\r\n\tpublic class {entityName} : {parentReference}"
+				+ (settings.AddITopLevelEntityInterface ? ", ITopLevelEntity" : "")
+				+ "\r\n\t{{\r\n{content}"
 				+ expands
-				+ $"\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}\r\n\t}}\r\n}}";
-
+				+ (settings.AddITopLevelEntityInterface ? $"\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}" : "")
+				+ "\r\n\t}}\r\n}}"
+				+ (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 		}
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
@@ -89,12 +96,12 @@ namespace EndpointSchemaGenerator
 		//{1} = ActionName
 		//{2} = EntityName
 		//{3} = Content
-		public static string ActionWithParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : EntityActionWithParameters<{2}, {1}Parameters>\r\n\t{{\r\n\t\tpublic {1}({2} entity, {1}Parameters parameters) : base(entity, parameters)\r\n\t\t{{ }}\r\n{3}\r\n\t}}\r\n}}";
+		public static string ActionWithParametersTemplate(GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : EntityActionWithParameters<{2}, {1}Parameters>\r\n\t{{\r\n\t\tpublic {1}({2} entity, {1}Parameters parameters) : base(entity, parameters)\r\n\t\t{{ }}\r\n{3}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
 		//{2} = Content
-		public static string ActionParametersTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1}Parameters\r\n\t{{\r\n\t\tpublic {1}Parameters() {{ }}\r\n{2}\r\n\t}}\r\n}}";
+		public static string ActionParametersTemplate(GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + "namespace {0}.Model\r\n{{\r\n\tpublic class {1}Parameters\r\n\t{{\r\n\t\tpublic {1}Parameters() {{ }}\r\n{2}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 
 		//{0} = Parameter Name
 		//{1} = Parameter Type
@@ -106,7 +113,7 @@ namespace EndpointSchemaGenerator
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = Endpoint Path
-		public static string BaseEndpointApiTemplate = Usings + "namespace {0}.Api\r\n{{\r\n\t[Obsolete(\"For backward compatibility\")]\r\n\tpublic abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>\r\n\t\twhere EntityType : Entity, ITopLevelEntity, new()\r\n\t{{\r\n\t\tpublic BaseEndpointApi(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t\tpublic override string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{1}\";\r\n\t\t}}\r\n\t}}\r\n}}";
+		public static string BaseEndpointApiTemplate(GeneratorSettings settings) => GetUsings(settings) + "namespace {0}.Api\r\n{{\r\n\t[Obsolete(\"For backward compatibility\")]\r\n\tpublic abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>\r\n\t\twhere EntityType : Entity, ITopLevelEntity, new()\r\n\t{{\r\n\t\tpublic BaseEndpointApi(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t\tpublic override string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{1}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
 		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup> \r\n{0}\r\n </PropertyGroup>\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n    <LangVersion>8.0</LangVersion>\r\n    <nullable>Enable</nullable>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version=" + NewtonsoftJsonVersion + " />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n\t{1}\r\n\t<ProjectReference Include = \"..\\..\\Acumatica.RESTClient.ContractBasedApi\\Acumatica.RESTClient.ContractBasedApi.csproj\" />\r\n  </ItemGroup >\r\n\r\n</Project >\r\n";
 
@@ -114,7 +121,7 @@ namespace EndpointSchemaGenerator
 		//{1} = Report Name
 		//{2} = Content
 		//{3} = Endpoint path
-		public static string ReportTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : IReport\r\n\t{{\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t\t{2}\r\n\t}}\r\n}}";
+		public static string ReportTemplate(GeneratorSettings settings) => GetUsings(settings) + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : IReport\r\n\t{{\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t\t{2}\r\n\t}}\r\n}}";
 
 
 		public static string ExpandsTemplate = "\r\n\t\tpublic static class Expand\r\n\t\t{{\r\n{0}\r\n\t\t\t//Intentionally excluded\r\n\t\t\t//public const string All = \"{1}\";\r\n\t\t}}";

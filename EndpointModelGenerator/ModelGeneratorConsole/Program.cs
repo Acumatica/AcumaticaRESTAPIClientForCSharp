@@ -34,8 +34,7 @@ namespace ModelGeneratorConsole
 				{
 					string endpointDefinition = reader.ReadToEnd();
 
-					JsonSchemaParser.GenerateArraysInstedOfLists = settings.GenerateArraysInsteadOfLists;
-					Schema endpointSchema = JsonSchemaParser.ComposeEndpointSchema(endpointDefinition);
+					Schema endpointSchema = JsonSchemaParser.ComposeEndpointSchema(endpointDefinition, settings);
 
 					string endpointMetadataPath = Path.Combine(metadataDir, endpoint);
 					if (File.Exists(endpointMetadataPath))
@@ -60,9 +59,7 @@ namespace ModelGeneratorConsole
 						Console.WriteLine("Getting field descriptions for " + endpoint);
 						SchemaEnricher.AddFieldDescriptions(
 							endpointSchema,
-							settings.MetadataSource.Url,
-							settings.MetadataSource.Username,
-							settings.MetadataSource.Password
+							settings.MetadataSource
 						);
 					}
 					catch (Exception e)
@@ -82,8 +79,7 @@ namespace ModelGeneratorConsole
 						endpoint,
 						endpointSchema,
 						(_) => Console.WriteLine(_),
-						settings.DefaultNamespaceTemplate,
-						settings.GenerateAPISectionForBackWardCompatibility
+						settings
 					);
 				}
 			}

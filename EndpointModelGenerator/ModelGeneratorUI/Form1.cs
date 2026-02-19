@@ -46,6 +46,7 @@ namespace ModelGeneratorUI
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {
+            /*
             SelectProjectButton.Enabled = false;
             GenerateButton.Enabled = false;
             JsonSchemaParser.GenerateArraysInstedOfLists = ArrayCollectionsCheckbox.Checked;
@@ -73,6 +74,7 @@ namespace ModelGeneratorUI
                 schema,
                 (_) => LogTextBox.Text += ("\r\n" + _), 
                 "Acumatica." + endpointName.Replace(".", "_"));
+            */
         }
     }
 }

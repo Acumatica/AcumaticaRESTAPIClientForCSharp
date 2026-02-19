@@ -13,9 +13,8 @@ namespace EndpointSchemaGenerator
         public static void WriteCSharp(string outputPath,
             string endpointName,
             Schema schema, 
-            Action<string> writeLogDelegate, 
-            string defaultNamespaceTemplate, 
-            bool generateApis = true)
+            Action<string> writeLogDelegate,
+			GeneratorSettings settings)
         {
             outputPath += "\\";
             string modelLocalPath = "Model\\";
@@ -30,22 +29,22 @@ namespace EndpointSchemaGenerator
             string modelParametersFilesDirectory = outputPath + actionParametersLocalPath;
             string apiFilesDirectory = outputPath + apiLocalPath;
 
-            string endpointNamespace = GetEndpointNamespace(defaultNamespaceTemplate, endpointName);
-            string csprojPath = GetCsprojPath(outputPath, endpointName, defaultNamespaceTemplate);
-            string baseCsprojPath = string.IsNullOrEmpty(schema.BaseEndpoint) ? string.Empty : GetCsprojPath(string.Format(defaultNamespaceTemplate, schema.BaseEndpoint)+"\\", schema.BaseEndpoint, defaultNamespaceTemplate);
+            string endpointNamespace = GetEndpointNamespace(settings.DefaultNamespaceTemplate, endpointName);
+            string csprojPath = GetCsprojPath(outputPath, endpointName, settings.DefaultNamespaceTemplate);
+            string baseCsprojPath = string.IsNullOrEmpty(schema.BaseEndpoint) ? string.Empty : GetCsprojPath(string.Format(settings.DefaultNamespaceTemplate, schema.BaseEndpoint)+"\\", schema.BaseEndpoint, settings.DefaultNamespaceTemplate);
 
             RegenerateDirectories(outputPath, modelFilesDirectory, modelActionsFilesDirectory, modelReportsFilesDirectory, modelParametersFilesDirectory, apiFilesDirectory);
 
             WriteCsProj(csprojPath, baseCsprojPath);
 
-            WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory, defaultNamespaceTemplate);
-            if (generateApis)
+            WriteEntities(schema, writeLogDelegate, endpointNamespace, modelLocalPath, modelFilesDirectory, settings);
+            if (settings.GenerateAPISectionForBackWardCompatibility)
             {
-                WriteBaseApi(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
+                WriteBaseApi(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory, settings);
                 WriteApis(schema, writeLogDelegate, endpointNamespace, apiLocalPath, apiFilesDirectory);
             }
-            WriteActions(schema, writeLogDelegate, endpointNamespace, modelActionsFilesDirectory, modelParametersFilesDirectory);
-            WriteReports(schema, writeLogDelegate, endpointNamespace, modelReportsFilesDirectory);
+            WriteActions(schema, writeLogDelegate, endpointNamespace, modelActionsFilesDirectory, modelParametersFilesDirectory, settings);
+            WriteReports(schema, writeLogDelegate, endpointNamespace, modelReportsFilesDirectory, settings);
 
             writeLogDelegate.Invoke("Done!");
         }
@@ -101,7 +100,8 @@ namespace EndpointSchemaGenerator
         private static void WriteReports(Schema schema,
             Action<string> writeLogDelegate,
             string endpointNamespace,
-            string modelReportsFilesDirectory)
+            string modelReportsFilesDirectory, 
+            GeneratorSettings settings)
         {
             foreach (var report in schema.Reports)
             {
@@ -115,7 +115,7 @@ namespace EndpointSchemaGenerator
                     content.Append("\r\n");
                     content.Append(String.Format(Templates.ParameterTemplate, parameter.Key, parameter.Value));
                 }
-                var result = String.Format(Templates.ReportTemplate, endpointNamespace, report, content.ToString(), schema.Info.Title);
+                var result = String.Format(Templates.ReportTemplate(settings), endpointNamespace, report, content.ToString(), schema.Info.Title);
                 writeLogDelegate.Invoke("Reports/" + report);
                 writer.Write(result);
                 writer.Close();
@@ -126,7 +126,8 @@ namespace EndpointSchemaGenerator
             Action<string> writeLogDelegate, 
             string endpointNamespace, 
             string modelActionsFilesDirectory, 
-            string modelParametersFilesDirectory)
+            string modelParametersFilesDirectory, 
+            GeneratorSettings settings)
         {
             foreach (var action in schema.Actions)
             {
@@ -140,7 +141,7 @@ namespace EndpointSchemaGenerator
                     {
                         content.Append(String.Format(Templates.InActionParameterTemplate, parameter.Key, parameter.Value));
                     }
-                    string result = String.Format(Templates.ActionWithParametersTemplate, endpointNamespace, action.Key, action.Value, content.ToString());
+                    string result = String.Format(Templates.ActionWithParametersTemplate(settings), endpointNamespace, action.Key, action.Value, content.ToString());
 
                     writer.Write(result);
                     writer.Close();
@@ -155,7 +156,7 @@ namespace EndpointSchemaGenerator
                         content.Append("\r\n");
                         content.Append(String.Format(Templates.ParameterTemplate, parameter.Key, parameter.Value));
                     }
-                    result = String.Format(Templates.ActionParametersTemplate, endpointNamespace, action.Key, content.ToString());
+                    result = String.Format(Templates.ActionParametersTemplate(settings), endpointNamespace, action.Key, content.ToString());
                     writeLogDelegate.Invoke("ActionsWithParameters/" + action.Key);
                     writer.Write(result);
                     writer.Close();
@@ -164,28 +165,29 @@ namespace EndpointSchemaGenerator
                 {
                     StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + filename);
                    
-                    string result = String.Format(Templates.ActionTemplate, endpointNamespace, action.Key, action.Value);
+                    string result = String.Format(Templates.ActionTemplate(settings), endpointNamespace, action.Key, action.Value);
                     writeLogDelegate.Invoke("Actions/" + action.Key);
                     writer.Write(result);
                     writer.Close();
                 }
             }
         }
-        [Obsolete]
+
         private static void WriteBaseApi(Schema schema, 
             Action<string> writeLogDelegate, 
             string endpointNamespace, 
             string apiLocalPath, 
-            string apiFilesDirectory)
+            string apiFilesDirectory, 
+            GeneratorSettings settings)
         {
             string filename = "BaseEndpointApi.cs";
             StreamWriter writer = new StreamWriter(apiFilesDirectory + filename);
-            string result = String.Format(Templates.BaseEndpointApiTemplate, endpointNamespace, schema.Info.Title);
+            string result = String.Format(Templates.BaseEndpointApiTemplate(settings), endpointNamespace, schema.Info.Title);
             writeLogDelegate.Invoke("BaseEndpointApi");
             writer.Write(result);
             writer.Close();
         }
-        [Obsolete]
+
         private static void WriteApis(Schema schema, 
             Action<string> writeLogDelegate, 
             string endpointNamespace, 
@@ -209,7 +211,7 @@ namespace EndpointSchemaGenerator
             string endpointNamespace,
             string modelLocalPath,
             string modelFilesDirectory, 
-            string defaultNamespaceTemplate)
+            GeneratorSettings settings)
         {
             foreach (var entity in schema.Entities)
             {
@@ -224,7 +226,7 @@ namespace EndpointSchemaGenerator
 
                 string result;
                 bool isNotDerived = string.IsNullOrEmpty(schema.BaseEndpoint) || string.IsNullOrEmpty(entity.Value.ParentReference);
-                string baseEntity = isNotDerived ? "Entity" : $"{GetEndpointNamespace(defaultNamespaceTemplate, schema.BaseEndpoint)}.Model.{entity.Value.ParentReference}";
+                string baseEntity = isNotDerived ? "Entity" : $"{GetEndpointNamespace(settings.DefaultNamespaceTemplate, schema.BaseEndpoint)}.Model.{entity.Value.ParentReference}";
                 if (entity.Value.IsTopLevel)
                 {
                     result = Templates.GenerateTopLevelEntityCode(
@@ -234,6 +236,7 @@ namespace EndpointSchemaGenerator
                         endpointPath: schema.Info.Title,
                         parentReference: baseEntity,
                         isDerived: !isNotDerived,
+                        settings: settings,
                         screenID: entity.Value.ScreenID,
                         isNotDerived ? Templates.GetExpands(expandsAppend) : "",
                         entity.Value.Fields.Where(_=>_.IsKey==true)
@@ -241,7 +244,7 @@ namespace EndpointSchemaGenerator
                 }
                 else
                 {
-                    result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString(), baseEntity, "");
+                    result = String.Format(Templates.EntityTemplate(settings), endpointNamespace, entity.Key, body.ToString(), baseEntity, "");
                 }
                 writeLogDelegate.Invoke(entity.Key);
                 writer.Write(result);

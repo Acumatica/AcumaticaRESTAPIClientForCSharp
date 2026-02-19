@@ -67,7 +67,6 @@ namespace EndpointModelGenerator
                             endpointSchema.Entities[entity.Key].Fields.Remove(field);
                         }
                     }
-
                 }
                 else if (parsedEndpointMetadata.Detail?.Any(_ => _.name == entity.Key) ?? false)
                 {
@@ -86,7 +85,6 @@ namespace EndpointModelGenerator
                 }
                 else if (parsedEndpointMetadata.LinkedEntity?.Any(_ => _.name == entity.Key) ?? false)
                 {
-
                     // We need to only keep fields that are in the metadata. If we remove any fields, we need to add a parent reference to the entity.
                     foreach (var field in entity.Value.Fields)
                     {
@@ -95,7 +93,6 @@ namespace EndpointModelGenerator
                             endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
                             endpointSchema.Entities[entity.Key].Fields.Remove(field);
                         }
-
                     }
                 }
                 else
@@ -186,10 +183,10 @@ namespace EndpointModelGenerator
             }
         }
 
-        public static void AddFieldDescriptions(Schema endpointSchema, string acumaticaUrl, string acumaticaUsername, string acumaticaPassword)
+        public static void AddFieldDescriptions(Schema endpointSchema, MetadataSource metadataSource)
         {
-            var client = new ApiClient(acumaticaUrl, ignoreSslErrors: true);
-            client.Login(acumaticaUsername, acumaticaPassword);
+            var client = new ApiClient(metadataSource.Url, ignoreSslErrors: true);
+            client.Login(metadataSource.Username, metadataSource.Password);
             try
             {
                 foreach (var entity in endpointSchema.Entities)
@@ -205,8 +202,8 @@ namespace EndpointModelGenerator
                                 var fieldDescr = client.GetField(dacNamespace, dacName, field.DACFieldName!);
                                 field.DisplayName = fieldDescr.DisplayName;
                                 field.SqlType = fieldDescr.SqlType;
-                                field.Summary = fieldDescr.Documentation.Summary;
-                                field.Remarks = fieldDescr.Documentation.Remarks;
+                                field.Summary = fieldDescr.Documentation?.Summary;
+                                field.Remarks = fieldDescr.Documentation?.Remarks;
                                 field.IsKey = fieldDescr.IsKey;
                             }
                             catch { }
