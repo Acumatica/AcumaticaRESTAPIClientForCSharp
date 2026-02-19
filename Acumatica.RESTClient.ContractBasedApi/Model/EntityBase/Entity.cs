@@ -1,3 +1,4 @@
+using Acumatica.RESTClient.Auxiliary;
 using Acumatica.RESTClient.ContractBasedApi.FileApi.Model;
 using Acumatica.RESTClient.FileApi.Model;
 
@@ -32,6 +33,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
+		[JsonIgnoreOnSerialize]
         public string? Error { get; set; }
 
         /// <summary>
@@ -50,16 +52,15 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// <summary>
         /// Gets or Sets Files
         /// </summary>
+		[JsonIgnoreOnSerialize]
         public List<FileLink>? Files { get; set; }
-		public bool ShouldSerializeFiles() => false;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		[JsonProperty("_links")]
-		public Links Links { get; set; }
-
-		public bool ShouldSerializeLinks() => false;
+		[JsonIgnoreOnSerialize]
+		public Links? Links { get; set; }
 
 		/// <summary>
 		/// Returns the string presentation of the object

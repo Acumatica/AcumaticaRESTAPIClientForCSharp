@@ -72,7 +72,12 @@ namespace Acumatica.RESTClient.Auxiliary
         {
             try
             {
-                return obj != null ? JsonConvert.SerializeObject(obj) : null;
+				JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+				{
+					NullValueHandling = NullValueHandling.Ignore,
+                    ContractResolver = new PropertiesSerialiationResolver()
+				};
+				return obj != null ? JsonConvert.SerializeObject(obj, serializerSettings) : null;
             }
             catch (Exception e)
             {

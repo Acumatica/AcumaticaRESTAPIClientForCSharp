@@ -1,10 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using Acumatica.RESTClient.Auxiliary;
+
+using Newtonsoft.Json;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
     public interface IRestValueMarker { }
     public abstract class RestFieldWithError : IRestValueMarker
     {
+		[JsonIgnoreOnSerialize]
         public string? Error { get; set; }
     }
 
