@@ -19,7 +19,76 @@ namespace RESTClientTests
 	{
         const string billJson = "[{\"id\":\"d11d2e19-7c07-f111-8cb1-ac198e472cfe\",\"rowNumber\":1,\"note\":{\"value\":\"\"},\"Amount\":{\"value\":0.0000},\"ApprovedForPayment\":{\"value\":false},\"Balance\":{\"value\":0.0000},\"BranchID\":{\"value\":\"PRODWHOLE\"},\"CashAccount\":{\"value\":\"10200\"},\"CurrencyID\":{\"value\":\"USD\"},\"Date\":{\"value\":\"2026-02-11T00:00:00-05:00\"},\"Description\":{\"value\":\"Updated description 11/02/2026 14:15:12\"},\"DueDate\":{\"value\":\"2026-03-13T00:00:00-04:00\"},\"Hold\":{\"value\":false},\"IsTaxValid\":{},\"LastModifiedDateTime\":{\"value\":\"2026-02-11T14:15:14.04-05:00\"},\"LocationID\":{\"value\":\"MAIN\"},\"PostPeriod\":{\"value\":\"022026\"},\"Project\":{\"value\":\"X\"},\"ReferenceNbr\":{\"value\":\"005933\"},\"Status\":{\"value\":\"Balanced\"},\"TaxTotal\":{\"value\":0.0000},\"Terms\":{\"value\":\"30D\"},\"Type\":{\"value\":\"Bill\"},\"Vendor\":{\"value\":\"ADPSERVICE\"},\"VendorRef\":{\"value\":\"fg\"},\"custom\":{},\"_links\":{\"self\":\"/25r2/entity/Default/24.200.001/Bill/d11d2e19-7c07-f111-8cb1-ac198e472cfe\",\"files:put\":\"/25r2/entity/Default/24.200.001/files/PX.Objects.AP.APInvoiceEntry/Document/d11d2e19-7c07-f111-8cb1-ac198e472cfe/{filename}\"},\"files\":[{\"id\":\"2a2343db-f343-431b-b177-6fc2bab921cd\",\"filename\":\"Bills and Adjustments (INV 005933)\\\\AcumaticaERP_Arena_PLM_Integration.pdf\",\"href\":\"/25r2/entity/Default/24.200.001/files/2a2343db-f343-431b-b177-6fc2bab921cd\"}]}]";
 
-        [Fact]
+		[Fact]
+		public void NullValue_IsNotSerialized()
+		{
+			var bill = new Bill
+			{
+				ReferenceNbr = null
+			};
+
+			new ApiClient(
+			   new HttpClientMock(async (request, ct) =>
+			   {
+				   string? content = await request?.Content?.ReadAsStringAsync();
+				   Assert.DoesNotContain(nameof(Bill.ReferenceNbr), content);
+				   Assert.DoesNotContain(nameof(Bill.ID), content);
+				   return new HttpResponseMessage(HttpStatusCode.OK);
+			   })).Put(bill);
+		}
+
+		[Fact]
+		public void ID_IsSerialized()
+		{
+			var bill = new Bill
+			{
+				ID = new System.Guid("d11d2e19-7c07-f111-8cb1-ac198e472cfe")
+			};
+
+			new ApiClient(
+			   new HttpClientMock(async (request, ct) =>
+			   {
+				   string? content = await request?.Content?.ReadAsStringAsync();
+				   Assert.Contains("d11d2e19-7c07-f111-8cb1-ac198e472cfe", content);
+				   return new HttpResponseMessage(HttpStatusCode.OK);
+			   })).Put(bill);
+		}
+
+		[Fact]
+		public void EmptyValue_IsSerialized()
+		{
+			var bill = new Bill
+			{
+				ReferenceNbr = new Acumatica.RESTClient.ContractBasedApi.Model.StringValue()
+			};
+
+			new ApiClient(
+			   new HttpClientMock(async (request, ct) =>
+			   {
+				   string? content = await request?.Content?.ReadAsStringAsync();
+				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
+				   return new HttpResponseMessage(HttpStatusCode.OK);
+			   })).Put(bill);
+		}
+
+		[Fact]
+		public void EmptyString_IsSerialized()
+		{
+			var bill = new Bill
+			{
+				ReferenceNbr = ""
+			};
+
+			new ApiClient(
+			   new HttpClientMock(async (request, ct) =>
+			   {
+				   string? content = await request?.Content?.ReadAsStringAsync();
+				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
+				   return new HttpResponseMessage(HttpStatusCode.OK);
+			   })).Put(bill);
+		}
+
+		[Fact]
 		public void LinksSection_Deserializes()
         {
             var client = new ApiClient(
