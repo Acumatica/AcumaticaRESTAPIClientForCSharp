@@ -136,12 +136,7 @@ namespace EndpointSchemaGenerator
                 {
                     StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + filename);
 
-                    StringBuilder content = new StringBuilder();
-                    foreach (var parameter in schema.Parameters[action.Key])
-                    {
-                        content.Append(String.Format(Templates.InActionParameterTemplate, parameter.Key, parameter.Value));
-                    }
-                    string result = String.Format(Templates.ActionWithParametersTemplate(settings), endpointNamespace, action.Key, action.Value, content.ToString());
+                    string result = Templates.GenerateActionWithParametersCode(endpointNamespace, action.Key, action.Value, settings);
 
                     writer.Write(result);
                     writer.Close();
@@ -150,13 +145,13 @@ namespace EndpointSchemaGenerator
                     writer = new StreamWriter(modelParametersFilesDirectory + paramFileName);
 
 
-                    content = new StringBuilder();
+					StringBuilder content = new StringBuilder();
                     foreach (var parameter in schema.Parameters[action.Key])
                     {
                         content.Append("\r\n");
                         content.Append(String.Format(Templates.ParameterTemplate, parameter.Key, parameter.Value));
                     }
-                    result = String.Format(Templates.ActionParametersTemplate(settings), endpointNamespace, action.Key, content.ToString());
+                    result = Templates.GenerateActionParametersCode(endpointNamespace, action.Key, content.ToString(), settings);
                     writeLogDelegate.Invoke("ActionsWithParameters/" + action.Key);
                     writer.Write(result);
                     writer.Close();
@@ -164,8 +159,8 @@ namespace EndpointSchemaGenerator
                 else
                 {
                     StreamWriter writer = new StreamWriter(modelActionsFilesDirectory + filename);
-                   
-                    string result = String.Format(Templates.ActionTemplate(settings), endpointNamespace, action.Key, action.Value);
+
+                    string result = Templates.GenerateActionCode(endpointNamespace, action.Key, action.Value, settings);
                     writeLogDelegate.Invoke("Actions/" + action.Key);
                     writer.Write(result);
                     writer.Close();
@@ -244,7 +239,7 @@ namespace EndpointSchemaGenerator
                 }
                 else
                 {
-                    result = String.Format(Templates.EntityTemplate(settings), endpointNamespace, entity.Key, body.ToString(), baseEntity, "");
+                    result = Templates.GenerateEntityCode(endpointNamespace, entity.Key, body.ToString(), baseEntity, settings);
                 }
                 writeLogDelegate.Invoke(entity.Key);
                 writer.Write(result);

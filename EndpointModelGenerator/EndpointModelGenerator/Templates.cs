@@ -24,10 +24,8 @@ namespace EndpointSchemaGenerator
 		public static string NewtonsoftJsonVersion = "\"13.0.1\"";
 
 
-		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
-		//{1} = ActionName
-		//{2} = EntityName
-		public static string ActionTemplate(GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : EntityAction<{2}>\r\n\t{{\r\n\t\tpublic {1}({2} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
+	
+		public static string GenerateActionCode(string endpointNamespace, string actionName, string entityName, GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + $"namespace {endpointNamespace}.Model\r\n{{\r\n\tpublic class {actionName} : EntityAction<{entityName}>\r\n\t{{\r\n\t\tpublic {actionName}({entityName} entity) : base(entity)\r\n\t\t{{ }}\r\n\t}}\r\n}}\r\n" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 
 
 		public static string GenerateFieldCode(string className, EntityField field)
@@ -52,10 +50,8 @@ namespace EndpointSchemaGenerator
 			return fieldCode;
 		}
 
-		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
-		//{1} = EntityName
-		//{2} = Content
-		public static string EntityTemplate(GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : {3}\r\n\t{{\r\n{2}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
+		
+		public static string GenerateEntityCode(string endpointNamespace, string entityName, string content, string parentReference, GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + $"namespace {endpointNamespace}.Model\r\n{{\r\n\tpublic class {entityName} : {parentReference}\r\n\t{{\r\n{content}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 
 		/// <summary>
 		/// 
@@ -81,10 +77,10 @@ namespace EndpointSchemaGenerator
 					+ "\r\n\t/// </summary>")
 				+ $"\r\n\tpublic class {entityName} : {parentReference}"
 				+ (settings.AddITopLevelEntityInterface ? ", ITopLevelEntity" : "")
-				+ "\r\n\t{{\r\n{content}"
+				+ $"\r\n\t{{\r\n{content}"
 				+ expands
 				+ (settings.AddITopLevelEntityInterface ? $"\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}" : "")
-				+ "\r\n\t}}\r\n}}"
+				+ "\r\n\t}\r\n}"
 				+ (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 		}
 
@@ -95,21 +91,16 @@ namespace EndpointSchemaGenerator
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
 		//{2} = EntityName
-		//{3} = Content
-		public static string ActionWithParametersTemplate(GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : EntityActionWithParameters<{2}, {1}Parameters>\r\n\t{{\r\n\t\tpublic {1}({2} entity, {1}Parameters parameters) : base(entity, parameters)\r\n\t\t{{ }}\r\n{3}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
+		public static string GenerateActionWithParametersCode(string endpointNamespace, string actionName, string entityName, GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + $"namespace {endpointNamespace}.Model\r\n{{\r\n\tpublic class {actionName} : EntityActionWithParameters<{entityName}, {actionName}Parameters>\r\n\t{{\r\n\t\tpublic {actionName}({entityName} entity, {actionName}Parameters parameters) : base(entity, parameters)\r\n\t\t{{ }}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = ActionName
 		//{2} = Content
-		public static string ActionParametersTemplate(GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + "namespace {0}.Model\r\n{{\r\n\tpublic class {1}Parameters\r\n\t{{\r\n\t\tpublic {1}Parameters() {{ }}\r\n{2}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
+		public static string GenerateActionParametersCode(string endpointNamespace, string actionName, string content, GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + $"namespace {endpointNamespace}.Model\r\n{{\r\n\tpublic class {actionName}Parameters\r\n\t{{\r\n\t\tpublic {actionName}Parameters() {{ }}\r\n{content}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 
 		//{0} = Parameter Name
 		//{1} = Parameter Type
 		public static string ParameterTemplate = "\r\n\t\tpublic {1}? {0} {{ get; set; }}";
-
-		//{0} = Parameter Name
-		//{1} = Parameter Type
-		public static string InActionParameterTemplate = "\r\n\t\tpublic {1}? {0}\r\n\t\t{{\r\n\t\t\tget {{ return Parameters.{0}; }}\r\n\t\t\tset {{ Parameters.{0} = value; }}\r\n\t\t}}";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = Endpoint Path
