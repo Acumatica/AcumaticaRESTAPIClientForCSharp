@@ -19,7 +19,7 @@ namespace EndpointSchemaGenerator
 		public static string NullableEnable = "#nullable enable";
 		public static string NullableDisable = "#nullable disable";
 
-		public static string GetUsings(GeneratorSettings settings) => $"{UsingSystem}\r\n{UsingGenericCollections}\r\n\r\n{UsingNewtonsoftJson}\r\n\r\n" + (settings.AddClientSpecificUsings ? "{UsingClientNamespace}\r\n{UsingApiNamespace}\r\n{UsingModelNamespace}\r\n\r\n" : "");
+		public static string GetUsings(GeneratorSettings settings) => $"{UsingSystem}\r\n{UsingGenericCollections}\r\n\r\n{UsingNewtonsoftJson}\r\n\r\n" + (settings.AddClientSpecificUsings ? $"{UsingClientNamespace}\r\n{UsingApiNamespace}\r\n{UsingModelNamespace}\r\n\r\n" : "");
 
 		public static string NewtonsoftJsonVersion = "\"13.0.1\"";
 
