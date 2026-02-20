@@ -13,11 +13,5 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 		public ChangeBusinessAccountID(BusinessAccount entity, ChangeBusinessAccountIDParameters parameters) : base(entity, parameters)
 		{ }
-
-		public StringValue? BusinessAccountID
-		{
-			get { return Parameters.BusinessAccountID; }
-			set { Parameters.BusinessAccountID = value; }
-		}
 	}
 }

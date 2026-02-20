@@ -13,16 +13,5 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	{
 		public SalesOrderCreateShipment(SalesOrder entity, SalesOrderCreateShipmentParameters parameters) : base(entity, parameters)
 		{ }
-
-		public DateTimeValue? ShipmentDate
-		{
-			get { return Parameters.ShipmentDate; }
-			set { Parameters.ShipmentDate = value; }
-		}
-		public StringValue? WarehouseID
-		{
-			get { return Parameters.WarehouseID; }
-			set { Parameters.WarehouseID = value; }
-		}
 	}
 }

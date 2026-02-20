@@ -13,21 +13,5 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 		public CreateAccountFromContact(Contact entity, CreateAccountFromContactParameters parameters) : base(entity, parameters)
 		{ }
-
-		public StringValue? BusinessAccountID
-		{
-			get { return Parameters.BusinessAccountID; }
-			set { Parameters.BusinessAccountID = value; }
-		}
-		public StringValue? BusinessAccountName
-		{
-			get { return Parameters.BusinessAccountName; }
-			set { Parameters.BusinessAccountName = value; }
-		}
-		public StringValue? BusinessAccountClass
-		{
-			get { return Parameters.BusinessAccountClass; }
-			set { Parameters.BusinessAccountClass = value; }
-		}
 	}
 }

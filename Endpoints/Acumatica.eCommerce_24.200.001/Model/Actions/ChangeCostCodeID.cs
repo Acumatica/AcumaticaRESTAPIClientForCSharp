@@ -13,11 +13,5 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	{
 		public ChangeCostCodeID(CostCode entity, ChangeCostCodeIDParameters parameters) : base(entity, parameters)
 		{ }
-
-		public StringValue? CostCodeID
-		{
-			get { return Parameters.CostCodeID; }
-			set { Parameters.CostCodeID = value; }
-		}
 	}
 }

@@ -13,21 +13,5 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 		public ReleaseRetainage(Bill entity, ReleaseRetainageParameters parameters) : base(entity, parameters)
 		{ }
-
-		public DecimalValue? AmtToRelease
-		{
-			get { return Parameters.AmtToRelease; }
-			set { Parameters.AmtToRelease = value; }
-		}
-		public DateTimeValue? Date
-		{
-			get { return Parameters.Date; }
-			set { Parameters.Date = value; }
-		}
-		public StringValue? PostPeriod
-		{
-			get { return Parameters.PostPeriod; }
-			set { Parameters.PostPeriod = value; }
-		}
 	}
 }

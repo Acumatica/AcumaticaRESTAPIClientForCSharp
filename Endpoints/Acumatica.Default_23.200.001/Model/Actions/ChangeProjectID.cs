@@ -13,11 +13,5 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 		public ChangeProjectID(Project entity, ChangeProjectIDParameters parameters) : base(entity, parameters)
 		{ }
-
-		public StringValue? ProjectID
-		{
-			get { return Parameters.ProjectID; }
-			set { Parameters.ProjectID = value; }
-		}
 	}
 }

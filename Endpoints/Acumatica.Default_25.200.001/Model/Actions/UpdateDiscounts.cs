@@ -13,11 +13,5 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 		public UpdateDiscounts(Discount entity, UpdateDiscountsParameters parameters) : base(entity, parameters)
 		{ }
-
-		public DateTimeValue? Date
-		{
-			get { return Parameters.Date; }
-			set { Parameters.Date = value; }
-		}
 	}
 }

@@ -13,11 +13,5 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 		public ChangeEmployeeID(Employee entity, ChangeEmployeeIDParameters parameters) : base(entity, parameters)
 		{ }
-
-		public StringValue? EmployeeID
-		{
-			get { return Parameters.EmployeeID; }
-			set { Parameters.EmployeeID = value; }
-		}
 	}
 }
