@@ -21,6 +21,20 @@ namespace RESTClientTests
 		const string billWithErrorJson = "{\"error\": \"'SuppliedByVendorID' cannot be empty.; SuppliedByVendorID: 'SuppliedByVendorID' cannot be empty.\",\"ReferenceNbr\":{\"value\":\"005933\"}}";
 
 		[Fact]
+		public void StringValue_IsDeserialized()
+		{
+			var client = new ApiClient(
+				new HttpClientMock(async (request, ct) =>
+				{
+					return new HttpResponseMessage(HttpStatusCode.OK)
+					{ Content = new StringContent(billsJson) };
+				}));
+			var record = client.GetList<Bill>().First();
+			Assert.NotNull(record.ReferenceNbr);
+			Assert.Equal("005933", record.ReferenceNbr.Value);
+		}
+
+		[Fact]
 		public void NullValue_IsNotSerialized()
 		{
 			var bill = new Bill
@@ -141,6 +155,7 @@ namespace RESTClientTests
 			{
 				ReferenceNbr = new Acumatica.RESTClient.ContractBasedApi.Model.StringValue
 				{
+					Value = "123",
 					Error = "Some error"
 				}
 			};
