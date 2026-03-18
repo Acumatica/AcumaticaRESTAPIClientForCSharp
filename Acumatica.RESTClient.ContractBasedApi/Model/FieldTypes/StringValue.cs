@@ -3,9 +3,7 @@ using System.Diagnostics;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DebuggerDisplay("{Value}" +
-                 "{Error != null ? \" (Error: \" + Error + \")\" : string.Empty}" +
-                 "{Translations != null && Translations.Count > 0 ? \" (Translations: \" + Translations.Count + \")\" : string.Empty}")]
+    [DebuggerDisplay("{ToDebugView()}")]
     public partial class StringValue : RestValueBase<string>
     {
         public static implicit operator string?(StringValue value) => value?.Value;
@@ -16,5 +14,15 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             this.Value = value;
         }
         public Dictionary<string, string>? Translations { get; set; }
+
+
+		public string ToDebugView()
+        {
+            var translations = Translations != null && Translations.Count > 0
+                ? $" (Translations: {Translations.Count})"
+                : string.Empty;
+
+            return $"{Value}{(Error != null ? $" (Error: {Error})" : string.Empty)}{translations}";
+        }
     }
 }
