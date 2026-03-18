@@ -6,9 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DebuggerDisplay("{Value}" +
-                 "{Error != null ? \" (Error: \" + Error + \")\" : string.Empty}" +
-                 "{Translations != null && Translations.Count > 0 ? \" (Translations: \" + Translations.Count + \")\" : string.Empty}")]
+    [DebuggerDisplay("{ToDebugView()}")]
     [DataContract]
     public partial class StringValue : RestValueBase<string>
     {
@@ -21,5 +19,15 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         }
         [DataMember(Name = "Translations", EmitDefaultValue = false)]
         public Dictionary<string, string>? Translations { get; set; }
+
+
+		public string ToDebugView()
+        {
+            var translations = Translations != null && Translations.Count > 0
+                ? $" (Translations: {Translations.Count})"
+                : string.Empty;
+
+            return $"{Value}{(Error != null ? $" (Error: {Error})" : string.Empty)}{translations}";
+        }
     }
 }
