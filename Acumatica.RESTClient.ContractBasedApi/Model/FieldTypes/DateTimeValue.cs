@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
