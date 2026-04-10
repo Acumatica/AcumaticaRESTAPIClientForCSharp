@@ -4,7 +4,6 @@ using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DebuggerDisplay("{Value.ToString()} {Error != null ? \"(Error: \" + Error + \")\" : string.Empty}")]
     [DataContract]
     public partial class DateTimeValue : RestValueBase<DateTime?>
     {
@@ -15,5 +14,5 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         {
             this.Value = value;
         }
-    }
+	}
 }

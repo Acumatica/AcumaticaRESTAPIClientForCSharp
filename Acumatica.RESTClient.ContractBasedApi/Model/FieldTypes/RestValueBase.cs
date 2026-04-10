@@ -1,6 +1,7 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
 
-using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
@@ -11,7 +12,9 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         [DataMember(Name = "error", EmitDefaultValue = false)]
         public string? Error { get; set; }
     }
-    [DataContract]
+
+	[DebuggerDisplay("{ToString()}")]
+	[DataContract]
     public abstract class RestValueBase<TValue> : RestFieldWithError
     {
         [DataMember(Name = "value", EmitDefaultValue = false)]
@@ -84,5 +87,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
-    }
+
+	}
 }

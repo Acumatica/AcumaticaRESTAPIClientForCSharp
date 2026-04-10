@@ -1,13 +1,9 @@
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DebuggerDisplay("{Value}" +
-                 "{Error != null ? \" (Error: \" + Error + \")\" : string.Empty}" +
-                 "{Translations != null && Translations.Count > 0 ? \" (Translations: \" + Translations.Count + \")\" : string.Empty}")]
     [DataContract]
     public partial class StringMultiSelectValue : RestValueBase<List<StringSelectInnerValue>>
     {

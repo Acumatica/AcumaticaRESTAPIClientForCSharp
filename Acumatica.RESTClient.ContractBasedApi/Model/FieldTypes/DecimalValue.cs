@@ -4,7 +4,6 @@ using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DebuggerDisplay("{Value} {Error != null ? \"(Error: \" + Error + \")\" : string.Empty}")]
     [DataContract]
     public partial class DecimalValue : RestValueBase<decimal?>
     {

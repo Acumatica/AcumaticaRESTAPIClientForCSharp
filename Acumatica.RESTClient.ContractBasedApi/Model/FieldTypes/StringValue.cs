@@ -6,7 +6,6 @@ using Newtonsoft.Json.Linq;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DebuggerDisplay("{ToDebugView()}")]
     [DataContract]
     public partial class StringValue : RestValueBase<string>
     {
@@ -21,7 +20,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         public Dictionary<string, string>? Translations { get; set; }
 
 
-		public string ToDebugView()
+		public override string ToString()
         {
             var translations = Translations != null && Translations.Count > 0
                 ? $" (Translations: {Translations.Count})"
