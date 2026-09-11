@@ -55,7 +55,7 @@ namespace EndpointSchemaGenerator
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = EntityName
 		//{2} = Content
-		public static string EntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : {3}\r\n\t{{\r\n{2}\r\n\t}}\r\n}}";
+		public static string EntityTemplate = Usings + "namespace {0}.Model\r\n{{\r\n\t[DataContract]\r\n\tpublic class {1} : {3}\r\n\t{{\r\n{2}{4}\r\n\t}}\r\n}}";
 
 		/// <summary>
 		/// 
@@ -122,14 +122,27 @@ namespace EndpointSchemaGenerator
 		public static string ExpandsTemplate = "\r\n\t\tpublic static class Expand\r\n\t\t{{\r\n{0}\r\n\t\t\t//Intentionally excluded\r\n\t\t\t//public const string All = \"{1}\";\r\n\t\t}}";
 		public static string ExpandFieldTemplate = "\t\t\tpublic const string {0} = \"{1}\";\r\n";
 
-		public static string GetExpands(List<string> expands)
+		/// <summary>
+		/// Documents the nested $expand syntax introduced by system contract 5, where a nested
+		/// expand is written as <c>Parent($expand=Child)</c> instead of <c>Parent/Child</c>.
+		/// </summary>
+		public static string NestedExpandsComment =
+			"\r\n\t\t/// <summary>\r\n" +
+			"\t\t/// Names that can be passed in the <c>$expand</c> parameter.\r\n" +
+			"\t\t/// <para>This endpoint uses system contract 5, where a nested entity is expanded\r\n" +
+			"\t\t/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names\r\n" +
+			"\t\t/// that can be expanded directly on this entity are listed here. Use the nested\r\n" +
+			"\t\t/// entity's own <c>Expand</c> class for the inner names.</para>\r\n" +
+			"\t\t/// </summary>";
+		public static string GetExpands(List<string> expands, bool nestedExpandSyntax = false)
 		{
 			string expandFields = "";
 			foreach (var expandField in expands)
 			{
 				expandFields += string.Format(ExpandFieldTemplate, expandField.Replace('/', '_'), expandField);
 			}
-			return string.Format(ExpandsTemplate, expandFields, string.Join(',', expands));
+			return (nestedExpandSyntax ? NestedExpandsComment : "")
+				+ string.Format(ExpandsTemplate, expandFields, string.Join(',', expands));
 		}
 
 	}

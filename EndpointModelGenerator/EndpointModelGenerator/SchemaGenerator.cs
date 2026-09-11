@@ -220,11 +220,18 @@ namespace EndpointSchemaGenerator
                 {
                     body.Append(Templates.GenerateFieldCode(entity.Key, field));
                 }
-                List<string> expandsAppend = CollectExpands(schema, entity.Value);
+                bool nestedExpandSyntax = UsesNestedExpandSyntax(schema);
+                List<string> expandsAppend = nestedExpandSyntax
+                    ? CollectDirectExpands(schema, entity.Key, entity.Value)
+                    : CollectExpands(schema, entity.Value);
 
                 string result;
                 bool isNotDerived = string.IsNullOrEmpty(schema.BaseEndpoint) || string.IsNullOrEmpty(entity.Value.ParentReference);
                 string baseEntity = isNotDerived ? "Entity" : $"{GetEndpointNamespace(defaultNamespaceTemplate, schema.BaseEndpoint)}.Model.{entity.Value.ParentReference}";
+                // A derived entity inherits the base endpoint's nested Expand class, so it must not redeclare one.
+                string expands = isNotDerived && expandsAppend.Count > 0
+                    ? Templates.GetExpands(expandsAppend, nestedExpandSyntax)
+                    : "";
                 if (entity.Value.IsTopLevel)
                 {
                     result = Templates.GenerateTopLevelEntityCode(
@@ -235,19 +242,85 @@ namespace EndpointSchemaGenerator
                         parentReference: baseEntity,
                         isDerived: !isNotDerived,
                         screenID: entity.Value.ScreenID,
-                        isNotDerived ? Templates.GetExpands(expandsAppend) : "",
+                        expands,
                         entity.Value.Fields.Where(_=>_.IsKey==true)
                         );
                 }
                 else
                 {
-                    result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString(), baseEntity, "");
+                    // Before system contract 5 a nested entity could only be reached through the
+                    // top level entity's Parent/Child expand names, so only top level entities
+                    // declared an Expand class.
+                    result = String.Format(Templates.EntityTemplate, endpointNamespace, entity.Key, body.ToString(), baseEntity,
+                        nestedExpandSyntax ? expands : "");
                 }
                 writeLogDelegate.Invoke(entity.Key);
                 writer.Write(result);
                 writer.Close();
             }
         }
+
+        /// <summary>
+        /// System contract 5 replaced the flattened <c>$expand=Parent/Child</c> syntax with
+        /// <c>$expand=Parent($expand=Child)</c>, so a nested name is no longer a value the caller
+        /// can pass on the parent entity.
+        /// </summary>
+        private static bool UsesNestedExpandSyntax(Schema schema)
+        {
+            return int.TryParse(schema.Info?.Version, out int systemContractVersion)
+                && systemContractVersion >= NestedExpandSyntaxSystemContract;
+        }
+
+        private const int NestedExpandSyntaxSystemContract = 5;
+
+        /// <summary>
+        /// Collects only the names that can be expanded directly on <paramref name="entity"/>.
+        /// Under the nested syntax every entity declares its own names, and the caller composes
+        /// them, so recursing into nested entities here would produce values the server rejects.
+        /// </summary>
+        private static List<string> CollectDirectExpands(Schema schema, string entityName, EntityDefinition entity)
+        {
+            List<string> expandsAppend = new List<string>();
+            if (SupportsFilesExpand(schema, entityName, entity))
+            {
+                expandsAppend.Add("Files");
+            }
+            if (entity.IsTopLevel)
+            {
+                expandsAppend.Add("Translations");
+            }
+            foreach (var field in entity.Fields)
+            {
+                if (!NonExpandableTypes.Types.Contains(field.Type))
+                {
+                    expandsAppend.Add(field.Name);
+                }
+            }
+
+            return expandsAppend;
+        }
+
+        /// <summary>
+        /// Mirrors the rule the flattened collector applies at each call site: files are expandable
+        /// on a top level entity and on a detail, but not on a linked entity, which usually has no
+        /// files of its own, nor on attribute values.
+        /// </summary>
+        private static bool SupportsFilesExpand(Schema schema, string entityName, EntityDefinition entity)
+        {
+            if (entityName == AttributeValueEntity)
+            {
+                return false;
+            }
+            if (entity.IsTopLevel)
+            {
+                return true;
+            }
+
+            string detailType = $"List<{entityName}>";
+            return schema.Entities.Any(_ => _.Value.Fields.Any(field => field.Type == detailType));
+        }
+
+        private const string AttributeValueEntity = "AttributeValue";
 
         private static List<string> CollectExpands(Schema schema, EntityDefinition entity, bool addFiles = true, bool addTranslations = true)
         {
