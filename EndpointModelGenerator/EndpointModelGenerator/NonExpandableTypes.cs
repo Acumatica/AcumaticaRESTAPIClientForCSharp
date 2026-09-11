@@ -19,6 +19,7 @@ namespace EndpointModelGenerator
                     "BooleanValue",
                     "ByteValue",
                     "DateTimeValue",
+                    "DateOnlyValue",
                     "DoubleValue",
                     "GuidValue",
                     "LongValue",

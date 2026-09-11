@@ -18,7 +18,8 @@ namespace EndpointSchemaGenerator
         "CustomDecimalField", "CustomDateTimeField", "CustomBooleanField", "CustomIntField", "CustomLongField",
         "CustomShortField", "CustoByteField", "CustomDoubleField", "CustomGuidField", "CustomField",
         "DecimalValue", "DateTimeValue", "BooleanValue", "IntValue", "ShortValue", "ByteValue", "DoubleValue",
-        "GuidValue", "FileLink", "Entity", "HttpError", "CustomByteField"};
+        "GuidValue", "DateOnlyValue", "StringSingleSelectValue", "IntSingleSelectValue",
+        "StringMultiSelectValue", "FileLink", "Entity", "HttpError", "CustomByteField"};
         #endregion
 
 
