@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -61,10 +62,13 @@ namespace EndpointModelGenerator
                     // We need to only keep fields that are in the metadata. If we remove any fields, we need to add a parent reference to the entity.
                     foreach (var field in entity.Value.Fields)
                     {
-                        if (!topLevelEntityMetadata.Fields.Any(_ => _.name == field.Name))
+                        if (topLevelEntityMetadata?.Fields != null)
                         {
-                            endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
-                            endpointSchema.Entities[entity.Key].Fields.Remove(field);
+                            if (!topLevelEntityMetadata.Fields.Any(_ => _.name == field.Name))
+                            {
+                                endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
+                                endpointSchema.Entities[entity.Key].Fields.Remove(field);
+                            }
                         }
                     }
 
@@ -105,6 +109,29 @@ namespace EndpointModelGenerator
 
                 }
             }
+        }
+
+
+        /// <summary>
+        /// Matches an HTML anchor and captures its link text.
+        /// </summary>
+        private static readonly Regex DocumentationLink = new Regex(
+            @"<a\s[^>]*>(.*?)</a>",
+            RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.Compiled);
+
+        /// <summary>
+        /// Replaces hyperlinks in scraped DAC documentation with their link text.
+        /// <c>&lt;a&gt;</c> is not an XML documentation element, so these render as noise in
+        /// IntelliSense, and the two kinds Acumatica emits point nowhere useful from generated
+        /// code: DAC browser links are paths on the instance the documentation was scraped from,
+        /// and the C# language reference links merely wrap the words "true" and "false".
+        /// </summary>
+        internal static string? RemoveDocumentationLinks(string? documentation)
+        {
+            if (string.IsNullOrEmpty(documentation))
+                return documentation;
+
+            return DocumentationLink.Replace(documentation, "$1");
         }
 
         private static void FillDescriptions(Schema endpointSchema, Dictionary<string, ScreenMetadata> parsedScreenMetadata, Endpoint? parsedEndpointMetadata)
@@ -205,8 +232,8 @@ namespace EndpointModelGenerator
                                 var fieldDescr = client.GetField(dacNamespace, dacName, field.DACFieldName!);
                                 field.DisplayName = fieldDescr.DisplayName;
                                 field.SqlType = fieldDescr.SqlType;
-                                field.Summary = fieldDescr.Documentation.Summary;
-                                field.Remarks = fieldDescr.Documentation.Remarks;
+                                field.Summary = RemoveDocumentationLinks(fieldDescr.Documentation.Summary);
+                                field.Remarks = RemoveDocumentationLinks(fieldDescr.Documentation.Remarks);
                                 field.IsKey = fieldDescr.IsKey;
                             }
                             catch { }
