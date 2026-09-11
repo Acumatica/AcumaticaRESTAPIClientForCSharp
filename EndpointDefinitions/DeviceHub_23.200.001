@@ -1,571 +1,15 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.1",
   "info": {
     "title": "DeviceHub/23.200.001",
     "version": "4"
   },
-  "host": "internal.acumatica.com",
-  "basePath": "/entity/DeviceHub/23.200.001",
-  "schemes": [
-    "https"
+  "servers": [
+    {
+      "url": "http://bel-u23-nodea.int.adds.acumatica.com:30021/entity/DeviceHub/23.200.001"
+    }
   ],
   "paths": {
-    "/Scanner/{actionName}": {
-      "post": {
-        "tags": [
-          "Scanner"
-        ],
-        "summary": "Performs an action in the system.",
-        "operationId": "Scanner_InvokeAction_CustomAction",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "actionName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "invocation",
-            "description": "The record to which the action should be applied and the parameters of the action.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ScannerCustomAction"
-            }
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "204": {
-            "description": "The operation that was initiated by the action is completed.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          "202": {
-            "description": "The operation is in progress.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "422": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/Scanner"
-            }
-          }
-        }
-      }
-    },
-    "/Scanner/$adHocSchema": {
-      "get": {
-        "tags": [
-          "Scanner"
-        ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
-        "operationId": "Scanner_GetAdHocSchema",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/Scanner"
-            }
-          }
-        }
-      }
-    },
-    "/Scanner/{ids}": {
-      "get": {
-        "tags": [
-          "Scanner"
-        ],
-        "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Scanner_GetByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Scanner"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Scanner"
-        ],
-        "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Scanner_DeleteByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "204": {
-            "description": "The record is successfully deleted."
-          }
-        }
-      }
-    },
-    "/Scanner/{ids}/files/{filename}": {
-      "put": {
-        "tags": [
-          "Scanner"
-        ],
-        "summary": "Attaches a file to a record.",
-        "operationId": "Scanner_PutFile",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
-          },
-          {
-            "in": "path",
-            "name": "filename",
-            "description": "The name of the file that you are going to attach with the extension.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "204": {
-            "description": "The file is successfully attached.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to retrieve the file from the system.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/Scanner/{id}": {
-      "get": {
-        "tags": [
-          "Scanner"
-        ],
-        "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Scanner_GetById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Scanner"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Scanner"
-        ],
-        "summary": "Deletes the record by its session identifier.",
-        "operationId": "Scanner_DeleteById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "204": {
-            "description": "The record is successfully deleted."
-          }
-        }
-      }
-    },
-    "/Scanner": {
-      "get": {
-        "tags": [
-          "Scanner"
-        ],
-        "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "Scanner_GetList",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$skip",
-            "description": "The number of records to be skipped from the list of returned records.",
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "in": "query",
-            "name": "$top",
-            "description": "The number of records to be returned from the system.",
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The list of records that satisfy the specified conditions.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Scanner"
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Scanner"
-        ],
-        "summary": "Creates a record or updates an existing record.",
-        "operationId": "Scanner_PutEntity",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "entity",
-            "description": "The record to be passed to the system.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Scanner"
-            }
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "200": {
-            "description": "The created or updated record.",
-            "schema": {
-              "$ref": "#/definitions/Scanner"
-            }
-          },
-          "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
-          },
-          "422": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/Scanner"
-            }
-          }
-        }
-      }
-    },
     "/Printer/{actionName}": {
       "post": {
         "tags": [
@@ -573,81 +17,64 @@
         ],
         "summary": "Performs an action in the system.",
         "operationId": "Printer_InvokeAction_CustomAction",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "actionName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "invocation",
-            "description": "The record to which the action should be applied and the parameters of the action.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/PrinterCustomAction"
-            }
+            "$ref": "#/components/parameters/actionName"
           }
         ],
+        "requestBody": {
+          "description": "The record to which the action should be applied and the parameters of the action.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrinterCustomAction"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrinterCustomAction"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "invocation"
+        },
         "responses": {
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The operation that was initiated by the action is completed.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/components/responses/InvokeAction_204"
           },
           "202": {
-            "description": "The operation is in progress.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/components/responses/InvokeAction_202"
           },
           "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/InvokeAction_400"
           },
           "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/InvokeAction_412"
           },
           "422": {
             "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/Printer"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
             }
+          },
+          "409": {
+            "$ref": "#/components/responses/InvokeAction_409"
           }
         }
       }
@@ -657,29 +84,31 @@
         "tags": [
           "Printer"
         ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
         "operationId": "Printer_GetAdHocSchema",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/Printer"
+            "description": "The field name, field type, view name, action name, and parameter names and types for fields and workflow actions that are not defined in the contract of the endpoint for this entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
             }
           }
         }
@@ -692,64 +121,46 @@
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
         "operationId": "Printer_GetByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
+            "$ref": "#/components/parameters/ids"
           },
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/custom"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Printer"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
             }
           }
         }
@@ -760,38 +171,23 @@
         ],
         "summary": "Deletes the record by the values of its key fields.",
         "operationId": "Printer_DeleteByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
+            "$ref": "#/components/parameters/ids"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The record is successfully deleted."
+            "$ref": "#/components/responses/DeleteByKeys_204"
           }
         }
       }
@@ -803,52 +199,26 @@
         ],
         "summary": "Attaches a file to a record.",
         "operationId": "Printer_PutFile",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
+            "$ref": "#/components/parameters/ids"
           },
           {
-            "in": "path",
-            "name": "filename",
-            "description": "The name of the file that you are going to attach with the extension.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/components/parameters/filename"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The file is successfully attached.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to retrieve the file from the system.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/components/responses/PutFile_204"
           }
         }
       }
@@ -860,61 +230,46 @@
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
         "operationId": "Printer_GetById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
+            "$ref": "#/components/parameters/id"
           },
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/custom"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/Printer"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
             }
           }
         }
@@ -925,35 +280,23 @@
         ],
         "summary": "Deletes the record by its session identifier.",
         "operationId": "Printer_DeleteById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
+            "$ref": "#/components/parameters/id"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The record is successfully deleted."
+            "$ref": "#/components/responses/DeleteById_204"
           }
         }
       }
@@ -965,69 +308,54 @@
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
         "operationId": "Printer_GetList",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/custom"
           },
           {
-            "in": "query",
-            "name": "$skip",
-            "description": "The number of records to be skipped from the list of returned records.",
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/parameters/skip"
           },
           {
-            "in": "query",
-            "name": "$top",
-            "description": "The number of records to be returned from the system.",
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/parameters/top"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The list of records that satisfy the specified conditions.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Printer"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Printer"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Printer"
+                  }
+                }
               }
             }
           }
@@ -1039,84 +367,169 @@
         ],
         "summary": "Creates a record or updates an existing record.",
         "operationId": "Printer_PutEntity",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "entity",
-            "description": "The record to be passed to the system.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Printer"
-            }
+            "$ref": "#/components/parameters/custom"
           }
         ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
+        "requestBody": {
+          "description": "The record to be passed to the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Printer"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Printer"
+              }
             }
           },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The created or updated record.",
-            "schema": {
-              "$ref": "#/definitions/Printer"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
             }
           },
           "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/PutEntity_400"
           },
           "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/PutEntity_412"
           },
           "422": {
             "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/Printer"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Printer"
+        ],
+        "summary": "Updates the fields of an existing record that are specified in the request body.",
+        "operationId": "Printer_PatchEntity",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to be updated in the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Printer"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Printer"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The updated record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/PatchEntity_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/PatchEntity_412"
+          },
+          "404": {
+            "$ref": "#/components/responses/PatchEntity_404"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
             }
           }
         }
@@ -1129,81 +542,64 @@
         ],
         "summary": "Performs an action in the system.",
         "operationId": "PrintJobs_InvokeAction_CustomAction",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "actionName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "invocation",
-            "description": "The record to which the action should be applied and the parameters of the action.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/PrintJobsCustomAction"
-            }
+            "$ref": "#/components/parameters/actionName"
           }
         ],
+        "requestBody": {
+          "description": "The record to which the action should be applied and the parameters of the action.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobsCustomAction"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobsCustomAction"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "invocation"
+        },
         "responses": {
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The operation that was initiated by the action is completed.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/components/responses/InvokeAction_204"
           },
           "202": {
-            "description": "The operation is in progress.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/components/responses/InvokeAction_202"
           },
           "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/InvokeAction_400"
           },
           "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/InvokeAction_412"
           },
           "422": {
             "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/PrintJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              }
             }
+          },
+          "409": {
+            "$ref": "#/components/responses/InvokeAction_409"
           }
         }
       }
@@ -1213,29 +609,31 @@
         "tags": [
           "PrintJobs"
         ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
         "operationId": "PrintJobs_GetAdHocSchema",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/PrintJobs"
+            "description": "The field name, field type, view name, action name, and parameter names and types for fields and workflow actions that are not defined in the contract of the endpoint for this entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              }
             }
           }
         }
@@ -1248,64 +646,46 @@
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
         "operationId": "PrintJobs_GetByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
+            "$ref": "#/components/parameters/ids"
           },
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/custom"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/PrintJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              }
             }
           }
         }
@@ -1316,38 +696,23 @@
         ],
         "summary": "Deletes the record by the values of its key fields.",
         "operationId": "PrintJobs_DeleteByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
+            "$ref": "#/components/parameters/ids"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The record is successfully deleted."
+            "$ref": "#/components/responses/DeleteByKeys_204"
           }
         }
       }
@@ -1359,52 +724,26 @@
         ],
         "summary": "Attaches a file to a record.",
         "operationId": "PrintJobs_PutFile",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
+            "$ref": "#/components/parameters/ids"
           },
           {
-            "in": "path",
-            "name": "filename",
-            "description": "The name of the file that you are going to attach with the extension.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/components/parameters/filename"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The file is successfully attached.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to retrieve the file from the system.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/components/responses/PutFile_204"
           }
         }
       }
@@ -1416,61 +755,46 @@
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
         "operationId": "PrintJobs_GetById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
+            "$ref": "#/components/parameters/id"
           },
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/custom"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/PrintJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              }
             }
           }
         }
@@ -1481,35 +805,23 @@
         ],
         "summary": "Deletes the record by its session identifier.",
         "operationId": "PrintJobs_DeleteById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
+            "$ref": "#/components/parameters/id"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The record is successfully deleted."
+            "$ref": "#/components/responses/DeleteById_204"
           }
         }
       }
@@ -1521,69 +833,54 @@
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
         "operationId": "PrintJobs_GetList",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/custom"
           },
           {
-            "in": "query",
-            "name": "$skip",
-            "description": "The number of records to be skipped from the list of returned records.",
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/parameters/skip"
           },
           {
-            "in": "query",
-            "name": "$top",
-            "description": "The number of records to be returned from the system.",
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/parameters/top"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The list of records that satisfy the specified conditions.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/PrintJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PrintJobs"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PrintJobs"
+                  }
+                }
               }
             }
           }
@@ -1595,84 +892,169 @@
         ],
         "summary": "Creates a record or updates an existing record.",
         "operationId": "PrintJobs_PutEntity",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "entity",
-            "description": "The record to be passed to the system.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/PrintJobs"
-            }
+            "$ref": "#/components/parameters/custom"
           }
         ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
+        "requestBody": {
+          "description": "The record to be passed to the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobs"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobs"
+              }
             }
           },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The created or updated record.",
-            "schema": {
-              "$ref": "#/definitions/PrintJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              }
             }
           },
           "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/PutEntity_400"
           },
           "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/PutEntity_412"
           },
           "422": {
             "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/PrintJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Updates the fields of an existing record that are specified in the request body.",
+        "operationId": "PrintJobs_PatchEntity",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to be updated in the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobs"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobs"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The updated record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/PatchEntity_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/PatchEntity_412"
+          },
+          "404": {
+            "$ref": "#/components/responses/PatchEntity_404"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              }
             }
           }
         }
@@ -1685,81 +1067,64 @@
         ],
         "summary": "Performs an action in the system.",
         "operationId": "ScanJobs_InvokeAction_CustomAction",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "actionName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "invocation",
-            "description": "The record to which the action should be applied and the parameters of the action.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ScanJobsCustomAction"
-            }
+            "$ref": "#/components/parameters/actionName"
           }
         ],
+        "requestBody": {
+          "description": "The record to which the action should be applied and the parameters of the action.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScanJobsCustomAction"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScanJobsCustomAction"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "invocation"
+        },
         "responses": {
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The operation that was initiated by the action is completed.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/components/responses/InvokeAction_204"
           },
           "202": {
-            "description": "The operation is in progress.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/components/responses/InvokeAction_202"
           },
           "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/InvokeAction_400"
           },
           "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/InvokeAction_412"
           },
           "422": {
             "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/ScanJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              }
             }
+          },
+          "409": {
+            "$ref": "#/components/responses/InvokeAction_409"
           }
         }
       }
@@ -1769,29 +1134,31 @@
         "tags": [
           "ScanJobs"
         ],
-        "summary": "Retrieves the schema of custom fields of the entity from the system.",
+        "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
         "operationId": "ScanJobs_GetAdHocSchema",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
-            "description": "The field name, view name, and type of the fields that are not defined in the contract of the endpoint for this entity.",
-            "schema": {
-              "$ref": "#/definitions/ScanJobs"
+            "description": "The field name, field type, view name, action name, and parameter names and types for fields and workflow actions that are not defined in the contract of the endpoint for this entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              }
             }
           }
         }
@@ -1804,64 +1171,46 @@
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
         "operationId": "ScanJobs_GetByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
+            "$ref": "#/components/parameters/ids"
           },
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/custom"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/ScanJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              }
             }
           }
         }
@@ -1872,38 +1221,23 @@
         ],
         "summary": "Deletes the record by the values of its key fields.",
         "operationId": "ScanJobs_DeleteByKeys",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
+            "$ref": "#/components/parameters/ids"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The record is successfully deleted."
+            "$ref": "#/components/responses/DeleteByKeys_204"
           }
         }
       }
@@ -1915,52 +1249,26 @@
         ],
         "summary": "Attaches a file to a record.",
         "operationId": "ScanJobs_PutFile",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "ids",
-            "description": "The values of the key fields of the record.",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "pipes"
+            "$ref": "#/components/parameters/ids"
           },
           {
-            "in": "path",
-            "name": "filename",
-            "description": "The name of the file that you are going to attach with the extension.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/components/parameters/filename"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The file is successfully attached.",
-            "headers": {
-              "Location": {
-                "description": "A URL that can be used to retrieve the file from the system.",
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/components/responses/PutFile_204"
           }
         }
       }
@@ -1972,61 +1280,46 @@
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
         "operationId": "ScanJobs_GetById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
+            "$ref": "#/components/parameters/id"
           },
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/custom"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The requested record.",
-            "schema": {
-              "$ref": "#/definitions/ScanJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              }
             }
           }
         }
@@ -2037,35 +1330,23 @@
         ],
         "summary": "Deletes the record by its session identifier.",
         "operationId": "ScanJobs_DeleteById",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "path",
-            "name": "id",
-            "description": "The session ID of the record.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
+            "$ref": "#/components/parameters/id"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "204": {
-            "description": "The record is successfully deleted."
+            "$ref": "#/components/responses/DeleteById_204"
           }
         }
       }
@@ -2077,69 +1358,54 @@
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
         "operationId": "ScanJobs_GetList",
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/custom"
           },
           {
-            "in": "query",
-            "name": "$skip",
-            "description": "The number of records to be skipped from the list of returned records.",
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/parameters/skip"
           },
           {
-            "in": "query",
-            "name": "$top",
-            "description": "The number of records to be returned from the system.",
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/parameters/top"
           }
         ],
         "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
           "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
           },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The list of records that satisfy the specified conditions.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ScanJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScanJobs"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScanJobs"
+                  }
+                }
               }
             }
           }
@@ -2151,802 +1417,1851 @@
         ],
         "summary": "Creates a record or updates an existing record.",
         "operationId": "ScanJobs_PutEntity",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
-            "in": "query",
-            "name": "$select",
-            "description": "The fields of the entity to be returned from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/select"
           },
           {
-            "in": "query",
-            "name": "$filter",
-            "description": "The conditions that determine which records should be selected from the system.",
-            "type": "string"
+            "$ref": "#/components/parameters/filter"
           },
           {
-            "in": "query",
-            "name": "$expand",
-            "description": "The linked and detail entities that should be expanded.",
-            "type": "string"
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "$custom",
-            "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "entity",
-            "description": "The record to be passed to the system.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ScanJobs"
-            }
+            "$ref": "#/components/parameters/custom"
           }
         ],
-        "responses": {
-          "401": {
-            "description": "The user is not logged in to the system.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
+        "requestBody": {
+          "description": "The record to be passed to the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScanJobs"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScanJobs"
+              }
             }
           },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
           "500": {
-            "description": "Internal server error.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
           },
           "200": {
             "description": "The created or updated record.",
-            "schema": {
-              "$ref": "#/definitions/ScanJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              }
             }
           },
           "400": {
-            "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/PutEntity_400"
           },
           "412": {
-            "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
-            "schema": {
-              "$ref": "#/definitions/HttpError"
-            }
+            "$ref": "#/components/responses/PutEntity_412"
           },
           "422": {
             "description": "The data specified in the request is invalid.",
-            "schema": {
-              "$ref": "#/definitions/ScanJobs"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ScanJobs"
+        ],
+        "summary": "Updates the fields of an existing record that are specified in the request body.",
+        "operationId": "ScanJobs_PatchEntity",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to be updated in the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScanJobs"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScanJobs"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The updated record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/PatchEntity_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/PatchEntity_412"
+          },
+          "404": {
+            "$ref": "#/components/responses/PatchEntity_404"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanJobs"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Scanner/{actionName}": {
+      "post": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "Scanner_InvokeAction_CustomAction",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/actionName"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to which the action should be applied and the parameters of the action.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScannerCustomAction"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScannerCustomAction"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "invocation"
+        },
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "204": {
+            "$ref": "#/components/responses/InvokeAction_204"
+          },
+          "202": {
+            "$ref": "#/components/responses/InvokeAction_202"
+          },
+          "400": {
+            "$ref": "#/components/responses/InvokeAction_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/InvokeAction_412"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/InvokeAction_409"
+          }
+        }
+      }
+    },
+    "/Scanner/$adHocSchema": {
+      "get": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
+        "operationId": "Scanner_GetAdHocSchema",
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The field name, field type, view name, action name, and parameter names and types for fields and workflow actions that are not defined in the contract of the endpoint for this entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Scanner/{ids}": {
+      "get": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "Scanner_GetByKeys",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ids"
+          },
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The requested record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "Scanner_DeleteByKeys",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ids"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "204": {
+            "$ref": "#/components/responses/DeleteByKeys_204"
+          }
+        }
+      }
+    },
+    "/Scanner/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "Scanner_PutFile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ids"
+          },
+          {
+            "$ref": "#/components/parameters/filename"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "204": {
+            "$ref": "#/components/responses/PutFile_204"
+          }
+        }
+      }
+    },
+    "/Scanner/{id}": {
+      "get": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "Scanner_GetById",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          },
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The requested record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "Scanner_DeleteById",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "204": {
+            "$ref": "#/components/responses/DeleteById_204"
+          }
+        }
+      }
+    },
+    "/Scanner": {
+      "get": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "Scanner_GetList",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/top"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Scanner"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Scanner"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "Scanner_PutEntity",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to be passed to the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Scanner"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Scanner"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The created or updated record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/PutEntity_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/PutEntity_412"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Scanner"
+        ],
+        "summary": "Updates the fields of an existing record that are specified in the request body.",
+        "operationId": "Scanner_PatchEntity",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to be updated in the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Scanner"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Scanner"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The updated record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/PatchEntity_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/PatchEntity_412"
+          },
+          "404": {
+            "$ref": "#/components/responses/PatchEntity_404"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Scanner"
+                }
+              }
             }
           }
         }
       }
     }
   },
-  "definitions": {
-    "BooleanValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "boolean"
+  "components": {
+    "schemas": {
+      "BooleanValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
         },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "ByteValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "int32",
-          "type": "integer"
+        "nullable": true
+      },
+      "ByteValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
         },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "CustomBooleanField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "boolean"
-            },
-            "error": {
-              "type": "string"
+        "nullable": true
+      },
+      "CustomBooleanField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "CustomByteField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "int32",
-              "type": "integer"
-            },
-            "error": {
-              "type": "string"
+        ]
+      },
+      "CustomByteField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "CustomDateTimeField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "date-time",
-              "type": "string"
-            },
-            "error": {
-              "type": "string"
+        ]
+      },
+      "CustomDateTimeField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "CustomDecimalField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "double",
-              "type": "number"
-            },
-            "error": {
-              "type": "string"
+        ]
+      },
+      "CustomDecimalField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "format": "double",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "CustomDoubleField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "double",
-              "type": "number"
-            },
-            "error": {
-              "type": "string"
+        ]
+      },
+      "CustomDoubleField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "format": "double",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "CustomField": {
-      "required": [
-        "type"
-      ],
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
+        ]
+      },
+      "CustomField": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type"
         }
       },
-      "discriminator": "type"
-    },
-    "CustomGuidField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "uuid",
-              "type": "string"
-            },
-            "error": {
-              "type": "string"
+      "CustomGuidField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "format": "uuid",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "CustomIntField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "int32",
-              "type": "integer"
-            },
-            "error": {
-              "type": "string"
+        ]
+      },
+      "CustomIntField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "CustomLongField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "int64",
-              "type": "integer"
-            },
-            "error": {
-              "type": "string"
+        ]
+      },
+      "CustomLongField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer",
+                "format": "int64",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "CustomShortField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "format": "int32",
-              "type": "integer"
-            },
-            "error": {
-              "type": "string"
+        ]
+      },
+      "CustomShortField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "CustomStringField": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CustomField"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string"
-            },
-            "error": {
-              "type": "string"
+        ]
+      },
+      "CustomStringField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
             }
           }
-        }
-      ]
-    },
-    "DateTimeValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "date-time",
-          "type": "string"
+        ]
+      },
+      "DateOnlyValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
         },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "DecimalValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "double",
-          "type": "number"
+        "nullable": true
+      },
+      "DateTimeValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
         },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "DoubleValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "double",
-          "type": "number"
+        "nullable": true
+      },
+      "DecimalValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
         },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "Entity": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
+        "nullable": true
+      },
+      "DoubleValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
         },
-        "rowNumber": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "note": {
-          "$ref": "#/definitions/StringValue"
-        },
-        "custom": {
-          "type": "object",
-          "additionalProperties": {
+        "nullable": true
+      },
+      "Entity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "rowNumber": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "note": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StringValue"
+              }
+            ],
+            "nullable": true
+          },
+          "custom": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/definitions/CustomField"
-            }
-          }
-        },
-        "error": {
-          "type": "string"
-        },
-        "files": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/FileLink"
-          }
-        }
-      }
-    },
-    "FileLink": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "filename": {
-          "type": "string"
-        },
-        "href": {
-          "format": "uri",
-          "type": "string"
-        }
-      }
-    },
-    "GuidValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "error": {
-          "type": "string"
-        }
-      }
-    },
-    "HttpError": {
-      "type": "object",
-      "properties": {
-        "message": {
-          "type": "string"
-        },
-        "exceptionMessage": {
-          "type": "string"
-        },
-        "exceptionType": {
-          "type": "string"
-        },
-        "stackTrace": {
-          "type": "string"
-        },
-        "modelState": {
-          "type": "object",
-          "additionalProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/components/schemas/CustomField"
+              }
+            },
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          },
+          "files": {
             "type": "array",
             "items": {
-              "type": "string"
-            }
+              "$ref": "#/components/schemas/FileLink"
+            },
+            "nullable": true
+          },
+          "_links": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "FileLink": {
+        "required": [
+          "filename",
+          "href",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri"
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GuidValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
           }
         },
-        "messageDetail": {
+        "nullable": true
+      },
+      "HttpError": {
+        "required": [
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "readOnly": true
+          },
+          "exceptionMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "exceptionType": {
+            "type": "string",
+            "nullable": true
+          },
+          "stackTrace": {
+            "type": "string",
+            "nullable": true
+          },
+          "modelState": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "IntValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "LongValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "PrintJob": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "CreatedBy": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "CreationDateTime": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "Description": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "DeviceHub": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "JobID": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "ModifiedDateTime": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "NumberOfCopies": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "Parameters": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PrintJobParameter"
+                },
+                "nullable": true
+              },
+              "Printer": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ReportID": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "Selected": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "Status": {
+                "$ref": "#/components/schemas/StringValue"
+              }
+            }
+          }
+        ]
+      },
+      "PrintJobParameter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "JobID": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "ParameterName": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ParameterValue": {
+                "$ref": "#/components/schemas/StringValue"
+              }
+            }
+          }
+        ]
+      },
+      "PrintJobs": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "EndDate": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "EndModifiedDateTime": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "HideProcessed": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "JobID": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "Jobs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PrintJob"
+                },
+                "nullable": true
+              },
+              "StartDate": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "StartModifiedDateTime": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "_workflowActions": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/PrintJobsCustomAction"
+                },
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "PrintJobsCustomAction": {
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "properties": {
+          "entity": {
+            "$ref": "#/components/schemas/PrintJobs"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "custom": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/CustomField"
+                  }
+                },
+                "nullable": true
+              }
+            },
+            "description": "The parameters of the action.",
+            "nullable": true
+          }
+        }
+      },
+      "Printer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "Description": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "DeviceHub": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "IsActive": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "PrinterName": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "_workflowActions": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/PrinterCustomAction"
+                },
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "PrinterCustomAction": {
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "properties": {
+          "entity": {
+            "$ref": "#/components/schemas/Printer"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "custom": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/CustomField"
+                  }
+                },
+                "nullable": true
+              }
+            },
+            "description": "The parameters of the action.",
+            "nullable": true
+          }
+        }
+      },
+      "ScanJobs": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "DeviceHub": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ErrorMessage": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ErrorTrace": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ScanJobID": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "Scanner": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "Status": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "_workflowActions": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ScanJobsCustomAction"
+                },
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ScanJobsCustomAction": {
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "properties": {
+          "entity": {
+            "$ref": "#/components/schemas/ScanJobs"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "custom": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/CustomField"
+                  }
+                },
+                "nullable": true
+              }
+            },
+            "description": "The parameters of the action.",
+            "nullable": true
+          }
+        }
+      },
+      "Scanner": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "Description": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "DeviceHub": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "FileTypeComboValues": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "FileTypeDefValue": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "IsActive": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "PaperSourceComboValues": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "PaperSourceDefValue": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "PixelTypeComboValues": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "PixelTypeDefValue": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ResolutionComboValues": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ResolutionDefValue": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ScannerName": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "_workflowActions": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ScannerCustomAction"
+                },
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ScannerCustomAction": {
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "properties": {
+          "entity": {
+            "$ref": "#/components/schemas/Scanner"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "custom": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/CustomField"
+                  }
+                },
+                "nullable": true
+              }
+            },
+            "description": "The parameters of the action.",
+            "nullable": true
+          }
+        }
+      },
+      "ShortValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "StringValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      }
+    },
+    "responses": {
+      "ContractBasedControllerBase_401": {
+        "description": "The user is not logged in to the system.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      },
+      "ContractBasedControllerBase_500": {
+        "description": "Internal server error.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      },
+      "InvokeAction_204": {
+        "description": "The operation that was initiated by the action is completed.",
+        "headers": {
+          "Location": {
+            "description": "A URL that can be used to obtain the processed entity through the GET HTTP method.",
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      },
+      "InvokeAction_202": {
+        "description": "The operation is in progress.",
+        "headers": {
+          "Location": {
+            "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      },
+      "InvokeAction_400": {
+        "description": "The data specified in the request is invalid.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      },
+      "InvokeAction_412": {
+        "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      },
+      "InvokeAction_409": {
+        "description": "A long operation is running for this screen in the current session. Please try again later."
+      },
+      "EntityController_409": {
+        "description": "A long operation is running for this screen in the current session. Please try again later."
+      },
+      "DeleteByKeys_204": {
+        "description": "The record is successfully deleted."
+      },
+      "PutFile_204": {
+        "description": "The file is successfully attached.",
+        "headers": {
+          "Location": {
+            "description": "A URL that can be used to retrieve the file from the system.",
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      },
+      "DeleteById_204": {
+        "description": "The record is successfully deleted."
+      },
+      "PutEntity_400": {
+        "description": "The data specified in the request is invalid.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      },
+      "PutEntity_412": {
+        "description": "Either the header of the request specifies that the entity has to be inserted but an entity with these keys already exists in the database and cannot be inserted, or the header specifies that the entity has to be updated but there is no entity with these keys in the database.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      },
+      "PatchEntity_400": {
+        "description": "The data specified in the request is invalid.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      },
+      "PatchEntity_412": {
+        "description": "The PATCH method cannot be used for insertion of a record, but a header of the request specifies that the record has to be inserted.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      },
+      "PatchEntity_404": {
+        "description": "The specified record cannot be found in the system.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      },
+      "StartReport_202": {
+        "description": "The operation is in progress.",
+        "headers": {
+          "Location": {
+            "description": "A URL that can be used to check the status of the operation through the GET HTTP method.",
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      },
+      "StartReport_400": {
+        "description": "The data specified in the request is invalid.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HttpError"
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "actionName": {
+        "name": "actionName",
+        "in": "path",
+        "required": true,
+        "schema": {
           "type": "string"
         }
       },
-      "additionalProperties": {
-        "type": "object"
-      }
-    },
-    "IntValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "error": {
+      "ids": {
+        "name": "ids",
+        "in": "path",
+        "description": "The values of the key fields of the record. The values are slash-delimited.",
+        "required": true,
+        "schema": {
           "type": "string"
         }
-      }
-    },
-    "LongValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "error": {
+      },
+      "select": {
+        "name": "$select",
+        "in": "query",
+        "description": "The fields of the entity to be returned from the system.",
+        "schema": {
           "type": "string"
         }
-      }
-    },
-    "PrintJob": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "CreatedBy": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "CreationDateTime": {
-              "$ref": "#/definitions/DateTimeValue"
-            },
-            "Description": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "DeviceHub": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "JobID": {
-              "$ref": "#/definitions/IntValue"
-            },
-            "ModifiedDateTime": {
-              "$ref": "#/definitions/DateTimeValue"
-            },
-            "NumberOfCopies": {
-              "$ref": "#/definitions/IntValue"
-            },
-            "Parameters": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/PrintJobParameter"
-              }
-            },
-            "Printer": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ReportID": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "Selected": {
-              "$ref": "#/definitions/BooleanValue"
-            },
-            "Status": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "PrintJobParameter": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "JobID": {
-              "$ref": "#/definitions/IntValue"
-            },
-            "ParameterName": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ParameterValue": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "PrintJobs": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "EndDate": {
-              "$ref": "#/definitions/DateTimeValue"
-            },
-            "EndModifiedDateTime": {
-              "$ref": "#/definitions/DateTimeValue"
-            },
-            "HideProcessed": {
-              "$ref": "#/definitions/BooleanValue"
-            },
-            "JobID": {
-              "$ref": "#/definitions/IntValue"
-            },
-            "Jobs": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/PrintJob"
-              }
-            },
-            "StartDate": {
-              "$ref": "#/definitions/DateTimeValue"
-            },
-            "StartModifiedDateTime": {
-              "$ref": "#/definitions/DateTimeValue"
-            }
-          }
-        }
-      ]
-    },
-    "PrintJobsCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/PrintJobs"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "Printer": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "Description": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "DeviceHub": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "IsActive": {
-              "$ref": "#/definitions/BooleanValue"
-            },
-            "PrinterName": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "PrinterCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/Printer"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "ScanJobs": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "DeviceHub": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ErrorMessage": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ErrorTrace": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ScanJobID": {
-              "$ref": "#/definitions/IntValue"
-            },
-            "Scanner": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "Status": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "ScanJobsCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/ScanJobs"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "Scanner": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Entity"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "Description": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "DeviceHub": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "FileTypeComboValues": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "FileTypeDefValue": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "IsActive": {
-              "$ref": "#/definitions/BooleanValue"
-            },
-            "PaperSourceComboValues": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "PaperSourceDefValue": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "PixelTypeComboValues": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "PixelTypeDefValue": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ResolutionComboValues": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ResolutionDefValue": {
-              "$ref": "#/definitions/StringValue"
-            },
-            "ScannerName": {
-              "$ref": "#/definitions/StringValue"
-            }
-          }
-        }
-      ]
-    },
-    "ScannerCustomAction": {
-      "required": [
-        "entity"
-      ],
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/Scanner"
-        },
-        "parameters": {
-          "description": "The parameters of the action.",
-          "type": "object",
-          "properties": {
-            "custom": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/definitions/CustomField"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "ShortValue": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "error": {
+      },
+      "filter": {
+        "name": "$filter",
+        "in": "query",
+        "description": "The conditions that determine which records should be selected from the system.",
+        "schema": {
           "type": "string"
         }
-      }
-    },
-    "StringValue": {
-      "type": "object",
-      "properties": {
-        "value": {
+      },
+      "expand": {
+        "name": "$expand",
+        "in": "query",
+        "description": "The linked and detail entities that should be expanded.",
+        "schema": {
           "type": "string"
-        },
-        "error": {
+        }
+      },
+      "custom": {
+        "name": "$custom",
+        "in": "query",
+        "description": "The fields that are not defined in the contract of the endpoint to be returned from the system.",
+        "schema": {
           "type": "string"
+        }
+      },
+      "filename": {
+        "name": "filename",
+        "in": "path",
+        "description": "The name of the file that you are going to attach with the extension.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "id": {
+        "name": "id",
+        "in": "path",
+        "description": "The session ID of the record.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "The number of records to be skipped from the list of returned records.",
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "The number of records to be returned from the system.",
+        "schema": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     }

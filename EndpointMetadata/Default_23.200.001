@@ -604,6 +604,9 @@
         <Mapping field="WarehouseID">
           <To object="transactions" field="SiteID" />
         </Mapping>
+        <Mapping field="InventorySource">
+          <To object="transactions" field="InventorySource" />
+        </Mapping>
       </Mapping>
       <Mapping field="ExternalRef">
         <To object="adjustment" field="ExtRefNbr" />
@@ -651,6 +654,7 @@
       <Field name="Subitem" type="StringValue" />
       <Field name="UOM" type="StringValue" />
       <Field name="WarehouseID" type="StringValue" />
+      <Field name="InventorySource" type="StringValue" />
     </Fields>
   </Detail>
   <Detail name="Approval">
@@ -1589,7 +1593,7 @@
           <To object="DefContact" field="Salutation" />
         </Mapping>
         <Mapping field="LanguageOrLocale">
-          <To object="DefContact" field="LanguageID" />
+          <To object="BAccount" field="LocaleName" />
         </Mapping>
         <Mapping field="Phone1">
           <To object="DefContact" field="Phone1" />
@@ -2017,7 +2021,7 @@
             <To object="ContactInfo" field="LastName" />
           </Mapping>
           <Mapping field="JobTitle">
-            <To object="ContactInfo" field="JobTitle" />
+            <To object="ContactInfo" field="Salutation" />
           </Mapping>
           <Mapping field="Phone1Type">
             <To object="ContactInfo" field="Phone1Type" />
@@ -2312,8 +2316,8 @@
       <Field name="Activities" type="ActivityDetail[]" />
       <Field name="Attributes" type="AttributeValue[]" />
       <Field name="Billable" type="BooleanValue" />
-      <Field name="BillableOvertime" type="IntValue" />
-      <Field name="BillableTime" type="IntValue" />
+      <Field name="BillableOvertime" type="StringValue" />
+      <Field name="BillableTime" type="StringValue" />
       <Field name="BusinessAccount" type="StringValue" />
       <Field name="BusinessAccountName" type="StringValue" />
       <Field name="CaseID" type="StringValue" />
@@ -5151,7 +5155,7 @@
             <To object="ContactInfo" field="LastName" />
           </Mapping>
           <Mapping field="JobTitle">
-            <To object="ContactInfo" field="JobTitle" />
+            <To object="ContactInfo" field="Salutation" />
           </Mapping>
           <Mapping field="Phone1Type">
             <To object="ContactInfo" field="Phone1Type" />
@@ -7620,9 +7624,6 @@
       <Field name="YearEndCalculationMethod" type="StringValue" />
     </Fields>
     <Mappings>
-      <Mapping field="AdjustToPeriodStart">
-        <To object="FiscalYearSetup" field="AdjustToPeriodStart" />
-      </Mapping>
       <Mapping field="BelongsToNextYear">
         <To object="FiscalYearSetup" field="BelongsToNextYear" />
       </Mapping>
@@ -8248,7 +8249,7 @@
       <Field name="UOM" type="StringValue" />
     </Fields>
   </Detail>
-  <TopLevelEntity name="InventoryQuantityAvailable" screen="GI640590">
+  <TopLevelEntity name="InventoryQuantityAvailable" screen="SO640590">
     <Fields>
       <Field name="InventoryID" type="StringValue" />
       <Field name="Results" type="InventoryQuantityAvailableDetail[]" />
@@ -8949,7 +8950,6 @@
         <To object="itemsitesettings" field="DfltReceiptLocationID" />
       </Mapping>
       <Mapping field="DefaultSubitem">
-        <To object="itemsitesettings: 6" field="InventoryItem__DefaultSubItemID" />
       </Mapping>
       <Mapping field="InventoryAccount">
         <To object="itemsitesettings: 2" field="InvtAcctID" />
@@ -9254,7 +9254,6 @@
           <To object="Overhead" field="Qty" />
         </Mapping>
         <Mapping field="ReasonCode">
-          <To object="Overhead" field="ReasonCode" />
         </Mapping>
         <Mapping field="UnitCost">
           <To object="Overhead" field="UnitCost" />
@@ -9383,7 +9382,7 @@
       <Field name="LineNbr" type="IntValue" />
       <Field name="NonStockInventoryID" type="StringValue" />
       <Field name="Qty" type="DecimalValue" />
-      <Field name="ReasonCode" type="StringValue" />
+	  <Field name="ReasonCode" type="StringValue" />
       <Field name="UnitCost" type="DecimalValue" />
       <Field name="UOM" type="StringValue" />
     </Fields>
@@ -10058,7 +10057,7 @@
             <To object="ContactInfo" field="LastName" />
           </Mapping>
           <Mapping field="JobTitle">
-            <To object="ContactInfo" field="JobTitle" />
+            <To object="ContactInfo" field="Salutation" />
           </Mapping>
           <Mapping field="Phone1Type">
             <To object="ContactInfo" field="Phone1Type" />
@@ -10162,10 +10161,10 @@
             <To object="ContactInfo" field="LastName" />
           </Mapping>
           <Mapping field="AccountName">
-            <To object="ContactInfo" field="AccountName" />
+            <To object="ContactInfo" field="FullName" />
           </Mapping>
           <Mapping field="JobTitle">
-            <To object="ContactInfo" field="JobTitle" />
+            <To object="ContactInfo" field="Salutation" />
           </Mapping>
           <Mapping field="Phone1Type">
             <To object="ContactInfo" field="Phone1Type" />
@@ -10195,10 +10194,10 @@
             <To object="AccountInfo" field="AccountClass" />
           </Mapping>
           <Mapping field="OpportunitySubject">
-            <To object="OpportunityInfo" field="OpportunitySubject" />
+            <To object="OpportunityInfo" field="Subject" />
           </Mapping>
           <Mapping field="OpportunityCloseDate">
-            <To object="OpportunityInfo" field="OpportunityCloseDate" />
+            <To object="OpportunityInfo" field="CloseDate" />
           </Mapping>
           <Mapping field="OpportunityClass">
             <To object="OpportunityInfo" field="OpportunityClass" />
@@ -10879,7 +10878,7 @@
         </Mapping>
       </Mapping>
       <Mapping field="ConvertedLeadDisplayName">
-        <To object="OpportunityCurrent" field="LeadID%DisplayName" />
+        <To object="OpportunityCurrent" field="LeadID_description" />
       </Mapping>
       <Mapping field="ConvertedLeadID">
         <To object="OpportunityCurrent" field="LeadID%ContactID" />
@@ -10950,10 +10949,10 @@
         <To object="OpportunityCurrent: 1" field="AllowOverrideContactAddress" />
       </Mapping>
       <Mapping field="Owner">
-        <To object="OpportunityCurrent" field="OwnerID" />
+        <To object="Opportunity" field="OwnerID" />
       </Mapping>
       <Mapping field="OwnerEmployeeName">
-        <To object="OpportunityCurrent" field="OwnerID_description" />
+        <To object="Opportunity" field="OwnerID_description" />
       </Mapping>
       <Mapping field="ParentAccount">
         <To object="OpportunityCurrent" field="ParentBAccountID" />
@@ -11155,10 +11154,10 @@
             <To object="ContactInfo" field="LastName" />
           </Mapping>
           <Mapping field="AccountName">
-            <To object="ContactInfo" field="AccountName" />
+            <To object="ContactInfo" field="FullName" />
           </Mapping>
           <Mapping field="JobTitle">
-            <To object="ContactInfo" field="JobTitle" />
+            <To object="ContactInfo" field="Salutation" />
           </Mapping>
           <Mapping field="Phone1Type">
             <To object="ContactInfo" field="Phone1Type" />
@@ -11220,10 +11219,10 @@
             <To object="ContactInfo" field="LastName" />
           </Mapping>
           <Mapping field="AccountName">
-            <To object="ContactInfo" field="AccountName" />
+            <To object="ContactInfo" field="FullName" />
           </Mapping>
           <Mapping field="JobTitle">
-            <To object="ContactInfo" field="JobTitle" />
+            <To object="ContactInfo" field="Salutation" />
           </Mapping>
           <Mapping field="Phone1Type">
             <To object="ContactInfo" field="Phone1Type" />
@@ -13348,7 +13347,7 @@
         <To object="Items" field="RetainagePct" />
       </Mapping>
       <Mapping field="RevenueTask">
-        <To object="Items" field="RevenueTaskID" />
+        <To object="Items" field="RevenueTaskIDApiEndPoint" />
       </Mapping>
       <Mapping field="RevisedBudgetedAmount">
         <To object="Items" field="CuryRevisedAmount" />
@@ -16950,9 +16949,6 @@
       <Mapping field="NoteID">
         <To object="Document" field="NoteID" />
       </Mapping>
-      <Mapping field="UsrExternalOrderOriginal">
-        <To object="Document" field="UsrExternalOrderOriginal" />
-      </Mapping>
       <Mapping field="Details">
         <Mapping field="GiftMessage">
           <To object="Transactions" field="GiftMessage" />
@@ -17997,9 +17993,6 @@
       </Mapping>
       <Mapping field="BoxWeight">
         <To object="Records" field="BoxWeight" />
-      </Mapping>
-      <Mapping field="CarriersPackage">
-        <To object="Records" field="CarrierBox" />
       </Mapping>
       <Mapping field="Description">
         <To object="Records" field="Description" />
@@ -19704,9 +19697,6 @@
       <Mapping field="Summary">
         <To object="Items" field="Summary" />
       </Mapping>
-      <Mapping field="Time">
-        <To object="Items" field="Date" />
-      </Mapping>
       <Mapping field="TimeEntryID">
         <To object="Items" field="NoteID" />
       </Mapping>
@@ -20017,7 +20007,6 @@
       <Field name="ThresholdReceipt" type="DecimalValue" />
       <Field name="VendorClass" type="StringValue" />
       <Field name="VendorID" type="StringValue" />
-      <Field name="VendorIsLaborUnion" type="BooleanValue" />
       <Field name="VendorIsTaxAgency" type="BooleanValue" />
       <Field name="VendorName" type="StringValue" />
       <Field name="Warehouse" type="StringValue" />
@@ -20626,9 +20615,6 @@
       <Mapping field="VendorID">
         <To object="BAccount" field="AcctCD" />
       </Mapping>
-      <Mapping field="VendorIsLaborUnion">
-        <To object="CurrentVendor: 2" field="IsLaborUnion" />
-      </Mapping>
       <Mapping field="VendorIsTaxAgency">
         <To object="CurrentVendor: 2" field="TaxAgency" />
       </Mapping>
@@ -20660,7 +20646,7 @@
             <To object="ContactInfo" field="LastName" />
           </Mapping>
           <Mapping field="JobTitle">
-            <To object="ContactInfo" field="JobTitle" />
+            <To object="ContactInfo" field="Salutation" />
           </Mapping>
           <Mapping field="Phone1Type">
             <To object="ContactInfo" field="Phone1Type" />
@@ -21731,14 +21717,14 @@
       </Mapping>
     </Mappings>
     <Actions>
-      <Action name="CompleteOrder" mappedTo="CompleteOrder@ActionsMenu" />
-      <Action name="CancelOrder" mappedTo="CancelOrder@ActionsMenu" />
-      <Action name="ReopenOrder" mappedTo="ReopenOrder@ActionsMenu" />
-      <Action name="CloseOrder" mappedTo="CloseOrder@ActionsMenu" />
-      <Action name="UncloseOrder" mappedTo="UncloseOrder@ActionsMenu" />
-      <Action name="InvoiceOrder" mappedTo="InvoiceOrder@ActionsMenu" />
-      <Action name="AllowBilling" mappedTo="AllowBilling@ActionsMenu" />
-      <Action name="RecalcExternalTax" mappedTo="RecalcExternalTax@ActionsMenu" />
+      <Action name="CompleteOrder" mappedTo="CompleteOrder" />
+      <Action name="CancelOrder" mappedTo="CancelOrder" />
+      <Action name="ReopenOrder" mappedTo="ReopenOrder" />
+      <Action name="CloseOrder" mappedTo="CloseOrder" />
+      <Action name="UncloseOrder" mappedTo="UncloseOrder" />
+      <Action name="InvoiceOrder" mappedTo="InvoiceOrder" />
+      <Action name="AllowBilling" mappedTo="AllowBilling" />
+      <Action name="RecalcExternalTax" mappedTo="RecalcExternalTax" />
     </Actions>
   </TopLevelEntity>
   <LinkedEntity name="SrvOrdAddress">
@@ -22442,19 +22428,13 @@
         <To object="AppointmentSelected: 2" field="ScheduledDuration" />
       </Mapping>
       <Mapping field="ScheduledEndDate">
-        <To object="AppointmentSelected: 2" field="ScheduledDateTimeEnd_Date" />
-      </Mapping>
-      <Mapping field="ScheduledEndTime">
-        <To object="AppointmentSelected: 2" field="ScheduledDateTimeEnd_Time" />
+        <To object="AppointmentSelected: 2" field="ScheduledDateTimeEnd" />
       </Mapping>
       <Mapping field="ScheduledHandleManually">
         <To object="AppointmentSelected: 2" field="HandleManuallyScheduleTime" />
       </Mapping>
       <Mapping field="ScheduledStartDate">
-        <To object="AppointmentSelected: 2" field="ScheduledDateTimeBegin_Date" />
-      </Mapping>
-      <Mapping field="ScheduledStartTime">
-        <To object="AppointmentSelected: 2" field="ScheduledDateTimeBegin_Time" />
+        <To object="AppointmentSelected: 2" field="ScheduledDateTimeBegin" />
       </Mapping>
       <Mapping field="ServiceOrderNbr">
         <To object="AppointmentRecords" field="SORefNbr" />
@@ -22641,16 +22621,16 @@
       </Mapping>
     </Mappings>
     <Actions>
-      <Action name="CancelAppointment" mappedTo="CancelAppointment@MenuActions" />
-      <Action name="CloseAppointment" mappedTo="CloseAppointment@MenuActions" />
-      <Action name="CompleteAppointment" mappedTo="CompleteAppointment@MenuActions" />
-      <Action name="InvoiceAppointment" mappedTo="InvoiceAppointment@MenuActions" />
-      <Action name="AppRecalcExternalTax" mappedTo="RecalcExternalTax@MenuActions" />
-      <Action name="PauseAppointment" mappedTo="PauseAppointment@MenuActions" />
-      <Action name="ReopenAppointment" mappedTo="ReopenAppointment@MenuActions" />
-      <Action name="StartAppointment" mappedTo="StartAppointment@MenuActions" />
-      <Action name="ResumeAppointmentMenuActions" mappedTo="ResumeAppointment@MenuActions" />
-      <Action name="UncloseAppointmentMenuActions" mappedTo="UncloseAppointment@MenuActions" />
+      <Action name="CancelAppointment" mappedTo="CancelAppointment" />
+      <Action name="CloseAppointment" mappedTo="CloseAppointment" />
+      <Action name="CompleteAppointment" mappedTo="CompleteAppointment" />
+      <Action name="InvoiceAppointment" mappedTo="InvoiceAppointment" />
+      <Action name="AppRecalcExternalTax" mappedTo="RecalcExternalTax" />
+      <Action name="PauseAppointment" mappedTo="PauseAppointment" />
+      <Action name="ReopenAppointment" mappedTo="ReopenAppointment" />
+      <Action name="StartAppointment" mappedTo="StartAppointment" />
+      <Action name="ResumeAppointmentMenuActions" mappedTo="ResumeAppointment" />
+      <Action name="UncloseAppointmentMenuActions" mappedTo="UncloseAppointment" />
     </Actions>
   </TopLevelEntity>
   <Detail name="AppDetails">
@@ -25814,9 +25794,6 @@
       <Mapping field="APIKey">
         <To object="CurrentBindingShopify" field="ShopifyApiKey" />
       </Mapping>
-      <Mapping field="APIPassword">
-        <To object="CurrentBindingShopify" field="ShopifyApiPassword" />
-      </Mapping>
       <Mapping field="SharedSecret">
         <To object="CurrentBindingShopify" field="StoreSharedSecret" />
       </Mapping>
@@ -26011,7 +25988,7 @@
         <To object="ItemSettings: 10" field="StdCost" />
       </Mapping>
       <Mapping field="DefaultIssueLocationID">
-        <To object="ItemSettings: 2" field="DfltShipLocationID%LocationCD" />
+        <To object="ItemSettings: 2" field="DfltShipLocationID" />
       </Mapping>
       <Mapping field="DefaultPrice">
         <To object="ItemSettings: 9" field="BasePrice" />

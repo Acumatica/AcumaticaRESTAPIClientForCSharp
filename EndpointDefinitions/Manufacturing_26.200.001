@@ -1,12 +1,12 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "MANUFACTURING/25.100.001",
-    "version": "4"
+    "title": "MANUFACTURING/26.200.001",
+    "version": "5"
   },
   "servers": [
     {
-      "url": "http://bel-u23-nodea.int.adds.acumatica.com:30021/entity/MANUFACTURING/25.100.001"
+      "url": "http://bel-u23-nodea.int.adds.acumatica.com:30021/entity/MANUFACTURING/26.200.001"
     }
   ],
   "paths": {
@@ -31559,6 +31559,531 @@
           }
         }
       }
+    },
+    "/MFGDepartment/{actionName}": {
+      "post": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "MFGDepartment_InvokeAction_CustomAction",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/actionName"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to which the action should be applied and the parameters of the action.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MFGDepartmentCustomAction"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MFGDepartmentCustomAction"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "invocation"
+        },
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "204": {
+            "$ref": "#/components/responses/InvokeAction_204"
+          },
+          "202": {
+            "$ref": "#/components/responses/InvokeAction_202"
+          },
+          "400": {
+            "$ref": "#/components/responses/InvokeAction_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/InvokeAction_412"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/InvokeAction_409"
+          }
+        }
+      }
+    },
+    "/MFGDepartment/$adHocSchema": {
+      "get": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
+        "operationId": "MFGDepartment_GetAdHocSchema",
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The field name, field type, view name, action name, and parameter names and types for fields and workflow actions that are not defined in the contract of the endpoint for this entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/MFGDepartment/{ids}": {
+      "get": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Retrieves a record by the values of its key fields from the system.",
+        "operationId": "MFGDepartment_GetByKeys",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ids"
+          },
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The requested record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Deletes the record by the values of its key fields.",
+        "operationId": "MFGDepartment_DeleteByKeys",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ids"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "204": {
+            "$ref": "#/components/responses/DeleteByKeys_204"
+          }
+        }
+      }
+    },
+    "/MFGDepartment/{ids}/files/{filename}": {
+      "put": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Attaches a file to a record.",
+        "operationId": "MFGDepartment_PutFile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ids"
+          },
+          {
+            "$ref": "#/components/parameters/filename"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "204": {
+            "$ref": "#/components/responses/PutFile_204"
+          }
+        }
+      }
+    },
+    "/MFGDepartment/{id}": {
+      "get": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Retrieves a record by the value of the session entity ID from the system.",
+        "operationId": "MFGDepartment_GetById",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          },
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The requested record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Deletes the record by its session identifier.",
+        "operationId": "MFGDepartment_DeleteById",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "204": {
+            "$ref": "#/components/responses/DeleteById_204"
+          }
+        }
+      }
+    },
+    "/MFGDepartment": {
+      "get": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Retrieves records that satisfy the specified conditions from the system.",
+        "operationId": "MFGDepartment_GetList",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/top"
+          }
+        ],
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The list of records that satisfy the specified conditions.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MFGDepartment"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MFGDepartment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Creates a record or updates an existing record.",
+        "operationId": "MFGDepartment_PutEntity",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to be passed to the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MFGDepartment"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MFGDepartment"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The created or updated record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/PutEntity_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/PutEntity_412"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "MFGDepartment"
+        ],
+        "summary": "Updates the fields of an existing record that are specified in the request body.",
+        "operationId": "MFGDepartment_PatchEntity",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/custom"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to be updated in the system.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MFGDepartment"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MFGDepartment"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "entity"
+        },
+        "responses": {
+          "409": {
+            "$ref": "#/components/responses/EntityController_409"
+          },
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "200": {
+            "description": "The updated record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/PatchEntity_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/PatchEntity_412"
+          },
+          "404": {
+            "$ref": "#/components/responses/PatchEntity_404"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MFGDepartment"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -34368,6 +34893,30 @@
           }
         ]
       },
+      "CustomIntSingleSelectField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/IntSelectInnerValue"
+                  }
+                ],
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "CustomLongField": {
         "allOf": [
           {
@@ -34420,6 +34969,53 @@
             "properties": {
               "value": {
                 "type": "string",
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CustomStringMultiSelectField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/StringSelectInnerValue"
+                },
+                "nullable": true
+              },
+              "error": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CustomStringSingleSelectField": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/StringSelectInnerValue"
+                  }
+                ],
                 "nullable": true
               },
               "error": {
@@ -36460,14 +37056,6 @@
               "OutsideProcess": {
                 "$ref": "#/components/schemas/BooleanValue"
               },
-              "OutsideProcessOptions": {
-                "anyOf": [
-                  {
-                    "$ref": "#/components/schemas/EstimateOperationOutsideProcess"
-                  }
-                ],
-                "nullable": true
-              },
               "Overheads": {
                 "type": "array",
                 "items": {
@@ -36690,30 +37278,6 @@
                 "$ref": "#/components/schemas/DecimalValue"
               },
               "WorkCenter": {
-                "$ref": "#/components/schemas/StringValue"
-              }
-            }
-          }
-        ]
-      },
-      "EstimateOperationOutsideProcess": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Entity"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "DropShippedtoVendor": {
-                "$ref": "#/components/schemas/BooleanValue"
-              },
-              "OutsideProcess": {
-                "$ref": "#/components/schemas/BooleanValue"
-              },
-              "Vendor": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "VendorLocation": {
                 "$ref": "#/components/schemas/StringValue"
               }
             }
@@ -37300,6 +37864,40 @@
         "additionalProperties": {
           "type": "object"
         }
+      },
+      "IntSelectInnerValue": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "IntSingleSelectValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/IntSelectInnerValue"
+              }
+            ],
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
       },
       "IntValue": {
         "type": "object",
@@ -37998,6 +38596,117 @@
         },
         "nullable": true
       },
+      "MFGDepartment": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "Description": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "Details": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MFGDepartmentDetail"
+                },
+                "nullable": true
+              },
+              "ManufacturingDepartmentID": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "Warehouse": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "_workflowActions": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/MFGDepartmentCustomAction"
+                },
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "MFGDepartmentCustomAction": {
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "properties": {
+          "entity": {
+            "$ref": "#/components/schemas/MFGDepartment"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "custom": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/CustomField"
+                  }
+                },
+                "nullable": true
+              }
+            },
+            "description": "The parameters of the action.",
+            "nullable": true
+          }
+        }
+      },
+      "MFGDepartmentDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "Active": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "AllowClockEntryforMultipleProductionOrders": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "BackflushLabor": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "BackflushMaterials": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "BasisforCapacity": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ControlPoint": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "Description": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "OutsideProcess": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "ScrapActionDefault": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "StandardCost": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "Warehouse": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "WorkCenter": {
+                "$ref": "#/components/schemas/StringValue"
+              }
+            }
+          }
+        ]
+      },
       "MPSType": {
         "allOf": [
           {
@@ -38155,19 +38864,43 @@
               "BaseUnit": {
                 "$ref": "#/components/schemas/StringValue"
               },
+              "DaysOfSupply": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "EOQ": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
               "InventoryID": {
                 "$ref": "#/components/schemas/StringValue"
+              },
+              "LotMultiple": {
+                "$ref": "#/components/schemas/DecimalValue"
               },
               "LotQty": {
                 "$ref": "#/components/schemas/DecimalValue"
               },
+              "ManufacturingEOQ": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "MaxLotSize": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
               "MaxOrderQty": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "MaxQty": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "MinLotSize": {
                 "$ref": "#/components/schemas/DecimalValue"
               },
               "MinOrderQty": {
                 "$ref": "#/components/schemas/DecimalValue"
               },
               "QtyOnHand": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "ReorderPoint": {
                 "$ref": "#/components/schemas/DecimalValue"
               },
               "Results": {
@@ -38182,6 +38915,9 @@
               },
               "Subitem": {
                 "$ref": "#/components/schemas/StringValue"
+              },
+              "TransferERQ": {
+                "$ref": "#/components/schemas/DecimalValue"
               },
               "Warehouse": {
                 "$ref": "#/components/schemas/StringValue"
@@ -38233,6 +38969,9 @@
           {
             "type": "object",
             "properties": {
+              "ConsolidationID": {
+                "$ref": "#/components/schemas/StringValue"
+              },
               "ParentInventoryID": {
                 "$ref": "#/components/schemas/StringValue"
               },
@@ -38636,11 +39375,11 @@
               "QtyonHand": {
                 "$ref": "#/components/schemas/DecimalValue"
               },
+              "ReorderPoint": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
               "RepSource": {
                 "$ref": "#/components/schemas/StringValue"
-              },
-              "SafetyStock": {
-                "$ref": "#/components/schemas/DecimalValue"
               },
               "Subitem": {
                 "$ref": "#/components/schemas/StringValue"
@@ -40569,6 +41308,15 @@
               "DefaultWarehousefromUserProfile": {
                 "$ref": "#/components/schemas/BooleanValue"
               },
+              "QtyEnterModeInLabor": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "QtyEnterModeInMaterials": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "QtyEnterModeInMove": {
+                "$ref": "#/components/schemas/StringValue"
+              },
               "RequestLocationforEachIteminMaterials": {
                 "$ref": "#/components/schemas/BooleanValue"
               },
@@ -40576,12 +41324,6 @@
                 "$ref": "#/components/schemas/BooleanValue"
               },
               "UseDefaultOrderType": {
-                "$ref": "#/components/schemas/BooleanValue"
-              },
-              "UseDefaultQuantityinMaterials": {
-                "$ref": "#/components/schemas/BooleanValue"
-              },
-              "UseDefaultQuantityinMoveLabor": {
                 "$ref": "#/components/schemas/BooleanValue"
               },
               "UseExplicitLineConfirmation": {
@@ -40653,6 +41395,9 @@
               },
               "DispatchPriority": {
                 "$ref": "#/components/schemas/ShortValue"
+              },
+              "DueDate": {
+                "$ref": "#/components/schemas/DateOnlyValue"
               },
               "EndDate": {
                 "$ref": "#/components/schemas/DateTimeValue"
@@ -42165,6 +42910,56 @@
           }
         ]
       },
+      "StringMultiSelectValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringSelectInnerValue"
+            },
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "StringSelectInnerValue": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "StringSingleSelectValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StringSelectInnerValue"
+              }
+            ],
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
       "StringValue": {
         "type": "object",
         "properties": {
@@ -42494,9 +43289,6 @@
           {
             "type": "object",
             "properties": {
-              "Active": {
-                "$ref": "#/components/schemas/BooleanValue"
-              },
               "BackflushLabor": {
                 "$ref": "#/components/schemas/BooleanValue"
               },
@@ -42735,6 +43527,9 @@
                 "$ref": "#/components/schemas/StringValue"
               },
               "DefaultQueueTime": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "DepartmentID": {
                 "$ref": "#/components/schemas/StringValue"
               },
               "Description": {
@@ -43427,6 +44222,10 @@
     {
       "name": "MaterialEntry",
       "description": "Materials (AM300000)"
+    },
+    {
+      "name": "MFGDepartment",
+      "description": "Manufacturing Departments (AM217000)"
     },
     {
       "name": "MoveEntry",

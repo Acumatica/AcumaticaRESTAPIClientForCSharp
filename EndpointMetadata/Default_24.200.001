@@ -604,6 +604,9 @@
         <Mapping field="WarehouseID">
           <To object="transactions" field="SiteID" />
         </Mapping>
+        <Mapping field="InventorySource">
+          <To object="transactions" field="InventorySource" />
+        </Mapping>
       </Mapping>
       <Mapping field="ExternalRef">
         <To object="adjustment" field="ExtRefNbr" />
@@ -651,6 +654,7 @@
       <Field name="Subitem" type="StringValue" />
       <Field name="UOM" type="StringValue" />
       <Field name="WarehouseID" type="StringValue" />
+      <Field name="InventorySource" type="StringValue" />
     </Fields>
   </Detail>
   <Detail name="Approval">
@@ -1602,7 +1606,7 @@
           <To object="DefContact" field="Salutation" />
         </Mapping>
         <Mapping field="LanguageOrLocale">
-          <To object="DefContact" field="LanguageID" />
+          <To object="BAccount" field="LocaleName" />
         </Mapping>
         <Mapping field="Phone1">
           <To object="DefContact" field="Phone1" />
@@ -2325,8 +2329,8 @@
       <Field name="Activities" type="ActivityDetail[]" />
       <Field name="Attributes" type="AttributeValue[]" />
       <Field name="Billable" type="BooleanValue" />
-      <Field name="BillableOvertime" type="IntValue" />
-      <Field name="BillableTime" type="IntValue" />
+      <Field name="BillableOvertime" type="StringValue" />
+      <Field name="BillableTime" type="StringValue" />
       <Field name="BusinessAccount" type="StringValue" />
       <Field name="BusinessAccountName" type="StringValue" />
       <Field name="CaseID" type="StringValue" />
@@ -7644,9 +7648,6 @@
       <Field name="YearEndCalculationMethod" type="StringValue" />
     </Fields>
     <Mappings>
-      <Mapping field="AdjustToPeriodStart">
-        <To object="FiscalYearSetup" field="AdjustToPeriodStart" />
-      </Mapping>
       <Mapping field="BelongsToNextYear">
         <To object="FiscalYearSetup" field="BelongsToNextYear" />
       </Mapping>
@@ -8977,7 +8978,6 @@
         <To object="itemsitesettings" field="DfltReceiptLocationID" />
       </Mapping>
       <Mapping field="DefaultSubitem">
-        <To object="itemsitesettings: 6" field="InventoryItem__DefaultSubItemID" />
       </Mapping>
       <Mapping field="InventoryAccount">
         <To object="itemsitesettings: 2" field="InvtAcctID" />
@@ -9282,7 +9282,6 @@
           <To object="Overhead" field="Qty" />
         </Mapping>
         <Mapping field="ReasonCode">
-          <To object="Overhead" field="ReasonCode" />
         </Mapping>
         <Mapping field="UnitCost">
           <To object="Overhead" field="UnitCost" />
@@ -9411,7 +9410,7 @@
       <Field name="LineNbr" type="IntValue" />
       <Field name="NonStockInventoryID" type="StringValue" />
       <Field name="Qty" type="DecimalValue" />
-      <Field name="ReasonCode" type="StringValue" />
+	  <Field name="ReasonCode" type="StringValue" />
       <Field name="UnitCost" type="DecimalValue" />
       <Field name="UOM" type="StringValue" />
     </Fields>
@@ -10986,10 +10985,10 @@
         <To object="OpportunityCurrent: 1" field="AllowOverrideContactAddress" />
       </Mapping>
       <Mapping field="Owner">
-        <To object="OpportunityCurrent" field="OwnerID" />
+        <To object="Opportunity" field="OwnerID" />
       </Mapping>
       <Mapping field="OwnerEmployeeName">
-        <To object="OpportunityCurrent" field="OwnerID_description" />
+        <To object="Opportunity" field="OwnerID_description" />
       </Mapping>
       <Mapping field="ParentAccount">
         <To object="OpportunityCurrent" field="ParentBAccountID" />
@@ -11628,6 +11627,9 @@
         <Mapping field="TranNbr">
           <To object="apiInputCCTran" field="PCTranNumber" />
         </Mapping>
+        <Mapping field="TranApiNbr">
+          <To object="apiInputCCTran" field="PCTranApiNumber" />
+        </Mapping>
         <Mapping field="TranType">
           <To object="apiInputCCTran" field="TranType" />
         </Mapping>
@@ -11688,6 +11690,7 @@
         <Fields>
           <Field name="TranType" type="StringValue" />
           <Field name="TranNbr" type="StringValue" />
+		  <Field name="TranApiNbr" type="StringValue" />
           <Field name="ExtProfileId" type="StringValue" />
           <Field name="TranDate" type="DateTimeValue" />
           <Field name="NeedValidation" type="BooleanValue" />
@@ -11699,6 +11702,9 @@
           </Mapping>
           <Mapping field="TranNbr">
             <To object="apiInputCCTran" field="PCTranNumber" />
+          </Mapping>
+		  <Mapping field="TranApiNbr">
+            <To object="apiInputCCTran" field="PCTranApiNumber" />
           </Mapping>
           <Mapping field="ExtProfileId">
             <To object="apiInputCCTran" field="ExtProfileId" />
@@ -11718,6 +11724,7 @@
         <Fields>
           <Field name="TranType" type="StringValue" />
           <Field name="TranNbr" type="StringValue" />
+		  <Field name="TranApiNbr" type="StringValue" />
           <Field name="AuthNumber" type="StringValue" />
           <Field name="ExtProfileId" type="StringValue" />
           <Field name="TranDate" type="DateTimeValue" />
@@ -11730,6 +11737,9 @@
           </Mapping>
           <Mapping field="TranNbr">
             <To object="apiInputCCTran" field="PCTranNumber" />
+          </Mapping>
+		  <Mapping field="TranApiNbr">
+            <To object="apiInputCCTran" field="PCTranApiNumber" />
           </Mapping>
           <Mapping field="AuthNumber">
             <To object="apiInputCCTran" field="AuthNumber" />
@@ -13384,7 +13394,7 @@
         <To object="Items" field="RetainagePct" />
       </Mapping>
       <Mapping field="RevenueTask">
-        <To object="Items" field="RevenueTaskID" />
+        <To object="Items" field="RevenueTaskIDApiEndPoint" />
       </Mapping>
       <Mapping field="RevisedBudgetedAmount">
         <To object="Items" field="CuryRevisedAmount" />
@@ -15708,7 +15718,7 @@
           <To object="Transactions" field="SiteID" />
         </Mapping>
         <Mapping field="ExternalRef">
-          <To object="Transactions" field="UsrExternalRef" />
+          <To object="Transactions" field="ExternalRef" />
         </Mapping>
         <Mapping field="Account">
           <To object="Transactions" field="AccountID" />
@@ -17107,9 +17117,6 @@
       </Mapping>
       <Mapping field="NoteID">
         <To object="Document" field="NoteID" />
-      </Mapping>
-      <Mapping field="UsrExternalOrderOriginal">
-        <To object="Document" field="UsrExternalOrderOriginal" />
       </Mapping>
       <Mapping field="Details">
         <Mapping field="GiftMessage">
@@ -19893,9 +19900,6 @@
       <Mapping field="Summary">
         <To object="Items" field="Summary" />
       </Mapping>
-      <Mapping field="Time">
-        <To object="Items" field="Date" />
-      </Mapping>
       <Mapping field="TimeEntryID">
         <To object="Items" field="NoteID" />
       </Mapping>
@@ -20229,7 +20233,6 @@
       <Field name="ThresholdReceipt" type="DecimalValue" />
       <Field name="VendorClass" type="StringValue" />
       <Field name="VendorID" type="StringValue" />
-      <Field name="VendorIsLaborUnion" type="BooleanValue" />
       <Field name="VendorIsTaxAgency" type="BooleanValue" />
       <Field name="VendorName" type="StringValue" />
       <Field name="Warehouse" type="StringValue" />
@@ -20837,9 +20840,6 @@
       </Mapping>
       <Mapping field="VendorID">
         <To object="BAccount" field="AcctCD" />
-      </Mapping>
-      <Mapping field="VendorIsLaborUnion">
-        <To object="CurrentVendor: 2" field="IsLaborUnion" />
       </Mapping>
       <Mapping field="VendorIsTaxAgency">
         <To object="CurrentVendor: 2" field="TaxAgency" />
@@ -22654,19 +22654,13 @@
         <To object="AppointmentSelected: 2" field="ScheduledDuration" />
       </Mapping>
       <Mapping field="ScheduledEndDate">
-        <To object="AppointmentSelected: 2" field="ScheduledDateTimeEnd_Date" />
-      </Mapping>
-      <Mapping field="ScheduledEndTime">
-        <To object="AppointmentSelected: 2" field="ScheduledDateTimeEnd_Time" />
+        <To object="AppointmentSelected: 2" field="ScheduledDateTimeEnd" />
       </Mapping>
       <Mapping field="ScheduledHandleManually">
         <To object="AppointmentSelected: 2" field="HandleManuallyScheduleTime" />
       </Mapping>
       <Mapping field="ScheduledStartDate">
-        <To object="AppointmentSelected: 2" field="ScheduledDateTimeBegin_Date" />
-      </Mapping>
-      <Mapping field="ScheduledStartTime">
-        <To object="AppointmentSelected: 2" field="ScheduledDateTimeBegin_Time" />
+        <To object="AppointmentSelected: 2" field="ScheduledDateTimeBegin" />
       </Mapping>
       <Mapping field="ServiceOrderNbr">
         <To object="AppointmentRecords" field="SORefNbr" />
@@ -23147,6 +23141,7 @@
   <Detail name="CreditCardTransactionDetail">
     <Fields>
       <Field name="TranNbr" type="StringValue" />
+      <Field name="TranApiNbr" type="StringValue" />
       <Field name="TranType" type="StringValue" />
       <Field name="AuthNbr" type="StringValue" />
       <Field name="TranDate" type="DateTimeValue" />
@@ -25353,6 +25348,7 @@
 		<Field name="AccrualMethod" type="StringValue" />
 		<Field name="AccrueonCertifiedJobOnly" type="BooleanValue" />
 		<Field name="Active" type="BooleanValue" />
+		<Field name="ApplicableEarningTypes" type="PTOBankApplicableEarningType" />
 		<Field name="ApplyBandingRules" type="BooleanValue" />
 		<Field name="BandingRules" type="PTOBankBandingRule" />
 		<Field name="CarryoverType" type="StringValue" />
@@ -25418,6 +25414,16 @@
 			</Mapping>
 			<Mapping field="RoundingMethodforYearsofService">
 				<To object="CurrentBank: 3" field="BandingRuleRoundingMethod" />
+			</Mapping>
+		</Mapping>
+		<Mapping field="ApplicableEarningTypes">
+			<Mapping field="ApplicableEarningTypeDetail">
+				<Mapping field="EarningType">
+					<To object="ApplicableEarningTypes" field="EarningTypeCD" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="AccrueTimeOffBasedOn">
+				<To object="CurrentBank: 4" field="ApplicableEarningIncludeType" />
 			</Mapping>
 		</Mapping>
 		<Mapping field="TransferDateDay">
@@ -25552,6 +25558,17 @@
 		<Field name="HoursperYear" type="DecimalValue" />
 		<Field name="LastModifiedDateTime" type="DateTimeValue" />
 		<Field name="YearsofService" type="IntValue" />
+	</Fields>
+</Detail>
+<LinkedEntity name="PTOBankApplicableEarningType">
+	<Fields>
+		<Field name="ApplicableEarningTypeDetail" type="PTOBankApplicableEarningTypeDetail[]" />
+		<Field name="AccrueTimeOffBasedOn" type="StringValue" />
+	</Fields>
+</LinkedEntity>
+<Detail name="PTOBankApplicableEarningTypeDetail">
+	<Fields>
+		<Field name="EarningType" type="StringValue" />
 	</Fields>
 </Detail>
   <LinkedEntity name="TaxesDecreasingApplWage">
@@ -26248,7 +26265,7 @@
         <To object="ItemSettings: 10" field="StdCost" />
       </Mapping>
       <Mapping field="DefaultIssueLocationID">
-        <To object="ItemSettings: 2" field="DfltShipLocationID%LocationCD" />
+        <To object="ItemSettings: 2" field="DfltShipLocationID" />
       </Mapping>
       <Mapping field="DefaultPrice">
         <To object="ItemSettings: 9" field="BasePrice" />
