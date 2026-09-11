@@ -18,7 +18,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
     public abstract class RestValueBase<TValue> : RestFieldWithError
     {
         [DataMember(Name = "value", EmitDefaultValue = false)]
-        public TValue? Value { get; set; }
+        public virtual TValue? Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
