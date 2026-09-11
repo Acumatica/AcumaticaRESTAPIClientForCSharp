@@ -28,6 +28,13 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 
         [Obsolete("FieldName property is for backward compatibility with SOAP only. Please use Custom property of Entity instead.")]
         public string? FieldName;
+
+        /// <summary>
+        /// Returns a shallow copy of this field, so that callers can annotate
+        /// <see cref="ViewName"/>/<see cref="FieldName"/> without mutating the instance
+        /// that is held by <see cref="Entity.Custom"/> and serialized.
+        /// </summary>
+        internal CustomField ShallowCopy() => (CustomField)MemberwiseClone();
     }
     
     [DataContract]
@@ -78,7 +85,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// </summary>
         /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object? input)
         {
             return this.Equals(input as CustomField<TValue>);
         }
@@ -88,10 +95,12 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// </summary>
         /// <param name="input">Instance of <see cref="CustomField{TValue}"/> to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CustomField<TValue> input)
+        public bool Equals(CustomField<TValue>? input)
         {
             if (input is null)
                 return false;
+            if (Value == null || input.Value == null)
+                return Value == null && input.Value == null;
             return Value.Equals(input.Value);
         }
 
@@ -100,8 +109,14 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             return Value != null ? Value.GetHashCode() : 0;
         }
 
-        public static bool operator ==(CustomField<TValue> left, CustomField<TValue> right) => left.Value.Equals(right.Value);
-        public static bool operator !=(CustomField<TValue> left, CustomField<TValue> right) => !left.Value.Equals(right.Value);
+        public static bool operator ==(CustomField<TValue>? left, CustomField<TValue>? right)
+        {
+            if (left is null || right is null)
+                return left is null && right is null;
+
+            return left.Equals(right);
+        }
+        public static bool operator !=(CustomField<TValue>? left, CustomField<TValue>? right) => !(left == right);
 
         /// <summary>
         /// Returns the JSON string presentation of the object

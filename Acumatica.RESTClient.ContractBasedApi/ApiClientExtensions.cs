@@ -88,7 +88,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(InvokeActionAsync)).ConfigureAwait(false);
 
-            return response.Headers.GetValues("Location").First();
+            return GetLocationHeader(response, nameof(InvokeActionAsync));
         }
 
         /// <summary>
@@ -124,9 +124,9 @@ namespace Acumatica.RESTClient.ContractBasedApi
             int secondsTimeout = 360, 
             CancellationToken cancellationToken = default)
         {
+            var startTime = DateTime.UtcNow;
             while (true)
             {
-                var startTime = DateTime.Now;
                 var processResult = await GetProcessStatusAsync(client, location, cancellationToken).ConfigureAwait(false);
 
                 switch (processResult)
@@ -136,13 +136,13 @@ namespace Acumatica.RESTClient.ContractBasedApi
                     case HttpStatusCode.NoContent:
                         return;
                     case HttpStatusCode.Accepted:
-                        if ((startTime - DateTime.Now).Seconds > secondsTimeout)
+                        if ((DateTime.UtcNow - startTime).TotalSeconds > secondsTimeout)
                         {
                             throw new TimeoutException();
                         }
                         else
                         {
-                            await Task.Delay(millisecondsInterval).ConfigureAwait(false);
+                            await Task.Delay(millisecondsInterval, cancellationToken).ConfigureAwait(false);
                             continue;
                         }
                     default:
@@ -212,7 +212,8 @@ namespace Acumatica.RESTClient.ContractBasedApi
             var result = await GetProcessResultAsync(
                             client: client,
                             resourcePath: $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/{parsedLocation.EntityName}/{parsedLocation.ActionName}/{parsedLocation.Status}/{parsedLocation.ID}",
-                            cancellationToken: cancellationToken).ConfigureAwait(false);
+                            cancellationToken: cancellationToken,
+                            methodName: nameof(GetProcessStatusAsync)).ConfigureAwait(false);
             return result.StatusCode;
         }
         #endregion
@@ -277,7 +278,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(StartReportAsync)).ConfigureAwait(false);
 
-            return response.Headers.GetValues("Location").First();
+            return GetLocationHeader(response, nameof(StartReportAsync));
         }
         /// <summary>
         /// Queries the system with the specified <paramref name="millisecondsInterval"/> 
@@ -313,13 +314,14 @@ namespace Acumatica.RESTClient.ContractBasedApi
             CancellationToken cancellationToken = default)
         {
             var parsedLocation = UrlParser.ParseReportLocation(location);
+            var startTime = DateTime.UtcNow;
             while (true)
             {
-                var startTime = DateTime.Now;
                 var processResult = await GetProcessResultAsync(
                                             client,
                                             resourcePath: $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/{parsedLocation.EntityName}/report/{parsedLocation.Locale}/{parsedLocation.Format}/{parsedLocation.ID}",
-                                            cancellationToken).ConfigureAwait(false);
+                                            cancellationToken,
+                                            methodName: nameof(GetReportAsync)).ConfigureAwait(false);
 
                 switch (processResult.StatusCode)
                 {
@@ -330,17 +332,17 @@ namespace Acumatica.RESTClient.ContractBasedApi
                             return await processResult.Content.ReadAsStreamAsync().ConfigureAwait(false);
                         }
                     case HttpStatusCode.Accepted:
-                        if ((startTime - DateTime.Now).Seconds > secondsTimeout)
+                        if ((DateTime.UtcNow - startTime).TotalSeconds > secondsTimeout)
                         {
                             throw new TimeoutException();
                         }
                         else
                         {
-                            await Task.Delay(millisecondsInterval).ConfigureAwait(false);
+                            await Task.Delay(millisecondsInterval, cancellationToken).ConfigureAwait(false);
                             continue;
                         }
                     default:
-                        throw new InvalidOperationException($"Process status: {processResult}");
+                        throw new InvalidOperationException($"Process status: {processResult.StatusCode}");
                 }
             }           
         }
@@ -1534,34 +1536,55 @@ namespace Acumatica.RESTClient.ContractBasedApi
         }
 
         private static string GetEntityName(ITopLevelEntity entity) => GetEntityName(entity.GetType());
+
+        /// <summary>
+        /// Percent-encodes each key value so that characters that are reserved in a URL
+        /// (<c>/</c>, <c>#</c>, <c>?</c>, spaces) are sent as data rather than as URL syntax.
+        /// </summary>
+        private static string EscapeKeys(IEnumerable<string>? ids)
+        {
+            if (ids == null)
+                return string.Empty;
+
+            return string.Join("/", ids.Select(id => Uri.EscapeDataString(id ?? string.Empty)));
+        }
+
+        /// <summary>
+        /// Returns the <c>Location</c> header, or throws an <see cref="ApiException"/> naming the
+        /// missing header instead of letting <c>HttpHeaders.GetValues</c> throw.
+        /// </summary>
+        private static string GetLocationHeader(HttpResponseMessage response, string methodName)
+            {
+            if (response.Headers.TryGetValues("Location", out var values))
+                {
+                var location = values.FirstOrDefault();
+                if (!string.IsNullOrEmpty(location))
+                    return location!;
+                }
+
+            throw new ApiException(
+                (int)response.StatusCode,
+                $"Error calling {methodName}: the server returned {(int)response.StatusCode} without a Location header, so the operation cannot be tracked.");
+                }
         #endregion
 
         #region Error Handling
-        private static async Task VerifyResponseAsync(HttpResponseMessage response, string methodName)
+        internal static async Task VerifyResponseAsync(HttpResponseMessage response, string methodName)
         {
             if (!response.IsSuccessStatusCode)
             {
-                string? responseMessage = null;
-                if (string.IsNullOrEmpty(responseMessage))
-                {
-                    responseMessage = await GetErrorMessageFromErrorAsync(response).ConfigureAwait(false);
-                }
-                if (string.IsNullOrEmpty(responseMessage))
-                {
-                    responseMessage = await GetErrorMessageFromErrorAsync(response).ConfigureAwait(false);
-                }
+                string? responseMessage = await GetErrorMessageFromErrorAsync(response).ConfigureAwait(false);
                 if (string.IsNullOrEmpty(responseMessage))
                 {
                     //it should be html at that point
-                    //remove tags from html
-                    responseMessage = System.Text.RegularExpressions.Regex.Replace((await response.Content.ReadAsStringAsync().ConfigureAwait(false)).Replace('\r', ' ').Replace('\n', ' '), "<.*?>", string.Empty);
+                    responseMessage = await GetErrorMessageFromHTMLAsync(response).ConfigureAwait(false);
                 }
                 throw new ApiException(
                   (int)response.StatusCode,
                   $"Error {(int)response.StatusCode} calling {methodName}: {response.ReasonPhrase} \r\n {responseMessage}");
             }
         }
-        public static async Task<HttpResponseMessage> GetProcessResultAsync(this ApiClient client, string resourcePath, CancellationToken cancellationToken = default)
+        public static async Task<HttpResponseMessage> GetProcessResultAsync(this ApiClient client, string resourcePath, CancellationToken cancellationToken = default, string? methodName = null)
         {
             HttpResponseMessage response = await client.CallApiAsync(
                 resourcePath: resourcePath,
@@ -1571,7 +1594,12 @@ namespace Acumatica.RESTClient.ContractBasedApi
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(response, nameof(GetProcessStatusAsync)).ConfigureAwait(false);
+            // 404 is meaningful to the polling callers, which report that the process belongs to
+            // another session, so it must not be turned into a generic error here.
+            if (response.StatusCode != HttpStatusCode.NotFound)
+            {
+                await VerifyResponseAsync(response, methodName ?? nameof(GetProcessResultAsync)).ConfigureAwait(false);
+            }
 
             return response;
         }

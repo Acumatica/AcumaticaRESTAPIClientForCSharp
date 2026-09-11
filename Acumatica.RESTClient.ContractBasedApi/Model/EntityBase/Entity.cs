@@ -30,9 +30,12 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
                     {
                         foreach (var field in view.Value)
                         {
-                            field.Value.FieldName = field.Key;
-                            field.Value.ViewName = view.Key;
-                            customFields.Add(field.Value);
+                            // Copy rather than stamping FieldName/ViewName onto the instance held by
+                            // Custom: reading this property must not change what gets serialized.
+                            var copy = field.Value.ShallowCopy();
+                            copy.FieldName = field.Key;
+                            copy.ViewName = view.Key;
+                            customFields.Add(copy);
                         }
                     }
                 }
@@ -41,13 +44,21 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             set
             {
                 Custom = new Dictionary<string, Dictionary<string, CustomField>>();
+                if (value == null)
+                {
+                    return;
+                }
                 foreach (var field in value)
                 {
+                    if (field?.ViewName == null || field.FieldName == null)
+                    {
+                        continue;
+                    }
                     if (!Custom.ContainsKey(field.ViewName))
                     {
                         Custom.Add(field.ViewName, new Dictionary<string, CustomField>());
                     }
-                    Custom[field.ViewName].Add(field.FieldName, field);
+                    Custom[field.ViewName][field.FieldName] = field;
                 }
             }
         }
@@ -104,7 +115,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 		/// 
 		/// </summary>
 		[DataMember(Name = "_links", EmitDefaultValue = false)]
-        public Links Links { get; set; }
+        public Links? Links { get; set; }
 
 		public bool ShouldSerializeLinks() => false;
 
