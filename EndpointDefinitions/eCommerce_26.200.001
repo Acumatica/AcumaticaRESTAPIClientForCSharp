@@ -116759,7 +116759,7 @@
     },
     {
       "name": "AmazonStore",
-      "description": "(BC201020)"
+      "description": "Amazon Stores (BC201020)"
     },
     {
       "name": "Appointment",
@@ -116779,11 +116779,11 @@
     },
     {
       "name": "BCShipments",
-      "description": "(BC408030)"
+      "description": "BC-Shipments (BC408030)"
     },
     {
       "name": "BigCommerceStores",
-      "description": "(BC201000)"
+      "description": "BigCommerce Stores (BC201000)"
     },
     {
       "name": "Bill",
@@ -116851,7 +116851,7 @@
     },
     {
       "name": "CostCode",
-      "description": "(PM209500)"
+      "description": "Cost Codes (PM209500)"
     },
     {
       "name": "Currency",
@@ -117159,7 +117159,7 @@
     },
     {
       "name": "ShopifyStore",
-      "description": "(BC201010)"
+      "description": "Shopify Stores (BC201010)"
     },
     {
       "name": "StockItem",
@@ -117179,7 +117179,7 @@
     },
     {
       "name": "Subcontract",
-      "description": "(SC301000)"
+      "description": "Subcontracts (SC301000)"
     },
     {
       "name": "TagTemplates",
@@ -117219,7 +117219,7 @@
     },
     {
       "name": "UnionLocal",
-      "description": "(PM209700)"
+      "description": "Union Locals (PM209700)"
     },
     {
       "name": "UnitsOfMeasure",
@@ -117255,7 +117255,7 @@
     },
     {
       "name": "WorkClassCompensationCode",
-      "description": "(PM209800)"
+      "description": "Workers' Compensation Codes (PM209800)"
     },
     {
       "name": "WorkEvent",
