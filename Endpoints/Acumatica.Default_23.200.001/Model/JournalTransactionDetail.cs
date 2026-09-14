@@ -76,7 +76,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that the transaction is non-billable in the ProjectThis means that when releasing the batch the system will set the Billable field ofthe project transaction generated from this transaction to false.This field is relevant only if the Projects module has been activated and integrated with the General Ledger module.
+		/// When set to <c>true</c>, indicates that the transaction is non-billable in the ProjectThis means that when releasing the batch the system will set the Billable field ofthe project transaction generated from this transaction to <c>false</c>.This field is relevant only if the Projects module has been activated and integrated with the General Ledger module.
 		/// <para>DAC: PX.Objects.GL.GLTran</para>
 		/// <para>Display Name: Non Billable</para>
 		/// </summary>

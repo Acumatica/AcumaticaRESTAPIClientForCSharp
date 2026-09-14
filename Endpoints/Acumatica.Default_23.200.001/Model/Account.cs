@@ -124,7 +124,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? PostOption { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that every transaction posted to this account must haveQunatity and Units of Measure specified.
+		/// When set to <c>true</c>, indicates that every transaction posted to this account must haveQunatity and Units of Measure specified.
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>Display Name: Require Units</para>
 		/// </summary>
@@ -166,7 +166,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the system must set the subaccount to the default subaccount,when this account is selected for a document or transaction.
+		/// If set to <c>true</c>, indicates that the system must set the subaccount to the default subaccount,when this account is selected for a document or transaction.
 		/// <para>DAC Field Name: NoSubDetail</para>
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>Display Name: Use Default Subaccount</para>
@@ -177,9 +177,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

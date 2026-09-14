@@ -320,7 +320,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? SendOrdersbyEmail { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
 		/// <para>DAC Field Name: OverrideContact</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Override</para>
@@ -329,7 +329,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? ShippingContactOverride { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
 		/// <para>DAC Field Name: OverrideAddress</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Override</para>
@@ -435,13 +435,6 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? VendorID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: IsLaborUnion</para>
-		/// <para>DAC: PX.Objects.AP.Vendor</para>
-		/// </summary>
-		[DataMember(Name="VendorIsLaborUnion", EmitDefaultValue=false)]
-		public BooleanValue? VendorIsLaborUnion { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: TaxAgency</para>
 		/// <para>DAC: PX.Objects.AP.Vendor</para>
 		/// <para>Display Name: Vendor Is Tax Agency</para>
@@ -467,6 +460,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string Contacts = "Contacts";
 			public const string Contacts_Files = "Contacts/Files";
@@ -594,7 +588,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string ShippingContact_UserInfo_Roles_Files = "ShippingContact/UserInfo/Roles/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,Contacts,Contacts/Files,Contacts/Contact,Contacts/Contact/Activities,Contacts/Contact/Activities/Files,Contacts/Contact/Address,Contacts/Contact/Attributes,Contacts/Contact/Campaigns,Contacts/Contact/Campaigns/Files,Contacts/Contact/Cases,Contacts/Contact/Cases/Files,Contacts/Contact/Duplicates,Contacts/Contact/Duplicates/Files,Contacts/Contact/MarketingLists,Contacts/Contact/MarketingLists/Files,Contacts/Contact/Notifications,Contacts/Contact/Notifications/Files,Contacts/Contact/Opportunities,Contacts/Contact/Opportunities/Files,Contacts/Contact/Relations,Contacts/Contact/Relations/Files,Contacts/Contact/RoleAssignments,Contacts/Contact/RoleAssignments/Files,Contacts/Contact/UserInfo,Contacts/Contact/UserInfo/Roles,Contacts/Contact/UserInfo/Roles/Files,MainContact,MainContact/Activities,MainContact/Activities/Files,MainContact/Address,MainContact/Attributes,MainContact/Campaigns,MainContact/Campaigns/Files,MainContact/Cases,MainContact/Cases/Files,MainContact/Duplicates,MainContact/Duplicates/Files,MainContact/MarketingLists,MainContact/MarketingLists/Files,MainContact/Notifications,MainContact/Notifications/Files,MainContact/Opportunities,MainContact/Opportunities/Files,MainContact/Relations,MainContact/Relations/Files,MainContact/RoleAssignments,MainContact/RoleAssignments/Files,MainContact/UserInfo,MainContact/UserInfo/Roles,MainContact/UserInfo/Roles/Files,PaymentInstructions,PaymentInstructions/Files,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Activities/Files,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Campaigns/Files,PrimaryContact/Cases,PrimaryContact/Cases/Files,PrimaryContact/Duplicates,PrimaryContact/Duplicates/Files,PrimaryContact/MarketingLists,PrimaryContact/MarketingLists/Files,PrimaryContact/Notifications,PrimaryContact/Notifications/Files,PrimaryContact/Opportunities,PrimaryContact/Opportunities/Files,PrimaryContact/Relations,PrimaryContact/Relations/Files,PrimaryContact/RoleAssignments,PrimaryContact/RoleAssignments/Files,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,PrimaryContact/UserInfo/Roles/Files,RemittanceContact,RemittanceContact/Activities,RemittanceContact/Activities/Files,RemittanceContact/Address,RemittanceContact/Attributes,RemittanceContact/Campaigns,RemittanceContact/Campaigns/Files,RemittanceContact/Cases,RemittanceContact/Cases/Files,RemittanceContact/Duplicates,RemittanceContact/Duplicates/Files,RemittanceContact/MarketingLists,RemittanceContact/MarketingLists/Files,RemittanceContact/Notifications,RemittanceContact/Notifications/Files,RemittanceContact/Opportunities,RemittanceContact/Opportunities/Files,RemittanceContact/Relations,RemittanceContact/Relations/Files,RemittanceContact/RoleAssignments,RemittanceContact/RoleAssignments/Files,RemittanceContact/UserInfo,RemittanceContact/UserInfo/Roles,RemittanceContact/UserInfo/Roles/Files,ShippingContact,ShippingContact/Activities,ShippingContact/Activities/Files,ShippingContact/Address,ShippingContact/Attributes,ShippingContact/Campaigns,ShippingContact/Campaigns/Files,ShippingContact/Cases,ShippingContact/Cases/Files,ShippingContact/Duplicates,ShippingContact/Duplicates/Files,ShippingContact/MarketingLists,ShippingContact/MarketingLists/Files,ShippingContact/Notifications,ShippingContact/Notifications/Files,ShippingContact/Opportunities,ShippingContact/Opportunities/Files,ShippingContact/Relations,ShippingContact/Relations/Files,ShippingContact/RoleAssignments,ShippingContact/RoleAssignments/Files,ShippingContact/UserInfo,ShippingContact/UserInfo/Roles,ShippingContact/UserInfo/Roles/Files";
+			//public const string All = "Files,Translations,Attributes,Contacts,Contacts/Files,Contacts/Contact,Contacts/Contact/Activities,Contacts/Contact/Activities/Files,Contacts/Contact/Address,Contacts/Contact/Attributes,Contacts/Contact/Campaigns,Contacts/Contact/Campaigns/Files,Contacts/Contact/Cases,Contacts/Contact/Cases/Files,Contacts/Contact/Duplicates,Contacts/Contact/Duplicates/Files,Contacts/Contact/MarketingLists,Contacts/Contact/MarketingLists/Files,Contacts/Contact/Notifications,Contacts/Contact/Notifications/Files,Contacts/Contact/Opportunities,Contacts/Contact/Opportunities/Files,Contacts/Contact/Relations,Contacts/Contact/Relations/Files,Contacts/Contact/RoleAssignments,Contacts/Contact/RoleAssignments/Files,Contacts/Contact/UserInfo,Contacts/Contact/UserInfo/Roles,Contacts/Contact/UserInfo/Roles/Files,MainContact,MainContact/Activities,MainContact/Activities/Files,MainContact/Address,MainContact/Attributes,MainContact/Campaigns,MainContact/Campaigns/Files,MainContact/Cases,MainContact/Cases/Files,MainContact/Duplicates,MainContact/Duplicates/Files,MainContact/MarketingLists,MainContact/MarketingLists/Files,MainContact/Notifications,MainContact/Notifications/Files,MainContact/Opportunities,MainContact/Opportunities/Files,MainContact/Relations,MainContact/Relations/Files,MainContact/RoleAssignments,MainContact/RoleAssignments/Files,MainContact/UserInfo,MainContact/UserInfo/Roles,MainContact/UserInfo/Roles/Files,PaymentInstructions,PaymentInstructions/Files,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Activities/Files,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Campaigns/Files,PrimaryContact/Cases,PrimaryContact/Cases/Files,PrimaryContact/Duplicates,PrimaryContact/Duplicates/Files,PrimaryContact/MarketingLists,PrimaryContact/MarketingLists/Files,PrimaryContact/Notifications,PrimaryContact/Notifications/Files,PrimaryContact/Opportunities,PrimaryContact/Opportunities/Files,PrimaryContact/Relations,PrimaryContact/Relations/Files,PrimaryContact/RoleAssignments,PrimaryContact/RoleAssignments/Files,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,PrimaryContact/UserInfo/Roles/Files,RemittanceContact,RemittanceContact/Activities,RemittanceContact/Activities/Files,RemittanceContact/Address,RemittanceContact/Attributes,RemittanceContact/Campaigns,RemittanceContact/Campaigns/Files,RemittanceContact/Cases,RemittanceContact/Cases/Files,RemittanceContact/Duplicates,RemittanceContact/Duplicates/Files,RemittanceContact/MarketingLists,RemittanceContact/MarketingLists/Files,RemittanceContact/Notifications,RemittanceContact/Notifications/Files,RemittanceContact/Opportunities,RemittanceContact/Opportunities/Files,RemittanceContact/Relations,RemittanceContact/Relations/Files,RemittanceContact/RoleAssignments,RemittanceContact/RoleAssignments/Files,RemittanceContact/UserInfo,RemittanceContact/UserInfo/Roles,RemittanceContact/UserInfo/Roles/Files,ShippingContact,ShippingContact/Activities,ShippingContact/Activities/Files,ShippingContact/Address,ShippingContact/Attributes,ShippingContact/Campaigns,ShippingContact/Campaigns/Files,ShippingContact/Cases,ShippingContact/Cases/Files,ShippingContact/Duplicates,ShippingContact/Duplicates/Files,ShippingContact/MarketingLists,ShippingContact/MarketingLists/Files,ShippingContact/Notifications,ShippingContact/Notifications/Files,ShippingContact/Opportunities,ShippingContact/Opportunities/Files,ShippingContact/Relations,ShippingContact/Relations/Files,ShippingContact/RoleAssignments,ShippingContact/RoleAssignments/Files,ShippingContact/UserInfo,ShippingContact/UserInfo/Roles,ShippingContact/UserInfo/Roles/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

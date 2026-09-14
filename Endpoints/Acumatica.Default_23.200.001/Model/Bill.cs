@@ -30,7 +30,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<BillApplicationDetail>? Applications { get; set; }
 
 		/// <summary>
-		/// When set to true indicates that the document is approved for payment.
+		/// When set to <c>true</c> indicates that the document is approved for payment.
 		/// <para>DAC Field Name: PaySel</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>Display Name: Approved for Payment</para>
@@ -188,7 +188,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Vendor { get; set; }
 
 		/// <summary>
-		/// The document’s original reference number as assigned by the vendor (for informational purposes).The reference to the vendor document is required if RequireVendorRef is set to true.The reference should also be unique if RaiseErrorOnDoubleInvoiceNbr is set to true.
+		/// The document’s original reference number as assigned by the vendor (for informational purposes).The reference to the vendor document is required if RequireVendorRef is set to <c>true</c>.The reference should also be unique if RaiseErrorOnDoubleInvoiceNbr is set to <c>true</c>.
 		/// <para>DAC Field Name: InvoiceNbr</para>
 		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// <para>Display Name: Vendor Ref.</para>
@@ -206,6 +206,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Applications = "Applications";
 			public const string Applications_Files = "Applications/Files";
 			public const string Details = "Details";
@@ -214,7 +215,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string TaxDetails_Files = "TaxDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Applications,Applications/Files,Details,Details/Files,TaxDetails,TaxDetails/Files";
+			//public const string All = "Files,Translations,Applications,Applications/Files,Details,Details/Files,TaxDetails,TaxDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

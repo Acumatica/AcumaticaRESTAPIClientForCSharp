@@ -22,6 +22,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
+		/// The identifier of the union local that is linked to the project.
 		/// <para>DAC Field Name: UnionID</para>
 		/// <para>DAC: PX.Objects.PM.PMProjectUnion</para>
 		/// <para>Display Name: Union Local</para>

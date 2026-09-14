@@ -234,6 +234,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ApplicationsCreditMemo = "ApplicationsCreditMemo";
 			public const string ApplicationsCreditMemo_Files = "ApplicationsCreditMemo/Files";
 			public const string ApplicationsInvoice = "ApplicationsInvoice";
@@ -255,7 +256,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string TaxDetails_Files = "TaxDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,ApplicationsCreditMemo,ApplicationsCreditMemo/Files,ApplicationsInvoice,ApplicationsInvoice/Files,BillingSettings,BillingSettings/BillToAddress,BillingSettings/BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,DiscountDetails,DiscountDetails/Files,FinancialDetails,FreightDetails,FreightDetails/Files,TaxDetails,TaxDetails/Files";
+			//public const string All = "Files,Translations,ApplicationsCreditMemo,ApplicationsCreditMemo/Files,ApplicationsInvoice,ApplicationsInvoice/Files,BillingSettings,BillingSettings/BillToAddress,BillingSettings/BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,DiscountDetails,DiscountDetails/Files,FinancialDetails,FreightDetails,FreightDetails/Files,TaxDetails,TaxDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

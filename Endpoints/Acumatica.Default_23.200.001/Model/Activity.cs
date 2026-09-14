@@ -80,7 +80,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public TimeActivity? TimeActivity { get; set; }
 
 		/// <summary>
-		/// The type of the activity.
+		/// The type of the activity, which is one of the options defined on the Activity Types (CR102000) form.
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// <para>SQL Type: char(5)</para>
 		/// </summary>
@@ -132,10 +132,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string TimeActivity = "TimeActivity";
 
 			//Intentionally excluded
-			//public const string All = "Files,TimeActivity";
+			//public const string All = "Files,Translations,TimeActivity";
 		}
 		public virtual string GetEndpointPath()
 		{

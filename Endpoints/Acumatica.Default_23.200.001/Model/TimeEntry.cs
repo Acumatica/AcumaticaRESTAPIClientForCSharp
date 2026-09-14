@@ -146,7 +146,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? Time { get; set; }
 
 		/// <summary>
-		/// The global identifier of the record. This identifier is used for implementation of multiple system features, such as the search functionality and attachments of notes and files.
+		/// The PMTimeActivity.noteID field.
 		/// <para>DAC Field Name: NoteID</para>
 		/// <para>DAC: PX.Objects.CR.PMTimeActivity</para>
 		/// Key Field
@@ -182,9 +182,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

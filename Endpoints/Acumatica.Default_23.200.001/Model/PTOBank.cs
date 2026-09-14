@@ -181,10 +181,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string GLAccounts = "GLAccounts";
 
 			//Intentionally excluded
-			//public const string All = "Files,GLAccounts";
+			//public const string All = "Files,Translations,GLAccounts";
 		}
 		public virtual string GetEndpointPath()
 		{

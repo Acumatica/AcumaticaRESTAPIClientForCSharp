@@ -71,7 +71,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Phone2 { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
 		/// <para>DAC Field Name: OverrideContact</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>

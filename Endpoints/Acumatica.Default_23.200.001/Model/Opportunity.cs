@@ -79,6 +79,10 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="ContactInformation", EmitDefaultValue=false)]
 		public OpportunityContact? ContactInformation { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: LeadID_description</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
+		/// </summary>
 		[DataMember(Name="ConvertedLeadDisplayName", EmitDefaultValue=false)]
 		public StringValue? ConvertedLeadDisplayName { get; set; }
 
@@ -176,7 +180,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? Override { get; set; }
 
 		/// <summary>
-		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
+		/// The Contact responsible for the opportunity.
 		/// <para>DAC Field Name: OwnerID</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
@@ -207,6 +211,9 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
 		/// </summary>
+		/// <remarks>
+		/// The project that is specified in the Location object of the account location. The system uses the project when it creates a document, such as a sales order.
+		/// </remarks>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
 
@@ -317,6 +324,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Activities = "Activities";
 			public const string Activities_Files = "Activities/Files";
 			public const string Address = "Address";
@@ -332,7 +340,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string TaxDetails_Files = "TaxDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Activities,Activities/Files,Address,Attributes,ContactInformation,Discounts,Discounts/Files,Products,Products/Files,Relations,Relations/Files,TaxDetails,TaxDetails/Files";
+			//public const string All = "Files,Translations,Activities,Activities/Files,Address,Attributes,ContactInformation,Discounts,Discounts/Files,Products,Products/Files,Relations,Relations/Files,TaxDetails,TaxDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

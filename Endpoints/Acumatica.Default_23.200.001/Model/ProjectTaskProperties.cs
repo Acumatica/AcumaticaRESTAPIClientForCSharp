@@ -15,7 +15,7 @@ namespace Acumatica.Default_23_200_001.Model
 	{
 
 		/// <summary>
-		/// The EPEmployee that approves or rejects the activities created under the given task.
+		/// The identifier of the employee that approves or rejects the activities created under the given task.
 		/// <para>DAC Field Name: ApproverID</para>
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
 		/// </summary>
@@ -23,7 +23,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Approver { get; set; }
 
 		/// <summary>
-		/// The task completion state in percents. Depending on settings, this value either maintained manually or can be auto-calculated based on the budget ratio of            actual or revised values.
+		/// The task completion percentage.The value is either entered manually or calculated automaticallydepending on the CompletedPctMethod selected for the task.
 		/// <para>DAC Field Name: CompletedPercent</para>
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
 		/// <para>Display Name: Completed (%)</para>

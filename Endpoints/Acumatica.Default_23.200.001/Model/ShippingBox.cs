@@ -41,10 +41,6 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="BoxWeight", EmitDefaultValue=false)]
 		public DecimalValue? BoxWeight { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: CarrierBox</para>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// </summary>
 		[DataMember(Name="CarriersPackage", EmitDefaultValue=false)]
 		public StringValue? CarriersPackage { get; set; }
 
@@ -111,9 +107,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

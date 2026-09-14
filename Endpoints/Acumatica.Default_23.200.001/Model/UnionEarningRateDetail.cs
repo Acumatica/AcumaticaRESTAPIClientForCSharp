@@ -22,6 +22,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
+		/// The date on which the labor cost rate becomes effective.
 		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
 		/// <para>Display Name: Effective Date</para>
 		/// </summary>
@@ -29,6 +30,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
+		/// The identifier of the inventory item associated with the labor cost rate.
 		/// <para>DAC Field Name: InventoryID</para>
 		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
 		/// <para>Display Name: Labor Item</para>
@@ -40,6 +42,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
+		/// The wage rate for the labor cost rate.
 		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
 		/// <para>Display Name: Wage Rate</para>
 		/// </summary>

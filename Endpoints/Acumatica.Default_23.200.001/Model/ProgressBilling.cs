@@ -39,7 +39,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? AmountToInvoice { get; set; }
 
 		/// <summary>
-		/// The identifier of the Branch to which the pro forma invoice belongs.
+		/// The identifier of the branch to which the pro forma invoice belongs.
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// </summary>

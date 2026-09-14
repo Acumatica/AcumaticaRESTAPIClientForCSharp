@@ -25,7 +25,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public List<LedgerCompanies>? Companies { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that the system must use the Ledger as a source Ledger for consolidation.
+		/// When set to <c>true</c>, indicates that the system must use the Ledger as a source Ledger for consolidation.
 		/// <para>DAC Field Name: ConsolAllowed</para>
 		/// <para>DAC: PX.Objects.GL.Ledger</para>
 		/// <para>Display Name: Consolidation Source</para>
@@ -77,13 +77,14 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Branches = "Branches";
 			public const string Branches_Files = "Branches/Files";
 			public const string Companies = "Companies";
 			public const string Companies_Files = "Companies/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Branches,Branches/Files,Companies,Companies/Files";
+			//public const string All = "Files,Translations,Branches,Branches/Files,Companies,Companies/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -39,7 +39,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Billable Overtime</para>
 		/// </summary>
 		[DataMember(Name="BillableOvertime", EmitDefaultValue=false)]
-		public IntValue? BillableOvertime { get; set; }
+		public StringValue? BillableOvertime { get; set; }
 
 		/// <summary>
 		/// The billable time (in hours) spent on the case.
@@ -48,7 +48,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Billable Time</para>
 		/// </summary>
 		[DataMember(Name="BillableTime", EmitDefaultValue=false)]
-		public IntValue? BillableTime { get; set; }
+		public StringValue? BillableTime { get; set; }
 
 		/// <summary>
 		/// The business account associated with the case.
@@ -310,6 +310,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Activities = "Activities";
 			public const string Activities_Files = "Activities/Files";
 			public const string Attributes = "Attributes";
@@ -319,7 +320,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string Relations_Files = "Relations/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Activities,Activities/Files,Attributes,RelatedCases,RelatedCases/Files,Relations,Relations/Files";
+			//public const string All = "Files,Translations,Activities,Activities/Files,Attributes,RelatedCases,RelatedCases/Files,Relations,Relations/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

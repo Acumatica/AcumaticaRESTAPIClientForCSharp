@@ -75,7 +75,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <summary>
 		/// The project description.
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
-		/// <para>SQL Type: nvarchar(255)</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }

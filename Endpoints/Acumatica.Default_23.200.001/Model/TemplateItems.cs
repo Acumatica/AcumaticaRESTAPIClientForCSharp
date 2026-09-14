@@ -106,6 +106,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="CustomURL", EmitDefaultValue=false)]
 		public StringValue? CustomURL { get; set; }
 
+		/// <summary>
+		/// The Location of warehouse used by default to issue items of this kind.Applicable only for Stock Items (see StkItem) when the Warehouse Locations feature is enabled.
+		/// <para>DAC Field Name: DfltShipLocationID</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
+		/// <para>Display Name: Default Issue From</para>
+		/// </summary>
 		[DataMember(Name="DefaultIssueLocationID", EmitDefaultValue=false)]
 		public StringValue? DefaultIssueLocationID { get; set; }
 
@@ -158,7 +164,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that this item is a Stock Item.
+		/// When set to <c>true</c>, indicates that this item is a Stock Item.
 		/// <para>DAC Field Name: StkItem</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Stock Item</para>
@@ -276,6 +282,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string Categories = "Categories";
 			public const string Categories_Files = "Categories/Files";
@@ -287,7 +294,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string VendorDetails_Files = "VendorDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,Categories,Categories/Files,FileURLs,FileURLs/Files,Matrix,Matrix/Files,VendorDetails,VendorDetails/Files";
+			//public const string All = "Files,Translations,Attributes,Categories,Categories/Files,FileURLs,FileURLs/Files,Matrix,Matrix/Files,VendorDetails,VendorDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

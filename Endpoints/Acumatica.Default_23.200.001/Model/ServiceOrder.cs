@@ -276,6 +276,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Address = "Address";
 			public const string Appointments = "Appointments";
 			public const string Appointments_Files = "Appointments/Files";
@@ -295,7 +296,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string Totals = "Totals";
 
 			//Intentionally excluded
-			//public const string All = "Files,Address,Appointments,Appointments/Files,Attributes,Contact,ContractInfo,DefaultStaff,DefaultStaff/Files,Details,Details/Files,FinancialDetails,OtherInformation,Prepayments,Prepayments/Files,TaxDetails,TaxDetails/Files,Totals";
+			//public const string All = "Files,Translations,Address,Appointments,Appointments/Files,Attributes,Contact,ContractInfo,DefaultStaff,DefaultStaff/Files,Details,Details/Files,FinancialDetails,OtherInformation,Prepayments,Prepayments/Files,TaxDetails,TaxDetails/Files,Totals";
 		}
 		public virtual string GetEndpointPath()
 		{

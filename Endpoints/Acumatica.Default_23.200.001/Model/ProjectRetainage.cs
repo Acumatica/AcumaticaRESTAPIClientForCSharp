@@ -85,7 +85,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? ContractTotal { get; set; }
 
 		/// <summary>
-		/// Contract Completed % (without Change Orders)
+		/// The percentage of contract completion calculated without change orders.
 		/// <para>DAC Field Name: ContractCompletedPct</para>
 		/// <para>DAC: PX.Objects.PM.PMProjectRevenueTotal</para>
 		/// <para>Display Name: Completed (%)</para>

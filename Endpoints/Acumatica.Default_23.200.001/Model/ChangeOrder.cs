@@ -181,7 +181,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// The total amount of therevenue budget lines of the document.
 		/// <para>DAC Field Name: RevenueTotal</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
-		/// <para>Display Name: Revenue Budget Change Total</para>
+		/// <para>Display Name: Revenue Budget Change Amount</para>
 		/// </summary>
 		[DataMember(Name="RevenueBudgetChangeTotal", EmitDefaultValue=false)]
 		public DecimalValue? RevenueBudgetChangeTotal { get; set; }
@@ -190,7 +190,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// The change number.
 		/// <para>DAC Field Name: ProjectNbr</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
-		/// <para>Display Name: Revenue Change Nbr.</para>
+		/// <para>Display Name: Revenue Change Order Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="RevenueChangeNbr", EmitDefaultValue=false)]
@@ -210,6 +210,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ApprovalDetails = "ApprovalDetails";
 			public const string ApprovalDetails_Files = "ApprovalDetails/Files";
 			public const string Attributes = "Attributes";
@@ -221,7 +222,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string RevenueBudget_Files = "RevenueBudget/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,ApprovalDetails,ApprovalDetails/Files,Attributes,Commitments,Commitments/Files,CostBudget,CostBudget/Files,RevenueBudget,RevenueBudget/Files";
+			//public const string All = "Files,Translations,ApprovalDetails,ApprovalDetails/Files,Attributes,Commitments,Commitments/Files,CostBudget,CostBudget/Files,RevenueBudget,RevenueBudget/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

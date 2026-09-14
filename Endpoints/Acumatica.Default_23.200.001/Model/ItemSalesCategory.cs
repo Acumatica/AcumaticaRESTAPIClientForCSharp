@@ -65,11 +65,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Members = "Members";
 			public const string Members_Files = "Members/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Members,Members/Files";
+			//public const string All = "Files,Translations,Members,Members/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

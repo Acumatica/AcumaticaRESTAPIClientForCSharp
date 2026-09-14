@@ -31,7 +31,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? DefaultCommission { get; set; }
 
 		/// <summary>
-		/// Indicates (if set to true) that the salesperson is active and can be used for recording sales in invoice lines or sales order lines.
+		/// Indicates (if set to <c>true</c>) that the salesperson is active and can be used for recording sales in invoice lines or sales order lines.
 		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
 		/// <para>Display Name: Is Active</para>
 		/// </summary>
@@ -73,9 +73,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

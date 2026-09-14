@@ -31,7 +31,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public ProjectTaskToCRMLink? CRMLink { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the task is default.
+		/// A Boolean value that indicates (if set to true) that the task is default.
 		/// <para>DAC Field Name: IsDefault</para>
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
 		/// </summary>
@@ -56,6 +56,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
+		/// The identifier of the project to which the task belongs.
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
 		/// <para>Display Name: Project ID</para>
 		/// Key Field
@@ -91,6 +92,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ActivityHistory = "ActivityHistory";
 			public const string ActivityHistory_Files = "ActivityHistory/Files";
 			public const string Attributes = "Attributes";
@@ -101,7 +103,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string VisibilitySettings = "VisibilitySettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,ActivityHistory,ActivityHistory/Files,Attributes,BillingAndAllocationSettings,CRMLink,DefaultValues,Properties,VisibilitySettings";
+			//public const string All = "Files,Translations,ActivityHistory,ActivityHistory/Files,Attributes,BillingAndAllocationSettings,CRMLink,DefaultValues,Properties,VisibilitySettings";
 		}
 		public virtual string GetEndpointPath()
 		{

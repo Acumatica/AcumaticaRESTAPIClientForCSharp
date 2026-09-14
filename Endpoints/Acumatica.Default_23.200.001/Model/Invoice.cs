@@ -41,7 +41,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the document has been printed.
+		/// Specifies (if set to <c>true</c>) that the document has been printed.
 		/// <para>DAC Field Name: Printed</para>
 		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
 		/// <para>Display Name: Printed</para>
@@ -53,7 +53,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DocContact? BillToContact { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
+		/// If set to <c>true</c>, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
 		/// <para>DAC Field Name: OverrideContact</para>
 		/// <para>DAC: PX.Objects.AR.ARShippingContact</para>
 		/// <para>Display Name: Override Contact</para>
@@ -191,7 +191,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public DocContact? ShipToContact { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
+		/// If set to <c>true</c>, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
 		/// <para>DAC Field Name: OverrideContact</para>
 		/// <para>DAC: PX.Objects.AR.ARShippingContact</para>
 		/// <para>Display Name: Override Contact</para>
@@ -236,6 +236,7 @@ namespace Acumatica.Default_23_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ApplicationsCreditMemo = "ApplicationsCreditMemo";
 			public const string ApplicationsCreditMemo_Files = "ApplicationsCreditMemo/Files";
 			public const string ApplicationsDefault = "ApplicationsDefault";
@@ -250,7 +251,7 @@ namespace Acumatica.Default_23_200_001.Model
 			public const string TaxDetails_Files = "TaxDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,ApplicationsCreditMemo,ApplicationsCreditMemo/Files,ApplicationsDefault,ApplicationsDefault/Files,BillToContact,Details,Details/Files,DiscountDetails,DiscountDetails/Files,ShipToContact,TaxDetails,TaxDetails/Files";
+			//public const string All = "Files,Translations,ApplicationsCreditMemo,ApplicationsCreditMemo/Files,ApplicationsDefault,ApplicationsDefault/Files,BillToContact,Details,Details/Files,DiscountDetails,DiscountDetails/Files,ShipToContact,TaxDetails,TaxDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{
