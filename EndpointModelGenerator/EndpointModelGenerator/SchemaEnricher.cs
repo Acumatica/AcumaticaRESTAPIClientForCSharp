@@ -120,18 +120,41 @@ namespace EndpointModelGenerator
             RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.Compiled);
 
         /// <summary>
-        /// Replaces hyperlinks in scraped DAC documentation with their link text.
-        /// <c>&lt;a&gt;</c> is not an XML documentation element, so these render as noise in
-        /// IntelliSense, and the two kinds Acumatica emits point nowhere useful from generated
-        /// code: DAC browser links are paths on the instance the documentation was scraped from,
-        /// and the C# language reference links merely wrap the words "true" and "false".
+        /// Matches the HTML tags that the DAC documentation uses for emphasis. There is no XML
+        /// documentation equivalent, so only the tags are dropped and the text is kept.
         /// </summary>
-        internal static string? RemoveDocumentationLinks(string? documentation)
+        private static readonly Regex EmphasisTag = new Regex(
+            @"</?(?:i|b|em|strong)>",
+            RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+        /// <summary>
+        /// Normalizes documentation scraped from the DAC browser so that it only contains elements
+        /// that C# XML documentation understands.
+        /// <para>The DAC documentation is HTML, and the compiler copies unrecognized elements into
+        /// the XML doc file verbatim: IntelliSense then shows only their inner text, while a
+        /// documentation generator renders them as real HTML. <c>&lt;pre&gt;</c> is the worst of
+        /// these, because it is block level and so breaks a sentence around the literal it
+        /// wraps.</para>
+        /// </summary>
+        internal static string? NormalizeDocumentation(string? documentation)
         {
             if (string.IsNullOrEmpty(documentation))
                 return documentation;
 
-            return DocumentationLink.Replace(documentation, "$1");
+            // Hyperlinks: neither kind Acumatica emits resolves to anything useful from generated
+            // code - DAC browser links are paths on the instance the documentation was scraped
+            // from, and the C# language reference links merely wrap the words "true" and "false".
+            string result = DocumentationLink.Replace(documentation!, "$1");
+
+            // <pre> marks up a literal value, which is what <c> means in XML documentation.
+            result = result.Replace("<pre>", "<c>").Replace("</pre>", "</c>");
+            result = result.Replace("<PRE>", "<c>").Replace("</PRE>", "</c>");
+
+            // <p> is spelled <para> in XML documentation.
+            result = result.Replace("<p>", "<para>").Replace("</p>", "</para>");
+            result = result.Replace("<P>", "<para>").Replace("</P>", "</para>");
+
+            return EmphasisTag.Replace(result, string.Empty);
         }
 
         private static void FillDescriptions(Schema endpointSchema, Dictionary<string, ScreenMetadata> parsedScreenMetadata, Endpoint? parsedEndpointMetadata)
@@ -232,8 +255,8 @@ namespace EndpointModelGenerator
                                 var fieldDescr = client.GetField(dacNamespace, dacName, field.DACFieldName!);
                                 field.DisplayName = fieldDescr.DisplayName;
                                 field.SqlType = fieldDescr.SqlType;
-                                field.Summary = RemoveDocumentationLinks(fieldDescr.Documentation.Summary);
-                                field.Remarks = RemoveDocumentationLinks(fieldDescr.Documentation.Remarks);
+                                field.Summary = NormalizeDocumentation(fieldDescr.Documentation.Summary);
+                                field.Remarks = NormalizeDocumentation(fieldDescr.Documentation.Remarks);
                                 field.IsKey = fieldDescr.IsKey;
                             }
                             catch { }
