@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 
 using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.DACBrowserApi.Model;
 
 using EndpointSchemaGenerator;
 
@@ -236,6 +239,57 @@ namespace EndpointModelGenerator
             }
         }
 
+        /// <summary>
+        /// Caches DAC browser lookups for the lifetime of the process, including the ones that
+        /// found nothing.
+        /// <para>The same DAC field backs the same entity field in every endpoint version -
+        /// <c>Bill.DocType</c> resolves to <c>APInvoice.DocType</c> in all of them - and
+        /// <c>GetField</c> takes no endpoint parameter, so two callers asking about one DAC field
+        /// issue an identical request and cannot get different answers within a run. Generating
+        /// every endpoint asks for 20057 fields of which only 4331 are distinct, so roughly four
+        /// out of five requests are repeats.</para>
+        /// <para>The site is part of the key because <see cref="AddFieldDescriptions"/> takes the
+        /// URL per call, and documentation is specific to the instance it was read from.</para>
+        /// </summary>
+        /// <remarks>
+        /// Not thread safe: the generator enriches one endpoint at a time.
+        /// </remarks>
+        private static readonly Dictionary<(string Site, string DacNamespace, string DacName, string FieldName), Field?> FieldDescriptionCache
+            = new Dictionary<(string, string, string, string), Field?>();
+
+        /// <summary>
+        /// Returns the DAC browser description of a field, or <c>null</c> when the DAC browser has
+        /// no such field.
+        /// </summary>
+        /// <remarks>
+        /// A "not found" answer is cached too, otherwise a field the browser does not know is
+        /// requested again for every entity and every endpoint that references it. Any other
+        /// failure - a timeout, a dropped connection, the API login limit - is deliberately left
+        /// uncached and allowed to propagate, so that one transient error does not discard the
+        /// documentation for every later occurrence of the same field.
+        /// </remarks>
+        private static Field? GetFieldDescription(ApiClient client, string site, string dacNamespace, string dacName, string fieldName)
+        {
+            var key = (site, dacNamespace, dacName, fieldName);
+            if (FieldDescriptionCache.TryGetValue(key, out Field? cached))
+            {
+                return cached;
+            }
+
+            Field? description;
+            try
+            {
+                description = client.GetField(dacNamespace, dacName, fieldName);
+            }
+            catch (HttpRequestException e) when (e.StatusCode == HttpStatusCode.NotFound)
+            {
+                description = null;
+            }
+
+            FieldDescriptionCache[key] = description;
+            return description;
+        }
+
         public static void AddFieldDescriptions(Schema endpointSchema, string acumaticaUrl, string acumaticaUsername, string acumaticaPassword)
         {
             var client = new ApiClient(acumaticaUrl, ignoreSslErrors: true);
@@ -252,12 +306,15 @@ namespace EndpointModelGenerator
                             {
                                 string dacName = field.DAC.Split('.').Last();
                                 string dacNamespace = field.DAC.Substring(0, field.DAC.LastIndexOf('.'));
-                                var fieldDescr = client.GetField(dacNamespace, dacName, field.DACFieldName!);
-                                field.DisplayName = fieldDescr.DisplayName;
-                                field.SqlType = fieldDescr.SqlType;
-                                field.Summary = NormalizeDocumentation(fieldDescr.Documentation.Summary);
-                                field.Remarks = NormalizeDocumentation(fieldDescr.Documentation.Remarks);
-                                field.IsKey = fieldDescr.IsKey;
+                                var fieldDescr = GetFieldDescription(client, acumaticaUrl, dacNamespace, dacName, field.DACFieldName!);
+                                if (fieldDescr != null)
+                                {
+                                    field.DisplayName = fieldDescr.DisplayName;
+                                    field.SqlType = fieldDescr.SqlType;
+                                    field.Summary = NormalizeDocumentation(fieldDescr.Documentation.Summary);
+                                    field.Remarks = NormalizeDocumentation(fieldDescr.Documentation.Remarks);
+                                    field.IsKey = fieldDescr.IsKey;
+                                }
                             }
                             catch { }
                         }
