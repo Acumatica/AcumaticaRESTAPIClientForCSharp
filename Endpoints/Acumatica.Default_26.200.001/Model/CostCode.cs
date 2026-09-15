@@ -10,19 +10,43 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>PM209500</c> in the Acumatica ERP
+	/// <para>Key Fields: CostCodeID</para>
+	/// </summary>
 	[DataContract]
 	public class CostCode : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// Get or sets unique identifier.This is a segmented key and format is configured under segmented key maintenance screen in CS module.
+		/// <para>DAC Field Name: CostCodeCD</para>
+		/// <para>DAC: PX.Objects.PM.PMCostCode</para>
+		/// <para>Display Name: Cost Code</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="CostCodeID", EmitDefaultValue=false)]
 		public StringValue? CostCodeID { get; set; }
 
+		/// <summary>
+		/// Gets or sets description
+		/// <para>DAC: PX.Objects.PM.PMCostCode</para>
+		/// <para>SQL Type: nvarchar(250)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";

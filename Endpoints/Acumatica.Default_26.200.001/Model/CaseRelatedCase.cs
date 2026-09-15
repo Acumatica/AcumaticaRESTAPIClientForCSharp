@@ -14,26 +14,68 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CaseRelatedCase : Entity
 	{
 
+		/// <summary>
+		/// <para>DAC Field Name: ChildCaseCD</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
+		/// <para>Display Name: Case ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="CaseID", EmitDefaultValue=false)]
 		public StringValue? CaseID { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CRCaseRelated__OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
+		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
 		[DataMember(Name="ParentCaseID", EmitDefaultValue=false)]
 		public StringValue? ParentCaseID { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
+		/// <para>Display Name: Relation Type</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="RelationType", EmitDefaultValue=false)]
 		public StringSingleSelectValue? RelationType { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CRCaseRelated__Status</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
+		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringSingleSelectValue? Status { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CRCaseRelated__Subject</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
+		/// </summary>
 		[DataMember(Name="Subject", EmitDefaultValue=false)]
 		public StringValue? Subject { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CRCaseRelated__WorkgroupID</para>
+		/// <para>DAC: PX.Objects.CR.CRCaseReference</para>
+		/// </summary>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+
+			//Intentionally excluded
+			//public const string All = "Files";
+		}
 	}
 }

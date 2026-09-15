@@ -14,9 +14,19 @@ namespace Acumatica.Default_26_200_001.Model
 	public class EmploymentDates : Entity
 	{
 
+		/// <summary>
+		/// Hire date.
+		/// <para>DAC: PX.Objects.PR.EmploymentHistory</para>
+		/// <para>Display Name: Hire Date</para>
+		/// </summary>
 		[DataMember(Name="HireDate", EmitDefaultValue=false)]
 		public DateTimeValue? HireDate { get; set; }
 
+		/// <summary>
+		/// Termination date.
+		/// <para>DAC: PX.Objects.PR.EmploymentHistory</para>
+		/// <para>Display Name: Termination Date</para>
+		/// </summary>
 		[DataMember(Name="TerminationDate", EmitDefaultValue=false)]
 		public DateTimeValue? TerminationDate { get; set; }
 

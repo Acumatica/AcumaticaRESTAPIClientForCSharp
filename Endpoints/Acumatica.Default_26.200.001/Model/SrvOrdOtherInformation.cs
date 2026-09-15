@@ -17,6 +17,11 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="BatchNumber", EmitDefaultValue=false)]
 		public StringValue? BatchNumber { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: LongDescr</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 

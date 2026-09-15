@@ -10,25 +10,66 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>PM209800</c> in the Acumatica ERP
+	/// <para>Key Fields: WCCCode</para>
+	/// </summary>
 	[DataContract]
 	public class WorkClassCompensationCode : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// A Boolean value that indicates (if set to true) that the workers' compensation code is active and can be used.
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
+		/// <summary>
+		/// The identifier of the cost code that defines the start of the cost code range.The field is included in CostCodeFrom.
+		/// <para>DAC: PX.Objects.PM.PMWorkCodeCostCodeRange</para>
+		/// <para>Display Name: Cost Code From</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
 		[DataMember(Name="CostCodeFrom", EmitDefaultValue=false)]
 		public StringValue? CostCodeFrom { get; set; }
 
+		/// <summary>
+		/// The identifier of the cost code that defines the end of the cost code range.The field is included in CostCodeTo.
+		/// <para>DAC: PX.Objects.PM.PMWorkCodeCostCodeRange</para>
+		/// <para>Display Name: Cost Code To</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
 		[DataMember(Name="CostCodeTo", EmitDefaultValue=false)]
 		public StringValue? CostCodeTo { get; set; }
 
+		/// <summary>
+		/// The description of the workers' compensation code.
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// The unique identifier of the workers' compensation code.
+		/// <para>DAC Field Name: WorkCodeID</para>
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// <para>Display Name: WCC Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
 		public StringValue? WCCCode { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";

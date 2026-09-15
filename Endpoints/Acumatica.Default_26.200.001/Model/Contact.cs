@@ -10,6 +10,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>CR302000</c> in the Acumatica ERP
+	/// <para>Key Fields: ContactID</para>
+	/// </summary>
 	[DataContract]
 	public class Contact : Entity, ITopLevelEntity
 	{
@@ -23,11 +27,29 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Address", EmitDefaultValue=false)]
 		public Address? Address { get; set; }
 
+		/// <summary>
+		/// Specifies whether the address information of this contact differs from the address informationof the business account associated with this contact.IF it is so, the address information is synchronized with the associatedbusiness account.
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Override Address</para>
+		/// </summary>
+		/// <remarks>
+		/// The behavior is controlled by the ContactBAccountSharedAddressOverrideGraphExtgraph extension.
+		/// </remarks>
 		[DataMember(Name="OverrideAccountAddress", EmitDefaultValue=false)]
 		public BooleanValue? OverrideAccountAddress { get; set; }
 
+		/// <summary>
+		/// If set to true, this field indicates that the address has been successfully validated by Acumatica ERP.
+		/// <para>DAC Field Name: IsValidated</para>
+		/// <para>DAC: PX.Objects.CR.Address</para>
+		/// <para>Display Name: Validated</para>
+		/// </summary>
 		[DataMember(Name="AddressValidated", EmitDefaultValue=false)]
 		public BooleanValue? AddressValidated { get; set; }
+
+		[DataMember(Name="AssignDate", EmitDefaultValue=false)]
+		public DateTimeValue? AssignDate { get; set; }
 
 		[DataMember(Name="Attention", EmitDefaultValue=false)]
 		public StringValue? Attention { get; set; }
@@ -35,6 +57,12 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<AttributeValue>? Attributes { get; set; }
 
+		/// <summary>
+		/// The identifier of the related business account.
+		/// <para>DAC Field Name: BAccountID</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Business Account</para>
+		/// </summary>
 		[DataMember(Name="BusinessAccount", EmitDefaultValue=false)]
 		public StringValue? BusinessAccount { get; set; }
 
@@ -44,30 +72,95 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Cases", EmitDefaultValue=false)]
 		public List<CaseDetail>? Cases { get; set; }
 
+		/// <summary>
+		/// The name of the company the contact works for.
+		/// <para>DAC Field Name: FullName</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Account Name</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
 		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
 		public StringValue? CompanyName { get; set; }
 
+		/// <summary>
+		/// The identifier of the class.
+		/// <para>DAC Field Name: ClassID</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Contact Class</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="ContactClass", EmitDefaultValue=false)]
 		public StringValue? ContactClass { get; set; }
 
+		/// <summary>
+		/// The identifier of the contact.This field is the key field.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Contact ID</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public IntValue? ContactID { get; set; }
 
+		/// <summary>
+		/// The person's preferred method of contact.
+		/// <para>DAC Field Name: Method</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Contact Method</para>
+		/// <para>SQL Type: varchar(1)</para>
+		/// </summary>
 		[DataMember(Name="ContactMethod", EmitDefaultValue=false)]
 		public StringValue? ContactMethod { get; set; }
 
 		[DataMember(Name="ConvertedBy", EmitDefaultValue=false)]
 		public StringValue? ConvertedBy { get; set; }
 
+		/// <summary>
+		/// The ID of the user who created the record.
+		/// <para>DAC: PX.Objects.CR.CRRelation</para>
+		/// <para>Display Name: Creator</para>
+		/// </summary>
+		[DataMember(Name="CreatedByID", EmitDefaultValue=false)]
+		public GuidValue? CreatedByID { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was created.
+		/// <para>DAC: PX.Objects.CR.CRLead</para>
+		/// <para>Display Name: Created On</para>
+		/// </summary>
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		/// <summary>
+		/// The date of birth.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Date Of Birth</para>
+		/// </summary>
 		[DataMember(Name="DateOfBirth", EmitDefaultValue=false)]
 		public DateTimeValue? DateOfBirth { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CR.Extensions.CRCreateActions.PopupAttributes</para>
+		/// <para>Display Name: Name</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
 		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
 		public StringValue? DisplayName { get; set; }
 
+		/// <summary>
+		/// Specifies (if set to true) that the contact should not be called.
+		/// <para>DAC Field Name: NoCall</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Do Not Call</para>
+		/// </summary>
 		[DataMember(Name="DoNotCall", EmitDefaultValue=false)]
 		public BooleanValue? DoNotCall { get; set; }
 
+		/// <summary>
+		/// Specifies (if set to true) that the email of the contact will not be involved in the mass email process.This contact will not receive any notification emails.
+		/// <para>DAC Field Name: NoEMail</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Do Not Email</para>
+		/// </summary>
 		[DataMember(Name="DoNotEmail", EmitDefaultValue=false)]
 		public BooleanValue? DoNotEmail { get; set; }
 
@@ -77,51 +170,145 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="DoNotMail", EmitDefaultValue=false)]
 		public BooleanValue? DoNotMail { get; set; }
 
+		/// <summary>
+		/// The duplicate status of the contact.
+		/// <para>DAC Field Name: DuplicateStatus</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
 		[DataMember(Name="Duplicate", EmitDefaultValue=false)]
 		public StringValue? Duplicate { get; set; }
 
+		/// <summary>
+		/// Specifies whether DuplicateStatus is equal to PossibleDuplicatedwhen the ContactDuplicate feature is enabled.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Duplicate Found</para>
+		/// </summary>
 		[DataMember(Name="DuplicateFound", EmitDefaultValue=false)]
 		public BooleanValue? DuplicateFound { get; set; }
 
 		[DataMember(Name="Duplicates", EmitDefaultValue=false)]
 		public List<ContactDuplicateDetail>? Duplicates { get; set; }
 
+		/// <summary>
+		/// The email address of the contact.
+		/// <para>DAC Field Name: EMail</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
 		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
+		/// <summary>
+		/// The fax number.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
 		[DataMember(Name="Fax", EmitDefaultValue=false)]
 		public StringValue? Fax { get; set; }
 
+		/// <summary>
+		/// The phone type for the Fax field.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Fax Type</para>
+		/// <para>SQL Type: varchar(3)</para>
+		/// </summary>
 		[DataMember(Name="FaxType", EmitDefaultValue=false)]
 		public StringValue? FaxType { get; set; }
 
+		/// <summary>
+		/// The first name of the person.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: First Name</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
 		[DataMember(Name="FirstName", EmitDefaultValue=false)]
 		public StringValue? FirstName { get; set; }
 
+		/// <summary>
+		/// The gender of the contact.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="Gender", EmitDefaultValue=false)]
 		public StringValue? Gender { get; set; }
 
+		/// <summary>
+		/// The image attached to the contact.
+		/// <para>DAC Field Name: Img</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
 		[DataMember(Name="Image", EmitDefaultValue=false)]
 		public StringValue? Image { get; set; }
 
+		/// <summary>
+		/// The job title of the person.
+		/// <para>DAC Field Name: Salutation</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Job Title</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
 		[DataMember(Name="JobTitle", EmitDefaultValue=false)]
 		public StringValue? JobTitle { get; set; }
 
+		/// <summary>
+		/// The language in which the contact prefers to communicate.
+		/// <para>DAC Field Name: LanguageID</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Language/Locale</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="LanguageOrLocale", EmitDefaultValue=false)]
 		public StringValue? LanguageOrLocale { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: LastIncomingActivityDate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivityStatistics</para>
+		/// <para>Display Name: Last Incoming Activity</para>
+		/// </summary>
 		[DataMember(Name="LastIncomingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastIncomingActivity { get; set; }
 
+		/// <summary>
+		/// The ID of the user who last modified the record.
+		/// <para>DAC: PX.Objects.CR.CRLead</para>
+		/// <para>Display Name: Last Modified By</para>
+		/// </summary>
+		[DataMember(Name="LastModifiedByID", EmitDefaultValue=false)]
+		public GuidValue? LastModifiedByID { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was last modified.
+		/// <para>DAC: PX.Objects.CR.CRLead</para>
+		/// <para>Display Name: Last Modified On</para>
+		/// </summary>
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// The last name of the person.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Last Name</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// </summary>
 		[DataMember(Name="LastName", EmitDefaultValue=false)]
 		public StringValue? LastName { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: LastOutgoingActivityDate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivityStatistics</para>
+		/// <para>Display Name: Last Outgoing Activity</para>
+		/// </summary>
 		[DataMember(Name="LastOutgoingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastOutgoingActivity { get; set; }
 
+		/// <summary>
+		/// The marital status of the contact.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Marital Status</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="MaritalStatus", EmitDefaultValue=false)]
 		public StringSingleSelectValue? MaritalStatus { get; set; }
 
@@ -131,9 +318,19 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="MiddleName", EmitDefaultValue=false)]
 		public StringValue? MiddleName { get; set; }
 
+		/// <summary>
+		/// Specifies (if set to true) that the email of the contact will not be involved in the mass email process.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: No Marketing</para>
+		/// </summary>
 		[DataMember(Name="NoMarketing", EmitDefaultValue=false)]
 		public BooleanValue? NoMarketing { get; set; }
 
+		/// <summary>
+		/// Specifies (if set to true) that the email of the contact will not be involved in the mass email process.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: No Mass Mail</para>
+		/// </summary>
 		[DataMember(Name="NoMassMail", EmitDefaultValue=false)]
 		public BooleanValue? NoMassMail { get; set; }
 
@@ -143,36 +340,96 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Opportunities", EmitDefaultValue=false)]
 		public List<OpportunityDetail>? Opportunities { get; set; }
 
+		/// <summary>
+		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: OwnerID_description</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// </summary>
 		[DataMember(Name="OwnerEmployeeName", EmitDefaultValue=false)]
 		public StringValue? OwnerEmployeeName { get; set; }
 
+		/// <summary>
+		/// The identifier of the account that is considered as parent for the current account (BAccountID).
+		/// <para>DAC Field Name: ParentBAccountID</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Parent Account</para>
+		/// </summary>
+		/// <remarks>
+		/// There is no business logic in the application for this field.
+		/// </remarks>
 		[DataMember(Name="ParentAccount", EmitDefaultValue=false)]
 		public StringValue? ParentAccount { get; set; }
 
+		/// <summary>
+		/// The phone number.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Phone 1</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
 		[DataMember(Name="Phone1", EmitDefaultValue=false)]
 		public StringValue? Phone1 { get; set; }
 
+		/// <summary>
+		/// The phone type for the Phone1 field.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Phone 1 Type</para>
+		/// <para>SQL Type: varchar(3)</para>
+		/// </summary>
 		[DataMember(Name="Phone1Type", EmitDefaultValue=false)]
 		public StringValue? Phone1Type { get; set; }
 
+		/// <summary>
+		/// The second phone number.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Phone 2</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
 		[DataMember(Name="Phone2", EmitDefaultValue=false)]
 		public StringValue? Phone2 { get; set; }
 
+		/// <summary>
+		/// The phone type for the Phone2 field.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Phone 2 Type</para>
+		/// <para>SQL Type: varchar(3)</para>
+		/// </summary>
 		[DataMember(Name="Phone2Type", EmitDefaultValue=false)]
 		public StringValue? Phone2Type { get; set; }
 
+		/// <summary>
+		/// The third phone number.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Phone 3</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
 		[DataMember(Name="Phone3", EmitDefaultValue=false)]
 		public StringValue? Phone3 { get; set; }
 
+		/// <summary>
+		/// The phone type for the Phone3 field.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Phone 3 Type</para>
+		/// <para>SQL Type: varchar(3)</para>
+		/// </summary>
 		[DataMember(Name="Phone3Type", EmitDefaultValue=false)]
 		public StringValue? Phone3Type { get; set; }
 
 		[DataMember(Name="QualificationDate", EmitDefaultValue=false)]
 		public DateTimeValue? QualificationDate { get; set; }
 
+		/// <summary>
+		/// The reason why the case has been changed to the current status.
+		/// <para>DAC Field Name: Resolution</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
 		[DataMember(Name="Reason", EmitDefaultValue=false)]
 		public StringValue? Reason { get; set; }
 
@@ -182,18 +439,64 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="RoleAssignments", EmitDefaultValue=false)]
 		public List<BCRoleAssignment>? RoleAssignments { get; set; }
 
+		/// <summary>
+		/// The flag identified that the salesTerritoryID is filled automaticallybased on state and countryID or can be assigned manually.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Override Territory</para>
+		/// </summary>
+		[DataMember(Name="OverrideSalesTerritory", EmitDefaultValue=false)]
+		public BooleanValue? OverrideSalesTerritory { get; set; }
+
+		/// <summary>
+		/// The reference to salesTerritoryID. If overrideSalesTerritoryis false then it's filled automaticallybased on state and countryID otherwise it's assigned by user.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Sales Territory</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		[DataMember(Name="SalesTerritoryID", EmitDefaultValue=false)]
+		public StringValue? SalesTerritoryID { get; set; }
+
+		/// <summary>
+		/// The source of the contact. If a contact was created from a lead,the value is copied from the lead related to the contact.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="Source", EmitDefaultValue=false)]
 		public StringValue? Source { get; set; }
 
+		/// <summary>
+		/// The identifier of the campaign that resulted in creation of the contact.
+		/// <para>DAC Field Name: CampaignID</para>
+		/// <para>DAC: PX.Objects.CR.CRLead</para>
+		/// <para>Display Name: Source Campaign</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
 		[DataMember(Name="SourceCampaign", EmitDefaultValue=false)]
 		public StringValue? SourceCampaign { get; set; }
 
+		/// <summary>
+		/// The name of the spouse or partner of the contact.
+		/// <para>DAC Field Name: Spouse</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Spouse/Partner Name</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
 		[DataMember(Name="SpouseOrPartnerName", EmitDefaultValue=false)]
 		public StringValue? SpouseOrPartnerName { get; set; }
 
+		/// <summary>
+		/// The status of the contact.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringSingleSelectValue? Status { get; set; }
 
+		/// <summary>
+		/// Specifies whether the contact should be included in exchange synchronization.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Synchronize with Exchange</para>
+		/// </summary>
 		[DataMember(Name="Synchronize", EmitDefaultValue=false)]
 		public BooleanValue? Synchronize { get; set; }
 
@@ -206,12 +509,27 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="UserInfo", EmitDefaultValue=false)]
 		public ContactUserInfo? UserInfo { get; set; }
 
+		/// <summary>
+		/// The URL of the contact website.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Web</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
 		[DataMember(Name="WebSite", EmitDefaultValue=false)]
 		public StringValue? WebSite { get; set; }
 
+		/// <summary>
+		/// The identifier of the workgroup responsible for the current document.
+		/// <para>DAC Field Name: WorkgroupID</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// </summary>
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: WorkgroupID_description</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// </summary>
 		[DataMember(Name="WorkgroupDescription", EmitDefaultValue=false)]
 		public StringValue? WorkgroupDescription { get; set; }
 
@@ -221,39 +539,44 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="FullName", EmitDefaultValue=false)]
 		public StringValue? FullName { get; set; }
 
+		/// <summary>
+		/// The external reference number of the contact.It can be an additional number of the contact used in external integration.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Ext. Ref. Nbr.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
 		[DataMember(Name="ExtRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExtRefNbr { get; set; }
 
+		[DataMember(Name="ExtUserRole", EmitDefaultValue=false)]
+		public StringValue? ExtUserRole { get; set; }
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";
 			public const string Translations = "Translations";
 			public const string Activities = "Activities";
-			public const string Activities_Files = "Activities/Files";
 			public const string Address = "Address";
 			public const string Attributes = "Attributes";
 			public const string Campaigns = "Campaigns";
-			public const string Campaigns_Files = "Campaigns/Files";
 			public const string Cases = "Cases";
-			public const string Cases_Files = "Cases/Files";
 			public const string Duplicates = "Duplicates";
-			public const string Duplicates_Files = "Duplicates/Files";
 			public const string MarketingLists = "MarketingLists";
-			public const string MarketingLists_Files = "MarketingLists/Files";
 			public const string Notifications = "Notifications";
-			public const string Notifications_Files = "Notifications/Files";
 			public const string Opportunities = "Opportunities";
-			public const string Opportunities_Files = "Opportunities/Files";
 			public const string Relations = "Relations";
-			public const string Relations_Files = "Relations/Files";
 			public const string RoleAssignments = "RoleAssignments";
-			public const string RoleAssignments_Files = "RoleAssignments/Files";
 			public const string UserInfo = "UserInfo";
-			public const string UserInfo_Roles = "UserInfo/Roles";
-			public const string UserInfo_Roles_Files = "UserInfo/Roles/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Translations,Activities,Activities/Files,Address,Attributes,Campaigns,Campaigns/Files,Cases,Cases/Files,Duplicates,Duplicates/Files,MarketingLists,MarketingLists/Files,Notifications,Notifications/Files,Opportunities,Opportunities/Files,Relations,Relations/Files,RoleAssignments,RoleAssignments/Files,UserInfo,UserInfo/Roles,UserInfo/Roles/Files";
+			//public const string All = "Files,Translations,Activities,Address,Attributes,Campaigns,Cases,Duplicates,MarketingLists,Notifications,Opportunities,Relations,RoleAssignments,UserInfo";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -16,7 +16,7 @@ namespace Acumatica.Default_26_200_001.Model
 		public CreateOpportunitySalesOrder(Opportunity entity, CreateOpportunitySalesOrderParameters parameters) : base(entity, parameters)
 		{ }
 
-		public StringSingleSelectValue? OrderType
+		public StringValue? OrderType
 		{
 			get { return Parameters.OrderType; }
 			set { Parameters.OrderType = value; }

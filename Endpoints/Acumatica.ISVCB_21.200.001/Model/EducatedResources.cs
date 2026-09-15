@@ -23,11 +23,12 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string EducatedResourcesDetails = "EducatedResourcesDetails";
 			public const string EducatedResourcesDetails_Files = "EducatedResourcesDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,EducatedResourcesDetails,EducatedResourcesDetails/Files";
+			//public const string All = "Files,Translations,EducatedResourcesDetails,EducatedResourcesDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

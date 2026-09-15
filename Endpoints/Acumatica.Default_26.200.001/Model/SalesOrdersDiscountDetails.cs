@@ -14,44 +14,129 @@ namespace Acumatica.Default_26_200_001.Model
 	public class SalesOrdersDiscountDetails : Entity
 	{
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CuryDiscountableAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Discountable Amt.</para>
+		/// </summary>
 		[DataMember(Name="DiscountableAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountableAmount { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Discountable Qty.</para>
+		/// </summary>
 		[DataMember(Name="DiscountableQty", EmitDefaultValue=false)]
 		public DecimalValue? DiscountableQty { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CuryDiscountAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Discount Amt.</para>
+		/// </summary>
 		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
 		public DecimalValue? DiscountAmount { get; set; }
 
+		/// <summary>
+		/// The code of the discount of the line.
+		/// <para>DAC Field Name: DiscountID</para>
+		/// <para>DAC: PX.Objects.SO.SOLine</para>
+		/// <para>Display Name: Discount Code</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		/// <remarks>
+		/// <para>The field is included in the following foreign keys:           Discount. The field is the identifier of the DiscountARDiscount.discountIDDiscountSequence. The field is a part of the identifier of the Discount SequenceDiscountSequence.discountID</para><para>This field is available only if theCustomer Discountsfeature is enabled on the Enable/Disable Features (CS100000) form.</para>
+		/// </remarks>
 		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: DiscountPct</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Discount Percent</para>
+		/// </summary>
 		[DataMember(Name="DiscountPercent", EmitDefaultValue=false)]
 		public DecimalValue? DiscountPercent { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: ExtDiscCode</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: External Discount Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
 		[DataMember(Name="ExternalDiscountCode", EmitDefaultValue=false)]
 		public StringValue? ExternalDiscountCode { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: FreeItemID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Free Item</para>
+		/// </summary>
 		[DataMember(Name="FreeItem", EmitDefaultValue=false)]
 		public StringValue? FreeItem { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Free Item Qty.</para>
+		/// </summary>
 		[DataMember(Name="FreeItemQty", EmitDefaultValue=false)]
 		public DecimalValue? FreeItemQty { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: IsManual</para>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Manual Discount</para>
+		/// </summary>
 		[DataMember(Name="ManualDiscount", EmitDefaultValue=false)]
 		public BooleanValue? ManualDiscount { get; set; }
 
+		/// <summary>
+		/// The identifier of the discount sequence of the line.
+		/// <para>DAC Field Name: DiscountSequenceID</para>
+		/// <para>DAC: PX.Objects.SO.SOLine</para>
+		/// <para>Display Name: Discount Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		/// <remarks>
+		/// <para>The field is included in the DiscountSequence foreign key. The field is a part ofthe identifier of the Discount SequenceDiscountSequence.discountSequenceID.</para><para>This field is available only if theCustomer Discountsfeature is enabled on the Enable/Disable Features (CS100000) form.</para>
+		/// </remarks>
 		[DataMember(Name="SequenceID", EmitDefaultValue=false)]
 		public StringValue? SequenceID { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>Display Name: Skip Discount</para>
+		/// </summary>
 		[DataMember(Name="SkipDiscount", EmitDefaultValue=false)]
 		public BooleanValue? SkipDiscount { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOOrderDiscountDetail</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+
+			//Intentionally excluded
+			//public const string All = "Files";
+		}
 	}
 }

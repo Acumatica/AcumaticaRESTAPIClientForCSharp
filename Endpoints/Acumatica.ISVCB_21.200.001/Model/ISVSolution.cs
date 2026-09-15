@@ -53,6 +53,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Customers = "Customers";
 			public const string Customers_Files = "Customers/Files";
 			public const string Repository = "Repository";
@@ -60,7 +61,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 			public const string Attributes = "Attributes";
 
 			//Intentionally excluded
-			//public const string All = "Files,Customers,Customers/Files,Repository,Repository/Files,Attributes";
+			//public const string All = "Files,Translations,Customers,Customers/Files,Repository,Repository/Files,Attributes";
 		}
 		public virtual string GetEndpointPath()
 		{

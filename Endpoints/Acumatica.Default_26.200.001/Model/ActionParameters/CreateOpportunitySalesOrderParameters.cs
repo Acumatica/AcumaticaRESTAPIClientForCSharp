@@ -16,7 +16,7 @@ namespace Acumatica.Default_26_200_001.Model
 		public CreateOpportunitySalesOrderParameters() { }
 
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringSingleSelectValue? OrderType { get; set; }
+		public StringValue? OrderType { get; set; }
 		[DataMember(Name="RecalculatePricesandDiscounts", EmitDefaultValue=false)]
 		public BooleanValue? RecalculatePricesandDiscounts { get; set; }
 	}

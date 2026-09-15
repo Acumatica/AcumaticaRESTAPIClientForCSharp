@@ -14,9 +14,19 @@ namespace Acumatica.Default_26_200_001.Model
 	public class SrvOrdContractInfo : Entity
 	{
 
+		/// <summary>
+		/// <para>DAC Field Name: BillContractPeriodID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Contract Period</para>
+		/// </summary>
 		[DataMember(Name="ContractPeriod", EmitDefaultValue=false)]
 		public StringValue? ContractPeriod { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: BillServiceContractID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Service Contract</para>
+		/// </summary>
 		[DataMember(Name="ServiceContract", EmitDefaultValue=false)]
 		public StringValue? ServiceContract { get; set; }
 

@@ -14,81 +14,265 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ExpenseReceiptDetails : Entity
 	{
 
+		/// <summary>
+		/// The total amount of the receipt in the currency of the document.
+		/// <para>DAC Field Name: CuryExtCost</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// </summary>
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
+		/// <summary>
+		/// Identifier of the base Currency.
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Base Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
 		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
 		public StringValue? BaseCurrencyID { get; set; }
 
+		/// <summary>
+		/// Indicates (if set to <c>true</c>) that the customer should be billed for the claim amount.You can use the Bill Expense Claims (EP502000) form to bill the customer if no project is specified.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// </summary>
 		[DataMember(Name="Billable", EmitDefaultValue=false)]
 		public BooleanValue? Billable { get; set; }
 
+		/// <summary>
+		/// The identifier of the corporate card that is used to pay the expense receipt.
+		/// <para>DAC Field Name: CorpCardID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Corporate Card</para>
+		/// </summary>
+		[DataMember(Name="CorporateCard", EmitDefaultValue=false)]
+		public StringValue? CorporateCard { get; set; }
+
+		/// <summary>
+		/// The identifier of the cost code associated with the record.
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Cost Code</para>
+		/// </summary>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
 
+		/// <summary>
+		/// The identifier of the Rate Type associated with this object.
+		/// <para>DAC Field Name: CuryRateTypeID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate Type ID</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
 		[DataMember(Name="CurrancyRateTypeID", EmitDefaultValue=false)]
 		public StringValue? CurrancyRateTypeID { get; set; }
 
+		/// <summary>
+		/// The code of the currency of the document.By default, the receipt currency is the currency specified as the default for the employee.
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
 
+		/// <summary>
+		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
+		/// <para>DAC Field Name: SampleCuryRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate</para>
+		/// </summary>
 		[DataMember(Name="CurrencyRate", EmitDefaultValue=false)]
 		public DecimalValue? CurrencyRate { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Customer</para>
+		/// </summary>
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
+		/// <summary>
+		/// The description of the expense.
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// The part of the total amount that will not be paid back to the employee in the currency of the document.
+		/// <para>DAC Field Name: CuryEmployeePart</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Employee Part</para>
+		/// </summary>
 		[DataMember(Name="EmployeePart", EmitDefaultValue=false)]
 		public DecimalValue? EmployeePart { get; set; }
 
+		/// <summary>
+		/// The expense account to which the system records the part of the expense to be paid back to the employee.
+		/// <para>DAC Field Name: ExpenseAccountID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Expense Account</para>
+		/// </summary>
 		[DataMember(Name="ExpenseAccount", EmitDefaultValue=false)]
 		public StringValue? ExpenseAccount { get; set; }
 
+		/// <summary>
+		/// The reference number, which usually matches the number of the original receipt.
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Expense Claim Ref. Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
 		[DataMember(Name="ExpenseClaimID", EmitDefaultValue=false)]
 		public StringValue? ExpenseClaimID { get; set; }
 
+		/// <summary>
+		/// The status of the Expense Claim (EP301000) form (which corresponds to the ExpenseClaimEntry graph).
+		/// <para>DAC Field Name: StatusClaim</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Expense Claim Status</para>
+		/// <para>SQL Type: nchar(1)</para>
+		/// </summary>
 		[DataMember(Name="ExpenseClaimStatus", EmitDefaultValue=false)]
 		public StringSingleSelectValue? ExpenseClaimStatus { get; set; }
 
+		/// <summary>
+		/// The corresponding subaccount the system uses to record the part of the expense to be paid back to the employee.The segments of the expense subaccount are combined according to the settings specified on the Time and Expenses Preferences (EP101000) form.
+		/// <para>DAC Field Name: ExpenseSubID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Expense Sub.</para>
+		/// </summary>
 		[DataMember(Name="ExpenseSubaccount", EmitDefaultValue=false)]
 		public StringValue? ExpenseSubaccount { get; set; }
 
+		/// <summary>
+		/// The location of the customer related to the expenses.
+		/// <para>DAC Field Name: CustomerLocationID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Location</para>
+		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
+		/// <summary>
+		/// The way the expense receipt has been paid.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Paid With</para>
+		/// <para>SQL Type: varchar(8)</para>
+		/// </summary>
+		[DataMember(Name="PaidWith", EmitDefaultValue=false)]
+		public StringValue? PaidWith { get; set; }
+
+		/// <summary>
+		/// The project or contract, which should be specified if theemployee incurred the expenses while working on a particular project or contract.The value of this field can be specified only if the Project Accounting or Contract Management feature,respectively, is enabled on the Enable/Disable Features (CS100000) form.
+		/// <para>DAC Field Name: ContractID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Project/Contract</para>
+		/// </summary>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
+		/// <summary>
+		/// The project task to which the expenses are related.This box is available only if the Project Management feature is enabled on the Enable/Disable Features (CS100000) form.
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Project Task</para>
+		/// </summary>
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
 
+		/// <summary>
+		/// The quantity of the expense item that the employee purchased according to the receipt.The quantity is expressed in the unit of measure specifiedfor the selected expense non-stock item.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Quantity</para>
+		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
 
+		/// <summary>
+		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
+		/// <para>DAC Field Name: SampleRecipRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Reciprocal Rate</para>
+		/// </summary>
 		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
 		public DecimalValue? ReciprocalRate { get; set; }
 
+		/// <summary>
+		/// The reference number, which usually matches the number of the original receipt.
+		/// <para>DAC Field Name: ExpenseRefNbr</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Ref. Nbr.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
 		[DataMember(Name="RefNbr", EmitDefaultValue=false)]
 		public StringValue? RefNbr { get; set; }
 
+		/// <summary>
+		/// The sales account to which the system records the part of the amount to charge the customer for.If the Billable check box is selected, the sales account specified for the expense non-stock item is filled in by default.
+		/// <para>DAC Field Name: SalesAccountID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Sales Account</para>
+		/// </summary>
 		[DataMember(Name="SalesAccount", EmitDefaultValue=false)]
 		public StringValue? SalesAccount { get; set; }
 
+		/// <summary>
+		/// The corresponding subaccount the system uses to record the amount to charge the customer for.If the Billable check box is selected, the sales subaccount specified for the expense non-stock item is filled in by default.The segments of the sales subaccount are combined according to the settings specified on the Time and Expenses Preferences (EP101000) form.
+		/// <para>DAC Field Name: SalesSubID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Sales Sub.</para>
+		/// </summary>
 		[DataMember(Name="SalesSubaccount", EmitDefaultValue=false)]
 		public StringValue? SalesSubaccount { get; set; }
 
+		/// <summary>
+		/// The tax category associated with the expense item.
+		/// <para>DAC Field Name: TaxCategoryID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
 
+		/// <summary>
+		/// The identifier of the tax zone associated with the receipt.
+		/// <para>DAC Field Name: TaxZoneID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
+		/// <summary>
+		/// The amount of non-taxable tips in the document currency that will not be included in the tax base of the receipt.
+		/// <para>DAC Field Name: CuryTipAmt</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Tip Amount</para>
+		/// </summary>
+		[DataMember(Name="TipAmount", EmitDefaultValue=false)]
+		public DecimalValue? TipAmount { get; set; }
+
+		/// <summary>
+		/// The cost of one unit of the expense item in the currency of the document.If a standard cost is specified for the expense non-stock item, the standard cost is used as the default unit cost.
+		/// <para>DAC Field Name: CuryUnitCost</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Unit Cost</para>
+		/// </summary>
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
 
+		/// <summary>
+		/// The unit of measure of the expense item.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
 

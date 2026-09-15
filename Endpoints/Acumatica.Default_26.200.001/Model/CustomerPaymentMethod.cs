@@ -10,55 +10,125 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>AR303010</c> in the Acumatica ERP
+	/// <para>Key Fields: CustomerID, InstanceID</para>
+	/// </summary>
 	[DataContract]
 	public class CustomerPaymentMethod : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// Indicates (if set to <c>true</c>) that the customerpayment method is available for recording payments.
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
+		/// <summary>
+		/// The description of the payment method.
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Card/Account Nbr.</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
 		[DataMember(Name="CardAccountNbr", EmitDefaultValue=false)]
 		public StringValue? CardAccountNbr { get; set; }
 
+		/// <summary>
+		/// The identifier of the cash accountassociated with the customer payment method.
+		/// <para>DAC Field Name: CashAccountID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Cash Account</para>
+		/// </summary>
 		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
 		public StringValue? CashAccount { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
+		/// <summary>
+		/// The identifier of customer towhich the payment method belongs. This field is a partof the compound key of the record.
+		/// <para>DAC Field Name: BAccountID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Customer</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
 		public StringValue? CustomerID { get; set; }
 
+		/// <summary>
+		/// The identifier of the customer profile associated with the customeraccount in Acumatica ERP and Authorize.Net. The main purpose ofthe identifier is to link multiple bank cards to a single customerentity and to synchronize record details between systems.
+		/// <para>DAC Field Name: CustomerCCPID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Customer Profile ID</para>
+		/// <para>SQL Type: nvarchar(1024)</para>
+		/// </summary>
 		[DataMember(Name="CustomerProfileID", EmitDefaultValue=false)]
 		public StringValue? CustomerProfileID { get; set; }
 
 		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<CustomerPaymentMethodDetail>? Details { get; set; }
 
+		/// <summary>
+		/// The unique identifier of the customer payment method.This field is part of the compound key of the record.
+		/// <para>DAC Field Name: PMInstanceID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Card Number</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="InstanceID", EmitDefaultValue=false)]
 		public IntValue? InstanceID { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// The identifier of the payment methodassociated with the customer payment method. The settings of this paymentmethod are used as a template for the customer payment method.
+		/// <para>DAC Field Name: PaymentMethodID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Payment Method</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
+		/// <summary>
+		/// The identifier of the credit card processing center.
+		/// <para>DAC Field Name: CCProcessingCenterID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Proc. Center ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="ProcCenterID", EmitDefaultValue=false)]
 		public StringValue? ProcCenterID { get; set; }
 
+		/// <summary>
+		/// Specifies display card type value.This is a virtual field and it has no representation in the database.
+		/// <para>DAC Field Name: DisplayCardType</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Card/Account Type</para>
+		/// <para>SQL Type: nchar(20)</para>
+		/// </summary>
 		[DataMember(Name="CardType", EmitDefaultValue=false)]
 		public StringValue? CardType { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";
 			public const string Translations = "Translations";
 			public const string Details = "Details";
-			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Translations,Details,Details/Files";
+			//public const string All = "Files,Translations,Details";
 		}
 		public virtual string GetEndpointPath()
 		{

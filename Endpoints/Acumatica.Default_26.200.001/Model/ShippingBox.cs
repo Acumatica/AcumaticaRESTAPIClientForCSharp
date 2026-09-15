@@ -10,49 +10,107 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>CS207600</c> in the Acumatica ERP
+	/// <para>Key Fields: BoxID</para>
+	/// </summary>
 	[DataContract]
 	public class ShippingBox : Entity, ITopLevelEntity
 	{
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Active by Default</para>
+		/// </summary>
 		[DataMember(Name="ActiveByDefault", EmitDefaultValue=false)]
 		public BooleanValue? ActiveByDefault { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Box ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="BoxID", EmitDefaultValue=false)]
 		public StringValue? BoxID { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Box Weight</para>
+		/// </summary>
 		[DataMember(Name="BoxWeight", EmitDefaultValue=false)]
 		public DecimalValue? BoxWeight { get; set; }
 
 		[DataMember(Name="CarriersPackage", EmitDefaultValue=false)]
 		public StringValue? CarriersPackage { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
 		[DataMember(Name="Height", EmitDefaultValue=false)]
 		public DecimalValue? Height { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
 		[DataMember(Name="Length", EmitDefaultValue=false)]
 		public DecimalValue? Length { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Max Volume</para>
+		/// </summary>
 		[DataMember(Name="MaxVolume", EmitDefaultValue=false)]
 		public DecimalValue? MaxVolume { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Max. Weight</para>
+		/// </summary>
 		[DataMember(Name="MaxWeight", EmitDefaultValue=false)]
 		public DecimalValue? MaxWeight { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CommonSetup__VolumeUOM</para>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
 		[DataMember(Name="VolumeUOM", EmitDefaultValue=false)]
 		public StringValue? VolumeUOM { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CommonSetup__WeightUOM</para>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
 		[DataMember(Name="WeightUOM", EmitDefaultValue=false)]
 		public StringValue? WeightUOM { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
 		[DataMember(Name="Width", EmitDefaultValue=false)]
 		public DecimalValue? Width { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CommonSetup__LinearUOM</para>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
 		[DataMember(Name="LinearUOM", EmitDefaultValue=false)]
 		public StringValue? LinearUOM { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";

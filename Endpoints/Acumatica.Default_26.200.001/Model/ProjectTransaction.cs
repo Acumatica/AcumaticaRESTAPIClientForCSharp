@@ -10,6 +10,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>PM304000</c> in the Acumatica ERP
+	/// <para>Key Fields: Module, ReferenceNbr</para>
+	/// </summary>
 	[DataContract]
 	public class ProjectTransaction : Entity, ITopLevelEntity
 	{
@@ -17,6 +21,11 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
+		/// <summary>
+		/// The description of the document.
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -26,39 +35,97 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// The identifier of the functional area, to which the batch belongs.
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Source</para>
+		/// <para>SQL Type: char(2)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="Module", EmitDefaultValue=false)]
 		public StringValue? Module { get; set; }
 
+		/// <summary>
+		/// The reference number of the original document.
+		/// <para>DAC Field Name: OrigDocNbr</para>
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Orig. Doc. Nbr.</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
 		[DataMember(Name="OriginalDocNbr", EmitDefaultValue=false)]
 		public StringValue? OriginalDocNbr { get; set; }
 
+		/// <summary>
+		/// The type of the original document.
+		/// <para>DAC Field Name: OrigDocType</para>
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Orig. Doc. Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
 		[DataMember(Name="OriginalDocType", EmitDefaultValue=false)]
 		public StringSingleSelectValue? OriginalDocType { get; set; }
 
+		/// <summary>
+		/// The reference number of the document.
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Ref. Number</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
 
+		/// <summary>
+		/// The read-only status of the document.
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringSingleSelectValue? Status { get; set; }
 
+		/// <summary>
+		/// The total amount for the project transactions in the base currency.
+		/// <para>DAC Field Name: AmtTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Total Amount</para>
+		/// </summary>
 		[DataMember(Name="TotalAmount", EmitDefaultValue=false)]
 		public DecimalValue? TotalAmount { get; set; }
 
+		/// <summary>
+		/// The total billable quantity for the project transactions.
+		/// <para>DAC Field Name: BillableQtyTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Total Billable Quantity</para>
+		/// </summary>
 		[DataMember(Name="TotalBillableQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalBillableQty { get; set; }
 
+		/// <summary>
+		/// The total quantity of items in the project transactions.
+		/// <para>DAC Field Name: QtyTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Total Quantity</para>
+		/// </summary>
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";
 			public const string Translations = "Translations";
 			public const string Details = "Details";
-			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Translations,Details,Details/Files";
+			//public const string All = "Files,Translations,Details";
 		}
 		public virtual string GetEndpointPath()
 		{

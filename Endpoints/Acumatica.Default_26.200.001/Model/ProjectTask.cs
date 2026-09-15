@@ -10,6 +10,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>PM302000</c> in the Acumatica ERP
+	/// <para>Key Fields: ProjectID, ProjectTaskID</para>
+	/// </summary>
 	[DataContract]
 	public class ProjectTask : Entity, ITopLevelEntity
 	{
@@ -26,12 +30,22 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="CRMLink", EmitDefaultValue=false)]
 		public ProjectTaskToCRMLink? CRMLink { get; set; }
 
+		/// <summary>
+		/// A Boolean value that indicates (if set to true) that the task is default.
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// </summary>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
 		[DataMember(Name="DefaultValues", EmitDefaultValue=false)]
 		public ProjectTaskDefaultValues? DefaultValues { get; set; }
 
+		/// <summary>
+		/// The description of the task.
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>SQL Type: nvarchar(250)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -41,27 +55,55 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		[DataMember(Name="ParentTaskID", EmitDefaultValue=false)]
+		public StringValue? ParentTaskID { get; set; }
+
+		/// <summary>
+		/// The identifier of the project to which the task belongs.
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>Display Name: Project ID</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
+		/// <summary>
+		/// The unique identifier of the task. This is a segmented key, which format is configured on the Segmented Keys (CS202000) form.
+		/// <para>DAC Field Name: TaskCD</para>
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>Display Name: Task ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
 
 		[DataMember(Name="Properties", EmitDefaultValue=false)]
 		public ProjectTaskProperties? Properties { get; set; }
 
+		/// <summary>
+		/// The task status.
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringSingleSelectValue? Status { get; set; }
 
 		[DataMember(Name="VisibilitySettings", EmitDefaultValue=false)]
 		public VisibilitySettings? VisibilitySettings { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";
 			public const string Translations = "Translations";
 			public const string ActivityHistory = "ActivityHistory";
-			public const string ActivityHistory_Files = "ActivityHistory/Files";
 			public const string Attributes = "Attributes";
 			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
 			public const string CRMLink = "CRMLink";
@@ -70,7 +112,7 @@ namespace Acumatica.Default_26_200_001.Model
 			public const string VisibilitySettings = "VisibilitySettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,Translations,ActivityHistory,ActivityHistory/Files,Attributes,BillingAndAllocationSettings,CRMLink,DefaultValues,Properties,VisibilitySettings";
+			//public const string All = "Files,Translations,ActivityHistory,Attributes,BillingAndAllocationSettings,CRMLink,DefaultValues,Properties,VisibilitySettings";
 		}
 		public virtual string GetEndpointPath()
 		{

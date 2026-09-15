@@ -14,5 +14,8 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class CustomerContact : Acumatica.Default_24_200_001.Model.CustomerContact
 	{
 
+		[DataMember(Name="ExtUserRole", EmitDefaultValue=false)]
+		public StringValue? ExtUserRole { get; set; }
+
 	}
 }

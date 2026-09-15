@@ -10,6 +10,9 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>SC301000</c> in the Acumatica ERP
+	/// </summary>
 	[DataContract]
 	public class Subcontract : Entity, ITopLevelEntity
 	{
@@ -119,19 +122,24 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="VendorContactInfo", EmitDefaultValue=false)]
 		public SubcontractVendorContactInfo? VendorContactInfo { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";
 			public const string Translations = "Translations";
 			public const string Details = "Details";
-			public const string Details_Files = "Details/Files";
 			public const string TaxDetails = "TaxDetails";
-			public const string TaxDetails_Files = "TaxDetails/Files";
 			public const string VendorAddressInfo = "VendorAddressInfo";
 			public const string VendorContactInfo = "VendorContactInfo";
 
 			//Intentionally excluded
-			//public const string All = "Files,Translations,Details,Details/Files,TaxDetails,TaxDetails/Files,VendorAddressInfo,VendorContactInfo";
+			//public const string All = "Files,Translations,Details,TaxDetails,VendorAddressInfo,VendorContactInfo";
 		}
 		public virtual string GetEndpointPath()
 		{

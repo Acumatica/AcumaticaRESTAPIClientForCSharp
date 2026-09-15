@@ -10,6 +10,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>AR303020</c> in the Acumatica ERP
+	/// <para>Key Fields: Customer, LocationID</para>
+	/// </summary>
 	[DataContract]
 	public class CustomerLocation : Entity, ITopLevelEntity
 	{
@@ -17,96 +21,267 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
+		/// <summary>
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Override</para>
+		/// </summary>
 		[DataMember(Name="AddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? AddressOverride { get; set; }
 
+		/// <summary>
+		/// The type of the work calendar in the customer location.
+		/// <para>DAC Field Name: CCalendarID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="Calendar", EmitDefaultValue=false)]
 		public StringValue? Calendar { get; set; }
 
+		/// <summary>
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
+		/// <para>DAC Field Name: OverrideContact</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Override</para>
+		/// </summary>
 		[DataMember(Name="ContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? ContactOverride { get; set; }
 
 		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? CreatedDateTime { get; set; }
 
+		/// <summary>
+		/// The identifier of the BAccount record that is specified in the document to which the location belongs.
+		/// <para>DAC Field Name: BAccountID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Account ID</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
+		/// <summary>
+		/// This field indicates whether the location is default for the corresponding business account.
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// </summary>
 		[DataMember(Name="Default", EmitDefaultValue=false)]
 		public BooleanValue? Default { get; set; }
 
+		/// <summary>
+		/// The identifier of the default project of the customer location.
+		/// <para>DAC Field Name: CDefProjectID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Default Project</para>
+		/// </summary>
 		[DataMember(Name="DefaultProject", EmitDefaultValue=false)]
 		public StringValue? DefaultProject { get; set; }
 
+		/// <summary>
+		/// The customer's entity type for reporting purposes. This field is used if the system is integrated with External Tax Calculationand the External Tax Calculation Integration feature is enabled.
+		/// <para>DAC Field Name: CAvalaraCustomerUsageType</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Tax Exemption Type</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="EntityUsageType", EmitDefaultValue=false)]
 		public StringValue? EntityUsageType { get; set; }
 
+		/// <summary>
+		/// This field indicates whether the FedEx Ground Collect program is available in this location.
+		/// <para>DAC Field Name: CGroundCollect</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Ground Collect</para>
+		/// </summary>
 		[DataMember(Name="FedExGroundCollect", EmitDefaultValue=false)]
 		public BooleanValue? FedExGroundCollect { get; set; }
 
+		/// <summary>
+		/// The customer's FOB (free on board) shipping point.
+		/// <para>DAC Field Name: CFOBPointID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: FOB Point</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
 		[DataMember(Name="FOBPoint", EmitDefaultValue=false)]
 		public StringValue? FOBPoint { get; set; }
 
+		/// <summary>
+		/// This field indicates whether the delivery insurance is available in this location.
+		/// <para>DAC Field Name: CInsurance</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// </summary>
 		[DataMember(Name="Insurance", EmitDefaultValue=false)]
 		public BooleanValue? Insurance { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// The amount of lead days (the time in days from the moment when the production was finished to the moment when the customer's order was delivered).
+		/// <para>DAC Field Name: CLeadTime</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Lead Time (Days)</para>
+		/// </summary>
 		[DataMember(Name="LeadTimeDays", EmitDefaultValue=false)]
 		public ShortValue? LeadTimeDays { get; set; }
 
 		[DataMember(Name="LocationContact", EmitDefaultValue=false)]
 		public Contact? LocationContact { get; set; }
 
+		/// <summary>
+		/// The human-readable identifier of the location that is specified by the user when they create a location.This field is a natural key as opposed to the LocationID surrogate key.
+		/// <para>DAC Field Name: LocationCD</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Location ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
+		/// <summary>
+		/// The name of the location.
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Location Name</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
 		[DataMember(Name="LocationName", EmitDefaultValue=false)]
 		public StringValue? LocationName { get; set; }
 
+		/// <summary>
+		/// The order priority of the customer's location.
+		/// <para>DAC Field Name: COrderPriority</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Order Priority</para>
+		/// </summary>
 		[DataMember(Name="OrderPriority", EmitDefaultValue=false)]
 		public ShortValue? OrderPriority { get; set; }
 
+		/// <summary>
+		/// The price class of the customer.
+		/// <para>DAC Field Name: CPriceClassID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Price Class</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
 		public StringValue? PriceClass { get; set; }
 
+		/// <summary>
+		/// This field indicates whether the residential delivery is available in this location.
+		/// <para>DAC Field Name: CResedential</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Residential Delivery</para>
+		/// </summary>
 		[DataMember(Name="ResidentialDelivery", EmitDefaultValue=false)]
 		public BooleanValue? ResidentialDelivery { get; set; }
 
 		[DataMember(Name="RoleAssignments", EmitDefaultValue=false)]
 		public List<BCRoleAssignment>? RoleAssignments { get; set; }
 
+		/// <summary>
+		/// This field indicates whether the Saturday delivery is available in this location.
+		/// <para>DAC Field Name: CSaturdayDelivery</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Saturday Delivery</para>
+		/// </summary>
 		[DataMember(Name="SaturdayDelivery", EmitDefaultValue=false)]
 		public BooleanValue? SaturdayDelivery { get; set; }
 
+		/// <summary>
+		/// The identifier of the default branch of the customer location.
+		/// <para>DAC Field Name: CBranchID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Shipping Branch</para>
+		/// </summary>
 		[DataMember(Name="ShippingBranch", EmitDefaultValue=false)]
 		public StringValue? ShippingBranch { get; set; }
 
+		/// <summary>
+		/// The shipping rule of the customer location.
+		/// <para>DAC Field Name: CShipComplete</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Shipping Rule</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="ShippingRule", EmitDefaultValue=false)]
 		public StringValue? ShippingRule { get; set; }
 
+		/// <summary>
+		/// The customer's shipping terms.
+		/// <para>DAC Field Name: CShipTermsID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Shipping Terms</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="ShippingTerms", EmitDefaultValue=false)]
 		public StringValue? ShippingTerms { get; set; }
 
+		/// <summary>
+		/// The customer's shipping zone.
+		/// <para>DAC Field Name: CShipZoneID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Shipping Zone</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
 		[DataMember(Name="ShippingZone", EmitDefaultValue=false)]
 		public StringValue? ShippingZone { get; set; }
 
+		/// <summary>
+		/// The shipping carrier for the vendor location.
+		/// <para>DAC Field Name: CCarrierID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Ship Via</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
 		[DataMember(Name="ShipVia", EmitDefaultValue=false)]
 		public StringValue? ShipVia { get; set; }
 
+		/// <summary>
+		/// The current status of the location.
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringSingleSelectValue? Status { get; set; }
 
+		/// <summary>
+		/// The Avalara Exemption number of the customer location.
+		/// <para>DAC Field Name: CAvalaraExemptionNumber</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Tax Exemption Number</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
 		[DataMember(Name="TaxExemptionNbr", EmitDefaultValue=false)]
 		public StringValue? TaxExemptionNbr { get; set; }
 
+		/// <summary>
+		/// The registration ID of the company in the state tax authority.
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Tax Registration ID</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
 		[DataMember(Name="TaxRegistrationID", EmitDefaultValue=false)]
 		public StringValue? TaxRegistrationID { get; set; }
 
+		/// <summary>
+		/// The customer's tax zone.
+		/// <para>DAC Field Name: CTaxZoneID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
 
+		/// <summary>
+		/// The warehouse identifier of the customer location.
+		/// <para>DAC Field Name: CSiteID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
 
@@ -116,39 +291,25 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="ExtRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExtRefNbr { get; set; }
 
+		[DataMember(Name="LocationType", EmitDefaultValue=false)]
+		public StringValue? LocationType { get; set; }
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";
 			public const string Translations = "Translations";
 			public const string LocationContact = "LocationContact";
-			public const string LocationContact_Activities = "LocationContact/Activities";
-			public const string LocationContact_Activities_Files = "LocationContact/Activities/Files";
-			public const string LocationContact_Address = "LocationContact/Address";
-			public const string LocationContact_Attributes = "LocationContact/Attributes";
-			public const string LocationContact_Campaigns = "LocationContact/Campaigns";
-			public const string LocationContact_Campaigns_Files = "LocationContact/Campaigns/Files";
-			public const string LocationContact_Cases = "LocationContact/Cases";
-			public const string LocationContact_Cases_Files = "LocationContact/Cases/Files";
-			public const string LocationContact_Duplicates = "LocationContact/Duplicates";
-			public const string LocationContact_Duplicates_Files = "LocationContact/Duplicates/Files";
-			public const string LocationContact_MarketingLists = "LocationContact/MarketingLists";
-			public const string LocationContact_MarketingLists_Files = "LocationContact/MarketingLists/Files";
-			public const string LocationContact_Notifications = "LocationContact/Notifications";
-			public const string LocationContact_Notifications_Files = "LocationContact/Notifications/Files";
-			public const string LocationContact_Opportunities = "LocationContact/Opportunities";
-			public const string LocationContact_Opportunities_Files = "LocationContact/Opportunities/Files";
-			public const string LocationContact_Relations = "LocationContact/Relations";
-			public const string LocationContact_Relations_Files = "LocationContact/Relations/Files";
-			public const string LocationContact_RoleAssignments = "LocationContact/RoleAssignments";
-			public const string LocationContact_RoleAssignments_Files = "LocationContact/RoleAssignments/Files";
-			public const string LocationContact_UserInfo = "LocationContact/UserInfo";
-			public const string LocationContact_UserInfo_Roles = "LocationContact/UserInfo/Roles";
-			public const string LocationContact_UserInfo_Roles_Files = "LocationContact/UserInfo/Roles/Files";
 			public const string RoleAssignments = "RoleAssignments";
-			public const string RoleAssignments_Files = "RoleAssignments/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Translations,LocationContact,LocationContact/Activities,LocationContact/Activities/Files,LocationContact/Address,LocationContact/Attributes,LocationContact/Campaigns,LocationContact/Campaigns/Files,LocationContact/Cases,LocationContact/Cases/Files,LocationContact/Duplicates,LocationContact/Duplicates/Files,LocationContact/MarketingLists,LocationContact/MarketingLists/Files,LocationContact/Notifications,LocationContact/Notifications/Files,LocationContact/Opportunities,LocationContact/Opportunities/Files,LocationContact/Relations,LocationContact/Relations/Files,LocationContact/RoleAssignments,LocationContact/RoleAssignments/Files,LocationContact/UserInfo,LocationContact/UserInfo/Roles,LocationContact/UserInfo/Roles/Files,RoleAssignments,RoleAssignments/Files";
+			//public const string All = "Files,Translations,LocationContact,RoleAssignments";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -20,6 +20,9 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="AddressLine2", EmitDefaultValue=false)]
 		public StringValue? AddressLine2 { get; set; }
 
+		[DataMember(Name="AddressLine3", EmitDefaultValue=false)]
+		public StringValue? AddressLine3 { get; set; }
+
 		[DataMember(Name="City", EmitDefaultValue=false)]
 		public StringValue? City { get; set; }
 

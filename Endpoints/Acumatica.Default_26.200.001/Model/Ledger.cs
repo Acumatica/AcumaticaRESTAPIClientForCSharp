@@ -10,6 +10,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>GL201500</c> in the Acumatica ERP
+	/// <para>Key Fields: LedgerID</para>
+	/// </summary>
 	[DataContract]
 	public class Ledger : Entity, ITopLevelEntity
 	{
@@ -20,35 +24,72 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Companies", EmitDefaultValue=false)]
 		public List<LedgerCompanies>? Companies { get; set; }
 
+		/// <summary>
+		/// When set to <c>true</c>, indicates that the system must use the Ledger as a source Ledger for consolidation.
+		/// <para>DAC Field Name: ConsolAllowed</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>Display Name: Consolidation Source</para>
+		/// </summary>
 		[DataMember(Name="ConsolidationSource", EmitDefaultValue=false)]
 		public BooleanValue? ConsolidationSource { get; set; }
 
+		/// <summary>
+		/// Base Currency of the Ledger.
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
 		[DataMember(Name="Currency", EmitDefaultValue=false)]
 		public StringValue? Currency { get; set; }
 
+		/// <summary>
+		/// The description of the Ledger.
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		/// <summary>
+		/// Key field.Unique user-friendly identifier of the Ledger.
+		/// <para>DAC Field Name: LedgerCD</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>Display Name: Ledger ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="LedgerID", EmitDefaultValue=false)]
 		public StringValue? LedgerID { get; set; }
 
+		/// <summary>
+		/// The type of the balance of the ledger.
+		/// <para>DAC Field Name: BalanceType</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringSingleSelectValue? Type { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";
 			public const string Translations = "Translations";
 			public const string Branches = "Branches";
-			public const string Branches_Files = "Branches/Files";
 			public const string Companies = "Companies";
-			public const string Companies_Files = "Companies/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Translations,Branches,Branches/Files,Companies,Companies/Files";
+			//public const string All = "Files,Translations,Branches,Companies";
 		}
 		public virtual string GetEndpointPath()
 		{

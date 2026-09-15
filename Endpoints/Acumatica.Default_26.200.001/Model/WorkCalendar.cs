@@ -10,6 +10,10 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.Default_26_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>CS209000</c> in the Acumatica ERP
+	/// <para>Key Fields: WorkCalendarID</para>
+	/// </summary>
 	[DataContract]
 	public class WorkCalendar : Entity, ITopLevelEntity
 	{
@@ -20,25 +24,47 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="CalendarSettings", EmitDefaultValue=false)]
 		public CalendarSettings? CalendarSettings { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Time Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
 		[DataMember(Name="TimeZone", EmitDefaultValue=false)]
 		public StringValue? TimeZone { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CalendarID</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Calendar ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
 		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]
 		public StringValue? WorkCalendarID { get; set; }
 
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
 		public static class Expand
 		{
 			public const string Files = "Files";
 			public const string Translations = "Translations";
 			public const string CalendarExceptions = "CalendarExceptions";
-			public const string CalendarExceptions_Files = "CalendarExceptions/Files";
 			public const string CalendarSettings = "CalendarSettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,Translations,CalendarExceptions,CalendarExceptions/Files,CalendarSettings";
+			//public const string All = "Files,Translations,CalendarExceptions,CalendarSettings";
 		}
 		public virtual string GetEndpointPath()
 		{

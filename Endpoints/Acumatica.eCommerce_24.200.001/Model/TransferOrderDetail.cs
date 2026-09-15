@@ -14,5 +14,20 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class TransferOrderDetail : Acumatica.Default_24_200_001.Model.TransferOrderDetail
 	{
 
+		[DataMember(Name="OrderLineNbr", EmitDefaultValue=false)]
+		public IntValue? OrderLineNbr { get; set; }
+
+		[DataMember(Name="OrderNumber", EmitDefaultValue=false)]
+		public StringValue? OrderNumber { get; set; }
+
+		[DataMember(Name="OrderType", EmitDefaultValue=false)]
+		public StringValue? OrderType { get; set; }
+
+		[DataMember(Name="RecivedQty", EmitDefaultValue=false)]
+		public DecimalValue? RecivedQty { get; set; }
+
+		[DataMember(Name="ShipmentNumber", EmitDefaultValue=false)]
+		public StringValue? ShipmentNumber { get; set; }
+
 	}
 }

@@ -14,5 +14,11 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class SalesOrderDetail : Acumatica.Default_24_200_001.Model.SalesOrderDetail
 	{
 
+		[DataMember(Name="OrigOrderNbr", EmitDefaultValue=false)]
+		public StringValue? OrigOrderNbr { get; set; }
+
+		[DataMember(Name="OrigOrderType", EmitDefaultValue=false)]
+		public StringValue? OrigOrderType { get; set; }
+
 	}
 }

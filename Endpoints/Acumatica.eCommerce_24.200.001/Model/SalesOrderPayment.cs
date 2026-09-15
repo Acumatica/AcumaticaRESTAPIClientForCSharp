@@ -14,5 +14,11 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class SalesOrderPayment : Acumatica.Default_24_200_001.Model.SalesOrderPayment
 	{
 
+		[DataMember(Name="NewCard", EmitDefaultValue=false)]
+		public BooleanValue? NewCard { get; set; }
+
+		[DataMember(Name="PaymentNoteID", EmitDefaultValue=false)]
+		public GuidValue? PaymentNoteID { get; set; }
+
 	}
 }

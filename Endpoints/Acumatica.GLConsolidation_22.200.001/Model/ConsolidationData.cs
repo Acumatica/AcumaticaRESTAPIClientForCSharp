@@ -35,11 +35,12 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Result = "Result";
 			public const string Result_Files = "Result/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Result,Result/Files";
+			//public const string All = "Files,Translations,Result,Result/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

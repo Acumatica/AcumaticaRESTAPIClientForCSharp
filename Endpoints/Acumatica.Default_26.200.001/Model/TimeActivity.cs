@@ -21,10 +21,10 @@ namespace Acumatica.Default_26_200_001.Model
 		public BooleanValue? Billable { get; set; }
 
 		[DataMember(Name="BillableOvertime", EmitDefaultValue=false)]
-		public StringValue? BillableOvertime { get; set; }
+		public IntSingleSelectValue? BillableOvertime { get; set; }
 
 		[DataMember(Name="BillableTime", EmitDefaultValue=false)]
-		public StringValue? BillableTime { get; set; }
+		public IntSingleSelectValue? BillableTime { get; set; }
 
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
@@ -33,7 +33,7 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? EarningType { get; set; }
 
 		[DataMember(Name="Overtime", EmitDefaultValue=false)]
-		public StringValue? Overtime { get; set; }
+		public IntSingleSelectValue? Overtime { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
@@ -51,7 +51,7 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringSingleSelectValue? Status { get; set; }
 
 		[DataMember(Name="TimeSpent", EmitDefaultValue=false)]
-		public StringValue? TimeSpent { get; set; }
+		public IntSingleSelectValue? TimeSpent { get; set; }
 
 		[DataMember(Name="TrackTime", EmitDefaultValue=false)]
 		public BooleanValue? TrackTime { get; set; }
