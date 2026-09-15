@@ -137,6 +137,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string Features = "Features";
 			public const string Features_Files = "Features/Files";
@@ -144,7 +145,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 			public const string Features_Options_Files = "Features/Options/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,Features,Features/Files,Features/Options,Features/Options/Files";
+			//public const string All = "Files,Translations,Attributes,Features,Features/Files,Features/Options,Features/Options/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

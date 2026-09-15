@@ -1,0 +1,121 @@
+using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.Manufacturing_26_200_001.Model
+{
+	/// <summary>
+	/// Corresponds to the screen <c>AM207500</c> in the Acumatica ERP
+	/// <para>Key Fields: ConfigurationID, Revision</para>
+	/// </summary>
+	[DataContract]
+	public class ConfigurationMaintenance : Entity, ITopLevelEntity
+	{
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: BOM ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		[DataMember(Name="BOMID", EmitDefaultValue=false)]
+		public StringValue? BOMID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BOMRevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: BOM Revision</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="BOMRevision", EmitDefaultValue=false)]
+		public StringValue? BOMRevision { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsCompletionRequired</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Completion Required Before Production</para>
+		/// </summary>
+		[DataMember(Name="CompletionRequiredBeforeProduction", EmitDefaultValue=false)]
+		public BooleanValue? CompletionRequiredBeforeProduction { get; set; }
+
+		[DataMember(Name="ConfigAttributes", EmitDefaultValue=false)]
+		public List<ConfigurationMaintAttribute>? ConfigAttributes { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Configuration ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
+		public StringValue? ConfigurationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		[DataMember(Name="Features", EmitDefaultValue=false)]
+		public List<ConfigurationMaintenanceFeature>? Features { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		[DataMember(Name="Keys", EmitDefaultValue=false)]
+		public ConfigurationMaintKey? Keys { get; set; }
+
+		[DataMember(Name="Price", EmitDefaultValue=false)]
+		public ConfigurationMaintPrice? Price { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="Revision", EmitDefaultValue=false)]
+		public StringValue? Revision { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+			public const string Translations = "Translations";
+			public const string ConfigAttributes = "ConfigAttributes";
+			public const string Features = "Features";
+			public const string Keys = "Keys";
+			public const string Price = "Price";
+
+			//Intentionally excluded
+			//public const string All = "Files,Translations,ConfigAttributes,Features,Keys,Price";
+		}
+		public virtual string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/26.200.001";
+		}
+	}
+}

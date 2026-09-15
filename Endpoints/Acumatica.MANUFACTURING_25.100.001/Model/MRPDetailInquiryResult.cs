@@ -54,6 +54,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: BaseQty</para>
 		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
+		/// <para>Display Name: Quantity</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
@@ -61,7 +62,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// Qty on hand
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Qty On Hand</para>
+		/// <para>Display Name: Qty. On Hand</para>
 		/// </summary>
 		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
 		public DecimalValue? QtyOnHand { get; set; }

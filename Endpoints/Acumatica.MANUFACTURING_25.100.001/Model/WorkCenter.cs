@@ -160,6 +160,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Machines = "Machines";
 			public const string Machines_Files = "Machines/Files";
 			public const string Overheads = "Overheads";
@@ -172,7 +173,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 			public const string WhereUsed_Files = "WhereUsed/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Machines,Machines/Files,Overheads,Overheads/Files,Shifts,Shifts/Files,SubstituteWorkCenters,SubstituteWorkCenters/Files,WhereUsed,WhereUsed/Files";
+			//public const string All = "Files,Translations,Machines,Machines/Files,Overheads,Overheads/Files,Shifts,Shifts/Files,SubstituteWorkCenters,SubstituteWorkCenters/Files,WhereUsed,WhereUsed/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

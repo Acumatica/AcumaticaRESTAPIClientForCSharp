@@ -136,7 +136,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: IsScrap</para>
 		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
-		/// <para>Display Name: Qty is Scrap</para>
+		/// <para>Display Name: Scrapped</para>
 		/// </summary>
 		[DataMember(Name="QtyisScrap", EmitDefaultValue=false)]
 		public BooleanValue? QtyisScrap { get; set; }

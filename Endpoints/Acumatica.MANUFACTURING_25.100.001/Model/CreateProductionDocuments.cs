@@ -79,7 +79,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC Field Name: AMProdOrdID</para>
 		/// <para>DAC: PX.Objects.AM.AMFixedDemand</para>
 		/// <para>Display Name: Production Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
+		/// <para>SQL Type: nvarchar(19)</para>
 		/// </summary>
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }

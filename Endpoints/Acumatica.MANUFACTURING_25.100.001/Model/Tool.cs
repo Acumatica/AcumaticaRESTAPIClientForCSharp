@@ -82,7 +82,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// APS Schedule qty/units for scheduling tools. The number of tools available for scheduling.
 		/// <para>DAC Field Name: ScheduleQty</para>
 		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// <para>Display Name: Total Schedule Qty</para>
+		/// <para>Display Name: Total Schedule Qty.</para>
 		/// </summary>
 		[DataMember(Name="TotalScheduleQty", EmitDefaultValue=false)]
 		public IntValue? TotalScheduleQty { get; set; }
@@ -105,9 +105,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

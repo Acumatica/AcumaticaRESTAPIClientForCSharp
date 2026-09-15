@@ -122,7 +122,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: OrdNbr</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: SO Order Nbr.</para>
+		/// <para>Display Name: Sales Order Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="SOOrderNbr", EmitDefaultValue=false)]
@@ -131,7 +131,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: OrdTypeRef</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: SO Order Type</para>
+		/// <para>Display Name: Sales Order Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="SOOrderType", EmitDefaultValue=false)]
@@ -176,9 +176,10 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

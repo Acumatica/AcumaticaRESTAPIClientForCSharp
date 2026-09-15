@@ -26,13 +26,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Orders = "Orders";
 			public const string Orders_Files = "Orders/Files";
 			public const string Orders_Operations = "Orders/Operations";
 			public const string Orders_Operations_Files = "Orders/Operations/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Orders,Orders/Files,Orders/Operations,Orders/Operations/Files";
+			//public const string All = "Files,Translations,Orders,Orders/Files,Orders/Operations,Orders/Operations/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

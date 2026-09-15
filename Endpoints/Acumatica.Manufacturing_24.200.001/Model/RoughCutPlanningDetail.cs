@@ -113,7 +113,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// <para>Display Name: Qty Remaining</para>
+		/// <para>Display Name: Remaining Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyRemaining", EmitDefaultValue=false)]
 		public DecimalValue? QtyRemaining { get; set; }
@@ -122,7 +122,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// Order Base Unit Qty to Produce
 		/// <para>DAC Field Name: QtytoProd</para>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// <para>Display Name: Qty to Produce</para>
+		/// <para>Display Name: Qty. to Produce</para>
 		/// </summary>
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
 		public DecimalValue? QtytoProduce { get; set; }

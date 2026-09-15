@@ -92,14 +92,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: QtyReq</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Qty Required</para>
+		/// <para>Display Name: Required Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
 		public DecimalValue? QtyRequired { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Qty Round Up</para>
+		/// <para>Display Name: Round Qty. Up</para>
 		/// </summary>
 		[DataMember(Name="QtyRoundUp", EmitDefaultValue=false)]
 		public BooleanValue? QtyRoundUp { get; set; }

@@ -17,7 +17,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: DefaultWarehouse</para>
 		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
-		/// <para>Display Name: Default Warehouse from User Profile</para>
+		/// <para>Display Name: Insert Default Warehouse from User Profile</para>
 		/// </summary>
 		[DataMember(Name="DefaultWarehousefromUserProfile", EmitDefaultValue=false)]
 		public BooleanValue? DefaultWarehousefromUserProfile { get; set; }
@@ -48,7 +48,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: UseDefaultQtyInMaterials</para>
 		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
-		/// <para>Display Name: Use Default Quantity in Materials</para>
 		/// </summary>
 		[DataMember(Name="UseDefaultQuantityinMaterials", EmitDefaultValue=false)]
 		public BooleanValue? UseDefaultQuantityinMaterials { get; set; }
@@ -56,7 +55,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: UseDefaultQtyInMove</para>
 		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
-		/// <para>Display Name: Use Default Quantity in Move/Labor</para>
 		/// </summary>
 		[DataMember(Name="UseDefaultQuantityinMoveLabor", EmitDefaultValue=false)]
 		public BooleanValue? UseDefaultQuantityinMoveLabor { get; set; }

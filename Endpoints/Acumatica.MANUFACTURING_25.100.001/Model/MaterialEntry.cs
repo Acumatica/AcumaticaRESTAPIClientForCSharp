@@ -76,7 +76,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// The batch number of th original transaction.
 		/// <para>DAC Field Name: OrigBatNbr</para>
 		/// <para>DAC: PX.Objects.AM.AMBatch</para>
-		/// <para>Display Name: Orig Batch Nbr</para>
+		/// <para>Display Name: Orig. Batch Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="OrigBatchNbr", EmitDefaultValue=false)]
@@ -85,7 +85,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// The document type of the original transaction.
 		/// <para>DAC: PX.Objects.AM.AMBatch</para>
-		/// <para>Display Name: Orig Doc Type</para>
+		/// <para>Display Name: Orig. Doc. Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="OrigDocType", EmitDefaultValue=false)]
@@ -128,13 +128,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 			public const string Details_Allocations = "Details/Allocations";
 			public const string Details_Allocations_Files = "Details/Allocations/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files,Details/Allocations,Details/Allocations/Files";
+			//public const string All = "Files,Translations,Details,Details/Files,Details/Allocations,Details/Allocations/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

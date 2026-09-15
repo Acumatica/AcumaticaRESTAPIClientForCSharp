@@ -68,7 +68,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
-		/// <para>Display Name: Line Nbr</para>
+		/// <para>Display Name: Line Nbr.</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
@@ -76,7 +76,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
-		/// <para>Display Name: Lot Qty</para>
+		/// <para>Display Name: Lot Qty.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="LotQty", EmitDefaultValue=false)]
@@ -91,7 +91,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
-		/// <para>Display Name: Max Qty</para>
+		/// <para>Display Name: Max. Qty.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
@@ -99,7 +99,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
-		/// <para>Display Name: Min Qty</para>
+		/// <para>Display Name: Min. Qty.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="MinQty", EmitDefaultValue=false)]
@@ -130,14 +130,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
-		/// <para>Display Name: Qty Enabled</para>
+		/// <para>Display Name: Enabled Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyEnabled", EmitDefaultValue=false)]
 		public BooleanValue? QtyEnabled { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
-		/// <para>Display Name: Qty Required</para>
+		/// <para>Display Name: Required Qty.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
@@ -145,7 +145,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
-		/// <para>Display Name: Qty Round Up</para>
+		/// <para>Display Name: Round Qty. Up</para>
 		/// </summary>
 		[DataMember(Name="QtyRoundUp", EmitDefaultValue=false)]
 		public BooleanValue? QtyRoundUp { get; set; }

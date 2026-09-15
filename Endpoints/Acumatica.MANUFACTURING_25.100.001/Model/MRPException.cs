@@ -79,7 +79,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// Reference type
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Ref Type</para>
+		/// <para>Display Name: Ref. Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="RefType", EmitDefaultValue=false)]
@@ -110,7 +110,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Supply Qty</para>
+		/// <para>Display Name: Supply Qty.</para>
 		/// </summary>
 		[DataMember(Name="SupplyQty", EmitDefaultValue=false)]
 		public DecimalValue? SupplyQty { get; set; }
@@ -142,9 +142,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

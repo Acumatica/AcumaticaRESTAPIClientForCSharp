@@ -56,7 +56,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Lot Qty</para>
+		/// <para>Display Name: Lot Qty.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="LotQty", EmitDefaultValue=false)]
@@ -64,7 +64,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Max Qty</para>
+		/// <para>Display Name: Max. Qty.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
@@ -80,7 +80,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Min Qty</para>
+		/// <para>Display Name: Min. Qty.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="MinQty", EmitDefaultValue=false)]

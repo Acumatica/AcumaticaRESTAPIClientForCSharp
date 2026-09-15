@@ -17,7 +17,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: QtyComplete</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Qty. Complete</para>
+		/// <para>Display Name: Completed Qty.</para>
 		/// </summary>
 		[DataMember(Name="CompleteQty", EmitDefaultValue=false)]
 		public DecimalValue? CompleteQty { get; set; }
@@ -75,7 +75,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// Quantity remaining to be completed on the production order
 		/// <para>DAC Field Name: QtyRemaining</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Qty. Remaining</para>
+		/// <para>Display Name: Remaining Qty.</para>
 		/// </summary>
 		[DataMember(Name="RemainingQty", EmitDefaultValue=false)]
 		public DecimalValue? RemainingQty { get; set; }
@@ -83,7 +83,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: QtyScrapped</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Qty. Scrapped</para>
+		/// <para>Display Name: Scrapped Qty.</para>
 		/// </summary>
 		[DataMember(Name="ScrappedQty", EmitDefaultValue=false)]
 		public DecimalValue? ScrappedQty { get; set; }

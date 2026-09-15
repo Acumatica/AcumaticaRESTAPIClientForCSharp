@@ -33,7 +33,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Qty Required</para>
+		/// <para>Display Name: Required Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyReq", EmitDefaultValue=false)]
 		public DecimalValue? QtyReq { get; set; }

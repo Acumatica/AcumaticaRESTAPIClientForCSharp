@@ -81,7 +81,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
-		/// <para>Display Name: Order Qty</para>
+		/// <para>Display Name: Order Qty.</para>
 		/// </summary>
 		[DataMember(Name="OrderQty", EmitDefaultValue=false)]
 		public DecimalValue? OrderQty { get; set; }
@@ -119,9 +119,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

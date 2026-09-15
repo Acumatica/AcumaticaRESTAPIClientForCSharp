@@ -94,7 +94,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>Display Name: Qty Required</para>
+		/// <para>Display Name: Required Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
 		public DecimalValue? QtyRequired { get; set; }
@@ -128,7 +128,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// A Boolean value that indicates whether the material is a stock item.
 		/// <para>DAC Field Name: IsStockItem</para>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>Display Name: Is stock</para>
+		/// <para>Display Name: Stock</para>
 		/// </summary>
 		[DataMember(Name="StockItem", EmitDefaultValue=false)]
 		public BooleanValue? StockItem { get; set; }

@@ -39,14 +39,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Lot Qty</para>
+		/// <para>Display Name: Lot Qty.</para>
 		/// </summary>
 		[DataMember(Name="LotQty", EmitDefaultValue=false)]
 		public DecimalValue? LotQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Max Qty</para>
+		/// <para>Display Name: Max. Qty.</para>
 		/// </summary>
 		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
 		public DecimalValue? MaxQty { get; set; }
@@ -60,7 +60,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Min Qty</para>
+		/// <para>Display Name: Min. Qty.</para>
 		/// </summary>
 		[DataMember(Name="MinQty", EmitDefaultValue=false)]
 		public DecimalValue? MinQty { get; set; }
@@ -77,7 +77,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Total Qty</para>
+		/// <para>Display Name: Total Qty.</para>
 		/// </summary>
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }

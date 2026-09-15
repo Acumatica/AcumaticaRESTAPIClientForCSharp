@@ -121,7 +121,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMTran</para>
-		/// <para>Display Name: Qty Scrapped</para>
+		/// <para>Display Name: Scrapped Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyScrapped", EmitDefaultValue=false)]
 		public DecimalValue? QtyScrapped { get; set; }

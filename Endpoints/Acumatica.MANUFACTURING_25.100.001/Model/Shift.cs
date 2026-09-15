@@ -35,7 +35,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
-		/// <para>Display Name: Diff Type</para>
+		/// <para>Display Name: Differential Type</para>
 		/// <para>SQL Type: nchar(1)</para>
 		/// </summary>
 		[DataMember(Name="DiffType", EmitDefaultValue=false)]
@@ -54,7 +54,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: ShftDiff</para>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
-		/// <para>Display Name: Shift Diff</para>
+		/// <para>Display Name: Shift Differential</para>
 		/// </summary>
 		[DataMember(Name="ShiftDiff", EmitDefaultValue=false)]
 		public DecimalValue? ShiftDiff { get; set; }
@@ -62,9 +62,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

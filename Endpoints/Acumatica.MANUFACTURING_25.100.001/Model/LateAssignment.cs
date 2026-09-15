@@ -110,13 +110,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string AllocatedDetail = "AllocatedDetail";
 			public const string AllocatedDetail_Files = "AllocatedDetail/Files";
 			public const string UnallocatedDetail = "UnallocatedDetail";
 			public const string UnallocatedDetail_Files = "UnallocatedDetail/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,AllocatedDetail,AllocatedDetail/Files,UnallocatedDetail,UnallocatedDetail/Files";
+			//public const string All = "Files,Translations,AllocatedDetail,AllocatedDetail/Files,UnallocatedDetail,UnallocatedDetail/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

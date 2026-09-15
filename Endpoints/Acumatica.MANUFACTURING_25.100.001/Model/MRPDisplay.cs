@@ -34,7 +34,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Base Qty</para>
+		/// <para>Display Name: Base Qty.</para>
 		/// </summary>
 		[DataMember(Name="BaseQty", EmitDefaultValue=false)]
 		public DecimalValue? BaseQty { get; set; }
@@ -261,9 +261,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

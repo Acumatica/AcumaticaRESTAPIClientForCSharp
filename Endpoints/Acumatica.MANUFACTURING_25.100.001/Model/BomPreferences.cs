@@ -21,7 +21,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// A Boolean value that indicates whether users can archive the cost roll results without updating the pending costs.
 		/// <para>DAC Field Name: AllowArchiveWithoutUpdatePending</para>
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Allow Archive without Update Pending</para>
+		/// <para>Display Name: Allow Archive without Updating Pending Costs</para>
 		/// </summary>
 		[DataMember(Name="AllowArchivewithoutUpdatePending", EmitDefaultValue=false)]
 		public BooleanValue? AllowArchivewithoutUpdatePending { get; set; }
@@ -30,7 +30,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// A Boolean value that indicates whether the BOM can be created without a subitem ID.
 		/// <para>DAC Field Name: AllowEmptyBOMSubItemID</para>
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Allow Empty BOM Item Sub Item ID</para>
+		/// <para>Display Name: Allow Empty Subitem Code in BOM</para>
 		/// </summary>
 		[DataMember(Name="AllowEmptyBOMItemSubItemID", EmitDefaultValue=false)]
 		public BooleanValue? AllowEmptyBOMItemSubItemID { get; set; }
@@ -39,7 +39,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// A Boolean value that indicates whether the system will archive the cost roll results when a user updates pending costs.
 		/// <para>DAC Field Name: AutoArchiveWhenUpdatePending</para>
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Auto Archive when Update Pending</para>
+		/// <para>Display Name: Allow Archive when Updating Pending Costs</para>
 		/// </summary>
 		[DataMember(Name="AutoArchivewhenUpdatePending", EmitDefaultValue=false)]
 		public BooleanValue? AutoArchivewhenUpdatePending { get; set; }
@@ -132,7 +132,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// A Boolean value that indicates whether the ECO needs to be approved.
 		/// <para>DAC Field Name: ECORequestApproval</para>
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: ECO Require Approval</para>
+		/// <para>Display Name: Require ECO Approval</para>
 		/// </summary>
 		[DataMember(Name="ECORequireApproval", EmitDefaultValue=false)]
 		public BooleanValue? ECORequireApproval { get; set; }
@@ -151,7 +151,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// A Boolean value that indicates whether the ECR needs to be approved.
 		/// <para>DAC Field Name: ECRRequestApproval</para>
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: ECR Require Approval</para>
+		/// <para>Display Name: Require ECR Approval</para>
 		/// </summary>
 		[DataMember(Name="ECRRequireApproval", EmitDefaultValue=false)]
 		public BooleanValue? ECRRequireApproval { get; set; }
@@ -203,9 +203,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

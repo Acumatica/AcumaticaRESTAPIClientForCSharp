@@ -68,7 +68,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialUnassigned</para>
-		/// <para>Display Name: Qty. Required</para>
+		/// <para>Display Name: Required Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
 		public DecimalValue? QtyRequired { get; set; }
@@ -84,7 +84,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: QtyIssued</para>
 		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned</para>
-		/// <para>Display Name: Qty. Allocated</para>
+		/// <para>Display Name: Allocated Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyUnallocated", EmitDefaultValue=false)]
 		public DecimalValue? QtyUnallocated { get; set; }

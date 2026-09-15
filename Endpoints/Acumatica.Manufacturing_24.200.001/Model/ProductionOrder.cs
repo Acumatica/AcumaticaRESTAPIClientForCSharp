@@ -296,7 +296,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Qty. Complete</para>
+		/// <para>Display Name: Completed Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyComplete", EmitDefaultValue=false)]
 		public DecimalValue? QtyComplete { get; set; }
@@ -304,14 +304,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// Quantity remaining to be completed on the production order
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Qty. Remaining</para>
+		/// <para>Display Name: Remaining Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyRemaining", EmitDefaultValue=false)]
 		public DecimalValue? QtyRemaining { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Qty. Scrapped</para>
+		/// <para>Display Name: Scrapped Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyScrapped", EmitDefaultValue=false)]
 		public DecimalValue? QtyScrapped { get; set; }
@@ -384,7 +384,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: OrdNbr</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: SO Order Nbr.</para>
+		/// <para>Display Name: Sales Order Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="SOOrderNbr", EmitDefaultValue=false)]
@@ -393,7 +393,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: OrdTypeRef</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: SO Order Type</para>
+		/// <para>Display Name: Sales Order Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="SOOrderType", EmitDefaultValue=false)]
@@ -525,6 +525,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Allocations = "Allocations";
 			public const string Allocations_Files = "Allocations/Files";
 			public const string EventHistory = "EventHistory";
@@ -534,7 +535,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 			public const string OrderTotals = "OrderTotals";
 
 			//Intentionally excluded
-			//public const string All = "Files,Allocations,Allocations/Files,EventHistory,EventHistory/Files,OrderAttributes,OrderAttributes/Files,OrderTotals";
+			//public const string All = "Files,Translations,Allocations,Allocations/Files,EventHistory,EventHistory/Files,OrderAttributes,OrderAttributes/Files,OrderTotals";
 		}
 		public virtual string GetEndpointPath()
 		{

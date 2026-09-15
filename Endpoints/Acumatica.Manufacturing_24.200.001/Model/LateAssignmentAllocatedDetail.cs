@@ -69,7 +69,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: QtyIssued</para>
 		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned</para>
-		/// <para>Display Name: Qty. Allocated</para>
+		/// <para>Display Name: Allocated Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyAllocated", EmitDefaultValue=false)]
 		public DecimalValue? QtyAllocated { get; set; }

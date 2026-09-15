@@ -208,7 +208,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateReference</para>
 		/// <para>Display Name: Opportunity ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="OpportunityID", EmitDefaultValue=false)]
 		public StringValue? OpportunityID { get; set; }
@@ -424,6 +424,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string History = "History";
 			public const string History_Files = "History/Files";
 			public const string Operation = "Operation";
@@ -431,7 +432,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 			public const string Totals = "Totals";
 
 			//Intentionally excluded
-			//public const string All = "Files,History,History/Files,Operation,Operation/Files,Totals";
+			//public const string All = "Files,Translations,History,History/Files,Operation,Operation/Files,Totals";
 		}
 		public virtual string GetEndpointPath()
 		{

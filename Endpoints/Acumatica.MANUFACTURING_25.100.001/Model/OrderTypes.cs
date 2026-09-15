@@ -64,7 +64,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: DefaultOperationMoveQty</para>
 		/// <para>DAC: PX.Objects.AM.AMOrderType</para>
-		/// <para>Display Name: Default operation move qty</para>
+		/// <para>Display Name: Default Operation Move Qty.</para>
 		/// </summary>
 		[DataMember(Name="Defaultoperationmoveqty", EmitDefaultValue=false)]
 		public BooleanValue? Defaultoperationmoveqty { get; set; }
@@ -105,7 +105,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// When checked, this option tells the calculation for over issue material to include any qty unreleased for the given material item.(Preference works with OverIssueMaterial.)
 		/// <para>DAC Field Name: IncludeUnreleasedOverIssueMaterial</para>
 		/// <para>DAC: PX.Objects.AM.AMOrderType</para>
-		/// <para>Display Name: Include unreleased batch qty</para>
+		/// <para>Display Name: Include Unreleased Batch Qty.</para>
 		/// </summary>
 		[DataMember(Name="Includeunreleasedbatchqty", EmitDefaultValue=false)]
 		public BooleanValue? Includeunreleasedbatchqty { get; set; }
@@ -312,10 +312,11 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes";
+			//public const string All = "Files,Translations,Attributes";
 		}
 		public virtual string GetEndpointPath()
 		{

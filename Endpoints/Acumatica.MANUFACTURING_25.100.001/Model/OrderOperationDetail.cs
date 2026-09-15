@@ -40,7 +40,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// Auto report qty decides if the operation allows non sequential quantities when a move occurs for a later operation.
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Auto-Report Qty</para>
+		/// <para>Display Name: Auto-Report Qty.</para>
 		/// </summary>
 		[DataMember(Name="AutoReportQty", EmitDefaultValue=false)]
 		public BooleanValue? AutoReportQty { get; set; }
@@ -148,7 +148,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: PhtmBOMLineRef</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom BOM Ref Line Nbr</para>
+		/// <para>Display Name: Phantom BOM Ref. Line Nbr.</para>
 		/// </summary>
 		[DataMember(Name="PhantomBOMLineID", EmitDefaultValue=false)]
 		public IntValue? PhantomBOMLineID { get; set; }
@@ -181,7 +181,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: PhtmMatlBOMID</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom Matl BOM ID</para>
+		/// <para>Display Name: Phantom Material BOM ID</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="PhantomMatlBOMID", EmitDefaultValue=false)]
@@ -190,7 +190,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: PhtmMatlLineRef</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom Matl Line Nbr</para>
+		/// <para>Display Name: Phantom Material Line Nbr.</para>
 		/// </summary>
 		[DataMember(Name="PhantomMatlLineID", EmitDefaultValue=false)]
 		public IntValue? PhantomMatlLineID { get; set; }
@@ -198,7 +198,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: PhtmMatlOperationID</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom Matl Operation ID</para>
+		/// <para>Display Name: Phantom Material Operation ID</para>
 		/// </summary>
 		[DataMember(Name="PhantomMatlOperNbr", EmitDefaultValue=false)]
 		public StringValue? PhantomMatlOperNbr { get; set; }
@@ -206,7 +206,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: PhtmMatlRevisionID</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom Matl Revision</para>
+		/// <para>Display Name: Phantom Material Revision</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="PhantomMatlRevision", EmitDefaultValue=false)]
@@ -215,7 +215,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: PhtmPriorLevelQty</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom Prior Level Qty</para>
+		/// <para>Display Name: Phantom Prior Level Qty.</para>
 		/// </summary>
 		[DataMember(Name="PhantomPriorLevelQty", EmitDefaultValue=false)]
 		public DecimalValue? PhantomPriorLevelQty { get; set; }
@@ -253,21 +253,22 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Qty Complete</para>
+		/// <para>Display Name: Completed Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyComplete", EmitDefaultValue=false)]
 		public DecimalValue? QtyComplete { get; set; }
 
 		/// <summary>
+		/// TotalQty subtract QtyComplete add QtyScrapped.
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Qty Remaining</para>
+		/// <para>Display Name: Remaining Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyRemaining", EmitDefaultValue=false)]
 		public DecimalValue? QtyRemaining { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Qty Scrapped</para>
+		/// <para>Display Name: Scrapped Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyScrapped", EmitDefaultValue=false)]
 		public DecimalValue? QtyScrapped { get; set; }
@@ -275,7 +276,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: QtytoProd</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Qty to Produce</para>
+		/// <para>Display Name: Qty. to Produce</para>
 		/// </summary>
 		[DataMember(Name="QtytoProduce", EmitDefaultValue=false)]
 		public DecimalValue? QtytoProduce { get; set; }
@@ -312,7 +313,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Ship Remaining Qty</para>
+		/// <para>Display Name: Ship Remaining Qty.</para>
 		/// </summary>
 		[DataMember(Name="ShipRemainingQty", EmitDefaultValue=false)]
 		public DecimalValue? ShipRemainingQty { get; set; }
@@ -332,7 +333,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Total Qty</para>
+		/// <para>Display Name: Total Qty.</para>
 		/// </summary>
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }

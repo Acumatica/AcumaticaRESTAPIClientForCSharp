@@ -73,13 +73,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ConfigurationFeatureAttribute = "ConfigurationFeatureAttribute";
 			public const string ConfigurationFeatureAttribute_Files = "ConfigurationFeatureAttribute/Files";
 			public const string ConfigurationFeatureOption = "ConfigurationFeatureOption";
 			public const string ConfigurationFeatureOption_Files = "ConfigurationFeatureOption/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,ConfigurationFeatureAttribute,ConfigurationFeatureAttribute/Files,ConfigurationFeatureOption,ConfigurationFeatureOption/Files";
+			//public const string All = "Files,Translations,ConfigurationFeatureAttribute,ConfigurationFeatureAttribute/Files,ConfigurationFeatureOption,ConfigurationFeatureOption/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

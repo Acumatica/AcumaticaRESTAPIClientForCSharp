@@ -18,10 +18,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	{
 
 		/// <summary>
-		/// Cleanup History
 		/// <para>DAC Field Name: IsHistoryCleanupProcess</para>
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceFilter</para>
-		/// <para>Display Name: Cleanup History</para>
 		/// </summary>
 		[DataMember(Name="CleanupHistory", EmitDefaultValue=false)]
 		public BooleanValue? CleanupHistory { get; set; }
@@ -30,10 +28,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public APSMaintenanceHistory? History { get; set; }
 
 		/// <summary>
-		/// Update Work Center Schedule from Calendar
 		/// <para>DAC Field Name: IsWorkCenterCalendarProcess</para>
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceFilter</para>
-		/// <para>Display Name: Update Work Center Schedule from Calendar</para>
 		/// </summary>
 		[DataMember(Name="UpdateWorkCenterSchedulefromCalendar", EmitDefaultValue=false)]
 		public BooleanValue? UpdateWorkCenterSchedulefromCalendar { get; set; }
@@ -41,10 +37,11 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string History = "History";
 
 			//Intentionally excluded
-			//public const string All = "Files,History";
+			//public const string All = "Files,Translations,History";
 		}
 		public virtual string GetEndpointPath()
 		{

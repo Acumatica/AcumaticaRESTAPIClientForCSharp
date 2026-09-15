@@ -17,6 +17,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: IsAllocated</para>
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
+		/// Key Field
 		/// </summary>
 		[DataMember(Name="Allocated", EmitDefaultValue=false)]
 		public BooleanValue? Allocated { get; set; }
@@ -126,7 +127,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
 		/// <para>Display Name: Preferred Vendor ID</para>
-		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="PreferredVendorID", EmitDefaultValue=false)]
 		public StringValue? PreferredVendorID { get; set; }
@@ -141,14 +141,16 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
+		/// Quantity available (calculated).
 		/// <para>DAC Field Name: QtyAvail</para>
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
-		/// <para>Display Name: Qty. Available</para>
+		/// <para>Display Name: Available Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyAvailable", EmitDefaultValue=false)]
 		public DecimalValue? QtyAvailable { get; set; }
 
 		/// <summary>
+		/// Quantity hard available (calculated).
 		/// <para>DAC Field Name: QtyHardAvail</para>
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
 		/// <para>Display Name: Qty. Hard Available</para>
@@ -157,27 +159,31 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DecimalValue? QtyHardAvailable { get; set; }
 
 		/// <summary>
+		/// Quantity on hand (calculated).
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
-		/// <para>Display Name: Qty On Hand</para>
+		/// <para>Display Name: Qty. On Hand</para>
 		/// </summary>
 		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
 		public DecimalValue? QtyOnHand { get; set; }
 
 		/// <summary>
+		/// Production / Manufacturing Specifies the quantity On Production Demand.  
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
-		/// <para>Display Name: Qty. Production Demand</para>
+		/// <para>Display Name: Production Demand Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyProductionDemand", EmitDefaultValue=false)]
 		public DecimalValue? QtyProductionDemand { get; set; }
 
 		/// <summary>
+		/// Production / Manufacturing Specifies the quantity On Production Demand Prepared.  
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
-		/// <para>Display Name: Qty. Production Demand Prepared</para>
+		/// <para>Display Name: Prepared Production Demand Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyProductionDemandPrepared", EmitDefaultValue=false)]
 		public DecimalValue? QtyProductionDemandPrepared { get; set; }
 
 		/// <summary>
+		/// Production / Manufacturing Specifies the quantity Production Supply.  
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
 		/// <para>Display Name: Qty. Production Supply</para>
 		/// </summary>
@@ -185,36 +191,39 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DecimalValue? QtyProductionSupply { get; set; }
 
 		/// <summary>
+		/// Production / Manufacturing Specifies the quantity Production Supply Prepared.  
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
-		/// <para>Display Name: Qty. Production Supply Prepared</para>
+		/// <para>Display Name: Prepared Production Supply Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyProductionSupplyPrepared", EmitDefaultValue=false)]
 		public DecimalValue? QtyProductionSupplyPrepared { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
-		/// <para>Display Name: Qty Remaining</para>
+		/// <para>Display Name: Remaining Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyRemaining", EmitDefaultValue=false)]
 		public DecimalValue? QtyRemaining { get; set; }
 
 		/// <summary>
+		/// Quantity short (calculated).
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
-		/// <para>Display Name: Qty Short</para>
+		/// <para>Display Name: Shortage Qty.</para>
 		/// </summary>
 		[DataMember(Name="QtyShort", EmitDefaultValue=false)]
 		public DecimalValue? QtyShort { get; set; }
 
 		/// <summary>
-		/// Replenishment source
+		/// Replenishment source (calculated).
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
 		/// <para>Display Name: Replenishment Source</para>
-		/// <para>SQL Type: nvarchar(1)</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		[DataMember(Name="ReplenishmentSource", EmitDefaultValue=false)]
 		public StringValue? ReplenishmentSource { get; set; }
 
 		/// <summary>
+		/// Required date (calculated).
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
 		/// <para>Display Name: Required Date</para>
 		/// </summary>
@@ -222,7 +231,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DateTimeValue? RequiredDate { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
+		/// Selected flag (for UI selection).
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
 		/// </summary>
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
@@ -232,7 +241,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC Field Name: AMOrderType</para>
 		/// <para>DAC: PX.Objects.AM.SelectedProdMatl</para>
 		/// <para>Display Name: Sub. Assy. Order Type</para>
-		/// <para>SQL Type: nchar(2)</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="SubAssyOrderType", EmitDefaultValue=false)]
 		public StringValue? SubAssyOrderType { get; set; }

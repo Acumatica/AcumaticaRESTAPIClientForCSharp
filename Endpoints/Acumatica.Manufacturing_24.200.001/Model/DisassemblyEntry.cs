@@ -26,7 +26,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
-		/// <para>Display Name: Batch Nbr</para>
+		/// <para>Display Name: Batch Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// Key Field
 		/// </summary>
@@ -176,6 +176,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Allocations = "Allocations";
 			public const string Allocations_Files = "Allocations/Files";
 			public const string Attributes = "Attributes";
@@ -185,7 +186,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 			public const string Material_Allocations_Files = "Material/Allocations/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Allocations,Allocations/Files,Attributes,Material,Material/Files,Material/Allocations,Material/Allocations/Files";
+			//public const string All = "Files,Translations,Allocations,Allocations/Files,Attributes,Material,Material/Files,Material/Allocations,Material/Allocations/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

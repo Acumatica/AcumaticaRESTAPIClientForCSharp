@@ -49,7 +49,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
-		/// <para>Display Name: Default Disassemble Order Type</para>
+		/// <para>Display Name: Default Disassembly Order Type</para>
 		/// <para>SQL Type: char(2)</para>
 		/// </summary>
 		[DataMember(Name="DefaultDisassembleOrderType", EmitDefaultValue=false)]
@@ -66,7 +66,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: DefaultEmployee</para>
 		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
-		/// <para>Display Name: Default User Employee ID</para>
+		/// <para>Display Name: Insert Current User's Employee ID</para>
 		/// </summary>
 		[DataMember(Name="DefaultUserEmployeeID", EmitDefaultValue=false)]
 		public BooleanValue? DefaultUserEmployeeID { get; set; }
@@ -83,7 +83,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: FixMfgCalendarID</para>
 		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
-		/// <para>Display Name: Fixed Mfg Calendar ID</para>
+		/// <para>Display Name: Fixed Mfg. Calendar ID</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="FixedMfgCalendarID", EmitDefaultValue=false)]
@@ -92,7 +92,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: FMLTimeUnits</para>
 		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
-		/// <para>Display Name: Fixed Mfg Units</para>
+		/// <para>Display Name: Fixed Mfg. Units</para>
 		/// </summary>
 		[DataMember(Name="FixedMfgUnits", EmitDefaultValue=false)]
 		public StringValue? FixedMfgUnits { get; set; }
@@ -134,14 +134,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// Lock status on production order preferrence
 		/// <para>DAC Field Name: LockWorkflowEnabled</para>
 		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
-		/// <para>Display Name: Lock Production Orders before Closing</para>
+		/// <para>Display Name: Lock Production Orders Before Closing</para>
 		/// </summary>
 		[DataMember(Name="LockProductionOrdersBeforeClosing", EmitDefaultValue=false)]
 		public BooleanValue? LockProductionOrdersBeforeClosing { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
-		/// <para>Display Name: Machine Scheduling</para>
+		/// <para>Display Name: Consider Machine Resources</para>
 		/// </summary>
 		[DataMember(Name="MachineScheduling", EmitDefaultValue=false)]
 		public BooleanValue? MachineScheduling { get; set; }
@@ -182,7 +182,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
-		/// <para>Display Name: Tool Scheduling</para>
+		/// <para>Display Name: Consider Tools</para>
 		/// </summary>
 		[DataMember(Name="ToolScheduling", EmitDefaultValue=false)]
 		public BooleanValue? ToolScheduling { get; set; }
@@ -248,7 +248,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: WipAdjustNumberingID</para>
 		/// <para>DAC: PX.Objects.AM.AMPSetup</para>
-		/// <para>Display Name: Wip Adjust Numbering Sequence</para>
+		/// <para>Display Name: WIP Adjustment Numbering Sequence</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		[DataMember(Name="WipAdjustNumberingSequence", EmitDefaultValue=false)]
@@ -257,10 +257,11 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string DataCollectionSettings = "DataCollectionSettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,DataCollectionSettings";
+			//public const string All = "Files,Translations,DataCollectionSettings";
 		}
 		public virtual string GetEndpointPath()
 		{

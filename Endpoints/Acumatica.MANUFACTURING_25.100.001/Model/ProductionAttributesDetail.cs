@@ -24,7 +24,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.ProductionAttributeRecords</para>
-		/// <para>Display Name: Bat Nbr.</para>
+		/// <para>Display Name: Batch Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="BatNbr", EmitDefaultValue=false)]
@@ -40,7 +40,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.ProductionAttributeRecords</para>
-		/// <para>Display Name: Doc Type</para>
+		/// <para>Display Name: Doc. Type</para>
 		/// <para>SQL Type: nchar(1)</para>
 		/// </summary>
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
@@ -92,7 +92,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: Qty</para>
 		/// <para>DAC: PX.Objects.AM.ProductionAttributeRecords</para>
-		/// <para>Display Name: Move Qty</para>
+		/// <para>Display Name: Move Qty.</para>
 		/// </summary>
 		[DataMember(Name="MoveQty", EmitDefaultValue=false)]
 		public DecimalValue? MoveQty { get; set; }

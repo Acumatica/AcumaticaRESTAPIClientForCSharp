@@ -38,7 +38,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// Lot qty
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Lot Qty</para>
+		/// <para>Display Name: Lot Qty.</para>
 		/// </summary>
 		[DataMember(Name="LotQty", EmitDefaultValue=false)]
 		public DecimalValue? LotQty { get; set; }
@@ -46,7 +46,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// Max order qty
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Max. Order Qty</para>
+		/// <para>Display Name: Max. Order Qty.</para>
 		/// </summary>
 		[DataMember(Name="MaxOrderQty", EmitDefaultValue=false)]
 		public DecimalValue? MaxOrderQty { get; set; }
@@ -54,7 +54,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// Min order qty
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Min. Order Qty</para>
+		/// <para>Display Name: Min. Order Qty.</para>
 		/// </summary>
 		[DataMember(Name="MinOrderQty", EmitDefaultValue=false)]
 		public DecimalValue? MinOrderQty { get; set; }
@@ -62,7 +62,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// Qty on hand
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Qty On Hand</para>
+		/// <para>Display Name: Qty. On Hand</para>
 		/// </summary>
 		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
 		public DecimalValue? QtyOnHand { get; set; }
@@ -97,11 +97,12 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Results = "Results";
 			public const string Results_Files = "Results/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Results,Results/Files";
+			//public const string All = "Files,Translations,Results,Results/Files";
 		}
 		public virtual string GetEndpointPath()
 		{
