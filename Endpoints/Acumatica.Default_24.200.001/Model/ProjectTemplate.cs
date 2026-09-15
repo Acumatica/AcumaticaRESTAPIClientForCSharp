@@ -27,7 +27,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// The project description.
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
-		/// <para>SQL Type: nvarchar(255)</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -72,6 +72,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
 			public const string Employees = "Employees";
@@ -85,7 +86,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string VisibilitySettings = "VisibilitySettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,BillingAndAllocationSettings,Employees,Employees/Files,Equipments,Equipments/Files,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,GLAccounts/DefaultTaskForGLAccounts/Files,ProjectProperties,VisibilitySettings";
+			//public const string All = "Files,Translations,Attributes,BillingAndAllocationSettings,Employees,Employees/Files,Equipments,Equipments/Files,GLAccounts,GLAccounts/DefaultTaskForGLAccounts,GLAccounts/DefaultTaskForGLAccounts/Files,ProjectProperties,VisibilitySettings";
 		}
 		public virtual string GetEndpointPath()
 		{

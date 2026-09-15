@@ -21,6 +21,8 @@
 	<TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <nullable>Enable</nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
 
    <ItemGroup>

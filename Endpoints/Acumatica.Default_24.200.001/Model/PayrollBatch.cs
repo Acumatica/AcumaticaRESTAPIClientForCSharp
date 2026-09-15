@@ -46,7 +46,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<EmployeePaycheckSummary>? EmployeeSummary { get; set; }
 
 		/// <summary>
-		/// When set to true indicates that the document is on hold and thus cannot be released.
+		/// When set to <c>true</c> indicates that the document is on hold and thus cannot be released.
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
 		/// </summary>
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
@@ -139,6 +139,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string DeductionsAndBenefitsDetails = "DeductionsAndBenefitsDetails";
 			public const string DeductionsAndBenefitsDetails_Files = "DeductionsAndBenefitsDetails/Files";
 			public const string EarningDetails = "EarningDetails";
@@ -151,7 +152,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string OvertimeRules_OvertimeRulesDetails_Files = "OvertimeRules/OvertimeRulesDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,DeductionsAndBenefitsDetails,DeductionsAndBenefitsDetails/Files,EarningDetails,EarningDetails/Files,EmployeeSummary,EmployeeSummary/Files,EmployeeSummary/EmployeePaycheckEarnings,OvertimeRules,OvertimeRules/OvertimeRulesDetails,OvertimeRules/OvertimeRulesDetails/Files";
+			//public const string All = "Files,Translations,DeductionsAndBenefitsDetails,DeductionsAndBenefitsDetails/Files,EarningDetails,EarningDetails/Files,EmployeeSummary,EmployeeSummary/Files,EmployeeSummary/EmployeePaycheckEarnings,OvertimeRules,OvertimeRules/OvertimeRulesDetails,OvertimeRules/OvertimeRulesDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

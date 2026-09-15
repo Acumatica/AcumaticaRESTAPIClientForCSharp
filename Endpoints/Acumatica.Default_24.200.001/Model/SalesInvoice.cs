@@ -262,7 +262,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public SalesInvoiceAddress? ShipToAddress { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by CustomerAddressID. This field is the inverse of IsDefaultBillAddress.
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Address record, which isreferenced by CustomerAddressID. This field is the inverse of IsDefaultBillAddress.
 		/// <para>DAC Field Name: OverrideAddress</para>
 		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
 		/// <para>Display Name: Override Address</para>
@@ -274,7 +274,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public SalesInvoiceDocContact? ShipToContact { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
+		/// If set to <c>true</c>, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
 		/// <para>DAC Field Name: OverrideContact</para>
 		/// <para>DAC: PX.Objects.AR.ARShippingContact</para>
 		/// <para>Display Name: Override Contact</para>
@@ -293,6 +293,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ApplicationsCreditMemo = "ApplicationsCreditMemo";
 			public const string ApplicationsCreditMemo_Files = "ApplicationsCreditMemo/Files";
 			public const string ApplicationsInvoice = "ApplicationsInvoice";
@@ -318,7 +319,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string ShipToContact = "ShipToContact";
 
 			//Intentionally excluded
-			//public const string All = "Files,ApplicationsCreditMemo,ApplicationsCreditMemo/Files,ApplicationsInvoice,ApplicationsInvoice/Files,BillingSettings,BillingSettings/BillToAddress,BillingSettings/BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,DiscountDetails,DiscountDetails/Files,FinancialDetails,FreightDetails,FreightDetails/Files,TaxDetails,TaxDetails/Files,BillToAddress,BillToContact,ShipToAddress,ShipToContact";
+			//public const string All = "Files,Translations,ApplicationsCreditMemo,ApplicationsCreditMemo/Files,ApplicationsInvoice,ApplicationsInvoice/Files,BillingSettings,BillingSettings/BillToAddress,BillingSettings/BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,DiscountDetails,DiscountDetails/Files,FinancialDetails,FreightDetails,FreightDetails/Files,TaxDetails,TaxDetails/Files,BillToAddress,BillToContact,ShipToAddress,ShipToContact";
 		}
 		public virtual string GetEndpointPath()
 		{

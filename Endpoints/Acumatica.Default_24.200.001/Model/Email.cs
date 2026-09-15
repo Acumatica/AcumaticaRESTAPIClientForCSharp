@@ -197,10 +197,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string TimeActivity = "TimeActivity";
 
 			//Intentionally excluded
-			//public const string All = "Files,TimeActivity";
+			//public const string All = "Files,Translations,TimeActivity";
 		}
 		public virtual string GetEndpointPath()
 		{

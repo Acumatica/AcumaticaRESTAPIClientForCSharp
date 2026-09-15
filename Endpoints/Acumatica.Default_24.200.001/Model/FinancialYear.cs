@@ -21,7 +21,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? AdjustToPeriodStart { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that the system must set the financial year to the one,following the year of the selected start date of the year.
+		/// When set to <c>true</c>, indicates that the system must set the financial year to the one,following the year of the selected start date of the year.
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Belongs to Next Year</para>
 		/// </summary>
@@ -32,7 +32,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// The day of the week of the last day of the financial year.Relevant ony for the period types based on weeks andif the EndYearCalcMethod is not "CA" - Last day of the financial year.
+		/// The day of the week of the last day of the financial year.Relevant ony for the period types based on weeks andif the EndYearCalcMethod is not <c>"CA"</c> - Last day of the financial year.
 		/// <para>DAC Field Name: YearLastDayOfWeek</para>
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Day of Week</para>
@@ -72,7 +72,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? FirstPeriodStartDate { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that the system generates an additional period for posting adjustments.The adjustment period has the same start and end date and is the last period of the year.No date in the year corresponds to the adjustment period, so it can be selected for a particular document or batch only manually.See also the IsAdjustment field.
+		/// When set to <c>true</c>, indicates that the system generates an additional period for posting adjustments.The adjustment period has the same start and end date and is the last period of the year.No date in the year corresponds to the adjustment period, so it can be selected for a particular document or batch only manually.See also the IsAdjustment field.
 		/// <para>DAC: PX.Objects.GL.FinYearSetup</para>
 		/// <para>Display Name: Has Adjustment Period</para>
 		/// </summary>
@@ -140,11 +140,12 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files";
+			//public const string All = "Files,Translations,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -130,6 +130,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string AddressInfo = "AddressInfo";
 			public const string Compensation = "Compensation";
 			public const string Compensation_Files = "Compensation/Files";
@@ -158,7 +159,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string WorkLocations_WorkLocationDetails_Files = "WorkLocations/WorkLocationDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,AddressInfo,Compensation,Compensation/Files,DeductionsAndBenefits,DeductionsAndBenefits/DeductionsAndBenefitsDetails,DeductionsAndBenefits/DeductionsAndBenefitsDetails/Files,DeductionsAndBenefits/DeductionsAndBenefitsDetails/GarnishmentDetails,DirectDepositDetails,DirectDepositDetails/Files,EmploymentDates,EmploymentRecords,EmploymentRecords/Files,GeneralInfo,GLAccounts,PaidTimeOff,PaidTimeOff/PaidTimeOffDetails,PaidTimeOff/PaidTimeOffDetails/Files,Taxes,Taxes/Files,Taxes/TaxCodeSettings,Taxes/TaxCodeSettings/Files,TaxSettings,TaxSettings/Files,WorkLocations,WorkLocations/WorkLocationDetails,WorkLocations/WorkLocationDetails/Files";
+			//public const string All = "Files,Translations,AddressInfo,Compensation,Compensation/Files,DeductionsAndBenefits,DeductionsAndBenefits/DeductionsAndBenefitsDetails,DeductionsAndBenefits/DeductionsAndBenefitsDetails/Files,DeductionsAndBenefits/DeductionsAndBenefitsDetails/GarnishmentDetails,DirectDepositDetails,DirectDepositDetails/Files,EmploymentDates,EmploymentRecords,EmploymentRecords/Files,GeneralInfo,GLAccounts,PaidTimeOff,PaidTimeOff/PaidTimeOffDetails,PaidTimeOff/PaidTimeOffDetails/Files,Taxes,Taxes/Files,Taxes/TaxCodeSettings,Taxes/TaxCodeSettings/Files,TaxSettings,TaxSettings/Files,WorkLocations,WorkLocations/WorkLocationDetails,WorkLocations/WorkLocationDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

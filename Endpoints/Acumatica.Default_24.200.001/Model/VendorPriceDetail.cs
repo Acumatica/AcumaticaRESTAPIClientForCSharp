@@ -16,7 +16,7 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
-		/// <para>Display Name: Break Qty</para>
+		/// <para>Display Name: Break Qty.</para>
 		/// </summary>
 		[DataMember(Name="BreakQty", EmitDefaultValue=false)]
 		public DecimalValue? BreakQty { get; set; }

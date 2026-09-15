@@ -165,6 +165,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attendees = "Attendees";
 			public const string Attendees_Files = "Attendees/Files";
 			public const string RelatedActivities = "RelatedActivities";
@@ -173,7 +174,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string TimeActivity = "TimeActivity";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attendees,Attendees/Files,RelatedActivities,RelatedActivities/Files,Reminder,TimeActivity";
+			//public const string All = "Files,Translations,Attendees,Attendees/Files,RelatedActivities,RelatedActivities/Files,Reminder,TimeActivity";
 		}
 		public virtual string GetEndpointPath()
 		{

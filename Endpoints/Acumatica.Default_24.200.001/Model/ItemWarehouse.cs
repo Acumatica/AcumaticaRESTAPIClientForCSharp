@@ -37,10 +37,6 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="DefaultReceiptTo", EmitDefaultValue=false)]
 		public StringValue? DefaultReceiptTo { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: InventoryItem__DefaultSubItemID</para>
-		/// <para>DAC: PX.Objects.IN.INItemSite</para>
-		/// </summary>
 		[DataMember(Name="DefaultSubitem", EmitDefaultValue=false)]
 		public StringValue? DefaultSubitem { get; set; }
 
@@ -282,9 +278,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

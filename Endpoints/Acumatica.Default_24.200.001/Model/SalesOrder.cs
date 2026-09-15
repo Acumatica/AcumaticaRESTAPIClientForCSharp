@@ -223,7 +223,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC Field Name: CustomerRefNbr</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// <para>Display Name: External Reference</para>
-		/// <para>SQL Type: nvarchar(40)</para>
+		/// <para>SQL Type: nvarchar(64)</para>
 		/// </summary>
 		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
 		public StringValue? ExternalRef { get; set; }
@@ -333,7 +333,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
 		/// </summary>
 		/// <remarks>
-		/// This field is available only if theProject Accountingfeature is enabled on the Enable/Disable Features (CS100000) form and the integration of the Projectssubmodule with Sales Orders has been enabled(that is,  is .
+		/// <para>This field is available only if theProject Accountingfeature is enabled on the Enable/Disable Features (CS100000) form and the integration of the Projectssubmodule with Sales Orders has been enabled(that is, visibleInSO is true.</para>
 		/// </remarks>
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
@@ -517,6 +517,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string BillToAddress = "BillToAddress";
 			public const string BillToContact = "BillToContact";
 			public const string Commissions = "Commissions";
@@ -550,7 +551,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string Totals = "Totals";
 
 			//Intentionally excluded
-			//public const string All = "Files,BillToAddress,BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,Details/Allocations,Details/Allocations/Files,Details/PurchasingDetails,Details/PurchasingDetails/Files,DiscountDetails,DiscountDetails/Files,FinancialSettings,OrderRisks,OrderRisks/Files,Payments,Payments/Files,Payments/CreditCardTransactionInfo,Payments/CreditCardTransactionInfo/Files,Relations,Relations/Files,Shipments,Shipments/Files,ShippingSettings,ShippingSettings/ShopForRates,ShipToAddress,ShipToContact,TaxDetails,TaxDetails/Files,Totals";
+			//public const string All = "Files,Translations,BillToAddress,BillToContact,Commissions,Commissions/SalesPersons,Commissions/SalesPersons/Files,Details,Details/Files,Details/Allocations,Details/Allocations/Files,Details/PurchasingDetails,Details/PurchasingDetails/Files,DiscountDetails,DiscountDetails/Files,FinancialSettings,OrderRisks,OrderRisks/Files,Payments,Payments/Files,Payments/CreditCardTransactionInfo,Payments/CreditCardTransactionInfo/Files,Relations,Relations/Files,Shipments,Shipments/Files,ShippingSettings,ShippingSettings/ShopForRates,ShipToAddress,ShipToContact,TaxDetails,TaxDetails/Files,Totals";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -498,10 +498,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes";
+			//public const string All = "Files,Translations,Attributes";
 		}
 		public virtual string GetEndpointPath()
 		{

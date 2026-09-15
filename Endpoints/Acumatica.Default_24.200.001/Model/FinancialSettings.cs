@@ -74,7 +74,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		/// <remarks>
-		/// This field is available only if theExternal Tax Calculation Integrationfeature is enabled on the Enable/Disable Features (CS100000) form.This field is not available for transfer orders.
+		/// <para>This field is available only if theExternal Tax Calculation Integrationfeature is enabled on the Enable/Disable Features (CS100000) form.</para><para>This field is not available for transfer orders.</para>
 		/// </remarks>
 		[DataMember(Name="EntityUsageType", EmitDefaultValue=false)]
 		public StringValue? EntityUsageType { get; set; }
@@ -85,7 +85,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Invoice Date</para>
 		/// </summary>
 		/// <remarks>
-		/// Date can be entered manually if the Bill Separatelyfield is  for the order type.This field is not available for transfer orders.
+		/// <para>Date can be entered manually if the Bill Separatelyfield is true for the order type.</para><para>This field is not available for transfer orders.</para>
 		/// </remarks>
 		[DataMember(Name="InvoiceDate", EmitDefaultValue=false)]
 		public DateTimeValue? InvoiceDate { get; set; }

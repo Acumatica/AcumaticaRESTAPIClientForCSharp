@@ -50,7 +50,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? ARRefNbr { get; set; }
 
 		/// <summary>
-		/// Indicates (if set to true) that the customer should be billed for the claim amount.You can use the Bill Expense Claims (EP502000) form to bill the customer if no project is specified.
+		/// Indicates (if set to <c>true</c>) that the customer should be billed for the claim amount.You can use the Bill Expense Claims (EP502000) form to bill the customer if no project is specified.
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// </summary>
 		[DataMember(Name="Billable", EmitDefaultValue=false)]

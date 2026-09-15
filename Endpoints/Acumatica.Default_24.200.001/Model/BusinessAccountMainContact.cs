@@ -62,13 +62,6 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="JobTitle", EmitDefaultValue=false)]
 		public StringValue? JobTitle { get; set; }
 
-		/// <summary>
-		/// The language in which the contact prefers to communicate.
-		/// <para>DAC Field Name: LanguageID</para>
-		/// <para>DAC: PX.Objects.CR.Contact</para>
-		/// <para>Display Name: Language/Locale</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
 		[DataMember(Name="LanguageOrLocale", EmitDefaultValue=false)]
 		public StringValue? LanguageOrLocale { get; set; }
 

@@ -17,7 +17,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: CuryAdjgAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Amount Paid</para>
+		/// <para>Display Name: Amount Paid in Payment Currency</para>
 		/// </summary>
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
 		public DecimalValue? AmountPaid { get; set; }
@@ -25,7 +25,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: CuryAdjgWOAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Write-Off Amount</para>
+		/// <para>Display Name: Write-Off Amount in Payment Currency</para>
 		/// </summary>
 		[DataMember(Name="BalanceWriteOff", EmitDefaultValue=false)]
 		public DecimalValue? BalanceWriteOff { get; set; }
@@ -34,7 +34,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// The cash discount amount displayed for the document.Given in the  currency of the adjusting document.
 		/// <para>DAC Field Name: CuryAdjgPPDAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Cash Discount Taken</para>
+		/// <para>Display Name: Cash Discount Taken in Payment Currency</para>
 		/// </summary>
 		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
 		public DecimalValue? CashDiscountTaken { get; set; }

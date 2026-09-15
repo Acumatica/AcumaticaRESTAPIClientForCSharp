@@ -39,6 +39,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
+		/// The identifier of the project to which the task belongs.
 		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
 		/// <para>Display Name: Project ID</para>
@@ -67,6 +68,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string BillingAndAllocationSettings = "BillingAndAllocationSettings";
 			public const string DefaultValues = "DefaultValues";
@@ -74,7 +76,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string VisibilitySettings = "VisibilitySettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,BillingAndAllocationSettings,DefaultValues,Properties,VisibilitySettings";
+			//public const string All = "Files,Translations,Attributes,BillingAndAllocationSettings,DefaultValues,Properties,VisibilitySettings";
 		}
 		public virtual string GetEndpointPath()
 		{

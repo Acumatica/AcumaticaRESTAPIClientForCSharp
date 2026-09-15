@@ -92,7 +92,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? LedgerID { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the budget article represents a group of other articles.That is, the article has child articles, which are linked to this article by their ParentGroupID field.
+		/// Specifies (if set to <c>true</c>) that the budget article represents a group of other articles.That is, the article has child articles, which are linked to this article by their ParentGroupID field.
 		/// <para>DAC Field Name: IsGroup</para>
 		/// <para>DAC: PX.Objects.GL.GLBudgetLine</para>
 		/// </summary>
@@ -187,7 +187,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? Period13 { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the budget article has been released at least once.A released article can be released again if its Amount is not equal to its ReleasedAmount.
+		/// Specifies (if set to <c>true</c>) that the budget article has been released at least once.A released article can be released again if its Amount is not equal to its ReleasedAmount.
 		/// <para>DAC: PX.Objects.GL.GLBudgetLine</para>
 		/// </summary>
 		[DataMember(Name="Released", EmitDefaultValue=false)]

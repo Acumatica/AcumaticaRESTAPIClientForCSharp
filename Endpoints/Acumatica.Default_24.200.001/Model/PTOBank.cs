@@ -173,6 +173,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ApplicableEarningTypes = "ApplicableEarningTypes";
 			public const string ApplicableEarningTypes_ApplicableEarningTypeDetail = "ApplicableEarningTypes/ApplicableEarningTypeDetail";
 			public const string ApplicableEarningTypes_ApplicableEarningTypeDetail_Files = "ApplicableEarningTypes/ApplicableEarningTypeDetail/Files";
@@ -184,7 +185,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string GLAccounts = "GLAccounts";
 
 			//Intentionally excluded
-			//public const string All = "Files,ApplicableEarningTypes,ApplicableEarningTypes/ApplicableEarningTypeDetail,ApplicableEarningTypes/ApplicableEarningTypeDetail/Files,BandingRules,BandingRules/BandingRuleDetails,BandingRules/BandingRuleDetails/Files,EmployeeClassSettings,EmployeeClassSettings/Files,GLAccounts";
+			//public const string All = "Files,Translations,ApplicableEarningTypes,ApplicableEarningTypes/ApplicableEarningTypeDetail,ApplicableEarningTypes/ApplicableEarningTypeDetail/Files,BandingRules,BandingRules/BandingRuleDetails,BandingRules/BandingRuleDetails/Files,EmployeeClassSettings,EmployeeClassSettings/Files,GLAccounts";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -19,6 +19,7 @@ namespace Acumatica.Default_24_200_001.Model
 	{
 
 		/// <summary>
+		/// A Boolean value that indicates (if set to true) whether the union local is active.
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PM.PMUnion</para>
 		/// </summary>
@@ -33,6 +34,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
+		/// The unique identifier of the union local.
 		/// <para>DAC Field Name: UnionID</para>
 		/// <para>DAC: PX.Objects.PM.PMUnion</para>
 		/// <para>Display Name: Union Local ID</para>
@@ -45,9 +47,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

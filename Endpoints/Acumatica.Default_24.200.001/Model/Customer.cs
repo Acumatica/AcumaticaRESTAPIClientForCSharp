@@ -32,7 +32,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? AccountRef { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that financial chargescan be calculated for the customer.
+		/// If set to <c>true</c>, indicates that financial chargescan be calculated for the customer.
 		/// <para>DAC Field Name: FinChargeApply</para>
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Apply Overdue Charges</para>
@@ -44,7 +44,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public List<AttributeValue>? Attributes { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the payments of the customershould be automatically applied to the open invoices upon release.
+		/// If set to <c>true</c>, indicates that the payments of the customershould be automatically applied to the open invoices upon release.
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Auto-Apply Payments</para>
 		/// </summary>
@@ -60,7 +60,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public IntValue? BAccountID { get; set; }
 
 		/// <summary>
-		/// A calculated field. If set to false, indicates thatthe customer's billing address is the same as the customer'sdefault address.The field is populated by a formula, working only in the scope of the Customers (AR303000) form. See CustomerBillSharedAddressOverrideGraphExt"
+		/// A calculated field. If set to <c>false</c>, indicates thatthe customer's billing address is the same as the customer'sdefault address.The field is populated by a formula, working only in the scope of the Customers (AR303000) form. See CustomerBillSharedAddressOverrideGraphExt"
 		/// <para>DAC Field Name: OverrideBillAddress</para>
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Override</para>
@@ -72,7 +72,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public Contact? BillingContact { get; set; }
 
 		/// <summary>
-		/// A calculated field. If set to false, indicates that the customer's billing contact is the same as the customer'sdefault contact.The field is populated by a formula, working only in the scope of the Customers (AR303000) form. See CustomerBillSharedContactOverrideGraphExt"
+		/// A calculated field. If set to <c>false</c>, indicates that the customer's billing contact is the same as the customer'sdefault contact.The field is populated by a formula, working only in the scope of the Customers (AR303000) form. See CustomerBillSharedContactOverrideGraphExt"
 		/// <para>DAC Field Name: OverrideBillContact</para>
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Override</para>
@@ -180,7 +180,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? EnableRateOverride { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that small balancewrite-offs are allowed for the customer.
+		/// If set to <c>true</c>, indicates that small balancewrite-offs are allowed for the customer.
 		/// <para>DAC Field Name: SmallBalanceAllow</para>
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Enable Write-Offs</para>
@@ -229,7 +229,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public Contact? MainContact { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that customerstatements should be generated for the customer in multi-currency format.
+		/// If set to <c>true</c>, indicates that customerstatements should be generated for the customer in multi-currency format.
 		/// <para>DAC Field Name: PrintCuryStatements</para>
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Multi-Currency Statements</para>
@@ -283,7 +283,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public IntValue? PrimaryContactID { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that dunning letters should be printed for the customer.
+		/// If set to <c>true</c>, indicates that dunning letters should be printed for the customer.
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Print Dunning Letters</para>
 		/// </summary>
@@ -291,7 +291,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? PrintDunningLetters { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that invoicesshould be printed for the customer.
+		/// If set to <c>true</c>, indicates that invoicesshould be printed for the customer.
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Print Invoices</para>
 		/// </summary>
@@ -299,7 +299,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? PrintInvoices { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that customerstatements should be printed for the customer.
+		/// If set to <c>true</c>, indicates that customerstatements should be printed for the customer.
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Print Statements</para>
 		/// </summary>
@@ -328,7 +328,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? SaturdayDelivery { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that dunning letters should be sent to the customer by email.
+		/// If set to <c>true</c>, indicates that dunning letters should be sent to the customer by email.
 		/// <para>DAC Field Name: MailDunningLetters</para>
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Send Dunning Letters by Email</para>
@@ -337,7 +337,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? SendDunningLettersbyEmail { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that invoicesshould be sent to the customer by email.
+		/// If set to <c>true</c>, indicates that invoicesshould be sent to the customer by email.
 		/// <para>DAC Field Name: MailInvoices</para>
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Send Invoices by Email</para>
@@ -354,7 +354,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? SendStatementsbyEmail { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
 		/// <para>DAC Field Name: OverrideAddress</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Override</para>
@@ -375,7 +375,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public Contact? ShippingContact { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
 		/// <para>DAC Field Name: OverrideContact</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Override</para>
@@ -488,7 +488,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? WarehouseID { get; set; }
 
 		/// <summary>
-		/// If SmallBalanceAllow is set to true, thefield determines the maximum small balance write-off limit for customer documents.
+		/// If SmallBalanceAllow is set to <c>true</c>, thefield determines the maximum small balance write-off limit for customer documents.
 		/// <para>DAC Field Name: SmallBalanceLimit</para>
 		/// <para>DAC: PX.Objects.AR.Customer</para>
 		/// <para>Display Name: Write-Off Limit</para>
@@ -541,6 +541,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string BillingContact = "BillingContact";
 			public const string BillingContact_Activities = "BillingContact/Activities";
@@ -671,7 +672,7 @@ namespace Acumatica.Default_24_200_001.Model
 			public const string ShippingContact_UserInfo_Roles_Files = "ShippingContact/UserInfo/Roles/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,BillingContact,BillingContact/Activities,BillingContact/Activities/Files,BillingContact/Address,BillingContact/Attributes,BillingContact/Campaigns,BillingContact/Campaigns/Files,BillingContact/Cases,BillingContact/Cases/Files,BillingContact/Duplicates,BillingContact/Duplicates/Files,BillingContact/MarketingLists,BillingContact/MarketingLists/Files,BillingContact/Notifications,BillingContact/Notifications/Files,BillingContact/Opportunities,BillingContact/Opportunities/Files,BillingContact/Relations,BillingContact/Relations/Files,BillingContact/RoleAssignments,BillingContact/RoleAssignments/Files,BillingContact/UserInfo,BillingContact/UserInfo/Roles,BillingContact/UserInfo/Roles/Files,Contacts,Contacts/Files,Contacts/Contact,Contacts/Contact/Activities,Contacts/Contact/Activities/Files,Contacts/Contact/Address,Contacts/Contact/Attributes,Contacts/Contact/Campaigns,Contacts/Contact/Campaigns/Files,Contacts/Contact/Cases,Contacts/Contact/Cases/Files,Contacts/Contact/Duplicates,Contacts/Contact/Duplicates/Files,Contacts/Contact/MarketingLists,Contacts/Contact/MarketingLists/Files,Contacts/Contact/Notifications,Contacts/Contact/Notifications/Files,Contacts/Contact/Opportunities,Contacts/Contact/Opportunities/Files,Contacts/Contact/Relations,Contacts/Contact/Relations/Files,Contacts/Contact/RoleAssignments,Contacts/Contact/RoleAssignments/Files,Contacts/Contact/UserInfo,Contacts/Contact/UserInfo/Roles,Contacts/Contact/UserInfo/Roles/Files,CreditVerificationRules,MainContact,MainContact/Activities,MainContact/Activities/Files,MainContact/Address,MainContact/Attributes,MainContact/Campaigns,MainContact/Campaigns/Files,MainContact/Cases,MainContact/Cases/Files,MainContact/Duplicates,MainContact/Duplicates/Files,MainContact/MarketingLists,MainContact/MarketingLists/Files,MainContact/Notifications,MainContact/Notifications/Files,MainContact/Opportunities,MainContact/Opportunities/Files,MainContact/Relations,MainContact/Relations/Files,MainContact/RoleAssignments,MainContact/RoleAssignments/Files,MainContact/UserInfo,MainContact/UserInfo/Roles,MainContact/UserInfo/Roles/Files,PaymentInstructions,PaymentInstructions/Files,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Activities/Files,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Campaigns/Files,PrimaryContact/Cases,PrimaryContact/Cases/Files,PrimaryContact/Duplicates,PrimaryContact/Duplicates/Files,PrimaryContact/MarketingLists,PrimaryContact/MarketingLists/Files,PrimaryContact/Notifications,PrimaryContact/Notifications/Files,PrimaryContact/Opportunities,PrimaryContact/Opportunities/Files,PrimaryContact/Relations,PrimaryContact/Relations/Files,PrimaryContact/RoleAssignments,PrimaryContact/RoleAssignments/Files,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,PrimaryContact/UserInfo/Roles/Files,Salespersons,Salespersons/Files,ShippingContact,ShippingContact/Activities,ShippingContact/Activities/Files,ShippingContact/Address,ShippingContact/Attributes,ShippingContact/Campaigns,ShippingContact/Campaigns/Files,ShippingContact/Cases,ShippingContact/Cases/Files,ShippingContact/Duplicates,ShippingContact/Duplicates/Files,ShippingContact/MarketingLists,ShippingContact/MarketingLists/Files,ShippingContact/Notifications,ShippingContact/Notifications/Files,ShippingContact/Opportunities,ShippingContact/Opportunities/Files,ShippingContact/Relations,ShippingContact/Relations/Files,ShippingContact/RoleAssignments,ShippingContact/RoleAssignments/Files,ShippingContact/UserInfo,ShippingContact/UserInfo/Roles,ShippingContact/UserInfo/Roles/Files";
+			//public const string All = "Files,Translations,Attributes,BillingContact,BillingContact/Activities,BillingContact/Activities/Files,BillingContact/Address,BillingContact/Attributes,BillingContact/Campaigns,BillingContact/Campaigns/Files,BillingContact/Cases,BillingContact/Cases/Files,BillingContact/Duplicates,BillingContact/Duplicates/Files,BillingContact/MarketingLists,BillingContact/MarketingLists/Files,BillingContact/Notifications,BillingContact/Notifications/Files,BillingContact/Opportunities,BillingContact/Opportunities/Files,BillingContact/Relations,BillingContact/Relations/Files,BillingContact/RoleAssignments,BillingContact/RoleAssignments/Files,BillingContact/UserInfo,BillingContact/UserInfo/Roles,BillingContact/UserInfo/Roles/Files,Contacts,Contacts/Files,Contacts/Contact,Contacts/Contact/Activities,Contacts/Contact/Activities/Files,Contacts/Contact/Address,Contacts/Contact/Attributes,Contacts/Contact/Campaigns,Contacts/Contact/Campaigns/Files,Contacts/Contact/Cases,Contacts/Contact/Cases/Files,Contacts/Contact/Duplicates,Contacts/Contact/Duplicates/Files,Contacts/Contact/MarketingLists,Contacts/Contact/MarketingLists/Files,Contacts/Contact/Notifications,Contacts/Contact/Notifications/Files,Contacts/Contact/Opportunities,Contacts/Contact/Opportunities/Files,Contacts/Contact/Relations,Contacts/Contact/Relations/Files,Contacts/Contact/RoleAssignments,Contacts/Contact/RoleAssignments/Files,Contacts/Contact/UserInfo,Contacts/Contact/UserInfo/Roles,Contacts/Contact/UserInfo/Roles/Files,CreditVerificationRules,MainContact,MainContact/Activities,MainContact/Activities/Files,MainContact/Address,MainContact/Attributes,MainContact/Campaigns,MainContact/Campaigns/Files,MainContact/Cases,MainContact/Cases/Files,MainContact/Duplicates,MainContact/Duplicates/Files,MainContact/MarketingLists,MainContact/MarketingLists/Files,MainContact/Notifications,MainContact/Notifications/Files,MainContact/Opportunities,MainContact/Opportunities/Files,MainContact/Relations,MainContact/Relations/Files,MainContact/RoleAssignments,MainContact/RoleAssignments/Files,MainContact/UserInfo,MainContact/UserInfo/Roles,MainContact/UserInfo/Roles/Files,PaymentInstructions,PaymentInstructions/Files,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Activities/Files,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Campaigns/Files,PrimaryContact/Cases,PrimaryContact/Cases/Files,PrimaryContact/Duplicates,PrimaryContact/Duplicates/Files,PrimaryContact/MarketingLists,PrimaryContact/MarketingLists/Files,PrimaryContact/Notifications,PrimaryContact/Notifications/Files,PrimaryContact/Opportunities,PrimaryContact/Opportunities/Files,PrimaryContact/Relations,PrimaryContact/Relations/Files,PrimaryContact/RoleAssignments,PrimaryContact/RoleAssignments/Files,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,PrimaryContact/UserInfo/Roles/Files,Salespersons,Salespersons/Files,ShippingContact,ShippingContact/Activities,ShippingContact/Activities/Files,ShippingContact/Address,ShippingContact/Attributes,ShippingContact/Campaigns,ShippingContact/Campaigns/Files,ShippingContact/Cases,ShippingContact/Cases/Files,ShippingContact/Duplicates,ShippingContact/Duplicates/Files,ShippingContact/MarketingLists,ShippingContact/MarketingLists/Files,ShippingContact/Notifications,ShippingContact/Notifications/Files,ShippingContact/Opportunities,ShippingContact/Opportunities/Files,ShippingContact/Relations,ShippingContact/Relations/Files,ShippingContact/RoleAssignments,ShippingContact/RoleAssignments/Files,ShippingContact/UserInfo,ShippingContact/UserInfo/Roles,ShippingContact/UserInfo/Roles/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

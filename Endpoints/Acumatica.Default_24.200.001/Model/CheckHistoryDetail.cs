@@ -17,7 +17,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: CuryAmt</para>
 		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// <para>Display Name: Amount</para>
+		/// <para>Display Name: Amount Paid</para>
 		/// </summary>
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
 		public DecimalValue? AmountPaid { get; set; }
@@ -48,7 +48,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: SourceDocType</para>
 		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// <para>Display Name: Source Doc. Type</para>
+		/// <para>Display Name: Doc. Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
@@ -57,7 +57,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: SourceRefNbr</para>
 		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// <para>Display Name: Source Ref. Nbr.</para>
+		/// <para>Display Name: Reference Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]

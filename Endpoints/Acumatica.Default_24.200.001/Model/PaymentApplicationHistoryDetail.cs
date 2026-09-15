@@ -17,7 +17,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: SourceDocType</para>
 		/// <para>DAC: PX.Objects.AR.ARTranPostBal</para>
-		/// <para>Display Name: Source Doc. Type</para>
+		/// <para>Display Name: Doc. Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="AdjustedDocType", EmitDefaultValue=false)]
@@ -26,7 +26,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: SourceRefNbr</para>
 		/// <para>DAC: PX.Objects.AR.ARTranPostBal</para>
-		/// <para>Display Name: Source Ref. Nbr.</para>
+		/// <para>Display Name: Reference Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="AdjustedRefNbr", EmitDefaultValue=false)]
@@ -35,7 +35,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: SourceDocType</para>
 		/// <para>DAC: PX.Objects.AR.ARTranPostBal</para>
-		/// <para>Display Name: Source Doc. Type</para>
+		/// <para>Display Name: Doc. Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="AdjustingDocType", EmitDefaultValue=false)]
@@ -57,7 +57,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: CuryAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARTranPostBal</para>
-		/// <para>Display Name: Amount</para>
+		/// <para>Display Name: Amount Paid</para>
 		/// </summary>
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
 		public DecimalValue? AmountPaid { get; set; }
@@ -149,7 +149,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: SourceDocType</para>
 		/// <para>DAC: PX.Objects.AR.ARTranPostBal</para>
-		/// <para>Display Name: Source Doc. Type</para>
+		/// <para>Display Name: Doc. Type</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		[DataMember(Name="DisplayDocType", EmitDefaultValue=false)]
@@ -158,7 +158,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: SourceRefNbr</para>
 		/// <para>DAC: PX.Objects.AR.ARTranPostBal</para>
-		/// <para>Display Name: Source Ref. Nbr.</para>
+		/// <para>Display Name: Reference Nbr.</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="DisplayRefNbr", EmitDefaultValue=false)]

@@ -17,7 +17,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <summary>
 		/// <para>DAC Field Name: CuryAdjgAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Amount Paid</para>
+		/// <para>Display Name: Amount Paid in Payment Currency</para>
 		/// </summary>
 		[DataMember(Name="AppliedToOrder", EmitDefaultValue=false)]
 		public DecimalValue? AppliedToOrder { get; set; }

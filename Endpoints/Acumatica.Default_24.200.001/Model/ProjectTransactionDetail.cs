@@ -27,7 +27,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? AccountGroupDescription { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the transaction
+		/// A Boolean value that indicates (if set to true) that the transaction has been allocated.
 		/// <para>DAC: PX.Objects.PM.PMTran</para>
 		/// </summary>
 		[DataMember(Name="Allocated", EmitDefaultValue=false)]
@@ -86,6 +86,7 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? CostCode { get; set; }
 
 		/// <summary>
+		/// The identifier of the credit Account associated with the transaction.
 		/// <para>DAC Field Name: OffsetAccountID</para>
 		/// <para>DAC: PX.Objects.PM.PMTran</para>
 		/// <para>Display Name: Credit Account</para>

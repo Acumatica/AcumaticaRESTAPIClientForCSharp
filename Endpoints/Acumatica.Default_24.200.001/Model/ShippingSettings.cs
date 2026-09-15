@@ -215,7 +215,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		/// <remarks>
-		/// The default value is the tax category associated with the ship via codeship via code of the order.This field is not available for transfer orders.
+		/// <para>The default value is the tax category associated with the ship via codeship via code of the order.</para><para>This field is not available for transfer orders.</para>
 		/// </remarks>
 		[DataMember(Name="FreightTaxCategory", EmitDefaultValue=false)]
 		public StringValue? FreightTaxCategory { get; set; }
