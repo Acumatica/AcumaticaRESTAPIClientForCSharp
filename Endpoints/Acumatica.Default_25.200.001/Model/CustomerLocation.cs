@@ -22,7 +22,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
 		/// <para>DAC Field Name: OverrideAddress</para>
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Override</para>
@@ -40,7 +40,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Calendar { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
 		/// <para>DAC Field Name: OverrideContact</para>
 		/// <para>DAC: PX.Objects.CR.Location</para>
 		/// <para>Display Name: Override</para>
@@ -294,6 +294,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string LocationContact = "LocationContact";
 			public const string LocationContact_Activities = "LocationContact/Activities";
 			public const string LocationContact_Activities_Files = "LocationContact/Activities/Files";
@@ -322,7 +323,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string RoleAssignments_Files = "RoleAssignments/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,LocationContact,LocationContact/Activities,LocationContact/Activities/Files,LocationContact/Address,LocationContact/Attributes,LocationContact/Campaigns,LocationContact/Campaigns/Files,LocationContact/Cases,LocationContact/Cases/Files,LocationContact/Duplicates,LocationContact/Duplicates/Files,LocationContact/MarketingLists,LocationContact/MarketingLists/Files,LocationContact/Notifications,LocationContact/Notifications/Files,LocationContact/Opportunities,LocationContact/Opportunities/Files,LocationContact/Relations,LocationContact/Relations/Files,LocationContact/RoleAssignments,LocationContact/RoleAssignments/Files,LocationContact/UserInfo,LocationContact/UserInfo/Roles,LocationContact/UserInfo/Roles/Files,RoleAssignments,RoleAssignments/Files";
+			//public const string All = "Files,Translations,LocationContact,LocationContact/Activities,LocationContact/Activities/Files,LocationContact/Address,LocationContact/Attributes,LocationContact/Campaigns,LocationContact/Campaigns/Files,LocationContact/Cases,LocationContact/Cases/Files,LocationContact/Duplicates,LocationContact/Duplicates/Files,LocationContact/MarketingLists,LocationContact/MarketingLists/Files,LocationContact/Notifications,LocationContact/Notifications/Files,LocationContact/Opportunities,LocationContact/Opportunities/Files,LocationContact/Relations,LocationContact/Relations/Files,LocationContact/RoleAssignments,LocationContact/RoleAssignments/Files,LocationContact/UserInfo,LocationContact/UserInfo/Roles,LocationContact/UserInfo/Roles/Files,RoleAssignments,RoleAssignments/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

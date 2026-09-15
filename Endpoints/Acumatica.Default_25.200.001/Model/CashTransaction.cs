@@ -18,7 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// Specifies (if set to true) that the transaction has been approved by a responsible person.This field is displayed if the RequestApproval field is set to true.
+		/// Specifies (if set to <c>true</c>) that the transaction has been approved by a responsible person.This field is displayed if the RequestApproval field is set to <c>true</c>.
 		/// <para>DAC: PX.Objects.CA.CAAdj</para>
 		/// </summary>
 		[DataMember(Name="Approved", EmitDefaultValue=false)]
@@ -77,11 +77,12 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files";
+			//public const string All = "Files,Translations,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

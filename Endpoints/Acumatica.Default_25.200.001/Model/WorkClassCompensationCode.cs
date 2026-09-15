@@ -19,6 +19,7 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
+		/// A Boolean value that indicates (if set to true) that the workers' compensation code is active and can be used.
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
 		/// </summary>
@@ -26,6 +27,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
+		/// The identifier of the cost code that defines the start of the cost code range.The field is included in CostCodeFrom.
 		/// <para>DAC: PX.Objects.PM.PMWorkCodeCostCodeRange</para>
 		/// <para>Display Name: Cost Code From</para>
 		/// <para>SQL Type: nvarchar(30)</para>
@@ -34,6 +36,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? CostCodeFrom { get; set; }
 
 		/// <summary>
+		/// The identifier of the cost code that defines the end of the cost code range.The field is included in CostCodeTo.
 		/// <para>DAC: PX.Objects.PM.PMWorkCodeCostCodeRange</para>
 		/// <para>Display Name: Cost Code To</para>
 		/// <para>SQL Type: nvarchar(30)</para>
@@ -42,6 +45,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? CostCodeTo { get; set; }
 
 		/// <summary>
+		/// The description of the workers' compensation code.
 		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
@@ -49,6 +53,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
+		/// The unique identifier of the workers' compensation code.
 		/// <para>DAC Field Name: WorkCodeID</para>
 		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
 		/// <para>Display Name: WCC Code</para>
@@ -61,9 +66,10 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -19,7 +19,7 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// Indicates whether the Subaccount is active.Inactive subaccounts do not appear in the lists of available subaccounts andthus can't be selected for documents, transactions and other entities.
+		/// Indicates whether the Subaccount is <c>active</c>.Inactive subaccounts do not appear in the lists of available subaccounts andthus can't be selected for documents, transactions and other entities.
 		/// <para>DAC: PX.Objects.GL.Sub</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
@@ -62,9 +62,10 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

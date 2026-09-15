@@ -52,7 +52,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the following foreign keys:                        . The field is the identifier of the Discount            .            . The field is a part of the identifier of the Discount Sequence            .                        This field is available only if the            Customer Discounts            feature is enabled on the Enable/Disable Features (CS100000) form.            
+		/// <para>The field is included in the following foreign keys:           Discount. The field is the identifier of the DiscountARDiscount.discountIDDiscountSequence. The field is a part of the identifier of the Discount SequenceDiscountSequence.discountID</para><para>This field is available only if theCustomer Discountsfeature is enabled on the Enable/Disable Features (CS100000) form.</para>
 		/// </remarks>
 		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
@@ -105,7 +105,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the  foreign key. The field is a part ofthe identifier of the Discount Sequence..This field is available only if theCustomer Discountsfeature is enabled on the Enable/Disable Features (CS100000) form.
+		/// <para>The field is included in the DiscountSequence foreign key. The field is a part ofthe identifier of the Discount SequenceDiscountSequence.discountSequenceID.</para><para>This field is available only if theCustomer Discountsfeature is enabled on the Enable/Disable Features (CS100000) form.</para>
 		/// </remarks>
 		[DataMember(Name="SequenceID", EmitDefaultValue=false)]
 		public StringValue? SequenceID { get; set; }

@@ -52,12 +52,13 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string CalendarExceptions = "CalendarExceptions";
 			public const string CalendarExceptions_Files = "CalendarExceptions/Files";
 			public const string CalendarSettings = "CalendarSettings";
 
 			//Intentionally excluded
-			//public const string All = "Files,CalendarExceptions,CalendarExceptions/Files,CalendarSettings";
+			//public const string All = "Files,Translations,CalendarExceptions,CalendarExceptions/Files,CalendarSettings";
 		}
 		public virtual string GetEndpointPath()
 		{

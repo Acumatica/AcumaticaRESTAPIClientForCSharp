@@ -109,6 +109,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? OrderQty { get; set; }
 
 		/// <summary>
+		/// The number of the purchase order line associated with the commitment.
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderLine</para>
 		/// <para>Display Name: PO Line Nbr.</para>
 		/// </summary>
@@ -184,6 +185,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
+		/// The identifier of the Vendor associated with the commitment.
 		/// <para>DAC Field Name: VendorID</para>
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderLine</para>
 		/// </summary>

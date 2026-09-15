@@ -33,11 +33,20 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? BaseCurrencyID { get; set; }
 
 		/// <summary>
-		/// Indicates (if set to true) that the customer should be billed for the claim amount.You can use the Bill Expense Claims (EP502000) form to bill the customer if no project is specified.
+		/// Indicates (if set to <c>true</c>) that the customer should be billed for the claim amount.You can use the Bill Expense Claims (EP502000) form to bill the customer if no project is specified.
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// </summary>
 		[DataMember(Name="Billable", EmitDefaultValue=false)]
 		public BooleanValue? Billable { get; set; }
+
+		/// <summary>
+		/// The identifier of the corporate card that is used to pay the expense receipt.
+		/// <para>DAC Field Name: CorpCardID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Corporate Card</para>
+		/// </summary>
+		[DataMember(Name="CorporateCard", EmitDefaultValue=false)]
+		public StringValue? CorporateCard { get; set; }
 
 		/// <summary>
 		/// The identifier of the cost code associated with the record.
@@ -150,6 +159,15 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
+		/// The way the expense receipt has been paid.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Paid With</para>
+		/// <para>SQL Type: varchar(8)</para>
+		/// </summary>
+		[DataMember(Name="PaidWith", EmitDefaultValue=false)]
+		public StringValue? PaidWith { get; set; }
+
+		/// <summary>
 		/// The project or contract, which should be specified if theemployee incurred the expenses while working on a particular project or contract.The value of this field can be specified only if the Project Accounting or Contract Management feature,respectively, is enabled on the Enable/Disable Features (CS100000) form.
 		/// <para>DAC Field Name: ContractID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
@@ -231,6 +249,15 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
+
+		/// <summary>
+		/// The amount of non-taxable tips in the document currency that will not be included in the tax base of the receipt.
+		/// <para>DAC Field Name: CuryTipAmt</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Tip Amount</para>
+		/// </summary>
+		[DataMember(Name="TipAmount", EmitDefaultValue=false)]
+		public DecimalValue? TipAmount { get; set; }
 
 		/// <summary>
 		/// The cost of one unit of the expense item in the currency of the document.If a standard cost is specified for the expense non-stock item, the standard cost is used as the default unit cost.

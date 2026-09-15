@@ -507,6 +507,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Activities = "Activities";
 			public const string Activities_Files = "Activities/Files";
 			public const string Address = "Address";
@@ -532,7 +533,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string UserInfo_Roles_Files = "UserInfo/Roles/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Activities,Activities/Files,Address,Attributes,Campaigns,Campaigns/Files,Cases,Cases/Files,Duplicates,Duplicates/Files,MarketingLists,MarketingLists/Files,Notifications,Notifications/Files,Opportunities,Opportunities/Files,Relations,Relations/Files,RoleAssignments,RoleAssignments/Files,UserInfo,UserInfo/Roles,UserInfo/Roles/Files";
+			//public const string All = "Files,Translations,Activities,Activities/Files,Address,Attributes,Campaigns,Campaigns/Files,Cases,Cases/Files,Duplicates,Duplicates/Files,MarketingLists,MarketingLists/Files,Notifications,Notifications/Files,Opportunities,Opportunities/Files,Relations,Relations/Files,RoleAssignments,RoleAssignments/Files,UserInfo,UserInfo/Roles,UserInfo/Roles/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

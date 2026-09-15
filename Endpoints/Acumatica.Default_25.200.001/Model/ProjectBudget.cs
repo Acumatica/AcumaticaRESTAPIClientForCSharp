@@ -19,7 +19,7 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// The identifier of the Account Group associated with the budget line.
+		/// The identifier of the Account Group associated with the budget line.The field acts as a foreign key to PMAccountGroup.
 		/// <para>DAC Field Name: AccountGroupID</para>
 		/// <para>DAC: PX.Objects.PM.PMBudget</para>
 		/// <para>Display Name: Account Group</para>
@@ -112,7 +112,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? CostAtCompletion { get; set; }
 
 		/// <summary>
-		/// The identifier of the Cost Code associated with the budget line.
+		/// The identifier of the Cost Code associated with the budget line.The field acts as a foreign key to PMCostCode.
 		/// <para>DAC Field Name: CostCodeID</para>
 		/// <para>DAC: PX.Objects.PM.PMBudget</para>
 		/// <para>Display Name: Cost Code</para>
@@ -136,7 +136,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? DraftInvoicesAmount { get; set; }
 
 		/// <summary>
-		/// The identifier of the inventory item associated with the budget line.
+		/// The identifier of the inventory item associated with the budget line.The field acts as a foreign key to InventoryItem.
 		/// <para>DAC: PX.Objects.PM.PMBudget</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// Key Field
@@ -190,7 +190,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? Performance { get; set; }
 
 		/// <summary>
-		/// The identifier of the project associated with the budget line.
+		/// The identifier of the project associated with the budget line.The field acts as a foreign key to PMProject.
 		/// <para>DAC: PX.Objects.PM.PMBudget</para>
 		/// Key Field
 		/// </summary>
@@ -198,7 +198,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? ProjectID { get; set; }
 
 		/// <summary>
-		/// The identifier of the project task associated with the budget line.
+		/// The identifier of the project task associated with the budget line.The field acts as a foreign key to PMTask.
 		/// <para>DAC: PX.Objects.PM.PMBudget</para>
 		/// Key Field
 		/// </summary>
@@ -281,9 +281,10 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 
 			//Intentionally excluded
-			//public const string All = "Files";
+			//public const string All = "Files,Translations";
 		}
 		public virtual string GetEndpointPath()
 		{

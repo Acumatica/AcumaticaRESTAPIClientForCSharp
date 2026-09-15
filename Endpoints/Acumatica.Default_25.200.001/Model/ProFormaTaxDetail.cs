@@ -15,6 +15,7 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
+		/// The retained tax amount in the document currency.
 		/// <para>DAC Field Name: CuryRetainedTaxAmt</para>
 		/// <para>DAC: PX.Objects.PM.PMTaxTran</para>
 		/// <para>Display Name: Retained Tax</para>
@@ -23,6 +24,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? RetainedTax { get; set; }
 
 		/// <summary>
+		/// The retained taxable amount in the document currency.
 		/// <para>DAC Field Name: CuryRetainedTaxableAmt</para>
 		/// <para>DAC: PX.Objects.PM.PMTaxTran</para>
 		/// <para>Display Name: Retained Taxable</para>
@@ -31,6 +33,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? RetainedTaxable { get; set; }
 
 		/// <summary>
+		/// The taxable amount in the document currency.
 		/// <para>DAC Field Name: CuryTaxableAmt</para>
 		/// <para>DAC: PX.Objects.PM.PMTaxTran</para>
 		/// <para>Display Name: Taxable Amount</para>
@@ -39,6 +42,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? TaxableAmount { get; set; }
 
 		/// <summary>
+		/// The tax amount in the document currency.
 		/// <para>DAC Field Name: CuryTaxAmt</para>
 		/// <para>DAC: PX.Objects.PM.PMTaxTran</para>
 		/// <para>Display Name: Tax Amount</para>
@@ -47,6 +51,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
+		/// The identifier of the tax applied to the proforma document.
 		/// <para>DAC: PX.Objects.PM.PMTaxTran</para>
 		/// <para>Display Name: Tax ID</para>
 		/// <para>SQL Type: nvarchar(60)</para>

@@ -15,6 +15,7 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
+		/// A Boolean value that indicates (if set to true) that the workers' compensation code is active and can be used.
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
 		/// </summary>
@@ -22,6 +23,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
+		/// The description of the workers' compensation code.
 		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
@@ -32,6 +34,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
+		/// The unique identifier of the workers' compensation code.
 		/// <para>DAC Field Name: WorkCodeID</para>
 		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
 		/// <para>Display Name: WCC Code</para>

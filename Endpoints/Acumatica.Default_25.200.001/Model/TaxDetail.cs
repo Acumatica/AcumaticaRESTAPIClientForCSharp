@@ -116,7 +116,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// Key Field
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the following foreign keys:, the field is a part of the identifier of the parent sales order's tax line., the field is the identifier of the tax.
+		/// The field is included in the following foreign keys:SOTax, the field is a part of the identifier of the parent sales order's tax lineSOTax.taxIDTax, the field is the identifier of the taxTax.taxID
 		/// </remarks>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }

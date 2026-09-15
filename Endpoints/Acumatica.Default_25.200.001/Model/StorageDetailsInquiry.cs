@@ -30,11 +30,12 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string StorageDetails = "StorageDetails";
 			public const string StorageDetails_Files = "StorageDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,StorageDetails,StorageDetails/Files";
+			//public const string All = "Files,Translations,StorageDetails,StorageDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

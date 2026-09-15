@@ -164,7 +164,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that this item is a Stock Item.
+		/// When set to <c>true</c>, indicates that this item is a Stock Item.
 		/// <para>DAC Field Name: StkItem</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Stock Item</para>
@@ -290,6 +290,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string Categories = "Categories";
 			public const string Categories_Files = "Categories/Files";
@@ -301,7 +302,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string VendorDetails_Files = "VendorDetails/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,Categories,Categories/Files,FileURLs,FileURLs/Files,Matrix,Matrix/Files,VendorDetails,VendorDetails/Files";
+			//public const string All = "Files,Translations,Attributes,Categories,Categories/Files,FileURLs,FileURLs/Files,Matrix,Matrix/Files,VendorDetails,VendorDetails/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

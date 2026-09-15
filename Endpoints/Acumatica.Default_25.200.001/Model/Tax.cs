@@ -42,7 +42,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the tax is a deductible VAT, which means that a company is allowed to deduct some part of the tax paid to a vendor from its own VAT liability to the government.
+		/// Specifies (if set to <c>true</c>) that the tax is a deductible VAT, which means that a company is allowed to deduct some part of the tax paid to a vendor from its own VAT liability to the government.
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Partially Deductible VAT</para>
 		/// </summary>
@@ -59,7 +59,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the tax can be entered only by the documents from the Tax Bills and Adjustments form (TX303000).
+		/// Specifies (if set to <c>true</c>) that the tax can be entered only by the documents from the Tax Bills and Adjustments form (TX303000).
 		/// <para>DAC Field Name: DirectTax</para>
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Direct-Entry Tax</para>
@@ -68,7 +68,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? EnterFromTaxBill { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the system should exclude the first-level/per unit tax amount from the tax basethat is used for calculation of the second-level tax amount in case of first-level taxes or all other taxes in case of per unit taxes.The flag is applicable to only first-level and per unit taxes.
+		/// Specifies (if set to <c>true</c>) that the system should exclude the first-level/per unit tax amount from the tax basethat is used for calculation of the second-level tax amount in case of first-level taxes or all other taxes in case of per unit taxes.The flag is applicable to only first-level and per unit taxes.
 		/// <para>DAC Field Name: TaxCalcLevel2Exclude</para>
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Exclude from Tax-on-Tax Calculation</para>
@@ -77,7 +77,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? ExcludeFromTaxonTaxCalculation { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the calculated amount should be displayed in the VAT Exempt Total box in the documents, such as bills and invoices.
+		/// Specifies (if set to <c>true</c>) that the calculated amount should be displayed in the VAT Exempt Total box in the documents, such as bills and invoices.
 		/// <para>DAC Field Name: ExemptTax</para>
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Include in VAT Exempt Total</para>
@@ -86,7 +86,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? IncludeInVATExemptTotal { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the VAT taxable amount should be displayed in the VAT Taxable Total box in the documents, such as bills and invoices. 
+		/// Specifies (if set to <c>true</c>) that the VAT taxable amount should be displayed in the VAT Taxable Total box in the documents, such as bills and invoices. 
 		/// <para>DAC Field Name: IncludeInTaxable</para>
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Include in VAT Taxable Total</para>
@@ -107,7 +107,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? NotValidAfter { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the tax is a pending VAT. The pending VAT should be calculated in documents, but should not be recorded in the tax report.Later the VAT of the pending type can be converted into the general VAT.
+		/// Specifies (if set to <c>true</c>) that the tax is a pending VAT. The pending VAT should be calculated in documents, but should not be recorded in the tax report.Later the VAT of the pending type can be converted into the general VAT.
 		/// <para>DAC Field Name: PendingTax</para>
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Pending VAT</para>
@@ -116,7 +116,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? PendingVAT { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the tax is a reverse VAT. When the reverse VAT is applied to a company that supplies goods or service to other EU countries,the liability of reporting VAT is reversed and goes to the customer rather than to the vendor.
+		/// Specifies (if set to <c>true</c>) that the tax is a reverse VAT. When the reverse VAT is applied to a company that supplies goods or service to other EU countries,the liability of reporting VAT is reversed and goes to the customer rather than to the vendor.
 		/// <para>DAC Field Name: ReverseTax</para>
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Reverse VAT</para>
@@ -125,7 +125,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? ReverseVAT { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that the tax is a statistical VAT. The statistical VAT is calculated for statistical purposes; the VAT is reported but not paid.
+		/// Specifies (if set to <c>true</c>) that the tax is a statistical VAT. The statistical VAT is calculated for statistical purposes; the VAT is reported but not paid.
 		/// <para>DAC Field Name: StatisticalTax</para>
 		/// <para>DAC: PX.Objects.TX.Tax</para>
 		/// <para>Display Name: Statistical VAT</para>
@@ -224,13 +224,14 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string TaxSchedule = "TaxSchedule";
 			public const string TaxSchedule_Files = "TaxSchedule/Files";
 			public const string Zones = "Zones";
 			public const string Zones_Files = "Zones/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,TaxSchedule,TaxSchedule/Files,Zones,Zones/Files";
+			//public const string All = "Files,Translations,TaxSchedule,TaxSchedule/Files,Zones,Zones/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

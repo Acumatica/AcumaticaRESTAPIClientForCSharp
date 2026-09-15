@@ -75,6 +75,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string CompanyTreeInfo = "CompanyTreeInfo";
 			public const string CompanyTreeInfo_Files = "CompanyTreeInfo/Files";
@@ -112,7 +113,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string FinancialSettings_PaymentInstructions_Files = "FinancialSettings/PaymentInstructions/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,CompanyTreeInfo,CompanyTreeInfo/Files,ContactInfo,ContactInfo/Activities,ContactInfo/Activities/Files,ContactInfo/Address,ContactInfo/Attributes,ContactInfo/Campaigns,ContactInfo/Campaigns/Files,ContactInfo/Cases,ContactInfo/Cases/Files,ContactInfo/Duplicates,ContactInfo/Duplicates/Files,ContactInfo/MarketingLists,ContactInfo/MarketingLists/Files,ContactInfo/Notifications,ContactInfo/Notifications/Files,ContactInfo/Opportunities,ContactInfo/Opportunities/Files,ContactInfo/Relations,ContactInfo/Relations/Files,ContactInfo/RoleAssignments,ContactInfo/RoleAssignments/Files,ContactInfo/UserInfo,ContactInfo/UserInfo/Roles,ContactInfo/UserInfo/Roles/Files,Delegates,Delegates/Files,EmployeeSettings,EmploymentHistory,EmploymentHistory/Files,FinancialSettings,FinancialSettings/PaymentInstructions,FinancialSettings/PaymentInstructions/Files";
+			//public const string All = "Files,Translations,Attributes,CompanyTreeInfo,CompanyTreeInfo/Files,ContactInfo,ContactInfo/Activities,ContactInfo/Activities/Files,ContactInfo/Address,ContactInfo/Attributes,ContactInfo/Campaigns,ContactInfo/Campaigns/Files,ContactInfo/Cases,ContactInfo/Cases/Files,ContactInfo/Duplicates,ContactInfo/Duplicates/Files,ContactInfo/MarketingLists,ContactInfo/MarketingLists/Files,ContactInfo/Notifications,ContactInfo/Notifications/Files,ContactInfo/Opportunities,ContactInfo/Opportunities/Files,ContactInfo/Relations,ContactInfo/Relations/Files,ContactInfo/RoleAssignments,ContactInfo/RoleAssignments/Files,ContactInfo/UserInfo,ContactInfo/UserInfo/Roles,ContactInfo/UserInfo/Roles/Files,Delegates,Delegates/Files,EmployeeSettings,EmploymentHistory,EmploymentHistory/Files,FinancialSettings,FinancialSettings/PaymentInstructions,FinancialSettings/PaymentInstructions/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

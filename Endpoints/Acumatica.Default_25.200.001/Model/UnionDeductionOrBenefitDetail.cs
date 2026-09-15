@@ -87,6 +87,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
+		/// The date on which the labor cost rate becomes effective.
 		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
 		/// <para>Display Name: Effective Date</para>
 		/// </summary>

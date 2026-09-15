@@ -133,10 +133,10 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that the item is a kit.Kits are stock or non-stock items that consist of other items and are sold as a whole.
+		/// When set to <c>true</c>, indicates that the item is a kit.Kits are stock or non-stock items that consist of other items and are sold as a whole.
 		/// <para>DAC Field Name: KitItem</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Is a Kit</para>
+		/// <para>Display Name: Kit</para>
 		/// </summary>
 		[DataMember(Name="IsKit", EmitDefaultValue=false)]
 		public BooleanValue? IsKit { get; set; }
@@ -511,6 +511,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string CrossReferences = "CrossReferences";
 			public const string CrossReferences_Files = "CrossReferences/Files";
@@ -524,7 +525,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string FileUrls_Files = "FileUrls/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,CrossReferences,CrossReferences/Files,SalesCategories,SalesCategories/Files,VendorDetails,VendorDetails/Files,Categories,Categories/Files,FileUrls,FileUrls/Files";
+			//public const string All = "Files,Translations,Attributes,CrossReferences,CrossReferences/Files,SalesCategories,SalesCategories/Files,VendorDetails,VendorDetails/Files,Categories,Categories/Files,FileUrls,FileUrls/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

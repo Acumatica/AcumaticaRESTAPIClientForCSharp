@@ -49,11 +49,12 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string ApplicableTaxes = "ApplicableTaxes";
 			public const string ApplicableTaxes_Files = "ApplicableTaxes/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,ApplicableTaxes,ApplicableTaxes/Files";
+			//public const string All = "Files,Translations,ApplicableTaxes,ApplicableTaxes/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

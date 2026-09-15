@@ -153,6 +153,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? PreviouslyApprovedCOQty { get; set; }
 
 		/// <summary>
+		/// The identifier of the task associated with the change order line.The field acts as a foreign key to PMTask.
 		/// <para>DAC: PX.Objects.PM.PMChangeOrderCostBudget</para>
 		/// <para>Display Name: Project Task</para>
 		/// </summary>

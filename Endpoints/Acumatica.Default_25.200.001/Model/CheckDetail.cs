@@ -18,7 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// The actual amount paid on the document.Presented in the currency of the document, see CuryID.
 		/// <para>DAC Field Name: CuryAdjgAmt</para>
 		/// <para>DAC: PX.Objects.AP.APAdjust</para>
-		/// <para>Display Name: Amount Paid</para>
+		/// <para>Display Name: Amount Paid in Payment Currency</para>
 		/// </summary>
 		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
 		public DecimalValue? AmountPaid { get; set; }

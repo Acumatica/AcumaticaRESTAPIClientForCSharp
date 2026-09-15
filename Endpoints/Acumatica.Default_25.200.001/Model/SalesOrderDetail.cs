@@ -98,7 +98,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Cost Code</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the  foreign key. The field is the identifier ofthe cost code ..This field is available only if the Cost Codesfeature is enabled on the Enable/Disable Features (CS100000) form in addition to the integration of theProjects submodule with Sales Orders.
+		/// <para>The field is included in the CostCode foreign key. The field is the identifier ofthe cost code PMCostCode.costCodeID.</para><para>This field is available only if the Cost Codesfeature is enabled on the Enable/Disable Features (CS100000) form in addition to the integration of theProjects submodule with Sales Orders.</para>
 		/// </remarks>
 		[DataMember(Name="CostCode", EmitDefaultValue=false)]
 		public StringValue? CostCode { get; set; }
@@ -132,7 +132,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the following foreign keys:                        . The field is the identifier of the Discount            .            . The field is a part of the identifier of the Discount Sequence            .                        This field is available only if the            Customer Discounts            feature is enabled on the Enable/Disable Features (CS100000) form.            
+		/// <para>The field is included in the following foreign keys:           Discount. The field is the identifier of the DiscountARDiscount.discountIDDiscountSequence. The field is a part of the identifier of the Discount SequenceDiscountSequence.discountID</para><para>This field is available only if theCustomer Discountsfeature is enabled on the Enable/Disable Features (CS100000) form.</para>
 		/// </remarks>
 		[DataMember(Name="DiscountCode", EmitDefaultValue=false)]
 		public StringValue? DiscountCode { get; set; }
@@ -185,7 +185,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the following foreign keys:. The field is the identifier of the Stock Item or Non-Stock Item.. The field is a part of the identifier of the warehouse container.. The field is a part of the identifier of the Location inventory itemstatus .. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbers.
+		/// The field is included in the following foreign keys:InventoryItem. The field is the identifier of the Stock Item or Non-Stock ItemInventoryItem.inventoryIDSiteStatus. The field is a part of the identifier of the warehouse containerINSiteStatus.inventoryIDLocationStatus. The field is a part of the identifier of the Location inventory itemstatus INSiteStatus.inventoryIDLotSerialStatus. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbersINLotSerialStatus.inventoryID
 		/// </remarks>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
@@ -248,7 +248,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the following foreign keys:. The field is the identifier of the Location.. The field is a part of the identifier of the Location inventory itemstatus .. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbers.
+		/// The field is included in the following foreign keys:Location. The field is the identifier of the LocationINLocation.locationIDLocationStatus. The field is a part of the identifier of the Location inventory itemstatus SOOrder.locationIDLotSerialStatus. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbersLotSerialStatus.locationID
 		/// </remarks>
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
@@ -329,7 +329,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Project Task</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the  foreign key. The field is a part of the identifierof the Project Task ..This field is available only if theProject Accountingfeature is enabled on the Enable/Disable Features (CS100000) form and the integration of the Projectssubmodule with Sales Orders has been enabled.
+		/// <para>The field is included in the Task foreign key. The field is a part of the identifierof the Project Task PMTask.projectID.</para><para>This field is available only if theProject Accountingfeature is enabled on the Enable/Disable Features (CS100000) form and the integration of the Projectssubmodule with Sales Orders has been enabled.</para>
 		/// </remarks>
 		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
 		public StringValue? ProjectTask { get; set; }
@@ -450,7 +450,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.SO.SOLine</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the following foreign keys:. The field is the identifier of the Subitem.. The field is a part of the identifier of the warehouse container.. The field is a part of the identifier of the Location inventory itemstatus .. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbers.
+		/// The field is included in the following foreign keys:SubItem. The field is the identifier of the SubitemINSubItem.subItemIDSiteStatus. The field is a part of the identifier of the warehouse containerINSiteStatus.subItemIDLocationStatus. The field is a part of the identifier of the Location inventory itemstatus INSiteStatus.subItemIDLotSerialStatus. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbersINLotSerialStatus.subItemID
 		/// </remarks>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
@@ -463,7 +463,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the  foreign key.The field is the identifier of the tax category..This field is not available for orders of the TR type.
+		/// <para>The field is included in the TaxCategory foreign key.The field is the identifier of the tax categoryTaxCategory.taxCategoryID.</para><para>This field is not available for orders of the TR type.</para>
 		/// </remarks>
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
@@ -529,7 +529,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Warehouse</para>
 		/// </summary>
 		/// <remarks>
-		/// The field is included in the following foreign keys:. The field is identifier of the Warehouse.. The field is a part of the identifier of the Warehouse inventory itemstatus .. The field is a part of the identifier of the Location inventory itemstatus .. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbers.This field is available only if the Multiple Warehousesfeature is enabled on the Enable/Disable Features (CS100000) form.
+		/// The field is included in the following foreign keys:Site. The field is identifier of the WarehouseINSite.siteIDSiteStatus. The field is a part of the identifier of the Warehouse inventory itemstatus INSiteStatus.siteIDLocationStatus. The field is a part of the identifier of the Location inventory itemstatus INLocationStatus.siteIDLotSerialStatus. The field is a part of the identifier of the Location inventoryitem status by Lot Serial numbersINLotSerialStatus.siteIDThis field is available only if the Multiple Warehousesfeature is enabled on the Enable/Disable Features (CS100000) form.
 		/// </remarks>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }

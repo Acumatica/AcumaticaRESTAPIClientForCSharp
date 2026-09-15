@@ -119,13 +119,14 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string FreightRates = "FreightRates";
 			public const string FreightRates_Files = "FreightRates/Files";
 			public const string Packages = "Packages";
 			public const string Packages_Files = "Packages/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,FreightRates,FreightRates/Files,Packages,Packages/Files";
+			//public const string All = "Files,Translations,FreightRates,FreightRates/Files,Packages,Packages/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

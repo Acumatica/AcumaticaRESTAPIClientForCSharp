@@ -19,7 +19,7 @@ namespace Acumatica.Default_25_200_001.Model
 	{
 
 		/// <summary>
-		/// Indicates (if set to true) that the customerpayment method is available for recording payments.
+		/// Indicates (if set to <c>true</c>) that the customerpayment method is available for recording payments.
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
 		/// </summary>
@@ -117,11 +117,12 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Details = "Details";
 			public const string Details_Files = "Details/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Details,Details/Files";
+			//public const string All = "Files,Translations,Details,Details/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

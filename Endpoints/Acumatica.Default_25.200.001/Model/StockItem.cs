@@ -241,10 +241,10 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? InventorySubaccount { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that the item is a kit.Kits are stock or non-stock items that consist of other items and are sold as a whole.
+		/// When set to <c>true</c>, indicates that the item is a kit.Kits are stock or non-stock items that consist of other items and are sold as a whole.
 		/// <para>DAC Field Name: KitItem</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Is a Kit</para>
+		/// <para>Display Name: Kit</para>
 		/// </summary>
 		[DataMember(Name="IsAKit", EmitDefaultValue=false)]
 		public BooleanValue? IsAKit { get; set; }
@@ -373,7 +373,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? PackagingOption { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that the item must be packaged separately from other items.This field is automatically set to true if By Quantity is selected as the PackageOption.Applicable only for Stock Items (see StkItem).
+		/// When set to <c>true</c>, indicates that the item must be packaged separately from other items.This field is automatically set to <c>true</c> if By Quantity is selected as the PackageOption.Applicable only for Stock Items (see StkItem).
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Pack Separately</para>
 		/// </summary>
@@ -567,7 +567,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? StandardCostVarianceSubaccount { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that the system must calculate commission on the sale of this item.
+		/// When set to <c>true</c>, indicates that the system must calculate commission on the sale of this item.
 		/// <para>DAC Field Name: Commisionable</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Subject to Commission</para>
@@ -598,7 +598,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<InventoryItemUOMConversion>? UOMConversions { get; set; }
 
 		/// <summary>
-		/// When set to true, indicates that the system must set the Default Subitemfor the lines involving this item by default on data entry forms.This field is relevant only if the Inventory Subitems feature is enabled.
+		/// When set to <c>true</c>, indicates that the system must set the Default Subitemfor the lines involving this item by default on data entry forms.This field is relevant only if the Inventory Subitems feature is enabled.
 		/// <para>DAC Field Name: DefaultSubItemOnEntry</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
 		/// <para>Display Name: Use On Entry</para>
@@ -753,6 +753,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Attributes = "Attributes";
 			public const string Boxes = "Boxes";
 			public const string Boxes_Files = "Boxes/Files";
@@ -772,7 +773,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string FileURLs_Files = "FileURLs/Files";
 
 			//Intentionally excluded
-			//public const string All = "Files,Attributes,Boxes,Boxes/Files,Categories,Categories/Files,CrossReferences,CrossReferences/Files,ReplenishmentParameters,ReplenishmentParameters/Files,UOMConversions,UOMConversions/Files,VendorDetails,VendorDetails/Files,WarehouseDetails,WarehouseDetails/Files,FileURLs,FileURLs/Files";
+			//public const string All = "Files,Translations,Attributes,Boxes,Boxes/Files,Categories,Categories/Files,CrossReferences,CrossReferences/Files,ReplenishmentParameters,ReplenishmentParameters/Files,UOMConversions,UOMConversions/Files,VendorDetails,VendorDetails/Files,WarehouseDetails,WarehouseDetails/Files,FileURLs,FileURLs/Files";
 		}
 		public virtual string GetEndpointPath()
 		{

@@ -173,7 +173,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public Address? ShippingAddress { get; set; }
 
 		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
 		/// <para>DAC Field Name: OverrideAddress</para>
 		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// <para>Display Name: Override</para>
@@ -262,6 +262,7 @@ namespace Acumatica.Default_25_200_001.Model
 		public static class Expand
 		{
 			public const string Files = "Files";
+			public const string Translations = "Translations";
 			public const string Activities = "Activities";
 			public const string Activities_Files = "Activities/Files";
 			public const string Attributes = "Attributes";
@@ -316,7 +317,7 @@ namespace Acumatica.Default_25_200_001.Model
 			public const string ShippingContact = "ShippingContact";
 
 			//Intentionally excluded
-			//public const string All = "Files,Activities,Activities/Files,Attributes,Campaigns,Campaigns/Files,Cases,Cases/Files,Contacts,Contacts/Files,Contracts,Contracts/Files,DefaultLocationSettings,Duplicates,Duplicates/Files,Locations,Locations/Files,MainAddress,MainContact,MarketingLists,MarketingLists/Files,Opportunities,Opportunities/Files,Orders,Orders/Files,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Activities/Files,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Campaigns/Files,PrimaryContact/Cases,PrimaryContact/Cases/Files,PrimaryContact/Duplicates,PrimaryContact/Duplicates/Files,PrimaryContact/MarketingLists,PrimaryContact/MarketingLists/Files,PrimaryContact/Notifications,PrimaryContact/Notifications/Files,PrimaryContact/Opportunities,PrimaryContact/Opportunities/Files,PrimaryContact/Relations,PrimaryContact/Relations/Files,PrimaryContact/RoleAssignments,PrimaryContact/RoleAssignments/Files,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,PrimaryContact/UserInfo/Roles/Files,Relations,Relations/Files,ShippingAddress,ShippingContact";
+			//public const string All = "Files,Translations,Activities,Activities/Files,Attributes,Campaigns,Campaigns/Files,Cases,Cases/Files,Contacts,Contacts/Files,Contracts,Contracts/Files,DefaultLocationSettings,Duplicates,Duplicates/Files,Locations,Locations/Files,MainAddress,MainContact,MarketingLists,MarketingLists/Files,Opportunities,Opportunities/Files,Orders,Orders/Files,PrimaryContact,PrimaryContact/Activities,PrimaryContact/Activities/Files,PrimaryContact/Address,PrimaryContact/Attributes,PrimaryContact/Campaigns,PrimaryContact/Campaigns/Files,PrimaryContact/Cases,PrimaryContact/Cases/Files,PrimaryContact/Duplicates,PrimaryContact/Duplicates/Files,PrimaryContact/MarketingLists,PrimaryContact/MarketingLists/Files,PrimaryContact/Notifications,PrimaryContact/Notifications/Files,PrimaryContact/Opportunities,PrimaryContact/Opportunities/Files,PrimaryContact/Relations,PrimaryContact/Relations/Files,PrimaryContact/RoleAssignments,PrimaryContact/RoleAssignments/Files,PrimaryContact/UserInfo,PrimaryContact/UserInfo/Roles,PrimaryContact/UserInfo/Roles/Files,Relations,Relations/Files,ShippingAddress,ShippingContact";
 		}
 		public virtual string GetEndpointPath()
 		{
