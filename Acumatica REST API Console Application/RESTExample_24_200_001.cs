@@ -304,15 +304,84 @@ namespace AcumaticaRestApiExample
 				client.Login(username, password, tenant, branch, locale);
 
 				Console.WriteLine("Reading Bills");
-                var bill = client.GetList<Bill>(filter: "Status eq 'Balanced'", top: 1, expand: Bill.Expand.Files).First();
-                bill.Description= "Updated description " + DateTime.Now;
-                client.Put(bill);
+				var bill = client.GetList<Bill>(filter: "Status eq 'Balanced'", top: 1, expand: Bill.Expand.Files).FirstOrDefault();
+
+				if (bill == null)
+				{
+					Console.WriteLine("No Balanced bill found.");
+					bill = CreateBalancedBillFromLatestClosedOrOpen(client);
+				}
+
+				bill.Description = "Updated description " + DateTime.Now;
+				client.Put(bill);
+				Console.WriteLine($"Updated Bill {bill.ReferenceNbr}");
 			}
 			finally
 			{
 				//we use logout in finally block because we need to always logout, even if the request failed for some reason
 				ConsoleReport.Logout(client);
 			}
+		}
+
+		/// <summary>
+		/// How many bills are read when looking for one to copy. See the remark in
+		/// <see cref="CreateBalancedBillFromLatestClosedOrOpen"/> for why the scan is bounded.
+		/// </summary>
+		private const int BillsToScanForACopySource = 100;
+
+		/// <summary>
+		/// Builds a Balanced bill by copying the vendor and the lines of the most recent Closed or
+		/// Open one. A bill that is not on hold and whose lines add up is Balanced, so the copy is
+		/// ready for the example to update.
+		/// </summary>
+		private static Bill CreateBalancedBillFromLatestClosedOrOpen(ApiClient client)
+		{
+			Console.WriteLine("Looking for the last Closed or Open bill to copy");
+
+			// The contract based API has no $orderby, so the most recent record is picked here
+			// instead of by the server. The scan is bounded to keep the example quick, which means
+			// "last" is the newest of the first BillsToScanForACopySource bills returned.
+			var source = client.GetList<Bill>(
+					filter: "Status eq 'Closed' or Status eq 'Open'",
+					expand: Bill.Expand.Details,
+					top: BillsToScanForACopySource)
+				.OrderByDescending(_ => _.LastModifiedDateTime?.Value ?? DateTime.MinValue)
+				.FirstOrDefault();
+
+			if (source == null)
+			{
+				throw new InvalidOperationException(
+					"This instance has no Balanced, Closed or Open bill, so there is nothing to update or to copy.");
+			}
+
+			Console.WriteLine($"Copying Bill {source.ReferenceNbr} ({source.Status})");
+
+			// The lines are rebuilt rather than reused: the ones that were read back carry the
+			// source bill's line ids, and sending those would edit that bill instead of filling
+			// in the new one.
+			var details = new List<BillDetail>();
+			foreach (var line in source.Details ?? new List<BillDetail>())
+			{
+				details.Add(new BillDetail()
+				{
+					InventoryID = line.InventoryID,
+					Qty = line.Qty,
+					UnitCost = line.UnitCost,
+					TransactionDescription = line.TransactionDescription
+				});
+			}
+
+			var created = client.Put(new Bill()
+			{
+				Vendor = source.Vendor,
+				VendorRef = Guid.NewGuid().ToString(),
+				Description = "Created from " + source.ReferenceNbr,
+				Hold = false, // taking the bill off hold is what makes it Balanced
+				Details = details
+			});
+
+			Console.WriteLine($"Created Bill {created.ReferenceNbr} with status {created.Status}");
+			return created;
 		}
 
 	}
