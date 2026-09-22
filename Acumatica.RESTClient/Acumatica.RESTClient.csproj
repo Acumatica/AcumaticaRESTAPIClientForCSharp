@@ -12,7 +12,7 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
 		<PackageTags>Acumatica;REST;client;</PackageTags>
-		<PackageReleaseNotes>Improved the way we deal with token expiration</PackageReleaseNotes>
+		<PackageReleaseNotes>Fixed the issue when logout was throwing an exception if executed with token but without session cookie</PackageReleaseNotes>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<OutputType>Library</OutputType>
