@@ -51,36 +51,19 @@ namespace AcumaticaRestApiExample
 					Console.WriteLine($"Invoice Nbr: {invoice.ReferenceNbr}; Extended field Value: {invoice.ExtendedField}");
 				}
 			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.Message);
-			}
 			finally
 			{
 				//we use logout in finally block because we need to always logout, even if the request failed for some reason
-				if (client.TryLogout())
-				{
-					Console.WriteLine("Logged out successfully.");
-				}
-				else
-				{
-					Console.WriteLine("An error occured during logout.");
-				}
+				ConsoleReport.Logout(client);
 			}
 		}
 
 		private static void CreateCustomEndpointIfDoesNotExist(ApiClient client)
 		{
-			string? schema = null;
+			// GetSchema returns null when the endpoint does not exist, so a genuine failure here
+			// is allowed to surface instead of being swallowed by a catch-all existence probe.
+			string? schema = MaintenanceApi.GetSchema(client, "DefaultExtended", "23.200.001");
 
-			try
-			{
-				schema = MaintenanceApi.GetSchema(client, "DefaultExtended", "23.200.001");
-			}
-			catch
-			{
-
-			}
 			if (string.IsNullOrEmpty(schema))
 			{
 				MaintenanceApi.PutSchema(client,

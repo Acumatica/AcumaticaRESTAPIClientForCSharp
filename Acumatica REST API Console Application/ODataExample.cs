@@ -38,8 +38,6 @@ namespace AcumaticaRestApiExample
 			client.Username = username;
 			client.Password = password;
 			Console.WriteLine("Getting list of GIs available via OData");
-			try
-			{
 				var objects = client.GetOdataObjects(ODataVersion.OData, tenant);
 				
                 var giName = "BI-ARInvoices";
@@ -71,15 +69,6 @@ namespace AcumaticaRestApiExample
                 string filterParam2 = "LastModifiedDateofWarehouseQty gt datetime'2022-07-13T00:00:00.000'";
                 var giResult3 = client.GetOData(ODataVersion.OData, "DB-StorageDetails", tenant: tenant, filter: filterParam2, top: 3, orderby: "LastModifiedDateofWarehouseQty asc");
                 Console.WriteLine("Retrieved successfully");
-            }
-			catch (Exception e)
-			{
-                Console.WriteLine(e.Message);
-            }
-            finally
-			{
-				//we don't need to logout in OData
-            }
 		}
         public static void ODataGetGINewUrl(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
         {
@@ -91,8 +80,6 @@ namespace AcumaticaRestApiExample
             client.Username = username;
             client.Password = password;
             Console.WriteLine("Getting list of GIs available via OData");
-            try
-            {
                 var objects = client.GetOdataObjects(ODataVersion.GIBasedOData, tenant);
 
                 var giName = "BI-ARInvoices";
@@ -124,15 +111,6 @@ namespace AcumaticaRestApiExample
                 string filterParam2 = "LastModifiedDateofWarehouseQty gt 2022-07-13T00:00:00Z";
                 var giResult3 = client.GetOData(ODataVersion.GIBasedOData, "DB-StorageDetails", tenant: tenant, filter: filterParam2);
                 Console.WriteLine("Retrieved successfully");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                //we don't need to logout in OData
-            }
         }
 
         public static void ODataGetDAC(string siteURL, string username, string password, string tenant)

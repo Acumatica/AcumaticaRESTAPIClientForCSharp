@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 
 using Acumatica.Default_24_200_001.Model;
-using Acumatica.Report_1.Model;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.Loggers;
 
@@ -17,43 +16,6 @@ namespace AcumaticaRestApiExample
 {
     public class RESTExample_24_200_001
 	{
-        public static void TestReportDownload(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
-        {
-            var client = new ApiClient(siteURL,
-                requestInterceptor: FileRequestLogger.LogRequest,
-                responseInterceptor: FileRequestLogger.LogResponse,
-                 ignoreSslErrors: true // this is here to allow testing with self-signed certificates
-                );
-
-            try
-            {
-                client.Login(username, password, tenant, branch, locale);
-
-                Console.WriteLine("Starting report");
-                var location = client.StartReport(new ARInvoice() { DocumentType = "Invoice", ReferenceNumber = "AR014526" });
-                var reportData = client.GetReport(location);
-
-                Console.WriteLine($"Received {reportData.Length} bytes of report data");
-              
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                //we use logout in finally block because we need to always logout, even if the request failed for some reason
-                if (client.TryLogout())
-                {
-                    Console.WriteLine("Logged out successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("An error occured during logout.");
-                }
-            }
-        }
-
         public static void TestFileUpload(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
 		{
             var client = new ApiClient(siteURL,
@@ -89,21 +51,10 @@ namespace AcumaticaRestApiExample
                     Console.WriteLine($"The file {fileName} has description {fileDesc}");
                 }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
             finally
             {
                 //we use logout in finally block because we need to always logout, even if the request failed for some reason
-                if (client.TryLogout())
-                {
-                    Console.WriteLine("Logged out successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("An error occured during logout.");
-                }
+                ConsoleReport.Logout(client);
             }
         }
         public static void TestFullSOProcess(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
@@ -168,21 +119,10 @@ namespace AcumaticaRestApiExample
                     Console.WriteLine($"Sales Order {so.OrderNbr} has status {so.Status}");
                 }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
             finally
             {
                 //we use logout in finally block because we need to always logout, even if the request failed for some reason
-                if (client.TryLogout())
-                {
-                    Console.WriteLine("Logged out successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("An error occured during logout.");
-                }
+                ConsoleReport.Logout(client);
             }
         }
 
@@ -205,21 +145,10 @@ namespace AcumaticaRestApiExample
                 var recentShipment = client.GetById<Shipment>(shipments.First().ID, expand: new List<string> { Shipment.Expand.Details, Shipment.Expand.Orders});
                 Console.WriteLine($"Found {recentShipment.Details.Count} shipment details in the Shipment {recentShipment.ShipmentNbr}");
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
             finally
             {
                 //we use logout in finally block because we need to always logout, even if the request failed for some reason
-                if (client.TryLogout())
-                {
-                    Console.WriteLine("Logged out successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("An error occured during logout.");
-                }
+                ConsoleReport.Logout(client);
             }
         }
 
@@ -240,21 +169,10 @@ namespace AcumaticaRestApiExample
 
 				Console.WriteLine($"Found {purchaseOrders.Count} purchase orders");
 			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.Message);
-			}
 			finally
 			{
 				//we use logout in finally block because we need to always logout, even if the request failed for some reason
-				if (client.TryLogout())
-				{
-					Console.WriteLine("Logged out successfully.");
-				}
-				else
-				{
-					Console.WriteLine("An error occured during logout.");
-				}
+				ConsoleReport.Logout(client);
 			}
 		}
 
@@ -277,21 +195,10 @@ namespace AcumaticaRestApiExample
                 var invoice = client.GetById<Acumatica.Default_26_200_001.Model.Invoice>(invoices.First().ID, expand: Invoice.Expand.ApplicationsDefault);
                 Console.WriteLine($"Invoice {invoice.ReferenceNbr} has {invoice.ApplicationsDefault.Count} applications");
 			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.Message);
-			}
 			finally
 			{
 				//we use logout in finally block because we need to always logout, even if the request failed for some reason
-				if (client.TryLogout())
-				{
-					Console.WriteLine("Logged out successfully.");
-				}
-				else
-				{
-					Console.WriteLine("An error occured during logout.");
-				}
+				ConsoleReport.Logout(client);
 			}
 		}
 
@@ -328,21 +235,10 @@ namespace AcumaticaRestApiExample
                 bill = client.GetById<Bill>(bill.ID, select: "Status");
                 Console.WriteLine($"Bill {bill.ReferenceNbr} has status {bill.Status}");
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
             finally
             {
                 //we use logout in finally block because we need to always logout, even if the request failed for some reason
-                if (client.TryLogout())
-                {
-                    Console.WriteLine("Logged out successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("An error occured during logout.");
-                }
+                ConsoleReport.Logout(client);
             }
         }
 
@@ -361,21 +257,10 @@ namespace AcumaticaRestApiExample
                 var stockItems = client.GetList<StockItem>(top: 10, expand: "Translations");
                 stockItems.ForEach(si => Console.WriteLine($"Stock Item {si.InventoryID} has translations"));
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
             finally
             {
                 //we use logout in finally block because we need to always logout, even if the request failed for some reason
-                if (client.TryLogout())
-                {
-                    Console.WriteLine("Logged out successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("An error occured during logout.");
-                }
+                ConsoleReport.Logout(client);
             }
         }
 
@@ -399,21 +284,10 @@ namespace AcumaticaRestApiExample
                     Type = "IN" //it's incorrect. It should be "Invoice"
                 });
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
             finally
             {
                 //we use logout in finally block because we need to always logout, even if the request failed for some reason
-                if (client.TryLogout())
-                {
-                    Console.WriteLine("Logged out successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("An error occured during logout.");
-                }
+                ConsoleReport.Logout(client);
             }
         }
 
@@ -434,21 +308,10 @@ namespace AcumaticaRestApiExample
                 bill.Description= "Updated description " + DateTime.Now;
                 client.Put(bill);
 			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.Message);
-			}
 			finally
 			{
 				//we use logout in finally block because we need to always logout, even if the request failed for some reason
-				if (client.TryLogout())
-				{
-					Console.WriteLine("Logged out successfully.");
-				}
-				else
-				{
-					Console.WriteLine("An error occured during logout.");
-				}
+				ConsoleReport.Logout(client);
 			}
 		}
 
