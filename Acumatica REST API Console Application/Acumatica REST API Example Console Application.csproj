@@ -10,6 +10,20 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	  <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <!-- Required on .NET 8 for the Project Properties > Settings tab (ApplicationSettingsBase). -->
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +32,7 @@
     <ProjectReference Include="..\Acumatica.RESTClient.OData\Acumatica.RESTClient.ODataApi.csproj" />
     <ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
     <ProjectReference Include="..\Endpoints\Acumatica.Default_24.200.001\Acumatica.Default_24.200.001.csproj" />
+    <ProjectReference Include="..\Endpoints\Acumatica.Default_26.200.001\Acumatica.Default_26.200.001.csproj" />
     <ProjectReference Include="..\Endpoints\Acumatica.Report_1\Acumatica.Report_1.csproj" />
     <ProjectReference Include="..\Loggers\Acumatica.RESTClient.Loggers.csproj" />
   </ItemGroup>

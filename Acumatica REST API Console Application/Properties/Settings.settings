@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AcumaticaRestApiExample.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SiteURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://localhost/26r2/</Value>
+    </Setting>
+    <Setting Name="Username" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">123</Value>
+    </Setting>
+    <Setting Name="Tenant" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Branch" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Locale" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ClientIDROPC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">7475716F-D402-EAB6-F8F8-893C9B1EEDF4@Company</Value>
+    </Setting>
+    <Setting Name="ClientSecretROPC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">cCVpHnGVownV7ZAVfT1Y9g</Value>
+    </Setting>
+    <Setting Name="ClientIDAC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">9737F884-8405-42FB-7303-7F1DA7BE8CA7@Company</Value>
+    </Setting>
+    <Setting Name="ClientSecretAC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ZJ7sGGDZWOJyJzSpbRjrpg</Value>
+    </Setting>
+    <Setting Name="ClientIDHybrid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2DC9435C-A596-959E-3E38-8EB84725F089@Company</Value>
+    </Setting>
+    <Setting Name="ClientSecretHybrid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">KzK82VVdqggy4PHaOHMTNw</Value>
+    </Setting>
+    <Setting Name="RedirectUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://localhost/test/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
