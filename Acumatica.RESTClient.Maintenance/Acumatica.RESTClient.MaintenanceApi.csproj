@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Title>Acumatica REST API for Managing Endpoint Schemas</Title>
-		<Version>5.6.2-beta</Version>
+		<Version>5.8.1</Version>
 		<Authors>Dmitrii-Naumov</Authors>
 		<Company>Acumatica</Company>
 		<Description>An extension for Acumatica REST API client for C# allowing interaction with Endpoints API</Description>
@@ -16,8 +16,7 @@
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PackageReleaseNotes>
-			Implement proper wrappers for Async operations
-			Newtonsoft.JSON dependency updated to version 13.0.1 in order to follow Acumatica ERP dependency version
+      Implemented proper error message propagation
 		</PackageReleaseNotes>
 
 		<LangVersion>8.0</LangVersion>
