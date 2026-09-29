@@ -16,6 +16,7 @@ using System.Diagnostics;
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTests")]
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("RESTClientTestsNetFramework")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Acumatica.RESTClient.NonProductionLogin")]
 
 namespace Acumatica.RESTClient.Client
 {

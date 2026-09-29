@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Title>Acumatica REST API Client - Non-Production Login</Title>
+		<Version>1.0.0</Version>
+		<Authors>Dmitrii-Naumov</Authors>
+		<Company>Acumatica</Company>
+		<Description>An extension for Acumatica REST API client for C# that logs in using the OAuth 2.0 password grant against the built-in public client that Acumatica enables only on non-production (demo/test) sites.</Description>
+		<Copyright>Acumatica</Copyright>
+		<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
+		<PackageTags>Acumatica;REST;client;OAuth;login</PackageTags>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+		<LangVersion>9.0</LangVersion>
+		<nullable>Enable</nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="IdentityModel" Version="6.2.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+	</ItemGroup>
+
+</Project>
