@@ -330,7 +330,7 @@ namespace AcumaticaRestApiExample
 				client.Login(username, password, tenant, branch, locale);
 
 				Console.WriteLine("Reading Bills");
-				var bill = client.GetList<Bill>(filter: "Status eq 'Balanced'", top: 1, expand: Bill.Expand.Files).FirstOrDefault();
+				var bill = client.GetList<Bill>(filter: "Status eq 'B'", top: 1, expand: Bill.Expand.Files).FirstOrDefault();
 
 				if (bill == null)
 				{
@@ -368,7 +368,7 @@ namespace AcumaticaRestApiExample
 			// instead of by the server. The scan is bounded to keep the example quick, which means
 			// "last" is the newest of the first BillsToScanForACopySource bills returned.
 			var source = client.GetList<Bill>(
-					filter: "Status eq 'Closed' or Status eq 'Open'",
+					filter: "Status eq 'C' or Status eq 'N'",
 					expand: Bill.Expand.Details,
 					top: BillsToScanForACopySource)
 				.OrderByDescending(_ => _.LastModifiedDateTime?.Value ?? DateTime.MinValue)
