@@ -1,12 +1,14 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
+using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.AuthApi.Model;
 using Acumatica.RESTClient.Client;
 
-using IdentityModel.Client;
+using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 namespace Acumatica.RESTClient.NonProductionLogin
 {
@@ -55,42 +57,45 @@ namespace Acumatica.RESTClient.NonProductionLogin
             this ApiClient client,
             string username,
             string password,
-            string tenant = "Company",
+            string tenant = null,
 			string? branch = null,
 			string? locale = null,
 			CancellationToken cancellationToken = default)
         {
             if (client == null)
                 throw new ArgumentNullException(nameof(client));
+            if(string.IsNullOrEmpty(tenant))
+				tenant = "Company";
 
-            var clientId = $"{ClientId}@{tenant}";
+			var clientId = $"{ClientId}@{tenant}";
             var time = DateTime.UtcNow;
 
-            TokenResponse tokenResponse = await client.HttpClient
-                .RequestPasswordTokenAsync(new PasswordTokenRequest
-                {
-                    Address = client.BasePath.TrimEnd('/') + "/identity/connect/token",
-                    ClientId = clientId,
-                    UserName = username,
-                    Password = password,
-                    Scope = Scope
-                }, cancellationToken)
-                .ConfigureAwait(false);
+            HttpResponseMessage response = await client.CallApiAsync(
+                resourcePath:       "identity/connect/token",
+                method:             HttpMethod.Post,
+                acceptType:         HeaderContentType.None,
+                contentType:        HeaderContentType.WwwForm,
+                body:               await ToFormUrlEncodedAsync(new Dictionary<string, string>
+                                    {
+                                        { "grant_type", "password" },
+                                        { "client_id", clientId },
+                                        { "username", username },
+                                        { "password", password },
+                                        { "scope", Scope }
+                                    }).ConfigureAwait(false),
+                cancellationToken:  cancellationToken
+            ).ConfigureAwait(false);
 
-            if (tokenResponse.IsError)
+            if (!response.IsSuccessStatusCode)
             {
+                var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 throw new HttpRequestException(
-                    $"OAuth2 password grant failed: {tokenResponse.Error} - {tokenResponse.ErrorDescription}. " +
+                    $"OAuth2 password grant failed: {(int)response.StatusCode} {response.ReasonPhrase} - {content}. " +
                     "Note this login method relies on a public OAuth client that Acumatica enables only on non-production sites.");
             }
 
-            client.Token = new Token(
-                accessToken: tokenResponse.AccessToken,
-                expiresIn: tokenResponse.ExpiresIn.ToString(),
-                refreshToken: tokenResponse.RefreshToken,
-                scope: tokenResponse.Scope,
-                token_type: tokenResponse.TokenType);
-            client.Token.SetTokenObtainedDT(time);
+            client.Token = await DeserializeAsync<Token>(response).ConfigureAwait(false);
+            client.Token?.SetTokenObtainedDT(time);
         }
     }
 }
