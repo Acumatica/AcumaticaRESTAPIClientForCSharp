@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Title>Acumatica REST API Client - Non-Production Login</Title>
-		<Version>1.0.0</Version>
+		<Version>5.8.1-preview</Version>
 		<Authors>Dmitrii-Naumov</Authors>
 		<Company>Acumatica</Company>
 		<Description>An extension for Acumatica REST API client for C# that logs in using the OAuth 2.0 password grant against the built-in public client that Acumatica enables only on non-production (demo/test) sites.</Description>
