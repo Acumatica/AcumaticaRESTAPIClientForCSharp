@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class WCCCodeRate : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -49,6 +50,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="WorkCodeID", EmitDefaultValue=false)]
 		public StringValue? WorkCodeID { get; set; }
+
+		#endregion
 
 	}
 }

@@ -17,9 +17,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class CapableToPromise : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CapableToPromiseDetail>? Details { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
@@ -27,11 +25,11 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? ProcessAction { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DefaultOrderType</para>
+		/// <para>DAC Field Name: SOOrderType</para>
 		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
-		[DataMember(Name="RegularProductionOrderType", EmitDefaultValue=false)]
-		public StringValue? RegularProductionOrderType { get; set; }
+		[DataMember(Name="SOType", EmitDefaultValue=false)]
+		public StringValue? SOType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SOOrderNbr</para>
@@ -41,11 +39,19 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? SONbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SOOrderType</para>
+		/// <para>DAC Field Name: DefaultOrderType</para>
 		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
-		[DataMember(Name="SOType", EmitDefaultValue=false)]
-		public StringValue? SOType { get; set; }
+		[DataMember(Name="RegularProductionOrderType", EmitDefaultValue=false)]
+		public StringValue? RegularProductionOrderType { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<CapableToPromiseDetail>? Details { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectTaskBillingAndAllocationSettings : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AllocationRule", EmitDefaultValue=false)]
 		public StringValue? AllocationRule { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="WIPAccountGroup", EmitDefaultValue=false)]
 		public StringValue? WIPAccountGroup { get; set; }
+
+		#endregion
 
 	}
 }

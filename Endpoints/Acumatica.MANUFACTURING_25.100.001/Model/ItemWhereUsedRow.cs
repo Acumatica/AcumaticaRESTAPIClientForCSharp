@@ -14,14 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ItemWhereUsedRow : Entity
 	{
 
-		/// <summary>
-		/// The additional parameter that you can use to flexibly set up the required material quantity. The system uses this value to calculate the final quantity of the material.
-		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>Display Name: Batch Size</para>
-		/// </summary>
-		[DataMember(Name="BatchSize", EmitDefaultValue=false)]
-		public DecimalValue? BatchSize { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The identifier of the bill of material.
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
@@ -33,11 +26,22 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? BOMID { get; set; }
 
 		/// <summary>
+		/// The identifier of the BOM revision, which is the modification of the bill of material.
+		/// <para>DAC Field Name: RevisionID</para>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		[DataMember(Name="Revision", EmitDefaultValue=false)]
+		public StringValue? Revision { get; set; }
+
+		/// <summary>
+		/// Keep track of the records being inserted into the rows for display/sort order
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="Sequence", EmitDefaultValue=false)]
+		public IntValue? Sequence { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
@@ -45,6 +49,21 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
+		/// </summary>
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
+		/// <para>Display Name: BOM Warehouse</para>
+		/// </summary>
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ItemClassID</para>
@@ -59,15 +78,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		[DataMember(Name="Level", EmitDefaultValue=false)]
 		public IntValue? Level { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ParentDescription</para>
-		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>Display Name: Parent Desc.</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		[DataMember(Name="ParentDesc", EmitDefaultValue=false)]
-		public StringValue? ParentDesc { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
@@ -100,29 +110,20 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DecimalValue? QtyRequired { get; set; }
 
 		/// <summary>
-		/// The identifier of the BOM revision, which is the modification of the bill of material.
-		/// <para>DAC Field Name: RevisionID</para>
+		/// The additional parameter that you can use to flexibly set up the required material quantity. The system uses this value to calculate the final quantity of the material.
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
+		/// <para>Display Name: Batch Size</para>
 		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue? Revision { get; set; }
+		[DataMember(Name="BatchSize", EmitDefaultValue=false)]
+		public DecimalValue? BatchSize { get; set; }
 
 		/// <summary>
-		/// Keep track of the records being inserted into the rows for display/sort order
+		/// The unit of measure for the quantity specified in QtyReq.
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// Key Field
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="Sequence", EmitDefaultValue=false)]
-		public IntValue? Sequence { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		[DataMember(Name="Source", EmitDefaultValue=false)]
-		public StringValue? Source { get; set; }
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the material is a stock item.
@@ -134,27 +135,29 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public BooleanValue? StockItem { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
-		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
-
-		/// <summary>
-		/// The unit of measure for the quantity specified in QtyReq.
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
-		/// <para>SQL Type: nvarchar(6)</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
+		[DataMember(Name="Source", EmitDefaultValue=false)]
+		public StringValue? Source { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
-		/// <para>Display Name: BOM Warehouse</para>
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ParentDescription</para>
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedDetail</para>
+		/// <para>Display Name: Parent Desc.</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		[DataMember(Name="ParentDesc", EmitDefaultValue=false)]
+		public StringValue? ParentDesc { get; set; }
+
+		#endregion
 
 	}
 }

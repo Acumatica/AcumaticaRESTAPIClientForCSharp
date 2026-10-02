@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectEquipment : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="SuspendRateItem", EmitDefaultValue=false)]
 		public StringValue? SuspendRateItem { get; set; }
+
+		#endregion
 
 	}
 }

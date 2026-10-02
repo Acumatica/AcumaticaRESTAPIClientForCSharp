@@ -14,6 +14,17 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AppResourceEquipment : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: SrvOrdType</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Service Order Type</para>
+		/// <para>SQL Type: char(4)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
+		public StringValue? ServiceOrderType { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
@@ -23,6 +34,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="AppointmentNbr", EmitDefaultValue=false)]
 		public StringValue? AppointmentNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SMEquipmentID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Target Equipment ID</para>
+		/// </summary>
+		[DataMember(Name="EquipmentID", EmitDefaultValue=false)]
+		public StringValue? EquipmentID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
@@ -39,23 +58,7 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SMEquipmentID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Target Equipment ID</para>
-		/// </summary>
-		[DataMember(Name="EquipmentID", EmitDefaultValue=false)]
-		public StringValue? EquipmentID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SrvOrdType</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
-		/// <para>Display Name: Service Order Type</para>
-		/// <para>SQL Type: char(4)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
-		public StringValue? ServiceOrderType { get; set; }
+		#endregion
 
 	}
 }

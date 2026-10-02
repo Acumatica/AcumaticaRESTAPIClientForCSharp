@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TaxSettingsCA : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The benefit type that is used for reporting and calculation purposes in Canada.
 		/// <para>DAC Field Name: BenefitTypeCDCAN</para>
@@ -26,8 +27,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="ImpactonTaxableWage", EmitDefaultValue=false)]
 		public StringValue? ImpactonTaxableWage { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="TaxDetailsCA", EmitDefaultValue=false)]
 		public List<DeductionOrBenefitTaxDetailCA>? TaxDetailsCA { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

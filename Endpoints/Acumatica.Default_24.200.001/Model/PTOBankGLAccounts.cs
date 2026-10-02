@@ -14,22 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PTOBankGLAccounts : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: PTOAssetAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
-		/// <para>Display Name: Asset Account</para>
-		/// </summary>
-		[DataMember(Name="AssetAccount", EmitDefaultValue=false)]
-		public StringValue? AssetAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOAssetSubID</para>
-		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
-		/// <para>Display Name: Asset Sub.</para>
-		/// </summary>
-		[DataMember(Name="AssetSub", EmitDefaultValue=false)]
-		public StringValue? AssetSub { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: PTOExpenseAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
@@ -61,6 +46,24 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="LiabilitySub", EmitDefaultValue=false)]
 		public StringValue? LiabilitySub { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PTOAssetAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Asset Account</para>
+		/// </summary>
+		[DataMember(Name="AssetAccount", EmitDefaultValue=false)]
+		public StringValue? AssetAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PTOAssetSubID</para>
+		/// <para>DAC: PX.Objects.PR.PRPTOBank</para>
+		/// <para>Display Name: Asset Sub.</para>
+		/// </summary>
+		[DataMember(Name="AssetSub", EmitDefaultValue=false)]
+		public StringValue? AssetSub { get; set; }
+
+		#endregion
 
 	}
 }

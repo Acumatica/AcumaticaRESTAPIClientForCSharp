@@ -17,11 +17,17 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ProductionOrderDatesProcess : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		[DataMember(Name="ErrorMessages", EmitDefaultValue=false)]
+		public StringValue? ErrorMessages { get; set; }
+
+		#endregion
+
+		#region Details
 		[DataMember(Name="Orders", EmitDefaultValue=false)]
 		public List<OrderDate>? Orders { get; set; }
 
-		[DataMember(Name="ErrorMessages", EmitDefaultValue=false)]
-		public StringValue? ErrorMessages { get; set; }
+		#endregion
 
 		public static class Expand
 		{

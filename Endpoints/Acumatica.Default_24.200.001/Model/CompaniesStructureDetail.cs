@@ -14,6 +14,28 @@ namespace Acumatica.Default_24_200_001.Model
 	public class CompaniesStructureDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: Organization_organizationCD</para>
+		/// <para>DAC: PX.Data.GenericResult</para>
+		/// </summary>
+		[DataMember(Name="CompanyID", EmitDefaultValue=false)]
+		public StringValue? CompanyID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Organization_organizationName</para>
+		/// <para>DAC: PX.Data.GenericResult</para>
+		/// </summary>
+		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
+		public StringValue? CompanyName { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Organization_organizationType</para>
+		/// <para>DAC: PX.Data.GenericResult</para>
+		/// </summary>
+		[DataMember(Name="CompanyType", EmitDefaultValue=false)]
+		public StringValue? CompanyType { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: Branch_baseCuryID</para>
 		/// <para>DAC: PX.Data.GenericResult</para>
@@ -22,11 +44,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? BaseCurrencyID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Branch_countryID</para>
+		/// <para>DAC Field Name: Organization_active</para>
 		/// <para>DAC: PX.Data.GenericResult</para>
 		/// </summary>
-		[DataMember(Name="BranchCountry", EmitDefaultValue=false)]
-		public StringValue? BranchCountry { get; set; }
+		[DataMember(Name="CompanyStatus", EmitDefaultValue=false)]
+		public BooleanValue? CompanyStatus { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Branch_branchCD</para>
@@ -50,32 +72,13 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? BranchStatus { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Organization_organizationCD</para>
+		/// <para>DAC Field Name: Branch_countryID</para>
 		/// <para>DAC: PX.Data.GenericResult</para>
 		/// </summary>
-		[DataMember(Name="CompanyID", EmitDefaultValue=false)]
-		public StringValue? CompanyID { get; set; }
+		[DataMember(Name="BranchCountry", EmitDefaultValue=false)]
+		public StringValue? BranchCountry { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: Organization_organizationName</para>
-		/// <para>DAC: PX.Data.GenericResult</para>
-		/// </summary>
-		[DataMember(Name="CompanyName", EmitDefaultValue=false)]
-		public StringValue? CompanyName { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Organization_active</para>
-		/// <para>DAC: PX.Data.GenericResult</para>
-		/// </summary>
-		[DataMember(Name="CompanyStatus", EmitDefaultValue=false)]
-		public BooleanValue? CompanyStatus { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Organization_organizationType</para>
-		/// <para>DAC: PX.Data.GenericResult</para>
-		/// </summary>
-		[DataMember(Name="CompanyType", EmitDefaultValue=false)]
-		public StringValue? CompanyType { get; set; }
+		#endregion
 
 	}
 }

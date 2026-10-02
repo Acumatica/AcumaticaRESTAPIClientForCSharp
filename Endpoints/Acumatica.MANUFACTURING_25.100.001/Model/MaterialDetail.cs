@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MaterialDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Backflush", EmitDefaultValue=false)]
 		public BooleanValue? Backflush { get; set; }
 
@@ -62,9 +63,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
 		public DecimalValue? QtyRequired { get; set; }
 
-		[DataMember(Name="ReferenceDesignators", EmitDefaultValue=false)]
-		public List<BOMReferenceDesignator>? ReferenceDesignators { get; set; }
-
 		[DataMember(Name="ScrapFactor", EmitDefaultValue=false)]
 		public DecimalValue? ScrapFactor { get; set; }
 
@@ -82,6 +80,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="ReferenceDesignators", EmitDefaultValue=false)]
+		public List<BOMReferenceDesignator>? ReferenceDesignators { get; set; }
+
+		#endregion
 
 	}
 }

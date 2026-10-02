@@ -14,15 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CashTransactionDetail : Entity
 	{
 
-		/// <summary>
-		/// The unit price for the item in the selected currency.
-		/// <para>DAC Field Name: CuryUnitPrice</para>
-		/// <para>DAC: PX.Objects.CA.CASplit</para>
-		/// <para>Display Name: Price</para>
-		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue? Amount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The description of the transaction.
 		/// <para>DAC Field Name: TranDesc</para>
@@ -32,6 +24,17 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="AmountDescription", EmitDefaultValue=false)]
 		public StringValue? AmountDescription { get; set; }
+
+		/// <summary>
+		/// The unit price for the item in the selected currency.
+		/// <para>DAC Field Name: CuryUnitPrice</para>
+		/// <para>DAC: PX.Objects.CA.CASplit</para>
+		/// <para>Display Name: Price</para>
+		/// </summary>
+		[DataMember(Name="Amount", EmitDefaultValue=false)]
+		public DecimalValue? Amount { get; set; }
+
+		#endregion
 
 	}
 }

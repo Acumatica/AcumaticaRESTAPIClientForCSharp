@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ShipmentPackageDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
@@ -37,6 +38,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

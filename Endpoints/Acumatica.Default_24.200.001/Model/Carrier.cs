@@ -18,6 +18,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class Carrier : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: CarrierPluginID</para>
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
@@ -29,32 +30,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? CarrierID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: UnitType</para>
-		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
-		/// <para>Display Name: Carrier Units</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="CarrierUnits", EmitDefaultValue=false)]
-		public StringValue? CarrierUnits { get; set; }
-
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		[DataMember(Name="CustomerAccounts", EmitDefaultValue=false)]
-		public List<CarrierCustomerAccount>? CustomerAccounts { get; set; }
-
-		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="PlugInParameters", EmitDefaultValue=false)]
-		public List<CarrierPluginParameter>? PlugInParameters { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PluginTypeName</para>
@@ -66,20 +46,13 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? PlugInType { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CentimeterUOM</para>
+		/// <para>DAC Field Name: UnitType</para>
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
-		/// <para>SQL Type: nvarchar(6)</para>
+		/// <para>Display Name: Carrier Units</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Centimeter", EmitDefaultValue=false)]
-		public StringValue? Centimeter { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InchUOM</para>
-		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		[DataMember(Name="Inch", EmitDefaultValue=false)]
-		public StringValue? Inch { get; set; }
+		[DataMember(Name="CarrierUnits", EmitDefaultValue=false)]
+		public StringValue? CarrierUnits { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: KilogramUOM</para>
@@ -98,12 +71,50 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Pound { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CentimeterUOM</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="Centimeter", EmitDefaultValue=false)]
+		public StringValue? Centimeter { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InchUOM</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="Inch", EmitDefaultValue=false)]
+		public StringValue? Inch { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>Display Name: Warehouse</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="CustomerAccounts", EmitDefaultValue=false)]
+		public List<CarrierCustomerAccount>? CustomerAccounts { get; set; }
+
+		[DataMember(Name="PlugInParameters", EmitDefaultValue=false)]
+		public List<CarrierPluginParameter>? PlugInParameters { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Carrier)} - \"{CarrierID}\"";
+		}
 
 		public static class Expand
 		{

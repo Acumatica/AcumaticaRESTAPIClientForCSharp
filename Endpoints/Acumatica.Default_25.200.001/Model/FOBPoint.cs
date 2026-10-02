@@ -18,14 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class FOBPoint : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The description of the FOB Point.
-		/// <para>DAC: PX.Objects.CS.FOBPoint</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The unique identifier of the FOB Point.
 		/// <para>DAC: PX.Objects.CS.FOBPoint</para>
@@ -35,6 +28,21 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="FOBPointID", EmitDefaultValue=false)]
 		public StringValue? FOBPointID { get; set; }
+
+		/// <summary>
+		/// The description of the FOB Point.
+		/// <para>DAC: PX.Objects.CS.FOBPoint</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(FOBPoint)} - \"{FOBPointID}\"";
+		}
 
 		public static class Expand
 		{

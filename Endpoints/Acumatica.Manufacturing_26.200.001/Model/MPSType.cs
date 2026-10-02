@@ -18,11 +18,16 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class MPSType : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
+		/// <para>DAC Field Name: MPSTypeID</para>
 		/// <para>DAC: PX.Objects.AM.AMMPSType</para>
+		/// <para>Display Name: Type ID</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Dependent", EmitDefaultValue=false)]
-		public BooleanValue? Dependent { get; set; }
+		[DataMember(Name="TypeID", EmitDefaultValue=false)]
+		public StringValue? TypeID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
@@ -42,14 +47,17 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? NumberingSequence { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MPSTypeID</para>
 		/// <para>DAC: PX.Objects.AM.AMMPSType</para>
-		/// <para>Display Name: Type ID</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// Key Field
 		/// </summary>
-		[DataMember(Name="TypeID", EmitDefaultValue=false)]
-		public StringValue? TypeID { get; set; }
+		[DataMember(Name="Dependent", EmitDefaultValue=false)]
+		public BooleanValue? Dependent { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MPSType)} - \"{TypeID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

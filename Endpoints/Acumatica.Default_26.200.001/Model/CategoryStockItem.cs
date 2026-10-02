@@ -14,8 +14,11 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CategoryStockItem : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
 		public IntValue? CategoryID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

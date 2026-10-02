@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class ConfigurationMaintKey : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: KeyFormat</para>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
@@ -21,6 +22,15 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="Format", EmitDefaultValue=false)]
 		public StringValue? Format { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: KeyNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Number Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="NumberSequence", EmitDefaultValue=false)]
+		public StringValue? NumberSequence { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: KeyEquation</para>
@@ -39,15 +49,6 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? KeyDescription { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: KeyNumberingID</para>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>Display Name: Number Sequence</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		[DataMember(Name="NumberSequence", EmitDefaultValue=false)]
-		public StringValue? NumberSequence { get; set; }
-
-		/// <summary>
 		/// Formula field to configure a custom transaction description for sales order tran description.
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: Tran Description</para>
@@ -55,6 +56,8 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="TranDescription", EmitDefaultValue=false)]
 		public StringValue? TranDescription { get; set; }
+
+		#endregion
 
 	}
 }

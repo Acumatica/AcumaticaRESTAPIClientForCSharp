@@ -14,9 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class SalesInvoiceApplicationCreditMemo : Entity
 	{
 
-		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
-		public DecimalValue? AmountPaid { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The open balance of the document.Given in the currency of the document.
 		/// <para>DAC Field Name: CuryDocBal</para>
@@ -25,18 +23,21 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
-		[DataMember(Name="Currency", EmitDefaultValue=false)]
-		public StringValue? Currency { get; set; }
-
-		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue? Customer { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: ARInvoice__InvoiceNbr</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
 		/// </summary>
 		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
 		public StringValue? CustomerOrder { get; set; }
+
+		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
+		public DecimalValue? AmountPaid { get; set; }
+
+		[DataMember(Name="Currency", EmitDefaultValue=false)]
+		public StringValue? Currency { get; set; }
+
+		[DataMember(Name="Customer", EmitDefaultValue=false)]
+		public StringValue? Customer { get; set; }
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
@@ -55,6 +56,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
+
+		#endregion
 
 	}
 }

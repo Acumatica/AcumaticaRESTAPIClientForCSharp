@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ToolDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
+
+		#endregion
 
 	}
 }

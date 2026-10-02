@@ -14,9 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ActivityStatistics : Entity
 	{
 
-		[DataMember(Name="LastActivityDate", EmitDefaultValue=false)]
-		public DateTimeValue? LastActivityDate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LastIncomingActivityDate</para>
 		/// <para>DAC: PX.Objects.CR.CRActivityStatistics</para>
@@ -32,6 +30,11 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="LastOutgoingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastOutgoingActivity { get; set; }
+
+		[DataMember(Name="LastActivityDate", EmitDefaultValue=false)]
+		public DateTimeValue? LastActivityDate { get; set; }
+
+		#endregion
 
 	}
 }

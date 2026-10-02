@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ProjectProperties : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="CertifiedJob", EmitDefaultValue=false)]
 		public BooleanValue? CertifiedJob { get; set; }
 
@@ -64,6 +65,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="RevenueTaxZone", EmitDefaultValue=false)]
 		public StringValue? RevenueTaxZone { get; set; }
+
+		#endregion
 
 	}
 }

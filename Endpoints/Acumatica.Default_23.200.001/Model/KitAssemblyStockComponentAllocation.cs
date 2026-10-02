@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class KitAssemblyStockComponentAllocation : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="DocType", EmitDefaultValue=false)]
 		public StringValue? DocType { get; set; }
 
@@ -46,6 +47,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

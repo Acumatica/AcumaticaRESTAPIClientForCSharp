@@ -18,15 +18,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class LotSerialClass : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: LotSerAssign</para>
-		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
-		/// <para>Display Name: Assignment Method</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="AssignmentMethod", EmitDefaultValue=false)]
-		public StringValue? AssignmentMethod { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LotSerClassID</para>
 		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
@@ -46,16 +38,13 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: LotSerIssueMethod</para>
+		/// <para>DAC Field Name: LotSerTrack</para>
 		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
-		/// <para>Display Name: Issue Method</para>
+		/// <para>Display Name: Tracking Method</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="IssueMethod", EmitDefaultValue=false)]
-		public StringValue? IssueMethod { get; set; }
-
-		[DataMember(Name="Segments", EmitDefaultValue=false)]
-		public List<LotSerialClassSegment>? Segments { get; set; }
+		[DataMember(Name="TrackingMethod", EmitDefaultValue=false)]
+		public StringValue? TrackingMethod { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LotSerTrackExpiration</para>
@@ -66,13 +55,35 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? TrackExpirationDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: LotSerTrack</para>
+		/// <para>DAC Field Name: LotSerAssign</para>
 		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
-		/// <para>Display Name: Tracking Method</para>
+		/// <para>Display Name: Assignment Method</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="TrackingMethod", EmitDefaultValue=false)]
-		public StringValue? TrackingMethod { get; set; }
+		[DataMember(Name="AssignmentMethod", EmitDefaultValue=false)]
+		public StringValue? AssignmentMethod { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: LotSerIssueMethod</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
+		/// <para>Display Name: Issue Method</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="IssueMethod", EmitDefaultValue=false)]
+		public StringValue? IssueMethod { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Segments", EmitDefaultValue=false)]
+		public List<LotSerialClassSegment>? Segments { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(LotSerialClass)} - \"{ClassID}\"";
+		}
 
 		public static class Expand
 		{

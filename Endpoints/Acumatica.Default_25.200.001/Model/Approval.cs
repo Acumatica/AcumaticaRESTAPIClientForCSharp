@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Approval : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ApprovedBy", EmitDefaultValue=false)]
 		public StringValue? ApprovedBy { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
 		public StringValue? Workgroup { get; set; }
+
+		#endregion
 
 	}
 }

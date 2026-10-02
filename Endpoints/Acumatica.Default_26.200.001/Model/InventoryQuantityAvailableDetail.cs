@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class InventoryQuantityAvailableDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="QtyAvailable", EmitDefaultValue=false)]
 		public DecimalValue? QtyAvailable { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

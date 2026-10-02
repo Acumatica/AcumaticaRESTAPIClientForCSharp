@@ -18,9 +18,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TaxReportingSettings : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="ReportingGroups", EmitDefaultValue=false)]
-		public List<ReportingGroup>? ReportingGroups { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: VendorID</para>
 		/// <para>DAC: PX.Objects.TX.TaxReport</para>
@@ -29,6 +27,19 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="TaxAgency", EmitDefaultValue=false)]
 		public StringValue? TaxAgency { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="ReportingGroups", EmitDefaultValue=false)]
+		public List<ReportingGroup>? ReportingGroups { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(TaxReportingSettings)} - \"{TaxAgency}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

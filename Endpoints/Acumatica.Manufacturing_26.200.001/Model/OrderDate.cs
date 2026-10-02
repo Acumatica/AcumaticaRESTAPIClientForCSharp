@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class OrderDate : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
@@ -29,8 +30,13 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="Operations", EmitDefaultValue=false)]
 		public List<OrderDateOperationDetail>? Operations { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

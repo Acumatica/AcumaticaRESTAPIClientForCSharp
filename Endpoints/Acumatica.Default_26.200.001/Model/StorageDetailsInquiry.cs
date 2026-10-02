@@ -17,15 +17,21 @@ namespace Acumatica.Default_26_200_001.Model
 	public class StorageDetailsInquiry : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="StorageDetails", EmitDefaultValue=false)]
-		public List<StorageDetail>? StorageDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: Warehouse</para>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="StorageDetails", EmitDefaultValue=false)]
+		public List<StorageDetail>? StorageDetails { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

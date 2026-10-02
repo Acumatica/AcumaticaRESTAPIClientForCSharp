@@ -18,8 +18,23 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class EngineeringChangeOrder : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<EngineeringChangeOrderAttribute>? Attributes { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: ECO ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ECOID", EmitDefaultValue=false)]
+		public StringValue? ECOID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: RevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="Revision", EmitDefaultValue=false)]
+		public StringValue? Revision { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
@@ -39,6 +54,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? BOMRevision { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
 		/// <para>SQL Type: nvarchar(256)</para>
@@ -48,63 +70,10 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>Display Name: ECO ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ECOID", EmitDefaultValue=false)]
-		public StringValue? ECOID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>Display Name: Effective Date</para>
-		/// </summary>
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue? EffectiveDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
-
-		[DataMember(Name="Operations", EmitDefaultValue=false)]
-		public List<EngineeringChangeOrderOperation>? Operations { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// </summary>
-		[DataMember(Name="Priority", EmitDefaultValue=false)]
-		public IntValue? Priority { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>Display Name: Request Date</para>
-		/// </summary>
-		[DataMember(Name="RequestDate", EmitDefaultValue=false)]
-		public DateTimeValue? RequestDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// </summary>
-		[DataMember(Name="Requestor", EmitDefaultValue=false)]
-		public StringValue? Requestor { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: RevisionID</para>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue? Revision { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
@@ -119,6 +88,48 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: Request Date</para>
+		/// </summary>
+		[DataMember(Name="RequestDate", EmitDefaultValue=false)]
+		public DateTimeValue? RequestDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: Effective Date</para>
+		/// </summary>
+		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
+		public DateTimeValue? EffectiveDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// </summary>
+		[DataMember(Name="Requestor", EmitDefaultValue=false)]
+		public StringValue? Requestor { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// </summary>
+		[DataMember(Name="Priority", EmitDefaultValue=false)]
+		public IntValue? Priority { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Attributes", EmitDefaultValue=false)]
+		public List<EngineeringChangeOrderAttribute>? Attributes { get; set; }
+
+		[DataMember(Name="Operations", EmitDefaultValue=false)]
+		public List<EngineeringChangeOrderOperation>? Operations { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(EngineeringChangeOrder)} - \"{ECOID}\"";
+		}
 
 		public static class Expand
 		{

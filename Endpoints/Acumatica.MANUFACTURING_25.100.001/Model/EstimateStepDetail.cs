@@ -14,14 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EstimateStepDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
-		/// <para>Display Name: Operation Desc</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LineID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
@@ -31,8 +24,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Operation Desc</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
 		[DataMember(Name="LineOrder", EmitDefaultValue=false)]
 		public IntValue? LineOrder { get; set; }
+
+		#endregion
 
 	}
 }

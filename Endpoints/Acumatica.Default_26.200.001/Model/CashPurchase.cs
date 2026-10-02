@@ -17,6 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CashPurchase : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="Balance", EmitDefaultValue=false)]
 		public DecimalValue? Balance { get; set; }
 
@@ -40,9 +41,6 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CashPurchaseDetail>? Details { get; set; }
 
 		[DataMember(Name="DetailTotal", EmitDefaultValue=false)]
 		public DecimalValue? DetailTotal { get; set; }
@@ -94,6 +92,14 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringSingleSelectValue? Type { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<CashPurchaseDetail>? Details { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

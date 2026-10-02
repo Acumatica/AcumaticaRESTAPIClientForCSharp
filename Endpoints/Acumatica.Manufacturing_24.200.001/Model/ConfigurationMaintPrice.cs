@@ -14,6 +14,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ConfigurationMaintPrice : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: PriceRollup</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		[DataMember(Name="Rollup", EmitDefaultValue=false)]
+		public StringValue? Rollup { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: PriceCalc</para>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
@@ -22,13 +31,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="Calculate", EmitDefaultValue=false)]
 		public StringValue? Calculate { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: PriceRollup</para>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		[DataMember(Name="Rollup", EmitDefaultValue=false)]
-		public StringValue? Rollup { get; set; }
+		#endregion
 
 	}
 }

@@ -14,21 +14,22 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PurchaseOrderTaxDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: CuryRetainedTaxableAmt</para>
 		/// <para>DAC: PX.Objects.PO.POTaxTran</para>
-		/// <para>Display Name: Retained Taxable</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="RetainedTaxableAmount", EmitDefaultValue=false)]
-		public DecimalValue? RetainedTaxableAmount { get; set; }
+		[DataMember(Name="TaxID", EmitDefaultValue=false)]
+		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CuryRetainedTaxAmt</para>
 		/// <para>DAC: PX.Objects.PO.POTaxTran</para>
-		/// <para>Display Name: Retained Tax</para>
+		/// <para>Display Name: Tax Rate</para>
 		/// </summary>
-		[DataMember(Name="RetainedTaxAmount", EmitDefaultValue=false)]
-		public DecimalValue? RetainedTaxAmount { get; set; }
+		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
+		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryTaxableAmt</para>
@@ -47,20 +48,22 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryRetainedTaxableAmt</para>
 		/// <para>DAC: PX.Objects.PO.POTaxTran</para>
-		/// <para>Display Name: Tax ID</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// Key Field
+		/// <para>Display Name: Retained Taxable</para>
 		/// </summary>
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue? TaxID { get; set; }
+		[DataMember(Name="RetainedTaxableAmount", EmitDefaultValue=false)]
+		public DecimalValue? RetainedTaxableAmount { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryRetainedTaxAmt</para>
 		/// <para>DAC: PX.Objects.PO.POTaxTran</para>
-		/// <para>Display Name: Tax Rate</para>
+		/// <para>Display Name: Retained Tax</para>
 		/// </summary>
-		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
-		public DecimalValue? TaxRate { get; set; }
+		[DataMember(Name="RetainedTaxAmount", EmitDefaultValue=false)]
+		public DecimalValue? RetainedTaxAmount { get; set; }
+
+		#endregion
 
 	}
 }

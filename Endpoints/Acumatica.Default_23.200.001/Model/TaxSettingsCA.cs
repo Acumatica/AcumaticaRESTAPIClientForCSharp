@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class TaxSettingsCA : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The benefit type that is used for reporting and calculation purposes in Canada.
 		/// <para>DAC Field Name: BenefitTypeCDCAN</para>
@@ -23,8 +24,13 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="CodeType", EmitDefaultValue=false)]
 		public StringValue? CodeType { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="TaxDetailsCA", EmitDefaultValue=false)]
 		public List<DeductionOrBenefitTaxDetailCA>? TaxDetailsCA { get; set; }
+
+		#endregion
 
 	}
 }

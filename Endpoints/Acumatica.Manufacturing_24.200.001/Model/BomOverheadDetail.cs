@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class BomOverheadDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
+
+		#endregion
 
 	}
 }

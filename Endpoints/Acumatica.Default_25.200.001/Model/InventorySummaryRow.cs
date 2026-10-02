@@ -14,38 +14,14 @@ namespace Acumatica.Default_25_200_001.Model
 	public class InventorySummaryRow : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: BaseUnit</para>
-		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
-		/// <para>Display Name: Base Unit</para>
-		/// <para>SQL Type: nvarchar(6)</para>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
+		/// <para>Display Name: Warehouse</para>
 		/// </summary>
-		[DataMember(Name="BaseUOM", EmitDefaultValue=false)]
-		public StringValue? BaseUOM { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TotalCost</para>
-		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
-		/// <para>Display Name: Estimated Total Cost</para>
-		/// </summary>
-		[DataMember(Name="EstimatedTotalCost", EmitDefaultValue=false)]
-		public DecimalValue? EstimatedTotalCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: UnitCost</para>
-		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
-		/// <para>Display Name: Estimated Unit Cost</para>
-		/// </summary>
-		[DataMember(Name="EstimatedUnitCost", EmitDefaultValue=false)]
-		public DecimalValue? EstimatedUnitCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ExpireDate</para>
-		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
-		/// <para>Display Name: Expiration Date</para>
-		/// </summary>
-		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
-		public DateTimeValue? ExpirationDate { get; set; }
+		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
+		public StringValue? WarehouseID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
@@ -55,12 +31,11 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
-		/// <para>Display Name: Lot/Serial Number</para>
-		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
-		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue? LotSerialNbr { get; set; }
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: QtyAvail</para>
@@ -94,19 +69,47 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? QtyOnHand { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC Field Name: BaseUnit</para>
 		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
+		/// <para>Display Name: Base Unit</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
+		[DataMember(Name="BaseUOM", EmitDefaultValue=false)]
+		public StringValue? BaseUOM { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
-		/// <para>Display Name: Warehouse</para>
+		/// <para>DAC Field Name: UnitCost</para>
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
+		/// <para>Display Name: Estimated Unit Cost</para>
 		/// </summary>
-		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue? WarehouseID { get; set; }
+		[DataMember(Name="EstimatedUnitCost", EmitDefaultValue=false)]
+		public DecimalValue? EstimatedUnitCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TotalCost</para>
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
+		/// <para>Display Name: Estimated Total Cost</para>
+		/// </summary>
+		[DataMember(Name="EstimatedTotalCost", EmitDefaultValue=false)]
+		public DecimalValue? EstimatedTotalCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
+		/// <para>Display Name: Lot/Serial Number</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// </summary>
+		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
+		public StringValue? LotSerialNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnquiryResult</para>
+		/// <para>Display Name: Expiration Date</para>
+		/// </summary>
+		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
+		public DateTimeValue? ExpirationDate { get; set; }
+
+		#endregion
 
 	}
 }

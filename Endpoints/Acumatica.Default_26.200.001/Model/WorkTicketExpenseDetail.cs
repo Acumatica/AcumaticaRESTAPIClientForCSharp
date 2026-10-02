@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkTicketExpenseDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="CorpCardID", EmitDefaultValue=false)]
 		public StringValue? CorpCardID { get; set; }
 
@@ -55,6 +56,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

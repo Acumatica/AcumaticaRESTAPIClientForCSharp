@@ -14,14 +14,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class MachineDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: MachAcctID</para>
-		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
-		/// <para>Display Name: Machine Account</para>
-		/// </summary>
-		[DataMember(Name="MachineAccount", EmitDefaultValue=false)]
-		public StringValue? MachineAccount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: MachID</para>
 		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
@@ -41,6 +34,22 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public BooleanValue? MachineOverride { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: StdCost</para>
+		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
+		/// <para>Display Name: Standard Cost</para>
+		/// </summary>
+		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
+		public DecimalValue? StandardCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MachAcctID</para>
+		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
+		/// <para>Display Name: Machine Account</para>
+		/// </summary>
+		[DataMember(Name="MachineAccount", EmitDefaultValue=false)]
+		public StringValue? MachineAccount { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: MachSubID</para>
 		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
 		/// <para>Display Name: Machine Subaccount</para>
@@ -48,13 +57,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		[DataMember(Name="MachineSubaccount", EmitDefaultValue=false)]
 		public StringValue? MachineSubaccount { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: StdCost</para>
-		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
-		/// <para>Display Name: Standard Cost</para>
-		/// </summary>
-		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
-		public DecimalValue? StandardCost { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

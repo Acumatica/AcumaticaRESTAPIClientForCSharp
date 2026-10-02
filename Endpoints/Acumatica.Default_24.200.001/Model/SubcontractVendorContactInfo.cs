@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class SubcontractVendorContactInfo : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccountName", EmitDefaultValue=false)]
 		public StringValue? AccountName { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="Phone", EmitDefaultValue=false)]
 		public StringValue? Phone { get; set; }
+
+		#endregion
 
 	}
 }

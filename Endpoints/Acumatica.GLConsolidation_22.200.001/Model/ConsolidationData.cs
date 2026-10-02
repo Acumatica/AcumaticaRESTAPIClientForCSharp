@@ -17,20 +17,26 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	public class ConsolidationData : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter</para>
-		/// </summary>
-		[DataMember(Name="BranchCD", EmitDefaultValue=false)]
-		public StringValue? BranchCD { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter</para>
 		/// </summary>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter</para>
+		/// </summary>
+		[DataMember(Name="BranchCD", EmitDefaultValue=false)]
+		public StringValue? BranchCD { get; set; }
+
+		#endregion
+
+		#region Details
 		[DataMember(Name="Result", EmitDefaultValue=false)]
 		public List<ConsolidationItem>? Result { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

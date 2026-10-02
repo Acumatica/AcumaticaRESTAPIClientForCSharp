@@ -18,12 +18,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class FinancialPeriod : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<FinancialPeriodDetail>? Details { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Key field.The financial year.
 		/// <para>DAC Field Name: Year</para>
@@ -35,8 +30,13 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
 		public StringValue? FinancialYear { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		/// <summary>
+		/// The start date of the year.
+		/// <para>DAC: PX.Objects.GL.FinPeriods.MasterFinYear</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		[DataMember(Name="StartDate", EmitDefaultValue=false)]
+		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
 		/// The number of periods in the year.
@@ -48,14 +48,6 @@ namespace Acumatica.Default_23_200_001.Model
 		public ShortValue? NbrOfPeriods { get; set; }
 
 		/// <summary>
-		/// The start date of the year.
-		/// <para>DAC: PX.Objects.GL.FinPeriods.MasterFinYear</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue? StartDate { get; set; }
-
-		/// <summary>
 		/// Indicates whether the periods of the year can be modified by user.
 		/// <para>DAC Field Name: CustomPeriods</para>
 		/// <para>DAC: PX.Objects.GL.FinPeriods.MasterFinYear</para>
@@ -63,6 +55,25 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="UserDefinedPeriods", EmitDefaultValue=false)]
 		public BooleanValue? UserDefinedPeriods { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<FinancialPeriodDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(FinancialPeriod)} - \"{FinancialYear}\"";
+		}
 
 		public static class Expand
 		{

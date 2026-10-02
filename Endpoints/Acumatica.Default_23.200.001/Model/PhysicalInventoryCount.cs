@@ -18,31 +18,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class PhysicalInventoryCount : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<PhysicalInventoryCountDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: LocationID</para>
-		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
-		/// </summary>
-		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue? Location { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
-		/// <para>Display Name: Lot/Serial Nbr.</para>
-		/// <para>SQL Type: nvarchar(100)</para>
-		/// </summary>
-		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue? LotSerialNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: PIID</para>
 		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
@@ -54,12 +30,47 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
+		/// </summary>
+		[DataMember(Name="Location", EmitDefaultValue=false)]
+		public StringValue? Location { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: SubItem</para>
 		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// </summary>
+		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
+		public StringValue? LotSerialNbr { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<PhysicalInventoryCountDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PhysicalInventoryCount)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

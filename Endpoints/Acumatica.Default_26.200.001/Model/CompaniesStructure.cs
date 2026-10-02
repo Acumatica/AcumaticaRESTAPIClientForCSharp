@@ -17,8 +17,11 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CompaniesStructure : Entity, ITopLevelEntity
 	{
 
+		#region Details
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<CompaniesStructureDetail>? Results { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

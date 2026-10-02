@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ShippingTermDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
 		/// <para>Display Name: Break Amount</para>
@@ -38,6 +39,14 @@ namespace Acumatica.Default_26_200_001.Model
 		public DecimalValue? InvoiceAmount { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ShippingHandling</para>
+		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
+		/// <para>Display Name: Shipping and Handling</para>
+		/// </summary>
+		[DataMember(Name="ShippingandHandling", EmitDefaultValue=false)]
+		public DecimalValue? ShippingandHandling { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
 		/// <para>Display Name: Line Handling</para>
 		/// </summary>
@@ -47,13 +56,7 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: ShippingHandling</para>
-		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
-		/// <para>Display Name: Shipping and Handling</para>
-		/// </summary>
-		[DataMember(Name="ShippingandHandling", EmitDefaultValue=false)]
-		public DecimalValue? ShippingandHandling { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -14,19 +14,13 @@ namespace Acumatica.Default_25_200_001.Model
 	public class WorkCalendarExceptionDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
-		/// <para>Display Name: Day Of Week</para>
-		/// </summary>
-		[DataMember(Name="DayOfWeek", EmitDefaultValue=false)]
-		public StringValue? DayOfWeek { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
@@ -37,10 +31,17 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
-		/// <para>Display Name: End Time</para>
+		/// <para>Display Name: Day Of Week</para>
 		/// </summary>
-		[DataMember(Name="EndTime", EmitDefaultValue=false)]
-		public DateTimeValue? EndTime { get; set; }
+		[DataMember(Name="DayOfWeek", EmitDefaultValue=false)]
+		public StringValue? DayOfWeek { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
+		/// <para>Display Name: Work Day</para>
+		/// </summary>
+		[DataMember(Name="WorkDay", EmitDefaultValue=false)]
+		public BooleanValue? WorkDay { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
@@ -50,6 +51,13 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? StartTime { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
+		/// <para>Display Name: End Time</para>
+		/// </summary>
+		[DataMember(Name="EndTime", EmitDefaultValue=false)]
+		public DateTimeValue? EndTime { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: UnpaidTime</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
 		/// <para>Display Name: Break Duration</para>
@@ -57,12 +65,7 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="UnpaidBreakTime", EmitDefaultValue=false)]
 		public StringValue? UnpaidBreakTime { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
-		/// <para>Display Name: Work Day</para>
-		/// </summary>
-		[DataMember(Name="WorkDay", EmitDefaultValue=false)]
-		public BooleanValue? WorkDay { get; set; }
+		#endregion
 
 	}
 }

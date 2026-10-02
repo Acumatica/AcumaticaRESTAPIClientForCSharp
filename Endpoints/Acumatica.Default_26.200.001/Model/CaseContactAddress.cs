@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CaseContactAddress : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AddressLine1", EmitDefaultValue=false)]
 		public StringValue? AddressLine1 { get; set; }
 
@@ -64,6 +65,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="UnitNumber", EmitDefaultValue=false)]
 		public StringValue? UnitNumber { get; set; }
+
+		#endregion
 
 	}
 }

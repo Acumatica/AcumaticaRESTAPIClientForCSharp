@@ -17,17 +17,23 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class MFGDepartment : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<MFGDepartmentDetail>? Details { get; set; }
 
 		[DataMember(Name="ManufacturingDepartmentID", EmitDefaultValue=false)]
 		public StringValue? ManufacturingDepartmentID { get; set; }
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<MFGDepartmentDetail>? Details { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

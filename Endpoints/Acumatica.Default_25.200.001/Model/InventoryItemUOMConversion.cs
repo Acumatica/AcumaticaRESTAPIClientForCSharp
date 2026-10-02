@@ -14,14 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class InventoryItemUOMConversion : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: UnitRate</para>
-		/// <para>DAC: PX.Objects.IN.INUnit</para>
-		/// <para>Display Name: Conversion Factor</para>
-		/// </summary>
-		[DataMember(Name="ConversionFactor", EmitDefaultValue=false)]
-		public DecimalValue? ConversionFactor { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: FromUnit</para>
 		/// <para>DAC: PX.Objects.IN.INUnit</para>
@@ -41,8 +34,18 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="MultiplyOrDivide", EmitDefaultValue=false)]
 		public StringValue? MultiplyOrDivide { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: UnitRate</para>
+		/// <para>DAC: PX.Objects.IN.INUnit</para>
+		/// <para>Display Name: Conversion Factor</para>
+		/// </summary>
+		[DataMember(Name="ConversionFactor", EmitDefaultValue=false)]
+		public DecimalValue? ConversionFactor { get; set; }
+
 		[DataMember(Name="ToUOM", EmitDefaultValue=false)]
 		public StringValue? ToUOM { get; set; }
+
+		#endregion
 
 	}
 }

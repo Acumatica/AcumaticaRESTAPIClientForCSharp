@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MoveEntryDetailAllocation : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

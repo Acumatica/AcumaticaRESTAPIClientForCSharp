@@ -18,12 +18,16 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class Machine : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: MachAcctID</para>
+		/// <para>DAC Field Name: MachID</para>
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
+		/// <para>Display Name: Machine ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue? Account { get; set; }
+		[DataMember(Name="MachineID", EmitDefaultValue=false)]
+		public StringValue? MachineID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ActiveFlg</para>
@@ -31,6 +35,21 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
+		/// <para>SQL Type: nvarchar(120)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DownFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
+		/// </summary>
+		[DataMember(Name="Down", EmitDefaultValue=false)]
+		public BooleanValue? Down { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
@@ -49,21 +68,6 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? CalendarID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMMach</para>
-		/// <para>SQL Type: nvarchar(120)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DownFlg</para>
-		/// <para>DAC: PX.Objects.AM.AMMach</para>
-		/// </summary>
-		[DataMember(Name="Down", EmitDefaultValue=false)]
-		public BooleanValue? Down { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: MachEff</para>
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
 		/// </summary>
@@ -71,14 +75,18 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public DecimalValue? Efficiency { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MachID</para>
+		/// <para>DAC Field Name: MachAcctID</para>
 		/// <para>DAC: PX.Objects.AM.AMMach</para>
-		/// <para>Display Name: Machine ID</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// Key Field
 		/// </summary>
-		[DataMember(Name="MachineID", EmitDefaultValue=false)]
-		public StringValue? MachineID { get; set; }
+		[DataMember(Name="Account", EmitDefaultValue=false)]
+		public StringValue? Account { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MachSubID</para>
+		/// <para>DAC: PX.Objects.AM.AMMach</para>
+		/// </summary>
+		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
+		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: StdCost</para>
@@ -88,12 +96,12 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		[DataMember(Name="StandardCost", EmitDefaultValue=false)]
 		public DecimalValue? StandardCost { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: MachSubID</para>
-		/// <para>DAC: PX.Objects.AM.AMMach</para>
-		/// </summary>
-		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
-		public StringValue? Subaccount { get; set; }
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Machine)} - \"{MachineID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

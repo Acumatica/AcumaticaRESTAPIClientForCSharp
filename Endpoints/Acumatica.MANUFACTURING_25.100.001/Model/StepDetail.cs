@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class StepDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Descr", EmitDefaultValue=false)]
 		public StringValue? Descr { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="LineOrder", EmitDefaultValue=false)]
 		public IntValue? LineOrder { get; set; }
+
+		#endregion
 
 	}
 }

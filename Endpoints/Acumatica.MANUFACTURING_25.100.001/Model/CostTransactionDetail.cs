@@ -14,13 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class CostTransactionDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: AcctID</para>
-		/// <para>DAC: PX.Objects.AM.AMMTran</para>
-		/// </summary>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue? Account { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The reference number of the transaction.
 		/// <para>DAC Field Name: BatNbr</para>
@@ -32,8 +26,31 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		[DataMember(Name="BatchNbr", EmitDefaultValue=false)]
 		public StringValue? BatchNbr { get; set; }
 
-		[DataMember(Name="DocType", EmitDefaultValue=false)]
-		public StringValue? DocType { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
+
+		/// <summary>
+		/// A brief description of the transaction.
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.AM.AMBatch</para>
+		/// <para>Display Name: Description</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="TranDescription", EmitDefaultValue=false)]
+		public StringValue? TranDescription { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Tran. Type</para>
+		/// <para>SQL Type: nchar(3)</para>
+		/// </summary>
+		[DataMember(Name="TranType", EmitDefaultValue=false)]
+		public StringValue? TranType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TranAmt</para>
@@ -44,45 +61,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DecimalValue? ExtCost { get; set; }
 
 		/// <summary>
-		/// Reference to journal transaction field LineNbr
-		/// <para>DAC Field Name: GLLineNbr</para>
+		/// <para>DAC Field Name: AcctID</para>
 		/// <para>DAC: PX.Objects.AM.AMMTran</para>
-		/// <para>Display Name: GL Batch Line Nbr</para>
 		/// </summary>
-		[DataMember(Name="GLBatchLineNbr", EmitDefaultValue=false)]
-		public IntValue? GLBatchLineNbr { get; set; }
+		[DataMember(Name="Account", EmitDefaultValue=false)]
+		public StringValue? Account { get; set; }
 
 		/// <summary>
-		/// Reference to journal transaction field BatchNbr
-		/// <para>DAC Field Name: GLBatNbr</para>
+		/// <para>DAC Field Name: SubID</para>
 		/// <para>DAC: PX.Objects.AM.AMMTran</para>
-		/// <para>Display Name: GL Batch Nbr</para>
-		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="GLBatchNbr", EmitDefaultValue=false)]
-		public StringValue? GLBatchNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMTran</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMTran</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMTran</para>
-		/// <para>Display Name: Operation ID</para>
-		/// </summary>
-		[DataMember(Name="OperationID", EmitDefaultValue=false)]
-		public StringValue? OperationID { get; set; }
+		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
+		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMTran</para>
@@ -102,6 +92,39 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Operation ID</para>
+		/// </summary>
+		[DataMember(Name="OperationID", EmitDefaultValue=false)]
+		public StringValue? OperationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// Reference to journal transaction field BatchNbr
+		/// <para>DAC Field Name: GLBatNbr</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: GL Batch Nbr</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		[DataMember(Name="GLBatchNbr", EmitDefaultValue=false)]
+		public StringValue? GLBatchNbr { get; set; }
+
+		/// <summary>
+		/// Reference to journal transaction field LineNbr
+		/// <para>DAC Field Name: GLLineNbr</para>
+		/// <para>DAC: PX.Objects.AM.AMMTran</para>
+		/// <para>Display Name: GL Batch Line Nbr</para>
+		/// </summary>
+		[DataMember(Name="GLBatchLineNbr", EmitDefaultValue=false)]
+		public IntValue? GLBatchLineNbr { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Qty</para>
 		/// <para>DAC: PX.Objects.AM.AMMTran</para>
 		/// </summary>
@@ -118,30 +141,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		[DataMember(Name="RefCostID", EmitDefaultValue=false)]
 		public StringValue? RefCostID { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SubID</para>
-		/// <para>DAC: PX.Objects.AM.AMMTran</para>
-		/// </summary>
-		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
-		public StringValue? Subaccount { get; set; }
+		[DataMember(Name="DocType", EmitDefaultValue=false)]
+		public StringValue? DocType { get; set; }
 
-		/// <summary>
-		/// A brief description of the transaction.
-		/// <para>DAC Field Name: TranDesc</para>
-		/// <para>DAC: PX.Objects.AM.AMBatch</para>
-		/// <para>Display Name: Description</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="TranDescription", EmitDefaultValue=false)]
-		public StringValue? TranDescription { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMTran</para>
-		/// <para>Display Name: Tran. Type</para>
-		/// <para>SQL Type: nchar(3)</para>
-		/// </summary>
-		[DataMember(Name="TranType", EmitDefaultValue=false)]
-		public StringValue? TranType { get; set; }
+		#endregion
 
 	}
 }

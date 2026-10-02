@@ -17,12 +17,29 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Budget : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
 		/// </summary>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: LedgerId</para>
+		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
+		/// </summary>
+		[DataMember(Name="Ledger", EmitDefaultValue=false)]
+		public StringValue? Ledger { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: FinYear</para>
+		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
+		/// <para>Display Name: Financial Year</para>
+		/// <para>SQL Type: varchar(4)</para>
+		/// </summary>
+		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
+		public StringValue? FinancialYear { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CompareToBranchID</para>
@@ -49,25 +66,6 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="ComparetoYear", EmitDefaultValue=false)]
 		public StringValue? ComparetoYear { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<BudgetDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: FinYear</para>
-		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
-		/// <para>Display Name: Financial Year</para>
-		/// <para>SQL Type: varchar(4)</para>
-		/// </summary>
-		[DataMember(Name="FinancialYear", EmitDefaultValue=false)]
-		public StringValue? FinancialYear { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: LedgerId</para>
-		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
-		/// </summary>
-		[DataMember(Name="Ledger", EmitDefaultValue=false)]
-		public StringValue? Ledger { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: SubIDFilter</para>
 		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
@@ -84,6 +82,14 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="TreeNodeFilter", EmitDefaultValue=false)]
 		public StringValue? TreeNodeFilter { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<BudgetDetail>? Details { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

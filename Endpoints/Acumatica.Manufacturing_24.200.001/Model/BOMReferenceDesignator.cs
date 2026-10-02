@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class BOMReferenceDesignator : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		[DataMember(Name="RefDes", EmitDefaultValue=false)]
 		public StringValue? RefDes { get; set; }
+
+		#endregion
 
 	}
 }

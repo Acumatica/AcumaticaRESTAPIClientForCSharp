@@ -14,31 +14,19 @@ namespace Acumatica.Default_24_200_001.Model
 	public class TaxDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The identifier of the tax zone to be used to process customer sales orders.The field is included in the TaxZone foreign key.
-		/// <para>DAC Field Name: TaxZoneID</para>
+		/// The type of the document, which is a part of the identifier of the order.The identifier of the order type.The field is included in the OrderType foreign key.
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Customer Tax Zone</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
-		public StringValue? CustomerTaxZone { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Tax__ExemptTax</para>
-		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
-		/// </summary>
-		[DataMember(Name="IncludeInVATExemptTotal", EmitDefaultValue=false)]
-		public BooleanValue? IncludeInVATExemptTotal { get; set; }
-
-		/// <summary>
-		/// The line number of the document.
-		/// <para>DAC: PX.Objects.SO.SOLine</para>
-		/// <para>Display Name: Line Nbr.</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
+		/// <remarks>
+		/// The type of the document, which is one of the predefined order types or a custom order type created byusing the Order Types (SO201000) form.
+		/// </remarks>
+		[DataMember(Name="OrderType", EmitDefaultValue=false)]
+		public StringValue? OrderType { get; set; }
 
 		/// <summary>
 		/// The unique reference number of the order.
@@ -54,41 +42,43 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
-		/// The type of the document, which is a part of the identifier of the order.The identifier of the order type.The field is included in the OrderType foreign key.
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Order Type</para>
-		/// <para>SQL Type: char(2)</para>
+		/// The line number of the document.
+		/// <para>DAC: PX.Objects.SO.SOLine</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
+
+		/// <summary>
+		/// The identifier of the specific tax applied to the document.
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// Key Field
 		/// </summary>
 		/// <remarks>
-		/// The type of the document, which is one of the predefined order types or a custom order type created byusing the Order Types (SO201000) form.
+		/// The field is included in the following foreign keys:SOTax, the field is a part of the identifier of the parent sales order's tax lineSOTax.taxIDTax, the field is the identifier of the taxTax.taxID
 		/// </remarks>
-		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue? OrderType { get; set; }
+		[DataMember(Name="TaxID", EmitDefaultValue=false)]
+		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Tax__PendingTax</para>
-		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// The identifier of the tax zone to be used to process customer sales orders.The field is included in the TaxZone foreign key.
+		/// <para>DAC Field Name: TaxZoneID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Customer Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
-		public BooleanValue? PendingVAT { get; set; }
-
-		[DataMember(Name="RecordID", EmitDefaultValue=false)]
-		public IntValue? RecordID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Tax__ReverseTax</para>
-		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
-		/// </summary>
-		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
-		public BooleanValue? ReverseVAT { get; set; }
+		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
+		public StringValue? CustomerTaxZone { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Tax__StatisticalTax</para>
 		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// <para>Display Name: Tax Rate</para>
 		/// </summary>
-		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
-		public BooleanValue? StatisticalVAT { get; set; }
+		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
+		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
 		/// The taxable amount for the specific tax calculated through the document(in the currency of the document).
@@ -109,31 +99,44 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
-		/// The identifier of the specific tax applied to the document.
-		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
-		/// <para>Display Name: Tax ID</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// Key Field
-		/// </summary>
-		/// <remarks>
-		/// The field is included in the following foreign keys:SOTax, the field is a part of the identifier of the parent sales order's tax lineSOTax.taxIDTax, the field is the identifier of the taxTax.taxID
-		/// </remarks>
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue? TaxID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
-		/// <para>Display Name: Tax Rate</para>
-		/// </summary>
-		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
-		public DecimalValue? TaxRate { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: Tax__TaxType</para>
 		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
 		/// </summary>
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__PendingTax</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// </summary>
+		[DataMember(Name="PendingVAT", EmitDefaultValue=false)]
+		public BooleanValue? PendingVAT { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__ReverseTax</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// </summary>
+		[DataMember(Name="ReverseVAT", EmitDefaultValue=false)]
+		public BooleanValue? ReverseVAT { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__ExemptTax</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// </summary>
+		[DataMember(Name="IncludeInVATExemptTotal", EmitDefaultValue=false)]
+		public BooleanValue? IncludeInVATExemptTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__StatisticalTax</para>
+		/// <para>DAC: PX.Objects.SO.SOTaxTran</para>
+		/// </summary>
+		[DataMember(Name="StatisticalVAT", EmitDefaultValue=false)]
+		public BooleanValue? StatisticalVAT { get; set; }
+
+		[DataMember(Name="RecordID", EmitDefaultValue=false)]
+		public IntValue? RecordID { get; set; }
+
+		#endregion
 
 	}
 }

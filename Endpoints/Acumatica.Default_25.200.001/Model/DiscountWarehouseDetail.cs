@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class DiscountWarehouseDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AR.DiscountSite</para>
@@ -21,6 +22,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class MaterialListLines : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
 
@@ -100,6 +101,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

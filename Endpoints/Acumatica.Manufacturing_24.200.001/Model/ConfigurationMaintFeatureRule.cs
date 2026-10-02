@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ConfigurationMaintFeatureRule : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
 		public StringValue? ConfigurationID { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		[DataMember(Name="TargetOption", EmitDefaultValue=false)]
 		public StringValue? TargetOption { get; set; }
+
+		#endregion
 
 	}
 }

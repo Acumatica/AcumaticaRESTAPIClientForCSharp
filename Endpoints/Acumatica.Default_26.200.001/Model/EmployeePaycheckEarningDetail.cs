@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class EmployeePaycheckEarningDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
@@ -79,6 +80,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
 		public StringValue? WCCCode { get; set; }
+
+		#endregion
 
 	}
 }

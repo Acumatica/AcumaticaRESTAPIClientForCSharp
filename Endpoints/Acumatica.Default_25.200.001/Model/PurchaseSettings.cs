@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PurchaseSettings : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="POSiteID", EmitDefaultValue=false)]
 		public StringValue? POSiteID { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="VendorID", EmitDefaultValue=false)]
 		public StringValue? VendorID { get; set; }
+
+		#endregion
 
 	}
 }

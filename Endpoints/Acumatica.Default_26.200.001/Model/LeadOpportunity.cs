@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class LeadOpportunity : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The identifier of the opportunity.
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
@@ -27,9 +28,6 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="OpportunityID", EmitDefaultValue=false)]
 		public StringValue? OpportunityID { get; set; }
 
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue? Amount { get; set; }
-
 		/// <summary>
 		/// The current stage of the opportunity.
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
@@ -38,6 +36,11 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="StageID", EmitDefaultValue=false)]
 		public StringValue? StageID { get; set; }
+
+		[DataMember(Name="Amount", EmitDefaultValue=false)]
+		public DecimalValue? Amount { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

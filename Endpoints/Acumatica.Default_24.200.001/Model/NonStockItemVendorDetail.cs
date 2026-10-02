@@ -14,8 +14,13 @@ namespace Acumatica.Default_24_200_001.Model
 	public class NonStockItemVendorDetail : Entity
 	{
 
-		[DataMember(Name="RecordID", EmitDefaultValue=false)]
-		public IntValue? RecordID { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		[DataMember(Name="Default", EmitDefaultValue=false)]
+		public BooleanValue? Default { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
@@ -31,12 +36,10 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="VendorName", EmitDefaultValue=false)]
 		public StringValue? VendorName { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: IsDefault</para>
-		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
-		/// </summary>
-		[DataMember(Name="Default", EmitDefaultValue=false)]
-		public BooleanValue? Default { get; set; }
+		[DataMember(Name="RecordID", EmitDefaultValue=false)]
+		public IntValue? RecordID { get; set; }
+
+		#endregion
 
 	}
 }

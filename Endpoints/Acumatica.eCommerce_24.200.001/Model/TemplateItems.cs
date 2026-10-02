@@ -17,6 +17,7 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class TemplateItems : Acumatica.Default_24_200_001.Model.TemplateItems, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// References to Attribute which will be put as Column Attribute in Inventory Matrix by default.
 		/// <para>DAC Field Name: DefaultColumnMatrixAttributeID</para>
@@ -36,6 +37,8 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="DefaultRowAttributeID", EmitDefaultValue=false)]
 		public StringValue? DefaultRowAttributeID { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

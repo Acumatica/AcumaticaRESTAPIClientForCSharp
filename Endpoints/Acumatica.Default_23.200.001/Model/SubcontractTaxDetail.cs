@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SubcontractTaxDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="RetainedTax", EmitDefaultValue=false)]
 		public DecimalValue? RetainedTax { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="TaxType", EmitDefaultValue=false)]
 		public StringValue? TaxType { get; set; }
+
+		#endregion
 
 	}
 }

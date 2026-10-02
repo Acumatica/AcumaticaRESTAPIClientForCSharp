@@ -17,6 +17,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmailProcessing : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter</para>
 		/// </summary>
@@ -47,17 +48,22 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <summary>
 		/// <para>DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter</para>
 		/// </summary>
-		[DataMember(Name="IncludeFailed", EmitDefaultValue=false)]
-		public BooleanValue? IncludeFailed { get; set; }
-
-		[DataMember(Name="Result", EmitDefaultValue=false)]
-		public List<EmailProcessingRow>? Result { get; set; }
+		[DataMember(Name="Type", EmitDefaultValue=false)]
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.SM.EmailProcessingMaint+EmailProcessingFilter</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue? Type { get; set; }
+		[DataMember(Name="IncludeFailed", EmitDefaultValue=false)]
+		public BooleanValue? IncludeFailed { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Result", EmitDefaultValue=false)]
+		public List<EmailProcessingRow>? Result { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ProjectEmployee : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Department", EmitDefaultValue=false)]
 		public StringValue? Department { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
+
+		#endregion
 
 	}
 }

@@ -17,16 +17,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class MRPDetailInquiry : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// U o m
-		/// <para>DAC Field Name: UOM</para>
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Base Unit</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		[DataMember(Name="BaseUnit", EmitDefaultValue=false)]
-		public StringValue? BaseUnit { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Inventory ID
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
@@ -34,49 +25,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// Lot qty
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Lot Qty.</para>
-		/// </summary>
-		[DataMember(Name="LotQty", EmitDefaultValue=false)]
-		public DecimalValue? LotQty { get; set; }
-
-		/// <summary>
-		/// Max order qty
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Max. Order Qty.</para>
-		/// </summary>
-		[DataMember(Name="MaxOrderQty", EmitDefaultValue=false)]
-		public DecimalValue? MaxOrderQty { get; set; }
-
-		/// <summary>
-		/// Min order qty
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Min. Order Qty.</para>
-		/// </summary>
-		[DataMember(Name="MinOrderQty", EmitDefaultValue=false)]
-		public DecimalValue? MinOrderQty { get; set; }
-
-		/// <summary>
-		/// Qty on hand
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Qty. On Hand</para>
-		/// </summary>
-		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
-		public DecimalValue? QtyOnHand { get; set; }
-
-		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<MRPDetailInquiryResult>? Results { get; set; }
-
-		/// <summary>
-		/// Safety stock
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Safety Stock</para>
-		/// </summary>
-		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
-		public DecimalValue? SafetyStock { get; set; }
 
 		/// <summary>
 		/// Sub item ID
@@ -93,6 +41,64 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// Qty on hand
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Qty. On Hand</para>
+		/// </summary>
+		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
+		public DecimalValue? QtyOnHand { get; set; }
+
+		/// <summary>
+		/// U o m
+		/// <para>DAC Field Name: UOM</para>
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Base Unit</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		[DataMember(Name="BaseUnit", EmitDefaultValue=false)]
+		public StringValue? BaseUnit { get; set; }
+
+		/// <summary>
+		/// Safety stock
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Safety Stock</para>
+		/// </summary>
+		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
+		public DecimalValue? SafetyStock { get; set; }
+
+		/// <summary>
+		/// Min order qty
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Min. Order Qty.</para>
+		/// </summary>
+		[DataMember(Name="MinOrderQty", EmitDefaultValue=false)]
+		public DecimalValue? MinOrderQty { get; set; }
+
+		/// <summary>
+		/// Max order qty
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Max. Order Qty.</para>
+		/// </summary>
+		[DataMember(Name="MaxOrderQty", EmitDefaultValue=false)]
+		public DecimalValue? MaxOrderQty { get; set; }
+
+		/// <summary>
+		/// Lot qty
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Lot Qty.</para>
+		/// </summary>
+		[DataMember(Name="LotQty", EmitDefaultValue=false)]
+		public DecimalValue? LotQty { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Results", EmitDefaultValue=false)]
+		public List<MRPDetailInquiryResult>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

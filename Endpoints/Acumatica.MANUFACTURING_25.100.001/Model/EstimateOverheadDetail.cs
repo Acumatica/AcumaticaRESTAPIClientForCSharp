@@ -14,21 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EstimateOverheadDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
-		/// <para>Display Name: Operation Desc</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OFactor</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateOvhd</para>
-		/// </summary>
-		[DataMember(Name="Factor", EmitDefaultValue=false)]
-		public DecimalValue? Factor { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LineID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
@@ -39,11 +25,12 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateOvhd</para>
-		/// <para>Display Name: Overhead Cost Rate</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Operation Desc</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="OverheadCostRate", EmitDefaultValue=false)]
-		public DecimalValue? OverheadCostRate { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: OvhdID</para>
@@ -65,10 +52,26 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateOvhd</para>
+		/// <para>Display Name: Overhead Cost Rate</para>
+		/// </summary>
+		[DataMember(Name="OverheadCostRate", EmitDefaultValue=false)]
+		public DecimalValue? OverheadCostRate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OFactor</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOvhd</para>
+		/// </summary>
+		[DataMember(Name="Factor", EmitDefaultValue=false)]
+		public DecimalValue? Factor { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOvhd</para>
 		/// <para>Display Name: WC Flag</para>
 		/// </summary>
 		[DataMember(Name="WCFlag", EmitDefaultValue=false)]
 		public BooleanValue? WCFlag { get; set; }
+
+		#endregion
 
 	}
 }

@@ -18,28 +18,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class PhysicalInventoryReview : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<PhysicalInventoryReviewDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CountDate</para>
-		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
-		/// <para>Display Name: Freeze Date</para>
-		/// </summary>
-		[DataMember(Name="FreezeDate", EmitDefaultValue=false)]
-		public DateTimeValue? FreezeDate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: PIID</para>
 		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
@@ -51,11 +30,35 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
+		/// <para>Display Name: Warehouse</para>
+		/// </summary>
+		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
+		public StringValue? WarehouseID { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CountDate</para>
+		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
+		/// <para>Display Name: Freeze Date</para>
+		/// </summary>
+		[DataMember(Name="FreezeDate", EmitDefaultValue=false)]
+		public DateTimeValue? FreezeDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
@@ -65,14 +68,6 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? TotalPhysicalQty { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: TotalVarCost</para>
-		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
-		/// <para>Display Name: Total Variance Cost</para>
-		/// </summary>
-		[DataMember(Name="TotalVarianceCost", EmitDefaultValue=false)]
-		public DecimalValue? TotalVarianceCost { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: TotalVarQty</para>
 		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
 		/// <para>Display Name: Total Variance Qty.</para>
@@ -80,16 +75,32 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="TotalVarianceQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalVarianceQty { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: TotalVarCost</para>
+		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
+		/// <para>Display Name: Total Variance Cost</para>
+		/// </summary>
+		[DataMember(Name="TotalVarianceCost", EmitDefaultValue=false)]
+		public DecimalValue? TotalVarianceCost { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
 		[DataMember(Name="TypeID", EmitDefaultValue=false)]
 		public StringValue? TypeID { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
-		/// <para>Display Name: Warehouse</para>
-		/// </summary>
-		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue? WarehouseID { get; set; }
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<PhysicalInventoryReviewDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PhysicalInventoryReview)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkTaskDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ActionLineCntr", EmitDefaultValue=false)]
 		public IntValue? ActionLineCntr { get; set; }
 
@@ -88,6 +89,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Workforce", EmitDefaultValue=false)]
 		public StringValue? Workforce { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

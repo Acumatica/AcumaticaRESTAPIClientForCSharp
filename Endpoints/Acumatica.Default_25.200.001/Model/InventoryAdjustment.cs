@@ -18,39 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class InventoryAdjustment : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: TranDate</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TranDesc</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<InventoryAdjustmentDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ExtRefNbr</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: External Ref.</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
-		public StringValue? ExternalRef { get; set; }
-
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue? Hold { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
@@ -69,11 +37,28 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Status { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: TranDate</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Total Cost</para>
 		/// </summary>
-		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
-		public DecimalValue? TotalCost { get; set; }
+		[DataMember(Name="Date", EmitDefaultValue=false)]
+		public DateTimeValue? Date { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ExtRefNbr</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: External Ref.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
+		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
+		public StringValue? ExternalRef { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
@@ -81,6 +66,32 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Total Cost</para>
+		/// </summary>
+		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
+		public DecimalValue? TotalCost { get; set; }
+
+		[DataMember(Name="Hold", EmitDefaultValue=false)]
+		public BooleanValue? Hold { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<InventoryAdjustmentDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(InventoryAdjustment)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

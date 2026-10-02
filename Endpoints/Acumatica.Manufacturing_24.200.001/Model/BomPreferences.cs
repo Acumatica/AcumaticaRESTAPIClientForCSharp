@@ -17,33 +17,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class BomPreferences : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// A Boolean value that indicates whether users can archive the cost roll results without updating the pending costs.
-		/// <para>DAC Field Name: AllowArchiveWithoutUpdatePending</para>
-		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Allow Archive without Updating Pending Costs</para>
-		/// </summary>
-		[DataMember(Name="AllowArchivewithoutUpdatePending", EmitDefaultValue=false)]
-		public BooleanValue? AllowArchivewithoutUpdatePending { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates whether the BOM can be created without a subitem ID.
-		/// <para>DAC Field Name: AllowEmptyBOMSubItemID</para>
-		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Allow Empty Subitem Code in BOM</para>
-		/// </summary>
-		[DataMember(Name="AllowEmptyBOMItemSubItemID", EmitDefaultValue=false)]
-		public BooleanValue? AllowEmptyBOMItemSubItemID { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates whether the system will archive the cost roll results when a user updates pending costs.
-		/// <para>DAC Field Name: AutoArchiveWhenUpdatePending</para>
-		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Allow Archive when Updating Pending Costs</para>
-		/// </summary>
-		[DataMember(Name="AutoArchivewhenUpdatePending", EmitDefaultValue=false)]
-		public BooleanValue? AutoArchivewhenUpdatePending { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The numbering sequence the system uses for assigning reference numbers to bills of material.
 		/// <para>DAC Field Name: BOMNumberingID</para>
@@ -55,28 +29,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? BOMNumberingSequence { get; set; }
 
 		/// <summary>
-		/// The time required for the semi-finished item to be prepared for the next operation when the current operation has been finished.
+		/// The numbering sequence the system uses for assigning reference numbers to engineering change requests (ECRs).
+		/// <para>DAC Field Name: ECRNumberingID</para>
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Default Finish Time</para>
+		/// <para>Display Name: ECR Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="DefaultFinishTime", EmitDefaultValue=false)]
-		public StringValue? DefaultFinishTime { get; set; }
+		[DataMember(Name="ECRNumberingSequence", EmitDefaultValue=false)]
+		public StringValue? ECRNumberingSequence { get; set; }
 
 		/// <summary>
-		/// The time for a semi-finished item to be moved from the work center where the current operation is performed to the work center where the next operation will be performed.
+		/// The numbering sequence the system uses for assigning reference numbers to engineering change orders (ECOs).
+		/// <para>DAC Field Name: ECONumberingID</para>
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Default Move Time</para>
+		/// <para>Display Name: ECO Numbering Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="DefaultMoveTime", EmitDefaultValue=false)]
-		public StringValue? DefaultMoveTime { get; set; }
-
-		/// <summary>
-		/// The time a semi-finished item has to wait in the work center before workers can start processing the item.
-		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Default Queue Time</para>
-		/// </summary>
-		[DataMember(Name="DefaultQueueTime", EmitDefaultValue=false)]
-		public StringValue? DefaultQueueTime { get; set; }
+		[DataMember(Name="ECONumberingSequence", EmitDefaultValue=false)]
+		public StringValue? ECONumberingSequence { get; set; }
 
 		/// <summary>
 		/// The default identifier of a revision for new bills of material, which is an alphanumeric string.
@@ -87,16 +57,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="DefaultRevision", EmitDefaultValue=false)]
 		public StringValue? DefaultRevision { get; set; }
-
-		/// <summary>
-		/// The default work center that is specified for each operation that you add to a bill of material.
-		/// <para>DAC Field Name: WcID</para>
-		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Default Work Center</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// </summary>
-		[DataMember(Name="DefaultWorkCenter", EmitDefaultValue=false)]
-		public StringValue? DefaultWorkCenter { get; set; }
 
 		/// <summary>
 		/// The option that controls the use of duplicate inventory items as materials in all operations of bills of material.(Previously DupInvBOM)
@@ -119,51 +79,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? DuplicatesonOperation { get; set; }
 
 		/// <summary>
-		/// The numbering sequence the system uses for assigning reference numbers to engineering change orders (ECOs).
-		/// <para>DAC Field Name: ECONumberingID</para>
+		/// The default work center that is specified for each operation that you add to a bill of material.
+		/// <para>DAC Field Name: WcID</para>
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: ECO Numbering Sequence</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>Display Name: Default Work Center</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
-		[DataMember(Name="ECONumberingSequence", EmitDefaultValue=false)]
-		public StringValue? ECONumberingSequence { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates whether the ECO needs to be approved.
-		/// <para>DAC Field Name: ECORequestApproval</para>
-		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Require ECO Approval</para>
-		/// </summary>
-		[DataMember(Name="ECORequireApproval", EmitDefaultValue=false)]
-		public BooleanValue? ECORequireApproval { get; set; }
-
-		/// <summary>
-		/// The numbering sequence the system uses for assigning reference numbers to engineering change requests (ECRs).
-		/// <para>DAC Field Name: ECRNumberingID</para>
-		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: ECR Numbering Sequence</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		[DataMember(Name="ECRNumberingSequence", EmitDefaultValue=false)]
-		public StringValue? ECRNumberingSequence { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates whether the ECR needs to be approved.
-		/// <para>DAC Field Name: ECRRequestApproval</para>
-		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Require ECR Approval</para>
-		/// </summary>
-		[DataMember(Name="ECRRequireApproval", EmitDefaultValue=false)]
-		public BooleanValue? ECRRequireApproval { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates whether the new BOM revisions have the On Hold status. 
-		/// <para>DAC Field Name: BOMHoldRevisionsOnEntry</para>
-		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Hold BOM Revisions on Entry</para>
-		/// </summary>
-		[DataMember(Name="HoldBOMRevisionsonEntry", EmitDefaultValue=false)]
-		public BooleanValue? HoldBOMRevisionsonEntry { get; set; }
+		[DataMember(Name="DefaultWorkCenter", EmitDefaultValue=false)]
+		public StringValue? DefaultWorkCenter { get; set; }
 
 		/// <summary>
 		/// The format that is used in the columns with time settings in the operations.
@@ -172,6 +95,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="OperationTimeFormat", EmitDefaultValue=false)]
 		public StringValue? OperationTimeFormat { get; set; }
+
+		/// <summary>
+		/// The time format that is used for total time values.
+		/// <para>DAC Field Name: ProductionTimeFormat</para>
+		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
+		/// <para>Display Name: Total Time Format</para>
+		/// </summary>
+		[DataMember(Name="TotalTimeFormat", EmitDefaultValue=false)]
+		public StringValue? TotalTimeFormat { get; set; }
+
+		/// <summary>
+		/// A Boolean value that indicates whether the BOM can be created without a subitem ID.
+		/// <para>DAC Field Name: AllowEmptyBOMSubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
+		/// <para>Display Name: Allow Empty Subitem Code in BOM</para>
+		/// </summary>
+		[DataMember(Name="AllowEmptyBOMItemSubItemID", EmitDefaultValue=false)]
+		public BooleanValue? AllowEmptyBOMItemSubItemID { get; set; }
 
 		/// <summary>
 		/// A Boolean value that indicates whether the ECR or ECO is required for new BOM revisions.
@@ -192,13 +133,75 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public BooleanValue? RequireECRbeforeCreatingECO { get; set; }
 
 		/// <summary>
-		/// The time format that is used for total time values.
-		/// <para>DAC Field Name: ProductionTimeFormat</para>
+		/// A Boolean value that indicates whether the new BOM revisions have the On Hold status. 
+		/// <para>DAC Field Name: BOMHoldRevisionsOnEntry</para>
 		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
-		/// <para>Display Name: Total Time Format</para>
+		/// <para>Display Name: Hold BOM Revisions on Entry</para>
 		/// </summary>
-		[DataMember(Name="TotalTimeFormat", EmitDefaultValue=false)]
-		public StringValue? TotalTimeFormat { get; set; }
+		[DataMember(Name="HoldBOMRevisionsonEntry", EmitDefaultValue=false)]
+		public BooleanValue? HoldBOMRevisionsonEntry { get; set; }
+
+		/// <summary>
+		/// A Boolean value that indicates whether users can archive the cost roll results without updating the pending costs.
+		/// <para>DAC Field Name: AllowArchiveWithoutUpdatePending</para>
+		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
+		/// <para>Display Name: Allow Archive without Updating Pending Costs</para>
+		/// </summary>
+		[DataMember(Name="AllowArchivewithoutUpdatePending", EmitDefaultValue=false)]
+		public BooleanValue? AllowArchivewithoutUpdatePending { get; set; }
+
+		/// <summary>
+		/// A Boolean value that indicates whether the system will archive the cost roll results when a user updates pending costs.
+		/// <para>DAC Field Name: AutoArchiveWhenUpdatePending</para>
+		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
+		/// <para>Display Name: Allow Archive when Updating Pending Costs</para>
+		/// </summary>
+		[DataMember(Name="AutoArchivewhenUpdatePending", EmitDefaultValue=false)]
+		public BooleanValue? AutoArchivewhenUpdatePending { get; set; }
+
+		/// <summary>
+		/// The time a semi-finished item has to wait in the work center before workers can start processing the item.
+		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
+		/// <para>Display Name: Default Queue Time</para>
+		/// </summary>
+		[DataMember(Name="DefaultQueueTime", EmitDefaultValue=false)]
+		public StringValue? DefaultQueueTime { get; set; }
+
+		/// <summary>
+		/// The time required for the semi-finished item to be prepared for the next operation when the current operation has been finished.
+		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
+		/// <para>Display Name: Default Finish Time</para>
+		/// </summary>
+		[DataMember(Name="DefaultFinishTime", EmitDefaultValue=false)]
+		public StringValue? DefaultFinishTime { get; set; }
+
+		/// <summary>
+		/// The time for a semi-finished item to be moved from the work center where the current operation is performed to the work center where the next operation will be performed.
+		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
+		/// <para>Display Name: Default Move Time</para>
+		/// </summary>
+		[DataMember(Name="DefaultMoveTime", EmitDefaultValue=false)]
+		public StringValue? DefaultMoveTime { get; set; }
+
+		/// <summary>
+		/// A Boolean value that indicates whether the ECR needs to be approved.
+		/// <para>DAC Field Name: ECRRequestApproval</para>
+		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
+		/// <para>Display Name: Require ECR Approval</para>
+		/// </summary>
+		[DataMember(Name="ECRRequireApproval", EmitDefaultValue=false)]
+		public BooleanValue? ECRRequireApproval { get; set; }
+
+		/// <summary>
+		/// A Boolean value that indicates whether the ECO needs to be approved.
+		/// <para>DAC Field Name: ECORequestApproval</para>
+		/// <para>DAC: PX.Objects.AM.AMBSetup</para>
+		/// <para>Display Name: Require ECO Approval</para>
+		/// </summary>
+		[DataMember(Name="ECORequireApproval", EmitDefaultValue=false)]
+		public BooleanValue? ECORequireApproval { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

@@ -17,26 +17,18 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkTicket : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Activities", EmitDefaultValue=false)]
-		public List<ActivityDetail>? Activities { get; set; }
-
+		#region Fields
 		[DataMember(Name="CustomerSigned", EmitDefaultValue=false)]
 		public BooleanValue? CustomerSigned { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<WorkTicketDetail>? Details { get; set; }
-
 		[DataMember(Name="DocDate", EmitDefaultValue=false)]
 		public DateOnlyValue? DocDate { get; set; }
 
 		[DataMember(Name="EventNoteID", EmitDefaultValue=false)]
 		public GuidValue? EventNoteID { get; set; }
-
-		[DataMember(Name="Expenses", EmitDefaultValue=false)]
-		public List<WorkTicketExpenseDetail>? Expenses { get; set; }
 
 		[DataMember(Name="RefNoteID", EmitDefaultValue=false)]
 		public GuidValue? RefNoteID { get; set; }
@@ -50,11 +42,25 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="TicketNbr", EmitDefaultValue=false)]
 		public StringValue? TicketNbr { get; set; }
 
+		#endregion
+
+		#region Details
+		[DataMember(Name="Activities", EmitDefaultValue=false)]
+		public List<ActivityDetail>? Activities { get; set; }
+
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<WorkTicketDetail>? Details { get; set; }
+
+		[DataMember(Name="Expenses", EmitDefaultValue=false)]
+		public List<WorkTicketExpenseDetail>? Expenses { get; set; }
+
 		[DataMember(Name="TimeActivities", EmitDefaultValue=false)]
 		public List<WorkTicketTimeActivityDetail>? TimeActivities { get; set; }
 
 		[DataMember(Name="WorkTasks", EmitDefaultValue=false)]
 		public List<WorkTaskDetail>? WorkTasks { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

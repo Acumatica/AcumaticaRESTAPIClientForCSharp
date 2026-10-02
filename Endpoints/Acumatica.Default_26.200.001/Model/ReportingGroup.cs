@@ -14,6 +14,15 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ReportingGroup : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The name of the reporting group, which can be specified by the user.
+		/// <para>DAC: PX.Objects.TX.TaxBucket</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		[DataMember(Name="Name", EmitDefaultValue=false)]
+		public StringValue? Name { get; set; }
+
 		/// <summary>
 		/// The type of the reporting group.
 		/// <para>DAC Field Name: BucketType</para>
@@ -27,13 +36,7 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// The name of the reporting group, which can be specified by the user.
-		/// <para>DAC: PX.Objects.TX.TaxBucket</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		[DataMember(Name="Name", EmitDefaultValue=false)]
-		public StringValue? Name { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

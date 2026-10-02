@@ -14,6 +14,14 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EventAttendee : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.EP.SendCardFilter</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		[DataMember(Name="Email", EmitDefaultValue=false)]
+		public StringValue? Email { get; set; }
+
 		/// <summary>
 		/// The comment of the event owner for the attendee.
 		/// <para>DAC: PX.Objects.EP.EPAttendee</para>
@@ -23,16 +31,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Comment { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.EP.SendCardFilter</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue? Email { get; set; }
-
-		[DataMember(Name="EventNoteID", EmitDefaultValue=false)]
-		public GuidValue? EventNoteID { get; set; }
-
-		/// <summary>
 		/// The invitation status of the attendee.
 		/// <para>DAC Field Name: Invitation</para>
 		/// <para>DAC: PX.Objects.EP.EPAttendee</para>
@@ -40,6 +38,9 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="InvitationStatus", EmitDefaultValue=false)]
 		public StringValue? InvitationStatus { get; set; }
+
+		[DataMember(Name="EventNoteID", EmitDefaultValue=false)]
+		public GuidValue? EventNoteID { get; set; }
 
 		[DataMember(Name="Key", EmitDefaultValue=false)]
 		public StringValue? Key { get; set; }
@@ -52,6 +53,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public IntValue? Type { get; set; }
+
+		#endregion
 
 	}
 }

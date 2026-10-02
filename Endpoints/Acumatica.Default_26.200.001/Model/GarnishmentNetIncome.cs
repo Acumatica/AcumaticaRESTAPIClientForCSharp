@@ -14,9 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class GarnishmentNetIncome : Entity
 	{
 
-		[DataMember(Name="DeductionsReducingDisposableNet", EmitDefaultValue=false)]
-		public List<DeductionsReducingDisposableNetDetail>? DeductionsReducingDisposableNet { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// A boolean value that specifies (if set to true) that the code is to be used for a garnishment.
 		/// <para>DAC Field Name: IsGarnishment</para>
@@ -25,8 +23,16 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Garnishment", EmitDefaultValue=false)]
 		public BooleanValue? Garnishment { get; set; }
 
+		#endregion
+
+		#region Details
+		[DataMember(Name="DeductionsReducingDisposableNet", EmitDefaultValue=false)]
+		public List<DeductionsReducingDisposableNetDetail>? DeductionsReducingDisposableNet { get; set; }
+
 		[DataMember(Name="NonPayableBenefitsIncreasingDisposableNet", EmitDefaultValue=false)]
 		public List<NonPayableBenefitsIncreasingDisposableNetDetail>? NonPayableBenefitsIncreasingDisposableNet { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -18,16 +18,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class Currency : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
-		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: CuryID</para>
 		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
@@ -37,6 +28,13 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CurySymbol</para>
@@ -56,14 +54,11 @@ namespace Acumatica.Default_26_200_001.Model
 		public ShortValue? DecimalPrecision { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
-		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: IsFinancial</para>
@@ -72,6 +67,19 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="UseForAccounting", EmitDefaultValue=false)]
 		public BooleanValue? UseForAccounting { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Currency)} - \"{CurrencyID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

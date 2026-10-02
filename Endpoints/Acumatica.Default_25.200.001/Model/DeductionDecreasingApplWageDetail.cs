@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class DeductionDecreasingApplWageDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="DeductionCode", EmitDefaultValue=false)]
 		public StringValue? DeductionCode { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,14 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ConfigurationMaintAttribute : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
-		/// <para>Display Name: Attribute ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
-		public StringValue? AttributeID { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: Configuration ID</para>
@@ -32,41 +25,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ConfigurationID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Value</para>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
-		/// <para>Display Name: Default Value</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="DefaultValue", EmitDefaultValue=false)]
-		public StringValue? DefaultValue { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: nvarchar(256)</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
-		/// </summary>
-		[DataMember(Name="Enabled", EmitDefaultValue=false)]
-		public BooleanValue? Enabled { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
-		/// <para>Display Name: Is Formula</para>
-		/// </summary>
-		[DataMember(Name="IsFormula", EmitDefaultValue=false)]
-		public BooleanValue? IsFormula { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// </summary>
-		[DataMember(Name="Label", EmitDefaultValue=false)]
-		public StringValue? Label { get; set; }
+		[DataMember(Name="Revision", EmitDefaultValue=false)]
+		public StringValue? Revision { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
@@ -77,21 +41,19 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="Required", EmitDefaultValue=false)]
-		public BooleanValue? Required { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue? Revision { get; set; }
-
-		[DataMember(Name="Rules", EmitDefaultValue=false)]
-		public List<ConfigurationMaintAttributeRule>? Rules { get; set; }
+		[DataMember(Name="Label", EmitDefaultValue=false)]
+		public StringValue? Label { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
@@ -101,6 +63,27 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? SortOrder { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// </summary>
+		[DataMember(Name="Visible", EmitDefaultValue=false)]
+		public BooleanValue? Visible { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
+		/// <para>Display Name: Attribute ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
+		public StringValue? AttributeID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
+		/// <para>Display Name: Is Formula</para>
+		/// </summary>
+		[DataMember(Name="IsFormula", EmitDefaultValue=false)]
+		public BooleanValue? IsFormula { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
@@ -108,10 +91,33 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? Variable { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
 		/// </summary>
-		[DataMember(Name="Visible", EmitDefaultValue=false)]
-		public BooleanValue? Visible { get; set; }
+		[DataMember(Name="Enabled", EmitDefaultValue=false)]
+		public BooleanValue? Enabled { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
+		/// </summary>
+		[DataMember(Name="Required", EmitDefaultValue=false)]
+		public BooleanValue? Required { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Value</para>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationAttribute</para>
+		/// <para>Display Name: Default Value</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		[DataMember(Name="DefaultValue", EmitDefaultValue=false)]
+		public StringValue? DefaultValue { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Rules", EmitDefaultValue=false)]
+		public List<ConfigurationMaintAttributeRule>? Rules { get; set; }
+
+		#endregion
 
 	}
 }

@@ -18,56 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class TransferOrder : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: TranDate</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TranDesc</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<TransferOrderDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ExtRefNbr</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: External Ref.</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
-		public StringValue? ExternalRef { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Warehouse ID</para>
-		/// </summary>
-		[DataMember(Name="FromWarehouseID", EmitDefaultValue=false)]
-		public StringValue? FromWarehouseID { get; set; }
-
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue? Hold { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: FinPeriodID</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Post Period</para>
-		/// <para>SQL Type: char(6)</para>
-		/// </summary>
-		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
-		public StringValue? PostPeriod { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
@@ -87,10 +38,35 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Total Qty.</para>
+		/// <para>Display Name: Transfer Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
-		public DecimalValue? TotalQty { get; set; }
+		[DataMember(Name="TransferType", EmitDefaultValue=false)]
+		public StringValue? TransferType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TranDate</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// </summary>
+		[DataMember(Name="Date", EmitDefaultValue=false)]
+		public DateTimeValue? Date { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: FinPeriodID</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Post Period</para>
+		/// <para>SQL Type: char(6)</para>
+		/// </summary>
+		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
+		public StringValue? PostPeriod { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Warehouse ID</para>
+		/// </summary>
+		[DataMember(Name="FromWarehouseID", EmitDefaultValue=false)]
+		public StringValue? FromWarehouseID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ToSiteID</para>
@@ -101,12 +77,47 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? ToWarehouseID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ExtRefNbr</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Transfer Type</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: External Ref.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		[DataMember(Name="TransferType", EmitDefaultValue=false)]
-		public StringValue? TransferType { get; set; }
+		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
+		public StringValue? ExternalRef { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Total Qty.</para>
+		/// </summary>
+		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
+		public DecimalValue? TotalQty { get; set; }
+
+		[DataMember(Name="Hold", EmitDefaultValue=false)]
+		public BooleanValue? Hold { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<TransferOrderDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(TransferOrder)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

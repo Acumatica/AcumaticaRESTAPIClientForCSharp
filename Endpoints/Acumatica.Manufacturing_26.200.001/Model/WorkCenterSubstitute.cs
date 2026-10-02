@@ -14,6 +14,14 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class WorkCenterSubstitute : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// </summary>
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: SubstituteWcID</para>
 		/// <para>DAC: PX.Objects.AM.AMWCSubstitute</para>
@@ -31,12 +39,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		[DataMember(Name="UpdateOperationDescription", EmitDefaultValue=false)]
 		public BooleanValue? UpdateOperationDescription { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

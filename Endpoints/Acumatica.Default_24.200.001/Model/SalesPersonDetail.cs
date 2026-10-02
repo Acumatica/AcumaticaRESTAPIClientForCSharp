@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class SalesPersonDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="CommissionableAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommissionableAmount { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="SalespersonID", EmitDefaultValue=false)]
 		public StringValue? SalespersonID { get; set; }
+
+		#endregion
 
 	}
 }

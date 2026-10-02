@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class DiscountCustomerPriceClassesDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: CustomerPriceClassID</para>
 		/// <para>DAC: PX.Objects.AR.DiscountCustomerPriceClass</para>
@@ -23,6 +24,8 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
 		public StringValue? PriceClassID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

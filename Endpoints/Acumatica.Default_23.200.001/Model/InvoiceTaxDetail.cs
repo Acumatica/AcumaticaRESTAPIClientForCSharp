@@ -14,22 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class InvoiceTaxDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: CuryTaxableAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARTaxTran</para>
-		/// <para>Display Name: Taxable Amount</para>
-		/// </summary>
-		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
-		public DecimalValue? TaxableAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryTaxAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARTaxTran</para>
-		/// <para>Display Name: Tax Amount</para>
-		/// </summary>
-		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
-		public DecimalValue? TaxAmount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.ARTaxTran</para>
 		/// <para>Display Name: Tax ID</para>
@@ -46,6 +31,24 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
 		public DecimalValue? TaxRate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryTaxableAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARTaxTran</para>
+		/// <para>Display Name: Taxable Amount</para>
+		/// </summary>
+		[DataMember(Name="TaxableAmount", EmitDefaultValue=false)]
+		public DecimalValue? TaxableAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryTaxAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARTaxTran</para>
+		/// <para>Display Name: Tax Amount</para>
+		/// </summary>
+		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
+		public DecimalValue? TaxAmount { get; set; }
+
+		#endregion
 
 	}
 }

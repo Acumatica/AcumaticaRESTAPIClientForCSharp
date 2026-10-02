@@ -14,13 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BillApplicationDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: CuryAdjdAmt</para>
-		/// <para>DAC: PX.Objects.AP.APInvoiceEntry+APAdjust</para>
-		/// </summary>
-		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
-		public DecimalValue? AmountPaid { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The balance of the Accounts Payable document after tax (if inclusive) and the discount in the currency of the document. (See CuryID)
 		/// <para>DAC Field Name: CuryDocBal</para>
@@ -44,11 +38,20 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryAdjdAmt</para>
+		/// <para>DAC: PX.Objects.AP.APInvoiceEntry+APAdjust</para>
+		/// </summary>
+		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
+		public DecimalValue? AmountPaid { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: DisplayStatus</para>
 		/// <para>DAC: PX.Objects.AP.APInvoiceEntry+APAdjust</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
+
+		#endregion
 
 	}
 }

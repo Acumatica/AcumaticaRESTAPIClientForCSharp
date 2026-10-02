@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkEventLaborDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ContactDisplayName", EmitDefaultValue=false)]
 		public StringValue? ContactDisplayName { get; set; }
 
@@ -46,6 +47,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Subcontractor", EmitDefaultValue=false)]
 		public StringValue? Subcontractor { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

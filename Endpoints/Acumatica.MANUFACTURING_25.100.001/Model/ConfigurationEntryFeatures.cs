@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationEntryFeatures : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
 		/// <para>Display Name: Config Results ID</para>
@@ -39,17 +40,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Lot Qty.</para>
+		/// <para>Display Name: Min Selection</para>
 		/// </summary>
-		[DataMember(Name="LotQty", EmitDefaultValue=false)]
-		public DecimalValue? LotQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Max. Qty.</para>
-		/// </summary>
-		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
-		public DecimalValue? MaxQty { get; set; }
+		[DataMember(Name="MinSelection", EmitDefaultValue=false)]
+		public IntValue? MinSelection { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
@@ -67,13 +61,17 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Min Selection</para>
+		/// <para>Display Name: Max. Qty.</para>
 		/// </summary>
-		[DataMember(Name="MinSelection", EmitDefaultValue=false)]
-		public IntValue? MinSelection { get; set; }
+		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
+		public DecimalValue? MaxQty { get; set; }
 
-		[DataMember(Name="Options", EmitDefaultValue=false)]
-		public List<ConfigurationEntryOptions>? Options { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
+		/// <para>Display Name: Lot Qty.</para>
+		/// </summary>
+		[DataMember(Name="LotQty", EmitDefaultValue=false)]
+		public DecimalValue? LotQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
@@ -81,6 +79,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
 		public DecimalValue? TotalQty { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Options", EmitDefaultValue=false)]
+		public List<ConfigurationEntryOptions>? Options { get; set; }
+
+		#endregion
 
 	}
 }

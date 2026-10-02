@@ -18,23 +18,7 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 	public class PrintJobs : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
-		/// <para>Display Name: End Date</para>
-		/// </summary>
-		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue? EndDate { get; set; }
-
-		[DataMember(Name="EndModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? EndModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
-		/// <para>Display Name: Hide Processed</para>
-		/// </summary>
-		[DataMember(Name="HideProcessed", EmitDefaultValue=false)]
-		public BooleanValue? HideProcessed { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.SM.SMPrintJob</para>
 		/// <para>Display Name: Job ID</para>
@@ -43,9 +27,6 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 		[DataMember(Name="JobID", EmitDefaultValue=false)]
 		public IntValue? JobID { get; set; }
 
-		[DataMember(Name="Jobs", EmitDefaultValue=false)]
-		public List<PrintJob>? Jobs { get; set; }
-
 		/// <summary>
 		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
 		/// <para>Display Name: Start Date</para>
@@ -53,8 +34,38 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		[DataMember(Name="EndDate", EmitDefaultValue=false)]
+		public DateTimeValue? EndDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
+		/// <para>Display Name: Hide Processed</para>
+		/// </summary>
+		[DataMember(Name="HideProcessed", EmitDefaultValue=false)]
+		public BooleanValue? HideProcessed { get; set; }
+
+		[DataMember(Name="EndModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? EndModifiedDateTime { get; set; }
+
 		[DataMember(Name="StartModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? StartModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Jobs", EmitDefaultValue=false)]
+		public List<PrintJob>? Jobs { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PrintJobs)} - \"{JobID}\"";
+		}
 
 		public static class Expand
 		{

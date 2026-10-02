@@ -18,23 +18,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ProjectTransaction : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		/// <summary>
-		/// The description of the document.
-		/// <para>DAC: PX.Objects.PM.PMRegister</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<ProjectTransactionDetail>? Details { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The identifier of the functional area, to which the batch belongs.
 		/// <para>DAC: PX.Objects.PM.PMRegister</para>
@@ -44,26 +28,6 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="Module", EmitDefaultValue=false)]
 		public StringValue? Module { get; set; }
-
-		/// <summary>
-		/// The reference number of the original document.
-		/// <para>DAC Field Name: OrigDocNbr</para>
-		/// <para>DAC: PX.Objects.PM.PMRegister</para>
-		/// <para>Display Name: Orig. Doc. Nbr.</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// </summary>
-		[DataMember(Name="OriginalDocNbr", EmitDefaultValue=false)]
-		public StringValue? OriginalDocNbr { get; set; }
-
-		/// <summary>
-		/// The type of the original document.
-		/// <para>DAC Field Name: OrigDocType</para>
-		/// <para>DAC: PX.Objects.PM.PMRegister</para>
-		/// <para>Display Name: Orig. Doc. Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		[DataMember(Name="OriginalDocType", EmitDefaultValue=false)]
-		public StringSingleSelectValue? OriginalDocType { get; set; }
 
 		/// <summary>
 		/// The reference number of the document.
@@ -85,13 +49,41 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringSingleSelectValue? Status { get; set; }
 
 		/// <summary>
-		/// The total amount for the project transactions in the base currency.
-		/// <para>DAC Field Name: AmtTotal</para>
+		/// The description of the document.
 		/// <para>DAC: PX.Objects.PM.PMRegister</para>
-		/// <para>Display Name: Total Amount</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="TotalAmount", EmitDefaultValue=false)]
-		public DecimalValue? TotalAmount { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// The type of the original document.
+		/// <para>DAC Field Name: OrigDocType</para>
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Orig. Doc. Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		[DataMember(Name="OriginalDocType", EmitDefaultValue=false)]
+		public StringSingleSelectValue? OriginalDocType { get; set; }
+
+		/// <summary>
+		/// The reference number of the original document.
+		/// <para>DAC Field Name: OrigDocNbr</para>
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Orig. Doc. Nbr.</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
+		[DataMember(Name="OriginalDocNbr", EmitDefaultValue=false)]
+		public StringValue? OriginalDocNbr { get; set; }
+
+		/// <summary>
+		/// The total quantity of items in the project transactions.
+		/// <para>DAC Field Name: QtyTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMRegister</para>
+		/// <para>Display Name: Total Quantity</para>
+		/// </summary>
+		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
+		public DecimalValue? TotalQty { get; set; }
 
 		/// <summary>
 		/// The total billable quantity for the project transactions.
@@ -103,13 +95,32 @@ namespace Acumatica.Default_26_200_001.Model
 		public DecimalValue? TotalBillableQty { get; set; }
 
 		/// <summary>
-		/// The total quantity of items in the project transactions.
-		/// <para>DAC Field Name: QtyTotal</para>
+		/// The total amount for the project transactions in the base currency.
+		/// <para>DAC Field Name: AmtTotal</para>
 		/// <para>DAC: PX.Objects.PM.PMRegister</para>
-		/// <para>Display Name: Total Quantity</para>
+		/// <para>Display Name: Total Amount</para>
 		/// </summary>
-		[DataMember(Name="TotalQty", EmitDefaultValue=false)]
-		public DecimalValue? TotalQty { get; set; }
+		[DataMember(Name="TotalAmount", EmitDefaultValue=false)]
+		public DecimalValue? TotalAmount { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<ProjectTransactionDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProjectTransaction)} - \"{Module}\" - \"{ReferenceNbr}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

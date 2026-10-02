@@ -14,20 +14,26 @@ namespace Acumatica.Default_23_200_001.Model
 	public class BillToSettings : Entity
 	{
 
-		[DataMember(Name="BillToAddress", EmitDefaultValue=false)]
-		public Address? BillToAddress { get; set; }
-
+		#region Fields
 		[DataMember(Name="BillToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillToAddressOverride { get; set; }
-
-		[DataMember(Name="BillToContact", EmitDefaultValue=false)]
-		public DocContact? BillToContact { get; set; }
 
 		[DataMember(Name="BillToContactOverride", EmitDefaultValue=false)]
 		public BooleanValue? BillToContactOverride { get; set; }
 
 		[DataMember(Name="CustomerLocation", EmitDefaultValue=false)]
 		public StringValue? CustomerLocation { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="BillToAddress", EmitDefaultValue=false)]
+		public Address? BillToAddress { get; set; }
+
+		[DataMember(Name="BillToContact", EmitDefaultValue=false)]
+		public DocContact? BillToContact { get; set; }
+
+		#endregion
 
 	}
 }

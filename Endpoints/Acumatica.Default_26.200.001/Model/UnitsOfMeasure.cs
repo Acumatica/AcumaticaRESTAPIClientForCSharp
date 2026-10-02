@@ -17,6 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class UnitsOfMeasure : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: Unit</para>
 		/// <para>DAC: PX.Objects.Localizations.CA.CS.UnitOfMeasure</para>
@@ -37,8 +38,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="L3Code", EmitDefaultValue=false)]
 		public StringValue? L3Code { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="Conversion", EmitDefaultValue=false)]
 		public List<Units>? Conversion { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

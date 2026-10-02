@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ShipmentPackageDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

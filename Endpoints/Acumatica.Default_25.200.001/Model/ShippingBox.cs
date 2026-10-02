@@ -18,13 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ShippingBox : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// <para>Display Name: Active by Default</para>
-		/// </summary>
-		[DataMember(Name="ActiveByDefault", EmitDefaultValue=false)]
-		public BooleanValue? ActiveByDefault { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// <para>Display Name: Box ID</para>
@@ -36,16 +30,6 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// <para>Display Name: Box Weight</para>
-		/// </summary>
-		[DataMember(Name="BoxWeight", EmitDefaultValue=false)]
-		public DecimalValue? BoxWeight { get; set; }
-
-		[DataMember(Name="CarriersPackage", EmitDefaultValue=false)]
-		public StringValue? CarriersPackage { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
@@ -53,22 +37,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Box Weight</para>
 		/// </summary>
-		[DataMember(Name="Height", EmitDefaultValue=false)]
-		public DecimalValue? Height { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// </summary>
-		[DataMember(Name="Length", EmitDefaultValue=false)]
-		public DecimalValue? Length { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// <para>Display Name: Max Volume</para>
-		/// </summary>
-		[DataMember(Name="MaxVolume", EmitDefaultValue=false)]
-		public DecimalValue? MaxVolume { get; set; }
+		[DataMember(Name="BoxWeight", EmitDefaultValue=false)]
+		public DecimalValue? BoxWeight { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
@@ -76,13 +48,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="MaxWeight", EmitDefaultValue=false)]
 		public DecimalValue? MaxWeight { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CommonSetup__VolumeUOM</para>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// </summary>
-		[DataMember(Name="VolumeUOM", EmitDefaultValue=false)]
-		public StringValue? VolumeUOM { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CommonSetup__WeightUOM</para>
@@ -93,9 +58,35 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Max Volume</para>
+		/// </summary>
+		[DataMember(Name="MaxVolume", EmitDefaultValue=false)]
+		public DecimalValue? MaxVolume { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CommonSetup__VolumeUOM</para>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
+		[DataMember(Name="VolumeUOM", EmitDefaultValue=false)]
+		public StringValue? VolumeUOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
+		[DataMember(Name="Length", EmitDefaultValue=false)]
+		public DecimalValue? Length { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// </summary>
 		[DataMember(Name="Width", EmitDefaultValue=false)]
 		public DecimalValue? Width { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
+		[DataMember(Name="Height", EmitDefaultValue=false)]
+		public DecimalValue? Height { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CommonSetup__LinearUOM</para>
@@ -103,6 +94,23 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="LinearUOM", EmitDefaultValue=false)]
 		public StringValue? LinearUOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Active by Default</para>
+		/// </summary>
+		[DataMember(Name="ActiveByDefault", EmitDefaultValue=false)]
+		public BooleanValue? ActiveByDefault { get; set; }
+
+		[DataMember(Name="CarriersPackage", EmitDefaultValue=false)]
+		public StringValue? CarriersPackage { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ShippingBox)} - \"{BoxID}\"";
+		}
 
 		public static class Expand
 		{

@@ -18,6 +18,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ConfigurationFeature : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMFeature</para>
+		/// <para>Display Name: Feature ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="FeatureID", EmitDefaultValue=false)]
+		public StringValue? FeatureID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMFeature</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: ActiveFlg</para>
 		/// <para>DAC: PX.Objects.AM.AMFeature</para>
@@ -32,20 +50,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="AllowNonInventoryOptions", EmitDefaultValue=false)]
 		public BooleanValue? AllowNonInventoryOptions { get; set; }
 
-		[DataMember(Name="ConfigurationFeatureAttribute", EmitDefaultValue=false)]
-		public List<FeatureAttributes>? ConfigurationFeatureAttribute { get; set; }
-
-		[DataMember(Name="ConfigurationFeatureOption", EmitDefaultValue=false)]
-		public List<FeatureOptions>? ConfigurationFeatureOption { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMFeature</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeature</para>
 		/// <para>Display Name: Display Option Attributes</para>
@@ -54,21 +58,28 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public BooleanValue? DisplayOptionAttributes { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMFeature</para>
-		/// <para>Display Name: Feature ID</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="FeatureID", EmitDefaultValue=false)]
-		public StringValue? FeatureID { get; set; }
-
-		/// <summary>
 		/// Flag used for reporting
 		/// <para>DAC: PX.Objects.AM.AMFeature</para>
 		/// <para>Display Name: Print Results</para>
 		/// </summary>
 		[DataMember(Name="PrintResults", EmitDefaultValue=false)]
 		public BooleanValue? PrintResults { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="ConfigurationFeatureAttribute", EmitDefaultValue=false)]
+		public List<FeatureAttributes>? ConfigurationFeatureAttribute { get; set; }
+
+		[DataMember(Name="ConfigurationFeatureOption", EmitDefaultValue=false)]
+		public List<FeatureOptions>? ConfigurationFeatureOption { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ConfigurationFeature)} - \"{FeatureID}\"";
+		}
 
 		public static class Expand
 		{

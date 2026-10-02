@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PurchaseReceiptDetailAllocation : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
+
+		#endregion
 
 	}
 }

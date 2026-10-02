@@ -17,6 +17,32 @@ namespace Acumatica.Default_26_200_001.Model
 	public class SalesPricesInquiry : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
+		/// <para>Display Name: Price Type</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="PriceType", EmitDefaultValue=false)]
+		public StringValue? PriceType { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
+		/// <para>Display Name: Price Code</para>
+		/// <para>SQL Type: varchar(30)</para>
+		/// </summary>
+		[DataMember(Name="PriceCode", EmitDefaultValue=false)]
+		public StringValue? PriceCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaxCalcMode</para>
+		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
+		/// <para>Display Name: Tax Calculation Mode</para>
+		/// <para>SQL Type: nchar(1)</para>
+		/// </summary>
+		[DataMember(Name="TaxCalculationMode", EmitDefaultValue=false)]
+		public StringValue? TaxCalculationMode { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: EffectiveAsOfDate</para>
 		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
@@ -24,13 +50,6 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="EffectiveAsOf", EmitDefaultValue=false)]
 		public DateOnlyValue? EffectiveAsOf { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ItemClassCD</para>
@@ -42,6 +61,13 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? ItemClassID { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: InventoryPriceClassID</para>
 		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
 		/// <para>Display Name: Price Class</para>
@@ -49,14 +75,6 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="PriceClass", EmitDefaultValue=false)]
 		public StringValue? PriceClass { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
-		/// <para>Display Name: Price Code</para>
-		/// <para>SQL Type: varchar(30)</para>
-		/// </summary>
-		[DataMember(Name="PriceCode", EmitDefaultValue=false)]
-		public StringValue? PriceCode { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: OwnerID</para>
@@ -75,14 +93,6 @@ namespace Acumatica.Default_26_200_001.Model
 		public BooleanValue? PriceManagerIsMe { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
-		/// <para>Display Name: Price Type</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="PriceType", EmitDefaultValue=false)]
-		public StringValue? PriceType { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: WorkGroupID</para>
 		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
 		/// <para>Display Name: Price Workgroup</para>
@@ -98,17 +108,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="PriceWorkgroupIsMine", EmitDefaultValue=false)]
 		public BooleanValue? PriceWorkgroupIsMine { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="SalesPriceDetails", EmitDefaultValue=false)]
 		public List<SalesPriceDetail>? SalesPriceDetails { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: TaxCalcMode</para>
-		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
-		/// <para>Display Name: Tax Calculation Mode</para>
-		/// <para>SQL Type: nchar(1)</para>
-		/// </summary>
-		[DataMember(Name="TaxCalculationMode", EmitDefaultValue=false)]
-		public StringValue? TaxCalculationMode { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

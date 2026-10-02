@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class BatchOvertimeRulesDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="DayofWeek", EmitDefaultValue=false)]
 		public StringValue? DayofWeek { get; set; }
 
@@ -49,6 +50,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="UnionLocal", EmitDefaultValue=false)]
 		public StringValue? UnionLocal { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

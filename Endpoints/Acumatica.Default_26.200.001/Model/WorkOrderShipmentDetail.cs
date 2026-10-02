@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkOrderShipmentDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="InvtDocType", EmitDefaultValue=false)]
 		public StringValue? InvtDocType { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="ShippedQty", EmitDefaultValue=false)]
 		public DecimalValue? ShippedQty { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

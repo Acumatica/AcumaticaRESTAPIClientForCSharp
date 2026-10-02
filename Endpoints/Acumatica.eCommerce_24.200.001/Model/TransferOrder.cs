@@ -17,12 +17,15 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class TransferOrder : Acumatica.Default_24_200_001.Model.TransferOrder, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
 		/// </summary>
 		[DataMember(Name="Branch", EmitDefaultValue=false)]
 		public StringValue? Branch { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

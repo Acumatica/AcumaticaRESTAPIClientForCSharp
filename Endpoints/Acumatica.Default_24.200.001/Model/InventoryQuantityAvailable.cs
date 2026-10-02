@@ -17,14 +17,20 @@ namespace Acumatica.Default_24_200_001.Model
 	public class InventoryQuantityAvailable : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
 
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<InventoryQuantityAvailableDetail>? Results { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		#endregion
 
 		public static class Expand
 		{

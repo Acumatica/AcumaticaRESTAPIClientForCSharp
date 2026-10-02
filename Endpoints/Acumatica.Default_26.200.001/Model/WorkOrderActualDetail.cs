@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkOrderActualDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ActualCost", EmitDefaultValue=false)]
 		public DecimalValue? ActualCost { get; set; }
 
@@ -130,6 +131,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="WorkDate", EmitDefaultValue=false)]
 		public DateOnlyValue? WorkDate { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

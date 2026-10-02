@@ -17,9 +17,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class CriticalMaterials : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Detail", EmitDefaultValue=false)]
-		public List<CriticalMaterialDetail>? Detail { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.ProdItemFilter</para>
 		/// <para>Display Name: Order Type</para>
@@ -51,6 +49,14 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="ShowAllocated", EmitDefaultValue=false)]
 		public BooleanValue? ShowAllocated { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Detail", EmitDefaultValue=false)]
+		public List<CriticalMaterialDetail>? Detail { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -17,9 +17,7 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class BankStatement : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="BankTransactions", EmitDefaultValue=false)]
-		public List<CABankTran>? BankTransactions { get; set; }
-
+		#region Fields
 		[DataMember(Name="BeginningBalance", EmitDefaultValue=false)]
 		public DecimalValue? BeginningBalance { get; set; }
 
@@ -55,6 +53,14 @@ namespace Acumatica.eCommerce_24_200_001.Model
 
 		[DataMember(Name="ManualMatchingAllowed", EmitDefaultValue=false)]
 		public BooleanValue? ManualMatchingAllowed { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="BankTransactions", EmitDefaultValue=false)]
+		public List<CABankTran>? BankTransactions { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

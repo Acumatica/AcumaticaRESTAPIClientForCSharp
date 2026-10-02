@@ -14,13 +14,14 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class DisassemblyEntryAttribute : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: Label</para>
-		/// <para>DAC: PX.Objects.AM.AMDisassembleBatchAttribute</para>
-		/// <para>SQL Type: nvarchar(30)</para>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Attribute", EmitDefaultValue=false)]
-		public StringValue? Attribute { get; set; }
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMDisassembleBatchAttribute</para>
@@ -31,6 +32,14 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? AttributeID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: Label</para>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleBatchAttribute</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
+		[DataMember(Name="Attribute", EmitDefaultValue=false)]
+		public StringValue? Attribute { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.AM.AMDisassembleBatchAttribute</para>
 		/// <para>SQL Type: nvarchar(256)</para>
@@ -39,25 +48,11 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
-
-		[DataMember(Name="ProdAttributeLineNbr", EmitDefaultValue=false)]
-		public IntValue? ProdAttributeLineNbr { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: TransactionRequired</para>
 		/// <para>DAC: PX.Objects.AM.AMDisassembleBatchAttribute</para>
 		/// </summary>
 		[DataMember(Name="Required", EmitDefaultValue=false)]
 		public BooleanValue? Required { get; set; }
-
-		[DataMember(Name="TranLineNbr", EmitDefaultValue=false)]
-		public IntValue? TranLineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMDisassembleBatchAttribute</para>
@@ -65,6 +60,14 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		[DataMember(Name="ProdAttributeLineNbr", EmitDefaultValue=false)]
+		public IntValue? ProdAttributeLineNbr { get; set; }
+
+		[DataMember(Name="TranLineNbr", EmitDefaultValue=false)]
+		public IntValue? TranLineNbr { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

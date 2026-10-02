@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CABankTran : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AppliedRule", EmitDefaultValue=false)]
 		public IntValue? AppliedRule { get; set; }
 
@@ -97,6 +98,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TranID", EmitDefaultValue=false)]
 		public IntValue? TranID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

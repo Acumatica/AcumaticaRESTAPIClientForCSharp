@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SrvOrdAttributes : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: AttributeID</para>
 		/// <para>DAC: PX.Objects.CS.CSAnswers</para>
@@ -22,13 +23,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="Attribute", EmitDefaultValue=false)]
 		public StringValue? Attribute { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSSODetSplit</para>
-		/// <para>Display Name: Related Document</para>
-		/// </summary>
-		[DataMember(Name="RefNoteID", EmitDefaultValue=false)]
-		public GuidValue? RefNoteID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: isRequired</para>
@@ -43,6 +37,15 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSSODetSplit</para>
+		/// <para>Display Name: Related Document</para>
+		/// </summary>
+		[DataMember(Name="RefNoteID", EmitDefaultValue=false)]
+		public GuidValue? RefNoteID { get; set; }
+
+		#endregion
 
 	}
 }

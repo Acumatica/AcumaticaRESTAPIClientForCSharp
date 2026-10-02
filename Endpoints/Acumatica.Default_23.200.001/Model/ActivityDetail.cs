@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ActivityDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Billable", EmitDefaultValue=false)]
 		public BooleanValue? Billable { get; set; }
 
@@ -76,6 +77,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="WorkgroupID", EmitDefaultValue=false)]
 		public StringValue? WorkgroupID { get; set; }
+
+		#endregion
 
 	}
 }

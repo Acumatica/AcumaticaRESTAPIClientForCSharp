@@ -14,6 +14,36 @@ namespace Acumatica.Default_26_200_001.Model
 	public class KitAssemblyAllocation : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Location</para>
+		/// </summary>
+		[DataMember(Name="LocationID", EmitDefaultValue=false)]
+		public StringValue? LocationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Quantity</para>
+		/// </summary>
+		[DataMember(Name="Qty", EmitDefaultValue=false)]
+		public DecimalValue? Qty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INComponentTranSplit</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// </summary>
+		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
+		public StringValue? LotSerialNbr { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: ExpireDate</para>
 		/// <para>DAC: PX.Objects.IN.INComponentTranSplit</para>
@@ -25,37 +55,10 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
 		public IntValue? LineNbr { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
-		/// <para>Display Name: Location</para>
-		/// </summary>
-		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue? LocationID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INComponentTranSplit</para>
-		/// <para>Display Name: Lot/Serial Nbr.</para>
-		/// <para>SQL Type: nvarchar(100)</para>
-		/// </summary>
-		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue? LotSerialNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
-		/// <para>Display Name: Quantity</para>
-		/// </summary>
-		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue? Qty { get; set; }
-
 		[DataMember(Name="SplitLineNbr", EmitDefaultValue=false)]
 		public IntValue? SplitLineNbr { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

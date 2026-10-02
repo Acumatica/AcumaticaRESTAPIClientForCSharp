@@ -12,54 +12,21 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 {
 	/// <summary>
 	/// Corresponds to the screen <c>AM201000</c> in the Acumatica ERP
-	/// <para>Key Fields: MPSID, Type</para>
+	/// <para>Key Fields: Type, MPSID</para>
 	/// </summary>
 	[DataContract]
 	public class MasterProductionSchedule : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: ActiveFlg</para>
+		/// <para>DAC Field Name: MPSTypeID</para>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BOMID_description</para>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// </summary>
-		[DataMember(Name="BOMDescription", EmitDefaultValue=false)]
-		public StringValue? BOMDescription { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// <para>Display Name: BOM ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		[DataMember(Name="BOMID", EmitDefaultValue=false)]
-		public StringValue? BOMID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InventoryID_description</para>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
+		[DataMember(Name="Type", EmitDefaultValue=false)]
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
@@ -72,17 +39,10 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// <para>Display Name: Plan Date</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="PlanDate", EmitDefaultValue=false)]
-		public DateTimeValue? PlanDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Qty</para>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// </summary>
-		[DataMember(Name="Quantity", EmitDefaultValue=false)]
-		public DecimalValue? Quantity { get; set; }
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
@@ -92,13 +52,25 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MPSTypeID</para>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// Key Field
+		/// <para>Display Name: Plan Date</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue? Type { get; set; }
+		[DataMember(Name="PlanDate", EmitDefaultValue=false)]
+		public DateTimeValue? PlanDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		[DataMember(Name="Quantity", EmitDefaultValue=false)]
+		public DecimalValue? Quantity { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
@@ -108,11 +80,47 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>Display Name: BOM ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		[DataMember(Name="BOMID", EmitDefaultValue=false)]
+		public StringValue? BOMID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActiveFlg</para>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InventoryID_description</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BOMID_description</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		[DataMember(Name="BOMDescription", EmitDefaultValue=false)]
+		public StringValue? BOMDescription { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		[DataMember(Name="Branch", EmitDefaultValue=false)]
+		public StringValue? Branch { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MasterProductionSchedule)} - \"{Type}\" - \"{MPSID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -18,13 +18,16 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class Shift : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: AMCrewSize</para>
+		/// <para>DAC Field Name: ShiftCD</para>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
-		/// <para>Display Name: Crew Size</para>
+		/// <para>Display Name: Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
-		public DecimalValue? CrewSize { get; set; }
+		[DataMember(Name="shift", EmitDefaultValue=false)]
+		public StringValue? shift { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
@@ -42,22 +45,27 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? DiffType { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ShiftCD</para>
-		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
-		/// <para>Display Name: Code</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="shift", EmitDefaultValue=false)]
-		public StringValue? shift { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: ShftDiff</para>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
 		/// <para>Display Name: Shift Differential</para>
 		/// </summary>
 		[DataMember(Name="ShiftDiff", EmitDefaultValue=false)]
 		public DecimalValue? ShiftDiff { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AMCrewSize</para>
+		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>Display Name: Crew Size</para>
+		/// </summary>
+		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
+		public DecimalValue? CrewSize { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Shift)} - \"{shift}\"";
+		}
 
 		public static class Expand
 		{

@@ -14,6 +14,14 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ContactDuplicateDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: DuplicateContact__DisplayName</para>
+		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord</para>
+		/// </summary>
+		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
+		public StringValue? DisplayName { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: DuplicateContact__BAccountID</para>
 		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord</para>
@@ -22,35 +30,11 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? BusinessAccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: BAccountR__AcctName</para>
-		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking</para>
-		/// </summary>
-		[DataMember(Name="BusinessAccountName", EmitDefaultValue=false)]
-		public StringValue? BusinessAccountName { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: BAccountR__Type</para>
 		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord</para>
 		/// </summary>
 		[DataMember(Name="BusinessAccountType", EmitDefaultValue=false)]
 		public StringValue? BusinessAccountType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DuplicateContact__DisplayName</para>
-		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord</para>
-		/// </summary>
-		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
-		public StringValue? DisplayName { get; set; }
-
-		[DataMember(Name="Duplicate", EmitDefaultValue=false)]
-		public StringValue? Duplicate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DuplicateContact__Email</para>
-		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking</para>
-		/// </summary>
-		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue? Email { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: DuplicateContact__LastModifiedDateTime</para>
@@ -65,6 +49,25 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DuplicateContact__Email</para>
+		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking</para>
+		/// </summary>
+		[DataMember(Name="Email", EmitDefaultValue=false)]
+		public StringValue? Email { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BAccountR__AcctName</para>
+		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking</para>
+		/// </summary>
+		[DataMember(Name="BusinessAccountName", EmitDefaultValue=false)]
+		public StringValue? BusinessAccountName { get; set; }
+
+		[DataMember(Name="Duplicate", EmitDefaultValue=false)]
+		public StringValue? Duplicate { get; set; }
+
+		#endregion
 
 	}
 }

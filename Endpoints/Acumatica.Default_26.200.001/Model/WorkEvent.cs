@@ -17,9 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkEvent : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Address", EmitDefaultValue=false)]
-		public EventAddress? Address { get; set; }
-
+		#region Fields
 		[DataMember(Name="Confirmed", EmitDefaultValue=false)]
 		public BooleanValue? Confirmed { get; set; }
 
@@ -31,9 +29,6 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
-
-		[DataMember(Name="Labor", EmitDefaultValue=false)]
-		public List<WorkEventLaborDetail>? Labor { get; set; }
 
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
@@ -65,11 +60,25 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Summary", EmitDefaultValue=false)]
 		public StringValue? Summary { get; set; }
 
+		[DataMember(Name="TicketNbr", EmitDefaultValue=false)]
+		public StringValue? TicketNbr { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="Address", EmitDefaultValue=false)]
+		public EventAddress? Address { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Labor", EmitDefaultValue=false)]
+		public List<WorkEventLaborDetail>? Labor { get; set; }
+
 		[DataMember(Name="Tasks", EmitDefaultValue=false)]
 		public List<WorkEventTaskDetail>? Tasks { get; set; }
 
-		[DataMember(Name="TicketNbr", EmitDefaultValue=false)]
-		public StringValue? TicketNbr { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

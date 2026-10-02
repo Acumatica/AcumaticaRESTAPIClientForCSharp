@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EngineeringChangeOrderTool : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ChangeStatus", EmitDefaultValue=false)]
 		public StringValue? ChangeStatus { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
+
+		#endregion
 
 	}
 }

@@ -18,6 +18,15 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 	public class ScanJobs : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanJob</para>
+		/// <para>Display Name: Job ID</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ScanJobID", EmitDefaultValue=false)]
+		public IntValue? ScanJobID { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: DeviceHubID</para>
 		/// <para>DAC: PX.SM.SMScanJob</para>
@@ -26,26 +35,6 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 		/// </summary>
 		[DataMember(Name="DeviceHub", EmitDefaultValue=false)]
 		public StringValue? DeviceHub { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Error</para>
-		/// <para>DAC: PX.SM.SMScanJob</para>
-		/// <para>Display Name: Error</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="ErrorMessage", EmitDefaultValue=false)]
-		public StringValue? ErrorMessage { get; set; }
-
-		[DataMember(Name="ErrorTrace", EmitDefaultValue=false)]
-		public StringValue? ErrorTrace { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanJob</para>
-		/// <para>Display Name: Job ID</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ScanJobID", EmitDefaultValue=false)]
-		public IntValue? ScanJobID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ScannerName</para>
@@ -62,6 +51,25 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Error</para>
+		/// <para>DAC: PX.SM.SMScanJob</para>
+		/// <para>Display Name: Error</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		[DataMember(Name="ErrorMessage", EmitDefaultValue=false)]
+		public StringValue? ErrorMessage { get; set; }
+
+		[DataMember(Name="ErrorTrace", EmitDefaultValue=false)]
+		public StringValue? ErrorTrace { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ScanJobs)} - \"{ScanJobID}\"";
+		}
 
 		public static class Expand
 		{

@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class OrderDateOperationDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
 
@@ -31,6 +32,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="ProductionNbr", EmitDefaultValue=false)]
 		public StringValue? ProductionNbr { get; set; }
+
+		#endregion
 
 	}
 }

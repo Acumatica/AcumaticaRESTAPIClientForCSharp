@@ -14,6 +14,24 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeeClassPTOBankDefault : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: EmployeeClassID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
+		/// <para>Display Name: Payroll Class ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="EmployeeClass", EmitDefaultValue=false)]
+		public StringValue? EmployeeClass { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
+		/// <para>Display Name: Working Hours per Year</para>
+		/// </summary>
+		[DataMember(Name="HoursPerYear", EmitDefaultValue=false)]
+		public DecimalValue? HoursPerYear { get; set; }
+
 		[DataMember(Name="AccrualLimit", EmitDefaultValue=false)]
 		public DecimalValue? AccrualLimit { get; set; }
 
@@ -41,31 +59,16 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
 		public DateTimeValue? EffectiveDate { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: EmployeeClassID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
-		/// <para>Display Name: Payroll Class ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="EmployeeClass", EmitDefaultValue=false)]
-		public StringValue? EmployeeClass { get; set; }
-
 		[DataMember(Name="FrontLoadingAmount", EmitDefaultValue=false)]
 		public DecimalValue? FrontLoadingAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
-		/// <para>Display Name: Working Hours per Year</para>
-		/// </summary>
-		[DataMember(Name="HoursPerYear", EmitDefaultValue=false)]
-		public DecimalValue? HoursPerYear { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		[DataMember(Name="PTOBank", EmitDefaultValue=false)]
 		public StringValue? PTOBank { get; set; }
+
+		#endregion
 
 	}
 }

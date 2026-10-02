@@ -17,13 +17,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class InventorySummaryInquiry : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
-		/// <para>Display Name: Expand by Lot/Serial Numbers</para>
-		/// </summary>
-		[DataMember(Name="ExpandByLotSerialNbr", EmitDefaultValue=false)]
-		public BooleanValue? ExpandByLotSerialNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
 		/// <para>Display Name: Inventory ID</para>
@@ -33,13 +27,10 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
-		/// <para>Display Name: Location</para>
+		/// <para>Display Name: Expand by Lot/Serial Numbers</para>
 		/// </summary>
-		[DataMember(Name="LocationID", EmitDefaultValue=false)]
-		public StringValue? LocationID { get; set; }
-
-		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<InventorySummaryRow>? Results { get; set; }
+		[DataMember(Name="ExpandByLotSerialNbr", EmitDefaultValue=false)]
+		public BooleanValue? ExpandByLotSerialNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemCD</para>
@@ -56,6 +47,21 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
 		public StringValue? WarehouseID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.InventorySummaryEnqFilter</para>
+		/// <para>Display Name: Location</para>
+		/// </summary>
+		[DataMember(Name="LocationID", EmitDefaultValue=false)]
+		public StringValue? LocationID { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Results", EmitDefaultValue=false)]
+		public List<InventorySummaryRow>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class TimeActivity : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Approver", EmitDefaultValue=false)]
 		public StringValue? Approver { get; set; }
 
@@ -55,6 +56,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="TrackTime", EmitDefaultValue=false)]
 		public BooleanValue? TrackTime { get; set; }
+
+		#endregion
 
 	}
 }

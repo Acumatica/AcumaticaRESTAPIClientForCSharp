@@ -18,11 +18,16 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkCalendar : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="CalendarExceptions", EmitDefaultValue=false)]
-		public List<WorkCalendarExceptionDetail>? CalendarExceptions { get; set; }
-
-		[DataMember(Name="CalendarSettings", EmitDefaultValue=false)]
-		public CalendarSettings? CalendarSettings { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: CalendarID</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Calendar ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]
+		public StringValue? WorkCalendarID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
@@ -39,15 +44,24 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="TimeZone", EmitDefaultValue=false)]
 		public StringValue? TimeZone { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: CalendarID</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Calendar ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="WorkCalendarID", EmitDefaultValue=false)]
-		public StringValue? WorkCalendarID { get; set; }
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="CalendarSettings", EmitDefaultValue=false)]
+		public CalendarSettings? CalendarSettings { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="CalendarExceptions", EmitDefaultValue=false)]
+		public List<WorkCalendarExceptionDetail>? CalendarExceptions { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(WorkCalendar)} - \"{WorkCalendarID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

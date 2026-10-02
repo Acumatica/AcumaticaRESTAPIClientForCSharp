@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class NonStockItemSalesCategory : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
 		/// <para>Display Name: Category</para>
@@ -21,6 +22,8 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
 		public IntValue? CategoryID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

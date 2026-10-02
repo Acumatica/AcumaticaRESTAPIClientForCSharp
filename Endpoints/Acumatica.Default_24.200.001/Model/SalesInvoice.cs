@@ -12,166 +12,22 @@ namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
 	/// Corresponds to the screen <c>SO303000</c> in the Acumatica ERP
-	/// <para>Key Fields: ReferenceNbr, Type</para>
+	/// <para>Key Fields: Type, ReferenceNbr</para>
 	/// </summary>
 	[DataContract]
 	public class SalesInvoice : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The amount of the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryOrigDocAmt</para>
+		/// The type of the document.This field is a part of the compound key of the document.
+		/// <para>DAC Field Name: DocType</para>
 		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>SQL Type: char(3)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue? Amount { get; set; }
-
-		[DataMember(Name="ApplicationsCreditMemo", EmitDefaultValue=false)]
-		public List<SalesInvoiceApplicationCreditMemo>? ApplicationsCreditMemo { get; set; }
-
-		[DataMember(Name="ApplicationsInvoice", EmitDefaultValue=false)]
-		public List<SalesInvoiceApplicationInvoice>? ApplicationsInvoice { get; set; }
-
-		/// <summary>
-		/// The open balance of the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryDocBal</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// </summary>
-		[DataMember(Name="Balance", EmitDefaultValue=false)]
-		public DecimalValue? Balance { get; set; }
-
-		[DataMember(Name="BillingSettings", EmitDefaultValue=false)]
-		public BillToSettings? BillingSettings { get; set; }
-
-		/// <summary>
-		/// The cash discount entered for the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryOrigDiscAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Cash Discount</para>
-		/// </summary>
-		[DataMember(Name="CashDiscount", EmitDefaultValue=false)]
-		public DecimalValue? CashDiscount { get; set; }
-
-		[DataMember(Name="Commissions", EmitDefaultValue=false)]
-		public SalesInvoiceCommissions? Commissions { get; set; }
-
-		[DataMember(Name="CreditHold", EmitDefaultValue=false)]
-		public BooleanValue? CreditHold { get; set; }
-
-		/// <summary>
-		/// The code of the Currency of the document.
-		/// <para>DAC Field Name: CuryID</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		[DataMember(Name="Currency", EmitDefaultValue=false)]
-		public StringValue? Currency { get; set; }
-
-		/// <summary>
-		/// The identifier of the Customer record associated with the document.
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Customer</para>
-		/// </summary>
-		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
-		public StringValue? CustomerID { get; set; }
-
-		/// <summary>
-		/// The original reference number or ID assigned by the customer to the customer document.
-		/// <para>DAC Field Name: InvoiceNbr</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Customer Order Nbr.</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
-		public StringValue? CustomerOrder { get; set; }
-
-		/// <summary>
-		/// The date of the document.
-		/// <para>DAC Field Name: DocDate</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// </summary>
-		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// The description of the document.
-		/// <para>DAC Field Name: DocDesc</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>SQL Type: nvarchar(512)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<SalesInvoiceDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryLineTotal</para>
-		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
-		/// <para>Display Name: Line Total</para>
-		/// </summary>
-		[DataMember(Name="DetailTotal", EmitDefaultValue=false)]
-		public DecimalValue? DetailTotal { get; set; }
-
-		[DataMember(Name="DiscountDetails", EmitDefaultValue=false)]
-		public List<SalesInvoiceDiscountDetails>? DiscountDetails { get; set; }
-
-		/// <summary>
-		/// The group and document discount total for the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryDiscTot</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Group and Document Discount Total</para>
-		/// </summary>
-		[DataMember(Name="DiscountTotal", EmitDefaultValue=false)]
-		public DecimalValue? DiscountTotal { get; set; }
-
-		/// <summary>
-		/// The due date of the document.
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Due Date</para>
-		/// </summary>
-		[DataMember(Name="DueDate", EmitDefaultValue=false)]
-		public DateTimeValue? DueDate { get; set; }
-
-		[DataMember(Name="IsTaxValid", EmitDefaultValue=false)]
-		public BooleanValue? IsTaxValid { get; set; }
-
-		[DataMember(Name="FinancialDetails", EmitDefaultValue=false)]
-		public SalesInvoiceFinancialDetails? FinancialDetails { get; set; }
-
-		[DataMember(Name="FreightDetails", EmitDefaultValue=false)]
-		public List<SalesInvoiceFreightDetail>? FreightDetails { get; set; }
-
-		/// <summary>
-		/// The amount of freight associated with the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryFreightAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Freight Price</para>
-		/// </summary>
-		[DataMember(Name="FreightPrice", EmitDefaultValue=false)]
-		public DecimalValue? FreightPrice { get; set; }
-
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue? Hold { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryPaymentTotal</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Total Paid</para>
-		/// </summary>
-		[DataMember(Name="PaymentTotal", EmitDefaultValue=false)]
-		public DecimalValue? PaymentTotal { get; set; }
-
-		/// <summary>
-		/// The identifier of the project associated with the documentor the non-project code, which indicates that the document is not related to any particular project.
-		/// <para>DAC Field Name: ProjectID</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// </summary>
-		[DataMember(Name="Project", EmitDefaultValue=false)]
-		public StringValue? Project { get; set; }
+		[DataMember(Name="Type", EmitDefaultValue=false)]
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// The reference number of the document.This field is a part of the compound key of the document.
@@ -191,8 +47,74 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
-		public List<SalesInvoiceTaxDetail>? TaxDetails { get; set; }
+		/// <summary>
+		/// The date of the document.
+		/// <para>DAC Field Name: DocDate</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// </summary>
+		[DataMember(Name="Date", EmitDefaultValue=false)]
+		public DateTimeValue? Date { get; set; }
+
+		/// <summary>
+		/// The original reference number or ID assigned by the customer to the customer document.
+		/// <para>DAC Field Name: InvoiceNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Customer Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
+		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
+		public StringValue? CustomerOrder { get; set; }
+
+		/// <summary>
+		/// The identifier of the project associated with the documentor the non-project code, which indicates that the document is not related to any particular project.
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// </summary>
+		[DataMember(Name="Project", EmitDefaultValue=false)]
+		public StringValue? Project { get; set; }
+
+		/// <summary>
+		/// The description of the document.
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>SQL Type: nvarchar(512)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// The identifier of the Customer record associated with the document.
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Customer</para>
+		/// </summary>
+		[DataMember(Name="CustomerID", EmitDefaultValue=false)]
+		public StringValue? CustomerID { get; set; }
+
+		/// <summary>
+		/// The code of the Currency of the document.
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		[DataMember(Name="Currency", EmitDefaultValue=false)]
+		public StringValue? Currency { get; set; }
+
+		/// <summary>
+		/// The due date of the document.
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Due Date</para>
+		/// </summary>
+		[DataMember(Name="DueDate", EmitDefaultValue=false)]
+		public DateTimeValue? DueDate { get; set; }
+
+		/// <summary>
+		/// The group and document discount total for the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryDiscTot</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Group and Document Discount Total</para>
+		/// </summary>
+		[DataMember(Name="DiscountTotal", EmitDefaultValue=false)]
+		public DecimalValue? DiscountTotal { get; set; }
 
 		/// <summary>
 		/// The total amount of tax associated with the document.Given in the currency of the document.
@@ -204,14 +126,46 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? TaxTotal { get; set; }
 
 		/// <summary>
-		/// The type of the document.This field is a part of the compound key of the document.
-		/// <para>DAC Field Name: DocType</para>
+		/// The amount of the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryOrigDocAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>SQL Type: char(3)</para>
-		/// Key Field
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue? Type { get; set; }
+		[DataMember(Name="Amount", EmitDefaultValue=false)]
+		public DecimalValue? Amount { get; set; }
+
+		/// <summary>
+		/// The open balance of the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryDocBal</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// </summary>
+		[DataMember(Name="Balance", EmitDefaultValue=false)]
+		public DecimalValue? Balance { get; set; }
+
+		/// <summary>
+		/// The cash discount entered for the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryOrigDiscAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Cash Discount</para>
+		/// </summary>
+		[DataMember(Name="CashDiscount", EmitDefaultValue=false)]
+		public DecimalValue? CashDiscount { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Tax Calculation Mode</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="TaxCalcMode", EmitDefaultValue=false)]
+		public StringValue? TaxCalcMode { get; set; }
+
+		/// <summary>
+		/// The portion of the document total that is subjected to VAT.Given in the currency of the document.This field is relevant only if the VAT Reporting feature is enabled.
+		/// <para>DAC Field Name: CuryVatTaxableTotal</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Taxable Total</para>
+		/// </summary>
+		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
+		public DecimalValue? VATTaxableTotal { get; set; }
 
 		/// <summary>
 		/// The portion of the document total that is exempt from VAT.Given in the currency of the document.This field is relevant only if the VAT Reporting feature is enabled.
@@ -223,43 +177,21 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? VATExemptTotal { get; set; }
 
 		/// <summary>
-		/// The portion of the document total that is subjected to VAT.Given in the currency of the document.This field is relevant only if the VAT Reporting feature is enabled.
-		/// <para>DAC Field Name: CuryVatTaxableTotal</para>
+		/// The amount of freight associated with the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryFreightAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Taxable Total</para>
+		/// <para>Display Name: Freight Price</para>
 		/// </summary>
-		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
-		public DecimalValue? VATTaxableTotal { get; set; }
-
-		[DataMember(Name="BillToAddress", EmitDefaultValue=false)]
-		public SalesInvoiceAddress? BillToAddress { get; set; }
-
-		[DataMember(Name="BillToAddressOverride", EmitDefaultValue=false)]
-		public BooleanValue? BillToAddressOverride { get; set; }
-
-		[DataMember(Name="BillToContact", EmitDefaultValue=false)]
-		public SalesInvoiceDocContact? BillToContact { get; set; }
-
-		[DataMember(Name="BillToContactOverride", EmitDefaultValue=false)]
-		public BooleanValue? BillToContactOverride { get; set; }
+		[DataMember(Name="FreightPrice", EmitDefaultValue=false)]
+		public DecimalValue? FreightPrice { get; set; }
 
 		/// <summary>
-		/// The date and time when the record was created.
-		/// <para>DAC Field Name: CreatedDateTime</para>
-		/// <para>DAC: PX.Objects.EP.EPApproval</para>
-		/// <para>Display Name: Assignment Date</para>
+		/// <para>DAC Field Name: CuryPaymentTotal</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Total Paid</para>
 		/// </summary>
-		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDate { get; set; }
-
-		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
-		public StringValue? ExternalRef { get; set; }
-
-		[DataMember(Name="LastModifiedDate", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDate { get; set; }
-
-		[DataMember(Name="ShipToAddress", EmitDefaultValue=false)]
-		public SalesInvoiceAddress? ShipToAddress { get; set; }
+		[DataMember(Name="PaymentTotal", EmitDefaultValue=false)]
+		public DecimalValue? PaymentTotal { get; set; }
 
 		/// <summary>
 		/// If set to <c>true</c>, indicates that the addressoverrides the default Address record, which isreferenced by CustomerAddressID. This field is the inverse of IsDefaultBillAddress.
@@ -269,9 +201,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="ShipToAddressOverride", EmitDefaultValue=false)]
 		public BooleanValue? ShipToAddressOverride { get; set; }
-
-		[DataMember(Name="ShipToContact", EmitDefaultValue=false)]
-		public SalesInvoiceDocContact? ShipToContact { get; set; }
 
 		/// <summary>
 		/// If set to <c>true</c>, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
@@ -283,12 +212,97 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? ShipToContactOverride { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Tax Calculation Mode</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>DAC Field Name: CuryLineTotal</para>
+		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
+		/// <para>Display Name: Line Total</para>
 		/// </summary>
-		[DataMember(Name="TaxCalcMode", EmitDefaultValue=false)]
-		public StringValue? TaxCalcMode { get; set; }
+		[DataMember(Name="DetailTotal", EmitDefaultValue=false)]
+		public DecimalValue? DetailTotal { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was created.
+		/// <para>DAC Field Name: CreatedDateTime</para>
+		/// <para>DAC: PX.Objects.EP.EPApproval</para>
+		/// <para>Display Name: Assignment Date</para>
+		/// </summary>
+		[DataMember(Name="CreatedDate", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDate { get; set; }
+
+		[DataMember(Name="CreditHold", EmitDefaultValue=false)]
+		public BooleanValue? CreditHold { get; set; }
+
+		[DataMember(Name="IsTaxValid", EmitDefaultValue=false)]
+		public BooleanValue? IsTaxValid { get; set; }
+
+		[DataMember(Name="Hold", EmitDefaultValue=false)]
+		public BooleanValue? Hold { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		[DataMember(Name="BillToAddressOverride", EmitDefaultValue=false)]
+		public BooleanValue? BillToAddressOverride { get; set; }
+
+		[DataMember(Name="BillToContactOverride", EmitDefaultValue=false)]
+		public BooleanValue? BillToContactOverride { get; set; }
+
+		[DataMember(Name="ExternalRef", EmitDefaultValue=false)]
+		public StringValue? ExternalRef { get; set; }
+
+		[DataMember(Name="LastModifiedDate", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDate { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="BillingSettings", EmitDefaultValue=false)]
+		public BillToSettings? BillingSettings { get; set; }
+
+		[DataMember(Name="Commissions", EmitDefaultValue=false)]
+		public SalesInvoiceCommissions? Commissions { get; set; }
+
+		[DataMember(Name="FinancialDetails", EmitDefaultValue=false)]
+		public SalesInvoiceFinancialDetails? FinancialDetails { get; set; }
+
+		[DataMember(Name="BillToAddress", EmitDefaultValue=false)]
+		public SalesInvoiceAddress? BillToAddress { get; set; }
+
+		[DataMember(Name="BillToContact", EmitDefaultValue=false)]
+		public SalesInvoiceDocContact? BillToContact { get; set; }
+
+		[DataMember(Name="ShipToAddress", EmitDefaultValue=false)]
+		public SalesInvoiceAddress? ShipToAddress { get; set; }
+
+		[DataMember(Name="ShipToContact", EmitDefaultValue=false)]
+		public SalesInvoiceDocContact? ShipToContact { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="ApplicationsCreditMemo", EmitDefaultValue=false)]
+		public List<SalesInvoiceApplicationCreditMemo>? ApplicationsCreditMemo { get; set; }
+
+		[DataMember(Name="ApplicationsInvoice", EmitDefaultValue=false)]
+		public List<SalesInvoiceApplicationInvoice>? ApplicationsInvoice { get; set; }
+
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<SalesInvoiceDetail>? Details { get; set; }
+
+		[DataMember(Name="DiscountDetails", EmitDefaultValue=false)]
+		public List<SalesInvoiceDiscountDetails>? DiscountDetails { get; set; }
+
+		[DataMember(Name="FreightDetails", EmitDefaultValue=false)]
+		public List<SalesInvoiceFreightDetail>? FreightDetails { get; set; }
+
+		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
+		public List<SalesInvoiceTaxDetail>? TaxDetails { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(SalesInvoice)} - \"{Type}\" - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

@@ -17,37 +17,13 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class CostRoll : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: ApplyPend</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
 		[DataMember(Name="ApplytoPendingCosts", EmitDefaultValue=false)]
 		public BooleanValue? ApplytoPendingCosts { get; set; }
-
-		/// <summary>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		[DataMember(Name="BOMID", EmitDefaultValue=false)]
-		public StringValue? BOMID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue? EffectiveDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		[DataMember(Name="IgnoreMinMaxLotSizeValues", EmitDefaultValue=false)]
-		public BooleanValue? IgnoreMinMaxLotSizeValues { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IncFixed</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		[DataMember(Name="IncludeFixedCosts", EmitDefaultValue=false)]
-		public BooleanValue? IncludeFixedCosts { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: IncMatScrp</para>
@@ -57,10 +33,11 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public BooleanValue? IncludeMaterialScrapFactors { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SnglMlti</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
+		[DataMember(Name="Level", EmitDefaultValue=false)]
+		public StringValue? Level { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ItemClassID</para>
@@ -70,14 +47,30 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SnglMlti</para>
+		/// <para>DAC Field Name: SiteId</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="Level", EmitDefaultValue=false)]
-		public StringValue? Level { get; set; }
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
 
-		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<CostRollResult>? Results { get; set; }
+		/// <summary>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		[DataMember(Name="BOMID", EmitDefaultValue=false)]
+		public StringValue? BOMID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: RevisionID</para>
@@ -87,11 +80,17 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
+		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
+		public DateTimeValue? EffectiveDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IncFixed</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		[DataMember(Name="IncludeFixedCosts", EmitDefaultValue=false)]
+		public BooleanValue? IncludeFixedCosts { get; set; }
 
 		/// <summary>
 		/// <para>DAC: {}</para>
@@ -107,11 +106,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public BooleanValue? UsePendingStandardCostforPurchaseItems { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteId</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		[DataMember(Name="IgnoreMinMaxLotSizeValues", EmitDefaultValue=false)]
+		public BooleanValue? IgnoreMinMaxLotSizeValues { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Results", EmitDefaultValue=false)]
+		public List<CostRollResult>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

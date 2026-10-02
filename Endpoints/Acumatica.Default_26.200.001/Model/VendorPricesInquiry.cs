@@ -17,12 +17,13 @@ namespace Acumatica.Default_26_200_001.Model
 	public class VendorPricesInquiry : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
+		/// <para>DAC Field Name: VendorID</para>
 		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
-		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
+		[DataMember(Name="Vendor", EmitDefaultValue=false)]
+		public StringValue? Vendor { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ItemClassCD</para>
@@ -32,6 +33,13 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: OwnerID</para>
@@ -49,15 +57,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="ProductWorkgroup", EmitDefaultValue=false)]
 		public StringValue? ProductWorkgroup { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: VendorID</para>
-		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
-		/// </summary>
-		[DataMember(Name="Vendor", EmitDefaultValue=false)]
-		public StringValue? Vendor { get; set; }
+		#endregion
 
+		#region Details
 		[DataMember(Name="VendorPriceDetails", EmitDefaultValue=false)]
 		public List<VendorPriceDetail>? VendorPriceDetails { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

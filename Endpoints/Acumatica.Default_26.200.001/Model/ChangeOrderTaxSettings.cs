@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ChangeOrderTaxSettings : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="TaxCalculationMode", EmitDefaultValue=false)]
 		public StringValue? TaxCalculationMode { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
 		public StringValue? TaxZone { get; set; }
+
+		#endregion
 
 	}
 }

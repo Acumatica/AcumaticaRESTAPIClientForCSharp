@@ -17,14 +17,13 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class WorkCenterCrewSchedule : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<WorkCenterCrewScheduleDetail>? Details { get; set; }
-
+		#region Fields
 		/// <summary>
+		/// <para>DAC Field Name: WcID</para>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
 		/// </summary>
-		[DataMember(Name="FromDate", EmitDefaultValue=false)]
-		public DateTimeValue? FromDate { get; set; }
+		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
+		public StringValue? WorkCenter { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ShiftCD</para>
@@ -36,8 +35,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
 		/// </summary>
-		[DataMember(Name="ShowAll", EmitDefaultValue=false)]
-		public BooleanValue? ShowAll { get; set; }
+		[DataMember(Name="FromDate", EmitDefaultValue=false)]
+		public DateTimeValue? FromDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
@@ -46,11 +45,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DateTimeValue? ToDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: WcID</para>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
 		/// </summary>
-		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
-		public StringValue? WorkCenter { get; set; }
+		[DataMember(Name="ShowAll", EmitDefaultValue=false)]
+		public BooleanValue? ShowAll { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<WorkCenterCrewScheduleDetail>? Details { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

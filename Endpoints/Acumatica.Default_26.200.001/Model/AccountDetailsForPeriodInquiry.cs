@@ -17,6 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class AccountDetailsForPeriodInquiry : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
@@ -26,17 +27,14 @@ namespace Acumatica.Default_26_200_001.Model
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
-		[DataMember(Name="Ledger", EmitDefaultValue=false)]
-		public StringValue? Ledger { get; set; }
-
-		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<AccountDetailsForPeriodInquiryDetail>? Results { get; set; }
+		[DataMember(Name="ToPeriod", EmitDefaultValue=false)]
+		public StringValue? ToPeriod { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
-		[DataMember(Name="ToPeriod", EmitDefaultValue=false)]
-		public StringValue? ToPeriod { get; set; }
+		[DataMember(Name="Ledger", EmitDefaultValue=false)]
+		public StringValue? Ledger { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
@@ -49,6 +47,14 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="IncludeUnreleased", EmitDefaultValue=false)]
 		public BooleanValue? IncludeUnreleased { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Results", EmitDefaultValue=false)]
+		public List<AccountDetailsForPeriodInquiryDetail>? Results { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

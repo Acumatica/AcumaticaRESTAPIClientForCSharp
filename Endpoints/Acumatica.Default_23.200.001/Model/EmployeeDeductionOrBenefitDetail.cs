@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeeDeductionOrBenefitDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -50,9 +51,6 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateTimeValue? EndDate { get; set; }
 
-		[DataMember(Name="GarnishmentDetails", EmitDefaultValue=false)]
-		public GarnishmentDetails? GarnishmentDetails { get; set; }
-
 		[DataMember(Name="IsGarnish", EmitDefaultValue=false)]
 		public BooleanValue? IsGarnish { get; set; }
 
@@ -70,6 +68,14 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="UseDeductionDefaults", EmitDefaultValue=false)]
 		public BooleanValue? UseDeductionDefaults { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="GarnishmentDetails", EmitDefaultValue=false)]
+		public GarnishmentDetails? GarnishmentDetails { get; set; }
+
+		#endregion
 
 	}
 }

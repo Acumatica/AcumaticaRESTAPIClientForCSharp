@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ItemClassAtrribute : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
 		/// <para>Display Name: Attribute ID</para>
@@ -25,16 +26,18 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
-		/// </summary>
-		[DataMember(Name="Required", EmitDefaultValue=false)]
-		public BooleanValue? Required { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
 		/// <para>Display Name: Sort Order</para>
 		/// </summary>
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public ShortValue? SortOrder { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
+		/// </summary>
+		[DataMember(Name="Required", EmitDefaultValue=false)]
+		public BooleanValue? Required { get; set; }
+
+		#endregion
 
 	}
 }

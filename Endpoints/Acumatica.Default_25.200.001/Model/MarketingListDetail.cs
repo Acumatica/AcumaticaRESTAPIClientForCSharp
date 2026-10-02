@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class MarketingListDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public IntValue? ContactID { get; set; }
 
@@ -31,6 +32,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="Subscribed", EmitDefaultValue=false)]
 		public BooleanValue? Subscribed { get; set; }
+
+		#endregion
 
 	}
 }

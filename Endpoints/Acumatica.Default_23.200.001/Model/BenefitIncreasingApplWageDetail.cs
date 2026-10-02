@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class BenefitIncreasingApplWageDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="BenefitCode", EmitDefaultValue=false)]
 		public StringValue? BenefitCode { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

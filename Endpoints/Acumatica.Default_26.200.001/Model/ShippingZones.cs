@@ -18,13 +18,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ShippingZones : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.ShippingZone</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.ShippingZone</para>
 		/// <para>Display Name: Zone ID</para>
@@ -33,6 +27,20 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="ZoneID", EmitDefaultValue=false)]
 		public StringValue? ZoneID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.ShippingZone</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ShippingZones)} - \"{ZoneID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

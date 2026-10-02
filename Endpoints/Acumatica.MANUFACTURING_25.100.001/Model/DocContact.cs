@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class DocContact : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Attention", EmitDefaultValue=false)]
 		public StringValue? Attention { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="Phone1", EmitDefaultValue=false)]
 		public StringValue? Phone1 { get; set; }
+
+		#endregion
 
 	}
 }

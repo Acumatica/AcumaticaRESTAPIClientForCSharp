@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesInvoiceFinancialDetails : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The number of the Batch created from the document on release.
 		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
@@ -40,6 +41,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
 		public StringValue? CustomerTaxZone { get; set; }
+
+		#endregion
 
 	}
 }

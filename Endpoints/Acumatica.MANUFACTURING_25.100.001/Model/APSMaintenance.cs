@@ -17,6 +17,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class APSMaintenance : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: IsWorkCenterCalendarProcess</para>
+		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceFilter</para>
+		/// </summary>
+		[DataMember(Name="UpdateWorkCenterSchedulefromCalendar", EmitDefaultValue=false)]
+		public BooleanValue? UpdateWorkCenterSchedulefromCalendar { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: IsHistoryCleanupProcess</para>
 		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceFilter</para>
@@ -24,15 +32,13 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		[DataMember(Name="CleanupHistory", EmitDefaultValue=false)]
 		public BooleanValue? CleanupHistory { get; set; }
 
+		#endregion
+
+		#region LinkedEntities
 		[DataMember(Name="History", EmitDefaultValue=false)]
 		public APSMaintenanceHistory? History { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: IsWorkCenterCalendarProcess</para>
-		/// <para>DAC: PX.Objects.AM.AMAPSMaintenanceFilter</para>
-		/// </summary>
-		[DataMember(Name="UpdateWorkCenterSchedulefromCalendar", EmitDefaultValue=false)]
-		public BooleanValue? UpdateWorkCenterSchedulefromCalendar { get; set; }
+		#endregion
 
 		public static class Expand
 		{

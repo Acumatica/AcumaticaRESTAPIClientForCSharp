@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class MFGDepartmentDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -49,6 +50,8 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 
 		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
 		public StringValue? WorkCenter { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

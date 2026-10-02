@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkEventTaskDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="EstimatedDuration", EmitDefaultValue=false)]
 		public IntValue? EstimatedDuration { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TaskType", EmitDefaultValue=false)]
 		public StringValue? TaskType { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

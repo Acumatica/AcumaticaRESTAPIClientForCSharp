@@ -14,11 +14,14 @@ namespace Acumatica.Default_26_200_001.Model
 	public class DeductionOrBenefitTaxDetailCA : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="TaxCode", EmitDefaultValue=false)]
 		public StringValue? TaxCode { get; set; }
 
 		[DataMember(Name="TaxName", EmitDefaultValue=false)]
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

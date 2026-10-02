@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ProductionOrderOperationTotal : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ActualFixedOverhead", EmitDefaultValue=false)]
 		public DecimalValue? ActualFixedOverhead { get; set; }
 
@@ -115,6 +116,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		[DataMember(Name="WIPTotal", EmitDefaultValue=false)]
 		public DecimalValue? WIPTotal { get; set; }
+
+		#endregion
 
 	}
 }

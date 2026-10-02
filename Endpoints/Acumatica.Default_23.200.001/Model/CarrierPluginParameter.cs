@@ -14,14 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class CarrierPluginParameter : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.CS.CarrierPluginDetail</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: DetailID</para>
 		/// <para>DAC: PX.Objects.CS.CarrierPluginDetail</para>
@@ -33,11 +26,21 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? PluginID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPluginDetail</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CarrierPluginDetail</para>
 		/// <para>SQL Type: nvarchar(1024)</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,14 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class EarningCodeProjectSettings : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: IsBillable</para>
-		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
-		/// <para>Display Name: Billable</para>
-		/// </summary>
-		[DataMember(Name="BillableProject", EmitDefaultValue=false)]
-		public BooleanValue? BillableProject { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
@@ -31,12 +24,22 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? DefaultProjectCode { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: IsBillable</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Billable</para>
+		/// </summary>
+		[DataMember(Name="BillableProject", EmitDefaultValue=false)]
+		public BooleanValue? BillableProject { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: TaskID</para>
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
 		/// <para>Display Name: Default Project Task</para>
 		/// </summary>
 		[DataMember(Name="DefaultProjectTask", EmitDefaultValue=false)]
 		public StringValue? DefaultProjectTask { get; set; }
+
+		#endregion
 
 	}
 }

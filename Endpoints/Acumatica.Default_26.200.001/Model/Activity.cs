@@ -18,26 +18,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class Activity : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The HTML body of the activity.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Activity Details</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		[DataMember(Name="Body", EmitDefaultValue=false)]
-		public StringValue? Body { get; set; }
-
-		[DataMember(Name="Date", EmitDefaultValue=false)]
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
-		/// <para>DAC Field Name: IsPrivate</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		[DataMember(Name="Internal", EmitDefaultValue=false)]
-		public BooleanValue? Internal { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The identifier of the Note object associated with the document.
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
@@ -46,6 +27,31 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
+
+		/// <summary>
+		/// The summary description of the activity.
+		/// <para>DAC Field Name: Subject</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: nvarchar(998)</para>
+		/// </summary>
+		[DataMember(Name="Summary", EmitDefaultValue=false)]
+		public StringValue? Summary { get; set; }
+
+		/// <summary>
+		/// The type of the activity, which is one of the options defined on the Activity Types (CR102000) form.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: char(5)</para>
+		/// </summary>
+		[DataMember(Name="Type", EmitDefaultValue=false)]
+		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// The identifier of the workgroup responsible for the current document.
+		/// <para>DAC Field Name: WorkgroupID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
+		public StringValue? Workgroup { get; set; }
 
 		/// <summary>
 		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
@@ -65,55 +71,6 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="RelatedEntityType", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityType { get; set; }
 
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringSingleSelectValue? Status { get; set; }
-
-		/// <summary>
-		/// The summary description of the activity.
-		/// <para>DAC Field Name: Subject</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>SQL Type: nvarchar(998)</para>
-		/// </summary>
-		[DataMember(Name="Summary", EmitDefaultValue=false)]
-		public StringValue? Summary { get; set; }
-
-		/// <summary>
-		/// The identifier of the parent task or event of the current activity.
-		/// <para>DAC Field Name: ParentNoteID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Parent Activity</para>
-		/// </summary>
-		[DataMember(Name="Task", EmitDefaultValue=false)]
-		public StringValue? Task { get; set; }
-
-		[DataMember(Name="TimeActivity", EmitDefaultValue=false)]
-		public TimeActivity? TimeActivity { get; set; }
-
-		/// <summary>
-		/// The type of the activity, which is one of the options defined on the Activity Types (CR102000) form.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>SQL Type: char(5)</para>
-		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue? Type { get; set; }
-
-		/// <summary>
-		/// The identifier of the workgroup responsible for the current document.
-		/// <para>DAC Field Name: WorkgroupID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
-		public StringValue? Workgroup { get; set; }
-
-		[DataMember(Name="CreatedByID", EmitDefaultValue=false)]
-		public StringValue? CreatedByID { get; set; }
-
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		/// <summary>
 		/// Contains the NoteID value of the related entity.This activity is displayed on the Activities tab of the entity's form.
 		/// <para>DAC Field Name: RefNoteID</para>
@@ -126,6 +83,47 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="RelatedEntityNoteID", EmitDefaultValue=false)]
 		public GuidValue? RelatedEntityNoteID { get; set; }
 
+		/// <summary>
+		/// The identifier of the parent task or event of the current activity.
+		/// <para>DAC Field Name: ParentNoteID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Parent Activity</para>
+		/// </summary>
+		[DataMember(Name="Task", EmitDefaultValue=false)]
+		public StringValue? Task { get; set; }
+
+		/// <summary>
+		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
+		/// <para>DAC Field Name: IsPrivate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		[DataMember(Name="Internal", EmitDefaultValue=false)]
+		public BooleanValue? Internal { get; set; }
+
+		/// <summary>
+		/// The HTML body of the activity.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Activity Details</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		[DataMember(Name="Body", EmitDefaultValue=false)]
+		public StringValue? Body { get; set; }
+
+		[DataMember(Name="Date", EmitDefaultValue=false)]
+		public DateTimeValue? Date { get; set; }
+
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringSingleSelectValue? Status { get; set; }
+
+		[DataMember(Name="CreatedByID", EmitDefaultValue=false)]
+		public StringValue? CreatedByID { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 		[DataMember(Name="RelatedEntityDescription", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityDescription { get; set; }
 
@@ -135,8 +133,21 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="AIResponsePriority", EmitDefaultValue=false)]
 		public StringValue? AIResponsePriority { get; set; }
 
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="TimeActivity", EmitDefaultValue=false)]
+		public TimeActivity? TimeActivity { get; set; }
+
 		[DataMember(Name="AIAdditionalInfo", EmitDefaultValue=false)]
 		public AIAdditionalInfo? AIAdditionalInfo { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Activity)} - \"{NoteID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -14,8 +14,16 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesInvoiceApplicationInvoice : Entity
 	{
 
-		[DataMember(Name="AdjustedDocReferenceNbr", EmitDefaultValue=false)]
-		public StringValue? AdjustedDocReferenceNbr { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: AdjgDocType</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
+		/// <para>Display Name: Doc. Type</para>
+		/// <para>SQL Type: char(3)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="DocType", EmitDefaultValue=false)]
+		public StringValue? DocType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AdjgRefNbr</para>
@@ -37,12 +45,12 @@ namespace Acumatica.Default_25_200_001.Model
 		public IntValue? AdjustmentNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CuryAdjdAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
-		/// <para>Display Name: Amount Paid</para>
+		/// The identifier of the Customer record associated with the document.
+		/// <para>DAC Field Name: CustomerID</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
 		/// </summary>
-		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
-		public DecimalValue? AmountPaid { get; set; }
+		[DataMember(Name="Customer", EmitDefaultValue=false)]
+		public StringValue? Customer { get; set; }
 
 		/// <summary>
 		/// The open balance of the document.Given in the currency of the document.
@@ -53,6 +61,14 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryAdjdAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
+		/// <para>Display Name: Amount Paid</para>
+		/// </summary>
+		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
+		public DecimalValue? AmountPaid { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: CuryAdjgDiscAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
 		/// <para>Display Name: Cash Discount Taken</para>
@@ -61,19 +77,11 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? CashDiscountTaken { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ARPayment__CuryID</para>
+		/// <para>DAC Field Name: ARPayment__DocDate</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
 		/// </summary>
-		[DataMember(Name="Currency", EmitDefaultValue=false)]
-		public StringValue? Currency { get; set; }
-
-		/// <summary>
-		/// The identifier of the Customer record associated with the document.
-		/// <para>DAC Field Name: CustomerID</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// </summary>
-		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue? Customer { get; set; }
+		[DataMember(Name="PaymentDate", EmitDefaultValue=false)]
+		public DateTimeValue? PaymentDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ARPayment__DocDesc</para>
@@ -83,24 +91,11 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: AdjgDocType</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
-		/// <para>Display Name: Doc. Type</para>
-		/// <para>SQL Type: char(3)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="DocType", EmitDefaultValue=false)]
-		public StringValue? DocType { get; set; }
-
-		[DataMember(Name="DocumentType", EmitDefaultValue=false)]
-		public StringValue? DocumentType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ARPayment__DocDate</para>
+		/// <para>DAC Field Name: ARPayment__CuryID</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
 		/// </summary>
-		[DataMember(Name="PaymentDate", EmitDefaultValue=false)]
-		public DateTimeValue? PaymentDate { get; set; }
+		[DataMember(Name="Currency", EmitDefaultValue=false)]
+		public StringValue? Currency { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ARPayment__FinPeriodID</para>
@@ -122,6 +117,14 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
+
+		[DataMember(Name="AdjustedDocReferenceNbr", EmitDefaultValue=false)]
+		public StringValue? AdjustedDocReferenceNbr { get; set; }
+
+		[DataMember(Name="DocumentType", EmitDefaultValue=false)]
+		public StringValue? DocumentType { get; set; }
+
+		#endregion
 
 	}
 }

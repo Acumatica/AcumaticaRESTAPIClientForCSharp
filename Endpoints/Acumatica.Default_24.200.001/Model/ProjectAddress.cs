@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ProjectAddress : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The first address line.
 		/// <para>DAC: PX.Objects.PM.PMAddress</para>
@@ -30,15 +31,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="City", EmitDefaultValue=false)]
 		public StringValue? City { get; set; }
-
-		/// <summary>
-		/// The identifier of the Country record.
-		/// <para>DAC Field Name: CountryId</para>
-		/// <para>DAC: PX.Objects.PM.PMSiteAddress</para>
-		/// <para>SQL Type: nvarchar(2)</para>
-		/// </summary>
-		[DataMember(Name="Country", EmitDefaultValue=false)]
-		public StringValue? Country { get; set; }
 
 		/// <summary>
 		/// The name of the state.
@@ -58,6 +50,15 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? PostalCode { get; set; }
 
 		/// <summary>
+		/// The identifier of the Country record.
+		/// <para>DAC Field Name: CountryId</para>
+		/// <para>DAC: PX.Objects.PM.PMSiteAddress</para>
+		/// <para>SQL Type: nvarchar(2)</para>
+		/// </summary>
+		[DataMember(Name="Country", EmitDefaultValue=false)]
+		public StringValue? Country { get; set; }
+
+		/// <summary>
 		/// The latitude of the address.
 		/// <para>DAC: PX.Objects.PM.PMSiteAddress</para>
 		/// </summary>
@@ -70,6 +71,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Longitude", EmitDefaultValue=false)]
 		public DecimalValue? Longitude { get; set; }
+
+		#endregion
 
 	}
 }

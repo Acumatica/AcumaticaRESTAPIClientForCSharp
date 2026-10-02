@@ -18,6 +18,27 @@ namespace Acumatica.Default_26_200_001.Model
 	public class Subaccount : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// Key field.Unique user-friendly segmented key of the Subaccount.
+		/// <para>DAC Field Name: SubCD</para>
+		/// <para>DAC: PX.Objects.GL.Sub</para>
+		/// <para>Display Name: Subaccount</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="SubaccountCD", EmitDefaultValue=false)]
+		public StringValue? SubaccountCD { get; set; }
+
+		/// <summary>
+		/// Database identity.Unique identifier of the Subaccount.
+		/// <para>DAC Field Name: SubID</para>
+		/// <para>DAC: PX.Objects.GL.Sub</para>
+		/// <para>Display Name: Sub. ID</para>
+		/// </summary>
+		[DataMember(Name="SubaccountID", EmitDefaultValue=false)]
+		public IntValue? SubaccountID { get; set; }
+
 		/// <summary>
 		/// Indicates whether the Subaccount is <c>active</c>.Inactive subaccounts do not appear in the lists of available subaccounts andthus can't be selected for documents, transactions and other entities.
 		/// <para>DAC: PX.Objects.GL.Sub</para>
@@ -39,25 +60,12 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Secured", EmitDefaultValue=false)]
 		public BooleanValue? Secured { get; set; }
 
-		/// <summary>
-		/// Key field.Unique user-friendly segmented key of the Subaccount.
-		/// <para>DAC Field Name: SubCD</para>
-		/// <para>DAC: PX.Objects.GL.Sub</para>
-		/// <para>Display Name: Subaccount</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="SubaccountCD", EmitDefaultValue=false)]
-		public StringValue? SubaccountCD { get; set; }
+		#endregion
 
-		/// <summary>
-		/// Database identity.Unique identifier of the Subaccount.
-		/// <para>DAC Field Name: SubID</para>
-		/// <para>DAC: PX.Objects.GL.Sub</para>
-		/// <para>Display Name: Sub. ID</para>
-		/// </summary>
-		[DataMember(Name="SubaccountID", EmitDefaultValue=false)]
-		public IntValue? SubaccountID { get; set; }
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Subaccount)} - \"{SubaccountCD}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

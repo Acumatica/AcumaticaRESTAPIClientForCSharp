@@ -18,9 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class VendorClass : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<BusinessAccountClassAttributeDetail>? Attributes { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: VendorClassID</para>
 		/// <para>DAC: PX.Objects.AP.VendorClass</para>
@@ -31,9 +29,6 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="ClassID", EmitDefaultValue=false)]
 		public StringValue? ClassID { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.AP.VendorClass</para>
@@ -42,8 +37,24 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Attributes", EmitDefaultValue=false)]
+		public List<BusinessAccountClassAttributeDetail>? Attributes { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(VendorClass)} - \"{ClassID}\"";
+		}
 
 		public static class Expand
 		{

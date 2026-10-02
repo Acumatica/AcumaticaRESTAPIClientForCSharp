@@ -18,37 +18,22 @@ namespace Acumatica.Default_23_200_001.Model
 	public class PaymentMethod : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name:  Payment Method ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="PaymentMethodID", EmitDefaultValue=false)]
+		public StringValue? PaymentMethodID { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
-
-		[DataMember(Name="AllowedCashAccounts", EmitDefaultValue=false)]
-		public List<PaymentMethodAllowedCashAccountDetail>? AllowedCashAccounts { get; set; }
-
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ARIsProcessingRequired</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// <para>Display Name: Integrated Processing</para>
-		/// </summary>
-		[DataMember(Name="IntegratedProcessing", EmitDefaultValue=false)]
-		public BooleanValue? IntegratedProcessing { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PaymentType</para>
@@ -60,24 +45,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? MeansOfPayment { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// <para>Display Name:  Payment Method ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="PaymentMethodID", EmitDefaultValue=false)]
-		public StringValue? PaymentMethodID { get; set; }
-
-		[DataMember(Name="ProcessingCenters", EmitDefaultValue=false)]
-		public List<PaymentMethodProcessingCenterDetail>? ProcessingCenters { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: UseForCA</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// <para>Display Name: Require Remittance Information for Cash Account</para>
-		/// </summary>
-		[DataMember(Name="RequireRemittanceInformationforCashAccount", EmitDefaultValue=false)]
-		public BooleanValue? RequireRemittanceInformationforCashAccount { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: UseForAP</para>
@@ -111,8 +84,49 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="SetPaymentDatetoBankTransactionDate", EmitDefaultValue=false)]
 		public BooleanValue? SetPaymentDatetoBankTransactionDate { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: UseForCA</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Require Remittance Information for Cash Account</para>
+		/// </summary>
+		[DataMember(Name="RequireRemittanceInformationforCashAccount", EmitDefaultValue=false)]
+		public BooleanValue? RequireRemittanceInformationforCashAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ARIsProcessingRequired</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Integrated Processing</para>
+		/// </summary>
+		[DataMember(Name="IntegratedProcessing", EmitDefaultValue=false)]
+		public BooleanValue? IntegratedProcessing { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
 		[DataMember(Name="SettingsForPR", EmitDefaultValue=false)]
 		public SettingsForPR? SettingsForPR { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="AllowedCashAccounts", EmitDefaultValue=false)]
+		public List<PaymentMethodAllowedCashAccountDetail>? AllowedCashAccounts { get; set; }
+
+		[DataMember(Name="ProcessingCenters", EmitDefaultValue=false)]
+		public List<PaymentMethodProcessingCenterDetail>? ProcessingCenters { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PaymentMethod)} - \"{PaymentMethodID}\"";
+		}
 
 		public static class Expand
 		{

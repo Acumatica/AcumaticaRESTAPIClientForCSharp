@@ -14,11 +14,14 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ACAInfoDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="CoverageType", EmitDefaultValue=false)]
 		public StringValue? CoverageType { get; set; }
 
 		[DataMember(Name="HealthPlanType", EmitDefaultValue=false)]
 		public StringValue? HealthPlanType { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class LotSerialClassSegment : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: SegmentID</para>
 		/// <para>DAC: PX.Objects.IN.INLotSerSegment</para>
@@ -38,6 +39,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

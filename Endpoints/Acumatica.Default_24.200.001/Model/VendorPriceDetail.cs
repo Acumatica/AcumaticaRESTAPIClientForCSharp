@@ -14,6 +14,49 @@ namespace Acumatica.Default_24_200_001.Model
 	public class VendorPriceDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: VendorID</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
+		/// </summary>
+		[DataMember(Name="Vendor", EmitDefaultValue=false)]
+		public StringValue? Vendor { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: VendorID_Vendor_AcctName</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// </summary>
+		[DataMember(Name="VendorName", EmitDefaultValue=false)]
+		public StringValue? VendorName { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InventoryID_InventoryItem_Descr</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsPromotionalPrice</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// </summary>
+		[DataMember(Name="Promotional", EmitDefaultValue=false)]
+		public BooleanValue? Promotional { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
 		/// <para>Display Name: Break Qty.</para>
@@ -21,8 +64,12 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="BreakQty", EmitDefaultValue=false)]
 		public DecimalValue? BreakQty { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: SalesPrice</para>
+		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
+		/// </summary>
+		[DataMember(Name="Price", EmitDefaultValue=false)]
+		public DecimalValue? Price { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryID</para>
@@ -32,13 +79,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="CurrencyID", EmitDefaultValue=false)]
 		public StringValue? CurrencyID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InventoryID_InventoryItem_Descr</para>
-		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
@@ -54,53 +94,16 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SalesPrice</para>
-		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
-		/// </summary>
-		[DataMember(Name="Price", EmitDefaultValue=false)]
-		public DecimalValue? Price { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IsPromotionalPrice</para>
-		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
-		/// </summary>
-		[DataMember(Name="Promotional", EmitDefaultValue=false)]
-		public BooleanValue? Promotional { get; set; }
-
 		[DataMember(Name="RecordID", EmitDefaultValue=false)]
 		public IntValue? RecordID { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: VendorID</para>
-		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
-		/// </summary>
-		[DataMember(Name="Vendor", EmitDefaultValue=false)]
-		public StringValue? Vendor { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: VendorID_Vendor_AcctName</para>
-		/// <para>DAC: PX.Objects.AP.APVendorPrice</para>
-		/// </summary>
-		[DataMember(Name="VendorName", EmitDefaultValue=false)]
-		public StringValue? VendorName { get; set; }
+		#endregion
 
 	}
 }

@@ -14,6 +14,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class RepositoryLines : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AcumaticaBuild", EmitDefaultValue=false)]
 		public StringValue? AcumaticaBuild { get; set; }
 
@@ -52,6 +53,8 @@ namespace Acumatica.ISVCB_21_200_001.Model
 
 		[DataMember(Name="TestFiles", EmitDefaultValue=false)]
 		public StringValue? TestFiles { get; set; }
+
+		#endregion
 
 	}
 }

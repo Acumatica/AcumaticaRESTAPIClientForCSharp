@@ -14,11 +14,14 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CaseContact : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Email", EmitDefaultValue=false)]
 		public StringValue? Email { get; set; }
 
 		[DataMember(Name="FirstName", EmitDefaultValue=false)]
 		public StringValue? FirstName { get; set; }
+
+		#endregion
 
 	}
 }

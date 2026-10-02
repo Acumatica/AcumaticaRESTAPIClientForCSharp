@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class DuplicateDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccountName", EmitDefaultValue=false)]
 		public StringValue? AccountName { get; set; }
 
@@ -46,6 +47,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
+
+		#endregion
 
 	}
 }

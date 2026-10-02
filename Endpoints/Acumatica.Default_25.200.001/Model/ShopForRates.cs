@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ShopForRates : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="IsManualPackage", EmitDefaultValue=false)]
 		public BooleanValue? IsManualPackage { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="PackageWeight", EmitDefaultValue=false)]
 		public DecimalValue? PackageWeight { get; set; }
+
+		#endregion
 
 	}
 }

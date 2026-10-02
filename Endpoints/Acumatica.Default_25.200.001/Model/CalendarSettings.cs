@@ -14,36 +14,13 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CalendarSettings : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: FriWorkDay</para>
+		/// <para>DAC Field Name: SunWorkDay</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
 		/// </summary>
-		[DataMember(Name="Friday", EmitDefaultValue=false)]
-		public BooleanValue? Friday { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: FriEndTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Friday End Time</para>
-		/// </summary>
-		[DataMember(Name="FridayEndTime", EmitDefaultValue=false)]
-		public DateTimeValue? FridayEndTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: FriStartTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Friday Start Time</para>
-		/// </summary>
-		[DataMember(Name="FridayStartTime", EmitDefaultValue=false)]
-		public DateTimeValue? FridayStartTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: FriUnpaidTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Fri Unpaid Break Time</para>
-		/// </summary>
-		[DataMember(Name="FriUnpaidBreakTime", EmitDefaultValue=false)]
-		public StringValue? FriUnpaidBreakTime { get; set; }
+		[DataMember(Name="Sunday", EmitDefaultValue=false)]
+		public BooleanValue? Sunday { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: MonWorkDay</para>
@@ -53,36 +30,32 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? Monday { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MonEndTime</para>
+		/// <para>DAC Field Name: TueWorkDay</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Monday End Time</para>
 		/// </summary>
-		[DataMember(Name="MondayEndTime", EmitDefaultValue=false)]
-		public DateTimeValue? MondayEndTime { get; set; }
+		[DataMember(Name="Tuesday", EmitDefaultValue=false)]
+		public BooleanValue? Tuesday { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MonStartTime</para>
+		/// <para>DAC Field Name: WedWorkDay</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Monday Start Time</para>
 		/// </summary>
-		[DataMember(Name="MondayStartTime", EmitDefaultValue=false)]
-		public DateTimeValue? MondayStartTime { get; set; }
+		[DataMember(Name="Wednesday", EmitDefaultValue=false)]
+		public BooleanValue? Wednesday { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MonUnpaidTime</para>
+		/// <para>DAC Field Name: ThuWorkDay</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Mon Unpaid Break Time</para>
 		/// </summary>
-		[DataMember(Name="MonUnpaidBreakTime", EmitDefaultValue=false)]
-		public StringValue? MonUnpaidBreakTime { get; set; }
+		[DataMember(Name="Thursday", EmitDefaultValue=false)]
+		public BooleanValue? Thursday { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SatUnpaidTime</para>
+		/// <para>DAC Field Name: FriWorkDay</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Sat Unpaid Break Time</para>
 		/// </summary>
-		[DataMember(Name="SatUnpaidBreakTime", EmitDefaultValue=false)]
-		public StringValue? SatUnpaidBreakTime { get; set; }
+		[DataMember(Name="Friday", EmitDefaultValue=false)]
+		public BooleanValue? Friday { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SatWorkDay</para>
@@ -90,37 +63,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="Saturday", EmitDefaultValue=false)]
 		public BooleanValue? Saturday { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SatEndTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Saturday End Time</para>
-		/// </summary>
-		[DataMember(Name="SaturdayEndTime", EmitDefaultValue=false)]
-		public DateTimeValue? SaturdayEndTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SatStartTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Saturday Start Time</para>
-		/// </summary>
-		[DataMember(Name="SaturdayStartTime", EmitDefaultValue=false)]
-		public DateTimeValue? SaturdayStartTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SunWorkDay</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// </summary>
-		[DataMember(Name="Sunday", EmitDefaultValue=false)]
-		public BooleanValue? Sunday { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SunEndTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Sunday End Time</para>
-		/// </summary>
-		[DataMember(Name="SundayEndTime", EmitDefaultValue=false)]
-		public DateTimeValue? SundayEndTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SunStartTime</para>
@@ -131,58 +73,12 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? SundayStartTime { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SunUnpaidTime</para>
+		/// <para>DAC Field Name: MonStartTime</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Sun Unpaid Break Time</para>
+		/// <para>Display Name: Monday Start Time</para>
 		/// </summary>
-		[DataMember(Name="SunUnpaidBreakTime", EmitDefaultValue=false)]
-		public StringValue? SunUnpaidBreakTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ThuWorkDay</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// </summary>
-		[DataMember(Name="Thursday", EmitDefaultValue=false)]
-		public BooleanValue? Thursday { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ThuEndTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Thursday End Time</para>
-		/// </summary>
-		[DataMember(Name="ThursdayEndTime", EmitDefaultValue=false)]
-		public DateTimeValue? ThursdayEndTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ThuStartTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Thursday Start Time</para>
-		/// </summary>
-		[DataMember(Name="ThursdayStartTime", EmitDefaultValue=false)]
-		public DateTimeValue? ThursdayStartTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ThuUnpaidTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Thu Unpaid Break Time</para>
-		/// </summary>
-		[DataMember(Name="ThuUnpaidBreakTime", EmitDefaultValue=false)]
-		public StringValue? ThuUnpaidBreakTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TueWorkDay</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// </summary>
-		[DataMember(Name="Tuesday", EmitDefaultValue=false)]
-		public BooleanValue? Tuesday { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TueEndTime</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Tuesday End Time</para>
-		/// </summary>
-		[DataMember(Name="TuesdayEndTime", EmitDefaultValue=false)]
-		public DateTimeValue? TuesdayEndTime { get; set; }
+		[DataMember(Name="MondayStartTime", EmitDefaultValue=false)]
+		public DateTimeValue? MondayStartTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TueStartTime</para>
@@ -193,19 +89,60 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? TuesdayStartTime { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: TueUnpaidTime</para>
+		/// <para>DAC Field Name: WedStartTime</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Tue Unpaid Break Time</para>
+		/// <para>Display Name: Wednesday Start Time</para>
 		/// </summary>
-		[DataMember(Name="TueUnpaidBreakTime", EmitDefaultValue=false)]
-		public StringValue? TueUnpaidBreakTime { get; set; }
+		[DataMember(Name="WednesdayStartTime", EmitDefaultValue=false)]
+		public DateTimeValue? WednesdayStartTime { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: WedWorkDay</para>
+		/// <para>DAC Field Name: ThuStartTime</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Thursday Start Time</para>
 		/// </summary>
-		[DataMember(Name="Wednesday", EmitDefaultValue=false)]
-		public BooleanValue? Wednesday { get; set; }
+		[DataMember(Name="ThursdayStartTime", EmitDefaultValue=false)]
+		public DateTimeValue? ThursdayStartTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: FriStartTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Friday Start Time</para>
+		/// </summary>
+		[DataMember(Name="FridayStartTime", EmitDefaultValue=false)]
+		public DateTimeValue? FridayStartTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SatStartTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Saturday Start Time</para>
+		/// </summary>
+		[DataMember(Name="SaturdayStartTime", EmitDefaultValue=false)]
+		public DateTimeValue? SaturdayStartTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SunEndTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Sunday End Time</para>
+		/// </summary>
+		[DataMember(Name="SundayEndTime", EmitDefaultValue=false)]
+		public DateTimeValue? SundayEndTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MonEndTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Monday End Time</para>
+		/// </summary>
+		[DataMember(Name="MondayEndTime", EmitDefaultValue=false)]
+		public DateTimeValue? MondayEndTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TueEndTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Tuesday End Time</para>
+		/// </summary>
+		[DataMember(Name="TuesdayEndTime", EmitDefaultValue=false)]
+		public DateTimeValue? TuesdayEndTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: WedEndTime</para>
@@ -216,12 +153,52 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? WednesdayEndTime { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: WedStartTime</para>
+		/// <para>DAC Field Name: ThuEndTime</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Wednesday Start Time</para>
+		/// <para>Display Name: Thursday End Time</para>
 		/// </summary>
-		[DataMember(Name="WednesdayStartTime", EmitDefaultValue=false)]
-		public DateTimeValue? WednesdayStartTime { get; set; }
+		[DataMember(Name="ThursdayEndTime", EmitDefaultValue=false)]
+		public DateTimeValue? ThursdayEndTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: FriEndTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Friday End Time</para>
+		/// </summary>
+		[DataMember(Name="FridayEndTime", EmitDefaultValue=false)]
+		public DateTimeValue? FridayEndTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SatEndTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Saturday End Time</para>
+		/// </summary>
+		[DataMember(Name="SaturdayEndTime", EmitDefaultValue=false)]
+		public DateTimeValue? SaturdayEndTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SunUnpaidTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Sun Unpaid Break Time</para>
+		/// </summary>
+		[DataMember(Name="SunUnpaidBreakTime", EmitDefaultValue=false)]
+		public StringValue? SunUnpaidBreakTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MonUnpaidTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Mon Unpaid Break Time</para>
+		/// </summary>
+		[DataMember(Name="MonUnpaidBreakTime", EmitDefaultValue=false)]
+		public StringValue? MonUnpaidBreakTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TueUnpaidTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Tue Unpaid Break Time</para>
+		/// </summary>
+		[DataMember(Name="TueUnpaidBreakTime", EmitDefaultValue=false)]
+		public StringValue? TueUnpaidBreakTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: WedUnpaidTime</para>
@@ -230,6 +207,32 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="WedUnpaidBreakTime", EmitDefaultValue=false)]
 		public StringValue? WedUnpaidBreakTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ThuUnpaidTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Thu Unpaid Break Time</para>
+		/// </summary>
+		[DataMember(Name="ThuUnpaidBreakTime", EmitDefaultValue=false)]
+		public StringValue? ThuUnpaidBreakTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: FriUnpaidTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Fri Unpaid Break Time</para>
+		/// </summary>
+		[DataMember(Name="FriUnpaidBreakTime", EmitDefaultValue=false)]
+		public StringValue? FriUnpaidBreakTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SatUnpaidTime</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Sat Unpaid Break Time</para>
+		/// </summary>
+		[DataMember(Name="SatUnpaidBreakTime", EmitDefaultValue=false)]
+		public StringValue? SatUnpaidBreakTime { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BusinessAccountPaymentInstructionDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

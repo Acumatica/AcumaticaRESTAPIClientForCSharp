@@ -14,9 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class SrvOrdOtherInformation : Entity
 	{
 
-		[DataMember(Name="BatchNumber", EmitDefaultValue=false)]
-		public StringValue? BatchNumber { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LongDescr</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
@@ -24,6 +22,9 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
+
+		[DataMember(Name="BatchNumber", EmitDefaultValue=false)]
+		public StringValue? BatchNumber { get; set; }
 
 		[DataMember(Name="DocumentType", EmitDefaultValue=false)]
 		public StringValue? DocumentType { get; set; }
@@ -36,6 +37,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
 		public StringValue? ReferenceNbr { get; set; }
+
+		#endregion
 
 	}
 }

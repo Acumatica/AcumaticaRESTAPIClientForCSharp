@@ -14,36 +14,13 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CheckHistoryDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: CuryAmt</para>
-		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// <para>Display Name: Amount Paid</para>
+		/// <para>DAC Field Name: APInvoice__InvoiceNbr</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
 		/// </summary>
-		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
-		public DecimalValue? AmountPaid { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryBalanceAmt</para>
-		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// </summary>
-		[DataMember(Name="Balance", EmitDefaultValue=false)]
-		public DecimalValue? Balance { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryDiscBalanceAmt</para>
-		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// <para>Display Name: Cash Discount Balance</para>
-		/// </summary>
-		[DataMember(Name="CashDiscountBalance", EmitDefaultValue=false)]
-		public DecimalValue? CashDiscountBalance { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryPPDAmt</para>
-		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// <para>Display Name: Cash Discount Taken</para>
-		/// </summary>
-		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
-		public DecimalValue? CashDiscountTaken { get; set; }
+		[DataMember(Name="VendorRef", EmitDefaultValue=false)]
+		public StringValue? VendorRef { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SourceDocType</para>
@@ -64,11 +41,37 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: APInvoice__InvoiceNbr</para>
-		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>DAC Field Name: CuryAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Amount Paid</para>
 		/// </summary>
-		[DataMember(Name="VendorRef", EmitDefaultValue=false)]
-		public StringValue? VendorRef { get; set; }
+		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
+		public DecimalValue? AmountPaid { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryPPDAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Cash Discount Taken</para>
+		/// </summary>
+		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
+		public DecimalValue? CashDiscountTaken { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryBalanceAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// </summary>
+		[DataMember(Name="Balance", EmitDefaultValue=false)]
+		public DecimalValue? Balance { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryDiscBalanceAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Cash Discount Balance</para>
+		/// </summary>
+		[DataMember(Name="CashDiscountBalance", EmitDefaultValue=false)]
+		public DecimalValue? CashDiscountBalance { get; set; }
+
+		#endregion
 
 	}
 }

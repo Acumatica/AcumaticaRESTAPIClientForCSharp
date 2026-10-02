@@ -14,13 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ProjectUnionLocal : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: UnionID_Description</para>
-		/// <para>DAC: PX.Objects.PM.PMProjectUnion</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The identifier of the union local that is linked to the project.
 		/// <para>DAC Field Name: UnionID</para>
@@ -31,6 +25,15 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="UnionLocalID", EmitDefaultValue=false)]
 		public StringValue? UnionLocalID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: UnionID_Description</para>
+		/// <para>DAC: PX.Objects.PM.PMProjectUnion</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		#endregion
 
 	}
 }

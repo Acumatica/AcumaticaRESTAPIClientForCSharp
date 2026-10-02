@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ServiceLocationContactDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -37,6 +38,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Salutation", EmitDefaultValue=false)]
 		public StringValue? Salutation { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

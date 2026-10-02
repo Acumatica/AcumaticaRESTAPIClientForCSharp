@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectGLAccount : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccrualAccount", EmitDefaultValue=false)]
 		public StringValue? AccrualAccount { get; set; }
 
@@ -32,8 +33,13 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="DefaultCostSubaccount", EmitDefaultValue=false)]
 		public StringValue? DefaultCostSubaccount { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="DefaultTaskForGLAccounts", EmitDefaultValue=false)]
 		public List<DefaultTaskForGLAccount>? DefaultTaskForGLAccounts { get; set; }
+
+		#endregion
 
 	}
 }

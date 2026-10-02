@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationEntryOptions : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ConfigResultsID", EmitDefaultValue=false)]
 		public IntValue? ConfigResultsID { get; set; }
 
@@ -46,6 +47,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

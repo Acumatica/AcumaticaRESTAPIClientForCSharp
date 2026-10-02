@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class WCCCodeRateDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public GuidValue? Active { get; set; }
 
@@ -38,8 +39,13 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
 		public StringValue? WCCCode { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="WCCCodeMaxInsurableWages", EmitDefaultValue=false)]
 		public List<WCCCodeMaxInsurableWageDetail>? WCCCodeMaxInsurableWages { get; set; }
+
+		#endregion
 
 	}
 }

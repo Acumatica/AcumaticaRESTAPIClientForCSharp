@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class SalesOrderCreditCardTransactionDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AuthNbr", EmitDefaultValue=false)]
 		public StringValue? AuthNbr { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="CardType", EmitDefaultValue=false)]
 		public StringValue? CardType { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

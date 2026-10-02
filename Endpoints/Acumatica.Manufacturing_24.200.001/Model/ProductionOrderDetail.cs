@@ -18,40 +18,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ProductionOrderDetail : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue? Branch { get; set; }
-
-		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue? EndDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// </summary>
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue? Hold { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		[DataMember(Name="Operations", EmitDefaultValue=false)]
-		public List<OrderOperationDetail>? Operations { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ProdDate</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Order Date</para>
-		/// </summary>
-		[DataMember(Name="OrderDate", EmitDefaultValue=false)]
-		public DateTimeValue? OrderDate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// <para>Display Name: Order Type</para>
@@ -72,12 +39,19 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: StatusID</para>
+		/// <para>DAC Field Name: ProdDate</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Order Date</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
+		[DataMember(Name="OrderDate", EmitDefaultValue=false)]
+		public DateTimeValue? OrderDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
@@ -92,6 +66,43 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: StatusID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// </summary>
+		[DataMember(Name="Hold", EmitDefaultValue=false)]
+		public BooleanValue? Hold { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// </summary>
+		[DataMember(Name="Branch", EmitDefaultValue=false)]
+		public StringValue? Branch { get; set; }
+
+		[DataMember(Name="EndDate", EmitDefaultValue=false)]
+		public DateTimeValue? EndDate { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Operations", EmitDefaultValue=false)]
+		public List<OrderOperationDetail>? Operations { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProductionOrderDetail)} - \"{OrderType}\" - \"{ProductionNbr}\"";
+		}
 
 		public static class Expand
 		{

@@ -14,6 +14,18 @@ namespace Acumatica.Default_24_200_001.Model
 	public class WCCCode : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The unique identifier of the workers' compensation code.
+		/// <para>DAC Field Name: WorkCodeID</para>
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// <para>Display Name: WCC Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="wcccode", EmitDefaultValue=false)]
+		public StringValue? wcccode { get; set; }
+
 		/// <summary>
 		/// A Boolean value that indicates (if set to true) that the workers' compensation code is active and can be used.
 		/// <para>DAC Field Name: IsActive</para>
@@ -33,17 +45,9 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// The unique identifier of the workers' compensation code.
-		/// <para>DAC Field Name: WorkCodeID</para>
-		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
-		/// <para>Display Name: WCC Code</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="wcccode", EmitDefaultValue=false)]
-		public StringValue? wcccode { get; set; }
+		#endregion
 
+		#region Details
 		[DataMember(Name="WCCCodeCostCodeSources", EmitDefaultValue=false)]
 		public List<WCCCodeCostCodeSource>? WCCCodeCostCodeSources { get; set; }
 
@@ -58,6 +62,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="WCCCodeRates", EmitDefaultValue=false)]
 		public List<WCCCodeRate>? WCCCodeRates { get; set; }
+
+		#endregion
 
 	}
 }

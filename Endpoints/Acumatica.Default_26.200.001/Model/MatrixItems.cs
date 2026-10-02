@@ -14,15 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class MatrixItems : Entity
 	{
 
-		/// <summary>
-		/// The price used as the default price, if there are no other prices defined for this item in any price list in the Accounts Receivable module.
-		/// <para>DAC Field Name: BasePrice</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
-		/// <para>Display Name: Default Price</para>
-		/// </summary>
-		[DataMember(Name="DefaultPrice", EmitDefaultValue=false)]
-		public DecimalValue? DefaultPrice { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The description of the Inventory Item.
 		/// <para>DAC Field Name: Descr</para>
@@ -33,12 +25,6 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.IN.Matrix.GraphExtensions.ItemsGridExt+MatrixInventoryItem</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
 		/// The manufacturer's suggested retail price of the item.
 		/// <para>DAC Field Name: RecPrice</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
@@ -46,11 +32,28 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="MSRP", EmitDefaultValue=false)]
 		public DecimalValue? MSRP { get; set; }
 
+		/// <summary>
+		/// The price used as the default price, if there are no other prices defined for this item in any price list in the Accounts Receivable module.
+		/// <para>DAC Field Name: BasePrice</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
+		/// <para>Display Name: Default Price</para>
+		/// </summary>
+		[DataMember(Name="DefaultPrice", EmitDefaultValue=false)]
+		public DecimalValue? DefaultPrice { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.Matrix.GraphExtensions.ItemsGridExt+MatrixInventoryItem</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
 		[DataMember(Name="ItemStatus", EmitDefaultValue=false)]
 		public StringSingleSelectValue? ItemStatus { get; set; }
 
 		[DataMember(Name="ExportToExternal", EmitDefaultValue=false)]
 		public BooleanValue? ExportToExternal { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

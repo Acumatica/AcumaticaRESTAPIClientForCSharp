@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class GarnishmentDetails : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="GarnCourtDate", EmitDefaultValue=false)]
 		public DateTimeValue? GarnCourtDate { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="GarnVendorInvDescr", EmitDefaultValue=false)]
 		public StringValue? GarnVendorInvDescr { get; set; }
+
+		#endregion
 
 	}
 }

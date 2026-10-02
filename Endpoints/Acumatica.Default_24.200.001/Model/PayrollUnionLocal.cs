@@ -18,33 +18,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PayrollUnionLocal : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// A Boolean value that indicates (if set to true) whether the union local is active.
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.PM.PMUnion</para>
-		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
-		[DataMember(Name="DeductionsAndBenefits", EmitDefaultValue=false)]
-		public List<UnionDeductionOrBenefitDetail>? DeductionsAndBenefits { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PM.PMUnion</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="EarningRates", EmitDefaultValue=false)]
-		public List<UnionEarningRateDetail>? EarningRates { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue? Location { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The unique identifier of the union local.
 		/// <para>DAC Field Name: UnionID</para>
@@ -56,8 +30,45 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="PayrollUnionLocalID", EmitDefaultValue=false)]
 		public StringValue? PayrollUnionLocalID { get; set; }
 
+		/// <summary>
+		/// A Boolean value that indicates (if set to true) whether the union local is active.
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PM.PMUnion</para>
+		/// </summary>
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PM.PMUnion</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		[DataMember(Name="Location", EmitDefaultValue=false)]
+		public StringValue? Location { get; set; }
+
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="DeductionsAndBenefits", EmitDefaultValue=false)]
+		public List<UnionDeductionOrBenefitDetail>? DeductionsAndBenefits { get; set; }
+
+		[DataMember(Name="EarningRates", EmitDefaultValue=false)]
+		public List<UnionEarningRateDetail>? EarningRates { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PayrollUnionLocal)} - \"{PayrollUnionLocalID}\"";
+		}
 
 		public static class Expand
 		{

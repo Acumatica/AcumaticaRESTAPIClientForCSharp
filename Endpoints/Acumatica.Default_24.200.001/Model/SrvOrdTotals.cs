@@ -14,13 +14,22 @@ namespace Acumatica.Default_24_200_001.Model
 	public class SrvOrdTotals : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: CuryApptOrderTotal</para>
+		/// <para>DAC Field Name: CuryTaxTotal</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Actual Billable Total</para>
+		/// <para>Display Name: Estimated Tax Total</para>
 		/// </summary>
-		[DataMember(Name="AppointmentTotal", EmitDefaultValue=false)]
-		public DecimalValue? AppointmentTotal { get; set; }
+		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
+		public DecimalValue? TaxTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryDocTotal</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Estimated Total</para>
+		/// </summary>
+		[DataMember(Name="ServiceOrderTotal", EmitDefaultValue=false)]
+		public DecimalValue? ServiceOrderTotal { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryEffectiveBillableDocTotal</para>
@@ -29,6 +38,46 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="BillableTotal", EmitDefaultValue=false)]
 		public DecimalValue? BillableTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SOPrepaymentReceived</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Prepayment Received</para>
+		/// </summary>
+		[DataMember(Name="PrepaymentReceived", EmitDefaultValue=false)]
+		public DecimalValue? PrepaymentReceived { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SOPrepaymentApplied</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Prepayment Applied</para>
+		/// </summary>
+		[DataMember(Name="PrepaymentApplied", EmitDefaultValue=false)]
+		public DecimalValue? PrepaymentApplied { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SOPrepaymentRemaining</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Prepayment Remaining</para>
+		/// </summary>
+		[DataMember(Name="PrepaymentRemaining", EmitDefaultValue=false)]
+		public DecimalValue? PrepaymentRemaining { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SOCuryUnpaidBalanace</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Service Order Unpaid Balance</para>
+		/// </summary>
+		[DataMember(Name="ServiceOrderUnpaidBalance", EmitDefaultValue=false)]
+		public DecimalValue? ServiceOrderUnpaidBalance { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SOCuryBillableUnpaidBalanace</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Service Order Billable Unpaid Balance</para>
+		/// </summary>
+		[DataMember(Name="ServiceOrderBillableUnpaidBalance", EmitDefaultValue=false)]
+		public DecimalValue? ServiceOrderBillableUnpaidBalance { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryEstimatedOrderTotal</para>
@@ -47,62 +96,6 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? LineTotal { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SOPrepaymentApplied</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Prepayment Applied</para>
-		/// </summary>
-		[DataMember(Name="PrepaymentApplied", EmitDefaultValue=false)]
-		public DecimalValue? PrepaymentApplied { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SOPrepaymentReceived</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Prepayment Received</para>
-		/// </summary>
-		[DataMember(Name="PrepaymentReceived", EmitDefaultValue=false)]
-		public DecimalValue? PrepaymentReceived { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SOPrepaymentRemaining</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Prepayment Remaining</para>
-		/// </summary>
-		[DataMember(Name="PrepaymentRemaining", EmitDefaultValue=false)]
-		public DecimalValue? PrepaymentRemaining { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SOCuryBillableUnpaidBalanace</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Service Order Billable Unpaid Balance</para>
-		/// </summary>
-		[DataMember(Name="ServiceOrderBillableUnpaidBalance", EmitDefaultValue=false)]
-		public DecimalValue? ServiceOrderBillableUnpaidBalance { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryDocTotal</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Estimated Total</para>
-		/// </summary>
-		[DataMember(Name="ServiceOrderTotal", EmitDefaultValue=false)]
-		public DecimalValue? ServiceOrderTotal { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SOCuryUnpaidBalanace</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Service Order Unpaid Balance</para>
-		/// </summary>
-		[DataMember(Name="ServiceOrderUnpaidBalance", EmitDefaultValue=false)]
-		public DecimalValue? ServiceOrderUnpaidBalance { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryTaxTotal</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Estimated Tax Total</para>
-		/// </summary>
-		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
-		public DecimalValue? TaxTotal { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: CuryVatExemptTotal</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: VAT Exempt Total</para>
@@ -117,6 +110,16 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="VATTaxableTotal", EmitDefaultValue=false)]
 		public DecimalValue? VATTaxableTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryApptOrderTotal</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Actual Billable Total</para>
+		/// </summary>
+		[DataMember(Name="AppointmentTotal", EmitDefaultValue=false)]
+		public DecimalValue? AppointmentTotal { get; set; }
+
+		#endregion
 
 	}
 }

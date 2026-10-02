@@ -17,13 +17,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CashTransaction : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// Specifies (if set to <c>true</c>) that the transaction has been approved by a responsible person.This field is displayed if the RequestApproval field is set to <c>true</c>.
-		/// <para>DAC: PX.Objects.CA.CAAdj</para>
-		/// </summary>
-		[DataMember(Name="Approved", EmitDefaultValue=false)]
-		public BooleanValue? Approved { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The cash account that is the source account for the transaction.
 		/// <para>DAC Field Name: CashAccountID</para>
@@ -34,6 +28,13 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? CashAccountCD { get; set; }
 
 		/// <summary>
+		/// Specifies (if set to <c>true</c>) that the transaction has been approved by a responsible person.This field is displayed if the RequestApproval field is set to <c>true</c>.
+		/// <para>DAC: PX.Objects.CA.CAAdj</para>
+		/// </summary>
+		[DataMember(Name="Approved", EmitDefaultValue=false)]
+		public BooleanValue? Approved { get; set; }
+
+		/// <summary>
 		/// The description of the transaction.
 		/// <para>DAC Field Name: TranDesc</para>
 		/// <para>DAC: PX.Objects.CA.CAAdj</para>
@@ -42,8 +43,14 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CashTransactionDetail>? Details { get; set; }
+		/// <summary>
+		/// The date of the transaction.
+		/// <para>DAC Field Name: TranDate</para>
+		/// <para>DAC: PX.Objects.CA.CAAdj</para>
+		/// <para>Display Name: Tran. Date</para>
+		/// </summary>
+		[DataMember(Name="PostedDate", EmitDefaultValue=false)]
+		public DateTimeValue? PostedDate { get; set; }
 
 		/// <summary>
 		/// The user-defined transaction type. Selects the appropriate type from the list of entry types defined for the selected cash account.
@@ -65,14 +72,13 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="ExternalReferenceNumber", EmitDefaultValue=false)]
 		public StringValue? ExternalReferenceNumber { get; set; }
 
-		/// <summary>
-		/// The date of the transaction.
-		/// <para>DAC Field Name: TranDate</para>
-		/// <para>DAC: PX.Objects.CA.CAAdj</para>
-		/// <para>Display Name: Tran. Date</para>
-		/// </summary>
-		[DataMember(Name="PostedDate", EmitDefaultValue=false)]
-		public DateTimeValue? PostedDate { get; set; }
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<CashTransactionDetail>? Details { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

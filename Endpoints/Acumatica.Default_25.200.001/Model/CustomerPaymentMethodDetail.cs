@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CustomerPaymentMethodDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The name of the payment method setting, such as Card Number,Expiration Date. This field is a part of the compound key of the record.
 		/// <para>DAC Field Name: DetailID</para>
@@ -32,6 +33,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

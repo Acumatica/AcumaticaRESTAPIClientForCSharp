@@ -18,24 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class DiscountCode : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
-		/// <para>Display Name: Applicable To</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		[DataMember(Name="ApplicableTo", EmitDefaultValue=false)]
-		public StringValue? ApplicableTo { get; set; }
-
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
-		/// <para>SQL Type: nvarchar(250)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: DiscountID</para>
 		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
@@ -47,6 +30,13 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? DiscountCodeID { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
+		/// <para>SQL Type: nvarchar(250)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Type</para>
 		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
 		/// <para>Display Name: Discount Type</para>
@@ -55,8 +45,26 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="DiscountType", EmitDefaultValue=false)]
 		public StringValue? DiscountType { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
+		/// <para>Display Name: Applicable To</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		[DataMember(Name="ApplicableTo", EmitDefaultValue=false)]
+		public StringValue? ApplicableTo { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(DiscountCode)} - \"{DiscountCodeID}\"";
+		}
 
 		public static class Expand
 		{

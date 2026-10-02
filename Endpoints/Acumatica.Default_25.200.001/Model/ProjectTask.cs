@@ -18,43 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ProjectTask : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="ActivityHistory", EmitDefaultValue=false)]
-		public List<ProjectActivity>? ActivityHistory { get; set; }
-
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<AttributeValue>? Attributes { get; set; }
-
-		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
-		public ProjectTaskBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
-
-		[DataMember(Name="CRMLink", EmitDefaultValue=false)]
-		public ProjectTaskToCRMLink? CRMLink { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates (if set to true) that the task is default.
-		/// <para>DAC Field Name: IsDefault</para>
-		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// </summary>
-		[DataMember(Name="Default", EmitDefaultValue=false)]
-		public BooleanValue? Default { get; set; }
-
-		[DataMember(Name="DefaultValues", EmitDefaultValue=false)]
-		public ProjectTaskDefaultValues? DefaultValues { get; set; }
-
-		/// <summary>
-		/// The description of the task.
-		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// <para>SQL Type: nvarchar(250)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
-		public StringValue? ExternalRefNbr { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The identifier of the project to which the task belongs.
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
@@ -75,8 +39,13 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="ProjectTaskID", EmitDefaultValue=false)]
 		public StringValue? ProjectTaskID { get; set; }
 
-		[DataMember(Name="Properties", EmitDefaultValue=false)]
-		public ProjectTaskProperties? Properties { get; set; }
+		/// <summary>
+		/// The description of the task.
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>SQL Type: nvarchar(250)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The task status.
@@ -86,8 +55,53 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
+		/// <summary>
+		/// A Boolean value that indicates (if set to true) that the task is default.
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// </summary>
+		[DataMember(Name="Default", EmitDefaultValue=false)]
+		public BooleanValue? Default { get; set; }
+
+		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
+		public StringValue? ExternalRefNbr { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
+		public ProjectTaskBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
+
+		[DataMember(Name="CRMLink", EmitDefaultValue=false)]
+		public ProjectTaskToCRMLink? CRMLink { get; set; }
+
+		[DataMember(Name="DefaultValues", EmitDefaultValue=false)]
+		public ProjectTaskDefaultValues? DefaultValues { get; set; }
+
+		[DataMember(Name="Properties", EmitDefaultValue=false)]
+		public ProjectTaskProperties? Properties { get; set; }
+
 		[DataMember(Name="VisibilitySettings", EmitDefaultValue=false)]
 		public VisibilitySettings? VisibilitySettings { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="ActivityHistory", EmitDefaultValue=false)]
+		public List<ProjectActivity>? ActivityHistory { get; set; }
+
+		[DataMember(Name="Attributes", EmitDefaultValue=false)]
+		public List<AttributeValue>? Attributes { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProjectTask)} - \"{ProjectID}\" - \"{ProjectTaskID}\"";
+		}
 
 		public static class Expand
 		{

@@ -18,6 +18,18 @@ namespace Acumatica.Default_24_200_001.Model
 	public class WorkClassCompensationCode : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The unique identifier of the workers' compensation code.
+		/// <para>DAC Field Name: WorkCodeID</para>
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// <para>Display Name: WCC Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
+		public StringValue? WCCCode { get; set; }
+
 		/// <summary>
 		/// A Boolean value that indicates (if set to true) that the workers' compensation code is active and can be used.
 		/// <para>DAC Field Name: IsActive</para>
@@ -25,6 +37,14 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// The description of the workers' compensation code.
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The identifier of the cost code that defines the start of the cost code range.The field is included in CostCodeFrom.
@@ -44,24 +64,12 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="CostCodeTo", EmitDefaultValue=false)]
 		public StringValue? CostCodeTo { get; set; }
 
-		/// <summary>
-		/// The description of the workers' compensation code.
-		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		#endregion
 
-		/// <summary>
-		/// The unique identifier of the workers' compensation code.
-		/// <para>DAC Field Name: WorkCodeID</para>
-		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
-		/// <para>Display Name: WCC Code</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="WCCCode", EmitDefaultValue=false)]
-		public StringValue? WCCCode { get; set; }
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(WorkClassCompensationCode)} - \"{WCCCode}\"";
+		}
 
 		public static class Expand
 		{

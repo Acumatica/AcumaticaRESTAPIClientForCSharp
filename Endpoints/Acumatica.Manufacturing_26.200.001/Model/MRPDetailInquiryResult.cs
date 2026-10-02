@@ -14,8 +14,46 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class MRPDetailInquiryResult : Entity
 	{
 
-		[DataMember(Name="ConsolidationID", EmitDefaultValue=false)]
-		public StringValue? ConsolidationID { get; set; }
+		#region Fields
+		/// <summary>
+		/// Qty on hand
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Qty. On Hand</para>
+		/// </summary>
+		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
+		public DecimalValue? QtyOnHand { get; set; }
+
+		/// <summary>
+		/// Planning Type
+		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		[DataMember(Name="Type", EmitDefaultValue=false)]
+		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
+		/// <para>Display Name: Promise Date</para>
+		/// </summary>
+		[DataMember(Name="PromiseDate", EmitDefaultValue=false)]
+		public DateTimeValue? PromiseDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
+		/// <para>Display Name: Related Document</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
+		[DataMember(Name="RelatedDocument", EmitDefaultValue=false)]
+		public StringValue? RelatedDocument { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BaseQty</para>
+		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
+		/// <para>Display Name: Quantity</para>
+		/// </summary>
+		[DataMember(Name="Qty", EmitDefaultValue=false)]
+		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
@@ -48,32 +86,6 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? ProductSubitem { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
-		/// <para>Display Name: Promise Date</para>
-		/// </summary>
-		[DataMember(Name="PromiseDate", EmitDefaultValue=false)]
-		public DateTimeValue? PromiseDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BaseQty</para>
-		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
-		/// <para>Display Name: Quantity</para>
-		/// </summary>
-		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue? Qty { get; set; }
-
-		/// <summary>
-		/// Qty on hand
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Qty. On Hand</para>
-		/// </summary>
-		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
-		public DecimalValue? QtyOnHand { get; set; }
-
-		[DataMember(Name="RecordID", EmitDefaultValue=false)]
-		public IntValue? RecordID { get; set; }
-
-		/// <summary>
 		/// Plan type related to the RefOrdertype and RefOrderNbr
 		/// <para>DAC Field Name: RefType</para>
 		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
@@ -83,22 +95,13 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		[DataMember(Name="ReferenceType", EmitDefaultValue=false)]
 		public StringValue? ReferenceType { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: RefNbr</para>
-		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
-		/// <para>Display Name: Related Document</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// </summary>
-		[DataMember(Name="RelatedDocument", EmitDefaultValue=false)]
-		public StringValue? RelatedDocument { get; set; }
+		[DataMember(Name="ConsolidationID", EmitDefaultValue=false)]
+		public StringValue? ConsolidationID { get; set; }
 
-		/// <summary>
-		/// Planning Type
-		/// <para>DAC: PX.Objects.AM.AMRPPlan</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue? Type { get; set; }
+		[DataMember(Name="RecordID", EmitDefaultValue=false)]
+		public IntValue? RecordID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

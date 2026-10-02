@@ -17,13 +17,7 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class Payment : Acumatica.Default_24_200_001.Model.Payment, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: SampleRecipRate</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
-		public DecimalValue? ReciprocalRate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// CC payment state description
 		/// <para>DAC Field Name: CCPaymentStateDescr</para>
@@ -33,6 +27,15 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="CCProcessingStatus", EmitDefaultValue=false)]
 		public StringValue? CCProcessingStatus { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SampleRecipRate</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		[DataMember(Name="ReciprocalRate", EmitDefaultValue=false)]
+		public DecimalValue? ReciprocalRate { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

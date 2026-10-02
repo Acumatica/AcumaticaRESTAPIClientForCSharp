@@ -14,6 +14,16 @@ namespace Acumatica.Default_24_200_001.Model
 	public class SalesInvoiceCommissions : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The amount used as the base to calculate commission for this document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryCommnblAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Total Commissionable</para>
+		/// </summary>
+		[DataMember(Name="TotalCommissionableAmount", EmitDefaultValue=false)]
+		public DecimalValue? TotalCommissionableAmount { get; set; }
+
 		/// <summary>
 		/// The commission amount calculated on this document for the salesperson.Given in the currency of the document.
 		/// <para>DAC Field Name: CuryCommnAmt</para>
@@ -23,17 +33,13 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="CommissionAmount", EmitDefaultValue=false)]
 		public DecimalValue? CommissionAmount { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="SalesPersons", EmitDefaultValue=false)]
 		public List<SalesInvoiceSalesPersonDetail>? SalesPersons { get; set; }
 
-		/// <summary>
-		/// The amount used as the base to calculate commission for this document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryCommnblAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Total Commissionable</para>
-		/// </summary>
-		[DataMember(Name="TotalCommissionableAmount", EmitDefaultValue=false)]
-		public DecimalValue? TotalCommissionableAmount { get; set; }
+		#endregion
 
 	}
 }

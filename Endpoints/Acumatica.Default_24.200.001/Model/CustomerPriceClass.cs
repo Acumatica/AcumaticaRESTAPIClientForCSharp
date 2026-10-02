@@ -18,20 +18,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class CustomerPriceClass : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		/// <summary>
-		/// The description of the customer price class.
-		/// <para>DAC: PX.Objects.AR.ARPriceClass</para>
-		/// <para>SQL Type: nvarchar(250)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The unique identifier of the customer price class.This field is the key field.
 		/// <para>DAC: PX.Objects.AR.ARPriceClass</para>
@@ -42,8 +29,29 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
 		public StringValue? PriceClassID { get; set; }
 
+		/// <summary>
+		/// The description of the customer price class.
+		/// <para>DAC: PX.Objects.AR.ARPriceClass</para>
+		/// <para>SQL Type: nvarchar(250)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(CustomerPriceClass)} - \"{PriceClassID}\"";
+		}
 
 		public static class Expand
 		{

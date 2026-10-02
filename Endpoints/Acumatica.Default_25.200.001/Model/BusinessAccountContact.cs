@@ -14,6 +14,32 @@ namespace Acumatica.Default_25_200_001.Model
 	public class BusinessAccountContact : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The identifier of the contact.This field is the key field.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>Display Name: Contact ID</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ContactID", EmitDefaultValue=false)]
+		public IntValue? ContactID { get; set; }
+
+		/// <summary>
+		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
+		/// </summary>
+		[DataMember(Name="Owner", EmitDefaultValue=false)]
+		public StringValue? Owner { get; set; }
+
+		/// <summary>
+		/// The identifier of the workgroup responsible for the current document.
+		/// <para>DAC Field Name: WorkgroupID</para>
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
+		/// </summary>
+		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
+		public StringValue? Workgroup { get; set; }
+
 		/// <summary>
 		/// This field indicates whether the location is active.
 		/// <para>DAC Field Name: IsActive</para>
@@ -30,15 +56,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? City { get; set; }
 
 		/// <summary>
-		/// The identifier of the contact.This field is the key field.
-		/// <para>DAC: PX.Objects.CR.Contact</para>
-		/// <para>Display Name: Contact ID</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ContactID", EmitDefaultValue=false)]
-		public IntValue? ContactID { get; set; }
-
-		/// <summary>
 		/// The display name of the contact.Its value is made up of the LastName, FirstName, MidName, andTitle values. The format depends on the PersonNameFormat site setting.
 		/// <para>DAC: PX.Objects.CR.Contact</para>
 		/// <para>Display Name: Contact</para>
@@ -51,15 +68,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? DisplayName { get; set; }
 
 		/// <summary>
-		/// The email address of the contact.
-		/// <para>DAC Field Name: EMail</para>
-		/// <para>DAC: PX.Objects.CR.Contact</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="Email", EmitDefaultValue=false)]
-		public StringValue? Email { get; set; }
-
-		/// <summary>
 		/// The job title of the person.
 		/// <para>DAC Field Name: Salutation</para>
 		/// <para>DAC: PX.Objects.CR.Contact</para>
@@ -70,12 +78,13 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? JobTitle { get; set; }
 
 		/// <summary>
-		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
-		/// <para>DAC Field Name: OwnerID</para>
-		/// <para>DAC: PX.Objects.CR.BAccount</para>
+		/// The email address of the contact.
+		/// <para>DAC Field Name: EMail</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Owner", EmitDefaultValue=false)]
-		public StringValue? Owner { get; set; }
+		[DataMember(Name="Email", EmitDefaultValue=false)]
+		public StringValue? Email { get; set; }
 
 		/// <summary>
 		/// The phone number.
@@ -95,13 +104,7 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
 
-		/// <summary>
-		/// The identifier of the workgroup responsible for the current document.
-		/// <para>DAC Field Name: WorkgroupID</para>
-		/// <para>DAC: PX.Objects.CR.BAccount</para>
-		/// </summary>
-		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
-		public StringValue? Workgroup { get; set; }
+		#endregion
 
 	}
 }

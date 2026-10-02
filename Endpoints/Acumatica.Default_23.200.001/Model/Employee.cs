@@ -18,15 +18,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class Employee : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<AttributeValue>? Attributes { get; set; }
-
-		[DataMember(Name="ContactInfo", EmitDefaultValue=false)]
-		public Contact? ContactInfo { get; set; }
-
-		[DataMember(Name="Delegates", EmitDefaultValue=false)]
-		public List<EmployeeDelegate>? Delegates { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The human-readable identifier of the employee that isspecified by the user or defined by the EMPLOYEE auto-numbering sequence during thecreation of the employee. This field is a natural key, as opposedto the surrogate key BAccountID.
 		/// <para>DAC Field Name: AcctCD</para>
@@ -48,18 +40,6 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
-		[DataMember(Name="EmployeeSettings", EmitDefaultValue=false)]
-		public EmployeeSettings? EmployeeSettings { get; set; }
-
-		[DataMember(Name="EmploymentHistory", EmitDefaultValue=false)]
-		public List<EmploymentHistoryRecord>? EmploymentHistory { get; set; }
-
-		[DataMember(Name="FinancialSettings", EmitDefaultValue=false)]
-		public EmployeeFinancialSettings? FinancialSettings { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		/// <summary>
 		/// The status of the employee.
 		/// <para>DAC Field Name: VStatus</para>
@@ -68,6 +48,40 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="ContactInfo", EmitDefaultValue=false)]
+		public Contact? ContactInfo { get; set; }
+
+		[DataMember(Name="EmployeeSettings", EmitDefaultValue=false)]
+		public EmployeeSettings? EmployeeSettings { get; set; }
+
+		[DataMember(Name="FinancialSettings", EmitDefaultValue=false)]
+		public EmployeeFinancialSettings? FinancialSettings { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Attributes", EmitDefaultValue=false)]
+		public List<AttributeValue>? Attributes { get; set; }
+
+		[DataMember(Name="Delegates", EmitDefaultValue=false)]
+		public List<EmployeeDelegate>? Delegates { get; set; }
+
+		[DataMember(Name="EmploymentHistory", EmitDefaultValue=false)]
+		public List<EmploymentHistoryRecord>? EmploymentHistory { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Employee)} - \"{EmployeeID}\"";
+		}
 
 		public static class Expand
 		{

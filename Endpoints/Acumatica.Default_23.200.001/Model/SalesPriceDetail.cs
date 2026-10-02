@@ -14,6 +14,51 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SalesPriceDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
+		/// <para>Display Name: Price Type</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="PriceType", EmitDefaultValue=false)]
+		public StringValue? PriceType { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
+		/// <para>Display Name: Price Code</para>
+		/// <para>SQL Type: varchar(30)</para>
+		/// </summary>
+		[DataMember(Name="PriceCode", EmitDefaultValue=false)]
+		public StringValue? PriceCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsPromotionalPrice</para>
+		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
+		/// </summary>
+		[DataMember(Name="Promotion", EmitDefaultValue=false)]
+		public BooleanValue? Promotion { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
 		/// <para>Display Name: Break Qty.</para>
@@ -21,8 +66,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="BreakQty", EmitDefaultValue=false)]
 		public DecimalValue? BreakQty { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: SalesPrice</para>
+		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
+		/// </summary>
+		[DataMember(Name="Price", EmitDefaultValue=false)]
+		public DecimalValue? Price { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryID</para>
@@ -34,11 +83,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: TaxID</para>
 		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
-		/// <para>SQL Type: nvarchar(256)</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		[DataMember(Name="Tax", EmitDefaultValue=false)]
+		public StringValue? Tax { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
@@ -54,63 +104,14 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SalesPrice</para>
-		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
-		/// </summary>
-		[DataMember(Name="Price", EmitDefaultValue=false)]
-		public DecimalValue? Price { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
-		/// <para>Display Name: Price Code</para>
-		/// <para>SQL Type: varchar(30)</para>
-		/// </summary>
-		[DataMember(Name="PriceCode", EmitDefaultValue=false)]
-		public StringValue? PriceCode { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARSalesPriceFilter</para>
-		/// <para>Display Name: Price Type</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="PriceType", EmitDefaultValue=false)]
-		public StringValue? PriceType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IsPromotionalPrice</para>
-		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
-		/// </summary>
-		[DataMember(Name="Promotion", EmitDefaultValue=false)]
-		public BooleanValue? Promotion { get; set; }
-
 		[DataMember(Name="RecordID", EmitDefaultValue=false)]
 		public IntValue? RecordID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TaxID</para>
-		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		[DataMember(Name="Tax", EmitDefaultValue=false)]
-		public StringValue? Tax { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARSalesPrice</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
 
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
@@ -120,6 +121,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="TaxCalculationMode", EmitDefaultValue=false)]
 		public StringValue? TaxCalculationMode { get; set; }
+
+		#endregion
 
 	}
 }

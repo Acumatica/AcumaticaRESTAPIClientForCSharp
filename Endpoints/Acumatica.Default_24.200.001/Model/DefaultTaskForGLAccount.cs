@@ -14,11 +14,14 @@ namespace Acumatica.Default_24_200_001.Model
 	public class DefaultTaskForGLAccount : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
 		[DataMember(Name="DefaultTask", EmitDefaultValue=false)]
 		public StringValue? DefaultTask { get; set; }
+
+		#endregion
 
 	}
 }

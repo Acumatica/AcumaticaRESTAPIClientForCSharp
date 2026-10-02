@@ -14,15 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class LeadActivityStatistics : Entity
 	{
 
-		[DataMember(Name="InitialOutgoingActivityCompletedAt", EmitDefaultValue=false)]
-		public DateTimeValue? InitialOutgoingActivityCompletedAt { get; set; }
-
-		[DataMember(Name="LastActivityAging", EmitDefaultValue=false)]
-		public IntValue? LastActivityAging { get; set; }
-
-		[DataMember(Name="LastActivityDate", EmitDefaultValue=false)]
-		public DateTimeValue? LastActivityDate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LastIncomingActivityDate</para>
 		/// <para>DAC: PX.Objects.CR.CRActivityStatistics</para>
@@ -39,11 +31,22 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="LastOutgoingActivity", EmitDefaultValue=false)]
 		public DateTimeValue? LastOutgoingActivity { get; set; }
 
+		[DataMember(Name="InitialOutgoingActivityCompletedAt", EmitDefaultValue=false)]
+		public DateTimeValue? InitialOutgoingActivityCompletedAt { get; set; }
+
+		[DataMember(Name="LastActivityAging", EmitDefaultValue=false)]
+		public IntValue? LastActivityAging { get; set; }
+
+		[DataMember(Name="LastActivityDate", EmitDefaultValue=false)]
+		public DateTimeValue? LastActivityDate { get; set; }
+
 		[DataMember(Name="LeadQualificationTime", EmitDefaultValue=false)]
 		public IntValue? LeadQualificationTime { get; set; }
 
 		[DataMember(Name="LeadResponseTime", EmitDefaultValue=false)]
 		public IntValue? LeadResponseTime { get; set; }
+
+		#endregion
 
 	}
 }

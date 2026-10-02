@@ -14,21 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CreditCardTransactionDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: PCTranNumber</para>
-		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
-		/// <para>Display Name: Proc. Center Tran. Nbr.</para>
-		/// <para>SQL Type: nvarchar(50)</para>
-		/// </summary>
-		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
-		public StringValue? TranNbr { get; set; }
-
-		[DataMember(Name="TranApiNbr", EmitDefaultValue=false)]
-		public StringValue? TranApiNbr { get; set; }
-
-		[DataMember(Name="CommerceTranNbr", EmitDefaultValue=false)]
-		public StringValue? CommerceTranNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
 		/// <para>Display Name: Tran. Type</para>
@@ -38,6 +24,15 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? TranType { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: PCTranNumber</para>
+		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
+		/// <para>Display Name: Proc. Center Tran. Nbr.</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
+		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
+		public StringValue? TranNbr { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: AuthNumber</para>
 		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
 		/// <para>Display Name: Proc. Center Auth. Nbr.</para>
@@ -45,6 +40,12 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="AuthNbr", EmitDefaultValue=false)]
 		public StringValue? AuthNbr { get; set; }
+
+		[DataMember(Name="TranApiNbr", EmitDefaultValue=false)]
+		public StringValue? TranApiNbr { get; set; }
+
+		[DataMember(Name="CommerceTranNbr", EmitDefaultValue=false)]
+		public StringValue? CommerceTranNbr { get; set; }
 
 		[DataMember(Name="TranDate", EmitDefaultValue=false)]
 		public DateTimeValue? TranDate { get; set; }
@@ -63,6 +64,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="CardType", EmitDefaultValue=false)]
 		public StringValue? CardType { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -17,9 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class FileTags : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="AccessRights", EmitDefaultValue=false)]
-		public List<AccessRights>? AccessRights { get; set; }
-
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -28,6 +26,14 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TagName", EmitDefaultValue=false)]
 		public StringValue? TagName { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="AccessRights", EmitDefaultValue=false)]
+		public List<AccessRights>? AccessRights { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

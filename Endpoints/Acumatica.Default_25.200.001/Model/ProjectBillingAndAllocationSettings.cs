@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ProjectBillingAndAllocationSettings : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AllocationRule", EmitDefaultValue=false)]
 		public StringValue? AllocationRule { get; set; }
 
@@ -52,6 +53,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="BillingCurrency", EmitDefaultValue=false)]
 		public StringValue? BillingCurrency { get; set; }
+
+		#endregion
 
 	}
 }

@@ -17,6 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TagTemplates : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -26,8 +27,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="TemplateID", EmitDefaultValue=false)]
 		public StringValue? TemplateID { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="TemplateItems", EmitDefaultValue=false)]
 		public List<TagTemplateItems>? TemplateItems { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

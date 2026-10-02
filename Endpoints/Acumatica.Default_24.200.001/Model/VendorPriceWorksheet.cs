@@ -18,52 +18,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class VendorPriceWorksheet : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// <para>SQL Type: nvarchar(150)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// <para>Display Name: Effective Date</para>
-		/// </summary>
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue? EffectiveDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// <para>Display Name: Expiration Date</para>
-		/// </summary>
-		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
-		public DateTimeValue? ExpirationDate { get; set; }
-
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue? Hold { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OverwriteOverlapping</para>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// <para>Display Name: Overwrite Overlapping Prices</para>
-		/// </summary>
-		[DataMember(Name="OverwriteOverlappingPrices", EmitDefaultValue=false)]
-		public BooleanValue? OverwriteOverlappingPrices { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IsPromotional</para>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// </summary>
-		[DataMember(Name="Promotional", EmitDefaultValue=false)]
-		public BooleanValue? Promotional { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
 		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
@@ -81,8 +36,64 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>SQL Type: nvarchar(150)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Effective Date</para>
+		/// </summary>
+		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
+		public DateTimeValue? EffectiveDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsPromotional</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// </summary>
+		[DataMember(Name="Promotional", EmitDefaultValue=false)]
+		public BooleanValue? Promotional { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Expiration Date</para>
+		/// </summary>
+		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
+		public DateTimeValue? ExpirationDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OverwriteOverlapping</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Overwrite Overlapping Prices</para>
+		/// </summary>
+		[DataMember(Name="OverwriteOverlappingPrices", EmitDefaultValue=false)]
+		public BooleanValue? OverwriteOverlappingPrices { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="Hold", EmitDefaultValue=false)]
+		public BooleanValue? Hold { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
 		[DataMember(Name="VendorSalesPrices", EmitDefaultValue=false)]
 		public List<VendorPriceWorksheetDetail>? VendorSalesPrices { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(VendorPriceWorksheet)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

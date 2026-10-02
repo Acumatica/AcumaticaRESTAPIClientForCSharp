@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class LaborEntryTranAttributes : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Attribute", EmitDefaultValue=false)]
 		public StringValue? Attribute { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

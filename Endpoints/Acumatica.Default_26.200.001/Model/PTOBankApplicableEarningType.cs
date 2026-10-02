@@ -14,11 +14,17 @@ namespace Acumatica.Default_26_200_001.Model
 	public class PTOBankApplicableEarningType : Entity
 	{
 
+		#region Fields
+		[DataMember(Name="AccrueTimeOffBasedOn", EmitDefaultValue=false)]
+		public StringValue? AccrueTimeOffBasedOn { get; set; }
+
+		#endregion
+
+		#region Details
 		[DataMember(Name="ApplicableEarningTypeDetail", EmitDefaultValue=false)]
 		public List<PTOBankApplicableEarningTypeDetail>? ApplicableEarningTypeDetail { get; set; }
 
-		[DataMember(Name="AccrueTimeOffBasedOn", EmitDefaultValue=false)]
-		public StringValue? AccrueTimeOffBasedOn { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

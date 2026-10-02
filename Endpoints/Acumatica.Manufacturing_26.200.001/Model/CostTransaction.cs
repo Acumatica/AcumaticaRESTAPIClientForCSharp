@@ -18,6 +18,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class CostTransaction : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The reference number of the transaction.
 		/// <para>DAC Field Name: BatNbr</para>
@@ -30,12 +31,19 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? BatchNbr { get; set; }
 
 		/// <summary>
-		/// The control amount.
+		/// The status of the transaction set by the system.
 		/// <para>DAC: PX.Objects.AM.AMBatch</para>
-		/// <para>Display Name: Control Amount</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="ControlAmount", EmitDefaultValue=false)]
-		public DecimalValue? ControlAmount { get; set; }
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// A Boolean value that indicates whether the batch is on hold.
+		/// <para>DAC: PX.Objects.AM.AMBatch</para>
+		/// </summary>
+		[DataMember(Name="Hold", EmitDefaultValue=false)]
+		public BooleanValue? Hold { get; set; }
 
 		/// <summary>
 		/// The date when the transaction was created.
@@ -46,23 +54,14 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
-		/// A brief description of the transaction.
-		/// <para>DAC Field Name: TranDesc</para>
+		/// The financial period that corresponds to the transaction date.
+		/// <para>DAC Field Name: FinPeriodID</para>
 		/// <para>DAC: PX.Objects.AM.AMBatch</para>
-		/// <para>SQL Type: nvarchar(256)</para>
+		/// <para>Display Name: Post Period</para>
+		/// <para>SQL Type: char(6)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CostTransactionDetail>? Details { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates whether the batch is on hold.
-		/// <para>DAC: PX.Objects.AM.AMBatch</para>
-		/// </summary>
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue? Hold { get; set; }
+		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
+		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
 		/// The batch number of th original transaction.
@@ -84,22 +83,21 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? OrigDocType { get; set; }
 
 		/// <summary>
-		/// The financial period that corresponds to the transaction date.
-		/// <para>DAC Field Name: FinPeriodID</para>
+		/// A brief description of the transaction.
+		/// <para>DAC Field Name: TranDesc</para>
 		/// <para>DAC: PX.Objects.AM.AMBatch</para>
-		/// <para>Display Name: Post Period</para>
-		/// <para>SQL Type: char(6)</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="PostPeriod", EmitDefaultValue=false)]
-		public StringValue? PostPeriod { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// The status of the transaction set by the system.
+		/// The control amount.
 		/// <para>DAC: PX.Objects.AM.AMBatch</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Control Amount</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
+		[DataMember(Name="ControlAmount", EmitDefaultValue=false)]
+		public DecimalValue? ControlAmount { get; set; }
 
 		/// <summary>
 		/// The total amount of the transaction.
@@ -108,6 +106,19 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="TotalAmount", EmitDefaultValue=false)]
 		public DecimalValue? TotalAmount { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<CostTransactionDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(CostTransaction)} - \"{BatchNbr}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

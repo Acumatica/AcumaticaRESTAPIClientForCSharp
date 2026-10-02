@@ -14,9 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ACAInformation : Entity
 	{
 
-		[DataMember(Name="ACAInfoDetails", EmitDefaultValue=false)]
-		public List<ACAInfoDetail>? ACAInfoDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: MinimumIndividualContribution</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
@@ -24,6 +22,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="MinIndividualContribution", EmitDefaultValue=false)]
 		public DecimalValue? MinIndividualContribution { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="ACAInfoDetails", EmitDefaultValue=false)]
+		public List<ACAInfoDetail>? ACAInfoDetails { get; set; }
+
+		#endregion
 
 	}
 }

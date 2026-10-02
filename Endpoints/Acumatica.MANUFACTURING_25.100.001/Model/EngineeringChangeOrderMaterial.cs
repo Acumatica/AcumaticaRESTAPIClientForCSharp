@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EngineeringChangeOrderMaterial : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Backflush", EmitDefaultValue=false)]
 		public BooleanValue? Backflush { get; set; }
 
@@ -71,9 +72,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
 		public DecimalValue? QtyRequired { get; set; }
 
-		[DataMember(Name="ReferenceDesignators", EmitDefaultValue=false)]
-		public List<ECOReferenceDesignator>? ReferenceDesignators { get; set; }
-
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
 
@@ -94,6 +92,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="ReferenceDesignators", EmitDefaultValue=false)]
+		public List<ECOReferenceDesignator>? ReferenceDesignators { get; set; }
+
+		#endregion
 
 	}
 }

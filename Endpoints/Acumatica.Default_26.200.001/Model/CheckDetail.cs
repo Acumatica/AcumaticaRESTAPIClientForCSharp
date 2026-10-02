@@ -14,6 +14,38 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CheckDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The type of the adjusted document.
+		/// <para>DAC Field Name: AdjdDocType</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Document Type</para>
+		/// <para>SQL Type: char(3)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="DocType", EmitDefaultValue=false)]
+		public StringSingleSelectValue? DocType { get; set; }
+
+		/// <summary>
+		/// Reference number of the adjusted document.
+		/// <para>DAC Field Name: AdjdRefNbr</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
+		public StringValue? ReferenceNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AdjdLineNbr</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
+		public IntValue? DocLineNbr { get; set; }
+
 		/// <summary>
 		/// The actual amount paid on the document.Presented in the currency of the document, see CuryID.
 		/// <para>DAC Field Name: CuryAdjgAmt</para>
@@ -40,36 +72,7 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="CashDiscountBalance", EmitDefaultValue=false)]
 		public DecimalValue? CashDiscountBalance { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: AdjdLineNbr</para>
-		/// <para>DAC: PX.Objects.AP.APAdjust</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
-		public IntValue? DocLineNbr { get; set; }
-
-		/// <summary>
-		/// The type of the adjusted document.
-		/// <para>DAC Field Name: AdjdDocType</para>
-		/// <para>DAC: PX.Objects.AP.APAdjust</para>
-		/// <para>Display Name: Document Type</para>
-		/// <para>SQL Type: char(3)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="DocType", EmitDefaultValue=false)]
-		public StringSingleSelectValue? DocType { get; set; }
-
-		/// <summary>
-		/// Reference number of the adjusted document.
-		/// <para>DAC Field Name: AdjdRefNbr</para>
-		/// <para>DAC: PX.Objects.AP.APAdjust</para>
-		/// <para>Display Name: Reference Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue? ReferenceNbr { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

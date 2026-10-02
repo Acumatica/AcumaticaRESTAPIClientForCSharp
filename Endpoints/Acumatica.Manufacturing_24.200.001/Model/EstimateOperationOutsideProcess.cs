@@ -14,6 +14,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class EstimateOperationOutsideProcess : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Outside Process</para>
+		/// </summary>
+		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
+		public BooleanValue? OutsideProcess { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: DropShippedToVendor</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
@@ -21,13 +29,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="DropShippedtoVendor", EmitDefaultValue=false)]
 		public BooleanValue? DropShippedtoVendor { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
-		/// <para>Display Name: Outside Process</para>
-		/// </summary>
-		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
-		public BooleanValue? OutsideProcess { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: VendorID</para>
@@ -43,6 +44,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="VendorLocation", EmitDefaultValue=false)]
 		public StringValue? VendorLocation { get; set; }
+
+		#endregion
 
 	}
 }

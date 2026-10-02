@@ -14,16 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeeTaxDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
-		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: TaxID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeTax</para>
@@ -33,8 +24,12 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="TaxCode", EmitDefaultValue=false)]
 		public StringValue? TaxCode { get; set; }
 
-		[DataMember(Name="TaxCodeSettings", EmitDefaultValue=false)]
-		public List<TaxCodeSetting>? TaxCodeSettings { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
+		/// </summary>
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TaxID_Description</para>
@@ -42,6 +37,17 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="TaxDescription", EmitDefaultValue=false)]
 		public StringValue? TaxDescription { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="TaxCodeSettings", EmitDefaultValue=false)]
+		public List<TaxCodeSetting>? TaxCodeSettings { get; set; }
+
+		#endregion
 
 	}
 }

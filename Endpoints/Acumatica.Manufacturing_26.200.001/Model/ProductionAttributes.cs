@@ -17,17 +17,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class ProductionAttributes : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Detail", EmitDefaultValue=false)]
-		public List<ProductionAttributesDetail>? Detail { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ShowOrderAttributes</para>
-		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
-		/// <para>Display Name: Order Attributes</para>
-		/// </summary>
-		[DataMember(Name="OrderAttributes", EmitDefaultValue=false)]
-		public BooleanValue? OrderAttributes { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
 		/// <para>Display Name: Order Type</para>
@@ -52,6 +42,22 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="TransactionAttributes", EmitDefaultValue=false)]
 		public BooleanValue? TransactionAttributes { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ShowOrderAttributes</para>
+		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
+		/// <para>Display Name: Order Attributes</para>
+		/// </summary>
+		[DataMember(Name="OrderAttributes", EmitDefaultValue=false)]
+		public BooleanValue? OrderAttributes { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Detail", EmitDefaultValue=false)]
+		public List<ProductionAttributesDetail>? Detail { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TagTemplateItems : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TagTemplateID", EmitDefaultValue=false)]
 		public GuidValue? TagTemplateID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

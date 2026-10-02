@@ -14,13 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class LedgerCompanies : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: Organization__Active</para>
-		/// <para>DAC: PX.Objects.GL.DAC.OrganizationLedgerLink</para>
-		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: OrganizationID</para>
 		/// <para>DAC: PX.Objects.GL.DAC.OrganizationLedgerLink</para>
@@ -37,11 +31,20 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? CompanyName { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: Organization__Active</para>
+		/// <para>DAC: PX.Objects.GL.DAC.OrganizationLedgerLink</para>
+		/// </summary>
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Organization__OrganizationType</para>
 		/// <para>DAC: PX.Objects.GL.DAC.OrganizationLedgerLink</para>
 		/// </summary>
 		[DataMember(Name="CompanyType", EmitDefaultValue=false)]
 		public StringValue? CompanyType { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class WCCCodeCostCodeSource : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="CostCodeFrom", EmitDefaultValue=false)]
 		public StringValue? CostCodeFrom { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="WorkCodeID", EmitDefaultValue=false)]
 		public StringValue? WorkCodeID { get; set; }
+
+		#endregion
 
 	}
 }

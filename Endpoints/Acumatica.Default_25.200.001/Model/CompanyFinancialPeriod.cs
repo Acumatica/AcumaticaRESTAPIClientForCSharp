@@ -18,6 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CompanyFinancialPeriod : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: OrganizationID</para>
 		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
@@ -25,9 +26,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="Company", EmitDefaultValue=false)]
 		public StringValue? Company { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<FinancialPeriodDetail>? Details { get; set; }
 
 		/// <summary>
 		/// Key field.The financial year.
@@ -41,6 +39,14 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? FinancialYear { get; set; }
 
 		/// <summary>
+		/// The start date of the year.
+		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		[DataMember(Name="StartDate", EmitDefaultValue=false)]
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
 		/// The number of periods in the year.
 		/// <para>DAC Field Name: FinPeriods</para>
 		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
@@ -49,13 +55,18 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="NbrOfPeriods", EmitDefaultValue=false)]
 		public ShortValue? NbrOfPeriods { get; set; }
 
-		/// <summary>
-		/// The start date of the year.
-		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue? StartDate { get; set; }
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<FinancialPeriodDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(CompanyFinancialPeriod)} - \"{Company}\" - \"{FinancialYear}\"";
+		}
 
 		public static class Expand
 		{

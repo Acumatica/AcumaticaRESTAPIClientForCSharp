@@ -14,12 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class EmployeePaycheckSummary : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
-		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue? Amount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: AcctCD</para>
 		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
@@ -37,9 +32,6 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
-		[DataMember(Name="EmployeePaycheckEarnings", EmitDefaultValue=false)]
-		public EmployeePaycheckEarnings? EmployeePaycheckEarnings { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: HourQty</para>
 		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
@@ -47,8 +39,17 @@ namespace Acumatica.Default_24_200_001.Model
 		[DataMember(Name="Hours", EmitDefaultValue=false)]
 		public DecimalValue? Hours { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
+		/// </summary>
+		[DataMember(Name="Rate", EmitDefaultValue=false)]
+		public DecimalValue? Rate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
+		/// </summary>
+		[DataMember(Name="Amount", EmitDefaultValue=false)]
+		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PaymentDocAndRef</para>
@@ -60,12 +61,6 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? PaycheckRef { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
-		/// </summary>
-		[DataMember(Name="Rate", EmitDefaultValue=false)]
-		public DecimalValue? Rate { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: VoidPaymentDocAndRef</para>
 		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
 		/// <para>Display Name: Void Paycheck Ref</para>
@@ -73,6 +68,17 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="VoidPaycheckRef", EmitDefaultValue=false)]
 		public StringValue? VoidPaycheckRef { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="EmployeePaycheckEarnings", EmitDefaultValue=false)]
+		public EmployeePaycheckEarnings? EmployeePaycheckEarnings { get; set; }
+
+		#endregion
 
 	}
 }

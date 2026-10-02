@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CashPurchaseDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
@@ -58,6 +59,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TransactionDescription", EmitDefaultValue=false)]
 		public StringValue? TransactionDescription { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

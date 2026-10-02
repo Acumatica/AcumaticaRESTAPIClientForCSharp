@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class MoveEntryTranAttribute : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Attribute", EmitDefaultValue=false)]
 		public StringValue? Attribute { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -17,12 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ChangeRequest : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Address", EmitDefaultValue=false)]
-		public ChangeRequestAddress? Address { get; set; }
-
-		[DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
-		public List<Approval>? ApprovalDetails { get; set; }
-
+		#region Fields
 		[DataMember(Name="ChangeDate", EmitDefaultValue=false)]
 		public DateOnlyValue? ChangeDate { get; set; }
 
@@ -40,9 +35,6 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="CommonTaskforChangeRequest", EmitDefaultValue=false)]
 		public StringValue? CommonTaskforChangeRequest { get; set; }
-
-		[DataMember(Name="Contact", EmitDefaultValue=false)]
-		public ChangeRequestContact? Contact { get; set; }
 
 		[DataMember(Name="ContractChangeDays", EmitDefaultValue=false)]
 		public IntValue? ContractChangeDays { get; set; }
@@ -62,9 +54,6 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="DetailedDescription", EmitDefaultValue=false)]
 		public StringValue? DetailedDescription { get; set; }
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<ChangeRequestLine>? Details { get; set; }
-
 		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
 		public StringValue? ExternalRefNbr { get; set; }
 
@@ -76,9 +65,6 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="LineTotal", EmitDefaultValue=false)]
 		public DecimalValue? LineTotal { get; set; }
-
-		[DataMember(Name="Markups", EmitDefaultValue=false)]
-		public List<ChangeRequestMarkup>? Markups { get; set; }
 
 		[DataMember(Name="MarkupTotal", EmitDefaultValue=false)]
 		public DecimalValue? MarkupTotal { get; set; }
@@ -101,14 +87,37 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="Taxes", EmitDefaultValue=false)]
-		public List<ChangeRequestTaxTran>? Taxes { get; set; }
+		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
+		public DecimalValue? TaxTotal { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="Address", EmitDefaultValue=false)]
+		public ChangeRequestAddress? Address { get; set; }
+
+		[DataMember(Name="Contact", EmitDefaultValue=false)]
+		public ChangeRequestContact? Contact { get; set; }
 
 		[DataMember(Name="TaxSettings", EmitDefaultValue=false)]
 		public ChangeRequestTaxSettings? TaxSettings { get; set; }
 
-		[DataMember(Name="TaxTotal", EmitDefaultValue=false)]
-		public DecimalValue? TaxTotal { get; set; }
+		#endregion
+
+		#region Details
+		[DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
+		public List<Approval>? ApprovalDetails { get; set; }
+
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<ChangeRequestLine>? Details { get; set; }
+
+		[DataMember(Name="Markups", EmitDefaultValue=false)]
+		public List<ChangeRequestMarkup>? Markups { get; set; }
+
+		[DataMember(Name="Taxes", EmitDefaultValue=false)]
+		public List<ChangeRequestTaxTran>? Taxes { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

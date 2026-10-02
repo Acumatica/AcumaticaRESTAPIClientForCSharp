@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class DeductionOrBenefitTaxDetailUS : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="TaxName", EmitDefaultValue=false)]
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 	}
 }

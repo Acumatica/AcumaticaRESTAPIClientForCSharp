@@ -17,8 +17,11 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class Contact : Acumatica.Default_24_200_001.Model.Contact, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="ExtUserRole", EmitDefaultValue=false)]
 		public StringValue? ExtUserRole { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

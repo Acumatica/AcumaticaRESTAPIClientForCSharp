@@ -17,11 +17,9 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkTask : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="CompletedDate", EmitDefaultValue=false)]
 		public DateTimeValue? CompletedDate { get; set; }
-
-		[DataMember(Name="DefaultLabor", EmitDefaultValue=false)]
-		public List<WorkTaskDefaultLaborDetail>? DefaultLabor { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -31,9 +29,6 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="EstimatedDuration", EmitDefaultValue=false)]
 		public IntSingleSelectValue? EstimatedDuration { get; set; }
-
-		[DataMember(Name="Events", EmitDefaultValue=false)]
-		public List<WorkTaskEventDetail>? Events { get; set; }
 
 		[DataMember(Name="IsScheduled", EmitDefaultValue=false)]
 		public BooleanValue? IsScheduled { get; set; }
@@ -74,8 +69,19 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="TaskType", EmitDefaultValue=false)]
 		public StringSingleSelectValue? TaskType { get; set; }
 
+		#endregion
+
+		#region Details
+		[DataMember(Name="DefaultLabor", EmitDefaultValue=false)]
+		public List<WorkTaskDefaultLaborDetail>? DefaultLabor { get; set; }
+
+		[DataMember(Name="Events", EmitDefaultValue=false)]
+		public List<WorkTaskEventDetail>? Events { get; set; }
+
 		[DataMember(Name="WorkTaskActions", EmitDefaultValue=false)]
 		public List<WorkTaskActions>? WorkTaskActions { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

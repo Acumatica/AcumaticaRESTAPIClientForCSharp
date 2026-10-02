@@ -14,14 +14,20 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CustomerContact : Entity
 	{
 
-		[DataMember(Name="Contact", EmitDefaultValue=false)]
-		public Contact? Contact { get; set; }
-
+		#region Fields
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public IntValue? ContactID { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="Contact", EmitDefaultValue=false)]
+		public Contact? Contact { get; set; }
+
+		#endregion
 
 	}
 }

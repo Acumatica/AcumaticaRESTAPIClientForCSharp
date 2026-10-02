@@ -14,11 +14,14 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EarningCodeTaxDetailUS : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="TaxCode", EmitDefaultValue=false)]
 		public StringValue? TaxCode { get; set; }
 
 		[DataMember(Name="TaxName", EmitDefaultValue=false)]
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class WCCCodeMaxInsurableWage : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="DeductionandBenefitCode", EmitDefaultValue=false)]
 		public StringValue? DeductionandBenefitCode { get; set; }
 
@@ -31,6 +32,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="WCCode", EmitDefaultValue=false)]
 		public StringValue? WCCode { get; set; }
+
+		#endregion
 
 	}
 }

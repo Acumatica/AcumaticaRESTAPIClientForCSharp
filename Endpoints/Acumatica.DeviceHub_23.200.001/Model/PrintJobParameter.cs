@@ -14,6 +14,7 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	public class PrintJobParameter : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="JobID", EmitDefaultValue=false)]
 		public IntValue? JobID { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 
 		[DataMember(Name="ParameterValue", EmitDefaultValue=false)]
 		public StringValue? ParameterValue { get; set; }
+
+		#endregion
 
 	}
 }

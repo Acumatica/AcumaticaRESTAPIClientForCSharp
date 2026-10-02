@@ -17,6 +17,7 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class PurchaseReceipt : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="BaseCurrencyID", EmitDefaultValue=false)]
 		public StringValue? BaseCurrencyID { get; set; }
 
@@ -49,9 +50,6 @@ namespace Acumatica.eCommerce_24_200_001.Model
 
 		[DataMember(Name="Date", EmitDefaultValue=false)]
 		public DateTimeValue? Date { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<PurchaseReceiptDetail>? Details { get; set; }
 
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
@@ -97,6 +95,14 @@ namespace Acumatica.eCommerce_24_200_001.Model
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<PurchaseReceiptDetail>? Details { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

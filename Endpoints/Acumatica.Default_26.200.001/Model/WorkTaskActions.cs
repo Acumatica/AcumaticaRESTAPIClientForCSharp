@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkTaskActions : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ActionDescription", EmitDefaultValue=false)]
 		public StringValue? ActionDescription { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="CompletedOn", EmitDefaultValue=false)]
 		public DateTimeValue? CompletedOn { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

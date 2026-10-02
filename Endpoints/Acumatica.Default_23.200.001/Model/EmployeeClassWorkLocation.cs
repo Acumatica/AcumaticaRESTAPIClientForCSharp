@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeeClassWorkLocation : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="DefaultWorkLocation", EmitDefaultValue=false)]
 		public BooleanValue? DefaultWorkLocation { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="LocationName", EmitDefaultValue=false)]
 		public StringValue? LocationName { get; set; }
+
+		#endregion
 
 	}
 }

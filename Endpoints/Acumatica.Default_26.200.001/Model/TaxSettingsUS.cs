@@ -14,13 +14,16 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TaxSettingsUS : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// A boolean value that specifies (if set to true) that supplemental earnings are included in the calculation of this deduction and benefit code.
+		/// The method to be used to determine the list of applicable taxes.
+		/// <para>DAC Field Name: IncludeType</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
-		/// <para>Display Name: Include Supplemental Earnings</para>
+		/// <para>Display Name: Impact on Taxable Wage</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="AllowSupplementalElection", EmitDefaultValue=false)]
-		public BooleanValue? AllowSupplementalElection { get; set; }
+		[DataMember(Name="ImpactonTaxableWage", EmitDefaultValue=false)]
+		public StringValue? ImpactonTaxableWage { get; set; }
 
 		/// <summary>
 		/// The user-friendly unique identifier of the benefit type that is used for reporting and calculation purposes.
@@ -32,17 +35,20 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? CodeType { get; set; }
 
 		/// <summary>
-		/// The method to be used to determine the list of applicable taxes.
-		/// <para>DAC Field Name: IncludeType</para>
+		/// A boolean value that specifies (if set to true) that supplemental earnings are included in the calculation of this deduction and benefit code.
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
-		/// <para>Display Name: Impact on Taxable Wage</para>
-		/// <para>SQL Type: char(3)</para>
+		/// <para>Display Name: Include Supplemental Earnings</para>
 		/// </summary>
-		[DataMember(Name="ImpactonTaxableWage", EmitDefaultValue=false)]
-		public StringValue? ImpactonTaxableWage { get; set; }
+		[DataMember(Name="AllowSupplementalElection", EmitDefaultValue=false)]
+		public BooleanValue? AllowSupplementalElection { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="TaxDetailsUS", EmitDefaultValue=false)]
 		public List<DeductionOrBenefitTaxDetailUS>? TaxDetailsUS { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

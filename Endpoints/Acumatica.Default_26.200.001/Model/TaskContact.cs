@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TaskContact : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
 		public StringValue? DisplayName { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Phone1", EmitDefaultValue=false)]
 		public StringValue? Phone1 { get; set; }
+
+		#endregion
 
 	}
 }

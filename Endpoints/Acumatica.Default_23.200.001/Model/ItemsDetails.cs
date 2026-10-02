@@ -14,11 +14,14 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ItemsDetails : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class DirectDepositDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: BankAcctNbr</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
@@ -34,12 +35,6 @@ namespace Acumatica.Default_26_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
-		/// </summary>
-		[DataMember(Name="Amount", EmitDefaultValue=false)]
-		public DecimalValue? Amount { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
 		/// <para>Display Name: Bank Name</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
@@ -54,6 +49,18 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="BankRoutingNumber", EmitDefaultValue=false)]
 		public StringValue? BankRoutingNumber { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
+		/// </summary>
+		[DataMember(Name="Amount", EmitDefaultValue=false)]
+		public DecimalValue? Amount { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
+		/// </summary>
+		[DataMember(Name="Percent", EmitDefaultValue=false)]
+		public DecimalValue? Percent { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SortOrder</para>
@@ -73,11 +80,7 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
-		/// </summary>
-		[DataMember(Name="Percent", EmitDefaultValue=false)]
-		public DecimalValue? Percent { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

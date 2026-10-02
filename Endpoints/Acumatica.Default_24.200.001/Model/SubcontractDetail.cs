@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class SubcontractDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
@@ -115,6 +116,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

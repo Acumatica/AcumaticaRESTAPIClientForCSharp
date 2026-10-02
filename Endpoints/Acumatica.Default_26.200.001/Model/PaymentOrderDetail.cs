@@ -14,13 +14,16 @@ namespace Acumatica.Default_26_200_001.Model
 	public class PaymentOrderDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: CuryAdjgAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Amount Paid in Payment Currency</para>
+		/// <para>DAC Field Name: AdjdOrderType</para>
+		/// <para>DAC: PX.Objects.SO.SOAdjust</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="AppliedToOrder", EmitDefaultValue=false)]
-		public DecimalValue? AppliedToOrder { get; set; }
+		[DataMember(Name="OrderType", EmitDefaultValue=false)]
+		public StringValue? OrderType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AdjdOrderNbr</para>
@@ -33,14 +36,14 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: AdjdOrderType</para>
-		/// <para>DAC: PX.Objects.SO.SOAdjust</para>
-		/// <para>Display Name: Order Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// Key Field
+		/// <para>DAC Field Name: CuryAdjgAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Amount Paid in Payment Currency</para>
 		/// </summary>
-		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue? OrderType { get; set; }
+		[DataMember(Name="AppliedToOrder", EmitDefaultValue=false)]
+		public DecimalValue? AppliedToOrder { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

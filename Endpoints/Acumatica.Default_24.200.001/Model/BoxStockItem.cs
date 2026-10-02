@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BoxStockItem : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
 		/// <para>Display Name: Box ID</para>
@@ -24,11 +25,18 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? BoxID { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
-		/// <para>SQL Type: nvarchar(255)</para>
+		/// <para>DAC: PX.Objects.IN.INComponent</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INComponent</para>
+		/// <para>Display Name: Quantity</para>
+		/// </summary>
+		[DataMember(Name="Qty", EmitDefaultValue=false)]
+		public DecimalValue? Qty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INItemRep</para>
@@ -39,10 +47,10 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
-		/// <para>Display Name: Max Volume</para>
+		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="MaxVolume", EmitDefaultValue=false)]
-		public DecimalValue? MaxVolume { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
@@ -52,18 +60,13 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? MaxWeight { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INComponent</para>
-		/// <para>Display Name: Quantity</para>
+		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
+		/// <para>Display Name: Max Volume</para>
 		/// </summary>
-		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue? Qty { get; set; }
+		[DataMember(Name="MaxVolume", EmitDefaultValue=false)]
+		public DecimalValue? MaxVolume { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INComponent</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
+		#endregion
 
 	}
 }

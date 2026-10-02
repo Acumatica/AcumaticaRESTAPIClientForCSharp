@@ -14,6 +14,33 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class EstimateHistory : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>Display Name: Estimate ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="EstimateID", EmitDefaultValue=false)]
+		public StringValue? EstimateID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: RevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="Revision", EmitDefaultValue=false)]
+		public StringValue? Revision { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Operation Desc</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
 		/// <summary>
 		/// The date and time when the record was created.
 		/// <para>DAC Field Name: CreatedDateTime</para>
@@ -32,34 +59,10 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		[DataMember(Name="CreatedBy", EmitDefaultValue=false)]
 		public StringValue? CreatedBy { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
-		/// <para>Display Name: Operation Desc</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
-		/// <para>Display Name: Estimate ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="EstimateID", EmitDefaultValue=false)]
-		public StringValue? EstimateID { get; set; }
-
 		[DataMember(Name="HistoryLineNumber", EmitDefaultValue=false)]
 		public IntValue? HistoryLineNumber { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: RevisionID</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateItem</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue? Revision { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

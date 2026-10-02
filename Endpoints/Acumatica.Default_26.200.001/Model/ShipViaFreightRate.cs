@@ -14,14 +14,12 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ShipViaFreightRate : Entity
 	{
 
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.FreightRate</para>
 		/// </summary>
-		[DataMember(Name="Rate", EmitDefaultValue=false)]
-		public DecimalValue? Rate { get; set; }
+		[DataMember(Name="Weight", EmitDefaultValue=false)]
+		public DecimalValue? Weight { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.FreightRate</para>
@@ -31,17 +29,22 @@ namespace Acumatica.Default_26_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.FreightRate</para>
-		/// </summary>
-		[DataMember(Name="Weight", EmitDefaultValue=false)]
-		public DecimalValue? Weight { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.FreightRate</para>
 		/// <para>Display Name: Zone ID</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ZoneID", EmitDefaultValue=false)]
 		public StringValue? ZoneID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.FreightRate</para>
+		/// </summary>
+		[DataMember(Name="Rate", EmitDefaultValue=false)]
+		public DecimalValue? Rate { get; set; }
+
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

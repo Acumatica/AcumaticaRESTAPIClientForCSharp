@@ -14,20 +14,34 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class WhereUsedDetail : Entity
 	{
 
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
+		#region Fields
+		/// <summary>
+		/// The numeric identifier of the operation, which is displayed in the operation.
+		/// <para>DAC Field Name: OperationCD</para>
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Operation ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="OperationNbr", EmitDefaultValue=false)]
+		public StringValue? OperationNbr { get; set; }
 
 		/// <summary>
-		/// A Boolean value that indicates whether a labor transaction is needed to report labor hours spent for the operation.
-		/// <para>DAC Field Name: BFlush</para>
-		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
-		/// <para>Display Name: Backflush Labor</para>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>Display Name: Description</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]
-		public BooleanValue? BackflushLabor { get; set; }
+		[DataMember(Name="OperationDescription", EmitDefaultValue=false)]
+		public StringValue? OperationDescription { get; set; }
 
-		[DataMember(Name="BOMID", EmitDefaultValue=false)]
-		public StringValue? BOMID { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: ScrapAction</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>Display Name: Scrap Action Default</para>
+		/// </summary>
+		[DataMember(Name="OperationScrapAction", EmitDefaultValue=false)]
+		public StringValue? OperationScrapAction { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AMBomItem__BOMID</para>
@@ -44,11 +58,11 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? BomRevision { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: AMBomItem__SiteID</para>
+		/// <para>DAC Field Name: AMBomItem__EffStartDate</para>
 		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
 		/// </summary>
-		[DataMember(Name="BomWarehouse", EmitDefaultValue=false)]
-		public StringValue? BomWarehouse { get; set; }
+		[DataMember(Name="StartDate", EmitDefaultValue=false)]
+		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AMBomItem__EffEndDate</para>
@@ -65,35 +79,27 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>Display Name: Description</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="OperationDescription", EmitDefaultValue=false)]
-		public StringValue? OperationDescription { get; set; }
-
-		[DataMember(Name="OperationIDOperationID", EmitDefaultValue=false)]
-		public IntValue? OperationIDOperationID { get; set; }
-
-		/// <summary>
-		/// The numeric identifier of the operation, which is displayed in the operation.
-		/// <para>DAC Field Name: OperationCD</para>
+		/// <para>DAC Field Name: AMBomItem__SiteID</para>
 		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
-		/// <para>Display Name: Operation ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
 		/// </summary>
-		[DataMember(Name="OperationNbr", EmitDefaultValue=false)]
-		public StringValue? OperationNbr { get; set; }
+		[DataMember(Name="BomWarehouse", EmitDefaultValue=false)]
+		public StringValue? BomWarehouse { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ScrapAction</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>Display Name: Scrap Action Default</para>
+		/// <para>DAC Field Name: AMBomItem__Status</para>
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
 		/// </summary>
-		[DataMember(Name="OperationScrapAction", EmitDefaultValue=false)]
-		public StringValue? OperationScrapAction { get; set; }
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// A Boolean value that indicates whether a labor transaction is needed to report labor hours spent for the operation.
+		/// <para>DAC Field Name: BFlush</para>
+		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
+		/// <para>Display Name: Backflush Labor</para>
+		/// </summary>
+		[DataMember(Name="BackflushLabor", EmitDefaultValue=false)]
+		public BooleanValue? BackflushLabor { get; set; }
 
 		/// <summary>
 		/// The outside process.
@@ -103,22 +109,19 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		[DataMember(Name="OutsideProcess", EmitDefaultValue=false)]
 		public BooleanValue? OutsideProcess { get; set; }
 
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		[DataMember(Name="BOMID", EmitDefaultValue=false)]
+		public StringValue? BOMID { get; set; }
+
+		[DataMember(Name="OperationIDOperationID", EmitDefaultValue=false)]
+		public IntValue? OperationIDOperationID { get; set; }
+
 		[DataMember(Name="RevisionRevisionID", EmitDefaultValue=false)]
 		public StringValue? RevisionRevisionID { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: AMBomItem__EffStartDate</para>
-		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
-		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue? StartDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AMBomItem__Status</para>
-		/// <para>DAC: PX.Objects.AM.AMBomOper</para>
-		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
+		#endregion
 
 	}
 }

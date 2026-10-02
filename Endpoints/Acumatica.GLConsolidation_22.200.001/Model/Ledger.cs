@@ -18,14 +18,16 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	public class Ledger : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The type of the balance of the ledger.
+		/// Key field.Unique user-friendly identifier of the Ledger.
 		/// <para>DAC: PX.Objects.GL.Ledger</para>
-		/// <para>Display Name: Type</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Ledger ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="BalanceType", EmitDefaultValue=false)]
-		public StringValue? BalanceType { get; set; }
+		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
+		public StringValue? LedgerCD { get; set; }
 
 		/// <summary>
 		/// The description of the Ledger.
@@ -37,14 +39,20 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		public StringValue? Descr { get; set; }
 
 		/// <summary>
-		/// Key field.Unique user-friendly identifier of the Ledger.
+		/// The type of the balance of the ledger.
 		/// <para>DAC: PX.Objects.GL.Ledger</para>
-		/// <para>Display Name: Ledger ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
+		/// <para>Display Name: Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
-		public StringValue? LedgerCD { get; set; }
+		[DataMember(Name="BalanceType", EmitDefaultValue=false)]
+		public StringValue? BalanceType { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Ledger)} - \"{LedgerCD}\"";
+		}
 
 		public static class Expand
 		{

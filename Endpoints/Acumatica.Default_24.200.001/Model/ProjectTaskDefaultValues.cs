@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ProjectTaskDefaultValues : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccrualAccount", EmitDefaultValue=false)]
 		public StringValue? AccrualAccount { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
 		public StringValue? TaxCategory { get; set; }
+
+		#endregion
 
 	}
 }

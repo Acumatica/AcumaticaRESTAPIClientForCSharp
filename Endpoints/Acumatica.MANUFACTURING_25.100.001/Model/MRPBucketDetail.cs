@@ -14,13 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MRPBucketDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="Bucket", EmitDefaultValue=false)]
-		public IntValue? Bucket { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
 		/// <para>Display Name: Bucket ID</para>
@@ -32,15 +26,24 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Interval", EmitDefaultValue=false)]
-		public StringValue? Interval { get; set; }
+		[DataMember(Name="Bucket", EmitDefaultValue=false)]
+		public IntValue? Bucket { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public IntValue? Value { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
+		/// </summary>
+		[DataMember(Name="Interval", EmitDefaultValue=false)]
+		public StringValue? Interval { get; set; }
+
+		#endregion
 
 	}
 }

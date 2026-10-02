@@ -14,6 +14,7 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class CABankTran : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AppliedRule", EmitDefaultValue=false)]
 		public IntValue? AppliedRule { get; set; }
 
@@ -97,6 +98,8 @@ namespace Acumatica.eCommerce_24_200_001.Model
 
 		[DataMember(Name="TranID", EmitDefaultValue=false)]
 		public IntValue? TranID { get; set; }
+
+		#endregion
 
 	}
 }

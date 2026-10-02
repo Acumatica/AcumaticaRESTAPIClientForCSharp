@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ProjectTaskToCRMLink : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: CampaignID</para>
 		/// <para>DAC: PX.Objects.CR.CRCampaign</para>
@@ -23,6 +24,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="AccountedCampaign", EmitDefaultValue=false)]
 		public StringValue? AccountedCampaign { get; set; }
+
+		#endregion
 
 	}
 }

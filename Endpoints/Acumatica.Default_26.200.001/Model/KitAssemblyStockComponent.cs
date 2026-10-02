@@ -14,18 +14,14 @@ namespace Acumatica.Default_26_200_001.Model
 	public class KitAssemblyStockComponent : Entity
 	{
 
-		[DataMember(Name="Allocations", EmitDefaultValue=false)]
-		public List<KitAssemblyStockComponentAllocation>? Allocations { get; set; }
-
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: INKitSpecStkDet__DfltCompQty</para>
-		/// <para>DAC: PX.Objects.IN.INComponentTran</para>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Reason Code</para>
+		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
-		[DataMember(Name="ComponentQty", EmitDefaultValue=false)]
-		public DecimalValue? ComponentQty { get; set; }
-
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
+		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
+		public StringValue? ReasonCode { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
@@ -36,18 +32,17 @@ namespace Acumatica.Default_26_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
 		/// <para>Display Name: Quantity</para>
 		/// </summary>
 		[DataMember(Name="Qty", EmitDefaultValue=false)]
 		public DecimalValue? Qty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
-		/// <para>Display Name: Reason Code</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// </summary>
-		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
-		public StringValue? ReasonCode { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: InventoryID</para>
@@ -65,11 +60,22 @@ namespace Acumatica.Default_26_200_001.Model
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
-		/// <para>SQL Type: nvarchar(6)</para>
+		/// <para>DAC Field Name: INKitSpecStkDet__DfltCompQty</para>
+		/// <para>DAC: PX.Objects.IN.INComponentTran</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
+		[DataMember(Name="ComponentQty", EmitDefaultValue=false)]
+		public DecimalValue? ComponentQty { get; set; }
+
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Allocations", EmitDefaultValue=false)]
+		public List<KitAssemblyStockComponentAllocation>? Allocations { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class TransferOrderDetailAllocation : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="LocationID", EmitDefaultValue=false)]
 		public StringValue? LocationID { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="Subitem", EmitDefaultValue=false)]
 		public StringValue? Subitem { get; set; }
+
+		#endregion
 
 	}
 }

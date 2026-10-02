@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkOrderGLAccountDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="BillingCategory", EmitDefaultValue=false)]
 		public StringSingleSelectValue? BillingCategory { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="SalesSubID", EmitDefaultValue=false)]
 		public StringValue? SalesSubID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

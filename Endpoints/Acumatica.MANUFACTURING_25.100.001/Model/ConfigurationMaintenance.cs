@@ -18,6 +18,39 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationMaintenance : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Configuration ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
+		public StringValue? ConfigurationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="Revision", EmitDefaultValue=false)]
+		public StringValue? Revision { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: BOM ID</para>
@@ -36,6 +69,13 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? BOMRevision { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: IsCompletionRequired</para>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: Completion Required Before Production</para>
@@ -43,56 +83,30 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		[DataMember(Name="CompletionRequiredBeforeProduction", EmitDefaultValue=false)]
 		public BooleanValue? CompletionRequiredBeforeProduction { get; set; }
 
-		[DataMember(Name="ConfigAttributes", EmitDefaultValue=false)]
-		public List<ConfigurationMaintAttribute>? ConfigAttributes { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>Display Name: Configuration ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
-		public StringValue? ConfigurationID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Features", EmitDefaultValue=false)]
-		public List<ConfigurationMaintenanceFeature>? Features { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
+		#region LinkedEntities
 		[DataMember(Name="Keys", EmitDefaultValue=false)]
 		public ConfigurationMaintKey? Keys { get; set; }
 
 		[DataMember(Name="Price", EmitDefaultValue=false)]
 		public ConfigurationMaintPrice? Price { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue? Revision { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
+		#region Details
+		[DataMember(Name="ConfigAttributes", EmitDefaultValue=false)]
+		public List<ConfigurationMaintAttribute>? ConfigAttributes { get; set; }
+
+		[DataMember(Name="Features", EmitDefaultValue=false)]
+		public List<ConfigurationMaintenanceFeature>? Features { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ConfigurationMaintenance)} - \"{ConfigurationID}\" - \"{Revision}\"";
+		}
 
 		public static class Expand
 		{

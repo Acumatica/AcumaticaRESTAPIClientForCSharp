@@ -14,6 +14,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ConfigurationEntryAttributes : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: Config Results ID</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ConfigResultsID", EmitDefaultValue=false)]
+		public IntValue? ConfigResultsID { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
 		/// <para>Display Name: Attribute Line Nbr</para>
@@ -24,39 +33,11 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: Config Results ID</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ConfigResultsID", EmitDefaultValue=false)]
-		public IntValue? ConfigResultsID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
 		/// <para>Display Name: Configuration ID</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
 		public StringValue? ConfigurationID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AMConfigurationAttribute__Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AMConfigurationAttribute__Label</para>
-		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
-		/// </summary>
-		[DataMember(Name="Label", EmitDefaultValue=false)]
-		public StringValue? Label { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
-		/// </summary>
-		[DataMember(Name="Required", EmitDefaultValue=false)]
-		public BooleanValue? Required { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
@@ -67,11 +48,33 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: AMConfigurationAttribute__Label</para>
+		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
+		/// </summary>
+		[DataMember(Name="Label", EmitDefaultValue=false)]
+		public StringValue? Label { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AMConfigurationAttribute__Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
+		/// </summary>
+		[DataMember(Name="Required", EmitDefaultValue=false)]
+		public BooleanValue? Required { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

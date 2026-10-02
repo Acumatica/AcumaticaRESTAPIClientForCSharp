@@ -14,23 +14,23 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ProFormaTaxDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The retained tax amount in the document currency.
-		/// <para>DAC Field Name: CuryRetainedTaxAmt</para>
+		/// The identifier of the tax applied to the proforma document.
 		/// <para>DAC: PX.Objects.PM.PMTaxTran</para>
-		/// <para>Display Name: Retained Tax</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="RetainedTax", EmitDefaultValue=false)]
-		public DecimalValue? RetainedTax { get; set; }
+		[DataMember(Name="TaxID", EmitDefaultValue=false)]
+		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// The retained taxable amount in the document currency.
-		/// <para>DAC Field Name: CuryRetainedTaxableAmt</para>
 		/// <para>DAC: PX.Objects.PM.PMTaxTran</para>
-		/// <para>Display Name: Retained Taxable</para>
+		/// <para>Display Name: Tax Rate</para>
 		/// </summary>
-		[DataMember(Name="RetainedTaxable", EmitDefaultValue=false)]
-		public DecimalValue? RetainedTaxable { get; set; }
+		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
+		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
 		/// The taxable amount in the document currency.
@@ -51,21 +51,24 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
-		/// The identifier of the tax applied to the proforma document.
+		/// The retained taxable amount in the document currency.
+		/// <para>DAC Field Name: CuryRetainedTaxableAmt</para>
 		/// <para>DAC: PX.Objects.PM.PMTaxTran</para>
-		/// <para>Display Name: Tax ID</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// Key Field
+		/// <para>Display Name: Retained Taxable</para>
 		/// </summary>
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue? TaxID { get; set; }
+		[DataMember(Name="RetainedTaxable", EmitDefaultValue=false)]
+		public DecimalValue? RetainedTaxable { get; set; }
 
 		/// <summary>
+		/// The retained tax amount in the document currency.
+		/// <para>DAC Field Name: CuryRetainedTaxAmt</para>
 		/// <para>DAC: PX.Objects.PM.PMTaxTran</para>
-		/// <para>Display Name: Tax Rate</para>
+		/// <para>Display Name: Retained Tax</para>
 		/// </summary>
-		[DataMember(Name="TaxRate", EmitDefaultValue=false)]
-		public DecimalValue? TaxRate { get; set; }
+		[DataMember(Name="RetainedTax", EmitDefaultValue=false)]
+		public DecimalValue? RetainedTax { get; set; }
+
+		#endregion
 
 	}
 }

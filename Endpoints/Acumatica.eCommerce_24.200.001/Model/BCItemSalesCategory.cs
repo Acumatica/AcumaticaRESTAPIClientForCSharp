@@ -18,6 +18,7 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class BCItemSalesCategory : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INCategory</para>
 		/// <para>Display Name: Category ID</para>
@@ -25,27 +26,6 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="CategoryID", EmitDefaultValue=false)]
 		public IntValue? CategoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INCategory</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
-		public GuidValue? NoteID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ParentID</para>
-		/// <para>DAC: PX.Objects.IN.INCategory</para>
-		/// <para>Display Name: Parent Category</para>
-		/// </summary>
-		[DataMember(Name="ParentCategoryID", EmitDefaultValue=false)]
-		public IntValue? ParentCategoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: //Description</para>
@@ -56,8 +36,36 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		[DataMember(Name="Path", EmitDefaultValue=false)]
 		public StringValue? Path { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INCategory</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ParentID</para>
+		/// <para>DAC: PX.Objects.IN.INCategory</para>
+		/// <para>Display Name: Parent Category</para>
+		/// </summary>
+		[DataMember(Name="ParentCategoryID", EmitDefaultValue=false)]
+		public IntValue? ParentCategoryID { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		[DataMember(Name="NoteID", EmitDefaultValue=false)]
+		public GuidValue? NoteID { get; set; }
+
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public IntValue? SortOrder { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(BCItemSalesCategory)} - \"{CategoryID}\"";
+		}
 
 		public static class Expand
 		{

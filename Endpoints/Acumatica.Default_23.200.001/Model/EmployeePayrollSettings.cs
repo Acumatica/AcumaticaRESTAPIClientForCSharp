@@ -18,42 +18,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeePayrollSettings : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: ActiveInPayroll</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
-		[DataMember(Name="AddressInfo", EmitDefaultValue=false)]
-		public Address? AddressInfo { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CashAccountID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Cash Account</para>
-		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
-		public StringValue? CashAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: EmployeeClassID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Class ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		[DataMember(Name="ClassID", EmitDefaultValue=false)]
-		public StringValue? ClassID { get; set; }
-
-		[DataMember(Name="Compensation", EmitDefaultValue=false)]
-		public List<CompensationDetail>? Compensation { get; set; }
-
-		[DataMember(Name="DeductionsAndBenefits", EmitDefaultValue=false)]
-		public DeductionsAndBenefits? DeductionsAndBenefits { get; set; }
-
-		[DataMember(Name="DirectDepositDetails", EmitDefaultValue=false)]
-		public List<DirectDepositDetail>? DirectDepositDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: AcctCD</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
@@ -75,6 +40,22 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? EmployeeName { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ActiveInPayroll</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// </summary>
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EmployeeClassID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Class ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="ClassID", EmitDefaultValue=false)]
+		public StringValue? ClassID { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: EmpType</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Employee Type</para>
@@ -83,23 +64,13 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="EmployeeType", EmitDefaultValue=false)]
 		public StringValue? EmployeeType { get; set; }
 
-		[DataMember(Name="EmploymentDates", EmitDefaultValue=false)]
-		public EmploymentDates? EmploymentDates { get; set; }
-
-		[DataMember(Name="EmploymentRecords", EmitDefaultValue=false)]
-		public List<EmploymentRecord>? EmploymentRecords { get; set; }
-
-		[DataMember(Name="GeneralInfo", EmitDefaultValue=false)]
-		public EmployeeGeneralInfo? GeneralInfo { get; set; }
-
-		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
-		public EmployeeGLAccounts? GLAccounts { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="PaidTimeOff", EmitDefaultValue=false)]
-		public EmployeePaidTimeOff? PaidTimeOff { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: EmpTypeUseDflt</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Default</para>
+		/// </summary>
+		[DataMember(Name="EmployeeTypeClassDefault", EmitDefaultValue=false)]
+		public BooleanValue? EmployeeTypeClassDefault { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PaymentMethodID</para>
@@ -110,22 +81,65 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
 		public StringValue? PaymentMethod { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CashAccountID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Cash Account</para>
+		/// </summary>
+		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
+		public StringValue? CashAccount { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="AddressInfo", EmitDefaultValue=false)]
+		public Address? AddressInfo { get; set; }
+
+		[DataMember(Name="DeductionsAndBenefits", EmitDefaultValue=false)]
+		public DeductionsAndBenefits? DeductionsAndBenefits { get; set; }
+
+		[DataMember(Name="EmploymentDates", EmitDefaultValue=false)]
+		public EmploymentDates? EmploymentDates { get; set; }
+
+		[DataMember(Name="GeneralInfo", EmitDefaultValue=false)]
+		public EmployeeGeneralInfo? GeneralInfo { get; set; }
+
+		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
+		public EmployeeGLAccounts? GLAccounts { get; set; }
+
+		[DataMember(Name="PaidTimeOff", EmitDefaultValue=false)]
+		public EmployeePaidTimeOff? PaidTimeOff { get; set; }
+
+		[DataMember(Name="WorkLocations", EmitDefaultValue=false)]
+		public EmployeeWorkLocations? WorkLocations { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Compensation", EmitDefaultValue=false)]
+		public List<CompensationDetail>? Compensation { get; set; }
+
+		[DataMember(Name="DirectDepositDetails", EmitDefaultValue=false)]
+		public List<DirectDepositDetail>? DirectDepositDetails { get; set; }
+
+		[DataMember(Name="EmploymentRecords", EmitDefaultValue=false)]
+		public List<EmploymentRecord>? EmploymentRecords { get; set; }
+
 		[DataMember(Name="Taxes", EmitDefaultValue=false)]
 		public List<EmployeeTaxDetail>? Taxes { get; set; }
 
 		[DataMember(Name="TaxSettings", EmitDefaultValue=false)]
 		public List<TaxSettingDetail>? TaxSettings { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: EmpTypeUseDflt</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Use Default</para>
-		/// </summary>
-		[DataMember(Name="EmployeeTypeClassDefault", EmitDefaultValue=false)]
-		public BooleanValue? EmployeeTypeClassDefault { get; set; }
+		#endregion
 
-		[DataMember(Name="WorkLocations", EmitDefaultValue=false)]
-		public EmployeeWorkLocations? WorkLocations { get; set; }
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(EmployeePayrollSettings)} - \"{EmployeeID}\"";
+		}
 
 		public static class Expand
 		{

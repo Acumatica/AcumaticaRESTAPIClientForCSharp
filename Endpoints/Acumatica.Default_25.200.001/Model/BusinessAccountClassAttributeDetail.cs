@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class BusinessAccountClassAttributeDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
@@ -31,6 +32,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
 		public ShortValue? SortOrder { get; set; }
+
+		#endregion
 
 	}
 }

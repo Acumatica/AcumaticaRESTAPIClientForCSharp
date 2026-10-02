@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class FinancialPeriodDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AdjustmentPeriod", EmitDefaultValue=false)]
 		public BooleanValue? AdjustmentPeriod { get; set; }
 
@@ -52,6 +53,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
+
+		#endregion
 
 	}
 }

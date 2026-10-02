@@ -14,13 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ItemSalesCategoryMember : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: InventoryItem__Descr</para>
-		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
 		/// <para>Display Name: Inventory ID</para>
@@ -28,6 +22,13 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InventoryItem__Descr</para>
+		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: InventoryItem__ItemClassID</para>
@@ -42,6 +43,8 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="ItemStatus", EmitDefaultValue=false)]
 		public StringValue? ItemStatus { get; set; }
+
+		#endregion
 
 	}
 }

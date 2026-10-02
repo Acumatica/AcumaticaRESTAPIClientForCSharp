@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class EmployerTaxesIncreasingApplWageDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TaxName", EmitDefaultValue=false)]
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

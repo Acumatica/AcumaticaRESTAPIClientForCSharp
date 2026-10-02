@@ -14,6 +14,15 @@ namespace Acumatica.Default_23_200_001.Model
 	public class CreditCardTransactionDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
+		/// <para>Display Name: Tran. Type</para>
+		/// <para>SQL Type: char(3)</para>
+		/// </summary>
+		[DataMember(Name="TranType", EmitDefaultValue=false)]
+		public StringValue? TranType { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: PCTranNumber</para>
 		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
@@ -22,14 +31,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="TranNbr", EmitDefaultValue=false)]
 		public StringValue? TranNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
-		/// <para>Display Name: Tran. Type</para>
-		/// <para>SQL Type: char(3)</para>
-		/// </summary>
-		[DataMember(Name="TranType", EmitDefaultValue=false)]
-		public StringValue? TranType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AuthNumber</para>
@@ -57,6 +58,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="CardType", EmitDefaultValue=false)]
 		public StringValue? CardType { get; set; }
+
+		#endregion
 
 	}
 }

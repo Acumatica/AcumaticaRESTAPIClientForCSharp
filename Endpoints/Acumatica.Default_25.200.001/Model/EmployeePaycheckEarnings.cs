@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmployeePaycheckEarnings : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
@@ -31,6 +32,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="RegularAmounttoBePaid", EmitDefaultValue=false)]
 		public DecimalValue? RegularAmounttoBePaid { get; set; }
+
+		#endregion
 
 	}
 }

@@ -18,19 +18,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class MRPException : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
+		/// <para>Display Name: Record ID</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
-		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		[DataMember(Name="RecordID", EmitDefaultValue=false)]
+		public IntValue? RecordID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
@@ -40,41 +35,26 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ItemClassID</para>
+		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Item Class</para>
 		/// </summary>
-		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
-		public StringValue? ItemClass { get; set; }
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Product Manager ID</para>
 		/// </summary>
-		[DataMember(Name="ProductManagerID", EmitDefaultValue=false)]
-		public StringValue? ProductManagerID { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
+		/// Type of MRP Exception
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Promise Date</para>
+		/// <para>SQL Type: varchar(2)</para>
 		/// </summary>
-		[DataMember(Name="PromiseDate", EmitDefaultValue=false)]
-		public DateTimeValue? PromiseDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Qty</para>
-		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// </summary>
-		[DataMember(Name="Quantity", EmitDefaultValue=false)]
-		public DecimalValue? Quantity { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Record ID</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="RecordID", EmitDefaultValue=false)]
-		public IntValue? RecordID { get; set; }
+		[DataMember(Name="Type", EmitDefaultValue=false)]
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// Reference type
@@ -95,6 +75,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? RelatedDocument { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
+		/// </summary>
+		[DataMember(Name="Quantity", EmitDefaultValue=false)]
+		public DecimalValue? Quantity { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
 		/// <para>Display Name: Required Date</para>
 		/// </summary>
@@ -102,11 +89,18 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public DateTimeValue? RequiredDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
+		/// <para>Display Name: Promise Date</para>
+		/// </summary>
+		[DataMember(Name="PromiseDate", EmitDefaultValue=false)]
+		public DateTimeValue? PromiseDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
 		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
@@ -125,19 +119,33 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? SupplyWarehouse { get; set; }
 
 		/// <summary>
-		/// Type of MRP Exception
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>SQL Type: varchar(2)</para>
+		/// <para>Display Name: Product Manager ID</para>
 		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue? Type { get; set; }
+		[DataMember(Name="ProductManagerID", EmitDefaultValue=false)]
+		public StringValue? ProductManagerID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC Field Name: ItemClassID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
+		/// <para>Display Name: Item Class</para>
+		/// </summary>
+		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
+		public StringValue? ItemClass { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		[DataMember(Name="Branch", EmitDefaultValue=false)]
+		public StringValue? Branch { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MRPException)} - \"{RecordID}\"";
+		}
 
 		public static class Expand
 		{

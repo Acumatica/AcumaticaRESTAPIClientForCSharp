@@ -14,9 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CustomerContact : Entity
 	{
 
-		[DataMember(Name="Contact", EmitDefaultValue=false)]
-		public Contact? Contact { get; set; }
-
+		#region Fields
 		[DataMember(Name="ContactID", EmitDefaultValue=false)]
 		public IntValue? ContactID { get; set; }
 
@@ -25,6 +23,14 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="ExtUserRole", EmitDefaultValue=false)]
 		public StringValue? ExtUserRole { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="Contact", EmitDefaultValue=false)]
+		public Contact? Contact { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

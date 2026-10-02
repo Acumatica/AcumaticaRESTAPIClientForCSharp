@@ -18,140 +18,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TemplateItems : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The Unit of Measure used as the sales unit for the Inventory Item.This field can be changed only if the Multiple Units of Measure feature is enabled.Otherwise, the sales unit is assumed to be the same as the Base Unit.
-		/// <para>DAC Field Name: SalesUnit</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Sales Unit</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		[DataMember(Name="SalesUOM", EmitDefaultValue=false)]
-		public StringValue? SalesUOM { get; set; }
-
-		/// <summary>
-		/// The manufacturer's suggested retail price of the item.
-		/// <para>DAC Field Name: RecPrice</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
-		/// <para>Display Name: MSRP</para>
-		/// </summary>
-		[DataMember(Name="CurySpecificMSRP", EmitDefaultValue=false)]
-		public DecimalValue? CurySpecificMSRP { get; set; }
-
-		/// <summary>
-		/// The price used as the default price, if there are no other prices defined for this item in any price list in the Accounts Receivable module.
-		/// <para>DAC Field Name: BasePrice</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
-		/// <para>Display Name: Default Price</para>
-		/// </summary>
-		[DataMember(Name="CurySpecificPrice", EmitDefaultValue=false)]
-		public DecimalValue? CurySpecificPrice { get; set; }
-
-		/// <summary>
-		/// The identifier of the Item Class, to which the Inventory Item belongs.Item Classes provide default settings for items, which belong to them, and are used to group items.
-		/// <para>DAC Field Name: ItemClassID</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Item Class</para>
-		/// </summary>
-		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
-		public StringValue? ItemClass { get; set; }
-
-		/// <summary>
-		/// Indicates the availability setting for the inventory item.
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="Availability", EmitDefaultValue=false)]
-		public StringValue? Availability { get; set; }
-
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<AttributeValue>? Attributes { get; set; }
-
-		/// <summary>
-		/// The Unit of Measure used as the base unit for the Inventory Item.
-		/// <para>DAC Field Name: BaseUnit</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Base Unit</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		[DataMember(Name="BaseUOM", EmitDefaultValue=false)]
-		public StringValue? BaseUOM { get; set; }
-
-		[DataMember(Name="Categories", EmitDefaultValue=false)]
-		public List<CategoryStockItem>? Categories { get; set; }
-
-		/// <summary>
-		/// Rich text description of the item.
-		/// <para>DAC Field Name: Body</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		[DataMember(Name="Content", EmitDefaultValue=false)]
-		public StringValue? Content { get; set; }
-
-		/// <summary>
-		/// The current standard cost of the item.
-		/// <para>DAC Field Name: StdCost</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
-		/// <para>Display Name: Current Cost</para>
-		/// </summary>
-		[DataMember(Name="CurrentStdCost", EmitDefaultValue=false)]
-		public DecimalValue? CurrentStdCost { get; set; }
-
-		/// <summary>
-		/// The URL to use for this inventory item.
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Custom URL</para>
-		/// <para>SQL Type: nvarchar(100)</para>
-		/// </summary>
-		[DataMember(Name="CustomURL", EmitDefaultValue=false)]
-		public StringValue? CustomURL { get; set; }
-
-		/// <summary>
-		/// The Location of warehouse used by default to issue items of this kind.Applicable only for Stock Items (see StkItem) when the Warehouse Locations feature is enabled.
-		/// <para>DAC Field Name: DfltShipLocationID</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
-		/// <para>Display Name: Default Issue From</para>
-		/// </summary>
-		[DataMember(Name="DefaultIssueLocationID", EmitDefaultValue=false)]
-		public StringValue? DefaultIssueLocationID { get; set; }
-
-		/// <summary>
-		/// The price used as the default price, if there are no other prices defined for this item in any price list in the Accounts Receivable module.
-		/// <para>DAC Field Name: BasePrice</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
-		/// <para>Display Name: Default Price</para>
-		/// </summary>
-		[DataMember(Name="DefaultPrice", EmitDefaultValue=false)]
-		public DecimalValue? DefaultPrice { get; set; }
-
-		/// <summary>
-		/// The description of the Inventory Item.
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// The weight of the Base Unit of the item.
-		/// <para>DAC Field Name: BaseItemWeight</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Weight</para>
-		/// </summary>
-		[DataMember(Name="DimensionWeight", EmitDefaultValue=false)]
-		public DecimalValue? DimensionWeight { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Export to External System</para>
-		/// </summary>
-		[DataMember(Name="ExportToExternal", EmitDefaultValue=false)]
-		public BooleanValue? ExportToExternal { get; set; }
-
-		[DataMember(Name="FileURLs", EmitDefaultValue=false)]
-		public List<InventoryFileUrls>? FileURLs { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Key field.The user-friendly unique identifier of the Inventory Item.The structure of the identifier is determined by the INVENTORY Segmented Key.
 		/// <para>DAC Field Name: InventoryCD</para>
@@ -162,6 +29,15 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
 		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// The description of the Inventory Item.
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// When set to <c>true</c>, indicates that this item is a Stock Item.
@@ -182,50 +58,13 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringSingleSelectValue? ItemStatus { get; set; }
 
 		/// <summary>
-		/// The date and time when the record was last modified.
-		/// <para>DAC: PX.Objects.IN.Matrix.DAC.Unbound.MatrixInventoryItem</para>
-		/// <para>Display Name: Last Modified On</para>
-		/// </summary>
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="Matrix", EmitDefaultValue=false)]
-		public List<MatrixItems>? Matrix { get; set; }
-
-		/// <summary>
-		/// The meta description for this item.
+		/// The identifier of the Item Class, to which the Inventory Item belongs.Item Classes provide default settings for items, which belong to them, and are used to group items.
+		/// <para>DAC Field Name: ItemClassID</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Meta Description</para>
-		/// <para>SQL Type: nvarchar(1024)</para>
+		/// <para>Display Name: Item Class</para>
 		/// </summary>
-		[DataMember(Name="MetaDescription", EmitDefaultValue=false)]
-		public StringValue? MetaDescription { get; set; }
-
-		/// <summary>
-		/// The manufacturer's suggested retail price of the item.
-		/// <para>DAC Field Name: RecPrice</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
-		/// </summary>
-		[DataMember(Name="MSRP", EmitDefaultValue=false)]
-		public DecimalValue? MSRP { get; set; }
-
-		/// <summary>
-		/// The title to use on this item's page.
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Page Title</para>
-		/// <para>SQL Type: nvarchar(100)</para>
-		/// </summary>
-		[DataMember(Name="PageTitle", EmitDefaultValue=false)]
-		public StringValue? PageTitle { get; set; }
-
-		/// <summary>
-		/// A comma-separated list of search keywords for this item.
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Search Keywords</para>
-		/// <para>SQL Type: nvarchar(1024)</para>
-		/// </summary>
-		[DataMember(Name="SearchKeywords", EmitDefaultValue=false)]
-		public StringValue? SearchKeywords { get; set; }
+		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
+		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
 		/// Identifier of the TaxCategory associated with the item.
@@ -238,12 +77,42 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
-		/// Indicates the visibility for this inventory item.
+		/// Reserved for internal use.Indicates whether the item (assumed Non-Stock) requires shipment.
+		/// <para>DAC Field Name: NonStockShip</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Require Shipment</para>
 		/// </summary>
-		[DataMember(Name="Visibility", EmitDefaultValue=false)]
-		public StringValue? Visibility { get; set; }
+		[DataMember(Name="RequireShipment", EmitDefaultValue=false)]
+		public BooleanValue? RequireShipment { get; set; }
+
+		/// <summary>
+		/// The Unit of Measure used as the base unit for the Inventory Item.
+		/// <para>DAC Field Name: BaseUnit</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Base Unit</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="BaseUOM", EmitDefaultValue=false)]
+		public StringValue? BaseUOM { get; set; }
+
+		/// <summary>
+		/// The Unit of Measure used as the sales unit for the Inventory Item.This field can be changed only if the Multiple Units of Measure feature is enabled.Otherwise, the sales unit is assumed to be the same as the Base Unit.
+		/// <para>DAC Field Name: SalesUnit</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Sales Unit</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="SalesUOM", EmitDefaultValue=false)]
+		public StringValue? SalesUOM { get; set; }
+
+		/// <summary>
+		/// The weight of the Base Unit of the item.
+		/// <para>DAC Field Name: BaseItemWeight</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Weight</para>
+		/// </summary>
+		[DataMember(Name="DimensionWeight", EmitDefaultValue=false)]
+		public DecimalValue? DimensionWeight { get; set; }
 
 		/// <summary>
 		/// The Unit of Measure used for the Weight of the item.
@@ -255,35 +124,13 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? WeightUOM { get; set; }
 
 		/// <summary>
-		/// A comma-separated list of meta keywords for this item.
+		/// Rich text description of the item.
+		/// <para>DAC Field Name: Body</para>
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Meta Keywords</para>
-		/// <para>SQL Type: nvarchar(1024)</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="MetaKeywords", EmitDefaultValue=false)]
-		public StringValue? MetaKeywords { get; set; }
-
-		/// <summary>
-		/// Reserved for internal use.Indicates whether the item (assumed Non-Stock) requires shipment.
-		/// <para>DAC Field Name: NonStockShip</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: Require Shipment</para>
-		/// </summary>
-		[DataMember(Name="RequireShipment", EmitDefaultValue=false)]
-		public BooleanValue? RequireShipment { get; set; }
-
-		/// <summary>
-		/// Indicates the Not Available Setting to use when an item has no more quantity available.
-		/// <para>DAC Field Name: NotAvailMode</para>
-		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
-		/// <para>Display Name: When Qty Unavailable</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="NotAvailable", EmitDefaultValue=false)]
-		public StringValue? NotAvailable { get; set; }
-
-		[DataMember(Name="VendorDetails", EmitDefaultValue=false)]
-		public List<TemplateItemVendorDetail>? VendorDetails { get; set; }
+		[DataMember(Name="Content", EmitDefaultValue=false)]
+		public StringValue? Content { get; set; }
 
 		/// <summary>
 		/// References to Attribute which will be put as Column Attribute in Inventory Matrix by default.
@@ -304,6 +151,170 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="DefaultRowAttributeID", EmitDefaultValue=false)]
 		public StringValue? DefaultRowAttributeID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Export to External System</para>
+		/// </summary>
+		[DataMember(Name="ExportToExternal", EmitDefaultValue=false)]
+		public BooleanValue? ExportToExternal { get; set; }
+
+		/// <summary>
+		/// Indicates the visibility for this inventory item.
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Visibility", EmitDefaultValue=false)]
+		public StringValue? Visibility { get; set; }
+
+		/// <summary>
+		/// Indicates the availability setting for the inventory item.
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Availability", EmitDefaultValue=false)]
+		public StringValue? Availability { get; set; }
+
+		/// <summary>
+		/// Indicates the Not Available Setting to use when an item has no more quantity available.
+		/// <para>DAC Field Name: NotAvailMode</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: When Qty Unavailable</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="NotAvailable", EmitDefaultValue=false)]
+		public StringValue? NotAvailable { get; set; }
+
+		/// <summary>
+		/// The URL to use for this inventory item.
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Custom URL</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// </summary>
+		[DataMember(Name="CustomURL", EmitDefaultValue=false)]
+		public StringValue? CustomURL { get; set; }
+
+		/// <summary>
+		/// The title to use on this item's page.
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Page Title</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// </summary>
+		[DataMember(Name="PageTitle", EmitDefaultValue=false)]
+		public StringValue? PageTitle { get; set; }
+
+		/// <summary>
+		/// A comma-separated list of search keywords for this item.
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Search Keywords</para>
+		/// <para>SQL Type: nvarchar(1024)</para>
+		/// </summary>
+		[DataMember(Name="SearchKeywords", EmitDefaultValue=false)]
+		public StringValue? SearchKeywords { get; set; }
+
+		/// <summary>
+		/// A comma-separated list of meta keywords for this item.
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Meta Keywords</para>
+		/// <para>SQL Type: nvarchar(1024)</para>
+		/// </summary>
+		[DataMember(Name="MetaKeywords", EmitDefaultValue=false)]
+		public StringValue? MetaKeywords { get; set; }
+
+		/// <summary>
+		/// The meta description for this item.
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Meta Description</para>
+		/// <para>SQL Type: nvarchar(1024)</para>
+		/// </summary>
+		[DataMember(Name="MetaDescription", EmitDefaultValue=false)]
+		public StringValue? MetaDescription { get; set; }
+
+		/// <summary>
+		/// The Location of warehouse used by default to issue items of this kind.Applicable only for Stock Items (see StkItem) when the Warehouse Locations feature is enabled.
+		/// <para>DAC Field Name: DfltShipLocationID</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
+		/// <para>Display Name: Default Issue From</para>
+		/// </summary>
+		[DataMember(Name="DefaultIssueLocationID", EmitDefaultValue=false)]
+		public StringValue? DefaultIssueLocationID { get; set; }
+
+		/// <summary>
+		/// The manufacturer's suggested retail price of the item.
+		/// <para>DAC Field Name: RecPrice</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
+		/// <para>Display Name: MSRP</para>
+		/// </summary>
+		[DataMember(Name="CurySpecificMSRP", EmitDefaultValue=false)]
+		public DecimalValue? CurySpecificMSRP { get; set; }
+
+		/// <summary>
+		/// The manufacturer's suggested retail price of the item.
+		/// <para>DAC Field Name: RecPrice</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
+		/// </summary>
+		[DataMember(Name="MSRP", EmitDefaultValue=false)]
+		public DecimalValue? MSRP { get; set; }
+
+		/// <summary>
+		/// The price used as the default price, if there are no other prices defined for this item in any price list in the Accounts Receivable module.
+		/// <para>DAC Field Name: BasePrice</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
+		/// <para>Display Name: Default Price</para>
+		/// </summary>
+		[DataMember(Name="CurySpecificPrice", EmitDefaultValue=false)]
+		public DecimalValue? CurySpecificPrice { get; set; }
+
+		/// <summary>
+		/// The price used as the default price, if there are no other prices defined for this item in any price list in the Accounts Receivable module.
+		/// <para>DAC Field Name: BasePrice</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
+		/// <para>Display Name: Default Price</para>
+		/// </summary>
+		[DataMember(Name="DefaultPrice", EmitDefaultValue=false)]
+		public DecimalValue? DefaultPrice { get; set; }
+
+		/// <summary>
+		/// The current standard cost of the item.
+		/// <para>DAC Field Name: StdCost</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItemCurySettings</para>
+		/// <para>Display Name: Current Cost</para>
+		/// </summary>
+		[DataMember(Name="CurrentStdCost", EmitDefaultValue=false)]
+		public DecimalValue? CurrentStdCost { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was last modified.
+		/// <para>DAC: PX.Objects.IN.Matrix.DAC.Unbound.MatrixInventoryItem</para>
+		/// <para>Display Name: Last Modified On</para>
+		/// </summary>
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Attributes", EmitDefaultValue=false)]
+		public List<AttributeValue>? Attributes { get; set; }
+
+		[DataMember(Name="Categories", EmitDefaultValue=false)]
+		public List<CategoryStockItem>? Categories { get; set; }
+
+		[DataMember(Name="FileURLs", EmitDefaultValue=false)]
+		public List<InventoryFileUrls>? FileURLs { get; set; }
+
+		[DataMember(Name="Matrix", EmitDefaultValue=false)]
+		public List<MatrixItems>? Matrix { get; set; }
+
+		[DataMember(Name="VendorDetails", EmitDefaultValue=false)]
+		public List<TemplateItemVendorDetail>? VendorDetails { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(TemplateItems)} - \"{InventoryID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

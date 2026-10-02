@@ -17,6 +17,39 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class MRPDetailInquiry : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// Inventory ID
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// Sub item ID
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// </summary>
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// Warehouse
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// </summary>
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// Qty on hand
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Qty. On Hand</para>
+		/// </summary>
+		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
+		public DecimalValue? QtyOnHand { get; set; }
+
 		/// <summary>
 		/// U o m
 		/// <para>DAC Field Name: UOM</para>
@@ -27,50 +60,13 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		[DataMember(Name="BaseUnit", EmitDefaultValue=false)]
 		public StringValue? BaseUnit { get; set; }
 
-		[DataMember(Name="DaysOfSupply", EmitDefaultValue=false)]
-		public IntValue? DaysOfSupply { get; set; }
-
-		[DataMember(Name="EOQ", EmitDefaultValue=false)]
-		public DecimalValue? EOQ { get; set; }
-
 		/// <summary>
-		/// Inventory ID
+		/// Safety stock
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Inventory ID</para>
+		/// <para>Display Name: Safety Stock</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		[DataMember(Name="LotMultiple", EmitDefaultValue=false)]
-		public DecimalValue? LotMultiple { get; set; }
-
-		/// <summary>
-		/// Lot qty
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Lot Qty.</para>
-		/// </summary>
-		[DataMember(Name="LotQty", EmitDefaultValue=false)]
-		public DecimalValue? LotQty { get; set; }
-
-		[DataMember(Name="ManufacturingEOQ", EmitDefaultValue=false)]
-		public DecimalValue? ManufacturingEOQ { get; set; }
-
-		[DataMember(Name="MaxLotSize", EmitDefaultValue=false)]
-		public DecimalValue? MaxLotSize { get; set; }
-
-		/// <summary>
-		/// Max order qty
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Max. Order Qty.</para>
-		/// </summary>
-		[DataMember(Name="MaxOrderQty", EmitDefaultValue=false)]
-		public DecimalValue? MaxOrderQty { get; set; }
-
-		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
-		public DecimalValue? MaxQty { get; set; }
-
-		[DataMember(Name="MinLotSize", EmitDefaultValue=false)]
-		public DecimalValue? MinLotSize { get; set; }
+		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
+		public DecimalValue? SafetyStock { get; set; }
 
 		/// <summary>
 		/// Min order qty
@@ -81,45 +77,55 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public DecimalValue? MinOrderQty { get; set; }
 
 		/// <summary>
-		/// Qty on hand
+		/// Max order qty
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Qty. On Hand</para>
+		/// <para>Display Name: Max. Order Qty.</para>
 		/// </summary>
-		[DataMember(Name="QtyOnHand", EmitDefaultValue=false)]
-		public DecimalValue? QtyOnHand { get; set; }
+		[DataMember(Name="MaxOrderQty", EmitDefaultValue=false)]
+		public DecimalValue? MaxOrderQty { get; set; }
+
+		/// <summary>
+		/// Lot qty
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Lot Qty.</para>
+		/// </summary>
+		[DataMember(Name="LotQty", EmitDefaultValue=false)]
+		public DecimalValue? LotQty { get; set; }
+
+		[DataMember(Name="DaysOfSupply", EmitDefaultValue=false)]
+		public IntValue? DaysOfSupply { get; set; }
+
+		[DataMember(Name="EOQ", EmitDefaultValue=false)]
+		public DecimalValue? EOQ { get; set; }
+
+		[DataMember(Name="LotMultiple", EmitDefaultValue=false)]
+		public DecimalValue? LotMultiple { get; set; }
+
+		[DataMember(Name="ManufacturingEOQ", EmitDefaultValue=false)]
+		public DecimalValue? ManufacturingEOQ { get; set; }
+
+		[DataMember(Name="MaxLotSize", EmitDefaultValue=false)]
+		public DecimalValue? MaxLotSize { get; set; }
+
+		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
+		public DecimalValue? MaxQty { get; set; }
+
+		[DataMember(Name="MinLotSize", EmitDefaultValue=false)]
+		public DecimalValue? MinLotSize { get; set; }
 
 		[DataMember(Name="ReorderPoint", EmitDefaultValue=false)]
 		public DecimalValue? ReorderPoint { get; set; }
 
-		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<MRPDetailInquiryResult>? Results { get; set; }
-
-		/// <summary>
-		/// Safety stock
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Safety Stock</para>
-		/// </summary>
-		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
-		public DecimalValue? SafetyStock { get; set; }
-
-		/// <summary>
-		/// Sub item ID
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
-
 		[DataMember(Name="TransferERQ", EmitDefaultValue=false)]
 		public DecimalValue? TransferERQ { get; set; }
 
-		/// <summary>
-		/// Warehouse
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		#endregion
+
+		#region Details
+		[DataMember(Name="Results", EmitDefaultValue=false)]
+		public List<MRPDetailInquiryResult>? Results { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

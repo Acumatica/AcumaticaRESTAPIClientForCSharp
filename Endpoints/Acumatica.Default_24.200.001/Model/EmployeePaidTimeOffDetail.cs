@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class EmployeePaidTimeOffDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccrualMethod", EmitDefaultValue=false)]
 		public StringValue? AccrualMethod { get; set; }
 
@@ -70,6 +71,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="TransferDate", EmitDefaultValue=false)]
 		public DateTimeValue? TransferDate { get; set; }
+
+		#endregion
 
 	}
 }

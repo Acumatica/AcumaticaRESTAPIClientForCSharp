@@ -14,6 +14,7 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	public class ConsolidationItem : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.GLConsolData</para>
 		/// <para>Display Name: Account</para>
@@ -22,6 +23,31 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		/// </summary>
 		[DataMember(Name="AccountCD", EmitDefaultValue=false)]
 		public StringValue? AccountCD { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.GL.GLConsolData</para>
+		/// <para>Display Name: Mapped Sub.</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="MappedValue", EmitDefaultValue=false)]
+		public StringValue? MappedValue { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.GL.GLConsolData</para>
+		/// <para>Display Name: Fin. Period</para>
+		/// <para>SQL Type: nchar(6)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="FinPeriodID", EmitDefaultValue=false)]
+		public StringValue? FinPeriodID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.GL.GLConsolData</para>
+		/// <para>Display Name: Mapped Sub. Length</para>
+		/// </summary>
+		[DataMember(Name="MappedValueLength", EmitDefaultValue=false)]
+		public IntValue? MappedValueLength { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.GLConsolData</para>
@@ -37,30 +63,7 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		[DataMember(Name="ConsolAmtDebit", EmitDefaultValue=false)]
 		public DecimalValue? ConsolAmtDebit { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.GL.GLConsolData</para>
-		/// <para>Display Name: Fin. Period</para>
-		/// <para>SQL Type: nchar(6)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="FinPeriodID", EmitDefaultValue=false)]
-		public StringValue? FinPeriodID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.GL.GLConsolData</para>
-		/// <para>Display Name: Mapped Sub.</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="MappedValue", EmitDefaultValue=false)]
-		public StringValue? MappedValue { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.GL.GLConsolData</para>
-		/// <para>Display Name: Mapped Sub. Length</para>
-		/// </summary>
-		[DataMember(Name="MappedValueLength", EmitDefaultValue=false)]
-		public IntValue? MappedValueLength { get; set; }
+		#endregion
 
 	}
 }

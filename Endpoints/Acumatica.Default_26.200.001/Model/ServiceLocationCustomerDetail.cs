@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ServiceLocationCustomerDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="City", EmitDefaultValue=false)]
 		public StringValue? City { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="State", EmitDefaultValue=false)]
 		public StringValue? State { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

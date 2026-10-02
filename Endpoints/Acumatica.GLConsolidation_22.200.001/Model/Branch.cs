@@ -18,15 +18,7 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	public class Branch : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The name of the branch.
-		/// <para>DAC: PX.Objects.GL.Branch</para>
-		/// <para>Display Name: Branch Name</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		[DataMember(Name="AcctName", EmitDefaultValue=false)]
-		public StringValue? AcctName { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Key field.User-friendly unique identifier of the Branch.
 		/// <para>DAC: PX.Objects.GL.Branch</para>
@@ -45,11 +37,27 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		public StringValue? OrganizationCD { get; set; }
 
 		/// <summary>
+		/// The name of the branch.
+		/// <para>DAC: PX.Objects.GL.Branch</para>
+		/// <para>Display Name: Branch Name</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		[DataMember(Name="AcctName", EmitDefaultValue=false)]
+		public StringValue? AcctName { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Ledger__LedgerCD</para>
 		/// <para>DAC: PX.Objects.GL.Branch</para>
 		/// </summary>
 		[DataMember(Name="LedgerCD", EmitDefaultValue=false)]
 		public StringValue? LedgerCD { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Branch)} - \"{BranchCD}\"";
+		}
 
 		public static class Expand
 		{

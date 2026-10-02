@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class TaxCodeSetting : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AdditionalInformation", EmitDefaultValue=false)]
 		public StringValue? AdditionalInformation { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

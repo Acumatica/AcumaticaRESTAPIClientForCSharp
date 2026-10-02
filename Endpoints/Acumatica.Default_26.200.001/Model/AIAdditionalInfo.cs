@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class AIAdditionalInfo : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="ReplyBodyAsPlainText", EmitDefaultValue=false)]
 		public StringValue? ReplyBodyAsPlainText { get; set; }
+
+		#endregion
 
 	}
 }

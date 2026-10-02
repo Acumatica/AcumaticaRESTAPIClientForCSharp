@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ChangeRequestMarkup : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
 		public StringValue? AccountGroup { get; set; }
 
@@ -43,6 +44,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public DecimalValue? Value { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -14,37 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmailProcessingRow : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: EMailAccount__Description</para>
-		/// <para>DAC: PX.Objects.CR.SMEmail</para>
-		/// </summary>
-		[DataMember(Name="EmailAccount", EmitDefaultValue=false)]
-		public StringValue? EmailAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MailFrom</para>
-		/// <para>DAC: PX.Objects.CR.SMEmail</para>
-		/// <para>SQL Type: nvarchar(500)</para>
-		/// </summary>
-		[DataMember(Name="From", EmitDefaultValue=false)]
-		public StringValue? From { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MPStatus</para>
-		/// <para>DAC: PX.Objects.CR.SMEmail</para>
-		/// <para>Display Name: Email Status</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		[DataMember(Name="MailStatus", EmitDefaultValue=false)]
-		public StringValue? MailStatus { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CRActivity__OwnerID</para>
-		/// <para>DAC: PX.Objects.CR.SMEmail</para>
-		/// </summary>
-		[DataMember(Name="Owner", EmitDefaultValue=false)]
-		public StringValue? Owner { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
 		/// <para>DAC: PX.Objects.CR.SMEmail</para>
@@ -53,11 +23,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? Selected { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CRActivity__StartDate</para>
+		/// <para>DAC Field Name: EMailAccount__Description</para>
 		/// <para>DAC: PX.Objects.CR.SMEmail</para>
 		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue? StartDate { get; set; }
+		[DataMember(Name="EmailAccount", EmitDefaultValue=false)]
+		public StringValue? EmailAccount { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.SMEmail</para>
@@ -68,12 +38,45 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Subject { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: MailFrom</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
+		/// <para>SQL Type: nvarchar(500)</para>
+		/// </summary>
+		[DataMember(Name="From", EmitDefaultValue=false)]
+		public StringValue? From { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: MailTo</para>
 		/// <para>DAC: PX.Objects.CR.SMEmail</para>
 		/// <para>SQL Type: nvarchar(3000)</para>
 		/// </summary>
 		[DataMember(Name="To", EmitDefaultValue=false)]
 		public StringValue? To { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CRActivity__StartDate</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
+		/// </summary>
+		[DataMember(Name="StartDate", EmitDefaultValue=false)]
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CRActivity__OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
+		/// </summary>
+		[DataMember(Name="Owner", EmitDefaultValue=false)]
+		public StringValue? Owner { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MPStatus</para>
+		/// <para>DAC: PX.Objects.CR.SMEmail</para>
+		/// <para>Display Name: Email Status</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		[DataMember(Name="MailStatus", EmitDefaultValue=false)]
+		public StringValue? MailStatus { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeePaidTimeOffDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccrualLimit", EmitDefaultValue=false)]
 		public DecimalValue? AccrualLimit { get; set; }
 
@@ -76,6 +77,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="UseClassDefaultValues", EmitDefaultValue=false)]
 		public BooleanValue? UseClassDefaultValues { get; set; }
+
+		#endregion
 
 	}
 }

@@ -17,6 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ProjectMaterials : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="Customer", EmitDefaultValue=false)]
 		public StringValue? Customer { get; set; }
 
@@ -25,9 +26,6 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="EndDate", EmitDefaultValue=false)]
 		public DateOnlyValue? EndDate { get; set; }
-
-		[DataMember(Name="MaterialLines", EmitDefaultValue=false)]
-		public List<MaterialListLines>? MaterialLines { get; set; }
 
 		[DataMember(Name="Project", EmitDefaultValue=false)]
 		public StringValue? Project { get; set; }
@@ -41,8 +39,19 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateOnlyValue? StartDate { get; set; }
 
+		#endregion
+
+		#region LinkedEntities
 		[DataMember(Name="Totals", EmitDefaultValue=false)]
 		public MaterialListTotals? Totals { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="MaterialLines", EmitDefaultValue=false)]
+		public List<MaterialListLines>? MaterialLines { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

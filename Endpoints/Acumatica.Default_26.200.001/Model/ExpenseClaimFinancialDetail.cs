@@ -14,8 +14,16 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ExpenseClaimFinancialDetail : Entity
 	{
 
-		[DataMember(Name="APDocuments", EmitDefaultValue=false)]
-		public List<ExpenseClaimAPDocument>? APDocuments { get; set; }
+		#region Fields
+		/// <summary>
+		/// The tax zone associated with the branch.
+		/// <para>DAC Field Name: TaxZoneID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
+		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
 		/// The branch of the claim.
@@ -35,15 +43,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="PosttoPeriod", EmitDefaultValue=false)]
 		public StringValue? PosttoPeriod { get; set; }
 
-		/// <summary>
-		/// The tax zone associated with the branch.
-		/// <para>DAC Field Name: TaxZoneID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Tax Zone</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		[DataMember(Name="TaxZone", EmitDefaultValue=false)]
-		public StringValue? TaxZone { get; set; }
+		#endregion
+
+		#region Details
+		[DataMember(Name="APDocuments", EmitDefaultValue=false)]
+		public List<ExpenseClaimAPDocument>? APDocuments { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EngineeringChangeRequestStep : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ChangeStatus", EmitDefaultValue=false)]
 		public StringValue? ChangeStatus { get; set; }
 
@@ -31,6 +32,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="Revision", EmitDefaultValue=false)]
 		public StringValue? Revision { get; set; }
+
+		#endregion
 
 	}
 }

@@ -17,6 +17,7 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 	public class Scales : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

@@ -18,38 +18,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class Employee : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<AttributeValue>? Attributes { get; set; }
-
-		[DataMember(Name="CompanyTreeInfo", EmitDefaultValue=false)]
-		public List<CompanyTree>? CompanyTreeInfo { get; set; }
-
-		[DataMember(Name="ContactInfo", EmitDefaultValue=false)]
-		public Contact? ContactInfo { get; set; }
-
-		/// <summary>
-		/// The date and time when the record was created.
-		/// <para>DAC: PX.Objects.CR.CRPMTimeActivity</para>
-		/// <para>Display Name: Created At</para>
-		/// </summary>
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		[DataMember(Name="Delegates", EmitDefaultValue=false)]
-		public List<EmployeeDelegate>? Delegates { get; set; }
-
-		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
-		public StringValue? DisplayName { get; set; }
-
-		/// <summary>
-		/// Identifier of the employee department that the employee belongs to.
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Department</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		[DataMember(Name="DepartmentID", EmitDefaultValue=false)]
-		public StringValue? DepartmentID { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The human-readable identifier of the employee that isspecified by the user or defined by the EMPLOYEE auto-numbering sequence during thecreation of the employee. This field is a natural key, as opposedto the surrogate key BAccountID.
 		/// <para>DAC Field Name: AcctCD</para>
@@ -71,18 +40,6 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
 
-		[DataMember(Name="EmployeeSettings", EmitDefaultValue=false)]
-		public EmployeeSettings? EmployeeSettings { get; set; }
-
-		[DataMember(Name="EmploymentHistory", EmitDefaultValue=false)]
-		public List<EmploymentHistoryRecord>? EmploymentHistory { get; set; }
-
-		[DataMember(Name="FinancialSettings", EmitDefaultValue=false)]
-		public EmployeeFinancialSettings? FinancialSettings { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		/// <summary>
 		/// The status of the employee.
 		/// <para>DAC Field Name: VStatus</para>
@@ -100,6 +57,63 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="VendorClassID", EmitDefaultValue=false)]
 		public StringValue? VendorClassID { get; set; }
+
+		/// <summary>
+		/// Identifier of the employee department that the employee belongs to.
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Department</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="DepartmentID", EmitDefaultValue=false)]
+		public StringValue? DepartmentID { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was created.
+		/// <para>DAC: PX.Objects.CR.CRPMTimeActivity</para>
+		/// <para>Display Name: Created At</para>
+		/// </summary>
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="DisplayName", EmitDefaultValue=false)]
+		public StringValue? DisplayName { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="ContactInfo", EmitDefaultValue=false)]
+		public Contact? ContactInfo { get; set; }
+
+		[DataMember(Name="EmployeeSettings", EmitDefaultValue=false)]
+		public EmployeeSettings? EmployeeSettings { get; set; }
+
+		[DataMember(Name="FinancialSettings", EmitDefaultValue=false)]
+		public EmployeeFinancialSettings? FinancialSettings { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Attributes", EmitDefaultValue=false)]
+		public List<AttributeValue>? Attributes { get; set; }
+
+		[DataMember(Name="CompanyTreeInfo", EmitDefaultValue=false)]
+		public List<CompanyTree>? CompanyTreeInfo { get; set; }
+
+		[DataMember(Name="Delegates", EmitDefaultValue=false)]
+		public List<EmployeeDelegate>? Delegates { get; set; }
+
+		[DataMember(Name="EmploymentHistory", EmitDefaultValue=false)]
+		public List<EmploymentHistoryRecord>? EmploymentHistory { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Employee)} - \"{EmployeeID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

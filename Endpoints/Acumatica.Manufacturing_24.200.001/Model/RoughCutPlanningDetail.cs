@@ -14,84 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class RoughCutPlanningDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: AMProdItem__BranchID</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ConstDate</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// </summary>
-		[DataMember(Name="Constraint", EmitDefaultValue=false)]
-		public DateTimeValue? Constraint { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AMProdItem__CustomerID</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// </summary>
-		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue? Customer { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InventoryID_description</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SchPriority</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// <para>Display Name: Dispatch Priority</para>
-		/// </summary>
-		[DataMember(Name="DispatchPriority", EmitDefaultValue=false)]
-		public ShortValue? DispatchPriority { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: EndDate_Date</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// </summary>
-		[DataMember(Name="EndDate", EmitDefaultValue=false)]
-		public DateTimeValue? EndDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: EndDate_Time</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// </summary>
-		[DataMember(Name="EndTime", EmitDefaultValue=false)]
-		public DateTimeValue? EndTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// <para>Display Name: Firm Schedule</para>
-		/// </summary>
-		[DataMember(Name="FirmSchedule", EmitDefaultValue=false)]
-		public BooleanValue? FirmSchedule { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AMProdItem__ProdDate</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// </summary>
-		[DataMember(Name="OrderDate", EmitDefaultValue=false)]
-		public DateTimeValue? OrderDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AMProdItem__Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// </summary>
-		[DataMember(Name="OrderDescription", EmitDefaultValue=false)]
-		public StringValue? OrderDescription { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
 		/// <para>Display Name: Order Type</para>
@@ -112,11 +35,20 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SchdID</para>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// <para>Display Name: Remaining Qty.</para>
+		/// <para>Display Name: Schedule ID</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="QtyRemaining", EmitDefaultValue=false)]
-		public DecimalValue? QtyRemaining { get; set; }
+		[DataMember(Name="ScheduleID", EmitDefaultValue=false)]
+		public IntValue? ScheduleID { get; set; }
+
+		/// <summary>
+		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// </summary>
+		[DataMember(Name="Selected", EmitDefaultValue=false)]
+		public BooleanValue? Selected { get; set; }
 
 		/// <summary>
 		/// Order Base Unit Qty to Produce
@@ -128,13 +60,69 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public DecimalValue? QtytoProduce { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SchdID</para>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// <para>Display Name: Schedule ID</para>
-		/// Key Field
+		/// <para>Display Name: Remaining Qty.</para>
 		/// </summary>
-		[DataMember(Name="ScheduleID", EmitDefaultValue=false)]
-		public IntValue? ScheduleID { get; set; }
+		[DataMember(Name="QtyRemaining", EmitDefaultValue=false)]
+		public DecimalValue? QtyRemaining { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AMProdItem__UOM</para>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// </summary>
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InventoryID_description</para>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SchPriority</para>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// <para>Display Name: Dispatch Priority</para>
+		/// </summary>
+		[DataMember(Name="DispatchPriority", EmitDefaultValue=false)]
+		public ShortValue? DispatchPriority { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ConstDate</para>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// </summary>
+		[DataMember(Name="Constraint", EmitDefaultValue=false)]
+		public DateTimeValue? Constraint { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: StartDate_Date</para>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// </summary>
+		[DataMember(Name="StartDate", EmitDefaultValue=false)]
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EndDate_Date</para>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// </summary>
+		[DataMember(Name="EndDate", EmitDefaultValue=false)]
+		public DateTimeValue? EndDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// <para>Display Name: Scheduling Method</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="SchedulingMethod", EmitDefaultValue=false)]
+		public StringValue? SchedulingMethod { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
@@ -146,18 +134,31 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// <para>Display Name: Scheduling Method</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Firm Schedule</para>
 		/// </summary>
-		[DataMember(Name="SchedulingMethod", EmitDefaultValue=false)]
-		public StringValue? SchedulingMethod { get; set; }
+		[DataMember(Name="FirmSchedule", EmitDefaultValue=false)]
+		public BooleanValue? FirmSchedule { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
+		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
 		/// </summary>
-		[DataMember(Name="Selected", EmitDefaultValue=false)]
-		public BooleanValue? Selected { get; set; }
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AMProdItem__ProdDate</para>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// </summary>
+		[DataMember(Name="OrderDate", EmitDefaultValue=false)]
+		public DateTimeValue? OrderDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AMProdItem__CustomerID</para>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// </summary>
+		[DataMember(Name="Customer", EmitDefaultValue=false)]
+		public StringValue? Customer { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AMProdItem__OrdNbr</para>
@@ -167,18 +168,11 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? SOOrderNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: StartDate_Date</para>
+		/// <para>DAC Field Name: AMProdItem__Descr</para>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
 		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue? StartDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: StartDate_Time</para>
-		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
-		/// </summary>
-		[DataMember(Name="StartTime", EmitDefaultValue=false)]
-		public DateTimeValue? StartTime { get; set; }
+		[DataMember(Name="OrderDescription", EmitDefaultValue=false)]
+		public StringValue? OrderDescription { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AMProdItem__StatusID</para>
@@ -188,18 +182,27 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: AMProdItem__UOM</para>
+		/// <para>DAC Field Name: StartDate_Time</para>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
+		[DataMember(Name="StartTime", EmitDefaultValue=false)]
+		public DateTimeValue? StartTime { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC Field Name: EndDate_Time</para>
 		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		[DataMember(Name="EndTime", EmitDefaultValue=false)]
+		public DateTimeValue? EndTime { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AMProdItem__BranchID</para>
+		/// <para>DAC: PX.Objects.AM.AMSchdItem</para>
+		/// </summary>
+		[DataMember(Name="Branch", EmitDefaultValue=false)]
+		public StringValue? Branch { get; set; }
+
+		#endregion
 
 	}
 }

@@ -18,13 +18,7 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 	public class Printer : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.SM.SMPrinter</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: DeviceHubID</para>
 		/// <para>DAC: PX.SM.SMPrinter</para>
@@ -37,19 +31,33 @@ namespace Acumatica.DeviceHub_26_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.SM.SMPrinter</para>
-		/// <para>Display Name: Active</para>
-		/// </summary>
-		[DataMember(Name="IsActive", EmitDefaultValue=false)]
-		public BooleanValue? IsActive { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMPrinter</para>
 		/// <para>Display Name: Printer</para>
 		/// <para>SQL Type: varchar(20)</para>
 		/// Key Field
 		/// </summary>
 		[DataMember(Name="PrinterName", EmitDefaultValue=false)]
 		public StringValue? PrinterName { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMPrinter</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMPrinter</para>
+		/// <para>Display Name: Active</para>
+		/// </summary>
+		[DataMember(Name="IsActive", EmitDefaultValue=false)]
+		public BooleanValue? IsActive { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Printer)} - \"{DeviceHub}\" - \"{PrinterName}\"";
+		}
 
 		public static class Expand
 		{

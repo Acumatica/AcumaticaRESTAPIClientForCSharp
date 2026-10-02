@@ -14,13 +14,20 @@ namespace Acumatica.Default_26_200_001.Model
 	public class EventTimeActivity : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: OvertimeBillable</para>
 		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
-		/// <para>Display Name: Billable Overtime</para>
+		/// <para>Display Name: Time Spent</para>
 		/// </summary>
-		[DataMember(Name="BillableOvertime", EmitDefaultValue=false)]
-		public IntSingleSelectValue? BillableOvertime { get; set; }
+		[DataMember(Name="TimeSpent", EmitDefaultValue=false)]
+		public IntSingleSelectValue? TimeSpent { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OvertimeSpent</para>
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// </summary>
+		[DataMember(Name="Overtime", EmitDefaultValue=false)]
+		public IntSingleSelectValue? Overtime { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TimeBillable</para>
@@ -31,18 +38,14 @@ namespace Acumatica.Default_26_200_001.Model
 		public IntSingleSelectValue? BillableTime { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: OvertimeSpent</para>
+		/// <para>DAC Field Name: OvertimeBillable</para>
 		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Billable Overtime</para>
 		/// </summary>
-		[DataMember(Name="Overtime", EmitDefaultValue=false)]
-		public IntSingleSelectValue? Overtime { get; set; }
+		[DataMember(Name="BillableOvertime", EmitDefaultValue=false)]
+		public IntSingleSelectValue? BillableOvertime { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
-		/// <para>Display Name: Time Spent</para>
-		/// </summary>
-		[DataMember(Name="TimeSpent", EmitDefaultValue=false)]
-		public IntSingleSelectValue? TimeSpent { get; set; }
+		#endregion
 
 	}
 }

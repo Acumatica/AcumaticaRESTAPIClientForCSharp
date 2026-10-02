@@ -14,11 +14,14 @@ namespace Acumatica.Default_26_200_001.Model
 	public class NonPayableBenefitsIncreasingDisposableNetDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="BenefitCode", EmitDefaultValue=false)]
 		public StringValue? BenefitCode { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

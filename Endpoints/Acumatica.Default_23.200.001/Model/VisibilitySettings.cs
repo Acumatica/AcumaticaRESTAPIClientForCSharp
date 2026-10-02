@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class VisibilitySettings : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AP", EmitDefaultValue=false)]
 		public BooleanValue? AP { get; set; }
 
@@ -43,6 +44,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="TimeEntries", EmitDefaultValue=false)]
 		public BooleanValue? TimeEntries { get; set; }
+
+		#endregion
 
 	}
 }

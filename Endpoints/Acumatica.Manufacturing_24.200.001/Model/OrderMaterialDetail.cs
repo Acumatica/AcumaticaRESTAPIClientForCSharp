@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class OrderMaterialDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Backflush", EmitDefaultValue=false)]
 		public BooleanValue? Backflush { get; set; }
 
@@ -115,6 +116,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		[DataMember(Name="WarehouseOverride", EmitDefaultValue=false)]
 		public BooleanValue? WarehouseOverride { get; set; }
+
+		#endregion
 
 	}
 }

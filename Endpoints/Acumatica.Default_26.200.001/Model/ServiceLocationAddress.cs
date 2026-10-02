@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ServiceLocationAddress : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AddressLine1", EmitDefaultValue=false)]
 		public StringValue? AddressLine1 { get; set; }
 
@@ -37,6 +38,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="State", EmitDefaultValue=false)]
 		public StringValue? State { get; set; }
+
+		#endregion
 
 	}
 }

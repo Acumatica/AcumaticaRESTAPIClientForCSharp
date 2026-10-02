@@ -14,6 +14,39 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmployeeGLAccounts : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: EarningsAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Earnings Account</para>
+		/// </summary>
+		[DataMember(Name="EarningsAccount", EmitDefaultValue=false)]
+		public StringValue? EarningsAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EarningsSubID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Earnings Sub.</para>
+		/// </summary>
+		[DataMember(Name="EarningsSub", EmitDefaultValue=false)]
+		public StringValue? EarningsSub { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DedLiabilityAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Deduction Liability Account</para>
+		/// </summary>
+		[DataMember(Name="DeductionLiabilityAccount", EmitDefaultValue=false)]
+		public StringValue? DeductionLiabilityAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DedLiabilitySubID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Deduction Liability Sub.</para>
+		/// </summary>
+		[DataMember(Name="DeductionLiabilitySub", EmitDefaultValue=false)]
+		public StringValue? DeductionLiabilitySub { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: BenefitExpenseAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
@@ -47,52 +80,36 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? BenefitLiabilitySub { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DedLiabilityAcctID</para>
+		/// <para>DAC Field Name: PayrollTaxExpenseAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Deduction Liability Account</para>
+		/// <para>Display Name: Tax Expense Account</para>
 		/// </summary>
-		[DataMember(Name="DeductionLiabilityAccount", EmitDefaultValue=false)]
-		public StringValue? DeductionLiabilityAccount { get; set; }
+		[DataMember(Name="TaxExpenseAccount", EmitDefaultValue=false)]
+		public StringValue? TaxExpenseAccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DedLiabilitySubID</para>
+		/// <para>DAC Field Name: PayrollTaxExpenseSubID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Deduction Liability Sub.</para>
+		/// <para>Display Name: Tax Expense Sub.</para>
 		/// </summary>
-		[DataMember(Name="DeductionLiabilitySub", EmitDefaultValue=false)]
-		public StringValue? DeductionLiabilitySub { get; set; }
+		[DataMember(Name="TaxExpenseSub", EmitDefaultValue=false)]
+		public StringValue? TaxExpenseSub { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EarningsAcctID</para>
+		/// <para>DAC Field Name: PayrollTaxLiabilityAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Earnings Account</para>
+		/// <para>Display Name: Tax Liability Account</para>
 		/// </summary>
-		[DataMember(Name="EarningsAccount", EmitDefaultValue=false)]
-		public StringValue? EarningsAccount { get; set; }
+		[DataMember(Name="TaxLiabilityAccount", EmitDefaultValue=false)]
+		public StringValue? TaxLiabilityAccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EarningsSubID</para>
+		/// <para>DAC Field Name: PayrollTaxLiabilitySubID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Earnings Sub.</para>
+		/// <para>Display Name: Tax Liability Sub.</para>
 		/// </summary>
-		[DataMember(Name="EarningsSub", EmitDefaultValue=false)]
-		public StringValue? EarningsSub { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOAssetAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: PTO Asset Account</para>
-		/// </summary>
-		[DataMember(Name="PTOAssetAccount", EmitDefaultValue=false)]
-		public StringValue? PTOAssetAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOAssetSubID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: PTO Asset Sub.</para>
-		/// </summary>
-		[DataMember(Name="PTOAssetSub", EmitDefaultValue=false)]
-		public StringValue? PTOAssetSub { get; set; }
+		[DataMember(Name="TaxLiabilitySub", EmitDefaultValue=false)]
+		public StringValue? TaxLiabilitySub { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PTOExpenseAcctID</para>
@@ -127,36 +144,22 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? PTOLiabilitySub { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PayrollTaxExpenseAcctID</para>
+		/// <para>DAC Field Name: PTOAssetAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Tax Expense Account</para>
+		/// <para>Display Name: PTO Asset Account</para>
 		/// </summary>
-		[DataMember(Name="TaxExpenseAccount", EmitDefaultValue=false)]
-		public StringValue? TaxExpenseAccount { get; set; }
+		[DataMember(Name="PTOAssetAccount", EmitDefaultValue=false)]
+		public StringValue? PTOAssetAccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PayrollTaxExpenseSubID</para>
+		/// <para>DAC Field Name: PTOAssetSubID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Tax Expense Sub.</para>
+		/// <para>Display Name: PTO Asset Sub.</para>
 		/// </summary>
-		[DataMember(Name="TaxExpenseSub", EmitDefaultValue=false)]
-		public StringValue? TaxExpenseSub { get; set; }
+		[DataMember(Name="PTOAssetSub", EmitDefaultValue=false)]
+		public StringValue? PTOAssetSub { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: PayrollTaxLiabilityAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Tax Liability Account</para>
-		/// </summary>
-		[DataMember(Name="TaxLiabilityAccount", EmitDefaultValue=false)]
-		public StringValue? TaxLiabilityAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PayrollTaxLiabilitySubID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Tax Liability Sub.</para>
-		/// </summary>
-		[DataMember(Name="TaxLiabilitySub", EmitDefaultValue=false)]
-		public StringValue? TaxLiabilitySub { get; set; }
+		#endregion
 
 	}
 }

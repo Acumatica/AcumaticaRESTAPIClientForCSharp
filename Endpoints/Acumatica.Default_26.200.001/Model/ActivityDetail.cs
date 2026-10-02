@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ActivityDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AIResponsePriority", EmitDefaultValue=false)]
 		public StringValue? AIResponsePriority { get; set; }
 
@@ -79,6 +80,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="WorkgroupID", EmitDefaultValue=false)]
 		public StringValue? WorkgroupID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

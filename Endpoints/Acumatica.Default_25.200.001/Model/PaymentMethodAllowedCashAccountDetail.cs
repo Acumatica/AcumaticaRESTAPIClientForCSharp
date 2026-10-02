@@ -14,6 +14,64 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PaymentMethodAllowedCashAccountDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: PaymentMethodID</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name:  Payment Method ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
+		public StringValue? PaymentMethod { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CashAccountID</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
+		/// <para>Display Name: Cash Account</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
+		public StringValue? CashAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: UseForAP</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Use in AP</para>
+		/// </summary>
+		[DataMember(Name="UseInAP", EmitDefaultValue=false)]
+		public BooleanValue? UseInAP { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: UseForAR</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Use in AR</para>
+		/// </summary>
+		[DataMember(Name="UseInAR", EmitDefaultValue=false)]
+		public BooleanValue? UseInAR { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: UseForPR</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Use in PR</para>
+		/// </summary>
+		[DataMember(Name="UseInPR", EmitDefaultValue=false)]
+		public BooleanValue? UseInPR { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CashAccountID_CashAccount_Descr</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CashAccount__BranchID</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
+		/// </summary>
+		[DataMember(Name="Branch", EmitDefaultValue=false)]
+		public StringValue? Branch { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: APIsDefault</para>
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
@@ -21,6 +79,14 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="APDefault", EmitDefaultValue=false)]
 		public BooleanValue? APDefault { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: APAutoNextNbr</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
+		/// <para>Display Name: AP - Suggest Next Number</para>
+		/// </summary>
+		[DataMember(Name="APSuggestNextNbr", EmitDefaultValue=false)]
+		public BooleanValue? APSuggestNextNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
@@ -31,12 +97,13 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? APLastRefNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: APAutoNextNbr</para>
+		/// <para>DAC Field Name: APBatchLastRefNbr</para>
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
-		/// <para>Display Name: AP - Suggest Next Number</para>
+		/// <para>Display Name: Batch Last Reference Number</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		[DataMember(Name="APSuggestNextNbr", EmitDefaultValue=false)]
-		public BooleanValue? APSuggestNextNbr { get; set; }
+		[DataMember(Name="BatchLastRefNbr", EmitDefaultValue=false)]
+		public StringValue? BatchLastRefNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ARIsDefault</para>
@@ -55,14 +122,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? ARDefaultForRefund { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
-		/// <para>Display Name: AR Last Reference Number</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		[DataMember(Name="ARLastRefNbr", EmitDefaultValue=false)]
-		public StringValue? ARLastRefNbr { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: ARAutoNextNbr</para>
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
 		/// <para>Display Name: AR - Suggest Next Number</para>
@@ -71,73 +130,17 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? ARSuggestNextNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: APBatchLastRefNbr</para>
 		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
-		/// <para>Display Name: Batch Last Reference Number</para>
-		/// <para>SQL Type: nvarchar(15)</para>
+		/// <para>Display Name: AR Last Reference Number</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		[DataMember(Name="BatchLastRefNbr", EmitDefaultValue=false)]
-		public StringValue? BatchLastRefNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CashAccount__BranchID</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
-		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CashAccountID</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
-		/// <para>Display Name: Cash Account</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="CashAccount", EmitDefaultValue=false)]
-		public StringValue? CashAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CashAccountID_CashAccount_Descr</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethodAccount</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PaymentMethodID</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// <para>Display Name:  Payment Method ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
-		public StringValue? PaymentMethod { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: UseForAP</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// <para>Display Name: Use in AP</para>
-		/// </summary>
-		[DataMember(Name="UseInAP", EmitDefaultValue=false)]
-		public BooleanValue? UseInAP { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: UseForAR</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// <para>Display Name: Use in AR</para>
-		/// </summary>
-		[DataMember(Name="UseInAR", EmitDefaultValue=false)]
-		public BooleanValue? UseInAR { get; set; }
+		[DataMember(Name="ARLastRefNbr", EmitDefaultValue=false)]
+		public StringValue? ARLastRefNbr { get; set; }
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: UseForPR</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// <para>Display Name: Use in PR</para>
-		/// </summary>
-		[DataMember(Name="UseInPR", EmitDefaultValue=false)]
-		public BooleanValue? UseInPR { get; set; }
+		#endregion
 
 	}
 }

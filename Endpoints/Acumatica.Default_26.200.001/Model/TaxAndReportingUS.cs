@@ -14,6 +14,16 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TaxAndReportingUS : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The user-friendly unique identifier of the wage type. The tax engine uses this value to determine the rate to apply to the earning code.
+		/// <para>DAC Field Name: WageTypeCD</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: Wage Type</para>
+		/// </summary>
+		[DataMember(Name="WageType", EmitDefaultValue=false)]
+		public StringValue? WageType { get; set; }
+
 		/// <summary>
 		/// A code that determines whether this earning type will appear in Box 12 of the W-2 report and which code it will use.
 		/// <para>DAC Field Name: ReportType</para>
@@ -33,17 +43,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="SubjecttoTaxes", EmitDefaultValue=false)]
 		public StringValue? SubjecttoTaxes { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="TaxDetailsUS", EmitDefaultValue=false)]
 		public List<EarningCodeTaxDetailUS>? TaxDetailsUS { get; set; }
 
-		/// <summary>
-		/// The user-friendly unique identifier of the wage type. The tax engine uses this value to determine the rate to apply to the earning code.
-		/// <para>DAC Field Name: WageTypeCD</para>
-		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
-		/// <para>Display Name: Wage Type</para>
-		/// </summary>
-		[DataMember(Name="WageType", EmitDefaultValue=false)]
-		public StringValue? WageType { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

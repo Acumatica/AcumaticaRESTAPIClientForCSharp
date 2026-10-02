@@ -18,6 +18,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class BillOfMaterial : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The identifier of the bill of material.
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
@@ -27,49 +28,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="BOMID", EmitDefaultValue=false)]
 		public StringValue? BOMID { get; set; }
-
-		/// <summary>
-		/// A description of the bill of material. The system copies the description to production orders that are created by using the bill of material.
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// The last date when the BOM revision was effective.
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// <para>Display Name: End Date</para>
-		/// </summary>
-		[DataMember(Name="EffEndDate", EmitDefaultValue=false)]
-		public DateTimeValue? EffEndDate { get; set; }
-
-		/// <summary>
-		/// The date when the BOM revision becomes effective.
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		[DataMember(Name="EffStartDate", EmitDefaultValue=false)]
-		public DateTimeValue? EffStartDate { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates whether the BOM item is on hold.
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// </summary>
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue? Hold { get; set; }
-
-		/// <summary>
-		/// The identifier of the stock item that is produced by using the bill of material.
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		[DataMember(Name="Operations", EmitDefaultValue=false)]
-		public List<OperationDetail>? Operations { get; set; }
 
 		/// <summary>
 		/// The identifier of the BOM revision, which is the modification of the bill of material.
@@ -82,12 +40,36 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
+		/// A Boolean value that indicates whether the BOM item is on hold.
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// </summary>
+		[DataMember(Name="Hold", EmitDefaultValue=false)]
+		public BooleanValue? Hold { get; set; }
+
+		/// <summary>
 		/// The status of the revision.
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// A description of the bill of material. The system copies the description to production orders that are created by using the bill of material.
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// The identifier of the stock item that is produced by using the bill of material.
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// The subitem of the stock item.
@@ -104,6 +86,35 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// The date when the BOM revision becomes effective.
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		[DataMember(Name="EffStartDate", EmitDefaultValue=false)]
+		public DateTimeValue? EffStartDate { get; set; }
+
+		/// <summary>
+		/// The last date when the BOM revision was effective.
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		[DataMember(Name="EffEndDate", EmitDefaultValue=false)]
+		public DateTimeValue? EffEndDate { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Operations", EmitDefaultValue=false)]
+		public List<OperationDetail>? Operations { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(BillOfMaterial)} - \"{BOMID}\" - \"{Revision}\"";
+		}
 
 		public static class Expand
 		{

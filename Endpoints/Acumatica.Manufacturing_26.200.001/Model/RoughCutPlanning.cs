@@ -17,25 +17,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class RoughCutPlanning : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Detail", EmitDefaultValue=false)]
-		public List<RoughCutPlanningDetail>? Detail { get; set; }
-
-		/// <summary>
-		/// Show/hide orders which are schedule status Firm
-		/// <para>DAC: PX.Objects.AM.APSRoughCutProcessFilter</para>
-		/// <para>Display Name: Exclude Firm Orders</para>
-		/// </summary>
-		[DataMember(Name="ExcludeFirmOrders", EmitDefaultValue=false)]
-		public BooleanValue? ExcludeFirmOrders { get; set; }
-
-		/// <summary>
-		/// Show/hide planning type orders
-		/// <para>DAC: PX.Objects.AM.APSRoughCutProcessFilter</para>
-		/// <para>Display Name: Exclude Planning Orders</para>
-		/// </summary>
-		[DataMember(Name="ExcludePlanningOrders", EmitDefaultValue=false)]
-		public BooleanValue? ExcludePlanningOrders { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.APSRoughCutProcessFilter</para>
 		/// <para>Display Name: Action</para>
@@ -51,6 +33,30 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="ReleaseOrders", EmitDefaultValue=false)]
 		public BooleanValue? ReleaseOrders { get; set; }
+
+		/// <summary>
+		/// Show/hide planning type orders
+		/// <para>DAC: PX.Objects.AM.APSRoughCutProcessFilter</para>
+		/// <para>Display Name: Exclude Planning Orders</para>
+		/// </summary>
+		[DataMember(Name="ExcludePlanningOrders", EmitDefaultValue=false)]
+		public BooleanValue? ExcludePlanningOrders { get; set; }
+
+		/// <summary>
+		/// Show/hide orders which are schedule status Firm
+		/// <para>DAC: PX.Objects.AM.APSRoughCutProcessFilter</para>
+		/// <para>Display Name: Exclude Firm Orders</para>
+		/// </summary>
+		[DataMember(Name="ExcludeFirmOrders", EmitDefaultValue=false)]
+		public BooleanValue? ExcludeFirmOrders { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Detail", EmitDefaultValue=false)]
+		public List<RoughCutPlanningDetail>? Detail { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

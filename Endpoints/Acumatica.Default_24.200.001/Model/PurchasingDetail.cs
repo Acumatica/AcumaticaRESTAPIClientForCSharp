@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PurchasingDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="POOrderLineNbr", EmitDefaultValue=false)]
 		public IntValue? POOrderLineNbr { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="Selected", EmitDefaultValue=false)]
 		public BooleanValue? Selected { get; set; }
+
+		#endregion
 
 	}
 }

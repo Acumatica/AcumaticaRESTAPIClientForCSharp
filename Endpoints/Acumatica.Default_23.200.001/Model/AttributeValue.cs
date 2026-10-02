@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AttributeValue : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
 		public StringValue? AttributeID { get; set; }
 
@@ -31,6 +32,8 @@ namespace Acumatica.Default_23_200_001.Model
 
 		[DataMember(Name="ValueDescription", EmitDefaultValue=false)]
 		public StringValue? ValueDescription { get; set; }
+
+		#endregion
 
 	}
 }

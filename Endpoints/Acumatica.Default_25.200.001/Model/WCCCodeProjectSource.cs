@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class WCCCodeProjectSource : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="WorkCodeID", EmitDefaultValue=false)]
 		public StringValue? WorkCodeID { get; set; }
+
+		#endregion
 
 	}
 }

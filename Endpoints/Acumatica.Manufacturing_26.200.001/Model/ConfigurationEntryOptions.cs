@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class ConfigurationEntryOptions : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ConfigResultsID", EmitDefaultValue=false)]
 		public IntValue? ConfigResultsID { get; set; }
 
@@ -46,6 +47,8 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

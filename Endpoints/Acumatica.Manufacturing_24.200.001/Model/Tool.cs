@@ -18,50 +18,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class Tool : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: AcctID</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// </summary>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue? Account { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ActualCost</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
-		/// <para>Display Name: Consumed Cost</para>
-		/// </summary>
-		[DataMember(Name="ConsumedCost", EmitDefaultValue=false)]
-		public DecimalValue? ConsumedCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// Indicates the tool is scheduled in APS.(Only used in APS.)
-		/// <para>DAC Field Name: ScheduleEnabled</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// </summary>
-		[DataMember(Name="Schedule", EmitDefaultValue=false)]
-		public BooleanValue? Schedule { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SubID</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// </summary>
-		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
-		public StringValue? Subaccount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
 		/// <para>Display Name: Tool ID</para>
@@ -72,11 +29,48 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ToolID { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
-		/// <para>Display Name: Total Cost</para>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
-		public DecimalValue? TotalCost { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// </summary>
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActualUses</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// <para>Display Name: Total Uses</para>
+		/// </summary>
+		[DataMember(Name="TotalUses", EmitDefaultValue=false)]
+		public DecimalValue? TotalUses { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AcctID</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// </summary>
+		[DataMember(Name="Account", EmitDefaultValue=false)]
+		public StringValue? Account { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubID</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// </summary>
+		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
+		public StringValue? Subaccount { get; set; }
+
+		/// <summary>
+		/// Indicates the tool is scheduled in APS.(Only used in APS.)
+		/// <para>DAC Field Name: ScheduleEnabled</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// </summary>
+		[DataMember(Name="Schedule", EmitDefaultValue=false)]
+		public BooleanValue? Schedule { get; set; }
 
 		/// <summary>
 		/// APS Schedule qty/units for scheduling tools. The number of tools available for scheduling.
@@ -88,19 +82,33 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? TotalScheduleQty { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ActualUses</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// <para>Display Name: Total Uses</para>
-		/// </summary>
-		[DataMember(Name="TotalUses", EmitDefaultValue=false)]
-		public DecimalValue? TotalUses { get; set; }
-
-		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
 		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
 		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
 		public DecimalValue? UnitCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
+		/// <para>Display Name: Total Cost</para>
+		/// </summary>
+		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
+		public DecimalValue? TotalCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActualCost</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
+		/// <para>Display Name: Consumed Cost</para>
+		/// </summary>
+		[DataMember(Name="ConsumedCost", EmitDefaultValue=false)]
+		public DecimalValue? ConsumedCost { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Tool)} - \"{ToolID}\"";
+		}
 
 		public static class Expand
 		{

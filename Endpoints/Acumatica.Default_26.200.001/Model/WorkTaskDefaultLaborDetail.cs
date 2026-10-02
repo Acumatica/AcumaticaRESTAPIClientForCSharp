@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkTaskDefaultLaborDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="BAccountType", EmitDefaultValue=false)]
 		public StringValue? BAccountType { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="ResourceNoteID", EmitDefaultValue=false)]
 		public GuidValue? ResourceNoteID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -17,8 +17,11 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class CustomerLocation : Acumatica.Default_24_200_001.Model.CustomerLocation, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="LocationType", EmitDefaultValue=false)]
 		public StringValue? LocationType { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

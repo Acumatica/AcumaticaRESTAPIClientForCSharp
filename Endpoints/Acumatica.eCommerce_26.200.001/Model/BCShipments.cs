@@ -17,6 +17,19 @@ namespace Acumatica.eCommerce_26_200_001.Model
 	public class BCShipments : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Data.GenericFilter</para>
+		/// </summary>
+		[DataMember(Name="OrderType", EmitDefaultValue=false)]
+		public StringValue? OrderType { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Data.GenericFilter</para>
+		/// </summary>
+		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
+		public StringValue? OrderNbr { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
@@ -32,23 +45,16 @@ namespace Acumatica.eCommerce_26_200_001.Model
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
-		[DataMember(Name="OrderNbr", EmitDefaultValue=false)]
-		public StringValue? OrderNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Data.GenericFilter</para>
-		/// </summary>
-		[DataMember(Name="OrderType", EmitDefaultValue=false)]
-		public StringValue? OrderType { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Data.GenericFilter</para>
-		/// </summary>
 		[DataMember(Name="BindingID", EmitDefaultValue=false)]
 		public IntValue? BindingID { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="Results", EmitDefaultValue=false)]
 		public List<BCShipmentsResult>? Results { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -17,11 +17,14 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class SalesOrder : Acumatica.Default_24_200_001.Model.SalesOrder, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="ExternalQuoteNbr", EmitDefaultValue=false)]
 		public StringValue? ExternalQuoteNbr { get; set; }
 
 		[DataMember(Name="ExternalQuoteStatus", EmitDefaultValue=false)]
 		public StringValue? ExternalQuoteStatus { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

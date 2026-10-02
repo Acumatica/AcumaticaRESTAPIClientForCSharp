@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class InventoryFileUrls : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="FileType", EmitDefaultValue=false)]
 		public StringValue? FileType { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="NoteID", EmitDefaultValue=false)]
 		public GuidValue? NoteID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

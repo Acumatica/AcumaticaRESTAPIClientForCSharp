@@ -14,8 +14,11 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ItemPriceClassesDetails : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="PriceClassID", EmitDefaultValue=false)]
 		public StringValue? PriceClassID { get; set; }
+
+		#endregion
 
 	}
 }

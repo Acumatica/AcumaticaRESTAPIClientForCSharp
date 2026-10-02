@@ -14,14 +14,14 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ContactNotification : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.ContactNotification</para>
+		/// <para>Display Name: Notification ID</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
-		[DataMember(Name="Bcc", EmitDefaultValue=false)]
-		public BooleanValue? Bcc { get; set; }
+		[DataMember(Name="NotificationID", EmitDefaultValue=false)]
+		public IntValue? NotificationID { get; set; }
 
 		/// <summary>
 		/// The identifier of the class.
@@ -33,19 +33,18 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EntityDescription</para>
+		/// <para>DAC Field Name: NotificationSetup__Module</para>
 		/// <para>DAC: PX.Objects.CR.ContactNotification</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		[DataMember(Name="Module", EmitDefaultValue=false)]
+		public StringValue? Module { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: NotificationSetup__SourceCD</para>
 		/// <para>DAC: PX.Objects.CR.ContactNotification</para>
-		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Format", EmitDefaultValue=false)]
-		public StringValue? Format { get; set; }
+		[DataMember(Name="Source", EmitDefaultValue=false)]
+		public StringValue? Source { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: NotificationSetup__NotificationCD</para>
@@ -55,19 +54,12 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? MailingID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: NotificationSetup__Module</para>
+		/// <para>DAC Field Name: EntityDescription</para>
 		/// <para>DAC: PX.Objects.CR.ContactNotification</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="Module", EmitDefaultValue=false)]
-		public StringValue? Module { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CR.ContactNotification</para>
-		/// <para>Display Name: Notification ID</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="NotificationID", EmitDefaultValue=false)]
-		public IntValue? NotificationID { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ReportID</para>
@@ -78,11 +70,22 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? Report { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: NotificationSetup__SourceCD</para>
+		/// <para>DAC: PX.Objects.CR.ContactNotification</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Format", EmitDefaultValue=false)]
+		public StringValue? Format { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.CR.ContactNotification</para>
 		/// </summary>
-		[DataMember(Name="Source", EmitDefaultValue=false)]
-		public StringValue? Source { get; set; }
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		[DataMember(Name="Bcc", EmitDefaultValue=false)]
+		public BooleanValue? Bcc { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

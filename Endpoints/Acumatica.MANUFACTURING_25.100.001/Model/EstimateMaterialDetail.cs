@@ -14,29 +14,15 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EstimateMaterialDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// Determine whether user need to release material manually or not 
-		/// <para>DAC Field Name: BackFlush</para>
+		/// <para>DAC Field Name: LineID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Backflush Materials</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Backflush", EmitDefaultValue=false)]
-		public BooleanValue? Backflush { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Batch Size</para>
-		/// </summary>
-		[DataMember(Name="BatchSize", EmitDefaultValue=false)]
-		public DecimalValue? BatchSize { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ItemDesc</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: InventoryCD</para>
@@ -48,46 +34,27 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// </summary>
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ItemDesc</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: ItemClassID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
 		/// <para>Display Name: Item Class</para>
 		/// </summary>
 		[DataMember(Name="ItemClass", EmitDefaultValue=false)]
 		public StringValue? ItemClass { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: LineID</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
-
-		[DataMember(Name="LineOrder", EmitDefaultValue=false)]
-		public IntValue? LineOrder { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Material Type</para>
-		/// </summary>
-		[DataMember(Name="MaterialType", EmitDefaultValue=false)]
-		public StringValue? MaterialType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IsNonInventory</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Non-Inventory</para>
-		/// </summary>
-		[DataMember(Name="NonInventory", EmitDefaultValue=false)]
-		public BooleanValue? NonInventory { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Phantom Routing</para>
-		/// </summary>
-		[DataMember(Name="PhantomRouting", EmitDefaultValue=false)]
-		public StringValue? PhantomRouting { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: QtyReq</para>
@@ -99,10 +66,33 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Round Qty. Up</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		[DataMember(Name="QtyRoundUp", EmitDefaultValue=false)]
-		public BooleanValue? QtyRoundUp { get; set; }
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Unit Cost</para>
+		/// </summary>
+		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
+		public DecimalValue? UnitCost { get; set; }
+
+		/// <summary>
+		/// Determine whether user need to release material manually or not 
+		/// <para>DAC Field Name: BackFlush</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Backflush Materials</para>
+		/// </summary>
+		[DataMember(Name="Backflush", EmitDefaultValue=false)]
+		public BooleanValue? Backflush { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// </summary>
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
@@ -113,25 +103,17 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Subcontract Source</para>
+		/// <para>Display Name: Batch Size</para>
 		/// </summary>
-		[DataMember(Name="SubcontractSource", EmitDefaultValue=false)]
-		public StringValue? SubcontractSource { get; set; }
+		[DataMember(Name="BatchSize", EmitDefaultValue=false)]
+		public DecimalValue? BatchSize { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Round Qty. Up</para>
 		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MaterialOperCost</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Total Cost</para>
-		/// </summary>
-		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
-		public DecimalValue? TotalCost { get; set; }
+		[DataMember(Name="QtyRoundUp", EmitDefaultValue=false)]
+		public BooleanValue? QtyRoundUp { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TotalQtyRequired</para>
@@ -142,25 +124,46 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DecimalValue? TotalRequired { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: MaterialOperCost</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Unit Cost</para>
+		/// <para>Display Name: Total Cost</para>
 		/// </summary>
-		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
-		public DecimalValue? UnitCost { get; set; }
+		[DataMember(Name="TotalCost", EmitDefaultValue=false)]
+		public DecimalValue? TotalCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsNonInventory</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Non-Inventory</para>
+		/// </summary>
+		[DataMember(Name="NonInventory", EmitDefaultValue=false)]
+		public BooleanValue? NonInventory { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>SQL Type: nvarchar(6)</para>
+		/// <para>Display Name: Material Type</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
+		[DataMember(Name="MaterialType", EmitDefaultValue=false)]
+		public StringValue? MaterialType { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Phantom Routing</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		[DataMember(Name="PhantomRouting", EmitDefaultValue=false)]
+		public StringValue? PhantomRouting { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Subcontract Source</para>
+		/// </summary>
+		[DataMember(Name="SubcontractSource", EmitDefaultValue=false)]
+		public StringValue? SubcontractSource { get; set; }
+
+		[DataMember(Name="LineOrder", EmitDefaultValue=false)]
+		public IntValue? LineOrder { get; set; }
+
+		#endregion
 
 	}
 }

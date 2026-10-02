@@ -14,11 +14,17 @@ namespace Acumatica.Default_23_200_001.Model
 	public class TaxesDecreasingApplWage : Entity
 	{
 
+		#region Fields
+		[DataMember(Name="InclusionType", EmitDefaultValue=false)]
+		public StringValue? InclusionType { get; set; }
+
+		#endregion
+
+		#region Details
 		[DataMember(Name="EmployeeTaxesDecreasingApplWageDetails", EmitDefaultValue=false)]
 		public List<TaxesDecreasingApplWageDetail>? EmployeeTaxesDecreasingApplWageDetails { get; set; }
 
-		[DataMember(Name="InclusionType", EmitDefaultValue=false)]
-		public StringValue? InclusionType { get; set; }
+		#endregion
 
 	}
 }

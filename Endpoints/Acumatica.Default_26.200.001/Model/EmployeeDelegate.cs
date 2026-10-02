@@ -14,6 +14,23 @@ namespace Acumatica.Default_26_200_001.Model
 	public class EmployeeDelegate : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Active</para>
+		/// </summary>
+		[DataMember(Name="IsActive", EmitDefaultValue=false)]
+		public BooleanValue? IsActive { get; set; }
+
+		/// <summary>
+		/// Represents the type of the delegation.
+		/// <para>DAC: PX.Objects.EP.EPWingman</para>
+		/// <para>Display Name: Delegation Of</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="DelegationOf", EmitDefaultValue=false)]
+		public StringValue? DelegationOf { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: WingmanID</para>
 		/// <para>DAC: PX.Objects.EP.EPWingman</para>
@@ -28,15 +45,6 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="EmployeeName", EmitDefaultValue=false)]
 		public StringValue? EmployeeName { get; set; }
-
-		/// <summary>
-		/// Represents the type of the delegation.
-		/// <para>DAC: PX.Objects.EP.EPWingman</para>
-		/// <para>Display Name: Delegation Of</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="DelegationOf", EmitDefaultValue=false)]
-		public StringValue? DelegationOf { get; set; }
 
 		/// <summary>
 		/// Delegation start date
@@ -54,12 +62,7 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="ExpiresOn", EmitDefaultValue=false)]
 		public DateTimeValue? ExpiresOn { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
-		/// <para>Display Name: Active</para>
-		/// </summary>
-		[DataMember(Name="IsActive", EmitDefaultValue=false)]
-		public BooleanValue? IsActive { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

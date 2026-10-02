@@ -14,20 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesOrderShipment : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: InvtDocType</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		[DataMember(Name="InventoryDocType", EmitDefaultValue=false)]
-		public StringValue? InventoryDocType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InvtRefNbr</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		[DataMember(Name="InventoryRefNbr", EmitDefaultValue=false)]
-		public StringValue? InventoryRefNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The reference number of the original invoice (which lists the goods that were ordered andlater returned by the customer).The field is included in the Invoice foreign key.
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
@@ -39,12 +26,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </remarks>
 		[DataMember(Name="InvoiceNbr", EmitDefaultValue=false)]
 		public StringValue? InvoiceNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		[DataMember(Name="InvoiceType", EmitDefaultValue=false)]
-		public StringValue? InvoiceType { get; set; }
 
 		/// <summary>
 		/// The date when the ordered goods are scheduled to be shipped.
@@ -61,14 +42,21 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="ShipmentNbr", EmitDefaultValue=false)]
-		public StringValue? ShipmentNbr { get; set; }
+		[DataMember(Name="ShipmentType", EmitDefaultValue=false)]
+		public StringValue? ShipmentType { get; set; }
 
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="ShipmentType", EmitDefaultValue=false)]
-		public StringValue? ShipmentType { get; set; }
+		[DataMember(Name="ShipmentNbr", EmitDefaultValue=false)]
+		public StringValue? ShipmentNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SOShipment__StatusIsNull</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ShipmentQty</para>
@@ -78,13 +66,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? ShippedQty { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ShipmentVolume</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		[DataMember(Name="ShippedVolume", EmitDefaultValue=false)]
-		public DecimalValue? ShippedVolume { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: ShipmentWeight</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
@@ -92,11 +73,31 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? ShippedWeight { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SOShipment__StatusIsNull</para>
+		/// <para>DAC Field Name: ShipmentVolume</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
+		[DataMember(Name="ShippedVolume", EmitDefaultValue=false)]
+		public DecimalValue? ShippedVolume { get; set; }
+
+		/// <summary>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		[DataMember(Name="InvoiceType", EmitDefaultValue=false)]
+		public StringValue? InvoiceType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InvtDocType</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		[DataMember(Name="InventoryDocType", EmitDefaultValue=false)]
+		public StringValue? InventoryDocType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InvtRefNbr</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		[DataMember(Name="InventoryRefNbr", EmitDefaultValue=false)]
+		public StringValue? InventoryRefNbr { get; set; }
 
 		[DataMember(Name="InventoryNoteID", EmitDefaultValue=false)]
 		public GuidValue? InventoryNoteID { get; set; }
@@ -109,6 +110,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="ShippingNoteID", EmitDefaultValue=false)]
 		public GuidValue? ShippingNoteID { get; set; }
+
+		#endregion
 
 	}
 }

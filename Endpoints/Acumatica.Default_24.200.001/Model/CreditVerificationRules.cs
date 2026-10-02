@@ -14,22 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class CreditVerificationRules : Entity
 	{
 
-		/// <summary>
-		/// If CreditRule enables verification by days past due,this field determines the maximum number of credit days past due allowed for the customer. The actual number of days past due is calculated from the due date of the earliest open customer invoice (which is specified by OldInvoiceDate).
-		/// <para>DAC: PX.Objects.AR.Customer</para>
-		/// <para>Display Name: Credit Days Past Due</para>
-		/// </summary>
-		[DataMember(Name="CreditDaysPastDue", EmitDefaultValue=false)]
-		public ShortValue? CreditDaysPastDue { get; set; }
-
-		/// <summary>
-		/// If CreditRule enables verification by credit limit,this field determines the maximum amount of credit allowed for the customer.
-		/// <para>DAC: PX.Objects.AR.Customer</para>
-		/// <para>Display Name: Credit Limit</para>
-		/// </summary>
-		[DataMember(Name="CreditLimit", EmitDefaultValue=false)]
-		public DecimalValue? CreditLimit { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The type of credit verification for the customer.The list of possible values of the field is determinedby CreditRuleAttribute.
 		/// <para>DAC Field Name: CreditRule</para>
@@ -41,11 +26,26 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? CreditVerification { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: OldInvoiceDate</para>
+		/// If CreditRule enables verification by credit limit,this field determines the maximum amount of credit allowed for the customer.
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Credit Limit</para>
+		/// </summary>
+		[DataMember(Name="CreditLimit", EmitDefaultValue=false)]
+		public DecimalValue? CreditLimit { get; set; }
+
+		/// <summary>
+		/// If CreditRule enables verification by days past due,this field determines the maximum number of credit days past due allowed for the customer. The actual number of days past due is calculated from the due date of the earliest open customer invoice (which is specified by OldInvoiceDate).
+		/// <para>DAC: PX.Objects.AR.Customer</para>
+		/// <para>Display Name: Credit Days Past Due</para>
+		/// </summary>
+		[DataMember(Name="CreditDaysPastDue", EmitDefaultValue=false)]
+		public ShortValue? CreditDaysPastDue { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AR.CustomerMaint+CustomerBalanceSummary</para>
 		/// </summary>
-		[DataMember(Name="FirstDueDate", EmitDefaultValue=false)]
-		public DateTimeValue? FirstDueDate { get; set; }
+		[DataMember(Name="UnreleasedBalance", EmitDefaultValue=false)]
+		public DecimalValue? UnreleasedBalance { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.CustomerMaint+CustomerBalanceSummary</para>
@@ -60,10 +60,13 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? RemainingCreditLimit { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: OldInvoiceDate</para>
 		/// <para>DAC: PX.Objects.AR.CustomerMaint+CustomerBalanceSummary</para>
 		/// </summary>
-		[DataMember(Name="UnreleasedBalance", EmitDefaultValue=false)]
-		public DecimalValue? UnreleasedBalance { get; set; }
+		[DataMember(Name="FirstDueDate", EmitDefaultValue=false)]
+		public DateTimeValue? FirstDueDate { get; set; }
+
+		#endregion
 
 	}
 }

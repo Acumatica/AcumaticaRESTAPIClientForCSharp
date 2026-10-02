@@ -14,17 +14,40 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class WorkCenterCrewScheduleDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
+		/// <para>DAC Field Name: WcID</para>
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
+		/// </summary>
+		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
+		public StringValue? WorkCenter { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ShiftCD</para>
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
+		/// </summary>
+		[DataMember(Name="Shift", EmitDefaultValue=false)]
+		public StringValue? Shift { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SchdBlocks</para>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
 		/// </summary>
-		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
-		public DecimalValue? CrewSize { get; set; }
+		[DataMember(Name="ScheduledBlocks", EmitDefaultValue=false)]
+		public IntValue? ScheduledBlocks { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SchdDate</para>
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
+		/// </summary>
+		[DataMember(Name="ScheduleDate", EmitDefaultValue=false)]
+		public DateTimeValue? ScheduleDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
 		/// </summary>
-		[DataMember(Name="CrewSizeShortage", EmitDefaultValue=false)]
-		public DecimalValue? CrewSizeShortage { get; set; }
+		[DataMember(Name="StartTime", EmitDefaultValue=false)]
+		public DateTimeValue? StartTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
@@ -35,8 +58,20 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
 		/// </summary>
-		[DataMember(Name="OperationID", EmitDefaultValue=false)]
-		public StringValue? OperationID { get; set; }
+		[DataMember(Name="CrewSize", EmitDefaultValue=false)]
+		public DecimalValue? CrewSize { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
+		/// </summary>
+		[DataMember(Name="ShiftCrewSize", EmitDefaultValue=false)]
+		public DecimalValue? ShiftCrewSize { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
+		/// </summary>
+		[DataMember(Name="CrewSizeShortage", EmitDefaultValue=false)]
+		public DecimalValue? CrewSizeShortage { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
@@ -52,44 +87,12 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SchdDate</para>
 		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
 		/// </summary>
-		[DataMember(Name="ScheduleDate", EmitDefaultValue=false)]
-		public DateTimeValue? ScheduleDate { get; set; }
+		[DataMember(Name="OperationID", EmitDefaultValue=false)]
+		public StringValue? OperationID { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SchdBlocks</para>
-		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
-		/// </summary>
-		[DataMember(Name="ScheduledBlocks", EmitDefaultValue=false)]
-		public IntValue? ScheduledBlocks { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ShiftCD</para>
-		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
-		/// </summary>
-		[DataMember(Name="Shift", EmitDefaultValue=false)]
-		public StringValue? Shift { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
-		/// </summary>
-		[DataMember(Name="ShiftCrewSize", EmitDefaultValue=false)]
-		public DecimalValue? ShiftCrewSize { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleDetail</para>
-		/// </summary>
-		[DataMember(Name="StartTime", EmitDefaultValue=false)]
-		public DateTimeValue? StartTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: WcID</para>
-		/// <para>DAC: PX.Objects.AM.WorkCenterCrewScheduleInq+WorkCenterCrewScheduleFilter</para>
-		/// </summary>
-		[DataMember(Name="WorkCenter", EmitDefaultValue=false)]
-		public StringValue? WorkCenter { get; set; }
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

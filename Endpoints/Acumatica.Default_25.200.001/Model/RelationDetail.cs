@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class RelationDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Account", EmitDefaultValue=false)]
 		public StringValue? Account { get; set; }
 
@@ -52,6 +53,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="DocumentDate", EmitDefaultValue=false)]
 		public DateTimeValue? DocumentDate { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,6 +14,16 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesInvoiceTaxDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARTaxTran</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="TaxID", EmitDefaultValue=false)]
+		public StringValue? TaxID { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: CuryTaxableAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARTaxTran</para>
@@ -30,14 +40,7 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="TaxAmount", EmitDefaultValue=false)]
 		public DecimalValue? TaxAmount { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARTaxTran</para>
-		/// <para>Display Name: Tax ID</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="TaxID", EmitDefaultValue=false)]
-		public StringValue? TaxID { get; set; }
+		#endregion
 
 	}
 }

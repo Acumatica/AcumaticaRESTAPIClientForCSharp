@@ -14,14 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class EmployeeWorkLocations : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: UsePayrollProjectWorkLocationUseDflt</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Use Class Default Value</para>
-		/// </summary>
-		[DataMember(Name="UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt", EmitDefaultValue=false)]
-		public BooleanValue? UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: UsePayrollProjectWorkLocation</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
@@ -31,6 +24,14 @@ namespace Acumatica.Default_26_200_001.Model
 		public BooleanValue? UsePayrollWorkLocationfromProject { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: UsePayrollProjectWorkLocationUseDflt</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Class Default Value</para>
+		/// </summary>
+		[DataMember(Name="UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt", EmitDefaultValue=false)]
+		public BooleanValue? UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: LocationUseDflt</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Use Class Default Work Locations</para>
@@ -38,8 +39,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="WorkLocationClassDefaults", EmitDefaultValue=false)]
 		public BooleanValue? WorkLocationClassDefaults { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="WorkLocationDetails", EmitDefaultValue=false)]
 		public List<EmployeeWorkLocationDetail>? WorkLocationDetails { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

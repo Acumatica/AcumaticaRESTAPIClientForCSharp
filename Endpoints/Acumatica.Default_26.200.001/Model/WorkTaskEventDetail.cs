@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkTaskEventDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Confirmed", EmitDefaultValue=false)]
 		public BooleanValue? Confirmed { get; set; }
 
@@ -55,6 +56,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="WorkforceList", EmitDefaultValue=false)]
 		public StringValue? WorkforceList { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

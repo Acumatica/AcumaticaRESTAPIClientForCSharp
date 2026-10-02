@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ChangeRequestLine : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccountGroup", EmitDefaultValue=false)]
 		public StringValue? AccountGroup { get; set; }
 
@@ -97,6 +98,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Vendor", EmitDefaultValue=false)]
 		public StringValue? Vendor { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

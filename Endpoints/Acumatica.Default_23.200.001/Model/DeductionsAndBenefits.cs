@@ -14,17 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class DeductionsAndBenefits : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: GrnMaxPctuseDflt</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Use Default</para>
-		/// </summary>
-		[DataMember(Name="DeductionAndBenefitUseClassDefaults", EmitDefaultValue=false)]
-		public BooleanValue? DeductionAndBenefitUseClassDefaults { get; set; }
-
-		[DataMember(Name="DeductionsAndBenefitsDetails", EmitDefaultValue=false)]
-		public List<EmployeeDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: DedSplitType</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
@@ -41,6 +31,22 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="MaxPercOfNetPayForAllGarnishm", EmitDefaultValue=false)]
 		public DecimalValue? MaxPercOfNetPayForAllGarnishm { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: GrnMaxPctuseDflt</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Default</para>
+		/// </summary>
+		[DataMember(Name="DeductionAndBenefitUseClassDefaults", EmitDefaultValue=false)]
+		public BooleanValue? DeductionAndBenefitUseClassDefaults { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="DeductionsAndBenefitsDetails", EmitDefaultValue=false)]
+		public List<EmployeeDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
+
+		#endregion
 
 	}
 }

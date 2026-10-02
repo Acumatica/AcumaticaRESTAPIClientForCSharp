@@ -18,6 +18,55 @@ namespace Acumatica.Default_23_200_001.Model
 	public class Email : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The identifier of the Note object associated with the document.
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="NoteID", EmitDefaultValue=false)]
+		public GuidValue? NoteID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailAccountID</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>Display Name: From</para>
+		/// </summary>
+		[DataMember(Name="FromEmailAccountID", EmitDefaultValue=false)]
+		public IntValue? FromEmailAccountID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailAccountID_description</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// </summary>
+		[DataMember(Name="FromEmailAccountDisplayName", EmitDefaultValue=false)]
+		public StringValue? FromEmailAccountDisplayName { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailFrom</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>SQL Type: nvarchar(500)</para>
+		/// </summary>
+		[DataMember(Name="From", EmitDefaultValue=false)]
+		public StringValue? From { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailTo</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>SQL Type: nvarchar(3000)</para>
+		/// </summary>
+		[DataMember(Name="To", EmitDefaultValue=false)]
+		public StringValue? To { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailCc</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>Display Name: CC</para>
+		/// <para>SQL Type: nvarchar(3000)</para>
+		/// </summary>
+		[DataMember(Name="Cc", EmitDefaultValue=false)]
+		public StringValue? Cc { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: MailBcc</para>
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
@@ -28,21 +77,13 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Bcc { get; set; }
 
 		/// <summary>
+		/// The summary description of the activity.
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: Activity Details</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// <para>Display Name: Summary</para>
+		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
-		[DataMember(Name="Body", EmitDefaultValue=false)]
-		public StringValue? Body { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MailCc</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: CC</para>
-		/// <para>SQL Type: nvarchar(3000)</para>
-		/// </summary>
-		[DataMember(Name="Cc", EmitDefaultValue=false)]
-		public StringValue? Cc { get; set; }
+		[DataMember(Name="Subject", EmitDefaultValue=false)]
+		public StringValue? Subject { get; set; }
 
 		/// <summary>
 		/// Returns either additional information about the related entity or the last error message. The property isused by the CREmailActivityMaint graph to show additional infomation about the SMEmail status.
@@ -55,27 +96,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MailFrom</para>
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>SQL Type: nvarchar(500)</para>
+		/// <para>Display Name: Activity Details</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="From", EmitDefaultValue=false)]
-		public StringValue? From { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MailAccountID_description</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// </summary>
-		[DataMember(Name="FromEmailAccountDisplayName", EmitDefaultValue=false)]
-		public StringValue? FromEmailAccountDisplayName { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MailAccountID</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: From</para>
-		/// </summary>
-		[DataMember(Name="FromEmailAccountID", EmitDefaultValue=false)]
-		public IntValue? FromEmailAccountID { get; set; }
+		[DataMember(Name="Body", EmitDefaultValue=false)]
+		public StringValue? Body { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: IsIncome</para>
@@ -94,13 +120,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MPStatus</para>
+		/// The identifier of the workgroup responsible for the current document.
+		/// <para>DAC Field Name: WorkgroupID</para>
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: Email Status</para>
-		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="MailStatus", EmitDefaultValue=false)]
-		public StringValue? MailStatus { get; set; }
+		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
+		public StringValue? Workgroup { get; set; }
 
 		/// <summary>
 		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
@@ -109,65 +134,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="Owner", EmitDefaultValue=false)]
 		public StringValue? Owner { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ParentNoteID</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: Task</para>
-		/// </summary>
-		[DataMember(Name="Parent", EmitDefaultValue=false)]
-		public GuidValue? Parent { get; set; }
-
-		[DataMember(Name="ParentSummary", EmitDefaultValue=false)]
-		public StringValue? ParentSummary { get; set; }
-
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue? StartDate { get; set; }
-
-		/// <summary>
-		/// The summary description of the activity.
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: Summary</para>
-		/// <para>SQL Type: nvarchar(998)</para>
-		/// </summary>
-		[DataMember(Name="Subject", EmitDefaultValue=false)]
-		public StringValue? Subject { get; set; }
-
-		[DataMember(Name="TimeActivity", EmitDefaultValue=false)]
-		public TimeActivity? TimeActivity { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MailTo</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>SQL Type: nvarchar(3000)</para>
-		/// </summary>
-		[DataMember(Name="To", EmitDefaultValue=false)]
-		public StringValue? To { get; set; }
-
-		/// <summary>
-		/// The identifier of the workgroup responsible for the current document.
-		/// <para>DAC Field Name: WorkgroupID</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// </summary>
-		[DataMember(Name="Workgroup", EmitDefaultValue=false)]
-		public StringValue? Workgroup { get; set; }
-
-		[DataMember(Name="CreatedByID", EmitDefaultValue=false)]
-		public StringValue? CreatedByID { get; set; }
-
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// The identifier of the Note object associated with the document.
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="NoteID", EmitDefaultValue=false)]
-		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
 		/// Contains the type of the related entity, that is specified in RefNoteID.
@@ -191,8 +157,53 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="RelatedEntityNoteID", EmitDefaultValue=false)]
 		public GuidValue? RelatedEntityNoteID { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: ParentNoteID</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>Display Name: Task</para>
+		/// </summary>
+		[DataMember(Name="Parent", EmitDefaultValue=false)]
+		public GuidValue? Parent { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MPStatus</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>Display Name: Email Status</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		[DataMember(Name="MailStatus", EmitDefaultValue=false)]
+		public StringValue? MailStatus { get; set; }
+
+		[DataMember(Name="ParentSummary", EmitDefaultValue=false)]
+		public StringValue? ParentSummary { get; set; }
+
+		[DataMember(Name="StartDate", EmitDefaultValue=false)]
+		public DateTimeValue? StartDate { get; set; }
+
+		[DataMember(Name="CreatedByID", EmitDefaultValue=false)]
+		public StringValue? CreatedByID { get; set; }
+
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 		[DataMember(Name="RelatedEntityDescription", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityDescription { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="TimeActivity", EmitDefaultValue=false)]
+		public TimeActivity? TimeActivity { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Email)} - \"{NoteID}\"";
+		}
 
 		public static class Expand
 		{

@@ -18,8 +18,23 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesPriceWorksheet : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
+		public StringValue? ReferenceNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
@@ -43,12 +58,6 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
 		public DateTimeValue? ExpirationDate { get; set; }
 
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue? Hold { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: OverwriteOverlapping</para>
 		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
@@ -57,25 +66,27 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="OverwriteOverlappingPrices", EmitDefaultValue=false)]
 		public BooleanValue? OverwriteOverlappingPrices { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: RefNbr</para>
-		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
-		/// <para>Display Name: Reference Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue? ReferenceNbr { get; set; }
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
 
+		[DataMember(Name="Hold", EmitDefaultValue=false)]
+		public BooleanValue? Hold { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
 		[DataMember(Name="SalesPrices", EmitDefaultValue=false)]
 		public List<SalesPricesWorksheetDetail>? SalesPrices { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(SalesPriceWorksheet)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

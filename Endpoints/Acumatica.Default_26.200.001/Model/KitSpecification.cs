@@ -18,28 +18,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class KitSpecification : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
-		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
-		/// <para>Display Name: Non-Stock</para>
-		/// </summary>
-		[DataMember(Name="IsNonStock", EmitDefaultValue=false)]
-		public BooleanValue? IsNonStock { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
 		/// <para>Display Name: Kit Inventory ID</para>
@@ -47,12 +26,6 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="KitInventoryID", EmitDefaultValue=false)]
 		public StringValue? KitInventoryID { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="NonStockComponents", EmitDefaultValue=false)]
-		public List<KitNonStockComponent>? NonStockComponents { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
@@ -63,8 +36,46 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="RevisionID", EmitDefaultValue=false)]
 		public StringValue? RevisionID { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// <para>Display Name: Non-Stock</para>
+		/// </summary>
+		[DataMember(Name="IsNonStock", EmitDefaultValue=false)]
+		public BooleanValue? IsNonStock { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// </summary>
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="NonStockComponents", EmitDefaultValue=false)]
+		public List<KitNonStockComponent>? NonStockComponents { get; set; }
+
 		[DataMember(Name="StockComponents", EmitDefaultValue=false)]
 		public List<KitStockComponent>? StockComponents { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(KitSpecification)} - \"{KitInventoryID}\" - \"{RevisionID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

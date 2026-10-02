@@ -17,6 +17,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Subcontract : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="SubcontractNbr", EmitDefaultValue=false)]
 		public StringValue? SubcontractNbr { get; set; }
 
@@ -110,17 +111,25 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="VendorAddressInfo", EmitDefaultValue=false)]
+		public SubcontractVendorAddressInfo? VendorAddressInfo { get; set; }
+
+		[DataMember(Name="VendorContactInfo", EmitDefaultValue=false)]
+		public SubcontractVendorContactInfo? VendorContactInfo { get; set; }
+
+		#endregion
+
+		#region Details
 		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<SubcontractDetail>? Details { get; set; }
 
 		[DataMember(Name="TaxDetails", EmitDefaultValue=false)]
 		public List<SubcontractTaxDetail>? TaxDetails { get; set; }
 
-		[DataMember(Name="VendorAddressInfo", EmitDefaultValue=false)]
-		public SubcontractVendorAddressInfo? VendorAddressInfo { get; set; }
-
-		[DataMember(Name="VendorContactInfo", EmitDefaultValue=false)]
-		public SubcontractVendorContactInfo? VendorContactInfo { get; set; }
+		#endregion
 
 		public static class Expand
 		{

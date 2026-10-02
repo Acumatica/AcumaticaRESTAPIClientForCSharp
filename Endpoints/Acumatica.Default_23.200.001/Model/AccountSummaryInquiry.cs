@@ -17,15 +17,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AccountSummaryInquiry : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: AccountClassID</para>
-		/// <para>DAC: PX.Objects.GL.GLHistoryEnqFilter</para>
-		/// <para>Display Name: Account Class</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// </summary>
-		[DataMember(Name="AccountClass", EmitDefaultValue=false)]
-		public StringValue? AccountClass { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: OrgBAccountID</para>
 		/// <para>DAC: PX.Objects.GL.GLHistoryEnqFilter</para>
@@ -49,8 +41,14 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="Period", EmitDefaultValue=false)]
 		public StringValue? Period { get; set; }
 
-		[DataMember(Name="Results", EmitDefaultValue=false)]
-		public List<AccountSummaryRow>? Results { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: AccountClassID</para>
+		/// <para>DAC: PX.Objects.GL.GLHistoryEnqFilter</para>
+		/// <para>Display Name: Account Class</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// </summary>
+		[DataMember(Name="AccountClass", EmitDefaultValue=false)]
+		public StringValue? AccountClass { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubCD</para>
@@ -59,6 +57,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="Subaccount", EmitDefaultValue=false)]
 		public StringValue? Subaccount { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Results", EmitDefaultValue=false)]
+		public List<AccountSummaryRow>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

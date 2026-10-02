@@ -17,15 +17,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MRPPreferences : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// Exception days afterPreviously AMRPDefaults.EXWin1
-		/// <para>DAC Field Name: ExceptionDaysAfter</para>
-		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
-		/// <para>Display Name: Days After</para>
-		/// </summary>
-		[DataMember(Name="DaysAfter", EmitDefaultValue=false)]
-		public IntValue? DaysAfter { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Exception days beforePreviously AMRPDefaults.EXWin
 		/// <para>DAC Field Name: ExceptionDaysBefore</para>
@@ -36,14 +28,13 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public IntValue? DaysBefore { get; set; }
 
 		/// <summary>
-		/// Default MPS Type ID when creating new MPS entires
-		/// <para>DAC Field Name: DefaultMPSTypeID</para>
+		/// Exception days afterPreviously AMRPDefaults.EXWin1
+		/// <para>DAC Field Name: ExceptionDaysAfter</para>
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
-		/// <para>Display Name: Default Type</para>
-		/// <para>SQL Type: nvarchar(20)</para>
+		/// <para>Display Name: Days After</para>
 		/// </summary>
-		[DataMember(Name="DefaultType", EmitDefaultValue=false)]
-		public StringValue? DefaultType { get; set; }
+		[DataMember(Name="DaysAfter", EmitDefaultValue=false)]
+		public IntValue? DaysAfter { get; set; }
 
 		/// <summary>
 		/// Demand Time Fence (days)
@@ -55,49 +46,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public IntValue? DemandTimeFence { get; set; }
 
 		/// <summary>
-		/// MRP Grace Period (days)Previously AMRPDefaults.PlnH
-		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
-		/// <para>Display Name: Grace Period</para>
-		/// </summary>
-		[DataMember(Name="GracePeriod", EmitDefaultValue=false)]
-		public IntValue? GracePeriod { get; set; }
-
-		/// <summary>
-		/// Include on hold kit assemblies
-		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
-		/// <para>Display Name: Include On-Hold Kit Assemblies</para>
-		/// </summary>
-		[DataMember(Name="IncludeOnHoldKitAssemblies", EmitDefaultValue=false)]
-		public BooleanValue? IncludeOnHoldKitAssemblies { get; set; }
-
-		/// <summary>
-		/// Defines if a production order on hold should be included as supply (Item) and demand (material) in MRP
-		/// <para>DAC Field Name: IncludeOnHoldProductionOrder</para>
-		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
-		/// <para>Display Name: Include On-Hold Production Orders</para>
-		/// </summary>
-		[DataMember(Name="IncludeOnHoldProductionOrders", EmitDefaultValue=false)]
-		public BooleanValue? IncludeOnHoldProductionOrders { get; set; }
-
-		/// <summary>
-		/// Defines if a purchase order on hold should be included as Supply in MRP
-		/// <para>DAC Field Name: IncludeOnHoldPurchaseOrder</para>
-		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
-		/// <para>Display Name: Include On-Hold Purchase Orders</para>
-		/// </summary>
-		[DataMember(Name="IncludeOnHoldPurchaseOrders", EmitDefaultValue=false)]
-		public BooleanValue? IncludeOnHoldPurchaseOrders { get; set; }
-
-		/// <summary>
-		/// Defines if a sales order on hold should be included as Demand in MRPPreviously AMRPDefaults.Admin
-		/// <para>DAC Field Name: IncludeOnHoldSalesOrder</para>
-		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
-		/// <para>Display Name: Include On-Hold Sales Orders</para>
-		/// </summary>
-		[DataMember(Name="IncludeOnHoldSalesOrders", EmitDefaultValue=false)]
-		public BooleanValue? IncludeOnHoldSalesOrders { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: ForecastNumberingID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
 		/// <para>Display Name: Numbering Sequence</para>
@@ -105,6 +53,25 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		[DataMember(Name="NumberingSequence", EmitDefaultValue=false)]
 		public StringValue? NumberingSequence { get; set; }
+
+		/// <summary>
+		/// MPS Time Fence (days)
+		/// <para>DAC Field Name: MPSFence</para>
+		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
+		/// <para>Display Name: MPS Time Fence</para>
+		/// </summary>
+		[DataMember(Name="TimeFence", EmitDefaultValue=false)]
+		public IntValue? TimeFence { get; set; }
+
+		/// <summary>
+		/// Default MPS Type ID when creating new MPS entires
+		/// <para>DAC Field Name: DefaultMPSTypeID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
+		/// <para>Display Name: Default Type</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// </summary>
+		[DataMember(Name="DefaultType", EmitDefaultValue=false)]
+		public StringValue? DefaultType { get; set; }
 
 		/// <summary>
 		/// Users shall be able to specify how many calendar days into the future all supply/demand records should not be processed.
@@ -125,12 +92,12 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? PlanOrderType { get; set; }
 
 		/// <summary>
+		/// MRP Grace Period (days)Previously AMRPDefaults.PlnH
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
-		/// <para>Display Name: Purchase Calendar ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>Display Name: Grace Period</para>
 		/// </summary>
-		[DataMember(Name="PurchaseCalendarID", EmitDefaultValue=false)]
-		public StringValue? PurchaseCalendarID { get; set; }
+		[DataMember(Name="GracePeriod", EmitDefaultValue=false)]
+		public IntValue? GracePeriod { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
@@ -140,13 +107,47 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? StockingMethod { get; set; }
 
 		/// <summary>
-		/// MPS Time Fence (days)
-		/// <para>DAC Field Name: MPSFence</para>
 		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
-		/// <para>Display Name: MPS Time Fence</para>
+		/// <para>Display Name: Purchase Calendar ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="TimeFence", EmitDefaultValue=false)]
-		public IntValue? TimeFence { get; set; }
+		[DataMember(Name="PurchaseCalendarID", EmitDefaultValue=false)]
+		public StringValue? PurchaseCalendarID { get; set; }
+
+		/// <summary>
+		/// Defines if a sales order on hold should be included as Demand in MRPPreviously AMRPDefaults.Admin
+		/// <para>DAC Field Name: IncludeOnHoldSalesOrder</para>
+		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
+		/// <para>Display Name: Include On-Hold Sales Orders</para>
+		/// </summary>
+		[DataMember(Name="IncludeOnHoldSalesOrders", EmitDefaultValue=false)]
+		public BooleanValue? IncludeOnHoldSalesOrders { get; set; }
+
+		/// <summary>
+		/// Defines if a purchase order on hold should be included as Supply in MRP
+		/// <para>DAC Field Name: IncludeOnHoldPurchaseOrder</para>
+		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
+		/// <para>Display Name: Include On-Hold Purchase Orders</para>
+		/// </summary>
+		[DataMember(Name="IncludeOnHoldPurchaseOrders", EmitDefaultValue=false)]
+		public BooleanValue? IncludeOnHoldPurchaseOrders { get; set; }
+
+		/// <summary>
+		/// Defines if a production order on hold should be included as supply (Item) and demand (material) in MRP
+		/// <para>DAC Field Name: IncludeOnHoldProductionOrder</para>
+		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
+		/// <para>Display Name: Include On-Hold Production Orders</para>
+		/// </summary>
+		[DataMember(Name="IncludeOnHoldProductionOrders", EmitDefaultValue=false)]
+		public BooleanValue? IncludeOnHoldProductionOrders { get; set; }
+
+		/// <summary>
+		/// Include on hold kit assemblies
+		/// <para>DAC: PX.Objects.AM.AMRPSetup</para>
+		/// <para>Display Name: Include On-Hold Kit Assemblies</para>
+		/// </summary>
+		[DataMember(Name="IncludeOnHoldKitAssemblies", EmitDefaultValue=false)]
+		public BooleanValue? IncludeOnHoldKitAssemblies { get; set; }
 
 		/// <summary>
 		/// Flag indicating if the MRP regen process should use fixed manufacturing lead times if checkedPreviously AMRPDefaults.MFGLead
@@ -156,6 +157,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		[DataMember(Name="UseFixedManufacturingTimes", EmitDefaultValue=false)]
 		public BooleanValue? UseFixedManufacturingTimes { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

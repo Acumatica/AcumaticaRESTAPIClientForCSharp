@@ -14,13 +14,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class OrderTypeAttribute : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
-		/// <para>Display Name: Attribute ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>Display Name: Line Nbr</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
-		public StringValue? AttributeID { get; set; }
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
@@ -32,9 +33,11 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
+		/// <para>Display Name: Attribute ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		[DataMember(Name="Enabled", EmitDefaultValue=false)]
-		public BooleanValue? Enabled { get; set; }
+		[DataMember(Name="AttributeID", EmitDefaultValue=false)]
+		public StringValue? AttributeID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
@@ -45,11 +48,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
-		/// <para>Display Name: Line Nbr</para>
-		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
+		[DataMember(Name="Enabled", EmitDefaultValue=false)]
+		public BooleanValue? Enabled { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
@@ -64,6 +65,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,18 +14,22 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AttributeDefinitionValue : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
+		/// <para>Display Name: Value ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ValueID", EmitDefaultValue=false)]
+		public StringValue? ValueID { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
-		/// </summary>
-		[DataMember(Name="Disabled", EmitDefaultValue=false)]
-		public BooleanValue? Disabled { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
@@ -36,12 +40,11 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
-		/// <para>Display Name: Value ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
 		/// </summary>
-		[DataMember(Name="ValueID", EmitDefaultValue=false)]
-		public StringValue? ValueID { get; set; }
+		[DataMember(Name="Disabled", EmitDefaultValue=false)]
+		public BooleanValue? Disabled { get; set; }
+
+		#endregion
 
 	}
 }

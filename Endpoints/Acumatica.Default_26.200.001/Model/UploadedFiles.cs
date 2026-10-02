@@ -17,6 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class UploadedFiles : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="DocumentNumber", EmitDefaultValue=false)]
 		public GuidValue? DocumentNumber { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TagName", EmitDefaultValue=false)]
 		public StringValue? TagName { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

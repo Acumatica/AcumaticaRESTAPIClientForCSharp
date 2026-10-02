@@ -14,6 +14,23 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TaxSettingDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The string identifier of the state or province part of the address.
+		/// <para>DAC: PX.Objects.CR.Address</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
+		[DataMember(Name="State", EmitDefaultValue=false)]
+		public StringValue? State { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Description</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		[DataMember(Name="Name", EmitDefaultValue=false)]
+		public StringValue? Name { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
 		/// <para>Display Name: Additional Information</para>
@@ -32,50 +49,16 @@ namespace Acumatica.Default_26_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
-		/// <para>Display Name: Form/Box</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="FormBox", EmitDefaultValue=false)]
-		public StringValue? FormBox { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Description</para>
-		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		[DataMember(Name="Name", EmitDefaultValue=false)]
-		public StringValue? Name { get; set; }
+		[DataMember(Name="Value", EmitDefaultValue=false)]
+		public StringValue? Value { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
 		/// </summary>
 		[DataMember(Name="Required", EmitDefaultValue=false)]
 		public BooleanValue? Required { get; set; }
-
-		[DataMember(Name="Setting", EmitDefaultValue=false)]
-		public StringValue? Setting { get; set; }
-
-		[DataMember(Name="SettingLevel", EmitDefaultValue=false)]
-		public StringValue? SettingLevel { get; set; }
-
-		/// <summary>
-		/// The string identifier of the state or province part of the address.
-		/// <para>DAC: PX.Objects.CR.Address</para>
-		/// <para>SQL Type: nvarchar(50)</para>
-		/// </summary>
-		[DataMember(Name="State", EmitDefaultValue=false)]
-		public StringValue? State { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: UsedForGovernmentReporting</para>
-		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
-		/// <para>Display Name: Used for Government Reporting</para>
-		/// </summary>
-		[DataMember(Name="UsedforGovernmentReporting", EmitDefaultValue=false)]
-		public BooleanValue? UsedforGovernmentReporting { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: UsedForTaxCalculation</para>
@@ -86,11 +69,31 @@ namespace Acumatica.Default_26_200_001.Model
 		public BooleanValue? UsedforTaxCalculation { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: UsedForGovernmentReporting</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>Display Name: Used for Government Reporting</para>
+		/// </summary>
+		[DataMember(Name="UsedforGovernmentReporting", EmitDefaultValue=false)]
+		public BooleanValue? UsedforGovernmentReporting { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeAttribute</para>
+		/// <para>Display Name: Form/Box</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Value", EmitDefaultValue=false)]
-		public StringValue? Value { get; set; }
+		[DataMember(Name="FormBox", EmitDefaultValue=false)]
+		public StringValue? FormBox { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		[DataMember(Name="Setting", EmitDefaultValue=false)]
+		public StringValue? Setting { get; set; }
+
+		[DataMember(Name="SettingLevel", EmitDefaultValue=false)]
+		public StringValue? SettingLevel { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

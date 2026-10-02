@@ -14,6 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectRetainage : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// Retainage Mode
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
@@ -30,6 +31,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="IncludeCO", EmitDefaultValue=false)]
 		public BooleanValue? IncludeCO { get; set; }
+
+		/// <summary>
+		/// The percent of an invoice amount issued for the project that is retained by the customer.
+		/// <para>DAC: PX.Objects.PM.PMProject</para>
+		/// <para>Display Name: Retainage (%)</para>
+		/// </summary>
+		[DataMember(Name="RetainagePct", EmitDefaultValue=false)]
+		public DecimalValue? RetainagePct { get; set; }
 
 		/// <summary>
 		/// Stepped Retainage
@@ -59,12 +68,13 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? CapAmount { get; set; }
 
 		/// <summary>
-		/// The percent of an invoice amount issued for the project that is retained by the customer.
-		/// <para>DAC: PX.Objects.PM.PMProject</para>
-		/// <para>Display Name: Retainage (%)</para>
+		/// The budgeted amount of the budget line in the project currency.
+		/// <para>DAC Field Name: CuryAmount</para>
+		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
+		/// <para>Display Name: Original Budgeted Amount</para>
 		/// </summary>
-		[DataMember(Name="RetainagePct", EmitDefaultValue=false)]
-		public DecimalValue? RetainagePct { get; set; }
+		[DataMember(Name="ContractTotal", EmitDefaultValue=false)]
+		public DecimalValue? ContractTotal { get; set; }
 
 		/// <summary>
 		/// The total retained amount in the project currency.
@@ -76,15 +86,6 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? RetainTotal { get; set; }
 
 		/// <summary>
-		/// The budgeted amount of the budget line in the project currency.
-		/// <para>DAC Field Name: CuryAmount</para>
-		/// <para>DAC: PX.Objects.PM.PMCostBudget</para>
-		/// <para>Display Name: Original Budgeted Amount</para>
-		/// </summary>
-		[DataMember(Name="ContractTotal", EmitDefaultValue=false)]
-		public DecimalValue? ContractTotal { get; set; }
-
-		/// <summary>
 		/// The percentage of contract completion calculated without change orders.
 		/// <para>DAC Field Name: ContractCompletedPct</para>
 		/// <para>DAC: PX.Objects.PM.PMProjectRevenueTotal</para>
@@ -92,6 +93,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="CompletedPct", EmitDefaultValue=false)]
 		public DecimalValue? CompletedPct { get; set; }
+
+		#endregion
 
 	}
 }

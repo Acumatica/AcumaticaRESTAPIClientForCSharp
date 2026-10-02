@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class DeductionBenefitWCCCode : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The state or province to which the deduction or benefit corresponds.The field is included in State.
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
@@ -22,8 +23,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="State", EmitDefaultValue=false)]
 		public StringValue? State { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="WCCCodeRates", EmitDefaultValue=false)]
 		public List<WCCCodeRateDetail>? WCCCodeRates { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

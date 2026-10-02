@@ -14,11 +14,14 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ReminderDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="IsActive", EmitDefaultValue=false)]
 		public BooleanValue? IsActive { get; set; }
 
 		[DataMember(Name="RemindAtDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? RemindAtDateTime { get; set; }
+
+		#endregion
 
 	}
 }

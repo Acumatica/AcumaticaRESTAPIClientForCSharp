@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class EarningIncreasingApplWageDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

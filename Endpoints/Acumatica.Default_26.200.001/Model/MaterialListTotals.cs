@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class MaterialListTotals : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="EstimatedTotalCost", EmitDefaultValue=false)]
 		public DecimalValue? EstimatedTotalCost { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TotalBudgetedAmount", EmitDefaultValue=false)]
 		public DecimalValue? TotalBudgetedAmount { get; set; }
+
+		#endregion
 
 	}
 }

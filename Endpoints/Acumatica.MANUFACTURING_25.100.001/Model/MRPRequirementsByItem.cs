@@ -17,6 +17,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MRPRequirementsByItem : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
 		/// <para>Display Name: Bucket ID</para>
@@ -24,9 +25,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		[DataMember(Name="BucketID", EmitDefaultValue=false)]
 		public StringValue? BucketID { get; set; }
-
-		[DataMember(Name="Detail", EmitDefaultValue=false)]
-		public List<MRPRequirementsByItemDetail>? Detail { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
@@ -36,18 +34,26 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// <para>Display Name: Lead Time</para>
 		/// </summary>
-		[DataMember(Name="LeadTime", EmitDefaultValue=false)]
-		public IntValue? LeadTime { get; set; }
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// <para>Display Name: Preferred Vendor</para>
 		/// </summary>
-		[DataMember(Name="PreferredVendorID", EmitDefaultValue=false)]
-		public StringValue? PreferredVendorID { get; set; }
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: QtyOnHand</para>
+		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
+		/// <para>Display Name: Qty. On Hand</para>
+		/// </summary>
+		[DataMember(Name="QtyonHand", EmitDefaultValue=false)]
+		public DecimalValue? QtyonHand { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ProductManagerID</para>
@@ -65,14 +71,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? ProductMgrContact { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: QtyOnHand</para>
-		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// <para>Display Name: Qty. On Hand</para>
-		/// </summary>
-		[DataMember(Name="QtyonHand", EmitDefaultValue=false)]
-		public DecimalValue? QtyonHand { get; set; }
-
-		/// <summary>
 		/// Replenishment source
 		/// <para>DAC Field Name: ReplenishmentSource</para>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
@@ -82,22 +80,30 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		[DataMember(Name="RepSource", EmitDefaultValue=false)]
 		public StringValue? RepSource { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
+		/// <para>Display Name: Preferred Vendor</para>
+		/// </summary>
+		[DataMember(Name="PreferredVendorID", EmitDefaultValue=false)]
+		public StringValue? PreferredVendorID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
+		/// <para>Display Name: Lead Time</para>
+		/// </summary>
+		[DataMember(Name="LeadTime", EmitDefaultValue=false)]
+		public IntValue? LeadTime { get; set; }
+
 		[DataMember(Name="SafetyStock", EmitDefaultValue=false)]
 		public DecimalValue? SafetyStock { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		#region Details
+		[DataMember(Name="Detail", EmitDefaultValue=false)]
+		public List<MRPRequirementsByItemDetail>? Detail { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

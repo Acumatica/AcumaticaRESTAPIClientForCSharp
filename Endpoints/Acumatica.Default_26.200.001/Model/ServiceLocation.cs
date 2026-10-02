@@ -17,20 +17,12 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ServiceLocation : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="Active", EmitDefaultValue=false)]
 		public BooleanValue? Active { get; set; }
 
-		[DataMember(Name="Address", EmitDefaultValue=false)]
-		public ServiceLocationAddress? Address { get; set; }
-
 		[DataMember(Name="BranchID", EmitDefaultValue=false)]
 		public StringValue? BranchID { get; set; }
-
-		[DataMember(Name="Contacts", EmitDefaultValue=false)]
-		public List<ServiceLocationContactDetail>? Contacts { get; set; }
-
-		[DataMember(Name="Customers", EmitDefaultValue=false)]
-		public List<ServiceLocationCustomerDetail>? Customers { get; set; }
 
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
@@ -55,6 +47,23 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TicketSignRequired", EmitDefaultValue=false)]
 		public BooleanValue? TicketSignRequired { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="Address", EmitDefaultValue=false)]
+		public ServiceLocationAddress? Address { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Contacts", EmitDefaultValue=false)]
+		public List<ServiceLocationContactDetail>? Contacts { get; set; }
+
+		[DataMember(Name="Customers", EmitDefaultValue=false)]
+		public List<ServiceLocationCustomerDetail>? Customers { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -14,14 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class CreditCardProcessingDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: Amount</para>
-		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
-		/// <para>Display Name: Tran. Amount</para>
-		/// </summary>
-		[DataMember(Name="TransactionAmount", EmitDefaultValue=false)]
-		public DecimalValue? TransactionAmount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: TranStatus</para>
 		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
@@ -30,6 +23,16 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="TransactionStatus", EmitDefaultValue=false)]
 		public StringSingleSelectValue? TransactionStatus { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Amount</para>
+		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
+		/// <para>Display Name: Tran. Amount</para>
+		/// </summary>
+		[DataMember(Name="TransactionAmount", EmitDefaultValue=false)]
+		public DecimalValue? TransactionAmount { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -18,14 +18,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeePayrollClass : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: EmployeeClassID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
@@ -36,14 +29,35 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="EmployeePayrollClassID", EmitDefaultValue=false)]
 		public StringValue? EmployeePayrollClassID { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		#endregion
+
+		#region LinkedEntities
 		[DataMember(Name="PayrollDefaults", EmitDefaultValue=false)]
 		public EmployeePayrollClassDefaults? PayrollDefaults { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="PTODefaults", EmitDefaultValue=false)]
 		public List<EmployeeClassPTOBankDefault>? PTODefaults { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(EmployeePayrollClass)} - \"{EmployeePayrollClassID}\"";
+		}
 
 		public static class Expand
 		{

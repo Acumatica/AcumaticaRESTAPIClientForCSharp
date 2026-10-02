@@ -14,36 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class LateAssignmentUnallocatedDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		[DataMember(Name="LineID", EmitDefaultValue=false)]
-		public IntValue? LineID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// <para>Display Name: Lot/Serial Nbr.</para>
-		/// <para>SQL Type: nvarchar(100)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
-		public StringValue? LotSerialNbr { get; set; }
-
-		[DataMember(Name="OperationID", EmitDefaultValue=false)]
-		public StringValue? OperationID { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
 		/// <para>Display Name: Order Type</para>
@@ -52,9 +23,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="OrderType", EmitDefaultValue=false)]
 		public StringValue? OrderType { get; set; }
-
-		[DataMember(Name="ParentLotSerialNbr", EmitDefaultValue=false)]
-		public StringValue? ParentLotSerialNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ProdOrdID</para>
@@ -67,19 +35,28 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialUnassigned</para>
-		/// <para>Display Name: Required Qty.</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
-		public DecimalValue? QtyRequired { get; set; }
+		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
+		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: QtyToAllocate</para>
-		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialUnassigned</para>
-		/// <para>Display Name: Qty. to Allocate</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		[DataMember(Name="QtytoAllocate", EmitDefaultValue=false)]
-		public DecimalValue? QtytoAllocate { get; set; }
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: QtyIssued</para>
@@ -96,6 +73,32 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialUnassigned</para>
+		/// <para>Display Name: Required Qty.</para>
+		/// </summary>
+		[DataMember(Name="QtyRequired", EmitDefaultValue=false)]
+		public DecimalValue? QtyRequired { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: QtyToAllocate</para>
+		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialUnassigned</para>
+		/// <para>Display Name: Qty. to Allocate</para>
+		/// </summary>
+		[DataMember(Name="QtytoAllocate", EmitDefaultValue=false)]
+		public DecimalValue? QtytoAllocate { get; set; }
+
+		[DataMember(Name="LineID", EmitDefaultValue=false)]
+		public IntValue? LineID { get; set; }
+
+		[DataMember(Name="OperationID", EmitDefaultValue=false)]
+		public StringValue? OperationID { get; set; }
+
+		[DataMember(Name="ParentLotSerialNbr", EmitDefaultValue=false)]
+		public StringValue? ParentLotSerialNbr { get; set; }
+
+		#endregion
 
 	}
 }

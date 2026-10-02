@@ -14,6 +14,7 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class TransferOrderDetail : Acumatica.Default_24_200_001.Model.TransferOrderDetail
 	{
 
+		#region Fields
 		[DataMember(Name="OrderLineNbr", EmitDefaultValue=false)]
 		public IntValue? OrderLineNbr { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.eCommerce_24_200_001.Model
 
 		[DataMember(Name="ShipmentNumber", EmitDefaultValue=false)]
 		public StringValue? ShipmentNumber { get; set; }
+
+		#endregion
 
 	}
 }

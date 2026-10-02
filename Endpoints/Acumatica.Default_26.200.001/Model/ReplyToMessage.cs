@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ReplyToMessage : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The identifier of the Note object associated with the document.
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
@@ -73,6 +74,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
+
+		#endregion
 
 	}
 }

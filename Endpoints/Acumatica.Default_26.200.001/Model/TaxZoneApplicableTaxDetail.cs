@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class TaxZoneApplicableTaxDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The field contains ID of a tax that would be used to create tax transactions in documents.
 		/// <para>DAC: PX.Objects.TX.TaxZone</para>
@@ -22,6 +23,8 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="TaxID", EmitDefaultValue=false)]
 		public StringValue? TaxID { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

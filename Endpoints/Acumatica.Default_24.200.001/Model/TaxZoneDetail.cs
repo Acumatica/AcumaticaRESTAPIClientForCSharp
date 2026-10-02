@@ -14,20 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class TaxZoneDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: TaxZone__DfltTaxCategoryID</para>
-		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
-		/// </summary>
-		[DataMember(Name="DefaultTaxCategory", EmitDefaultValue=false)]
-		public StringValue? DefaultTaxCategory { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TaxZone__Descr</para>
-		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The tax ID. This is the key field, which can be specified by the user.
 		/// <para>DAC: PX.Objects.TX.Tax</para>
@@ -47,6 +34,22 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="TaxZoneID", EmitDefaultValue=false)]
 		public StringValue? TaxZoneID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaxZone__DfltTaxCategoryID</para>
+		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
+		/// </summary>
+		[DataMember(Name="DefaultTaxCategory", EmitDefaultValue=false)]
+		public StringValue? DefaultTaxCategory { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaxZone__Descr</para>
+		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		#endregion
 
 	}
 }

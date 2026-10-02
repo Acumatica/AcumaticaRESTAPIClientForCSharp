@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesInvoiceAddress : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The first line of the street address.
 		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
@@ -50,6 +51,14 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Country { get; set; }
 
 		/// <summary>
+		/// The name of the state.
+		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
+		/// <para>SQL Type: nvarchar(2500)</para>
+		/// </summary>
+		[DataMember(Name="State", EmitDefaultValue=false)]
+		public StringValue? State { get; set; }
+
+		/// <summary>
 		/// The postal code.
 		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
 		/// <para>Display Name: Postal Code</para>
@@ -57,14 +66,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="PostalCode", EmitDefaultValue=false)]
 		public StringValue? PostalCode { get; set; }
-
-		/// <summary>
-		/// The name of the state.
-		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
-		/// <para>SQL Type: nvarchar(2500)</para>
-		/// </summary>
-		[DataMember(Name="State", EmitDefaultValue=false)]
-		public StringValue? State { get; set; }
 
 		[DataMember(Name="Department", EmitDefaultValue=false)]
 		public StringValue? Department { get; set; }
@@ -98,6 +99,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="DistrictName", EmitDefaultValue=false)]
 		public StringValue? DistrictName { get; set; }
+
+		#endregion
 
 	}
 }

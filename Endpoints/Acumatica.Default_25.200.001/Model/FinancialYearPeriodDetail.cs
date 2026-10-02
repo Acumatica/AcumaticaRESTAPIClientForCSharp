@@ -14,14 +14,16 @@ namespace Acumatica.Default_25_200_001.Model
 	public class FinancialYearPeriodDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The description of the period.
-		/// <para>DAC Field Name: Descr</para>
+		/// The number of the period in a year.
 		/// <para>DAC: PX.Objects.GL.FinPeriodSetup</para>
-		/// <para>SQL Type: nvarchar(60)</para>
+		/// <para>Display Name: Period Nbr.</para>
+		/// <para>SQL Type: char(2)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		[DataMember(Name="PeriodNbr", EmitDefaultValue=false)]
+		public StringValue? PeriodNbr { get; set; }
 
 		/// <summary>
 		/// The field used to display and edit the EndDate of the period (inclusive) in the UI.
@@ -33,17 +35,18 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? EndDate { get; set; }
 
 		/// <summary>
-		/// The number of the period in a year.
+		/// The description of the period.
+		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.GL.FinPeriodSetup</para>
-		/// <para>Display Name: Period Nbr.</para>
-		/// <para>SQL Type: char(2)</para>
-		/// Key Field
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="PeriodNbr", EmitDefaultValue=false)]
-		public StringValue? PeriodNbr { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
 
 		[DataMember(Name="StartDate", EmitDefaultValue=false)]
 		public DateTimeValue? StartDate { get; set; }
+
+		#endregion
 
 	}
 }

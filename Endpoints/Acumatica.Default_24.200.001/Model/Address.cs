@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class Address : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AddressLine1", EmitDefaultValue=false)]
 		public StringValue? AddressLine1 { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="Validated", EmitDefaultValue=false)]
 		public BooleanValue? Validated { get; set; }
+
+		#endregion
 
 	}
 }

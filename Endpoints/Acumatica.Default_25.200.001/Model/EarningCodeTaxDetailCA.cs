@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EarningCodeTaxDetailCA : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Taxability", EmitDefaultValue=false)]
 		public StringValue? Taxability { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="TaxName", EmitDefaultValue=false)]
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 	}
 }

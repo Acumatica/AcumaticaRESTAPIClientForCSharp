@@ -14,6 +14,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class Customers : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="InstalledAcumaticaVersion", EmitDefaultValue=false)]
 		public StringValue? InstalledAcumaticaVersion { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.ISVCB_21_200_001.Model
 
 		[DataMember(Name="InstalledISVVersion", EmitDefaultValue=false)]
 		public StringValue? InstalledISVVersion { get; set; }
+
+		#endregion
 
 	}
 }

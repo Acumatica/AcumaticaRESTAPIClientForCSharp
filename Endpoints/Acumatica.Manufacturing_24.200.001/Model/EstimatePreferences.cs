@@ -17,6 +17,25 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class EstimatePreferences : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: EstimateNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateSetup</para>
+		/// <para>Display Name: Estimate Number Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="EstimateNumberSequence", EmitDefaultValue=false)]
+		public StringValue? EstimateNumberSequence { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DefaultRevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateSetup</para>
+		/// <para>Display Name: Default Revision</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="DefaultRevision", EmitDefaultValue=false)]
+		public StringValue? DefaultRevision { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: AutoNumberRevisionID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateSetup</para>
@@ -35,24 +54,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? DefaultEstimateClass { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DefaultOrderType</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateSetup</para>
-		/// <para>Display Name: Default Prod. Order Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		[DataMember(Name="DefaultProdOrderType", EmitDefaultValue=false)]
-		public StringValue? DefaultProdOrderType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DefaultRevisionID</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateSetup</para>
-		/// <para>Display Name: Default Revision</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		[DataMember(Name="DefaultRevision", EmitDefaultValue=false)]
-		public StringValue? DefaultRevision { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: DefaultWorkCenterID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateSetup</para>
 		/// <para>Display Name: Default Work Center</para>
@@ -62,13 +63,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? DefaultWorkCenter { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EstimateNumberingID</para>
+		/// <para>DAC Field Name: DefaultOrderType</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateSetup</para>
-		/// <para>Display Name: Estimate Number Sequence</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>Display Name: Default Prod. Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		[DataMember(Name="EstimateNumberSequence", EmitDefaultValue=false)]
-		public StringValue? EstimateNumberSequence { get; set; }
+		[DataMember(Name="DefaultProdOrderType", EmitDefaultValue=false)]
+		public StringValue? DefaultProdOrderType { get; set; }
 
 		/// <summary>
 		/// During new revision of an estimate, should the new revision automatically be marked as the primary revision
@@ -91,6 +92,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="UpdatePriceInfo", EmitDefaultValue=false)]
 		public BooleanValue? UpdatePriceInfo { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

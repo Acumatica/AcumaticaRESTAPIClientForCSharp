@@ -17,8 +17,11 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class Customer : Acumatica.Default_24_200_001.Model.Customer, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="LegalName", EmitDefaultValue=false)]
 		public StringValue? LegalName { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

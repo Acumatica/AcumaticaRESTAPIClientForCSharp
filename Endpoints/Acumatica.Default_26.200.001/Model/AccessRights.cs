@@ -14,11 +14,14 @@ namespace Acumatica.Default_26_200_001.Model
 	public class AccessRights : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccessLevel", EmitDefaultValue=false)]
 		public ShortValue? AccessLevel { get; set; }
 
 		[DataMember(Name="Rolename", EmitDefaultValue=false)]
 		public StringValue? Rolename { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class OrderStepDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
@@ -49,6 +50,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		[DataMember(Name="PhantomMatlRevision", EmitDefaultValue=false)]
 		public StringValue? PhantomMatlRevision { get; set; }
+
+		#endregion
 
 	}
 }

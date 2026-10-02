@@ -14,35 +14,16 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AppDetails : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: AcctID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// </summary>
-		[DataMember(Name="Account", EmitDefaultValue=false)]
-		public StringValue? Account { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryTranAmt</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Actual Amount</para>
-		/// </summary>
-		[DataMember(Name="ActualAmount", EmitDefaultValue=false)]
-		public DecimalValue? ActualAmount { get; set; }
-
-		/// <summary>
+		/// <para>DAC Field Name: SrvOrdType</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
-		/// <para>Display Name: Actual Duration</para>
+		/// <para>Display Name: Service Order Type</para>
+		/// <para>SQL Type: char(4)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="ActualDuration", EmitDefaultValue=false)]
-		public StringValue? ActualDuration { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Qty</para>
-		/// <para>DAC: PX.Objects.FS.FSApptLineSplit</para>
-		/// <para>Display Name: Quantity</para>
-		/// </summary>
-		[DataMember(Name="ActualQty", EmitDefaultValue=false)]
-		public DecimalValue? ActualQty { get; set; }
+		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
+		public StringValue? ServiceOrderType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
@@ -55,34 +36,19 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? AppointmentNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: IsBillable</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Billable", EmitDefaultValue=false)]
-		public BooleanValue? Billable { get; set; }
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CuryBillableTranAmt</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Billable Amount</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Actual Duration</para>
 		/// </summary>
-		[DataMember(Name="BillableAmount", EmitDefaultValue=false)]
-		public DecimalValue? BillableAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Billable Quantity</para>
-		/// </summary>
-		[DataMember(Name="BillableQty", EmitDefaultValue=false)]
-		public DecimalValue? BillableQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Billing Rule</para>
-		/// <para>SQL Type: char(4)</para>
-		/// </summary>
-		[DataMember(Name="BillingRule", EmitDefaultValue=false)]
-		public StringValue? BillingRule { get; set; }
+		[DataMember(Name="ActualDuration", EmitDefaultValue=false)]
+		public StringValue? ActualDuration { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: BranchID</para>
@@ -93,134 +59,26 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Component ID</para>
-		/// </summary>
-		[DataMember(Name="ComponentID", EmitDefaultValue=false)]
-		public StringValue? ComponentID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: EquipmentLineRef</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Component Ref. Nbr.</para>
-		/// </summary>
-		[DataMember(Name="ComponentLineRef", EmitDefaultValue=false)]
-		public StringValue? ComponentLineRef { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CostCodeID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Cost Code</para>
-		/// </summary>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue? CostCode { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Covered Quantity</para>
-		/// </summary>
-		[DataMember(Name="CoveredQty", EmitDefaultValue=false)]
-		public DecimalValue? CoveredQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Unit Cost</para>
-		/// </summary>
-		[DataMember(Name="CuryUnitCost", EmitDefaultValue=false)]
-		public DecimalValue? CuryUnitCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TranDesc</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryDiscAmt</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Discount Amount</para>
-		/// </summary>
-		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
-		public DecimalValue? DiscountAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DiscPct</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Discount Percent</para>
-		/// </summary>
-		[DataMember(Name="DiscountPercent", EmitDefaultValue=false)]
-		public DecimalValue? DiscountPercent { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Equipment Action</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		[DataMember(Name="EquipmentAction", EmitDefaultValue=false)]
-		public StringValue? EquipmentAction { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Comment</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Equipment Action Comment</para>
-		/// <para>SQL Type: varchar(255)</para>
-		/// </summary>
-		[DataMember(Name="EquipmentActionComment", EmitDefaultValue=false)]
-		public StringValue? EquipmentActionComment { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryEstimatedTranAmt</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Estimated Amount</para>
-		/// </summary>
-		[DataMember(Name="EstimatedAmount", EmitDefaultValue=false)]
-		public DecimalValue? EstimatedAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Estimated Duration</para>
-		/// </summary>
-		[DataMember(Name="EstimatedDuration", EmitDefaultValue=false)]
-		public StringValue? EstimatedDuration { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Estimated Quantity</para>
-		/// </summary>
-		[DataMember(Name="EstimatedQty", EmitDefaultValue=false)]
-		public DecimalValue? EstimatedQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryBillableExtPrice</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Ext. Price</para>
-		/// </summary>
-		[DataMember(Name="ExtPrice", EmitDefaultValue=false)]
-		public DecimalValue? ExtPrice { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
 		/// <para>Display Name: Ref. Nbr.</para>
 		/// <para>SQL Type: char(4)</para>
 		/// </summary>
 		[DataMember(Name="LineRef", EmitDefaultValue=false)]
 		public StringValue? LineRef { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Sort Order</para>
+		/// </summary>
+		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
+		public IntValue? SortOrder { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SODetID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Service Order Detail Ref. Nbr.</para>
+		/// </summary>
+		[DataMember(Name="ServiceOrderLineRef", EmitDefaultValue=false)]
+		public StringValue? ServiceOrderLineRef { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: UIStatus</para>
@@ -240,6 +98,106 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? LineType { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: PickupDeliveryAppLineRef</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Pickup/Delivery Ref. Nbr.</para>
+		/// <para>SQL Type: char(4)</para>
+		/// </summary>
+		[DataMember(Name="PickupDeliveryLineRef", EmitDefaultValue=false)]
+		public StringValue? PickupDeliveryLineRef { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// </summary>
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Billing Rule</para>
+		/// <para>SQL Type: char(4)</para>
+		/// </summary>
+		[DataMember(Name="BillingRule", EmitDefaultValue=false)]
+		public StringValue? BillingRule { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Equipment Action</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		[DataMember(Name="EquipmentAction", EmitDefaultValue=false)]
+		public StringValue? EquipmentAction { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SMEquipmentID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Target Equipment ID</para>
+		/// </summary>
+		[DataMember(Name="TargetEquipmentID", EmitDefaultValue=false)]
+		public StringValue? TargetEquipmentID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: NewTargetEquipmentLineNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Model Equipment Ref. Nbr.</para>
+		/// <para>SQL Type: char(4)</para>
+		/// </summary>
+		[DataMember(Name="ModelEquipmentLineRef", EmitDefaultValue=false)]
+		public StringValue? ModelEquipmentLineRef { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Component ID</para>
+		/// </summary>
+		[DataMember(Name="ComponentID", EmitDefaultValue=false)]
+		public StringValue? ComponentID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EquipmentLineRef</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Component Ref. Nbr.</para>
+		/// </summary>
+		[DataMember(Name="ComponentLineRef", EmitDefaultValue=false)]
+		public StringValue? ComponentLineRef { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: StaffID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Staff Member ID</para>
+		/// </summary>
+		[DataMember(Name="StaffMemberID", EmitDefaultValue=false)]
+		public StringValue? StaffMemberID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// </summary>
+		[DataMember(Name="Warranty", EmitDefaultValue=false)]
+		public BooleanValue? Warranty { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// </summary>
+		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: SiteLocationID</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
 		/// </summary>
@@ -256,27 +214,147 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Estimated Duration</para>
+		/// </summary>
+		[DataMember(Name="EstimatedDuration", EmitDefaultValue=false)]
+		public StringValue? EstimatedDuration { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Estimated Quantity</para>
+		/// </summary>
+		[DataMember(Name="EstimatedQty", EmitDefaultValue=false)]
+		public DecimalValue? EstimatedQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryUnitPrice</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Unit Price</para>
+		/// </summary>
+		[DataMember(Name="UnitPrice", EmitDefaultValue=false)]
+		public DecimalValue? UnitPrice { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
 		/// <para>Display Name: Manual Price</para>
 		/// </summary>
 		[DataMember(Name="ManualPrice", EmitDefaultValue=false)]
 		public BooleanValue? ManualPrice { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EnablePO</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Mark for PO</para>
+		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
-		[DataMember(Name="MarkforPO", EmitDefaultValue=false)]
-		public BooleanValue? MarkforPO { get; set; }
+		[DataMember(Name="CuryUnitCost", EmitDefaultValue=false)]
+		public DecimalValue? CuryUnitCost { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: NewTargetEquipmentLineNbr</para>
+		/// <para>DAC Field Name: CuryEstimatedTranAmt</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Model Equipment Ref. Nbr.</para>
-		/// <para>SQL Type: char(4)</para>
+		/// <para>Display Name: Estimated Amount</para>
 		/// </summary>
-		[DataMember(Name="ModelEquipmentLineRef", EmitDefaultValue=false)]
-		public StringValue? ModelEquipmentLineRef { get; set; }
+		[DataMember(Name="EstimatedAmount", EmitDefaultValue=false)]
+		public DecimalValue? EstimatedAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryTranAmt</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Actual Amount</para>
+		/// </summary>
+		[DataMember(Name="ActualAmount", EmitDefaultValue=false)]
+		public DecimalValue? ActualAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsBillable</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// </summary>
+		[DataMember(Name="Billable", EmitDefaultValue=false)]
+		public BooleanValue? Billable { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Billable Quantity</para>
+		/// </summary>
+		[DataMember(Name="BillableQty", EmitDefaultValue=false)]
+		public DecimalValue? BillableQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryBillableExtPrice</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Ext. Price</para>
+		/// </summary>
+		[DataMember(Name="ExtPrice", EmitDefaultValue=false)]
+		public DecimalValue? ExtPrice { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DiscPct</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Discount Percent</para>
+		/// </summary>
+		[DataMember(Name="DiscountPercent", EmitDefaultValue=false)]
+		public DecimalValue? DiscountPercent { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryDiscAmt</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Discount Amount</para>
+		/// </summary>
+		[DataMember(Name="DiscountAmount", EmitDefaultValue=false)]
+		public DecimalValue? DiscountAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryBillableTranAmt</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Billable Amount</para>
+		/// </summary>
+		[DataMember(Name="BillableAmount", EmitDefaultValue=false)]
+		public DecimalValue? BillableAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaxCategoryID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
+		public StringValue? TaxCategory { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ProjectTaskID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Project Task</para>
+		/// </summary>
+		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
+		public StringValue? ProjectTask { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Cost Code</para>
+		/// </summary>
+		[DataMember(Name="CostCode", EmitDefaultValue=false)]
+		public StringValue? CostCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AcctID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// </summary>
+		[DataMember(Name="Account", EmitDefaultValue=false)]
+		public StringValue? Account { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Covered Quantity</para>
+		/// </summary>
+		[DataMember(Name="CoveredQty", EmitDefaultValue=false)]
+		public DecimalValue? CoveredQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ExtraUsageQty</para>
@@ -295,36 +373,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? OverageUnitPrice { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ServiceType</para>
+		/// <para>DAC Field Name: EnablePO</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Pickup/Delivery Action</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Mark for PO</para>
 		/// </summary>
-		[DataMember(Name="PickupDeliveryAction", EmitDefaultValue=false)]
-		public StringValue? PickupDeliveryAction { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PickupDeliveryAppLineRef</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Pickup/Delivery Ref. Nbr.</para>
-		/// <para>SQL Type: char(4)</para>
-		/// </summary>
-		[DataMember(Name="PickupDeliveryLineRef", EmitDefaultValue=false)]
-		public StringValue? PickupDeliveryLineRef { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Pickup/Delivery Service ID</para>
-		/// </summary>
-		[DataMember(Name="PickupDeliveryServiceID", EmitDefaultValue=false)]
-		public StringValue? PickupDeliveryServiceID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: PO Completed</para>
-		/// </summary>
-		[DataMember(Name="POCompleted", EmitDefaultValue=false)]
-		public BooleanValue? POCompleted { get; set; }
+		[DataMember(Name="MarkforPO", EmitDefaultValue=false)]
+		public BooleanValue? MarkforPO { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
@@ -343,20 +397,19 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? POStatus { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: PO Completed</para>
+		/// </summary>
+		[DataMember(Name="POCompleted", EmitDefaultValue=false)]
+		public BooleanValue? POCompleted { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: IsPrepaid</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
 		/// <para>Display Name: Prepaid Item</para>
 		/// </summary>
 		[DataMember(Name="PrepaidItem", EmitDefaultValue=false)]
 		public BooleanValue? PrepaidItem { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ProjectTaskID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Project Task</para>
-		/// </summary>
-		[DataMember(Name="ProjectTask", EmitDefaultValue=false)]
-		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LinkedDisplayRefNbr</para>
@@ -376,39 +429,6 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? ServiceContractItem { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SODetID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Service Order Detail Ref. Nbr.</para>
-		/// </summary>
-		[DataMember(Name="ServiceOrderLineRef", EmitDefaultValue=false)]
-		public StringValue? ServiceOrderLineRef { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SrvOrdType</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
-		/// <para>Display Name: Service Order Type</para>
-		/// <para>SQL Type: char(4)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ServiceOrderType", EmitDefaultValue=false)]
-		public StringValue? ServiceOrderType { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Sort Order</para>
-		/// </summary>
-		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
-		public IntValue? SortOrder { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: StaffID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Staff Member ID</para>
-		/// </summary>
-		[DataMember(Name="StaffMemberID", EmitDefaultValue=false)]
-		public StringValue? StaffMemberID { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: SubID</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
 		/// </summary>
@@ -416,56 +436,39 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC Field Name: ServiceType</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Pickup/Delivery Action</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SMEquipmentID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Target Equipment ID</para>
-		/// </summary>
-		[DataMember(Name="TargetEquipmentID", EmitDefaultValue=false)]
-		public StringValue? TargetEquipmentID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TaxCategoryID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Tax Category</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		[DataMember(Name="TaxCategory", EmitDefaultValue=false)]
-		public StringValue? TaxCategory { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryUnitPrice</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Unit Price</para>
-		/// </summary>
-		[DataMember(Name="UnitPrice", EmitDefaultValue=false)]
-		public DecimalValue? UnitPrice { get; set; }
+		[DataMember(Name="PickupDeliveryAction", EmitDefaultValue=false)]
+		public StringValue? PickupDeliveryAction { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>SQL Type: nvarchar(6)</para>
+		/// <para>Display Name: Pickup/Delivery Service ID</para>
 		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
+		[DataMember(Name="PickupDeliveryServiceID", EmitDefaultValue=false)]
+		public StringValue? PickupDeliveryServiceID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC Field Name: Comment</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Equipment Action Comment</para>
+		/// <para>SQL Type: varchar(255)</para>
 		/// </summary>
-		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
-		public StringValue? Warehouse { get; set; }
+		[DataMember(Name="EquipmentActionComment", EmitDefaultValue=false)]
+		public StringValue? EquipmentActionComment { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.FS.FSApptLineSplit</para>
+		/// <para>Display Name: Quantity</para>
 		/// </summary>
-		[DataMember(Name="Warranty", EmitDefaultValue=false)]
-		public BooleanValue? Warranty { get; set; }
+		[DataMember(Name="ActualQty", EmitDefaultValue=false)]
+		public DecimalValue? ActualQty { get; set; }
+
+		#endregion
 
 	}
 }

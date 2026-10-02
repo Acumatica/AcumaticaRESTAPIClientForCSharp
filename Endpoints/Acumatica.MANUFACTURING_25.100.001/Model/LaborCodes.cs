@@ -18,6 +18,25 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class LaborCodes : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: LaborCodeID</para>
+		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
+		/// <para>Display Name: Labor Code</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="LaborCode", EmitDefaultValue=false)]
+		public StringValue? LaborCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: LaborType</para>
+		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Type", EmitDefaultValue=false)]
+		public StringValue? Type { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
@@ -33,16 +52,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		[DataMember(Name="LaborAccount", EmitDefaultValue=false)]
 		public StringValue? LaborAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: LaborCodeID</para>
-		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
-		/// <para>Display Name: Labor Code</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="LaborCode", EmitDefaultValue=false)]
-		public StringValue? LaborCode { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LaborSubID</para>
@@ -68,13 +77,12 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		[DataMember(Name="OverheadSub", EmitDefaultValue=false)]
 		public StringValue? OverheadSub { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: LaborType</para>
-		/// <para>DAC: PX.Objects.AM.AMLaborCode</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="Type", EmitDefaultValue=false)]
-		public StringValue? Type { get; set; }
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(LaborCodes)} - \"{LaborCode}\"";
+		}
 
 		public static class Expand
 		{

@@ -18,52 +18,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class Task : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The HTML body of the activity.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Activity Details</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		[DataMember(Name="Body", EmitDefaultValue=false)]
-		public StringValue? Body { get; set; }
-
-		/// <summary>
-		/// The identifier of the task or event category.
-		/// <para>DAC Field Name: CategoryID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		[DataMember(Name="Category", EmitDefaultValue=false)]
-		public StringValue? Category { get; set; }
-
-		/// <summary>
-		/// The date and time when activity was completed(UIStatus was set to Completed).
-		/// <para>DAC Field Name: CompletedDate</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Completed On</para>
-		/// </summary>
-		[DataMember(Name="CompletedAt", EmitDefaultValue=false)]
-		public DateTimeValue? CompletedAt { get; set; }
-
-		/// <summary>
-		/// The estimation of the task completion expressed as a percentage.
-		/// <para>DAC Field Name: PercentCompletion</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Completion (%)</para>
-		/// </summary>
-		[DataMember(Name="CompletionPercentage", EmitDefaultValue=false)]
-		public IntValue? CompletionPercentage { get; set; }
-
-		[DataMember(Name="DueDate", EmitDefaultValue=false)]
-		public DateTimeValue? DueDate { get; set; }
-
-		/// <summary>
-		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
-		/// <para>DAC Field Name: IsPrivate</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		[DataMember(Name="Internal", EmitDefaultValue=false)]
-		public BooleanValue? Internal { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The identifier of the Note object associated with the document.
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
@@ -74,59 +29,6 @@ namespace Acumatica.Default_23_200_001.Model
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
-		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
-		/// <para>DAC Field Name: OwnerID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		[DataMember(Name="Owner", EmitDefaultValue=false)]
-		public StringValue? Owner { get; set; }
-
-		/// <summary>
-		/// The identifier of the parent task or event of the current activity.
-		/// <para>DAC Field Name: ParentNoteID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Parent Activity</para>
-		/// </summary>
-		[DataMember(Name="Parent", EmitDefaultValue=false)]
-		public GuidValue? Parent { get; set; }
-
-		[DataMember(Name="ParentSummary", EmitDefaultValue=false)]
-		public StringValue? ParentSummary { get; set; }
-
-		/// <summary>
-		/// The priority of the activity.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		[DataMember(Name="Priority", EmitDefaultValue=false)]
-		public StringValue? Priority { get; set; }
-
-		[DataMember(Name="RelatedActivities", EmitDefaultValue=false)]
-		public List<ActivityDetail>? RelatedActivities { get; set; }
-
-		[DataMember(Name="RelatedTasks", EmitDefaultValue=false)]
-		public List<TaskRelatedTask>? RelatedTasks { get; set; }
-
-		[DataMember(Name="Reminder", EmitDefaultValue=false)]
-		public ReminderDetail? Reminder { get; set; }
-
-		/// <summary>
-		/// The start date and time of the event.
-		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		[DataMember(Name="StartDate", EmitDefaultValue=false)]
-		public DateTimeValue? StartDate { get; set; }
-
-		/// <summary>
-		/// The status of the activity.
-		/// <para>DAC Field Name: UIStatus</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
-
-		/// <summary>
 		/// The summary description of the activity.
 		/// <para>DAC Field Name: Subject</para>
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
@@ -135,8 +37,22 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="Summary", EmitDefaultValue=false)]
 		public StringValue? Summary { get; set; }
 
-		[DataMember(Name="TimeActivity", EmitDefaultValue=false)]
-		public TaskTimeActivity? TimeActivity { get; set; }
+		/// <summary>
+		/// The estimation of the task completion expressed as a percentage.
+		/// <para>DAC Field Name: PercentCompletion</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Completion (%)</para>
+		/// </summary>
+		[DataMember(Name="CompletionPercentage", EmitDefaultValue=false)]
+		public IntValue? CompletionPercentage { get; set; }
+
+		/// <summary>
+		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		[DataMember(Name="Owner", EmitDefaultValue=false)]
+		public StringValue? Owner { get; set; }
 
 		/// <summary>
 		/// The identifier of the workgroup responsible for the current document.
@@ -146,19 +62,13 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="WorkgroupID", EmitDefaultValue=false)]
 		public StringValue? WorkgroupID { get; set; }
 
-		[DataMember(Name="CreatedByID", EmitDefaultValue=false)]
-		public StringValue? CreatedByID { get; set; }
-
 		/// <summary>
-		/// The date and time when the record was created.
-		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
-		/// <para>Display Name: Created At</para>
+		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
+		/// <para>DAC Field Name: IsPrivate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// </summary>
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		[DataMember(Name="Internal", EmitDefaultValue=false)]
+		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
 		/// Contains the type of the related entity, that is specified in RefNoteID.
@@ -182,8 +92,112 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="RelatedEntityNoteID", EmitDefaultValue=false)]
 		public GuidValue? RelatedEntityNoteID { get; set; }
 
+		/// <summary>
+		/// The identifier of the parent task or event of the current activity.
+		/// <para>DAC Field Name: ParentNoteID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Parent Activity</para>
+		/// </summary>
+		[DataMember(Name="Parent", EmitDefaultValue=false)]
+		public GuidValue? Parent { get; set; }
+
+		/// <summary>
+		/// The status of the activity.
+		/// <para>DAC Field Name: UIStatus</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// The priority of the activity.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		[DataMember(Name="Priority", EmitDefaultValue=false)]
+		public StringValue? Priority { get; set; }
+
+		/// <summary>
+		/// The identifier of the task or event category.
+		/// <para>DAC Field Name: CategoryID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		[DataMember(Name="Category", EmitDefaultValue=false)]
+		public StringValue? Category { get; set; }
+
+		/// <summary>
+		/// The date and time when activity was completed(UIStatus was set to Completed).
+		/// <para>DAC Field Name: CompletedDate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Completed On</para>
+		/// </summary>
+		[DataMember(Name="CompletedAt", EmitDefaultValue=false)]
+		public DateTimeValue? CompletedAt { get; set; }
+
+		/// <summary>
+		/// The HTML body of the activity.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Activity Details</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		[DataMember(Name="Body", EmitDefaultValue=false)]
+		public StringValue? Body { get; set; }
+
+		/// <summary>
+		/// The start date and time of the event.
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		[DataMember(Name="StartDate", EmitDefaultValue=false)]
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was created.
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Created At</para>
+		/// </summary>
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="DueDate", EmitDefaultValue=false)]
+		public DateTimeValue? DueDate { get; set; }
+
+		[DataMember(Name="ParentSummary", EmitDefaultValue=false)]
+		public StringValue? ParentSummary { get; set; }
+
+		[DataMember(Name="CreatedByID", EmitDefaultValue=false)]
+		public StringValue? CreatedByID { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 		[DataMember(Name="RelatedEntityDescription", EmitDefaultValue=false)]
 		public StringValue? RelatedEntityDescription { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="Reminder", EmitDefaultValue=false)]
+		public ReminderDetail? Reminder { get; set; }
+
+		[DataMember(Name="TimeActivity", EmitDefaultValue=false)]
+		public TaskTimeActivity? TimeActivity { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="RelatedActivities", EmitDefaultValue=false)]
+		public List<ActivityDetail>? RelatedActivities { get; set; }
+
+		[DataMember(Name="RelatedTasks", EmitDefaultValue=false)]
+		public List<TaskRelatedTask>? RelatedTasks { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Task)} - \"{NoteID}\"";
+		}
 
 		public static class Expand
 		{

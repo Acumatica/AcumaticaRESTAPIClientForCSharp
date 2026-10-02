@@ -18,6 +18,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AttributeDefinition : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
 		/// <para>Display Name: Attribute ID</para>
@@ -29,20 +30,24 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
 		/// <para>Display Name: Control Type</para>
 		/// </summary>
 		[DataMember(Name="ControlType", EmitDefaultValue=false)]
 		public StringValue? ControlType { get; set; }
 
-		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? CreatedDateTime { get; set; }
-
 		/// <summary>
+		/// <para>DAC Field Name: IsInternal</para>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
-		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		[DataMember(Name="Internal", EmitDefaultValue=false)]
+		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
@@ -53,16 +58,6 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? EntryMask { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: IsInternal</para>
-		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
-		/// </summary>
-		[DataMember(Name="Internal", EmitDefaultValue=false)]
-		public BooleanValue? Internal { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
 		/// <para>Display Name: Reg. Exp.</para>
 		/// <para>SQL Type: nvarchar(255)</para>
@@ -70,8 +65,24 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="RegExp", EmitDefaultValue=false)]
 		public StringValue? RegExp { get; set; }
 
+		[DataMember(Name="CreatedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
 		[DataMember(Name="Values", EmitDefaultValue=false)]
 		public List<AttributeDefinitionValue>? Values { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(AttributeDefinition)} - \"{AttributeID}\"";
+		}
 
 		public static class Expand
 		{

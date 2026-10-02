@@ -14,50 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PaymentDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: CuryAdjgAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Amount Paid in Payment Currency</para>
-		/// </summary>
-		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
-		public DecimalValue? AmountPaid { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryAdjgWOAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Write-Off Amount in Payment Currency</para>
-		/// </summary>
-		[DataMember(Name="BalanceWriteOff", EmitDefaultValue=false)]
-		public DecimalValue? BalanceWriteOff { get; set; }
-
-		/// <summary>
-		/// The cash discount amount displayed for the document.Given in the  currency of the adjusting document.
-		/// <para>DAC Field Name: CuryAdjgPPDAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Cash Discount Taken in Payment Currency</para>
-		/// </summary>
-		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
-		public DecimalValue? CashDiscountTaken { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__InvoiceNbr</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// </summary>
-		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
-		public StringValue? CustomerOrder { get; set; }
-
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AdjdLineNbr</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
-		public IntValue? DocLineNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: AdjdDocType</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
@@ -79,12 +36,58 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: AdjdLineNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="DocLineNbr", EmitDefaultValue=false)]
+		public IntValue? DocLineNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryAdjgAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Amount Paid in Payment Currency</para>
+		/// </summary>
+		[DataMember(Name="AmountPaid", EmitDefaultValue=false)]
+		public DecimalValue? AmountPaid { get; set; }
+
+		/// <summary>
+		/// The cash discount amount displayed for the document.Given in the  currency of the adjusting document.
+		/// <para>DAC Field Name: CuryAdjgPPDAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Cash Discount Taken in Payment Currency</para>
+		/// </summary>
+		[DataMember(Name="CashDiscountTaken", EmitDefaultValue=false)]
+		public DecimalValue? CashDiscountTaken { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryAdjgWOAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Write-Off Amount in Payment Currency</para>
+		/// </summary>
+		[DataMember(Name="BalanceWriteOff", EmitDefaultValue=false)]
+		public DecimalValue? BalanceWriteOff { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
 		/// <para>Display Name: Write-Off Reason Code</para>
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		[DataMember(Name="WriteOffReasonCode", EmitDefaultValue=false)]
 		public StringValue? WriteOffReasonCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ARInvoice__InvoiceNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// </summary>
+		[DataMember(Name="CustomerOrder", EmitDefaultValue=false)]
+		public StringValue? CustomerOrder { get; set; }
+
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		#endregion
 
 	}
 }

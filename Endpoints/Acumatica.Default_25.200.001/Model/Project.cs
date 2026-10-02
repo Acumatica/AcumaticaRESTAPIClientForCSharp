@@ -18,95 +18,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Project : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="ActivityHistory", EmitDefaultValue=false)]
-		public List<ProjectActivity>? ActivityHistory { get; set; }
-
-		[DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
-		public List<Approval>? ApprovalDetails { get; set; }
-
-		[DataMember(Name="Assets", EmitDefaultValue=false)]
-		public DecimalValue? Assets { get; set; }
-
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<AttributeValue>? Attributes { get; set; }
-
-		[DataMember(Name="Balances", EmitDefaultValue=false)]
-		public List<ProjectBalance>? Balances { get; set; }
-
-		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
-		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
-
-		[DataMember(Name="BillToSettings", EmitDefaultValue=false)]
-		public BillToSettings? BillToSettings { get; set; }
-
-		/// <summary>
-		/// The identifier of the customer for the project. Projects can be of the internal or external type. Internal projects are those that have the value of this            property equal to NULL and hense are not billable.
-		/// <para>DAC Field Name: CustomerID</para>
-		/// <para>DAC: PX.Objects.PM.PMProject</para>
-		/// </summary>
-		[DataMember(Name="Customer", EmitDefaultValue=false)]
-		public StringValue? Customer { get; set; }
-
-		/// <summary>
-		/// The project description.
-		/// <para>DAC: PX.Objects.PM.PMProject</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Employees", EmitDefaultValue=false)]
-		public List<ProjectEmployee>? Employees { get; set; }
-
-		[DataMember(Name="Equipments", EmitDefaultValue=false)]
-		public List<ProjectEquipment>? Equipments { get; set; }
-
-		/// <summary>
-		/// The total expense amount in the project currency.
-		/// <para>DAC Field Name: CuryExpense</para>
-		/// <para>DAC: PX.Objects.PM.PMTaskTotal</para>
-		/// <para>Display Name: Expense</para>
-		/// </summary>
-		[DataMember(Name="Expenses", EmitDefaultValue=false)]
-		public DecimalValue? Expenses { get; set; }
-
-		/// <summary>
-		/// The external reference number (such as an identifier required by the customer or a number from an external system integrated with Acumatica ERP) entered            manually.
-		/// <para>DAC Field Name: ExtRefNbr</para>
-		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
-		/// <para>Display Name: External Ref. Nbr.</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// </summary>
-		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
-		public StringValue? ExternalRefNbr { get; set; }
-
-		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
-		public ProjectGLAccount? GLAccounts { get; set; }
-
-		/// <summary>
-		/// Specifies (if set to true) that the project is on hold.
-		/// <para>DAC: PX.Objects.PM.PMProject</para>
-		/// </summary>
-		[DataMember(Name="Hold", EmitDefaultValue=false)]
-		public BooleanValue? Hold { get; set; }
-
-		/// <summary>
-		/// The total income amount in the project currency.
-		/// <para>DAC Field Name: CuryIncome</para>
-		/// <para>DAC: PX.Objects.PM.PMTaskTotal</para>
-		/// </summary>
-		[DataMember(Name="Income", EmitDefaultValue=false)]
-		public DecimalValue? Income { get; set; }
-
-		[DataMember(Name="Invoices", EmitDefaultValue=false)]
-		public List<ProjectProFormaDetails>? Invoices { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="Liabilities", EmitDefaultValue=false)]
-		public DecimalValue? Liabilities { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The project CD. This is a segmented key. Its format is configured on the Segmented Keys (CS202000) form.
 		/// <para>DAC Field Name: ContractCD</para>
@@ -118,8 +30,13 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="ProjectID", EmitDefaultValue=false)]
 		public StringValue? ProjectID { get; set; }
 
-		[DataMember(Name="ProjectProperties", EmitDefaultValue=false)]
-		public ProjectProperties? ProjectProperties { get; set; }
+		/// <summary>
+		/// The identifier of the customer for the project. Projects can be of the internal or external type. Internal projects are those that have the value of this            property equal to NULL and hense are not billable.
+		/// <para>DAC Field Name: CustomerID</para>
+		/// <para>DAC: PX.Objects.PM.PMProject</para>
+		/// </summary>
+		[DataMember(Name="Customer", EmitDefaultValue=false)]
+		public StringValue? Customer { get; set; }
 
 		/// <summary>
 		/// The template for the project.
@@ -131,6 +48,14 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? ProjectTemplateID { get; set; }
 
 		/// <summary>
+		/// The project description.
+		/// <para>DAC: PX.Objects.PM.PMProject</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
 		/// The status of the project.
 		/// <para>DAC: PX.Objects.PM.PMProject</para>
 		/// <para>SQL Type: char(1)</para>
@@ -138,8 +63,63 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
-		[DataMember(Name="UnionLocals", EmitDefaultValue=false)]
-		public List<ProjectUnionLocal>? UnionLocals { get; set; }
+		/// <summary>
+		/// Specifies (if set to true) that the project is on hold.
+		/// <para>DAC: PX.Objects.PM.PMProject</para>
+		/// </summary>
+		[DataMember(Name="Hold", EmitDefaultValue=false)]
+		public BooleanValue? Hold { get; set; }
+
+		/// <summary>
+		/// The external reference number (such as an identifier required by the customer or a number from an external system integrated with Acumatica ERP) entered            manually.
+		/// <para>DAC Field Name: ExtRefNbr</para>
+		/// <para>DAC: PX.Objects.PM.PMChangeOrder</para>
+		/// <para>Display Name: External Ref. Nbr.</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
+		[DataMember(Name="ExternalRefNbr", EmitDefaultValue=false)]
+		public StringValue? ExternalRefNbr { get; set; }
+
+		/// <summary>
+		/// The total income amount in the project currency.
+		/// <para>DAC Field Name: CuryIncome</para>
+		/// <para>DAC: PX.Objects.PM.PMTaskTotal</para>
+		/// </summary>
+		[DataMember(Name="Income", EmitDefaultValue=false)]
+		public DecimalValue? Income { get; set; }
+
+		/// <summary>
+		/// The total expense amount in the project currency.
+		/// <para>DAC Field Name: CuryExpense</para>
+		/// <para>DAC: PX.Objects.PM.PMTaskTotal</para>
+		/// <para>Display Name: Expense</para>
+		/// </summary>
+		[DataMember(Name="Expenses", EmitDefaultValue=false)]
+		public DecimalValue? Expenses { get; set; }
+
+		[DataMember(Name="Assets", EmitDefaultValue=false)]
+		public DecimalValue? Assets { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		[DataMember(Name="Liabilities", EmitDefaultValue=false)]
+		public DecimalValue? Liabilities { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
+		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
+
+		[DataMember(Name="BillToSettings", EmitDefaultValue=false)]
+		public BillToSettings? BillToSettings { get; set; }
+
+		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
+		public ProjectGLAccount? GLAccounts { get; set; }
+
+		[DataMember(Name="ProjectProperties", EmitDefaultValue=false)]
+		public ProjectProperties? ProjectProperties { get; set; }
 
 		[DataMember(Name="VisibilitySettings", EmitDefaultValue=false)]
 		public VisibilitySettings? VisibilitySettings { get; set; }
@@ -149,6 +129,40 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="ProjectAddress", EmitDefaultValue=false)]
 		public ProjectAddress? ProjectAddress { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="ActivityHistory", EmitDefaultValue=false)]
+		public List<ProjectActivity>? ActivityHistory { get; set; }
+
+		[DataMember(Name="ApprovalDetails", EmitDefaultValue=false)]
+		public List<Approval>? ApprovalDetails { get; set; }
+
+		[DataMember(Name="Attributes", EmitDefaultValue=false)]
+		public List<AttributeValue>? Attributes { get; set; }
+
+		[DataMember(Name="Balances", EmitDefaultValue=false)]
+		public List<ProjectBalance>? Balances { get; set; }
+
+		[DataMember(Name="Employees", EmitDefaultValue=false)]
+		public List<ProjectEmployee>? Employees { get; set; }
+
+		[DataMember(Name="Equipments", EmitDefaultValue=false)]
+		public List<ProjectEquipment>? Equipments { get; set; }
+
+		[DataMember(Name="Invoices", EmitDefaultValue=false)]
+		public List<ProjectProFormaDetails>? Invoices { get; set; }
+
+		[DataMember(Name="UnionLocals", EmitDefaultValue=false)]
+		public List<ProjectUnionLocal>? UnionLocals { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Project)} - \"{ProjectID}\"";
+		}
 
 		public static class Expand
 		{

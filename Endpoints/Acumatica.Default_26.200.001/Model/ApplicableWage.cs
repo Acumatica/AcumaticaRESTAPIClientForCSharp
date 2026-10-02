@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ApplicableWage : Entity
 	{
 
+		#region LinkedEntities
 		[DataMember(Name="BenefitIncreasingApplWage", EmitDefaultValue=false)]
 		public BenefitIncreasingApplWage? BenefitIncreasingApplWage { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="EmployerTaxesIncreasingApplWage", EmitDefaultValue=false)]
 		public EmployerTaxesIncreasingApplWage? EmployerTaxesIncreasingApplWage { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

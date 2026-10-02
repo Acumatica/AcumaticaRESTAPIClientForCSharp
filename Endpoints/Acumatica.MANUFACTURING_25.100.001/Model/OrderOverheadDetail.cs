@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class OrderOverheadDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="CostRate", EmitDefaultValue=false)]
 		public DecimalValue? CostRate { get; set; }
 
@@ -70,6 +71,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		[DataMember(Name="WCFlag", EmitDefaultValue=false)]
 		public BooleanValue? WCFlag { get; set; }
+
+		#endregion
 
 	}
 }

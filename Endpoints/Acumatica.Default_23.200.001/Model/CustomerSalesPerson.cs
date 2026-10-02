@@ -14,22 +14,15 @@ namespace Acumatica.Default_23_200_001.Model
 	public class CustomerSalesPerson : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The default sales commission percentage received by the salesperson for the specified customer and location.
-		/// <para>DAC Field Name: CommisionPct</para>
+		/// The integer identifier of the salesperson. This field is a part of the compound key of the record.
+		/// <para>DAC Field Name: SalesPersonID</para>
 		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
-		/// <para>Display Name: Commission %</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="Commission", EmitDefaultValue=false)]
-		public DecimalValue? Commission { get; set; }
-
-		/// <summary>
-		/// This field indicates whether the location is default for the corresponding business account.
-		/// <para>DAC Field Name: IsDefault</para>
-		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
-		/// </summary>
-		[DataMember(Name="Default", EmitDefaultValue=false)]
-		public BooleanValue? Default { get; set; }
+		[DataMember(Name="SalespersonID", EmitDefaultValue=false)]
+		public StringValue? SalespersonID { get; set; }
 
 		/// <summary>
 		/// The integer identifier of the customer location. This field is a part of the compound key of the record.
@@ -41,11 +34,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: LocationID_description</para>
-		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
+		/// This field indicates whether the location is default for the corresponding business account.
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>
-		[DataMember(Name="LocationName", EmitDefaultValue=false)]
-		public StringValue? LocationName { get; set; }
+		[DataMember(Name="Default", EmitDefaultValue=false)]
+		public BooleanValue? Default { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SalesPersonID_SalesPerson_descr</para>
@@ -55,13 +49,22 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Name { get; set; }
 
 		/// <summary>
-		/// The integer identifier of the salesperson. This field is a part of the compound key of the record.
-		/// <para>DAC Field Name: SalesPersonID</para>
+		/// <para>DAC Field Name: LocationID_description</para>
 		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
-		/// Key Field
 		/// </summary>
-		[DataMember(Name="SalespersonID", EmitDefaultValue=false)]
-		public StringValue? SalespersonID { get; set; }
+		[DataMember(Name="LocationName", EmitDefaultValue=false)]
+		public StringValue? LocationName { get; set; }
+
+		/// <summary>
+		/// The default sales commission percentage received by the salesperson for the specified customer and location.
+		/// <para>DAC Field Name: CommisionPct</para>
+		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
+		/// <para>Display Name: Commission %</para>
+		/// </summary>
+		[DataMember(Name="Commission", EmitDefaultValue=false)]
+		public DecimalValue? Commission { get; set; }
+
+		#endregion
 
 	}
 }

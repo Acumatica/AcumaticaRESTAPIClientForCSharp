@@ -18,6 +18,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class PayrollBatch : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: BatchNbr</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
@@ -28,22 +29,12 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="BatchID", EmitDefaultValue=false)]
 		public StringValue? BatchID { get; set; }
 
-		[DataMember(Name="DeductionsAndBenefitsDetails", EmitDefaultValue=false)]
-		public List<BatchDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
-
 		/// <summary>
-		/// <para>DAC Field Name: DocDesc</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>SQL Type: nvarchar(128)</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="EarningDetails", EmitDefaultValue=false)]
-		public List<BatchEarningDetail>? EarningDetails { get; set; }
-
-		[DataMember(Name="EmployeeSummary", EmitDefaultValue=false)]
-		public List<EmployeePaycheckSummary>? EmployeeSummary { get; set; }
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringSingleSelectValue? Status { get; set; }
 
 		/// <summary>
 		/// When set to <c>true</c> indicates that the document is on hold and thus cannot be released.
@@ -52,19 +43,13 @@ namespace Acumatica.Default_26_200_001.Model
 		[DataMember(Name="Hold", EmitDefaultValue=false)]
 		public BooleanValue? Hold { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		/// <summary>
-		/// <para>DAC Field Name: NumberOfEmployees</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>Display Name: Number of Employees</para>
+		/// <para>Display Name: Payroll Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="NumberofEmployees", EmitDefaultValue=false)]
-		public IntValue? NumberofEmployees { get; set; }
-
-		[DataMember(Name="OvertimeRules", EmitDefaultValue=false)]
-		public BatchOvertimeRules? OvertimeRules { get; set; }
+		[DataMember(Name="PayrollType", EmitDefaultValue=false)]
+		public StringValue? PayrollType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PayGroupID</para>
@@ -85,26 +70,12 @@ namespace Acumatica.Default_26_200_001.Model
 		public StringValue? PayPeriod { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
-		/// <para>Display Name: Total Earnings</para>
-		/// </summary>
-		[DataMember(Name="TotalEarnings", EmitDefaultValue=false)]
-		public DecimalValue? TotalEarnings { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
-		/// <para>Display Name: Total Hour Qty</para>
-		/// </summary>
-		[DataMember(Name="TotalHourQty", EmitDefaultValue=false)]
-		public DecimalValue? TotalHourQty { get; set; }
-
-		/// <summary>
+		/// <para>DAC Field Name: StartDate</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>Display Name: Payroll Type</para>
-		/// <para>SQL Type: char(3)</para>
+		/// <para>Display Name: Period Start</para>
 		/// </summary>
-		[DataMember(Name="PayrollType", EmitDefaultValue=false)]
-		public StringValue? PayrollType { get; set; }
+		[DataMember(Name="PeriodStart", EmitDefaultValue=false)]
+		public DateTimeValue? PeriodStart { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: EndDate</para>
@@ -115,26 +86,69 @@ namespace Acumatica.Default_26_200_001.Model
 		public DateTimeValue? PeriodEnd { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: StartDate</para>
-		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>Display Name: Period Start</para>
-		/// </summary>
-		[DataMember(Name="PeriodStart", EmitDefaultValue=false)]
-		public DateTimeValue? PeriodStart { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>SQL Type: char(3)</para>
-		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringSingleSelectValue? Status { get; set; }
-
-		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
 		/// <para>Display Name: Transaction Date</para>
 		/// </summary>
 		[DataMember(Name="TransactionDate", EmitDefaultValue=false)]
 		public DateTimeValue? TransactionDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>SQL Type: nvarchar(128)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: NumberOfEmployees</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Number of Employees</para>
+		/// </summary>
+		[DataMember(Name="NumberofEmployees", EmitDefaultValue=false)]
+		public IntValue? NumberofEmployees { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
+		/// <para>Display Name: Total Hour Qty</para>
+		/// </summary>
+		[DataMember(Name="TotalHourQty", EmitDefaultValue=false)]
+		public DecimalValue? TotalHourQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
+		/// <para>Display Name: Total Earnings</para>
+		/// </summary>
+		[DataMember(Name="TotalEarnings", EmitDefaultValue=false)]
+		public DecimalValue? TotalEarnings { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="OvertimeRules", EmitDefaultValue=false)]
+		public BatchOvertimeRules? OvertimeRules { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="DeductionsAndBenefitsDetails", EmitDefaultValue=false)]
+		public List<BatchDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
+
+		[DataMember(Name="EarningDetails", EmitDefaultValue=false)]
+		public List<BatchEarningDetail>? EarningDetails { get; set; }
+
+		[DataMember(Name="EmployeeSummary", EmitDefaultValue=false)]
+		public List<EmployeePaycheckSummary>? EmployeeSummary { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PayrollBatch)} - \"{BatchID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

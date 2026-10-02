@@ -14,11 +14,14 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class Attribute : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AttributeName", EmitDefaultValue=false)]
 		public StringValue? AttributeName { get; set; }
 
 		[DataMember(Name="Value", EmitDefaultValue=false)]
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

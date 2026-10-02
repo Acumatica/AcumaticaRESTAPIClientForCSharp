@@ -18,13 +18,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class MRPBuckets : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: ActiveFlg</para>
-		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
-		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
 		/// <para>Display Name: Bucket ID</para>
@@ -35,6 +29,13 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public StringValue? BucketID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ActiveFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
+		/// </summary>
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
 		/// <para>SQL Type: nvarchar(60)</para>
@@ -42,8 +43,18 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="Details", EmitDefaultValue=false)]
 		public List<MRPBucketDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MRPBuckets)} - \"{BucketID}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

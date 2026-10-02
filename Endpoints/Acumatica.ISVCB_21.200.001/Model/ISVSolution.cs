@@ -14,6 +14,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class ISVSolution : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="Initials", EmitDefaultValue=false)]
 		public StringValue? Initials { get; set; }
 
@@ -41,6 +42,9 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		[DataMember(Name="ISVCERTND", EmitDefaultValue=false)]
 		public StringValue? ISVCERTND { get; set; }
 
+		#endregion
+
+		#region Details
 		[DataMember(Name="Customers", EmitDefaultValue=false)]
 		public List<Customers>? Customers { get; set; }
 
@@ -49,6 +53,8 @@ namespace Acumatica.ISVCB_21_200_001.Model
 
 		[DataMember(Name="Attributes", EmitDefaultValue=false)]
 		public List<Attribute>? Attributes { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

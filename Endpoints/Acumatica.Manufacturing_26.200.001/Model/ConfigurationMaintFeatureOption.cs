@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class ConfigurationMaintFeatureOption : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Backflush", EmitDefaultValue=false)]
 		public BooleanValue? Backflush { get; set; }
 
@@ -100,6 +101,8 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 
 		[DataMember(Name="Warehouse", EmitDefaultValue=false)]
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

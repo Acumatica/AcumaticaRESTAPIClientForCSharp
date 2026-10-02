@@ -14,9 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class EmployeePaidTimeOff : Entity
 	{
 
-		[DataMember(Name="PaidTimeOffDetails", EmitDefaultValue=false)]
-		public List<EmployeePaidTimeOffDetail>? PaidTimeOffDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Indicates (if set to true) that the employee is using customized paid-time-off banks instead of the default ones provided by their payroll class.
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
@@ -24,6 +22,14 @@ namespace Acumatica.Default_26_200_001.Model
 		/// </summary>
 		[DataMember(Name="UseCustomSettings", EmitDefaultValue=false)]
 		public BooleanValue? UseCustomSettings { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="PaidTimeOffDetails", EmitDefaultValue=false)]
+		public List<EmployeePaidTimeOffDetail>? PaidTimeOffDetails { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

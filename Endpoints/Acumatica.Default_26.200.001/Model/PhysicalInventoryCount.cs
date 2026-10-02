@@ -18,15 +18,16 @@ namespace Acumatica.Default_26_200_001.Model
 	public class PhysicalInventoryCount : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<PhysicalInventoryCountDetail>? Details { get; set; }
-
+		#region Fields
 		/// <summary>
-		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
-		/// <para>Display Name: Inventory ID</para>
+		/// <para>DAC Field Name: PIID</para>
+		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
+		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
+		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LocationID</para>
@@ -37,21 +38,31 @@ namespace Acumatica.Default_26_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
 		/// <para>Display Name: Lot/Serial Nbr.</para>
 		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: PIID</para>
-		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
-		/// <para>Display Name: Reference Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ReferenceNbr", EmitDefaultValue=false)]
-		public StringValue? ReferenceNbr { get; set; }
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<PhysicalInventoryCountDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PhysicalInventoryCount)} - \"{ReferenceNbr}\"";
+		}
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

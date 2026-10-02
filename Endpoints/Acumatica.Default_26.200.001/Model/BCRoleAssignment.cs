@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class BCRoleAssignment : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="RoleAssignmentID", EmitDefaultValue=false)]
 		public IntValue? RoleAssignmentID { get; set; }
 
@@ -34,6 +35,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

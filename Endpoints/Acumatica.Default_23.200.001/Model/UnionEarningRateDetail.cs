@@ -14,20 +14,13 @@ namespace Acumatica.Default_23_200_001.Model
 	public class UnionEarningRateDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.PM.PMUnion</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		[DataMember(Name="Description", EmitDefaultValue=false)]
 		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// The date on which the labor cost rate becomes effective.
-		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
-		/// <para>Display Name: Effective Date</para>
-		/// </summary>
-		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
-		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
 		/// The identifier of the inventory item associated with the labor cost rate.
@@ -38,9 +31,6 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="LaborItem", EmitDefaultValue=false)]
 		public StringValue? LaborItem { get; set; }
 
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		/// <summary>
 		/// The wage rate for the labor cost rate.
 		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
@@ -48,6 +38,19 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="WageRate", EmitDefaultValue=false)]
 		public DecimalValue? WageRate { get; set; }
+
+		/// <summary>
+		/// The date on which the labor cost rate becomes effective.
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>Display Name: Effective Date</para>
+		/// </summary>
+		[DataMember(Name="EffectiveDate", EmitDefaultValue=false)]
+		public DateTimeValue? EffectiveDate { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

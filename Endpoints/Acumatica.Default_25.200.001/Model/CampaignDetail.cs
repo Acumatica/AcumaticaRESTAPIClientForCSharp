@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CampaignDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="CampaignID", EmitDefaultValue=false)]
 		public StringValue? CampaignID { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="Stage", EmitDefaultValue=false)]
 		public StringValue? Stage { get; set; }
+
+		#endregion
 
 	}
 }

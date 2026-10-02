@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class DeductionOrBenefitTaxDetailCA : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Benefitincreasestaxablewage", EmitDefaultValue=false)]
 		public BooleanValue? Benefitincreasestaxablewage { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="TaxName", EmitDefaultValue=false)]
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 	}
 }

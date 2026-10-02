@@ -14,6 +14,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationMaintenanceFeature : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: Configuration ID</para>
@@ -22,6 +23,22 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		[DataMember(Name="ConfigurationID", EmitDefaultValue=false)]
 		public StringValue? ConfigurationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="Revision", EmitDefaultValue=false)]
+		public StringValue? Revision { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Line Nbr</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
@@ -48,27 +65,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Line Nbr</para>
-		/// Key Field
+		/// <para>Display Name: Sort Order</para>
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
+		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
+		public IntValue? SortOrder { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Lot Qty.</para>
+		/// <para>Display Name: Min Selection</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="LotQty", EmitDefaultValue=false)]
-		public StringValue? LotQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Max. Qty.</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
-		public StringValue? MaxQty { get; set; }
+		[DataMember(Name="MinSelection", EmitDefaultValue=false)]
+		public StringValue? MinSelection { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
@@ -88,22 +96,25 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Min Selection</para>
+		/// <para>Display Name: Max. Qty.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="MinSelection", EmitDefaultValue=false)]
-		public StringValue? MinSelection { get; set; }
-
-		[DataMember(Name="Options", EmitDefaultValue=false)]
-		public List<ConfigurationMaintFeatureOption>? Options { get; set; }
+		[DataMember(Name="MaxQty", EmitDefaultValue=false)]
+		public StringValue? MaxQty { get; set; }
 
 		/// <summary>
-		/// Flag used for reporting
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Print Results</para>
+		/// <para>Display Name: Lot Qty.</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		[DataMember(Name="PrintResults", EmitDefaultValue=false)]
-		public BooleanValue? PrintResults { get; set; }
+		[DataMember(Name="LotQty", EmitDefaultValue=false)]
+		public StringValue? LotQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// </summary>
+		[DataMember(Name="Visible", EmitDefaultValue=false)]
+		public BooleanValue? Visible { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
@@ -113,28 +124,23 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public BooleanValue? ResultsCopy { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
+		/// Flag used for reporting
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Print Results</para>
 		/// </summary>
-		[DataMember(Name="Revision", EmitDefaultValue=false)]
-		public StringValue? Revision { get; set; }
+		[DataMember(Name="PrintResults", EmitDefaultValue=false)]
+		public BooleanValue? PrintResults { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Options", EmitDefaultValue=false)]
+		public List<ConfigurationMaintFeatureOption>? Options { get; set; }
 
 		[DataMember(Name="Rules", EmitDefaultValue=false)]
 		public List<ConfigurationMaintFeatureRule>? Rules { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Sort Order</para>
-		/// </summary>
-		[DataMember(Name="SortOrder", EmitDefaultValue=false)]
-		public IntValue? SortOrder { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// </summary>
-		[DataMember(Name="Visible", EmitDefaultValue=false)]
-		public BooleanValue? Visible { get; set; }
+		#endregion
 
 	}
 }

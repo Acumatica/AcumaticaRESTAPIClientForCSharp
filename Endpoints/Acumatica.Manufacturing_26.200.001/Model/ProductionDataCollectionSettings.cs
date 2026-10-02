@@ -14,22 +14,29 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class ProductionDataCollectionSettings : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: DefaultWarehouse</para>
+		/// <para>DAC Field Name: UseRemainingQtyInMaterials</para>
 		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
-		/// <para>Display Name: Insert Default Warehouse from User Profile</para>
+		/// <para>Display Name: Use Remaining Quantity in Materials</para>
 		/// </summary>
-		[DataMember(Name="DefaultWarehousefromUserProfile", EmitDefaultValue=false)]
-		public BooleanValue? DefaultWarehousefromUserProfile { get; set; }
+		[DataMember(Name="UseRemainingQuantityinMaterials", EmitDefaultValue=false)]
+		public BooleanValue? UseRemainingQuantityinMaterials { get; set; }
 
-		[DataMember(Name="QtyEnterModeInLabor", EmitDefaultValue=false)]
-		public StringValue? QtyEnterModeInLabor { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: UseRemainingQtyInMove</para>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Use Remaining Quantity in Move</para>
+		/// </summary>
+		[DataMember(Name="UseRemainingQuantityinMove", EmitDefaultValue=false)]
+		public BooleanValue? UseRemainingQuantityinMove { get; set; }
 
-		[DataMember(Name="QtyEnterModeInMaterials", EmitDefaultValue=false)]
-		public StringValue? QtyEnterModeInMaterials { get; set; }
-
-		[DataMember(Name="QtyEnterModeInMove", EmitDefaultValue=false)]
-		public StringValue? QtyEnterModeInMove { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
+		/// <para>Display Name: Use Default Order Type</para>
+		/// </summary>
+		[DataMember(Name="UseDefaultOrderType", EmitDefaultValue=false)]
+		public BooleanValue? UseDefaultOrderType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: RequestLocationForEachItemInMaterials</para>
@@ -48,13 +55,6 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public BooleanValue? RequestLocationforEachIteminMoveLabor { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
-		/// <para>Display Name: Use Default Order Type</para>
-		/// </summary>
-		[DataMember(Name="UseDefaultOrderType", EmitDefaultValue=false)]
-		public BooleanValue? UseDefaultOrderType { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: ExplicitLineConfirmation</para>
 		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
 		/// <para>Display Name: Use Explicit Line Confirmation</para>
@@ -63,20 +63,23 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 		public BooleanValue? UseExplicitLineConfirmation { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: UseRemainingQtyInMaterials</para>
+		/// <para>DAC Field Name: DefaultWarehouse</para>
 		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
-		/// <para>Display Name: Use Remaining Quantity in Materials</para>
+		/// <para>Display Name: Insert Default Warehouse from User Profile</para>
 		/// </summary>
-		[DataMember(Name="UseRemainingQuantityinMaterials", EmitDefaultValue=false)]
-		public BooleanValue? UseRemainingQuantityinMaterials { get; set; }
+		[DataMember(Name="DefaultWarehousefromUserProfile", EmitDefaultValue=false)]
+		public BooleanValue? DefaultWarehousefromUserProfile { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: UseRemainingQtyInMove</para>
-		/// <para>DAC: PX.Objects.AM.AMScanSetup</para>
-		/// <para>Display Name: Use Remaining Quantity in Move</para>
-		/// </summary>
-		[DataMember(Name="UseRemainingQuantityinMove", EmitDefaultValue=false)]
-		public BooleanValue? UseRemainingQuantityinMove { get; set; }
+		[DataMember(Name="QtyEnterModeInLabor", EmitDefaultValue=false)]
+		public StringValue? QtyEnterModeInLabor { get; set; }
+
+		[DataMember(Name="QtyEnterModeInMaterials", EmitDefaultValue=false)]
+		public StringValue? QtyEnterModeInMaterials { get; set; }
+
+		[DataMember(Name="QtyEnterModeInMove", EmitDefaultValue=false)]
+		public StringValue? QtyEnterModeInMove { get; set; }
+
+		#endregion
 
 	}
 }

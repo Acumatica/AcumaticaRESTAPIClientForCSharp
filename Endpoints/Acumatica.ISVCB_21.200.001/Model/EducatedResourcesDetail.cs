@@ -14,6 +14,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class EducatedResourcesDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Geography", EmitDefaultValue=false)]
 		public StringValue? Geography { get; set; }
 
@@ -133,6 +134,8 @@ namespace Acumatica.ISVCB_21_200_001.Model
 
 		[DataMember(Name="LastUCPDate", EmitDefaultValue=false)]
 		public DateTimeValue? LastUCPDate { get; set; }
+
+		#endregion
 
 	}
 }

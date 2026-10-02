@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class InventoryItemCrossReference : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AlternateID", EmitDefaultValue=false)]
 		public StringValue? AlternateID { get; set; }
 
@@ -31,6 +32,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="UOM", EmitDefaultValue=false)]
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

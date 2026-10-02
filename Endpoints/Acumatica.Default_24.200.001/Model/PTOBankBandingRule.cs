@@ -14,9 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PTOBankBandingRule : Entity
 	{
 
-		[DataMember(Name="BandingRuleDetails", EmitDefaultValue=false)]
-		public List<PTOBankBandingRuleDetail>? BandingRuleDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The rounding method for Years of Service.
 		/// <para>DAC Field Name: BandingRuleRoundingMethod</para>
@@ -26,6 +24,14 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="RoundingMethodforYearsofService", EmitDefaultValue=false)]
 		public StringValue? RoundingMethodforYearsofService { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="BandingRuleDetails", EmitDefaultValue=false)]
+		public List<PTOBankBandingRuleDetail>? BandingRuleDetails { get; set; }
+
+		#endregion
 
 	}
 }

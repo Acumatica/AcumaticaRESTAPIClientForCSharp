@@ -17,6 +17,7 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class StockItem : Acumatica.Default_24_200_001.Model.StockItem, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// APS Schedule option - Check for Material Availability.
 		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
@@ -24,6 +25,8 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="AMCheckSchdMatlAvailability", EmitDefaultValue=false)]
 		public StringValue? AMCheckSchdMatlAvailability { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

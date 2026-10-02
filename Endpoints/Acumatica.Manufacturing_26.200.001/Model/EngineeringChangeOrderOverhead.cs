@@ -14,6 +14,7 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 	public class EngineeringChangeOrderOverhead : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ChangeStatus", EmitDefaultValue=false)]
 		public StringValue? ChangeStatus { get; set; }
 
@@ -40,6 +41,8 @@ namespace Acumatica.Manufacturing_26_200_001.Model
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

@@ -17,9 +17,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class CloseProductionOrders : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<CloseProductionOrdersDetail>? Details { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: FinancialPeriodID</para>
 		/// <para>DAC: PX.Objects.AM.FinancialPeriod</para>
@@ -27,6 +25,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="Period", EmitDefaultValue=false)]
 		public StringValue? Period { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<CloseProductionOrdersDetail>? Details { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

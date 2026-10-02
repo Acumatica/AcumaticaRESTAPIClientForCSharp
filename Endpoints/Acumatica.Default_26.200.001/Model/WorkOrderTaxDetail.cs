@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class WorkOrderTaxDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="ExemptTax", EmitDefaultValue=false)]
 		public BooleanValue? ExemptTax { get; set; }
 
@@ -49,6 +50,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="TaxableQty", EmitDefaultValue=false)]
 		public DecimalValue? TaxableQty { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

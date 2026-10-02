@@ -18,35 +18,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectTemplate : Entity, ITopLevelEntity
 	{
 
-		[DataMember(Name="Attributes", EmitDefaultValue=false)]
-		public List<AttributeValue>? Attributes { get; set; }
-
-		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
-		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
-
-		/// <summary>
-		/// The project description.
-		/// <para>DAC: PX.Objects.PM.PMProject</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Employees", EmitDefaultValue=false)]
-		public List<ProjectEmployee>? Employees { get; set; }
-
-		[DataMember(Name="Equipments", EmitDefaultValue=false)]
-		public List<ProjectEquipment>? Equipments { get; set; }
-
-		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
-		public ProjectGLAccount? GLAccounts { get; set; }
-
-		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		[DataMember(Name="ProjectProperties", EmitDefaultValue=false)]
-		public ProjectProperties? ProjectProperties { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The project CD. This is a segmented key. Its format is configured on the Segmented Keys (CS202000) form.
 		/// <para>DAC Field Name: ContractCD</para>
@@ -66,8 +38,50 @@ namespace Acumatica.Default_23_200_001.Model
 		[DataMember(Name="Status", EmitDefaultValue=false)]
 		public StringValue? Status { get; set; }
 
+		/// <summary>
+		/// The project description.
+		/// <para>DAC: PX.Objects.PM.PMProject</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		[DataMember(Name="LastModifiedDateTime", EmitDefaultValue=false)]
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		[DataMember(Name="BillingAndAllocationSettings", EmitDefaultValue=false)]
+		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
+
+		[DataMember(Name="GLAccounts", EmitDefaultValue=false)]
+		public ProjectGLAccount? GLAccounts { get; set; }
+
+		[DataMember(Name="ProjectProperties", EmitDefaultValue=false)]
+		public ProjectProperties? ProjectProperties { get; set; }
+
 		[DataMember(Name="VisibilitySettings", EmitDefaultValue=false)]
 		public VisibilitySettings? VisibilitySettings { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Attributes", EmitDefaultValue=false)]
+		public List<AttributeValue>? Attributes { get; set; }
+
+		[DataMember(Name="Employees", EmitDefaultValue=false)]
+		public List<ProjectEmployee>? Employees { get; set; }
+
+		[DataMember(Name="Equipments", EmitDefaultValue=false)]
+		public List<ProjectEquipment>? Equipments { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProjectTemplate)} - \"{ProjectTemplateID}\"";
+		}
 
 		public static class Expand
 		{

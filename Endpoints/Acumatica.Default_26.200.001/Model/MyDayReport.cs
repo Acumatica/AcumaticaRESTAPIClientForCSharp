@@ -17,6 +17,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class MyDayReport : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		[DataMember(Name="EmployeeID", EmitDefaultValue=false)]
 		public StringValue? EmployeeID { get; set; }
 
@@ -25,6 +26,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Report", EmitDefaultValue=false)]
 		public StringValue? Report { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

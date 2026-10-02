@@ -14,35 +14,29 @@ namespace Acumatica.Default_23_200_001.Model
 	public class PhysicalInventoryReviewDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// <para>Display Name: Book Quantity</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
 		/// </summary>
-		[DataMember(Name="BookQty", EmitDefaultValue=false)]
-		public DecimalValue? BookQty { get; set; }
+		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
+		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
-		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
+		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC Field Name: TagNumber</para>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// <para>Display Name: Expiration Date</para>
+		/// <para>Display Name: Tag Nbr.</para>
 		/// </summary>
-		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
-		public DateTimeValue? ExpirationDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ExtVarCost</para>
-		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// <para>Display Name: Estimated Ext. Variance Cost</para>
-		/// </summary>
-		[DataMember(Name="ExtendedVarianceCost", EmitDefaultValue=false)]
-		public DecimalValue? ExtendedVarianceCost { get; set; }
+		[DataMember(Name="TagNbr", EmitDefaultValue=false)]
+		public IntValue? TagNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
@@ -52,12 +46,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
 		/// </summary>
-		[DataMember(Name="LineNbr", EmitDefaultValue=false)]
-		public IntValue? LineNbr { get; set; }
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
+		/// </summary>
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
@@ -75,6 +75,21 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
+		/// <para>Display Name: Expiration Date</para>
+		/// </summary>
+		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
+		public DateTimeValue? ExpirationDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
+		/// <para>Display Name: Book Quantity</para>
+		/// </summary>
+		[DataMember(Name="BookQty", EmitDefaultValue=false)]
+		public DecimalValue? BookQty { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
 		/// <para>Display Name: Physical Quantity</para>
 		/// </summary>
@@ -82,34 +97,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? PhysicalQty { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: VarQty</para>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// <para>Display Name: Reason Code</para>
-		/// <para>SQL Type: nvarchar(20)</para>
+		/// <para>Display Name: Variance Quantity</para>
 		/// </summary>
-		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
-		public StringValue? ReasonCode { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TagNumber</para>
-		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// <para>Display Name: Tag Nbr.</para>
-		/// </summary>
-		[DataMember(Name="TagNbr", EmitDefaultValue=false)]
-		public IntValue? TagNbr { get; set; }
+		[DataMember(Name="VarianceQty", EmitDefaultValue=false)]
+		public DecimalValue? VarianceQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
@@ -119,12 +112,22 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: VarQty</para>
+		/// <para>DAC Field Name: ExtVarCost</para>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// <para>Display Name: Variance Quantity</para>
+		/// <para>Display Name: Estimated Ext. Variance Cost</para>
 		/// </summary>
-		[DataMember(Name="VarianceQty", EmitDefaultValue=false)]
-		public DecimalValue? VarianceQty { get; set; }
+		[DataMember(Name="ExtendedVarianceCost", EmitDefaultValue=false)]
+		public DecimalValue? ExtendedVarianceCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
+		/// <para>Display Name: Reason Code</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// </summary>
+		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
+		public StringValue? ReasonCode { get; set; }
+
+		#endregion
 
 	}
 }

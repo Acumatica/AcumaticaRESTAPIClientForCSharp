@@ -14,8 +14,11 @@ namespace Acumatica.Default_26_200_001.Model
 	public class PTOBankApplicableEarningTypeDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="EarningType", EmitDefaultValue=false)]
 		public StringValue? EarningType { get; set; }
+
+		#endregion
 
 		/// <summary>
 		/// Names that can be passed in the <c>$expand</c> parameter.

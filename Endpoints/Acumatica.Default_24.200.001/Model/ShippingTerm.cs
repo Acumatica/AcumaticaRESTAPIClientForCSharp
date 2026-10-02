@@ -18,16 +18,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ShippingTerm : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.ShipTerms</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		[DataMember(Name="Description", EmitDefaultValue=false)]
-		public StringValue? Description { get; set; }
-
-		[DataMember(Name="Details", EmitDefaultValue=false)]
-		public List<ShippingTermDetail>? Details { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: ShipTermsID</para>
 		/// <para>DAC: PX.Objects.CS.ShipTerms</para>
@@ -37,6 +28,26 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		[DataMember(Name="TermID", EmitDefaultValue=false)]
 		public StringValue? TermID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.ShipTerms</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		[DataMember(Name="Description", EmitDefaultValue=false)]
+		public StringValue? Description { get; set; }
+
+		#endregion
+
+		#region Details
+		[DataMember(Name="Details", EmitDefaultValue=false)]
+		public List<ShippingTermDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ShippingTerm)} - \"{TermID}\"";
+		}
 
 		public static class Expand
 		{

@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ExpenseClaimAPDocument : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="Amount", EmitDefaultValue=false)]
 		public DecimalValue? Amount { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="Type", EmitDefaultValue=false)]
 		public StringValue? Type { get; set; }
+
+		#endregion
 
 	}
 }

@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SubcontractVendorAddressInfo : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AddressLine1", EmitDefaultValue=false)]
 		public StringValue? AddressLine1 { get; set; }
 
@@ -67,6 +68,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="DistrictName", EmitDefaultValue=false)]
 		public StringValue? DistrictName { get; set; }
+
+		#endregion
 
 	}
 }

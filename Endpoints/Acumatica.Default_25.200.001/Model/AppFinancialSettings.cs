@@ -14,25 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class AppFinancialSettings : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: BillCustomerID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Billing Customer</para>
-		/// </summary>
-		[DataMember(Name="BillingCustomer", EmitDefaultValue=false)]
-		public StringValue? BillingCustomer { get; set; }
-
-		[DataMember(Name="BillingCycle", EmitDefaultValue=false)]
-		public StringValue? BillingCycle { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BillLocationID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Billing Location</para>
-		/// </summary>
-		[DataMember(Name="BillingLocation", EmitDefaultValue=false)]
-		public StringValue? BillingLocation { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
@@ -41,19 +23,20 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Branch { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: BillCustomerID</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Billing Customer</para>
 		/// </summary>
-		[DataMember(Name="Commissionable", EmitDefaultValue=false)]
-		public BooleanValue? Commissionable { get; set; }
+		[DataMember(Name="BillingCustomer", EmitDefaultValue=false)]
+		public StringValue? BillingCustomer { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: TaxZoneID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
-		/// <para>Display Name: Customer Tax Zone</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>DAC Field Name: BillLocationID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Billing Location</para>
 		/// </summary>
-		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
-		public StringValue? CustomerTaxZone { get; set; }
+		[DataMember(Name="BillingLocation", EmitDefaultValue=false)]
+		public StringValue? BillingLocation { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: BillingBy</para>
@@ -72,6 +55,21 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Salesperson { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// </summary>
+		[DataMember(Name="Commissionable", EmitDefaultValue=false)]
+		public BooleanValue? Commissionable { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaxZoneID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Customer Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		[DataMember(Name="CustomerTaxZone", EmitDefaultValue=false)]
+		public StringValue? CustomerTaxZone { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: TaxCalcMode</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
 		/// <para>Display Name: Tax Calculation Mode</para>
@@ -79,6 +77,11 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="TaxCalculationMode", EmitDefaultValue=false)]
 		public StringValue? TaxCalculationMode { get; set; }
+
+		[DataMember(Name="BillingCycle", EmitDefaultValue=false)]
+		public StringValue? BillingCycle { get; set; }
+
+		#endregion
 
 	}
 }

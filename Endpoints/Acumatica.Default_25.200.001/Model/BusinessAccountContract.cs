@@ -14,6 +14,25 @@ namespace Acumatica.Default_25_200_001.Model
 	public class BusinessAccountContract : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: ContractCD</para>
+		/// <para>DAC: PX.Objects.CT.Contract</para>
+		/// <para>Display Name: Contract ID</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// Key Field
+		/// </summary>
+		[DataMember(Name="ContractID", EmitDefaultValue=false)]
+		public StringValue? ContractID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CR.BAccount</para>
+		/// <para>Display Name: Customer Status</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="Status", EmitDefaultValue=false)]
+		public StringValue? Status { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: BAccount__AcctCD</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
@@ -27,16 +46,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="BusinessAccountName", EmitDefaultValue=false)]
 		public StringValue? BusinessAccountName { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ContractCD</para>
-		/// <para>DAC: PX.Objects.CT.Contract</para>
-		/// <para>Display Name: Contract ID</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// Key Field
-		/// </summary>
-		[DataMember(Name="ContractID", EmitDefaultValue=false)]
-		public StringValue? ContractID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CT.Contract</para>
@@ -56,13 +65,7 @@ namespace Acumatica.Default_25_200_001.Model
 		[DataMember(Name="Location", EmitDefaultValue=false)]
 		public StringValue? Location { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.CR.BAccount</para>
-		/// <para>Display Name: Customer Status</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="Status", EmitDefaultValue=false)]
-		public StringValue? Status { get; set; }
+		#endregion
 
 	}
 }

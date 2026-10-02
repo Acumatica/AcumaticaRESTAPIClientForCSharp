@@ -14,32 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class InventoryIssueDetail : Entity
 	{
 
-		[DataMember(Name="Allocations", EmitDefaultValue=false)]
-		public List<InventoryIssueDetailAllocation>? Allocations { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// </summary>
-		[DataMember(Name="Branch", EmitDefaultValue=false)]
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CostCodeID</para>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Cost Code</para>
-		/// </summary>
-		[DataMember(Name="CostCode", EmitDefaultValue=false)]
-		public StringValue? CostCode { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Cost Layer Type</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		[DataMember(Name="CostLayerType", EmitDefaultValue=false)]
-		public StringValue? CostLayerType { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: TranDesc</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
@@ -49,20 +24,69 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ExpireDate</para>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Expiration Date</para>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
 		/// </summary>
-		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
-		public DateTimeValue? ExpirationDate { get; set; }
+		[DataMember(Name="Branch", EmitDefaultValue=false)]
+		public StringValue? Branch { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: TranCost</para>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Ext. Cost</para>
+		/// <para>Display Name: Tran. Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		[DataMember(Name="ExtCost", EmitDefaultValue=false)]
-		public DecimalValue? ExtCost { get; set; }
+		[DataMember(Name="TranType", EmitDefaultValue=false)]
+		public StringValue? TranType { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// </summary>
+		[DataMember(Name="Subitem", EmitDefaultValue=false)]
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Warehouse</para>
+		/// </summary>
+		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
+		public StringValue? WarehouseID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// </summary>
+		[DataMember(Name="Location", EmitDefaultValue=false)]
+		public StringValue? Location { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Quantity</para>
+		/// </summary>
+		[DataMember(Name="Qty", EmitDefaultValue=false)]
+		public DecimalValue? Qty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		[DataMember(Name="UOM", EmitDefaultValue=false)]
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Unit Price</para>
+		/// </summary>
+		[DataMember(Name="UnitPrice", EmitDefaultValue=false)]
+		public DecimalValue? UnitPrice { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TranAmt</para>
@@ -74,20 +98,18 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Inventory ID</para>
+		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
-		[DataMember(Name="InventoryID", EmitDefaultValue=false)]
-		public StringValue? InventoryID { get; set; }
-
-		[DataMember(Name="LineNumber", EmitDefaultValue=false)]
-		public IntValue? LineNumber { get; set; }
+		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
+		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC Field Name: TranCost</para>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Ext. Cost</para>
 		/// </summary>
-		[DataMember(Name="Location", EmitDefaultValue=false)]
-		public StringValue? Location { get; set; }
+		[DataMember(Name="ExtCost", EmitDefaultValue=false)]
+		public DecimalValue? ExtCost { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
@@ -96,6 +118,38 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		[DataMember(Name="LotSerialNbr", EmitDefaultValue=false)]
 		public StringValue? LotSerialNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Expiration Date</para>
+		/// </summary>
+		[DataMember(Name="ExpirationDate", EmitDefaultValue=false)]
+		public DateTimeValue? ExpirationDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Reason Code</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// </summary>
+		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
+		public StringValue? ReasonCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Cost Layer Type</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		[DataMember(Name="CostLayerType", EmitDefaultValue=false)]
+		public StringValue? CostLayerType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SpecialOrderCostCenterID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Special Order Nbr.</para>
+		/// </summary>
+		[DataMember(Name="SpecialOrderNbr", EmitDefaultValue=false)]
+		public StringValue? SpecialOrderNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ProjectID</para>
@@ -113,71 +167,23 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CostCodeID</para>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Quantity</para>
+		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		[DataMember(Name="Qty", EmitDefaultValue=false)]
-		public DecimalValue? Qty { get; set; }
+		[DataMember(Name="CostCode", EmitDefaultValue=false)]
+		public StringValue? CostCode { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Reason Code</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// </summary>
-		[DataMember(Name="ReasonCode", EmitDefaultValue=false)]
-		public StringValue? ReasonCode { get; set; }
+		[DataMember(Name="LineNumber", EmitDefaultValue=false)]
+		public IntValue? LineNumber { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SpecialOrderCostCenterID</para>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Special Order Nbr.</para>
-		/// </summary>
-		[DataMember(Name="SpecialOrderNbr", EmitDefaultValue=false)]
-		public StringValue? SpecialOrderNbr { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// </summary>
-		[DataMember(Name="Subitem", EmitDefaultValue=false)]
-		public StringValue? Subitem { get; set; }
+		#region Details
+		[DataMember(Name="Allocations", EmitDefaultValue=false)]
+		public List<InventoryIssueDetailAllocation>? Allocations { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Tran. Type</para>
-		/// <para>SQL Type: char(3)</para>
-		/// </summary>
-		[DataMember(Name="TranType", EmitDefaultValue=false)]
-		public StringValue? TranType { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Unit Cost</para>
-		/// </summary>
-		[DataMember(Name="UnitCost", EmitDefaultValue=false)]
-		public DecimalValue? UnitCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Unit Price</para>
-		/// </summary>
-		[DataMember(Name="UnitPrice", EmitDefaultValue=false)]
-		public DecimalValue? UnitPrice { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		[DataMember(Name="UOM", EmitDefaultValue=false)]
-		public StringValue? UOM { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Warehouse</para>
-		/// </summary>
-		[DataMember(Name="WarehouseID", EmitDefaultValue=false)]
-		public StringValue? WarehouseID { get; set; }
+		#endregion
 
 	}
 }

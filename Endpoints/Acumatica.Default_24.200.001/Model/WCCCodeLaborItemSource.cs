@@ -14,6 +14,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class WCCCodeLaborItemSource : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="LaborItem", EmitDefaultValue=false)]
 		public StringValue? LaborItem { get; set; }
 
@@ -22,6 +23,8 @@ namespace Acumatica.Default_24_200_001.Model
 
 		[DataMember(Name="WorkCodeID", EmitDefaultValue=false)]
 		public StringValue? WorkCodeID { get; set; }
+
+		#endregion
 
 	}
 }

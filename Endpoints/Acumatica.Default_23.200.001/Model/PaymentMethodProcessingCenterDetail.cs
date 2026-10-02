@@ -14,20 +14,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class PaymentMethodProcessingCenterDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// </summary>
-		[DataMember(Name="Active", EmitDefaultValue=false)]
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IsDefault</para>
-		/// <para>DAC: PX.Objects.CA.CCProcessingCenterPmntMethod</para>
-		/// </summary>
-		[DataMember(Name="Default", EmitDefaultValue=false)]
-		public BooleanValue? Default { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: PaymentMethodID</para>
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
@@ -47,6 +34,22 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		[DataMember(Name="ProcCenterID", EmitDefaultValue=false)]
 		public StringValue? ProcCenterID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// </summary>
+		[DataMember(Name="Active", EmitDefaultValue=false)]
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.CA.CCProcessingCenterPmntMethod</para>
+		/// </summary>
+		[DataMember(Name="Default", EmitDefaultValue=false)]
+		public BooleanValue? Default { get; set; }
+
+		#endregion
 
 	}
 }

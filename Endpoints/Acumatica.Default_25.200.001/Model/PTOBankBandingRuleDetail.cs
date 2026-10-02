@@ -14,6 +14,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PTOBankBandingRuleDetail : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccrualPercent", EmitDefaultValue=false)]
 		public DecimalValue? AccrualPercent { get; set; }
 
@@ -37,6 +38,8 @@ namespace Acumatica.Default_25_200_001.Model
 
 		[DataMember(Name="YearsofService", EmitDefaultValue=false)]
 		public IntValue? YearsofService { get; set; }
+
+		#endregion
 
 	}
 }

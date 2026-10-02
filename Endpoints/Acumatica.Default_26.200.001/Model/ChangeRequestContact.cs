@@ -14,6 +14,7 @@ namespace Acumatica.Default_26_200_001.Model
 	public class ChangeRequestContact : Entity
 	{
 
+		#region Fields
 		[DataMember(Name="AccountName", EmitDefaultValue=false)]
 		public StringValue? AccountName { get; set; }
 
@@ -37,6 +38,8 @@ namespace Acumatica.Default_26_200_001.Model
 
 		[DataMember(Name="Phone2Type", EmitDefaultValue=false)]
 		public StringValue? Phone2Type { get; set; }
+
+		#endregion
 
 	}
 }
