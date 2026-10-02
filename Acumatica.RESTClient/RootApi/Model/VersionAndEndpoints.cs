@@ -12,10 +12,12 @@ namespace Acumatica.RESTClient.RootApi.Model
         /// </summary>
         /// <param name="version">version.</param>
         /// <param name="endpoints">endpoints.</param>
-        public VersionAndEndpoints(Version? version = default, List<Endpoint>? endpoints = default)
+        /// <param name="features">features.</param>
+        public VersionAndEndpoints(Version? version = default, List<Endpoint>? endpoints = default, List<string>? features = default)
         {
             Version = version;
             Endpoints = endpoints;
+            Features = features;
         }
 
         /// <summary>
@@ -27,5 +29,11 @@ namespace Acumatica.RESTClient.RootApi.Model
         /// Gets or Sets Endpoints
         /// </summary>
         public List<Endpoint>? Endpoints { get; set; }
+
+        /// <summary>
+        /// The fully-qualified names of the <c>PX.Objects.CS.FeaturesSet</c> nested types enabled on this instance,
+        /// e.g. <c>PX.Objects.CS.FeaturesSet+Manufacturing</c>. Present starting with 26R2.
+        /// </summary>
+        public List<string>? Features { get; set; }
     }
 }
