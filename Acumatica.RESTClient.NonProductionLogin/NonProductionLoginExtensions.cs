@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.AuthApi;     
 using Acumatica.RESTClient.AuthApi.Model;
 using Acumatica.RESTClient.Client;
 
@@ -97,5 +98,35 @@ namespace Acumatica.RESTClient.NonProductionLogin
             client.Token = await DeserializeAsync<Token>(response).ConfigureAwait(false);
             client.Token?.SetTokenObtainedDT(time);
         }
-    }
+		#region Logout
+		/// <summary>
+		/// Logs out from the system. Same as <see cref="AuthApiExtensions.Logout(ApiClient)"/>.
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		public static void Logout(this ApiClient client)
+		{
+			AuthApiExtensions.Logout(client);
+		}
+
+		/// <summary>
+		/// Logs out from the system without throwing exceptions if the logout failed. Same as <see cref="AuthApiExtensions.TryLogout(ApiClient)"/>.
+		/// </summary>
+		/// <returns>Returns <c>true</c> if the logout has been successful</returns>
+		public static bool TryLogout(this ApiClient client)
+		{
+			return AuthApiExtensions.TryLogout(client);
+		}
+
+
+		/// <summary>
+		/// Logs out from the system. Same as <see cref="AuthApiExtensions.LogoutAsync(ApiClient, CancellationToken)"/>.
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		public static async Task LogoutAsync(this ApiClient client, CancellationToken cancellationToken = default)
+		{
+			await AuthApiExtensions.LogoutAsync(client, cancellationToken).ConfigureAwait(false);
+		}
+
+		#endregion
+	}
 }
