@@ -212,16 +212,19 @@ namespace EndpointSchemaGenerator
             {
                 string filename = entity.Key + ".cs";
                 StreamWriter writer = new StreamWriter(modelFilesDirectory + filename);
-                StringBuilder body = new StringBuilder();
-                foreach (var field in entity.Value.Fields)
-                {
-                    body.Append(Templates.GenerateFieldCode(entity.Key, field));
-                }
-                List<string> expandsAppend = CollectExpands(schema, entity.Value);
+                StringBuilder body = new StringBuilder(BuildFieldRegions(entity.Key, entity.Value.Fields));
+                bool nestedExpandSyntax = UsesNestedExpandSyntax(schema);
+                List<string> expandsAppend = nestedExpandSyntax
+                    ? CollectDirectExpands(schema, entity.Key, entity.Value)
+                    : CollectExpands(schema, entity.Value);
 
                 string result;
                 bool isNotDerived = string.IsNullOrEmpty(schema.BaseEndpoint) || string.IsNullOrEmpty(entity.Value.ParentReference);
                 string baseEntity = isNotDerived ? "Entity" : $"{GetEndpointNamespace(settings.DefaultNamespaceTemplate, schema.BaseEndpoint)}.Model.{entity.Value.ParentReference}";
+                // A derived entity inherits the base endpoint's nested Expand class, so it must not redeclare one.
+                string expands = isNotDerived && expandsAppend.Count > 0
+                    ? Templates.GetExpands(expandsAppend, nestedExpandSyntax)
+                    : "";
                 if (entity.Value.IsTopLevel)
                 {
                     result = Templates.GenerateTopLevelEntityCode(
@@ -233,19 +236,144 @@ namespace EndpointSchemaGenerator
                         isDerived: !isNotDerived,
                         settings: settings,
                         screenID: entity.Value.ScreenID,
-                        isNotDerived ? Templates.GetExpands(expandsAppend) : "",
-                        entity.Value.Fields.Where(_=>_.IsKey==true)
+                        expands,
+                        entity.Value.Fields.Where(_=>_.IsKey==true).OrderBy(_=>_.ScreenOrder ?? int.MaxValue)
                         );
                 }
                 else
                 {
-                    result = Templates.GenerateEntityCode(endpointNamespace, entity.Key, body.ToString(), baseEntity, settings);
+                    // Before system contract 5 a nested entity could only be reached through the
+                    // top level entity's Parent/Child expand names, so only top level entities
+                    // declared an Expand class.
+                    result = Templates.GenerateEntityCode(endpointNamespace, entity.Key, body.ToString(), baseEntity, settings,
+                        nestedExpandSyntax ? expands : "");
                 }
                 writeLogDelegate.Invoke(entity.Key);
                 writer.Write(result);
                 writer.Close();
             }
         }
+
+        /// <summary>
+        /// The DAC-field wrapper types (see Acumatica.RESTClient.ContractBasedApi.Model.FieldTypes) that back
+        /// a plain scalar entity field, as opposed to a nested entity reference or a detail collection.
+        /// </summary>
+        private static readonly HashSet<string> ScalarFieldTypes = new HashSet<string>
+        {
+            "BooleanValue", "ByteValue", "DateOnlyValue", "DateTimeValue", "DecimalValue", "DoubleValue",
+            "GuidValue", "IntSingleSelectValue", "IntValue", "LongValue", "ShortValue",
+            "StringMultiSelectValue", "StringSingleSelectValue", "StringValue"
+        };
+
+        /// <summary>
+        /// True for a field whose type is a child collection (<c>List&lt;T&gt;</c>, or <c>T[]</c> when
+        /// <see cref="JsonSchemaParser.GenerateArraysInstedOfLists"/> is enabled).
+        /// </summary>
+        private static bool IsDetailFieldType(string type)
+        {
+            return type != null && (type.StartsWith("List<") || type.EndsWith("[]"));
+        }
+
+        /// <summary>
+        /// Splits an entity's fields into the <c>Fields</c> / <c>LinkedEntities</c> / <c>Details</c> regions
+        /// the generated class is organized into. <c>Fields</c> holds the plain DAC-field wrapper types
+        /// (StringValue, DecimalValue, ...), ordered with key fields first and then by each field's position
+        /// on the Acumatica screen (see <see cref="EntityField.ScreenOrder"/>) rather than alphabetically.
+        /// <c>Details</c> holds child collections (<c>List&lt;T&gt;</c>); everything else is a reference to a
+        /// single nested entity (<c>LinkedEntities</c>) and keeps its original relative order.
+        /// </summary>
+        private static string BuildFieldRegions(string entityName, IEnumerable<EntityField> fields)
+        {
+            var scalarFields = fields
+                .Where(f => ScalarFieldTypes.Contains(f.Type))
+                .OrderBy(f => f.IsKey == true ? 0 : 1)
+                .ThenBy(f => f.ScreenOrder ?? int.MaxValue)
+                .ToList();
+            var detailFields = fields.Where(f => IsDetailFieldType(f.Type)).ToList();
+            var linkedEntityFields = fields
+                .Where(f => !ScalarFieldTypes.Contains(f.Type) && !IsDetailFieldType(f.Type))
+                .ToList();
+
+            string Render(IEnumerable<EntityField> group) =>
+                string.Concat(group.Select(f => Templates.GenerateFieldCode(entityName, f)));
+
+            var body = new StringBuilder();
+            if (scalarFields.Count > 0)
+            {
+                body.Append(Templates.GenerateRegion("Fields", Render(scalarFields)));
+            }
+            if (linkedEntityFields.Count > 0)
+            {
+                body.Append(Templates.GenerateRegion("LinkedEntities", Render(linkedEntityFields)));
+            }
+            if (detailFields.Count > 0)
+            {
+                body.Append(Templates.GenerateRegion("Details", Render(detailFields)));
+            }
+            return body.ToString();
+        }
+
+        /// <summary>
+        /// System contract 5 replaced the flattened <c>$expand=Parent/Child</c> syntax with
+        /// <c>$expand=Parent($expand=Child)</c>, so a nested name is no longer a value the caller
+        /// can pass on the parent entity.
+        /// </summary>
+        private static bool UsesNestedExpandSyntax(Schema schema)
+        {
+            return int.TryParse(schema.Info?.Version, out int systemContractVersion)
+                && systemContractVersion >= NestedExpandSyntaxSystemContract;
+        }
+
+        private const int NestedExpandSyntaxSystemContract = 5;
+
+        /// <summary>
+        /// Collects only the names that can be expanded directly on <paramref name="entity"/>.
+        /// Under the nested syntax every entity declares its own names, and the caller composes
+        /// them, so recursing into nested entities here would produce values the server rejects.
+        /// </summary>
+        private static List<string> CollectDirectExpands(Schema schema, string entityName, EntityDefinition entity)
+        {
+            List<string> expandsAppend = new List<string>();
+            if (SupportsFilesExpand(schema, entityName, entity))
+            {
+                expandsAppend.Add("Files");
+            }
+            if (entity.IsTopLevel)
+            {
+                expandsAppend.Add("Translations");
+            }
+            foreach (var field in entity.Fields)
+            {
+                if (!NonExpandableTypes.Types.Contains(field.Type))
+                {
+                    expandsAppend.Add(field.Name);
+                }
+            }
+
+            return expandsAppend;
+        }
+
+        /// <summary>
+        /// Mirrors the rule the flattened collector applies at each call site: files are expandable
+        /// on a top level entity and on a detail, but not on a linked entity, which usually has no
+        /// files of its own, nor on attribute values.
+        /// </summary>
+        private static bool SupportsFilesExpand(Schema schema, string entityName, EntityDefinition entity)
+        {
+            if (entityName == AttributeValueEntity)
+            {
+                return false;
+            }
+            if (entity.IsTopLevel)
+            {
+                return true;
+            }
+
+            string detailType = $"List<{entityName}>";
+            return schema.Entities.Any(_ => _.Value.Fields.Any(field => field.Type == detailType));
+        }
+
+        private const string AttributeValueEntity = "AttributeValue";
 
         private static List<string> CollectExpands(Schema schema, EntityDefinition entity, bool addFiles = true, bool addTranslations = true)
         {

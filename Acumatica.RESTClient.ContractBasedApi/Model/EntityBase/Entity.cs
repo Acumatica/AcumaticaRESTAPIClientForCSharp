@@ -6,12 +6,14 @@ using Newtonsoft.Json;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
     /// <summary>
     /// Entity
     /// </summary>
+    [DebuggerDisplay("{GetDebuggerDisplay()}")]
     public abstract class Entity
     {
 		/// <summary>
@@ -78,6 +80,15 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Builds the text shown for this object in the debugger (see <see cref="DebuggerDisplayAttribute"/> above).
+        /// Generated top-level entities override this to show their key field values instead of just the type name.
+        /// </summary>
+        protected virtual string GetDebuggerDisplay()
+        {
+            return GetType().Name;
         }
     }
 }

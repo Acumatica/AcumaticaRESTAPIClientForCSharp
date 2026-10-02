@@ -2,24 +2,21 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Title>Acumatica REST API for Managing Endpoint Schemas</Title>
-		<Version>5.8.1</Version>
+		<Title>Acumatica REST API Client - Non-Production Login</Title>
+		<Version>5.8.1-preview2</Version>
 		<Authors>Dmitrii-Naumov</Authors>
 		<Company>Acumatica</Company>
-		<Description>An extension for Acumatica REST API client for C# allowing interaction with Endpoints API</Description>
+		<Description>An extension for Acumatica REST API client for C# that logs in using the OAuth 2.0 password grant against the built-in public client that Acumatica enables only on non-production (demo/test) sites.</Description>
 		<Copyright>Acumatica</Copyright>
 		<PackageProjectUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
-		<PackageTags>Acumatica;REST;client;</PackageTags>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>Acumatica;REST;client;OAuth;login</PackageTags>
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<PackageReleaseNotes>
-      Implemented proper error message propagation
-		</PackageReleaseNotes>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 
-		<LangVersion>8.0</LangVersion>
+		<LangVersion>9.0</LangVersion>
 		<nullable>Enable</nullable>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>

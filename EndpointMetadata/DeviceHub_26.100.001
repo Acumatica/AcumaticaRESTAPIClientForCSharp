@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="DeviceHub" version="23.200.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
+<Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="DeviceHub" version="26.100.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
 	<TopLevelEntity name="Printer" screen="SM206510">
 		<Fields>
 			<Field name="Description" type="StringValue" />
@@ -34,6 +34,7 @@
 			<Field name="Parameters" type="PrintJobParameter[]" />
 			<Field name="Printer" type="StringValue" />
 			<Field name="ReportID" type="StringValue" />
+			<Field name="ReportPath" type="StringValue" />
 			<Field name="Selected" type="BooleanValue" />
 			<Field name="Status" type="StringValue" />
 		</Fields>
@@ -98,6 +99,9 @@
 				<Mapping field="ReportID">
 					<To object="Job" field="ReportID" />
 				</Mapping>
+				<Mapping field="ReportPath">
+					<To object="Job" field="ReportPath" />
+				</Mapping>
 				<Mapping field="Selected">
 					<To object="Job" field="Selected" />
 				</Mapping>
@@ -121,6 +125,18 @@
 				<To object="Filter" field="EndModifiedDateTime" />
 			</Mapping>
 		</Mappings>
+		<Actions>
+			<Action name="GetReportPath" mappedTo="GetReportPath">
+				<Fields>
+					<Field name="JobID" type="IntValue" />
+				</Fields>
+				<Mappings>
+					<Mapping field="JobID">
+						<To object="Job" field="JobID" />
+					</Mapping>
+				</Mappings>
+			</Action>
+		</Actions>
 	</TopLevelEntity>
 	<TopLevelEntity name="ScanJobs" screen="SM206505">
 		<Fields>
@@ -203,6 +219,44 @@
 			</Mapping>
 			<Mapping field="PixelTypeDefValue">
 				<To object="Scanners" field="PixelTypeDefValue" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="Scales" screen="SM206530">
+		<Fields>
+			<Field name="Description" type="StringValue" />
+			<Field name="DeviceHub" type="StringValue" />
+			<Field name="LastUpdated" type="DateTimeValue" />
+			<Field name="LastWeight" type="DecimalValue" />
+			<Field name="ScaleID" type="StringValue" />
+			<Field name="ScaleLastWeight" type="DecimalValue" />
+			<Field name="ScaleUOM" type="StringValue" />
+			<Field name="UOM" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="LastWeight">
+				<To object="Scale" field="CompanyLastWeight" />
+			</Mapping>
+			<Mapping field="UOM">
+				<To object="Scale" field="CompanyUOM" />
+			</Mapping>
+			<Mapping field="Description">
+				<To object="Scale" field="Descr" />
+			</Mapping>
+			<Mapping field="DeviceHub">
+				<To object="Scale" field="DeviceHubID" />
+			</Mapping>
+			<Mapping field="LastUpdated">
+				<To object="Scale" field="LastModifiedDateTime" />
+			</Mapping>
+			<Mapping field="ScaleLastWeight">
+				<To object="Scale" field="LastWeight" />
+			</Mapping>
+			<Mapping field="ScaleID">
+				<To object="Scale" field="ScaleID" />
+			</Mapping>
+			<Mapping field="ScaleUOM">
+				<To object="Scale" field="UOM" />
 			</Mapping>
 		</Mappings>
 	</TopLevelEntity>

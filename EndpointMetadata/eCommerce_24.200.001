@@ -1,59 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="eCommerce" version="24.200.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
 	<ExtendsEndpoint name="Default" version="24.200.001" />
-	<TopLevelEntity name="ItemImages" screen="BC408020">
-		<Fields>
-			<Field name="Results" type="ItemImageDetails[]" />
-		</Fields>
-		<Mappings>
-			<Mapping field="Results">
-				<Mapping field="Extension">
-					<To object="Results" field="UploadFile_extansion" />
-				</Mapping>
-				<Mapping field="TemplateItemID">
-					<To object="Results" field="InventoryItem_templateItemID" />
-				</Mapping>
-				<Mapping field="FileID">
-					<To object="Results" field="UploadFile_fileID" />
-				</Mapping>
-				<Mapping field="FileName">
-					<To object="Results" field="UploadFile_name" />
-				</Mapping>
-				<Mapping field="FileNoteID">
-					<To object="Results" field="UploadFile_noteID" />
-				</Mapping>
-				<Mapping field="InventoryID">
-					<To object="Results" field="InventoryItem_inventoryCD" />
-				</Mapping>
-				<Mapping field="InventoryLastModifiedDateTime">
-					<To object="Results" field="InventoryItem_lastModifiedDateTime" />
-				</Mapping>
-				<Mapping field="InventoryNoteID">
-					<To object="Results" field="InventoryItem_noteID" />
-				</Mapping>
-				<Mapping field="IsDefault">
-					<To object="Results" field="InventoryItem_Formula0c812287c27b492e980dba53a73007c1" />
-				</Mapping>
-				<Mapping field="LastModifiedDateTime">
-					<To object="Results" field="UploadFileRevision_createdDateTime" />
-				</Mapping>
-			</Mapping>
-		</Mappings>
-	</TopLevelEntity>
-	<Detail name="ItemImageDetails">
-		<Fields>
-			<Field name="Extension" type="StringValue" />
-			<Field name="FileID" type="GuidValue" />
-			<Field name="FileName" type="StringValue" />
-			<Field name="FileNoteID" type="GuidValue" />
-			<Field name="InventoryID" type="StringValue" />
-			<Field name="InventoryLastModifiedDateTime" type="DateTimeValue" />
-			<Field name="InventoryNoteID" type="GuidValue" />
-			<Field name="IsDefault" type="BooleanValue" />
-			<Field name="LastModifiedDateTime" type="DateTimeValue" />
-			<Field name="TemplateItemID" type="StringValue" />
-		</Fields>
-	</Detail>
 	<TopLevelEntity name="BCShipments" screen="BC408030">
 		<Fields>
 			<Field name="LastModified" type="DateTimeValue" />
@@ -163,6 +110,355 @@
 			</Mapping>
 			<Mapping field="SortOrder">
 				<To object="Folders" field="SortOrder" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="SalesOrder" screen="SO301000">
+                <Fields>
+                    <Field name="ExternalQuoteNbr" type="StringValue" />
+                    <Field name="ExternalQuoteStatus" type="StringValue" />
+                </Fields>
+		<Mappings>
+			<Mapping field="Payments">
+				<Mapping field="NewCard">
+                    <To object="Adjustments" field="NewCard" />
+                </Mapping>
+				<Mapping field="PaymentNoteID">
+					<To object="Adjustments" field="ARPayment__NoteID" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="Details">
+				<Mapping field="OrigOrderNbr">
+					<To object="Transactions" field="OrigOrderNbr" />
+				</Mapping>
+				<Mapping field="OrigOrderType">
+					<To object="Transactions" field="OrigOrderType" />
+				</Mapping>
+			</Mapping>
+            <Mapping field="ExternalQuoteNbr">
+                     <To object="Document" field="ExternalQuoteNbr" />
+            </Mapping>
+            <Mapping field="ExternalQuoteStatus">
+                      <To object="Document" field="ExternalQuoteStatus" />
+            </Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="SalesOrderPayment">
+		<Fields>
+			<Field name="NewCard" type="BooleanValue" />
+			<Field name="PaymentNoteID" type="GuidValue" />
+		</Fields>
+	</Detail>
+	<Detail name="SalesOrderDetail">
+		<Fields>
+			<Field name="OrigOrderNbr" type="StringValue" />
+			<Field name="OrigOrderType" type="StringValue" />
+		</Fields>
+	</Detail>
+    <Detail name="TransferOrderDetail">
+        <Fields>
+            <Field name="OrderLineNbr" type="IntValue" />
+            <Field name="OrderNumber" type="StringValue" />
+            <Field name="OrderType" type="StringValue" />
+            <Field name="RecivedQty" type="DecimalValue" />
+            <Field name="ShipmentNumber" type="StringValue" />
+        </Fields>
+    </Detail>
+    <TopLevelEntity name="TransferOrder" screen="IN304000">
+                <Fields>
+                    <Field name="Branch" type="StringValue" />
+                </Fields>
+                <Mappings>
+                    <Mapping field="Branch">
+                        <To object="CurrentDocument" field="BranchID" />
+                    </Mapping>
+                    <Mapping field="Details">
+                        <Mapping field="RecivedQty">
+                            <To object="transactions" field="ReceiptedQty" />
+                        </Mapping>
+                        <Mapping field="ShipmentNumber">
+                            <To object="transactions" field="SOShipmentNbr" />
+                        </Mapping>
+                        <Mapping field="OrderType">
+                            <To object="transactions" field="SOOrderType" />
+                        </Mapping>
+                        <Mapping field="OrderNumber">
+                            <To object="transactions" field="SOOrderNbr" />
+                        </Mapping>
+                        <Mapping field="OrderLineNbr">
+                            <To object="transactions" field="SOOrderLineNbr" />
+                        </Mapping>
+                    </Mapping>
+                </Mappings>
+            </TopLevelEntity>
+    <Detail name="PurchaseReceiptDetail">
+                <Fields>
+                    <Field name="Project" type="StringValue" />
+                </Fields>
+            </Detail>
+    <TopLevelEntity name="PurchaseReceipt" screen="PO302000">
+		<Mappings>
+            <Mapping field="Details">
+				<Mapping field="Project">
+					<To object="transactions" field="ProjectID" />
+				</Mapping>
+            </Mapping>
+        </Mappings>
+    </TopLevelEntity>
+	<TopLevelEntity name="StockItem" screen="IN202500">
+		<Fields>
+			<Field name="AMCheckSchdMatlAvailability" type="StringValue" />
+        </Fields>
+		<Mappings>
+			<Mapping field="AMCheckSchdMatlAvailability">
+				<To object="manufacturingSettings" field="AMCheckSchdMatlAvailability" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="BankStatement" screen="CA306500">
+		<Fields>
+			<Field name="BankTransactions" type="CABankTran[]" />
+			<Field name="BeginningBalance" type="DecimalValue" />
+			<Field name="CashAccount" type="StringValue" />
+			<Field name="EndBalanceDate" type="DateTimeValue" />
+			<Field name="EndingBalance" type="DecimalValue" />
+			<Field name="ReferenceNbr" type="StringValue" />
+			<Field name="StartBalanceDate" type="DateTimeValue" />
+			<Field name="StatementDate" type="DateTimeValue" />
+			<Field name="ExternalTranOrigin" type="IntValue" />			
+			<Field name="ExternalReference" type="StringValue" />			
+			<Field name="Type" type="StringValue" />
+			<Field name="NoteID" type="GuidValue" />
+			<Field name="ManualMatchingAllowed" type="BooleanValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="CashAccount">
+				<To object="Header" field="CashAccountID" />
+			</Mapping>
+			<Mapping field="BankTransactions">
+				<Mapping field="BusinessAccountName">
+					<To object="Details" field="AcctName" />
+				</Mapping>
+				<Mapping field="ExtTranID">
+					<To object="Details" field="ExtTranID" />
+				</Mapping>
+				<Mapping field="Hidden">
+					<To object="Details" field="Hidden" />
+				</Mapping>
+				<Mapping field="InvoiceNbr">
+					<To object="Details" field="InvoiceInfo" />
+				</Mapping>
+				<Mapping field="Module">
+					<To object="Details" field="OrigModule1" />
+				</Mapping>
+				<Mapping field="BusinessAccount">
+					<To object="Details" field="PayeeBAccountID1" />
+				</Mapping>
+				<Mapping field="Location">
+					<To object="Details" field="PayeeLocationID1" />
+				</Mapping>
+				<Mapping field="PayeePayer">
+					<To object="Details" field="PayeeName" />
+				</Mapping>
+				<Mapping field="PaymentMethod">
+					<To object="Details" field="PaymentMethodID1" />
+				</Mapping>
+				<Mapping field="ProcessedProcessed">
+					<To object="Details" field="Processed" />
+				</Mapping>
+				<Mapping field="AppliedRule">
+					<To object="Details" field="RuleID" />
+				</Mapping>
+				<Mapping field="BankFeedAccount">
+					<To object="Details" field="BankFeedAccountMapID" />
+				</Mapping>
+				<Mapping field="AppliedRuleRuleDescription">
+					<To object="Details" field="RuleID_description" />
+				</Mapping>
+				<Mapping field="TranCode">
+					<To object="Details" field="TranCode" />
+				</Mapping>
+				<Mapping field="TranDate">
+					<To object="Details" field="TranDate" />
+				</Mapping>
+				<Mapping field="TranType">
+					<To object="Details" field="TranType" />
+				</Mapping>
+				<Mapping field="HeaderRefNbr">
+					<To object="Details" field="HeaderRefNbr" />
+				</Mapping>
+				<Mapping field="CashAccountID">
+					<To object="Details" field="CashAccountID" />
+				</Mapping>
+				<Mapping field="TranDesc">
+					<To object="Details" field="TranDesc" />
+				</Mapping>
+				<Mapping field="CustomTranDesc">
+					<To object="Details" field="UserDesc" />
+				</Mapping>
+				<Mapping field="BankFeedAccountaccountNameMask">
+					<To object="Details" field="BankFeedAccountMapID_description" />
+				</Mapping>
+				<Mapping field="CardNumber">
+					<To object="Details" field="CardNumber" />
+				</Mapping>
+				<Mapping field="Disbursement">
+					<To object="Details" field="CuryCreditAmt" />
+				</Mapping>
+				<Mapping field="Receipt">
+					<To object="Details" field="CuryDebitAmt" />
+				</Mapping>
+				<Mapping field="MatchedDocumentMatched">
+					<To object="Details" field="DocumentMatched" />
+				</Mapping>
+				<Mapping field="EntryTypeID">
+					<To object="Details" field="EntryTypeID1" />
+				</Mapping>
+				<Mapping field="ExtRefNbr">
+					<To object="Details" field="ExtRefNbr" />
+				</Mapping>				
+				<Mapping field="TranID">
+					<To object="Details" field="TranID" />
+				</Mapping>
+			</Mapping>
+			<Mapping field="BeginningBalance">
+				<To object="Header" field="CuryBegBalance" />
+			</Mapping>
+			<Mapping field="EndingBalance">
+				<To object="Header" field="CuryEndBalance" />
+			</Mapping>
+			<Mapping field="StatementDate">
+				<To object="Header" field="DocDate" />
+			</Mapping>
+			<Mapping field="EndBalanceDate">
+				<To object="Header" field="EndBalanceDate" />
+			</Mapping>
+			<Mapping field="ReferenceNbr">
+				<To object="Header" field="RefNbr" />
+			</Mapping>
+			<Mapping field="StartBalanceDate">
+				<To object="Header" field="StartBalanceDate" />
+			</Mapping>
+			<Mapping field="ExternalTranOrigin">
+				<To object="Header" field="ExternalTranOrigin" />
+			</Mapping>			
+			<Mapping field="ExternalReference">
+				<To object="Header" field="ExternalReference" />
+			</Mapping>
+			<Mapping field="NoteID">
+				<To object="Header" field="NoteID" />
+			</Mapping>
+			<Mapping field="ManualMatchingAllowed">
+				<To object="Header" field="ManualMatchingAllowed" />
+			</Mapping>
+			<Mapping field="Type">
+				<To object="Header" field="TranType" />
+			</Mapping>
+		</Mappings>
+		<Actions>
+			<Action name="LockStatement" mappedTo="LockStatement" />
+			<Action name="UnLockStatement" mappedTo="UnLockStatement" />
+		</Actions>
+	</TopLevelEntity>
+	<Detail name="CABankTran">
+		<Fields>
+			<Field name="AppliedRule" type="IntValue" />
+			<Field name="AppliedRuleRuleDescription" type="StringValue" />
+			<Field name="BankFeedAccount" type="GuidValue" />
+			<Field name="BankFeedAccountaccountNameMask" type="StringValue" />
+			<Field name="BusinessAccount" type="StringValue" />
+			<Field name="BusinessAccountName" type="StringValue" />
+			<Field name="CardNumber" type="StringValue" />
+			<Field name="CashAccountID" type="IntValue" />
+			<Field name="CustomTranDesc" type="StringValue" />
+			<Field name="Disbursement" type="DecimalValue" />
+			<Field name="EntryTypeID" type="StringValue" />
+			<Field name="ExtRefNbr" type="StringValue" />
+			<Field name="ExtTranID" type="StringValue" />
+			<Field name="HeaderRefNbr" type="StringValue" />
+			<Field name="Hidden" type="BooleanValue" />
+			<Field name="InvoiceNbr" type="StringValue" />
+			<Field name="Location" type="StringValue" />
+			<Field name="MatchedDocumentMatched" type="BooleanValue" />
+			<Field name="Module" type="StringValue" />
+			<Field name="PayeePayer" type="StringValue" />
+			<Field name="PaymentMethod" type="StringValue" />
+			<Field name="ProcessedProcessed" type="BooleanValue" />
+			<Field name="Receipt" type="DecimalValue" />
+			<Field name="TranCode" type="StringValue" />
+			<Field name="TranDate" type="DateTimeValue" />
+			<Field name="TranType" type="StringValue" />
+			<Field name="TranDesc" type="StringValue" />
+			<Field name="TranID" type="IntValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="TemplateItems" screen="IN203000">
+		<Fields>
+            <Field name="DefaultColumnAttributeID" type="StringValue" />
+            <Field name="DefaultRowAttributeID" type="StringValue" />
+        </Fields>
+        <Mappings>
+            <Mapping field="DefaultColumnAttributeID">
+                <To object="ItemSettings: 14" field="DefaultColumnMatrixAttributeID" />
+            </Mapping>
+            <Mapping field="DefaultRowAttributeID">
+                 <To object="ItemSettings: 14" field="DefaultRowMatrixAttributeID" />
+            </Mapping>
+            </Mappings>
+    </TopLevelEntity>
+	<TopLevelEntity name="Payment" screen="AR302000">
+		<Fields>
+			<Field name="ReciprocalRate" type="DecimalValue" />
+			<Field name="CCProcessingStatus" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="ReciprocalRate">
+				<To object="CurrencyInfo: 1" field="SampleRecipRate" />
+			</Mapping>
+			<Mapping field="CCProcessingStatus">
+				<To object="Document" field="CCPaymentStateDescr" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="Customer" screen="AR303000">
+		<Fields>
+			<Field name="LegalName" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="LegalName">
+				<To object="CurrentCustomer" field="LegalName" />
+			</Mapping>
+			<Mapping field="Contacts">
+				<Mapping field="Contact">
+					<Mapping field="ExtUserRole">
+						<To object="Contacts" field="BCExternalUserRole" />
+					</Mapping>
+				</Mapping>
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<Detail name="CustomerContact">
+		<Fields>
+			<Field name="ExtUserRole" type="StringValue" />
+		</Fields>
+	</Detail>
+	<TopLevelEntity name="CustomerLocation" screen="AR303020">
+		<Fields>
+			<Field name="LocationType" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="LocationType">
+				<To object="Location" field="BCLocationType" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
+	<TopLevelEntity name="Contact" screen="CR302000">
+		<Fields>
+			<Field name="ExtUserRole" type="StringValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="ExtUserRole">
+				<To object="ContactCurrent" field="BCExternalUserRole" />
 			</Mapping>
 		</Mappings>
 	</TopLevelEntity>

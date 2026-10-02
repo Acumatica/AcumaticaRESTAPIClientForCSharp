@@ -1,59 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="eCommerce" version="23.200.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
 	<ExtendsEndpoint name="Default" version="23.200.001" />
-	<TopLevelEntity name="ItemImages" screen="BC408020">
-		<Fields>
-			<Field name="Results" type="ItemImageDetails[]" />
-		</Fields>
-		<Mappings>
-			<Mapping field="Results">
-				<Mapping field="Extension">
-					<To object="Results" field="UploadFile_extansion" />
-				</Mapping>
-				<Mapping field="TemplateItemID">
-					<To object="Results" field="InventoryItem_templateItemID" />
-				</Mapping>
-				<Mapping field="FileID">
-					<To object="Results" field="UploadFile_fileID" />
-				</Mapping>
-				<Mapping field="FileName">
-					<To object="Results" field="UploadFile_name" />
-				</Mapping>
-				<Mapping field="FileNoteID">
-					<To object="Results" field="UploadFile_noteID" />
-				</Mapping>
-				<Mapping field="InventoryID">
-					<To object="Results" field="InventoryItem_inventoryCD" />
-				</Mapping>
-				<Mapping field="InventoryLastModifiedDateTime">
-					<To object="Results" field="InventoryItem_lastModifiedDateTime" />
-				</Mapping>
-				<Mapping field="InventoryNoteID">
-					<To object="Results" field="InventoryItem_noteID" />
-				</Mapping>
-				<Mapping field="IsDefault">
-					<To object="Results" field="InventoryItem_Formula0c812287c27b492e980dba53a73007c1" />
-				</Mapping>
-				<Mapping field="LastModifiedDateTime">
-					<To object="Results" field="UploadFileRevision_createdDateTime" />
-				</Mapping>
-			</Mapping>
-		</Mappings>
-	</TopLevelEntity>
-	<Detail name="ItemImageDetails">
-		<Fields>
-			<Field name="Extension" type="StringValue" />
-			<Field name="FileID" type="GuidValue" />
-			<Field name="FileName" type="StringValue" />
-			<Field name="FileNoteID" type="GuidValue" />
-			<Field name="InventoryID" type="StringValue" />
-			<Field name="InventoryLastModifiedDateTime" type="DateTimeValue" />
-			<Field name="InventoryNoteID" type="GuidValue" />
-			<Field name="IsDefault" type="BooleanValue" />
-			<Field name="LastModifiedDateTime" type="DateTimeValue" />
-			<Field name="TemplateItemID" type="StringValue" />
-		</Fields>
-	</Detail>
 	<TopLevelEntity name="BCShipments" screen="BC408030">
 		<Fields>
 			<Field name="LastModified" type="DateTimeValue" />
@@ -466,4 +413,14 @@
 			<Field name="RecordID" type="IntValue" />
 		</Fields>
 	</Detail>
+	<TopLevelEntity name="Payment" screen="AR302000">
+		<Fields>
+			<Field name="CreatedDateTime" type="DateTimeValue" />
+		</Fields>
+		<Mappings>
+			<Mapping field="CreatedDateTime">
+				<To object="Document" field="CreatedDateTime" />
+			</Mapping>
+		</Mappings>
+	</TopLevelEntity>
 </Endpoint>

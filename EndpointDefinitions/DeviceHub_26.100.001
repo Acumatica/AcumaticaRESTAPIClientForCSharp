@@ -1,22 +1,22 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "GLConsolidation/22.200.001",
+    "title": "DeviceHub/26.100.001",
     "version": "4"
   },
   "servers": [
     {
-      "url": "http://bel-u23-nodea.int.adds.acumatica.com:30021/entity/GLConsolidation/22.200.001"
+      "url": "http://bel-u23-nodea.int.adds.acumatica.com:30021/entity/DeviceHub/26.100.001"
     }
   ],
   "paths": {
-    "/ConsolAccount/{actionName}": {
+    "/Printer/{actionName}": {
       "post": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "ConsolAccount_InvokeAction_CustomAction",
+        "operationId": "Printer_InvokeAction_CustomAction",
         "parameters": [
           {
             "$ref": "#/components/parameters/actionName"
@@ -27,12 +27,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolAccountCustomAction"
+                "$ref": "#/components/schemas/PrinterCustomAction"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolAccountCustomAction"
+                "$ref": "#/components/schemas/PrinterCustomAction"
               }
             }
           },
@@ -63,12 +63,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               }
             }
@@ -79,13 +79,13 @@
         }
       }
     },
-    "/ConsolAccount/$adHocSchema": {
+    "/Printer/$adHocSchema": {
       "get": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
-        "operationId": "ConsolAccount_GetAdHocSchema",
+        "operationId": "Printer_GetAdHocSchema",
         "responses": {
           "409": {
             "$ref": "#/components/responses/EntityController_409"
@@ -101,12 +101,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               }
             }
@@ -114,13 +114,13 @@
         }
       }
     },
-    "/ConsolAccount/{ids}": {
+    "/Printer/{ids}": {
       "get": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "ConsolAccount_GetByKeys",
+        "operationId": "Printer_GetByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -153,12 +153,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               }
             }
@@ -167,10 +167,10 @@
       },
       "delete": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "ConsolAccount_DeleteByKeys",
+        "operationId": "Printer_DeleteByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -192,13 +192,13 @@
         }
       }
     },
-    "/ConsolAccount/{ids}/files/{filename}": {
+    "/Printer/{ids}/files/{filename}": {
       "put": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Attaches a file to a record.",
-        "operationId": "ConsolAccount_PutFile",
+        "operationId": "Printer_PutFile",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -223,13 +223,13 @@
         }
       }
     },
-    "/ConsolAccount/{id}": {
+    "/Printer/{id}": {
       "get": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "ConsolAccount_GetById",
+        "operationId": "Printer_GetById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -262,12 +262,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               }
             }
@@ -276,10 +276,10 @@
       },
       "delete": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Deletes the record by its session identifier.",
-        "operationId": "ConsolAccount_DeleteById",
+        "operationId": "Printer_DeleteById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -301,13 +301,13 @@
         }
       }
     },
-    "/ConsolAccount": {
+    "/Printer": {
       "get": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "ConsolAccount_GetList",
+        "operationId": "Printer_GetList",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -345,7 +345,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ConsolAccount"
+                    "$ref": "#/components/schemas/Printer"
                   }
                 }
               },
@@ -353,7 +353,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ConsolAccount"
+                    "$ref": "#/components/schemas/Printer"
                   }
                 }
               }
@@ -363,10 +363,10 @@
       },
       "put": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "ConsolAccount_PutEntity",
+        "operationId": "Printer_PutEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -386,12 +386,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolAccount"
+                "$ref": "#/components/schemas/Printer"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolAccount"
+                "$ref": "#/components/schemas/Printer"
               }
             }
           },
@@ -413,12 +413,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               }
             }
@@ -434,12 +434,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               }
             }
@@ -448,10 +448,10 @@
       },
       "patch": {
         "tags": [
-          "ConsolAccount"
+          "Printer"
         ],
         "summary": "Updates the fields of an existing record that are specified in the request body.",
-        "operationId": "ConsolAccount_PatchEntity",
+        "operationId": "Printer_PatchEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -471,12 +471,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolAccount"
+                "$ref": "#/components/schemas/Printer"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolAccount"
+                "$ref": "#/components/schemas/Printer"
               }
             }
           },
@@ -498,12 +498,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               }
             }
@@ -522,12 +522,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolAccount"
+                  "$ref": "#/components/schemas/Printer"
                 }
               }
             }
@@ -535,29 +535,24 @@
         }
       }
     },
-    "/Branch/{actionName}": {
+    "/PrintJobs/GetReportPath": {
       "post": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "Branch_InvokeAction_CustomAction",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/actionName"
-          }
-        ],
+        "operationId": "PrintJobs_InvokeAction_GetReportPath",
         "requestBody": {
           "description": "The record to which the action should be applied and the parameters of the action.",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BranchCustomAction"
+                "$ref": "#/components/schemas/GetReportPath"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/BranchCustomAction"
+                "$ref": "#/components/schemas/GetReportPath"
               }
             }
           },
@@ -588,12 +583,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               }
             }
@@ -604,13 +599,82 @@
         }
       }
     },
-    "/Branch/$adHocSchema": {
+    "/PrintJobs/{actionName}": {
+      "post": {
+        "tags": [
+          "PrintJobs"
+        ],
+        "summary": "Performs an action in the system.",
+        "operationId": "PrintJobs_InvokeAction_CustomAction",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/actionName"
+          }
+        ],
+        "requestBody": {
+          "description": "The record to which the action should be applied and the parameters of the action.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobsCustomAction"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobsCustomAction"
+              }
+            }
+          },
+          "required": true,
+          "x-bodyName": "invocation"
+        },
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_401"
+          },
+          "500": {
+            "$ref": "#/components/responses/ContractBasedControllerBase_500"
+          },
+          "204": {
+            "$ref": "#/components/responses/InvokeAction_204"
+          },
+          "202": {
+            "$ref": "#/components/responses/InvokeAction_202"
+          },
+          "400": {
+            "$ref": "#/components/responses/InvokeAction_400"
+          },
+          "412": {
+            "$ref": "#/components/responses/InvokeAction_412"
+          },
+          "422": {
+            "description": "The data specified in the request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJobs"
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/InvokeAction_409"
+          }
+        }
+      }
+    },
+    "/PrintJobs/$adHocSchema": {
       "get": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
-        "operationId": "Branch_GetAdHocSchema",
+        "operationId": "PrintJobs_GetAdHocSchema",
         "responses": {
           "409": {
             "$ref": "#/components/responses/EntityController_409"
@@ -626,12 +690,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               }
             }
@@ -639,13 +703,13 @@
         }
       }
     },
-    "/Branch/{ids}": {
+    "/PrintJobs/{ids}": {
       "get": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Branch_GetByKeys",
+        "operationId": "PrintJobs_GetByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -678,12 +742,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               }
             }
@@ -692,10 +756,10 @@
       },
       "delete": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Branch_DeleteByKeys",
+        "operationId": "PrintJobs_DeleteByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -717,13 +781,13 @@
         }
       }
     },
-    "/Branch/{ids}/files/{filename}": {
+    "/PrintJobs/{ids}/files/{filename}": {
       "put": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Attaches a file to a record.",
-        "operationId": "Branch_PutFile",
+        "operationId": "PrintJobs_PutFile",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -748,13 +812,13 @@
         }
       }
     },
-    "/Branch/{id}": {
+    "/PrintJobs/{id}": {
       "get": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Branch_GetById",
+        "operationId": "PrintJobs_GetById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -787,12 +851,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               }
             }
@@ -801,10 +865,10 @@
       },
       "delete": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Deletes the record by its session identifier.",
-        "operationId": "Branch_DeleteById",
+        "operationId": "PrintJobs_DeleteById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -826,13 +890,13 @@
         }
       }
     },
-    "/Branch": {
+    "/PrintJobs": {
       "get": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "Branch_GetList",
+        "operationId": "PrintJobs_GetList",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -870,7 +934,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Branch"
+                    "$ref": "#/components/schemas/PrintJobs"
                   }
                 }
               },
@@ -878,7 +942,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Branch"
+                    "$ref": "#/components/schemas/PrintJobs"
                   }
                 }
               }
@@ -888,10 +952,10 @@
       },
       "put": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "Branch_PutEntity",
+        "operationId": "PrintJobs_PutEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -911,12 +975,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Branch"
+                "$ref": "#/components/schemas/PrintJobs"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Branch"
+                "$ref": "#/components/schemas/PrintJobs"
               }
             }
           },
@@ -938,12 +1002,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               }
             }
@@ -959,12 +1023,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               }
             }
@@ -973,10 +1037,10 @@
       },
       "patch": {
         "tags": [
-          "Branch"
+          "PrintJobs"
         ],
         "summary": "Updates the fields of an existing record that are specified in the request body.",
-        "operationId": "Branch_PatchEntity",
+        "operationId": "PrintJobs_PatchEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -996,12 +1060,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Branch"
+                "$ref": "#/components/schemas/PrintJobs"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Branch"
+                "$ref": "#/components/schemas/PrintJobs"
               }
             }
           },
@@ -1023,12 +1087,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               }
             }
@@ -1047,12 +1111,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Branch"
+                  "$ref": "#/components/schemas/PrintJobs"
                 }
               }
             }
@@ -1060,13 +1124,13 @@
         }
       }
     },
-    "/Organization/{actionName}": {
+    "/ScanJobs/{actionName}": {
       "post": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "Organization_InvokeAction_CustomAction",
+        "operationId": "ScanJobs_InvokeAction_CustomAction",
         "parameters": [
           {
             "$ref": "#/components/parameters/actionName"
@@ -1077,12 +1141,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OrganizationCustomAction"
+                "$ref": "#/components/schemas/ScanJobsCustomAction"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/OrganizationCustomAction"
+                "$ref": "#/components/schemas/ScanJobsCustomAction"
               }
             }
           },
@@ -1113,12 +1177,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               }
             }
@@ -1129,13 +1193,13 @@
         }
       }
     },
-    "/Organization/$adHocSchema": {
+    "/ScanJobs/$adHocSchema": {
       "get": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
-        "operationId": "Organization_GetAdHocSchema",
+        "operationId": "ScanJobs_GetAdHocSchema",
         "responses": {
           "409": {
             "$ref": "#/components/responses/EntityController_409"
@@ -1151,12 +1215,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               }
             }
@@ -1164,13 +1228,13 @@
         }
       }
     },
-    "/Organization/{ids}": {
+    "/ScanJobs/{ids}": {
       "get": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Organization_GetByKeys",
+        "operationId": "ScanJobs_GetByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -1203,12 +1267,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               }
             }
@@ -1217,10 +1281,10 @@
       },
       "delete": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Organization_DeleteByKeys",
+        "operationId": "ScanJobs_DeleteByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -1242,13 +1306,13 @@
         }
       }
     },
-    "/Organization/{ids}/files/{filename}": {
+    "/ScanJobs/{ids}/files/{filename}": {
       "put": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Attaches a file to a record.",
-        "operationId": "Organization_PutFile",
+        "operationId": "ScanJobs_PutFile",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -1273,13 +1337,13 @@
         }
       }
     },
-    "/Organization/{id}": {
+    "/ScanJobs/{id}": {
       "get": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Organization_GetById",
+        "operationId": "ScanJobs_GetById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -1312,12 +1376,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               }
             }
@@ -1326,10 +1390,10 @@
       },
       "delete": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Deletes the record by its session identifier.",
-        "operationId": "Organization_DeleteById",
+        "operationId": "ScanJobs_DeleteById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -1351,13 +1415,13 @@
         }
       }
     },
-    "/Organization": {
+    "/ScanJobs": {
       "get": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "Organization_GetList",
+        "operationId": "ScanJobs_GetList",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -1395,7 +1459,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Organization"
+                    "$ref": "#/components/schemas/ScanJobs"
                   }
                 }
               },
@@ -1403,7 +1467,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Organization"
+                    "$ref": "#/components/schemas/ScanJobs"
                   }
                 }
               }
@@ -1413,10 +1477,10 @@
       },
       "put": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "Organization_PutEntity",
+        "operationId": "ScanJobs_PutEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -1436,12 +1500,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Organization"
+                "$ref": "#/components/schemas/ScanJobs"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Organization"
+                "$ref": "#/components/schemas/ScanJobs"
               }
             }
           },
@@ -1463,12 +1527,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               }
             }
@@ -1484,12 +1548,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               }
             }
@@ -1498,10 +1562,10 @@
       },
       "patch": {
         "tags": [
-          "Organization"
+          "ScanJobs"
         ],
         "summary": "Updates the fields of an existing record that are specified in the request body.",
-        "operationId": "Organization_PatchEntity",
+        "operationId": "ScanJobs_PatchEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -1521,12 +1585,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Organization"
+                "$ref": "#/components/schemas/ScanJobs"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Organization"
+                "$ref": "#/components/schemas/ScanJobs"
               }
             }
           },
@@ -1548,12 +1612,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               }
             }
@@ -1572,12 +1636,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Organization"
+                  "$ref": "#/components/schemas/ScanJobs"
                 }
               }
             }
@@ -1585,13 +1649,13 @@
         }
       }
     },
-    "/ConsolidationData/{actionName}": {
+    "/Scanner/{actionName}": {
       "post": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "ConsolidationData_InvokeAction_CustomAction",
+        "operationId": "Scanner_InvokeAction_CustomAction",
         "parameters": [
           {
             "$ref": "#/components/parameters/actionName"
@@ -1602,12 +1666,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolidationDataCustomAction"
+                "$ref": "#/components/schemas/ScannerCustomAction"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolidationDataCustomAction"
+                "$ref": "#/components/schemas/ScannerCustomAction"
               }
             }
           },
@@ -1638,12 +1702,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               }
             }
@@ -1654,13 +1718,13 @@
         }
       }
     },
-    "/ConsolidationData/$adHocSchema": {
+    "/Scanner/$adHocSchema": {
       "get": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
-        "operationId": "ConsolidationData_GetAdHocSchema",
+        "operationId": "Scanner_GetAdHocSchema",
         "responses": {
           "409": {
             "$ref": "#/components/responses/EntityController_409"
@@ -1676,12 +1740,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               }
             }
@@ -1689,13 +1753,13 @@
         }
       }
     },
-    "/ConsolidationData/{ids}": {
+    "/Scanner/{ids}": {
       "get": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "ConsolidationData_GetByKeys",
+        "operationId": "Scanner_GetByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -1728,12 +1792,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               }
             }
@@ -1742,10 +1806,10 @@
       },
       "delete": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "ConsolidationData_DeleteByKeys",
+        "operationId": "Scanner_DeleteByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -1767,13 +1831,13 @@
         }
       }
     },
-    "/ConsolidationData/{ids}/files/{filename}": {
+    "/Scanner/{ids}/files/{filename}": {
       "put": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Attaches a file to a record.",
-        "operationId": "ConsolidationData_PutFile",
+        "operationId": "Scanner_PutFile",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -1798,13 +1862,13 @@
         }
       }
     },
-    "/ConsolidationData/{id}": {
+    "/Scanner/{id}": {
       "get": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "ConsolidationData_GetById",
+        "operationId": "Scanner_GetById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -1837,12 +1901,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               }
             }
@@ -1851,10 +1915,10 @@
       },
       "delete": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Deletes the record by its session identifier.",
-        "operationId": "ConsolidationData_DeleteById",
+        "operationId": "Scanner_DeleteById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -1876,13 +1940,13 @@
         }
       }
     },
-    "/ConsolidationData": {
+    "/Scanner": {
       "get": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "ConsolidationData_GetList",
+        "operationId": "Scanner_GetList",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -1920,7 +1984,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ConsolidationData"
+                    "$ref": "#/components/schemas/Scanner"
                   }
                 }
               },
@@ -1928,7 +1992,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ConsolidationData"
+                    "$ref": "#/components/schemas/Scanner"
                   }
                 }
               }
@@ -1938,10 +2002,10 @@
       },
       "put": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "ConsolidationData_PutEntity",
+        "operationId": "Scanner_PutEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -1961,12 +2025,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolidationData"
+                "$ref": "#/components/schemas/Scanner"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolidationData"
+                "$ref": "#/components/schemas/Scanner"
               }
             }
           },
@@ -1988,12 +2052,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               }
             }
@@ -2009,12 +2073,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               }
             }
@@ -2023,10 +2087,10 @@
       },
       "patch": {
         "tags": [
-          "ConsolidationData"
+          "Scanner"
         ],
         "summary": "Updates the fields of an existing record that are specified in the request body.",
-        "operationId": "ConsolidationData_PatchEntity",
+        "operationId": "Scanner_PatchEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -2046,12 +2110,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolidationData"
+                "$ref": "#/components/schemas/Scanner"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ConsolidationData"
+                "$ref": "#/components/schemas/Scanner"
               }
             }
           },
@@ -2073,12 +2137,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               }
             }
@@ -2097,12 +2161,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsolidationData"
+                  "$ref": "#/components/schemas/Scanner"
                 }
               }
             }
@@ -2110,13 +2174,13 @@
         }
       }
     },
-    "/Ledger/{actionName}": {
+    "/Scales/{actionName}": {
       "post": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Performs an action in the system.",
-        "operationId": "Ledger_InvokeAction_CustomAction",
+        "operationId": "Scales_InvokeAction_CustomAction",
         "parameters": [
           {
             "$ref": "#/components/parameters/actionName"
@@ -2127,12 +2191,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LedgerCustomAction"
+                "$ref": "#/components/schemas/ScalesCustomAction"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LedgerCustomAction"
+                "$ref": "#/components/schemas/ScalesCustomAction"
               }
             }
           },
@@ -2163,12 +2227,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               }
             }
@@ -2179,13 +2243,13 @@
         }
       }
     },
-    "/Ledger/$adHocSchema": {
+    "/Scales/$adHocSchema": {
       "get": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Retrieves the schema of custom fields and workflow actions of the entity from the system.",
-        "operationId": "Ledger_GetAdHocSchema",
+        "operationId": "Scales_GetAdHocSchema",
         "responses": {
           "409": {
             "$ref": "#/components/responses/EntityController_409"
@@ -2201,12 +2265,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               }
             }
@@ -2214,13 +2278,13 @@
         }
       }
     },
-    "/Ledger/{ids}": {
+    "/Scales/{ids}": {
       "get": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Retrieves a record by the values of its key fields from the system.",
-        "operationId": "Ledger_GetByKeys",
+        "operationId": "Scales_GetByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -2253,12 +2317,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               }
             }
@@ -2267,10 +2331,10 @@
       },
       "delete": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Deletes the record by the values of its key fields.",
-        "operationId": "Ledger_DeleteByKeys",
+        "operationId": "Scales_DeleteByKeys",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -2292,13 +2356,13 @@
         }
       }
     },
-    "/Ledger/{ids}/files/{filename}": {
+    "/Scales/{ids}/files/{filename}": {
       "put": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Attaches a file to a record.",
-        "operationId": "Ledger_PutFile",
+        "operationId": "Scales_PutFile",
         "parameters": [
           {
             "$ref": "#/components/parameters/ids"
@@ -2323,13 +2387,13 @@
         }
       }
     },
-    "/Ledger/{id}": {
+    "/Scales/{id}": {
       "get": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Retrieves a record by the value of the session entity ID from the system.",
-        "operationId": "Ledger_GetById",
+        "operationId": "Scales_GetById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -2362,12 +2426,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               }
             }
@@ -2376,10 +2440,10 @@
       },
       "delete": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Deletes the record by its session identifier.",
-        "operationId": "Ledger_DeleteById",
+        "operationId": "Scales_DeleteById",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -2401,13 +2465,13 @@
         }
       }
     },
-    "/Ledger": {
+    "/Scales": {
       "get": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Retrieves records that satisfy the specified conditions from the system.",
-        "operationId": "Ledger_GetList",
+        "operationId": "Scales_GetList",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -2445,7 +2509,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Ledger"
+                    "$ref": "#/components/schemas/Scales"
                   }
                 }
               },
@@ -2453,7 +2517,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Ledger"
+                    "$ref": "#/components/schemas/Scales"
                   }
                 }
               }
@@ -2463,10 +2527,10 @@
       },
       "put": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Creates a record or updates an existing record.",
-        "operationId": "Ledger_PutEntity",
+        "operationId": "Scales_PutEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -2486,12 +2550,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Ledger"
+                "$ref": "#/components/schemas/Scales"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Ledger"
+                "$ref": "#/components/schemas/Scales"
               }
             }
           },
@@ -2513,12 +2577,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               }
             }
@@ -2534,12 +2598,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               }
             }
@@ -2548,10 +2612,10 @@
       },
       "patch": {
         "tags": [
-          "Ledger"
+          "Scales"
         ],
         "summary": "Updates the fields of an existing record that are specified in the request body.",
-        "operationId": "Ledger_PatchEntity",
+        "operationId": "Scales_PatchEntity",
         "parameters": [
           {
             "$ref": "#/components/parameters/select"
@@ -2571,12 +2635,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Ledger"
+                "$ref": "#/components/schemas/Scales"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Ledger"
+                "$ref": "#/components/schemas/Scales"
               }
             }
           },
@@ -2598,12 +2662,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               }
             }
@@ -2622,12 +2686,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ledger"
+                  "$ref": "#/components/schemas/Scales"
                 }
               }
             }
@@ -2652,65 +2716,6 @@
         },
         "nullable": true
       },
-      "Branch": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Entity"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "AcctName": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "BranchCD": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "OrganizationCD": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "LedgerCD": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "_workflowActions": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/BranchCustomAction"
-                },
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "BranchCustomAction": {
-        "required": [
-          "entity"
-        ],
-        "type": "object",
-        "properties": {
-          "entity": {
-            "$ref": "#/components/schemas/Branch"
-          },
-          "parameters": {
-            "type": "object",
-            "properties": {
-              "custom": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "$ref": "#/components/schemas/CustomField"
-                  }
-                },
-                "nullable": true
-              }
-            },
-            "description": "The parameters of the action.",
-            "nullable": true
-          }
-        }
-      },
       "ByteValue": {
         "type": "object",
         "properties": {
@@ -2725,149 +2730,6 @@
           }
         },
         "nullable": true
-      },
-      "ConsolAccount": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Entity"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "AccountCD": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "Description": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "_workflowActions": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/ConsolAccountCustomAction"
-                },
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "ConsolAccountCustomAction": {
-        "required": [
-          "entity"
-        ],
-        "type": "object",
-        "properties": {
-          "entity": {
-            "$ref": "#/components/schemas/ConsolAccount"
-          },
-          "parameters": {
-            "type": "object",
-            "properties": {
-              "custom": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "$ref": "#/components/schemas/CustomField"
-                  }
-                },
-                "nullable": true
-              }
-            },
-            "description": "The parameters of the action.",
-            "nullable": true
-          }
-        }
-      },
-      "ConsolidationData": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Entity"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "BranchCD": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "LedgerCD": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "Result": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ConsolidationItem"
-                },
-                "nullable": true
-              },
-              "_workflowActions": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/ConsolidationDataCustomAction"
-                },
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "ConsolidationDataCustomAction": {
-        "required": [
-          "entity"
-        ],
-        "type": "object",
-        "properties": {
-          "entity": {
-            "$ref": "#/components/schemas/ConsolidationData"
-          },
-          "parameters": {
-            "type": "object",
-            "properties": {
-              "custom": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "$ref": "#/components/schemas/CustomField"
-                  }
-                },
-                "nullable": true
-              }
-            },
-            "description": "The parameters of the action.",
-            "nullable": true
-          }
-        }
-      },
-      "ConsolidationItem": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Entity"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "AccountCD": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "ConsolAmtCredit": {
-                "$ref": "#/components/schemas/DecimalValue"
-              },
-              "ConsolAmtDebit": {
-                "$ref": "#/components/schemas/DecimalValue"
-              },
-              "FinPeriodID": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "MappedValue": {
-                "$ref": "#/components/schemas/StringValue"
-              },
-              "MappedValueLength": {
-                "$ref": "#/components/schemas/IntValue"
-              }
-            }
-          }
-        ]
       },
       "CustomBooleanField": {
         "allOf": [
@@ -3228,6 +3090,27 @@
           }
         }
       },
+      "GetReportPath": {
+        "required": [
+          "entity",
+          "parameters"
+        ],
+        "type": "object",
+        "properties": {
+          "entity": {
+            "$ref": "#/components/schemas/PrintJobs"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "JobID": {
+                "$ref": "#/components/schemas/IntValue"
+              }
+            },
+            "description": "The parameters of the action."
+          }
+        }
+      },
       "GuidValue": {
         "type": "object",
         "properties": {
@@ -3295,7 +3178,22 @@
         },
         "nullable": true
       },
-      "Ledger": {
+      "LongValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "PrintJob": {
         "allOf": [
           {
             "$ref": "#/components/schemas/Entity"
@@ -3303,19 +3201,111 @@
           {
             "type": "object",
             "properties": {
-              "BalanceType": {
+              "CreatedBy": {
                 "$ref": "#/components/schemas/StringValue"
               },
-              "Descr": {
+              "CreationDateTime": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "Description": {
                 "$ref": "#/components/schemas/StringValue"
               },
-              "LedgerCD": {
+              "DeviceHub": {
                 "$ref": "#/components/schemas/StringValue"
+              },
+              "JobID": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "ModifiedDateTime": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "NumberOfCopies": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "Parameters": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PrintJobParameter"
+                },
+                "nullable": true
+              },
+              "Printer": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ReportID": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ReportPath": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "Selected": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "Status": {
+                "$ref": "#/components/schemas/StringValue"
+              }
+            }
+          }
+        ]
+      },
+      "PrintJobParameter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "JobID": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "ParameterName": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ParameterValue": {
+                "$ref": "#/components/schemas/StringValue"
+              }
+            }
+          }
+        ]
+      },
+      "PrintJobs": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "EndDate": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "EndModifiedDateTime": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "HideProcessed": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "JobID": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "Jobs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PrintJob"
+                },
+                "nullable": true
+              },
+              "StartDate": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "StartModifiedDateTime": {
+                "$ref": "#/components/schemas/DateTimeValue"
               },
               "_workflowActions": {
                 "type": "object",
                 "additionalProperties": {
-                  "$ref": "#/components/schemas/LedgerCustomAction"
+                  "$ref": "#/components/schemas/PrintJobsCustomAction"
                 },
                 "nullable": true
               }
@@ -3323,14 +3313,14 @@
           }
         ]
       },
-      "LedgerCustomAction": {
+      "PrintJobsCustomAction": {
         "required": [
           "entity"
         ],
         "type": "object",
         "properties": {
           "entity": {
-            "$ref": "#/components/schemas/Ledger"
+            "$ref": "#/components/schemas/PrintJobs"
           },
           "parameters": {
             "type": "object",
@@ -3351,22 +3341,7 @@
           }
         }
       },
-      "LongValue": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true
-          },
-          "error": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "nullable": true
-      },
-      "Organization": {
+      "Printer": {
         "allOf": [
           {
             "$ref": "#/components/schemas/Entity"
@@ -3374,19 +3349,22 @@
           {
             "type": "object",
             "properties": {
-              "OrganizationName": {
+              "Description": {
                 "$ref": "#/components/schemas/StringValue"
               },
-              "OrganizationCD": {
+              "DeviceHub": {
                 "$ref": "#/components/schemas/StringValue"
               },
-              "LedgerCD": {
+              "IsActive": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "PrinterName": {
                 "$ref": "#/components/schemas/StringValue"
               },
               "_workflowActions": {
                 "type": "object",
                 "additionalProperties": {
-                  "$ref": "#/components/schemas/OrganizationCustomAction"
+                  "$ref": "#/components/schemas/PrinterCustomAction"
                 },
                 "nullable": true
               }
@@ -3394,14 +3372,233 @@
           }
         ]
       },
-      "OrganizationCustomAction": {
+      "PrinterCustomAction": {
         "required": [
           "entity"
         ],
         "type": "object",
         "properties": {
           "entity": {
-            "$ref": "#/components/schemas/Organization"
+            "$ref": "#/components/schemas/Printer"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "custom": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/CustomField"
+                  }
+                },
+                "nullable": true
+              }
+            },
+            "description": "The parameters of the action.",
+            "nullable": true
+          }
+        }
+      },
+      "Scales": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "Description": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "DeviceHub": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "LastUpdated": {
+                "$ref": "#/components/schemas/DateTimeValue"
+              },
+              "LastWeight": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "ScaleID": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ScaleLastWeight": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "ScaleUOM": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "UOM": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "_workflowActions": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ScalesCustomAction"
+                },
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ScalesCustomAction": {
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "properties": {
+          "entity": {
+            "$ref": "#/components/schemas/Scales"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "custom": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/CustomField"
+                  }
+                },
+                "nullable": true
+              }
+            },
+            "description": "The parameters of the action.",
+            "nullable": true
+          }
+        }
+      },
+      "ScanJobs": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "DeviceHub": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ErrorMessage": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ErrorTrace": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ScanJobID": {
+                "$ref": "#/components/schemas/IntValue"
+              },
+              "Scanner": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "Status": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "_workflowActions": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ScanJobsCustomAction"
+                },
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ScanJobsCustomAction": {
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "properties": {
+          "entity": {
+            "$ref": "#/components/schemas/ScanJobs"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "custom": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/CustomField"
+                  }
+                },
+                "nullable": true
+              }
+            },
+            "description": "The parameters of the action.",
+            "nullable": true
+          }
+        }
+      },
+      "Scanner": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "Description": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "DeviceHub": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "FileTypeComboValues": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "FileTypeDefValue": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "IsActive": {
+                "$ref": "#/components/schemas/BooleanValue"
+              },
+              "PaperSourceComboValues": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "PaperSourceDefValue": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "PixelTypeComboValues": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "PixelTypeDefValue": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ResolutionComboValues": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ResolutionDefValue": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "ScannerName": {
+                "$ref": "#/components/schemas/StringValue"
+              },
+              "_workflowActions": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ScannerCustomAction"
+                },
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ScannerCustomAction": {
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "properties": {
+          "entity": {
+            "$ref": "#/components/schemas/Scanner"
           },
           "parameters": {
             "type": "object",
@@ -3755,24 +3952,24 @@
   },
   "tags": [
     {
-      "name": "Branch",
-      "description": "Consolidation Branches (GL103002)"
+      "name": "Printer",
+      "description": "(SM206510)"
     },
     {
-      "name": "ConsolAccount",
-      "description": "Consolidation Accounts (GL103001)"
+      "name": "PrintJobs",
+      "description": "(SM206500)"
     },
     {
-      "name": "ConsolidationData",
-      "description": "Consolidation Data (GL509001)"
+      "name": "Scales",
+      "description": "(SM206530)"
     },
     {
-      "name": "Ledger",
-      "description": "Consolidation Ledgers (GL103003)"
+      "name": "ScanJobs",
+      "description": "(SM206505)"
     },
     {
-      "name": "Organization",
-      "description": "Consolidation Companies (GL103004)"
+      "name": "Scanner",
+      "description": "(SM206540)"
     }
   ]
 }

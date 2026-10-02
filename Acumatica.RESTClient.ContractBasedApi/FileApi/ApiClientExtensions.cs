@@ -19,11 +19,21 @@ namespace Acumatica.RESTClient.FileApi
     {
         public static Stream GetFile(this ApiClient client, FileLink fileLink)
         {
-            return GetFile(client, fileLink.Href);
+            return GetFile(client, GetHref(fileLink, nameof(GetFile)));
         }
         public static async Task<Stream> GetFileAsync(this ApiClient client, FileLink fileLink)
         {
-            return await GetFileAsync(client, fileLink.Href).ConfigureAwait(false);
+            return await GetFileAsync(client, GetHref(fileLink, nameof(GetFileAsync))).ConfigureAwait(false);
+        }
+
+        private static string GetHref(FileLink fileLink, string methodName)
+        {
+            if (fileLink == null)
+                ThrowMissingParameter(methodName, nameof(fileLink));
+            if (String.IsNullOrWhiteSpace(fileLink!.Href))
+                ThrowMissingParameter(methodName, nameof(FileLink.Href));
+
+            return fileLink.Href!;
         }
 
         public static Stream GetFile(this ApiClient client, string href)
@@ -48,7 +58,7 @@ namespace Acumatica.RESTClient.FileApi
 
         public static Stream GetFile(this ApiClient client, string fileID, string endpointName, string endpointVersion)
         {
-            return GetFileAsync(client, fileID, endpointName, endpointVersion).Result;
+            return GetFileAsync(client, fileID, endpointName, endpointVersion).GetAwaiter().GetResult();
         }
         public async static Task<Stream> GetFileAsync(this ApiClient client, string fileID, string endpointName, string endpointVersion,
             CancellationToken cancellationToken = default)
@@ -61,7 +71,7 @@ namespace Acumatica.RESTClient.FileApi
                 cancellationToken:  cancellationToken
             ).ConfigureAwait(false);
 
-            response.EnsureSuccessStatusCode();
+            await ContractBasedApi.ApiClientExtensions.VerifyResponseAsync(response, nameof(GetFileAsync)).ConfigureAwait(false);
             return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         }
         /// <summary>
@@ -99,7 +109,7 @@ namespace Acumatica.RESTClient.FileApi
             FilePutLocation parsedLocation = UrlParser.ParseFilePutLocation(entity.Links!.FileUploadLink!);
 
             HttpResponseMessage response = await client.CallApiAsync(
-                resourcePath:       $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/files/{parsedLocation.GraphType}/{parsedLocation.ViewName}/{parsedLocation.ID}/{filename}",
+                resourcePath:       $"/entity/{parsedLocation.EndpointName}/{parsedLocation.EndpointVersion}/files/{parsedLocation.GraphType}/{parsedLocation.ViewName}/{parsedLocation.ID}/{Uri.EscapeDataString(filename)}",
                 method:             HttpMethod.Put,
                 acceptType:         HeaderContentType.Json,
                 contentType:        HeaderContentType.OctetStream,
@@ -108,7 +118,7 @@ namespace Acumatica.RESTClient.FileApi
                 cancellationToken:  cancellationToken
             ).ConfigureAwait(false);
 
-            response.EnsureSuccessStatusCode();
+            await ContractBasedApi.ApiClientExtensions.VerifyResponseAsync(response, nameof(PutFileAsync)).ConfigureAwait(false);
         }
         private static Dictionary<string, string>? ComposeFileUploadHeaders(string? comment)
         {

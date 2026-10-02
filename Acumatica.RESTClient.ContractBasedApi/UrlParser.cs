@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
+using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.FileApi.Model;
 using Acumatica.RESTClient.ContractBasedApi.Model;
 
@@ -22,6 +23,8 @@ namespace Acumatica.RESTClient.Api
 
             string restOfLocation = location.Substring(indexOfEntity);
             var parts = restOfLocation.Split(pathSeparators, StringSplitOptions.RemoveEmptyEntries);
+
+            VerifySegmentCount(parts, 4, location);
 
             result.ID = parts[parts.Length - 1];
             result.EndpointName = parts[1];
@@ -45,6 +48,8 @@ namespace Acumatica.RESTClient.Api
             string restOfLocation = location.Substring(indexOfEntity);
             var parts = restOfLocation.Split(pathSeparators, StringSplitOptions.RemoveEmptyEntries);
 
+            VerifySegmentCount(parts, 7, location);
+
             result.ID = parts[parts.Length - 1];
             result.EndpointName = parts[1];
             result.EndpointVersion = parts[2];
@@ -67,6 +72,8 @@ namespace Acumatica.RESTClient.Api
             string restOfLocation = location.Substring(indexOfEntity);
             var parts = restOfLocation.Split(pathSeparators, StringSplitOptions.RemoveEmptyEntries);
 
+            VerifySegmentCount(parts, 3, location);
+
             result.ID = parts[parts.Length - 1];
             result.EndpointName = parts[1];
             result.EndpointVersion = parts[2];
@@ -84,6 +91,8 @@ namespace Acumatica.RESTClient.Api
             string restOfLocation = location.Substring(indexOfEntity);
             var parts = restOfLocation.Split(pathSeparators, StringSplitOptions.RemoveEmptyEntries);
 
+            VerifySegmentCount(parts, 4, location);
+
             result.ID = parts[parts.Length - 2];
             result.ViewName = parts[parts.Length - 3];
             result.GraphType = parts[parts.Length - 4];
@@ -96,13 +105,27 @@ namespace Acumatica.RESTClient.Api
 
         private static int FindEntityKeyword(string location)
         {
+            if (location == null)
+                throw new ApiException(400, "Incorrect location: the value is null.");
+
             int indexOfEntity = location.IndexOf(entityKeyword, StringComparison.OrdinalIgnoreCase);
 
             if (indexOfEntity < 0)
-                throw new Exception("Incorrect location");
+                throw new ApiException(400, $"Incorrect location: '{location}' does not contain '{entityKeyword}'.");
             if (location.Substring(indexOfEntity + entityKeyword.Length).IndexOf(entityKeyword, StringComparison.OrdinalIgnoreCase) >= 0)
-                throw new Exception("Location cannot be parsed as it contains more than 1 entity keyword");
+                throw new ApiException(400, $"Location '{location}' cannot be parsed as it contains more than 1 entity keyword");
             return indexOfEntity;
+        }
+
+        /// <summary>
+        /// Verifies that the location has at least <paramref name="requiredCount"/> path segments
+        /// before they are indexed, so a malformed or unexpected location reports what failed
+        /// instead of throwing <see cref="IndexOutOfRangeException"/>.
+        /// </summary>
+        private static void VerifySegmentCount(string[] parts, int requiredCount, string location)
+        {
+            if (parts.Length < requiredCount)
+                throw new ApiException(400, $"Location '{location}' cannot be parsed: expected at least {requiredCount} path segments after '{entityKeyword}' but found {parts.Length}.");
         }
     }
 }

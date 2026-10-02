@@ -1017,16 +1017,16 @@
                         </Mapping>
                     </Mapping>
                     <Mapping field="CostCode">
-                        <To object="ProdItemSelected: 5" field="CostCodeID" />
+                        <To object="ProdItemSelected" field="CostCodeID" />
                     </Mapping>
                     <Mapping field="CostingMethod">
                         <To object="ProdItemSelected" field="CostMethod" />
                     </Mapping>
                     <Mapping field="Customer">
-                        <To object="ProdItemSelected: 1" field="CustomerID" />
+                        <To object="ProdItemSelected" field="CustomerID" />
                     </Mapping>
                     <Mapping field="CustomerName">
-                        <To object="ProdItemSelected: 1" field="CustomerID%AcctName" />
+                        <To object="ProdItemSelected" field="CustomerID%AcctName" />
                     </Mapping>
                     <Mapping field="DispatchPriority">
                         <To object="ProdItemSelected" field="SchPriority" />
@@ -1035,10 +1035,10 @@
                         <To object="ProdItemSelected" field="EndDate" />
                     </Mapping>
                     <Mapping field="EstimateID">
-                        <To object="ProdItemSelected: 4" field="EstimateID" />
+                        <To object="ProdItemSelected" field="EstimateID" />
                     </Mapping>
                     <Mapping field="EstimateRevision">
-                        <To object="ProdItemSelected: 4" field="EstimateRevisionID" />
+                        <To object="ProdItemSelected" field="EstimateRevisionID" />
                     </Mapping>
                     <Mapping field="EventHistory">
                         <Mapping field="BatchNbr">
@@ -1091,7 +1091,7 @@
                         <To object="ProdMaintRecords" field="InventoryID" />
                     </Mapping>
                     <Mapping field="Location">
-                        <To object="ProdMaintRecords" field="LocationID" />
+                        <To object="ProdItemSelected" field="LocationID" />
                     </Mapping>
                     <Mapping field="OrderAttributes">
                         <Mapping field="AttributeID">
@@ -1245,13 +1245,13 @@
                         <To object="ProdMaintRecords" field="OrderType" />
                     </Mapping>
                     <Mapping field="ParentOrder">
-                        <To object="ProdItemSelected: 2" field="ParentOrdID" />
+                        <To object="ProdItemSelected" field="ParentOrdID" />
                     </Mapping>
                     <Mapping field="ParentOrderType">
-                        <To object="ProdItemSelected: 2" field="ParentOrderType" />
+                        <To object="ProdItemSelected" field="ParentOrderType" />
                     </Mapping>
                     <Mapping field="BOMID">
-                        <To object="ProdItemSelected: 4" field="BOMID" />
+                        <To object="ProdItemSelected" field="BOMID" />
                     </Mapping>
                     <Mapping field="ProductionNbr">
                         <To object="ProdMaintRecords" field="ProdOrdID" />
@@ -1260,34 +1260,34 @@
                         <To object="ProdMaintRecords" field="ProductManagerID" />
                     </Mapping>
                     <Mapping field="ProductOrder">
-                        <To object="ProdItemSelected: 2" field="ProductOrdID" />
+                        <To object="ProdMaintRecords" field="ProductOrdID" />
                     </Mapping>
                     <Mapping field="ProductOrderType">
-                        <To object="ProdItemSelected: 2" field="ProductOrderType" />
+                        <To object="ProdMaintRecords" field="ProductOrderType" />
                     </Mapping>
                     <Mapping field="ProductWorkgroup">
                         <To object="ProdMaintRecords" field="ProductWorkgroupID" />
                     </Mapping>
                     <Mapping field="Project">
-                        <To object="ProdItemSelected: 5" field="ProjectID" />
+                        <To object="ProdItemSelected" field="ProjectID" />
                     </Mapping>
                     <Mapping field="ProjectTask">
-                        <To object="ProdItemSelected: 5" field="TaskID" />
+                        <To object="ProdItemSelected" field="TaskID" />
                     </Mapping>
                     <Mapping field="QtyComplete">
-                        <To object="ProdItemSelected" field="QtyComplete" />
+                        <To object="ProdMaintRecords" field="QtyComplete" />
                     </Mapping>
                     <Mapping field="QtyRemaining">
-                        <To object="ProdItemSelected" field="QtyRemaining" />
+                        <To object="ProdMaintRecords" field="QtyRemaining" />
                     </Mapping>
                     <Mapping field="QtyScrapped">
-                        <To object="ProdItemSelected" field="QtyScrapped" />
+                        <To object="ProdMaintRecords" field="QtyScrapped" />
                     </Mapping>
                     <Mapping field="BOMRevision">
-                        <To object="ProdItemSelected: 4" field="BOMRevisionID" />
+                        <To object="ProdItemSelected" field="BOMRevisionID" />
                     </Mapping>
                     <Mapping field="QtytoProduce">
-                        <To object="ProdItemSelected" field="QtytoProd" />
+                        <To object="ProdMaintRecords" field="QtytoProd" />
                     </Mapping>
                     <Mapping field="RequireParentLotSerialNumber">
                         <To object="ProdItemSelected" field="ParentLotSerialRequired" />
@@ -1308,28 +1308,28 @@
                         <To object="ProdItemSelected" field="ScrapSiteID" />
                     </Mapping>
                     <Mapping field="SOLineNbr">
-                        <To object="ProdItemSelected: 1" field="OrdLineRef" />
+                        <To object="ProdItemSelected" field="OrdLineRef" />
                     </Mapping>
                     <Mapping field="SOOrderNbr">
-                        <To object="ProdItemSelected: 1" field="OrdNbr" />
+                        <To object="ProdItemSelected" field="OrdNbr" />
                     </Mapping>
                     <Mapping field="SOOrderType">
-                        <To object="ProdItemSelected: 1" field="OrdTypeRef" />
+                        <To object="ProdItemSelected" field="OrdTypeRef" />
                     </Mapping>
                     <Mapping field="Branch">
-                        <To object="ProdItemSelected: 3" field="BranchID" />
+                        <To object="ProdItemSelected" field="BranchID" />
                     </Mapping>
                     <Mapping field="Source">
-                        <To object="ProdItemSelected: 4" field="DetailSource" />
+                        <To object="ProdItemSelected" field="DetailSource" />
                     </Mapping>
                     <Mapping field="SourceDate">
-                        <To object="ProdItemSelected: 4" field="BOMEffDate" />
+                        <To object="ProdItemSelected" field="BOMEffDate" />
                     </Mapping>
                     <Mapping field="SourceOrderType">
-                        <To object="ProdItemSelected: 4" field="SourceOrderType" />
+                        <To object="ProdItemSelected" field="SourceOrderType" />
                     </Mapping>
                     <Mapping field="SourceProductionNbr">
-                        <To object="ProdItemSelected: 4" field="SourceProductionNbr" />
+                        <To object="ProdItemSelected" field="SourceProductionNbr" />
                     </Mapping>
                     <Mapping field="StartDate">
                         <To object="ProdItemSelected" field="StartDate" />
@@ -1344,7 +1344,7 @@
                         <To object="ProdItemSelected" field="UOM" />
                     </Mapping>
                     <Mapping field="UpdateProject">
-                        <To object="ProdItemSelected: 5" field="UpdateProject" />
+                        <To object="ProdItemSelected" field="UpdateProject" />
                     </Mapping>
                     <Mapping field="UseFixedMfgLeadTimesforOrderDates">
                         <To object="ProdItemSelected" field="FMLTime" />
@@ -1356,19 +1356,19 @@
                         <To object="ProdItemSelected" field="FMLTMRPOrdorOP" />
                     </Mapping>
                     <Mapping field="Warehouse">
-                        <To object="ProdMaintRecords" field="SiteID" />
+                        <To object="ProdItemSelected" field="SiteID" />
                     </Mapping>
                     <Mapping field="WIPAccount">
-                        <To object="ProdItemSelected: 3" field="WIPAcctID" />
+                        <To object="ProdItemSelected" field="WIPAcctID" />
                     </Mapping>
                     <Mapping field="WIPSubaccount">
-                        <To object="ProdItemSelected: 3" field="WIPSubID" />
+                        <To object="ProdItemSelected" field="WIPSubID" />
                     </Mapping>
                     <Mapping field="WIPVarianceAccount">
-                        <To object="ProdItemSelected: 3" field="WIPVarianceAcctID" />
+                        <To object="ProdItemSelected" field="WIPVarianceAcctID" />
                     </Mapping>
                     <Mapping field="WIPVarianceSubaccount">
-                        <To object="ProdItemSelected: 3" field="WIPVarianceSubID" />
+                        <To object="ProdItemSelected" field="WIPVarianceSubID" />
                     </Mapping>
                     <Mapping field="AutoBackwardReporting">
                         <To object="ProdItemSelected" field="AutoBackwardReporting" />
@@ -1434,16 +1434,16 @@
             <TopLevelEntity name="ProductionOrderDetail" screen="AM209000">
                 <Fields>
                     <Field name="Branch" type="StringValue" />
-					<Field name="EndDate" type="DateTimeValue" />
+                    <Field name="EndDate" type="DateTimeValue" />
                     <Field name="Hold" type="BooleanValue" />
                     <Field name="InventoryID" type="StringValue" />
                     <Field name="Operations" type="OrderOperationDetail[]" />
                     <Field name="OrderDate" type="DateTimeValue" />
                     <Field name="OrderType" type="StringValue" />
                     <Field name="ProductionNbr" type="StringValue" />
-					<Field name="SchedulingMethod" type="StringValue" />
+                    <Field name="SchedulingMethod" type="StringValue" />
                     <Field name="Status" type="StringValue" />
-					<Field name="StartDate" type="DateTimeValue" />
+                    <Field name="StartDate" type="DateTimeValue" />
                     <Field name="Subitem" type="StringValue" />
                     <Field name="Warehouse" type="StringValue" />
                 </Fields>
@@ -1451,9 +1451,9 @@
                     <Mapping field="Branch">
                         <To object="ProdItemRecords" field="BranchID" />
                     </Mapping>
-					<Mapping field="EndDate">
-						<To object="ProdItemRecords" field="EndDate" />
-					</Mapping>
+                    <Mapping field="EndDate">
+                        <To object="ProdItemRecords" field="EndDate" />
+                    </Mapping>
                     <Mapping field="Warehouse">
                         <To object="ProdItemRecords" field="SiteId" />
                     </Mapping>
@@ -1467,9 +1467,9 @@
                         <Mapping field="ActualEndDate">
                             <To object="ProdOperRecords" field="ActEndDate" />
                         </Mapping>
-						<Mapping field="EndDate">
-							<To object="ProdOperRecords" field="EndDate" />
-						</Mapping>
+                        <Mapping field="EndDate">
+                            <To object="ProdOperRecords" field="EndDate" />
+                        </Mapping>
                         <Mapping field="Material">
                             <Mapping field="Backflush">
                                 <To object="ProdMatlRecords" field="BFlush" />
@@ -1836,9 +1836,9 @@
                         <Mapping field="ShipRemainingQty">
                             <To object="ProdOperRecords" field="ShipRemainingQty" />
                         </Mapping>
-						<Mapping field="StartDate">
-							<To object="ProdOperRecords" field="StartDate" />
-						</Mapping>
+                        <Mapping field="StartDate">
+                            <To object="ProdOperRecords" field="StartDate" />
+                        </Mapping>
                         <Mapping field="Steps">
                             <Mapping field="Description">
                                 <To object="ProdStepRecords" field="Descr" />
@@ -1973,12 +1973,12 @@
                     <Mapping field="ProductionNbr">
                         <To object="ProdItemRecords" field="ProdOrdID" />
                     </Mapping>
-					<Mapping field="SchedulingMethod">
-						<To object="ProdItemRecords" field="SchedulingMethod" />
-					</Mapping>
-					<Mapping field="StartDate">
-						<To object="ProdItemRecords" field="StartDate" />
-					</Mapping>
+                    <Mapping field="SchedulingMethod">
+                        <To object="ProdItemRecords" field="SchedulingMethod" />
+                    </Mapping>
+                    <Mapping field="StartDate">
+                        <To object="ProdItemRecords" field="StartDate" />
+                    </Mapping>
                     <Mapping field="Status">
                         <To object="ProdItemRecords" field="StatusID" />
                     </Mapping>
@@ -4615,20 +4615,20 @@
                         <To object="EstimateOperationRecords" field="ControlPoint" />
                     </Mapping>
                     <Mapping field="OutsideProcess">
-                        <To object="OutsideProcessingOperationSelected" field="OutsideProcess" />
+                        <To object="EstimateOperRecordSelected" field="OutsideProcess" />
                     </Mapping>
                     <Mapping field="OutsideProcessOptions">
                         <Mapping field="DropShippedtoVendor">
-                            <To object="OutsideProcessingOperationSelected" field="DropShippedToVendor" />
+                            <To object="EstimateOperRecordSelected" field="DropShippedToVendor" />
                         </Mapping>
                         <Mapping field="OutsideProcess">
-                            <To object="OutsideProcessingOperationSelected" field="OutsideProcess" />
+                            <To object="EstimateOperRecordSelected" field="OutsideProcess" />
                         </Mapping>
                         <Mapping field="Vendor">
-                            <To object="OutsideProcessingOperationSelected" field="VendorID" />
+                            <To object="EstimateOperRecordSelected" field="VendorID" />
                         </Mapping>
                         <Mapping field="VendorLocation">
-                            <To object="OutsideProcessingOperationSelected" field="VendorLocationID" />
+                            <To object="EstimateOperRecordSelected" field="VendorLocationID" />
                         </Mapping>
                     </Mapping>
                     <Mapping field="Overheads">
@@ -4684,7 +4684,7 @@
                         </Mapping>
                     </Mapping>
                     <Mapping field="DropShippedtoVendor">
-                        <To object="OutsideProcessingOperationSelected" field="DropShippedToVendor" />
+                        <To object="EstimateOperRecordSelected" field="DropShippedToVendor" />
                     </Mapping>
                     <Mapping field="SubcontractCost">
                         <To object="EstimateOperationRecords" field="SubcontractCost" />
@@ -4734,10 +4734,10 @@
                         <To object="EstimateOperationRecords" field="EstimateID" />
                     </Mapping>
                     <Mapping field="Vendor">
-                        <To object="OutsideProcessingOperationSelected" field="VendorID" />
+                        <To object="EstimateOperRecordSelected" field="VendorID" />
                     </Mapping>
                     <Mapping field="VendorLocation">
-                        <To object="OutsideProcessingOperationSelected" field="VendorLocationID" />
+                        <To object="EstimateOperRecordSelected" field="VendorLocationID" />
                     </Mapping>
                     <Mapping field="WorkCenter">
                         <To object="EstimateOperationRecords" field="WorkCenterID" />
@@ -8496,7 +8496,7 @@
                         <To object="BucketLookup" field="BucketID" />
                     </Mapping>
                     <Mapping field="SafetyStock">
-                        <To object="BucketLookup" field="SafetyStock" />
+                        <To object="BucketLookup" field="ReorderPoint" />
                     </Mapping>
                     <Mapping field="Subitem">
                         <To object="BucketLookup" field="SubItemID" />

@@ -18,7 +18,7 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<LangVersion>9.0</LangVersion>
 		<nullable>Enable</nullable>
-		<PackageReleaseNotes>Removed backward compatibility code</PackageReleaseNotes>
+		<PackageReleaseNotes>Removed backward compatibility code; added debugger display to better view Rest Values</PackageReleaseNotes>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 

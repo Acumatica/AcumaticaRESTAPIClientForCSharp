@@ -9,13 +9,17 @@ namespace EndpointModelGenerator
             get
             {
                 return new List<string>
-                {
-                    "StringValue",
+				{
+					"StringMultiSelectValue",
+					"IntSingleSelectValue",
+					"StringSingleSelectValue",
+					"StringValue",
                     "IntValue",
                     "DecimalValue",
                     "BooleanValue",
                     "ByteValue",
                     "DateTimeValue",
+                    "DateOnlyValue",
                     "DoubleValue",
                     "GuidValue",
                     "LongValue",

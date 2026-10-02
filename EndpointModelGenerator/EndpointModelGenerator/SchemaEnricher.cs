@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 
 using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.DACBrowserApi.Model;
 
 using EndpointSchemaGenerator;
 
@@ -29,7 +33,12 @@ namespace EndpointModelGenerator
                         parsedScreenMetadata.Add(parts[0], new ScreenMetadata());
                     }
 
-                    parsedScreenMetadata[parts[0]].Fields.TryAdd(parts[1], new FieldMetadata() { ViewName = parts[2], DACName = parts[3] });
+                    // ScreensMetadata.csv lists each screen's fields in the order the screen's views declare
+                    // them (DocType before RefNbr, etc.), unlike the server's alphabetically-sorted Swagger
+                    // schema. Recording the row position lets callers (e.g. key field ordering for the
+                    // debugger display) recover that natural order.
+                    var screenFields = parsedScreenMetadata[parts[0]].Fields;
+                    screenFields.TryAdd(parts[1], new FieldMetadata() { ViewName = parts[2], DACName = parts[3], Order = screenFields.Count });
                 }
             }
             XmlSerializer ser = new XmlSerializer(typeof(Endpoint));
@@ -61,10 +70,13 @@ namespace EndpointModelGenerator
                     // We need to only keep fields that are in the metadata. If we remove any fields, we need to add a parent reference to the entity.
                     foreach (var field in entity.Value.Fields)
                     {
-                        if (!topLevelEntityMetadata.Fields.Any(_ => _.name == field.Name))
+                        if (topLevelEntityMetadata?.Fields != null)
                         {
-                            endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
-                            endpointSchema.Entities[entity.Key].Fields.Remove(field);
+                            if (!topLevelEntityMetadata.Fields.Any(_ => _.name == field.Name))
+                            {
+                                endpointSchema.Entities[entity.Key].ParentReference = entity.Key;
+                                endpointSchema.Entities[entity.Key].Fields.Remove(field);
+                            }
                         }
                     }
                 }
@@ -102,6 +114,52 @@ namespace EndpointModelGenerator
 
                 }
             }
+        }
+
+
+        /// <summary>
+        /// Matches an HTML anchor and captures its link text.
+        /// </summary>
+        private static readonly Regex DocumentationLink = new Regex(
+            @"<a\s[^>]*>(.*?)</a>",
+            RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.Compiled);
+
+        /// <summary>
+        /// Matches the HTML tags that the DAC documentation uses for emphasis. There is no XML
+        /// documentation equivalent, so only the tags are dropped and the text is kept.
+        /// </summary>
+        private static readonly Regex EmphasisTag = new Regex(
+            @"</?(?:i|b|em|strong)>",
+            RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+        /// <summary>
+        /// Normalizes documentation scraped from the DAC browser so that it only contains elements
+        /// that C# XML documentation understands.
+        /// <para>The DAC documentation is HTML, and the compiler copies unrecognized elements into
+        /// the XML doc file verbatim: IntelliSense then shows only their inner text, while a
+        /// documentation generator renders them as real HTML. <c>&lt;pre&gt;</c> is the worst of
+        /// these, because it is block level and so breaks a sentence around the literal it
+        /// wraps.</para>
+        /// </summary>
+        internal static string? NormalizeDocumentation(string? documentation)
+        {
+            if (string.IsNullOrEmpty(documentation))
+                return documentation;
+
+            // Hyperlinks: neither kind Acumatica emits resolves to anything useful from generated
+            // code - DAC browser links are paths on the instance the documentation was scraped
+            // from, and the C# language reference links merely wrap the words "true" and "false".
+            string result = DocumentationLink.Replace(documentation!, "$1");
+
+            // <pre> marks up a literal value, which is what <c> means in XML documentation.
+            result = result.Replace("<pre>", "<c>").Replace("</pre>", "</c>");
+            result = result.Replace("<PRE>", "<c>").Replace("</PRE>", "</c>");
+
+            // <p> is spelled <para> in XML documentation.
+            result = result.Replace("<p>", "<para>").Replace("</p>", "</para>");
+            result = result.Replace("<P>", "<para>").Replace("</P>", "</para>");
+
+            return EmphasisTag.Replace(result, string.Empty);
         }
 
         private static void FillDescriptions(Schema endpointSchema, Dictionary<string, ScreenMetadata> parsedScreenMetadata, Endpoint? parsedEndpointMetadata)
@@ -178,9 +236,61 @@ namespace EndpointModelGenerator
                     if (val != null)
                     {
                         field.DAC = val.DACName;
+                        field.ScreenOrder = val.Order;
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Caches DAC browser lookups for the lifetime of the process, including the ones that
+        /// found nothing.
+        /// <para>The same DAC field backs the same entity field in every endpoint version -
+        /// <c>Bill.DocType</c> resolves to <c>APInvoice.DocType</c> in all of them - and
+        /// <c>GetField</c> takes no endpoint parameter, so two callers asking about one DAC field
+        /// issue an identical request and cannot get different answers within a run. Generating
+        /// every endpoint asks for 20057 fields of which only 4331 are distinct, so roughly four
+        /// out of five requests are repeats.</para>
+        /// <para>The site is part of the key because <see cref="AddFieldDescriptions"/> takes the
+        /// URL per call, and documentation is specific to the instance it was read from.</para>
+        /// </summary>
+        /// <remarks>
+        /// Not thread safe: the generator enriches one endpoint at a time.
+        /// </remarks>
+        private static readonly Dictionary<(string Site, string DacNamespace, string DacName, string FieldName), Field?> FieldDescriptionCache
+            = new Dictionary<(string, string, string, string), Field?>();
+
+        /// <summary>
+        /// Returns the DAC browser description of a field, or <c>null</c> when the DAC browser has
+        /// no such field.
+        /// </summary>
+        /// <remarks>
+        /// A "not found" answer is cached too, otherwise a field the browser does not know is
+        /// requested again for every entity and every endpoint that references it. Any other
+        /// failure - a timeout, a dropped connection, the API login limit - is deliberately left
+        /// uncached and allowed to propagate, so that one transient error does not discard the
+        /// documentation for every later occurrence of the same field.
+        /// </remarks>
+        private static Field? GetFieldDescription(ApiClient client, string site, string dacNamespace, string dacName, string fieldName)
+        {
+            var key = (site, dacNamespace, dacName, fieldName);
+            if (FieldDescriptionCache.TryGetValue(key, out Field? cached))
+            {
+                return cached;
+            }
+
+            Field? description;
+            try
+            {
+                description = client.GetField(dacNamespace, dacName, fieldName);
+            }
+            catch (HttpRequestException e) when (e.StatusCode == HttpStatusCode.NotFound)
+            {
+                description = null;
+            }
+
+            FieldDescriptionCache[key] = description;
+            return description;
         }
 
         public static void AddFieldDescriptions(Schema endpointSchema, MetadataSource metadataSource)
@@ -199,12 +309,15 @@ namespace EndpointModelGenerator
                             {
                                 string dacName = field.DAC.Split('.').Last();
                                 string dacNamespace = field.DAC.Substring(0, field.DAC.LastIndexOf('.'));
-                                var fieldDescr = client.GetField(dacNamespace, dacName, field.DACFieldName!);
-                                field.DisplayName = fieldDescr.DisplayName;
-                                field.SqlType = fieldDescr.SqlType;
-                                field.Summary = fieldDescr.Documentation?.Summary;
-                                field.Remarks = fieldDescr.Documentation?.Remarks;
-                                field.IsKey = fieldDescr.IsKey;
+                                var fieldDescr = GetFieldDescription(client, metadataSource.Url, dacNamespace, dacName, field.DACFieldName!);
+                                if (fieldDescr != null)
+                                {
+                                    field.DisplayName = fieldDescr.DisplayName;
+                                    field.SqlType = fieldDescr.SqlType;
+                                    field.Summary = NormalizeDocumentation(fieldDescr.Documentation?.Summary);
+                                    field.Remarks = NormalizeDocumentation(fieldDescr.Documentation?.Remarks);
+                                    field.IsKey = fieldDescr.IsKey;
+                                }
                             }
                             catch { }
                         }
@@ -233,6 +346,7 @@ namespace EndpointModelGenerator
     {
         public string? ViewName;
         public string? DACName;
+        public int Order;
 
     }
 }

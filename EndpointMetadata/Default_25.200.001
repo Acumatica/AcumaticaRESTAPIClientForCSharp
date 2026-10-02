@@ -7631,6 +7631,9 @@
         <Mapping field="Billable">
           <To object="CurrentClaimDetails: 3" field="Billable" />
         </Mapping>
+        <Mapping field="CorporateCard">
+          <To object="CurrentClaimDetails" field="CorpCardID" />
+        </Mapping>
         <Mapping field="CostCode">
           <To object="CurrentClaimDetails" field="CostCodeID" />
         </Mapping>
@@ -7667,6 +7670,9 @@
         <Mapping field="LocationID">
           <To object="CurrentClaimDetails: 3" field="CustomerLocationID" />
         </Mapping>
+        <Mapping field="PaidWith">
+          <To object="CurrentClaimDetails" field="PaidWith" />
+        </Mapping>
         <Mapping field="ProjectID">
           <To object="CurrentClaimDetails" field="ContractID" />
         </Mapping>
@@ -7693,6 +7699,9 @@
         </Mapping>
         <Mapping field="TaxZone">
           <To object="CurrentClaimDetails: 2" field="TaxZoneID" />
+        </Mapping>
+        <Mapping field="TipAmount">
+          <To object="CurrentClaimDetails" field="CuryTipAmt" />
         </Mapping>
         <Mapping field="UnitCost">
           <To object="CurrentClaimDetails" field="CuryUnitCost" />
@@ -7759,6 +7768,7 @@
       <Field name="Amount" type="DecimalValue" />
       <Field name="BaseCurrencyID" type="StringValue" />
       <Field name="Billable" type="BooleanValue" />
+      <Field name="CorporateCard" type="StringValue" />
       <Field name="CostCode" type="StringValue" />
       <Field name="CurrancyRateTypeID" type="StringValue" />
       <Field name="CurrencyID" type="StringValue" />
@@ -7771,6 +7781,7 @@
       <Field name="ExpenseClaimStatus" type="StringValue" />
       <Field name="ExpenseSubaccount" type="StringValue" />
       <Field name="LocationID" type="StringValue" />
+      <Field name="PaidWith" type="StringValue" />
       <Field name="ProjectID" type="StringValue" />
       <Field name="ProjectTaskID" type="StringValue" />
       <Field name="Qty" type="DecimalValue" />
@@ -7780,6 +7791,7 @@
       <Field name="SalesSubaccount" type="StringValue" />
       <Field name="TaxCategory" type="StringValue" />
       <Field name="TaxZone" type="StringValue" />
+      <Field name="TipAmount" type="DecimalValue" />
       <Field name="UnitCost" type="DecimalValue" />
       <Field name="UOM" type="StringValue" />
     </Fields>
@@ -9346,7 +9358,6 @@
         <To object="itemsitesettings" field="DfltReceiptLocationID" />
       </Mapping>
       <Mapping field="DefaultSubitem">
-        <To object="itemsitesettings: 6" field="InventoryItem__DefaultSubItemID" />
       </Mapping>
       <Mapping field="InventoryAccount">
         <To object="itemsitesettings: 2" field="InvtAcctID" />
@@ -16375,7 +16386,7 @@
           <To object="Transactions" field="SiteID" />
         </Mapping>
         <Mapping field="ExternalRef">
-          <To object="Transactions" field="UsrExternalRef" />
+          <To object="Transactions" field="ExternalRef" />
         </Mapping>
         <Mapping field="Account">
           <To object="Transactions" field="AccountID" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="IBM437"?>
-        <Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="MANUFACTURING" version="23.200.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
+        <Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="MANUFACTURING" version="26.200.001" systemContractVersion="5" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
             <TopLevelEntity name="Shift" screen="AM205000">
                 <Fields>
                     <Field name="CrewSize" type="DecimalValue" />
@@ -328,6 +328,7 @@
                     <Field name="DefaultFinishTime" type="StringValue" />
                     <Field name="DefaultMoveTime" type="StringValue" />
                     <Field name="DefaultQueueTime" type="StringValue" />
+                    <Field name="DepartmentID" type="StringValue" />
                     <Field name="Description" type="StringValue" />
                     <Field name="Location" type="StringValue" />
                     <Field name="Machines" type="MachineDetail[]" />
@@ -435,9 +436,6 @@
                         <To object="WCRecordsSelected" field="AllowMultiClockEntry" />
                     </Mapping>
                     <Mapping field="WhereUsed">
-                        <Mapping field="Active">
-                            <To object="WCWhereUsed" field="AMBomItem__ActiveFlg" />
-                        </Mapping>
                         <Mapping field="OperationIDOperationID">
                             <To object="WCWhereUsed" field="OperationID" />
                         </Mapping>
@@ -508,6 +506,9 @@
                     <Mapping field="DefaultQueueTime">
                         <To object="WCRecordsSelected" field="DefaultQueueTime" />
                     </Mapping>
+                    <Mapping field="DepartmentID">
+                        <To object="WCRecordsSelected" field="DepartmentID" />
+                    </Mapping>
                 </Mappings>
             </TopLevelEntity>
             <Detail name="ShiftDetail">
@@ -563,7 +564,6 @@
             </TopLevelEntity>
             <Detail name="WhereUsedDetail">
                 <Fields>
-                    <Field name="Active" type="BooleanValue" />
                     <Field name="BackflushLabor" type="BooleanValue" />
                     <Field name="BOMID" type="StringValue" />
                     <Field name="BOMIDAMBomItem__BOMID" type="StringValue" />
@@ -912,6 +912,7 @@
                 <Fields>
                     <Field name="Allocations" type="ProductionOrderAllocation[]" />
                     <Field name="AllowPreassigningLotSerialNumbers" type="BooleanValue" />
+                    <Field name="AutoBackwardReporting" type="BooleanValue" />
                     <Field name="BOMID" type="StringValue" />
                     <Field name="BOMRevision" type="StringValue" />
                     <Field name="Branch" type="StringValue" />
@@ -924,6 +925,7 @@
                     <Field name="Customer" type="StringValue" />
                     <Field name="CustomerName" type="StringValue" />
                     <Field name="DispatchPriority" type="ShortValue" />
+                    <Field name="DueDate" type="DateOnlyValue" />
                     <Field name="EndDate" type="DateTimeValue" />
                     <Field name="EstimateID" type="StringValue" />
                     <Field name="EstimateRevision" type="StringValue" />
@@ -1016,28 +1018,31 @@
                         </Mapping>
                     </Mapping>
                     <Mapping field="CostCode">
-                        <To object="ProdItemSelected: 5" field="CostCodeID" />
+                        <To object="ProdItemSelected" field="CostCodeID" />
                     </Mapping>
                     <Mapping field="CostingMethod">
                         <To object="ProdItemSelected" field="CostMethod" />
                     </Mapping>
                     <Mapping field="Customer">
-                        <To object="ProdItemSelected: 1" field="CustomerID" />
+                        <To object="ProdItemSelected" field="CustomerID" />
                     </Mapping>
                     <Mapping field="CustomerName">
-                        <To object="ProdItemSelected: 1" field="CustomerID%AcctName" />
+                        <To object="ProdItemSelected" field="CustomerID%AcctName" />
                     </Mapping>
                     <Mapping field="DispatchPriority">
                         <To object="ProdItemSelected" field="SchPriority" />
+                    </Mapping>
+                    <Mapping field="DueDate">
+                        <To object="ProdItemSelected" field="DueDate" />
                     </Mapping>
                     <Mapping field="EndDate">
                         <To object="ProdItemSelected" field="EndDate" />
                     </Mapping>
                     <Mapping field="EstimateID">
-                        <To object="ProdItemSelected: 4" field="EstimateID" />
+                        <To object="ProdItemSelected" field="EstimateID" />
                     </Mapping>
                     <Mapping field="EstimateRevision">
-                        <To object="ProdItemSelected: 4" field="EstimateRevisionID" />
+                        <To object="ProdItemSelected" field="EstimateRevisionID" />
                     </Mapping>
                     <Mapping field="EventHistory">
                         <Mapping field="BatchNbr">
@@ -1090,7 +1095,7 @@
                         <To object="ProdMaintRecords" field="InventoryID" />
                     </Mapping>
                     <Mapping field="Location">
-                        <To object="ProdMaintRecords" field="LocationID" />
+                        <To object="ProdItemSelected" field="LocationID" />
                     </Mapping>
                     <Mapping field="OrderAttributes">
                         <Mapping field="AttributeID">
@@ -1244,13 +1249,13 @@
                         <To object="ProdMaintRecords" field="OrderType" />
                     </Mapping>
                     <Mapping field="ParentOrder">
-                        <To object="ProdItemSelected: 2" field="ParentOrdID" />
+                        <To object="ProdItemSelected" field="ParentOrdID" />
                     </Mapping>
                     <Mapping field="ParentOrderType">
-                        <To object="ProdItemSelected: 2" field="ParentOrderType" />
+                        <To object="ProdItemSelected" field="ParentOrderType" />
                     </Mapping>
                     <Mapping field="BOMID">
-                        <To object="ProdItemSelected: 4" field="BOMID" />
+                        <To object="ProdItemSelected" field="BOMID" />
                     </Mapping>
                     <Mapping field="ProductionNbr">
                         <To object="ProdMaintRecords" field="ProdOrdID" />
@@ -1259,34 +1264,34 @@
                         <To object="ProdMaintRecords" field="ProductManagerID" />
                     </Mapping>
                     <Mapping field="ProductOrder">
-                        <To object="ProdItemSelected: 2" field="ProductOrdID" />
+                        <To object="ProdMaintRecords" field="ProductOrdID" />
                     </Mapping>
                     <Mapping field="ProductOrderType">
-                        <To object="ProdItemSelected: 2" field="ProductOrderType" />
+                        <To object="ProdMaintRecords" field="ProductOrderType" />
                     </Mapping>
                     <Mapping field="ProductWorkgroup">
                         <To object="ProdMaintRecords" field="ProductWorkgroupID" />
                     </Mapping>
                     <Mapping field="Project">
-                        <To object="ProdItemSelected: 5" field="ProjectID" />
+                        <To object="ProdItemSelected" field="ProjectID" />
                     </Mapping>
                     <Mapping field="ProjectTask">
-                        <To object="ProdItemSelected: 5" field="TaskID" />
+                        <To object="ProdItemSelected" field="TaskID" />
                     </Mapping>
                     <Mapping field="QtyComplete">
-                        <To object="ProdItemSelected" field="QtyComplete" />
+                        <To object="ProdMaintRecords" field="QtyComplete" />
                     </Mapping>
                     <Mapping field="QtyRemaining">
-                        <To object="ProdItemSelected" field="QtyRemaining" />
+                        <To object="ProdMaintRecords" field="QtyRemaining" />
                     </Mapping>
                     <Mapping field="QtyScrapped">
-                        <To object="ProdItemSelected" field="QtyScrapped" />
+                        <To object="ProdMaintRecords" field="QtyScrapped" />
                     </Mapping>
                     <Mapping field="BOMRevision">
-                        <To object="ProdItemSelected: 4" field="BOMRevisionID" />
+                        <To object="ProdItemSelected" field="BOMRevisionID" />
                     </Mapping>
                     <Mapping field="QtytoProduce">
-                        <To object="ProdItemSelected" field="QtytoProd" />
+                        <To object="ProdMaintRecords" field="QtytoProd" />
                     </Mapping>
                     <Mapping field="RequireParentLotSerialNumber">
                         <To object="ProdItemSelected" field="ParentLotSerialRequired" />
@@ -1307,28 +1312,28 @@
                         <To object="ProdItemSelected" field="ScrapSiteID" />
                     </Mapping>
                     <Mapping field="SOLineNbr">
-                        <To object="ProdItemSelected: 1" field="OrdLineRef" />
+                        <To object="ProdItemSelected" field="OrdLineRef" />
                     </Mapping>
                     <Mapping field="SOOrderNbr">
-                        <To object="ProdItemSelected: 1" field="OrdNbr" />
+                        <To object="ProdItemSelected" field="OrdNbr" />
                     </Mapping>
                     <Mapping field="SOOrderType">
-                        <To object="ProdItemSelected: 1" field="OrdTypeRef" />
+                        <To object="ProdItemSelected" field="OrdTypeRef" />
                     </Mapping>
                     <Mapping field="Branch">
-                        <To object="ProdItemSelected: 3" field="BranchID" />
+                        <To object="ProdItemSelected" field="BranchID" />
                     </Mapping>
                     <Mapping field="Source">
-                        <To object="ProdItemSelected: 4" field="DetailSource" />
+                        <To object="ProdItemSelected" field="DetailSource" />
                     </Mapping>
                     <Mapping field="SourceDate">
-                        <To object="ProdItemSelected: 4" field="BOMEffDate" />
+                        <To object="ProdItemSelected" field="BOMEffDate" />
                     </Mapping>
                     <Mapping field="SourceOrderType">
-                        <To object="ProdItemSelected: 4" field="SourceOrderType" />
+                        <To object="ProdItemSelected" field="SourceOrderType" />
                     </Mapping>
                     <Mapping field="SourceProductionNbr">
-                        <To object="ProdItemSelected: 4" field="SourceProductionNbr" />
+                        <To object="ProdItemSelected" field="SourceProductionNbr" />
                     </Mapping>
                     <Mapping field="StartDate">
                         <To object="ProdItemSelected" field="StartDate" />
@@ -1343,7 +1348,7 @@
                         <To object="ProdItemSelected" field="UOM" />
                     </Mapping>
                     <Mapping field="UpdateProject">
-                        <To object="ProdItemSelected: 5" field="UpdateProject" />
+                        <To object="ProdItemSelected" field="UpdateProject" />
                     </Mapping>
                     <Mapping field="UseFixedMfgLeadTimesforOrderDates">
                         <To object="ProdItemSelected" field="FMLTime" />
@@ -1355,19 +1360,22 @@
                         <To object="ProdItemSelected" field="FMLTMRPOrdorOP" />
                     </Mapping>
                     <Mapping field="Warehouse">
-                        <To object="ProdMaintRecords" field="SiteID" />
+                        <To object="ProdItemSelected" field="SiteID" />
                     </Mapping>
                     <Mapping field="WIPAccount">
-                        <To object="ProdItemSelected: 3" field="WIPAcctID" />
+                        <To object="ProdItemSelected" field="WIPAcctID" />
                     </Mapping>
                     <Mapping field="WIPSubaccount">
-                        <To object="ProdItemSelected: 3" field="WIPSubID" />
+                        <To object="ProdItemSelected" field="WIPSubID" />
                     </Mapping>
                     <Mapping field="WIPVarianceAccount">
-                        <To object="ProdItemSelected: 3" field="WIPVarianceAcctID" />
+                        <To object="ProdItemSelected" field="WIPVarianceAcctID" />
                     </Mapping>
                     <Mapping field="WIPVarianceSubaccount">
-                        <To object="ProdItemSelected: 3" field="WIPVarianceSubID" />
+                        <To object="ProdItemSelected" field="WIPVarianceSubID" />
+                    </Mapping>
+                    <Mapping field="AutoBackwardReporting">
+                        <To object="ProdItemSelected" field="AutoBackwardReporting" />
                     </Mapping>
                     <Mapping field="ConfigurationID">
                         <To object="ItemConfiguration" field="ConfigurationID" />
@@ -1391,6 +1399,8 @@
                     <Action name="UndoFirmProductionOrder" mappedTo="roughCutUndoFirm" />
                     <Action name="SetProductionOrderMaterialsCompleted" mappedTo="setMaterialsCompleted" />
                     <Action name="SetProductionOrderMaterialsOpen" mappedTo="setMaterialsOpen" />
+                    <Action name="LockOrder" mappedTo="LockOrder" />
+                    <Action name="UnlockOrder" mappedTo="UnlockOrder" />
                 </Actions>
             </TopLevelEntity>
             <Detail name="EventHistoryDetail">
@@ -1402,7 +1412,6 @@
                     <Field name="CreatedScreenID" type="StringValue" />
                     <Field name="Description" type="StringValue" />
                     <Field name="DocType" type="StringValue" />
-					<Field name="EventID" type="IntValue" />
                     <Field name="EventLineNumber" type="IntValue" />
                     <Field name="OrderType" type="StringValue" />
                     <Field name="ProductionNbr" type="StringValue" />
@@ -1429,13 +1438,16 @@
             <TopLevelEntity name="ProductionOrderDetail" screen="AM209000">
                 <Fields>
                     <Field name="Branch" type="StringValue" />
+					<Field name="EndDate" type="DateTimeValue" />
                     <Field name="Hold" type="BooleanValue" />
                     <Field name="InventoryID" type="StringValue" />
                     <Field name="Operations" type="OrderOperationDetail[]" />
                     <Field name="OrderDate" type="DateTimeValue" />
                     <Field name="OrderType" type="StringValue" />
                     <Field name="ProductionNbr" type="StringValue" />
+					<Field name="SchedulingMethod" type="StringValue" />
                     <Field name="Status" type="StringValue" />
+					<Field name="StartDate" type="DateTimeValue" />
                     <Field name="Subitem" type="StringValue" />
                     <Field name="Warehouse" type="StringValue" />
                 </Fields>
@@ -1443,6 +1455,9 @@
                     <Mapping field="Branch">
                         <To object="ProdItemRecords" field="BranchID" />
                     </Mapping>
+					<Mapping field="EndDate">
+						<To object="ProdItemRecords" field="EndDate" />
+					</Mapping>
                     <Mapping field="Warehouse">
                         <To object="ProdItemRecords" field="SiteId" />
                     </Mapping>
@@ -1456,6 +1471,9 @@
                         <Mapping field="ActualEndDate">
                             <To object="ProdOperRecords" field="ActEndDate" />
                         </Mapping>
+						<Mapping field="EndDate">
+							<To object="ProdOperRecords" field="EndDate" />
+						</Mapping>
                         <Mapping field="Material">
                             <Mapping field="Backflush">
                                 <To object="ProdMatlRecords" field="BFlush" />
@@ -1822,6 +1840,9 @@
                         <Mapping field="ShipRemainingQty">
                             <To object="ProdOperRecords" field="ShipRemainingQty" />
                         </Mapping>
+						<Mapping field="StartDate">
+							<To object="ProdOperRecords" field="StartDate" />
+						</Mapping>
                         <Mapping field="Steps">
                             <Mapping field="Description">
                                 <To object="ProdStepRecords" field="Descr" />
@@ -1928,6 +1949,9 @@
                         <Mapping field="WorkCenter">
                             <To object="ProdOperRecords" field="WcID" />
                         </Mapping>
+                        <Mapping field="AutoReportQty">
+                            <To object="ProdOperRecords" field="AutoReportQty" />
+                        </Mapping>
                         <Mapping field="ControlPoint">
                             <To object="ProdOperRecords" field="ControlPoint" />
                         </Mapping>
@@ -1953,6 +1977,12 @@
                     <Mapping field="ProductionNbr">
                         <To object="ProdItemRecords" field="ProdOrdID" />
                     </Mapping>
+					<Mapping field="SchedulingMethod">
+						<To object="ProdItemRecords" field="SchedulingMethod" />
+					</Mapping>
+					<Mapping field="StartDate">
+						<To object="ProdItemRecords" field="StartDate" />
+					</Mapping>
                     <Mapping field="Status">
                         <To object="ProdItemRecords" field="StatusID" />
                     </Mapping>
@@ -1970,9 +2000,11 @@
                     <Field name="ActualEndDate" type="DateTimeValue" />
                     <Field name="ActualStartDate" type="DateTimeValue" />
                     <Field name="AtVendorQuantity" type="DecimalValue" />
+                    <Field name="AutoReportQty" type="BooleanValue" />
                     <Field name="BackflushLabor" type="BooleanValue" />
                     <Field name="ControlPoint" type="BooleanValue" />
                     <Field name="DropShippedtoVendor" type="BooleanValue" />
+                    <Field name="EndDate" type="DateTimeValue" />
                     <Field name="FinishTime" type="IntValue" />
                     <Field name="MachineTime" type="IntValue" />
                     <Field name="MachineUnits" type="DecimalValue" />
@@ -2009,6 +2041,7 @@
                     <Field name="SetupTime" type="IntValue" />
                     <Field name="ShippedQuantity" type="DecimalValue" />
                     <Field name="ShipRemainingQty" type="DecimalValue" />
+                    <Field name="StartDate" type="DateTimeValue" />
                     <Field name="Steps" type="OrderStepDetail[]" />
                     <Field name="Tools" type="OrderToolDetail[]" />
                     <Field name="TotalQty" type="DecimalValue" />
@@ -2017,12 +2050,79 @@
                     <Field name="WorkCenter" type="StringValue" />
                 </Fields>
             </Detail>
+			<TopLevelEntity name="ProductionOrderDatesProcess" screen="AM201560">
+				<Fields>
+					<Field name="Orders" type="OrderDate[]" />
+                    <Field name="ErrorMessages" type="StringValue" />
+				</Fields>
+				<Mappings>
+					<Mapping field="Orders">
+						<Mapping field="Branch">
+							<To object="ProdOrders" field="BranchID" />
+						</Mapping>
+						<Mapping field="OrderType">
+							<To object="ProdOrders" field="OrderType" />
+						</Mapping>
+						<Mapping field="ProductionNbr">
+							<To object="ProdOrders" field="ProdOrdID" />
+						</Mapping>
+						<Mapping field="StartDate">
+							<To object="ProdOrders" field="StartDate" />
+						</Mapping>
+						<Mapping field="EndDate">
+							<To object="ProdOrders" field="EndDate" />
+						</Mapping>
+						<Mapping field="Operations">
+							<Mapping field="StartDate">
+								<To object="Operations" field="StartDate" />
+							</Mapping>
+							<Mapping field="EndDate">
+								<To object="Operations" field="EndDate" />
+							</Mapping>
+							<Mapping field="OperationNbr">
+								<To object="Operations" field="OperationCD" />
+							</Mapping>
+							<Mapping field="WorkCenter">
+								<To object="Operations" field="WcID" />
+							</Mapping>
+							<Mapping field="OrderType">
+								<To object="Operations" field="OrderType" />
+							</Mapping>
+							<Mapping field="ProductionNbr">
+								<To object="Operations" field="ProdOrdID" />
+							</Mapping>
+						</Mapping>
+					</Mapping>
+                    <Mapping field="ErrorMessages">
+						<To object="DatesFilter" field="ErrorMessages" />
+					</Mapping>
+				</Mappings>
+			</TopLevelEntity>
+			<Detail name="OrderDate">
+                <Fields>
+					<Field name="Branch" type="StringValue" />
+					<Field name="OrderType" type="StringValue" />
+					<Field name="ProductionNbr" type="StringValue" />
+					<Field name="StartDate" type="DateTimeValue" />
+					<Field name="EndDate" type="DateTimeValue" />
+					<Field name="Operations" type="OrderDateOperationDetail[]" />
+                </Fields>
+			</Detail>
+			<Detail name="OrderDateOperationDetail">
+                <Fields>
+                    <Field name="StartDate" type="DateTimeValue" />
+                    <Field name="EndDate" type="DateTimeValue" />
+                    <Field name="OperationNbr" type="StringValue" />
+                    <Field name="WorkCenter" type="StringValue" />
+					<Field name="OrderType" type="StringValue" />
+					<Field name="ProductionNbr" type="StringValue" />
+                </Fields>
+			</Detail>
             <Detail name="OrderMaterialDetail">
                 <Fields>
                     <Field name="Backflush" type="BooleanValue" />
                     <Field name="BatchSize" type="DecimalValue" />
                     <Field name="Byproduct" type="BooleanValue" />
-					<Field name="CompBOMEffDate" type="DateTimeValue" />
                     <Field name="CompBOMID" type="StringValue" />
                     <Field name="CompBOMRevision" type="StringValue" />
                     <Field name="Description" type="StringValue" />
@@ -4399,7 +4499,6 @@
                     <Field name="OperationDescription" type="StringValue" />
                     <Field name="OperationNbr" type="StringValue" />
                     <Field name="OutsideProcess" type="BooleanValue" />
-                    <Field name="OutsideProcessOptions" type="EstimateOperationOutsideProcess" />
                     <Field name="Overheads" type="EstimateOverheadDetail[]" />
                     <Field name="QueueTime" type="IntValue" />
                     <Field name="RefMaterialCost" type="DecimalValue" />
@@ -4519,21 +4618,7 @@
                         <To object="EstimateOperationRecords" field="ControlPoint" />
                     </Mapping>
                     <Mapping field="OutsideProcess">
-                        <To object="OutsideProcessingOperationSelected" field="OutsideProcess" />
-                    </Mapping>
-                    <Mapping field="OutsideProcessOptions">
-                        <Mapping field="DropShippedtoVendor">
-                            <To object="OutsideProcessingOperationSelected" field="DropShippedToVendor" />
-                        </Mapping>
-                        <Mapping field="OutsideProcess">
-                            <To object="OutsideProcessingOperationSelected" field="OutsideProcess" />
-                        </Mapping>
-                        <Mapping field="Vendor">
-                            <To object="OutsideProcessingOperationSelected" field="VendorID" />
-                        </Mapping>
-                        <Mapping field="VendorLocation">
-                            <To object="OutsideProcessingOperationSelected" field="VendorLocationID" />
-                        </Mapping>
+                        <To object="EstimateOperRecordSelected" field="OutsideProcess" />
                     </Mapping>
                     <Mapping field="Overheads">
                         <Mapping field="Description">
@@ -4588,7 +4673,7 @@
                         </Mapping>
                     </Mapping>
                     <Mapping field="DropShippedtoVendor">
-                        <To object="OutsideProcessingOperationSelected" field="DropShippedToVendor" />
+                        <To object="EstimateOperRecordSelected" field="DropShippedToVendor" />
                     </Mapping>
                     <Mapping field="SubcontractCost">
                         <To object="EstimateOperationRecords" field="SubcontractCost" />
@@ -4638,10 +4723,10 @@
                         <To object="EstimateOperationRecords" field="EstimateID" />
                     </Mapping>
                     <Mapping field="Vendor">
-                        <To object="OutsideProcessingOperationSelected" field="VendorID" />
+                        <To object="EstimateOperRecordSelected" field="VendorID" />
                     </Mapping>
                     <Mapping field="VendorLocation">
-                        <To object="OutsideProcessingOperationSelected" field="VendorLocationID" />
+                        <To object="EstimateOperRecordSelected" field="VendorLocationID" />
                     </Mapping>
                     <Mapping field="WorkCenter">
                         <To object="EstimateOperationRecords" field="WorkCenterID" />
@@ -4807,7 +4892,6 @@
                     <Field name="CostNumberingSequence" type="StringValue" />
                     <Field name="DataCollectionSettings" type="ProductionDataCollectionSettings" />
                     <Field name="DefaultDisassembleOrderType" type="StringValue" />
-					<Field name="DefaultMoveTime" type="StringValue" />
                     <Field name="DefaultOrderType" type="StringValue" />
                     <Field name="DefaultUserEmployeeID" type="BooleanValue" />
                     <Field name="DisassemblyNumberingSequence" type="StringValue" />
@@ -4817,6 +4901,7 @@
                     <Field name="HoldShipmentsonEntry" type="BooleanValue" />
                     <Field name="IncludeScrapinCompletions" type="BooleanValue" />
                     <Field name="LaborNumberingSequence" type="StringValue" />
+                    <Field name="LockProductionOrdersBeforeClosing" type="BooleanValue" />
                     <Field name="MachineScheduling" type="BooleanValue" />
                     <Field name="MaterialNumberingSequence" type="StringValue" />
                     <Field name="MoveNumberingSequence" type="StringValue" />
@@ -4896,12 +4981,24 @@
                     <Mapping field="WipAdjustNumberingSequence">
                         <To object="ProdSetupRecord" field="WipAdjustNumberingID" />
                     </Mapping>
+                    <Mapping field="LockProductionOrdersBeforeClosing">
+                        <To object="ProdSetupRecord: 2" field="LockWorkflowEnabled" />
+                    </Mapping>
                     <Mapping field="CostNumberingSequence">
                         <To object="ProdSetupRecord" field="ProdCostNumberingID" />
                     </Mapping>
                     <Mapping field="DataCollectionSettings">
                         <Mapping field="DefaultWarehousefromUserProfile">
                             <To object="ScanSetup" field="DefaultWarehouse" />
+                        </Mapping>
+                        <Mapping field="QtyEnterModeInLabor">
+                            <To object="ScanSetup" field="QtyEnterModeInLabor" />
+                        </Mapping>
+                        <Mapping field="QtyEnterModeInMaterials">
+                            <To object="ScanSetup" field="QtyEnterModeInMaterials" />
+                        </Mapping>
+                        <Mapping field="QtyEnterModeInMove">
+                            <To object="ScanSetup" field="QtyEnterModeInMove" />
                         </Mapping>
                         <Mapping field="RequestLocationforEachIteminMaterials">
                             <To object="ScanSetup" field="RequestLocationForEachItemInMaterials" />
@@ -4911,12 +5008,6 @@
                         </Mapping>
                         <Mapping field="UseDefaultOrderType">
                             <To object="ScanSetup" field="UseDefaultOrderType" />
-                        </Mapping>
-                        <Mapping field="UseDefaultQuantityinMaterials">
-                            <To object="ScanSetup" field="UseDefaultQtyInMaterials" />
-                        </Mapping>
-                        <Mapping field="UseDefaultQuantityinMoveLabor">
-                            <To object="ScanSetup" field="UseDefaultQtyInMove" />
                         </Mapping>
                         <Mapping field="UseExplicitLineConfirmation">
                             <To object="ScanSetup" field="ExplicitLineConfirmation" />
@@ -4948,11 +5039,12 @@
             <LinkedEntity name="ProductionDataCollectionSettings">
                 <Fields>
                     <Field name="DefaultWarehousefromUserProfile" type="BooleanValue" />
+                    <Field name="QtyEnterModeInLabor" type="StringValue" />
+                    <Field name="QtyEnterModeInMaterials" type="StringValue" />
+                    <Field name="QtyEnterModeInMove" type="StringValue" />
                     <Field name="RequestLocationforEachIteminMaterials" type="BooleanValue" />
                     <Field name="RequestLocationforEachIteminMoveLabor" type="BooleanValue" />
                     <Field name="UseDefaultOrderType" type="BooleanValue" />
-                    <Field name="UseDefaultQuantityinMaterials" type="BooleanValue" />
-                    <Field name="UseDefaultQuantityinMoveLabor" type="BooleanValue" />
                     <Field name="UseExplicitLineConfirmation" type="BooleanValue" />
                     <Field name="UseRemainingQuantityinMaterials" type="BooleanValue" />
                     <Field name="UseRemainingQuantityinMove" type="BooleanValue" />
@@ -4997,6 +5089,7 @@
                     <Field name="Active" type="BooleanValue" />
                     <Field name="AllowPreassigningLotSerialNumbers" type="BooleanValue" />
                     <Field name="Attributes" type="OrderTypeAttribute[]" />
+                    <Field name="AutoBackwardReporting" type="BooleanValue" />
                     <Field name="CheckforMaterialAvailability" type="BooleanValue" />
                     <Field name="CostingMethod" type="StringValue" />
                     <Field name="Defaultoperationmoveqty" type="BooleanValue" />
@@ -5137,6 +5230,9 @@
                     </Mapping>
                     <Mapping field="WorkInProcessSubaccount">
                         <To object="CurrentOrderType: 1" field="WIPSubID" />
+                    </Mapping>
+                    <Mapping field="AutoBackwardReporting">
+                        <To object="CurrentOrderType: 2" field="AutoBackwardReporting" />
                     </Mapping>
                     <Mapping field="CheckforMaterialAvailability">
                         <To object="CurrentOrderType: 4" field="CheckSchdMatlAvailability" />
@@ -5436,10 +5532,12 @@
                     <Field name="DefaultType" type="StringValue" />
                     <Field name="DemandTimeFence" type="IntValue" />
                     <Field name="GracePeriod" type="IntValue" />
+                    <Field name="IncludeOnHoldKitAssemblies" type="BooleanValue" />
                     <Field name="IncludeOnHoldProductionOrders" type="BooleanValue" />
                     <Field name="IncludeOnHoldPurchaseOrders" type="BooleanValue" />
                     <Field name="IncludeOnHoldSalesOrders" type="BooleanValue" />
                     <Field name="NumberingSequence" type="StringValue" />
+                    <Field name="PlanningHorizon" type="IntValue" />
                     <Field name="PlanOrderType" type="StringValue" />
                     <Field name="PurchaseCalendarID" type="StringValue" />
                     <Field name="StockingMethod" type="StringValue" />
@@ -5464,6 +5562,12 @@
                     </Mapping>
                     <Mapping field="UseFixedManufacturingTimes">
                         <To object="setup: 3" field="UseFixMfgLeadTime" />
+                    </Mapping>
+                    <Mapping field="IncludeOnHoldKitAssemblies">
+                        <To object="setup: 3" field="IncludeOnHoldKitAssemblies" />
+                    </Mapping>
+                    <Mapping field="PlanningHorizon">
+                        <To object="setup: 3" field="AMPlanningHorizon" />
                     </Mapping>
                     <Mapping field="DaysBefore">
                         <To object="setup" field="ExceptionDaysBefore" />
@@ -5892,19 +5996,34 @@
             <TopLevelEntity name="MRPDetailInquiry" screen="AM404000">
                 <Fields>
                     <Field name="BaseUnit" type="StringValue" />
+                    <Field name="DaysOfSupply" type="IntValue" />
+                    <Field name="EOQ" type="DecimalValue" />
                     <Field name="InventoryID" type="StringValue" />
+                    <Field name="LotMultiple" type="DecimalValue" />
                     <Field name="LotQty" type="DecimalValue" />
+                    <Field name="ManufacturingEOQ" type="DecimalValue" />
+                    <Field name="MaxLotSize" type="DecimalValue" />
                     <Field name="MaxOrderQty" type="DecimalValue" />
+                    <Field name="MaxQty" type="DecimalValue" />
+                    <Field name="MinLotSize" type="DecimalValue" />
                     <Field name="MinOrderQty" type="DecimalValue" />
                     <Field name="QtyOnHand" type="DecimalValue" />
+                    <Field name="ReorderPoint" type="DecimalValue" />
                     <Field name="Results" type="MRPDetailInquiryResult[]" />
                     <Field name="SafetyStock" type="DecimalValue" />
                     <Field name="Subitem" type="StringValue" />
+                    <Field name="TransferERQ" type="DecimalValue" />
                     <Field name="Warehouse" type="StringValue" />
                 </Fields>
                 <Mappings>
                     <Mapping field="BaseUnit">
                         <To object="invlookup" field="UOM" />
+                    </Mapping>
+                    <Mapping field="DaysOfSupply">
+                        <To object="invlookup" field="AMGroupWindow" />
+                    </Mapping>
+                    <Mapping field="EOQ">
+                        <To object="invlookup" field="EOQ" />
                     </Mapping>
                     <Mapping field="Warehouse">
                         <To object="invlookup" field="SiteID" />
@@ -5912,19 +6031,40 @@
                     <Mapping field="InventoryID">
                         <To object="invlookup" field="InventoryID" />
                     </Mapping>
+                    <Mapping field="LotMultiple">
+                        <To object="invlookup" field="LotMultiple" />
+                    </Mapping>
                     <Mapping field="LotQty">
                         <To object="invlookup" field="LotQty" />
                     </Mapping>
+                    <Mapping field="ManufacturingEOQ">
+                        <To object="invlookup" field="ManufacturingEOQ" />
+                    </Mapping>
+                    <Mapping field="MaxLotSize">
+                        <To object="invlookup" field="MaxLotSize" />
+                    </Mapping>					
                     <Mapping field="MaxOrderQty">
                         <To object="invlookup" field="MaxOrderQty" />
                     </Mapping>
+                    <Mapping field="MaxQty">
+                        <To object="invlookup" field="MaxQty" />
+                    </Mapping>
+                    <Mapping field="MinLotSize">
+                        <To object="invlookup" field="MinLotSize" />
+                    </Mapping>					
                     <Mapping field="MinOrderQty">
                         <To object="invlookup" field="MinOrderQty" />
                     </Mapping>
                     <Mapping field="QtyOnHand">
                         <To object="invlookup" field="QtyOnHand" />
                     </Mapping>
+                    <Mapping field="ReorderPoint">
+                        <To object="invlookup" field="ReorderPoint" />
+                    </Mapping>					
                     <Mapping field="Results">
+                        <Mapping field="ConsolidationID">
+                            <To object="MRPRecs" field="ConsolidationID" />
+                        </Mapping>
                         <Mapping field="ParentInventoryID">
                             <To object="MRPRecs" field="ParentInventoryID" />
                         </Mapping>
@@ -5965,10 +6105,14 @@
                     <Mapping field="Subitem">
                         <To object="invlookup" field="SubItemID" />
                     </Mapping>
+                    <Mapping field="TransferERQ">
+                        <To object="invlookup" field="TransferERQ" />
+                    </Mapping>
                 </Mappings>
             </TopLevelEntity>
             <Detail name="MRPDetailInquiryResult">
                 <Fields>
+                    <Field name="ConsolidationID" type="StringValue" />
                     <Field name="ParentInventoryID" type="StringValue" />
                     <Field name="ParentSubitem" type="StringValue" />
                     <Field name="ProductInventoryID" type="StringValue" />
@@ -6823,14 +6967,6 @@
                     <Field name="Warehouse" type="StringValue" />
                 </Fields>
             </Detail>
-            <LinkedEntity name="EstimateOperationOutsideProcess">
-                <Fields>
-                    <Field name="DropShippedtoVendor" type="BooleanValue" />
-                    <Field name="OutsideProcess" type="BooleanValue" />
-                    <Field name="Vendor" type="StringValue" />
-                    <Field name="VendorLocation" type="StringValue" />
-                </Fields>
-            </LinkedEntity>
             <TopLevelEntity name="ConfigurationMaintenance" screen="AM207500">
                 <Fields>
                     <Field name="BOMID" type="StringValue" />
@@ -8375,17 +8511,14 @@
                     <Field name="ProductMgr" type="IntValue" />
                     <Field name="ProductMgrContact" type="StringValue" />
                     <Field name="QtyonHand" type="DecimalValue" />
+                    <Field name="ReorderPoint" type="DecimalValue" />
                     <Field name="RepSource" type="StringValue" />
-                    <Field name="SafetyStock" type="DecimalValue" />
                     <Field name="Subitem" type="StringValue" />
                     <Field name="Warehouse" type="StringValue" />
                 </Fields>
                 <Mappings>
                     <Mapping field="BucketID">
                         <To object="BucketLookup" field="BucketID" />
-                    </Mapping>
-                    <Mapping field="SafetyStock">
-                        <To object="BucketLookup" field="SafetyStock" />
                     </Mapping>
                     <Mapping field="Subitem">
                         <To object="BucketLookup" field="SubItemID" />
@@ -8411,6 +8544,9 @@
                     <Mapping field="QtyonHand">
                         <To object="BucketLookup" field="QtyOnHand" />
                     </Mapping>
+                    <Mapping field="ReorderPoint">
+                        <To object="BucketLookup" field="ReorderPoint" />
+                    </Mapping>					
                     <Mapping field="RepSource">
                         <To object="BucketLookup" field="ReplenishmentSource" />
                     </Mapping>
@@ -9009,6 +9145,21 @@
                     <Field name="Value" type="StringValue" />
                 </Fields>
             </Detail>
+            <Detail name="ConfigurationEntryOptions">
+                <Fields>
+                    <Field name="ConfigResultsID" type="IntValue" />
+                    <Field name="Description" type="StringValue" />
+                    <Field name="FeatureLineNbr" type="IntValue" />
+                    <Field name="Included" type="BooleanValue" />
+                    <Field name="InventoryID" type="StringValue" />
+                    <Field name="IsRemovable" type="BooleanValue" />
+                    <Field name="Label" type="StringValue" />
+                    <Field name="OptionLineNbr" type="IntValue" />
+                    <Field name="Qty" type="DecimalValue" />
+                    <Field name="Subitem" type="StringValue" />
+                    <Field name="UOM" type="StringValue" />
+                </Fields>
+            </Detail>
             <Detail name="ConfigurationEntryFeatures">
                 <Fields>
                     <Field name="ConfigResultsID" type="IntValue" />
@@ -9023,19 +9174,77 @@
                     <Field name="TotalQty" type="DecimalValue" />
                 </Fields>
             </Detail>
-            <Detail name="ConfigurationEntryOptions">
+            <TopLevelEntity name="MFGDepartment" screen="AM217000">
                 <Fields>
-                    <Field name="ConfigResultsID" type="IntValue" />
                     <Field name="Description" type="StringValue" />
-                    <Field name="FeatureLineNbr" type="IntValue" />
-                    <Field name="Included" type="BooleanValue" />
-                    <Field name="InventoryID" type="StringValue" />
-                    <Field name="IsRemovable" type="BooleanValue" />
-                    <Field name="Label" type="StringValue" />
-                    <Field name="OptionLineNbr" type="IntValue" />
-                    <Field name="Qty" type="DecimalValue" />
-                    <Field name="Subitem" type="StringValue" />
-                    <Field name="UOM" type="StringValue" />
+                    <Field name="Details" type="MFGDepartmentDetail[]" />
+                    <Field name="ManufacturingDepartmentID" type="StringValue" />
+                    <Field name="Warehouse" type="StringValue" />
+                </Fields>
+                <Mappings>
+                    <Mapping field="Description">
+                        <To object="Departments" field="Descr" />
+                    </Mapping>
+                    <Mapping field="Details">
+                    <Mapping field="Active">
+                        <To object="WorkCenters" field="ActiveFlg" />
+                    </Mapping>
+                    <Mapping field="AllowClockEntryforMultipleProductionOrders">
+                        <To object="WorkCenters" field="AllowMultiClockEntry" />
+                    </Mapping>
+                    <Mapping field="BackflushLabor">
+                        <To object="WorkCenters" field="BflushLbr" />
+                    </Mapping>
+                    <Mapping field="BackflushMaterials">
+                        <To object="WorkCenters" field="BflushMatl" />
+                    </Mapping>
+                    <Mapping field="BasisforCapacity">
+                        <To object="WorkCenters" field="WcBasis" />
+                    </Mapping>
+                    <Mapping field="ControlPoint">
+                        <To object="WorkCenters" field="ControlPoint" />
+                    </Mapping>
+                    <Mapping field="Description">
+                        <To object="WorkCenters" field="Descr" />
+                    </Mapping>
+                    <Mapping field="OutsideProcess">
+                        <To object="WorkCenters" field="OutsideFlg" />
+                    </Mapping>
+                    <Mapping field="ScrapActionDefault">
+                        <To object="WorkCenters" field="ScrapAction" />
+                    </Mapping>
+                    <Mapping field="StandardCost">
+                        <To object="WorkCenters" field="AMWCCury__StdCost" />
+                    </Mapping>
+                    <Mapping field="Warehouse">
+                        <To object="WorkCenters" field="SiteID" />
+                    </Mapping>
+                    <Mapping field="WorkCenter">
+                        <To object="WorkCenters" field="WcID" />
+                    </Mapping>
+                    </Mapping>
+                    <Mapping field="ManufacturingDepartmentID">
+                        <To object="Departments" field="DepartmentID" />
+                    </Mapping>
+                    <Mapping field="Warehouse">
+                        <To object="Departments" field="SiteID" />
+                    </Mapping>
+                </Mappings>
+            </TopLevelEntity>			
+            <Detail name="MFGDepartmentDetail">
+                <Fields>
+                    <Field name="Active" type="BooleanValue" />
+                    <Field name="AllowClockEntryforMultipleProductionOrders" type="BooleanValue" />
+                    <Field name="BackflushLabor" type="BooleanValue" />
+                    <Field name="BackflushMaterials" type="BooleanValue" />
+                    <Field name="BasisforCapacity" type="StringValue" />
+                    <Field name="ControlPoint" type="BooleanValue" />
+                    <Field name="Description" type="StringValue" />
+                    <Field name="OutsideProcess" type="BooleanValue" />
+                    <Field name="ScrapActionDefault" type="StringValue" />
+                    <Field name="StandardCost" type="DecimalValue" />
+                    <Field name="Warehouse" type="StringValue" />
+                    <Field name="WorkCenter" type="StringValue" />
                 </Fields>
             </Detail>
         </Endpoint>

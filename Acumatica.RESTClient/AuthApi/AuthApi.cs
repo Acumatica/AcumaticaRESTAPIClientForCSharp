@@ -352,7 +352,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <returns>Task of void</returns>
         public static async Task LogoutAsync(this ApiClient client, CancellationToken cancellationToken = default)
         {
-            if (!client.HasSessionInfo())
+            if (!client.HasToken() && !client.HasSessionInfo())
             {
                 throw new Exception("There is no open session to log out.");
             }

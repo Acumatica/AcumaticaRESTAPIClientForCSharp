@@ -50,8 +50,7 @@ namespace EndpointSchemaGenerator
 			return fieldCode;
 		}
 
-		
-		public static string GenerateEntityCode(string endpointNamespace, string entityName, string content, string parentReference, GeneratorSettings settings) => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + $"namespace {endpointNamespace}.Model\r\n{{\r\n\tpublic class {entityName} : {parentReference}\r\n\t{{\r\n{content}\r\n\t}}\r\n}}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
+		public static string GenerateEntityCode(string endpointNamespace, string entityName, string content, string parentReference, GeneratorSettings settings, string expands = "") => GetUsings(settings) + (settings.GenerateNullablePragmas ? NullableEnable + "\r\n" : "") + $"namespace {endpointNamespace}.Model\r\n{{\r\n\tpublic class {entityName} : {parentReference}\r\n\t{{\r\n{content}" + expands + "\r\n\t}\r\n}" + (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
 
 		/// <summary>
 		/// 
@@ -78,10 +77,30 @@ namespace EndpointSchemaGenerator
 				+ $"\r\n\tpublic class {entityName} : {parentReference}"
 				+ (settings.AddITopLevelEntityInterface ? ", ITopLevelEntity" : "")
 				+ $"\r\n\t{{\r\n{content}"
+				+ GenerateDebuggerDisplayMethod(entityName, keyFields)
 				+ expands
 				+ (settings.AddITopLevelEntityInterface ? $"\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}" : "")
 				+ "\r\n\t}\r\n}"
 				+ (settings.GenerateNullablePragmas ? "\r\n" + NullableDisable : "");
+		}
+
+		/// <summary>
+		/// Generates an override of <c>Entity.GetDebuggerDisplay()</c> that shows the entity's type name
+		/// together with the values of its key fields, e.g. <c>Invoice - "INV" - "AR000123"</c>.
+		/// Emitted only for top-level entities, since only they carry known key fields.
+		/// </summary>
+		private static string GenerateDebuggerDisplayMethod(string entityName, IEnumerable<EntityField> keyFields)
+		{
+			if (keyFields == null || !keyFields.Any())
+			{
+				return "";
+			}
+			string valueParts = string.Join(" - ", keyFields.Select(kf =>
+			{
+				string fieldName = kf.Name == entityName ? kf.Name.ToLowerInvariant() : kf.Name;
+				return "\\\"{" + fieldName + "}\\\"";
+			}));
+			return "\r\n\t\tprotected override string GetDebuggerDisplay()\r\n\t\t{\r\n\t\t\treturn $\"{nameof(" + entityName + ")} - " + valueParts + "\";\r\n\t\t}\r\n";
 		}
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
@@ -106,7 +125,7 @@ namespace EndpointSchemaGenerator
 		//{1} = Endpoint Path
 		public static string BaseEndpointApiTemplate(GeneratorSettings settings) => GetUsings(settings) + "namespace {0}.Api\r\n{{\r\n\t[Obsolete(\"For backward compatibility\")]\r\n\tpublic abstract class BaseEndpointApi<EntityType> : EntityAPI<EntityType>\r\n\t\twhere EntityType : Entity, ITopLevelEntity, new()\r\n\t{{\r\n\t\tpublic BaseEndpointApi(ApiClient client) : base(client)\r\n\t\t{{ }}\r\n\t\tpublic override string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{1}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
-		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup> \r\n{0}\r\n </PropertyGroup>\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n    <LangVersion>8.0</LangVersion>\r\n    <nullable>Enable</nullable>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version=" + NewtonsoftJsonVersion + " />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n\t{1}\r\n\t<ProjectReference Include = \"..\\..\\Acumatica.RESTClient.ContractBasedApi\\Acumatica.RESTClient.ContractBasedApi.csproj\" />\r\n  </ItemGroup >\r\n\r\n</Project >\r\n";
+		public static string ProjectTemplate = "<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup> \r\n{0}\r\n </PropertyGroup>\r\n\r\n  <PropertyGroup>\r\n	<TargetFramework>netstandard2.0</TargetFramework>\r\n    <LangVersion>8.0</LangVersion>\r\n    <nullable>Enable</nullable>\r\n    <GenerateDocumentationFile>True</GenerateDocumentationFile>\r\n    <NoWarn>$(NoWarn);CS1591</NoWarn>\r\n  </PropertyGroup>\r\n\r\n   <ItemGroup>\r\n	<PackageReference Include=\"Newtonsoft.Json\" Version=" + NewtonsoftJsonVersion + " />\r\n  </ItemGroup> <ItemGroup>\r\n	<ProjectReference Include = \"..\\..\\Acumatica.RESTClient\\Acumatica.RESTClient.csproj\" />\r\n\t{1}\r\n\t<ProjectReference Include = \"..\\..\\Acumatica.RESTClient.ContractBasedApi\\Acumatica.RESTClient.ContractBasedApi.csproj\" />\r\n  </ItemGroup >\r\n\r\n</Project >\r\n";
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)
 		//{1} = Report Name
@@ -115,17 +134,38 @@ namespace EndpointSchemaGenerator
 		public static string ReportTemplate(GeneratorSettings settings) => GetUsings(settings) + "namespace {0}.Model\r\n{{\r\n\tpublic class {1} : IReport\r\n\t{{\r\n\t\tpublic virtual string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{3}\";\r\n\t\t}}\r\n\t\t{2}\r\n\t}}\r\n}}";
 
 
+		//{0} = Region name, e.g. "Fields", "LinkedEntities", "Details"
+		//{1} = Region content (field declarations)
+		public static string RegionTemplate = "\r\n\t\t#region {0}{1}\r\n\t\t#endregion\r\n";
+		public static string GenerateRegion(string regionName, string content)
+		{
+			return string.Format(RegionTemplate, regionName, content);
+		}
+
 		public static string ExpandsTemplate = "\r\n\t\tpublic static class Expand\r\n\t\t{{\r\n{0}\r\n\t\t\t//Intentionally excluded\r\n\t\t\t//public const string All = \"{1}\";\r\n\t\t}}";
 		public static string ExpandFieldTemplate = "\t\t\tpublic const string {0} = \"{1}\";\r\n";
 
-		public static string GetExpands(List<string> expands)
+		/// <summary>
+		/// Documents the nested $expand syntax introduced by system contract 5, where a nested
+		/// expand is written as <c>Parent($expand=Child)</c> instead of <c>Parent/Child</c>.
+		/// </summary>
+		public static string NestedExpandsComment =
+			"\r\n\t\t/// <summary>\r\n" +
+			"\t\t/// Names that can be passed in the <c>$expand</c> parameter.\r\n" +
+			"\t\t/// <para>This endpoint uses system contract 5, where a nested entity is expanded\r\n" +
+			"\t\t/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names\r\n" +
+			"\t\t/// that can be expanded directly on this entity are listed here. Use the nested\r\n" +
+			"\t\t/// entity's own <c>Expand</c> class for the inner names.</para>\r\n" +
+			"\t\t/// </summary>";
+		public static string GetExpands(List<string> expands, bool nestedExpandSyntax = false)
 		{
 			string expandFields = "";
 			foreach (var expandField in expands)
 			{
 				expandFields += string.Format(ExpandFieldTemplate, expandField.Replace('/', '_'), expandField);
 			}
-			return string.Format(ExpandsTemplate, expandFields, string.Join(',', expands));
+			return (nestedExpandSyntax ? NestedExpandsComment : "")
+				+ string.Format(ExpandsTemplate, expandFields, string.Join(',', expands));
 		}
 
 	}

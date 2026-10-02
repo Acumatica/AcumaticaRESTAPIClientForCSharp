@@ -2,111 +2,202 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 
+using AcumaticaRestApiExample.Properties;
+
 namespace AcumaticaRestApiExample
 {
 	class Program
 	{
-		const string SiteURL = "https://localhost/25r2/";
-        const string Username = "admin";
-		const string Password = "123";
-        const string Tenant = null;//"Company";
-		const string Branch = null;
-		const string Locale = null;
-        # region Resource Owner Password Credentials flow
-        private const string ClientSecretROPC = "cCVpHnGVownV7ZAVfT1Y9g";
-        private const string ClientIDROPC = "7475716F-D402-EAB6-F8F8-893C9B1EEDF4@Company";
-        #endregion
-        # region AuthorizationCode flow
-        private const string ClientSecretAC = "ZJ7sGGDZWOJyJzSpbRjrpg";
-        private const string ClientIDAC = "9737F884-8405-42FB-7303-7F1DA7BE8CA7@Company";
-        #endregion
-        # region Hybrid flow
-        private const string ClientSecretHybrid = "KzK82VVdqggy4PHaOHMTNw";
-        private const string ClientIDHybrid = "2DC9435C-A596-959E-3E38-8EB84725F089@Company";
-        #endregion
-        const string RedirectUrl = "https://localhost/test/";
+		// Every value below comes from Project Properties > Settings (App.config).
 
-        static async Task Main(string[] args)
-        {
-            Console.WriteLine("Update example");
-            Console.WriteLine("----------------------------------------");
-            RESTExample.UpdateBill(SiteURL, Username, Password, Tenant, Branch, Locale);
+		static async Task Main(string[] args)
+		{
+			RESTExamples_24();
+			RESTExamples_26();
+			ExtendedEndpointExamples();
+			ODataExamples();
+			OAuthExamples();
+			//await TestPerformanceAsync();
 
+			ConsoleReport.PrintSummary();
+		}
 
-            Console.WriteLine("Report example");
-            Console.WriteLine("----------------------------------------");
-            RESTExample.TestReportDownload(SiteURL, Username, Password, Tenant, Branch, Locale);
+		private static void RESTExamples_24()
+		{
+			ConsoleReport.Run("24.200.001 - Update Bill", () =>
+				RESTExample_24_200_001.UpdateBill(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
 
-            Console.WriteLine("REST API example");
-            Console.WriteLine("----------------------------------------");
-            RESTExample.TestFullSOProcess(SiteURL, Username, Password, Tenant, Branch, Locale);
-            Console.WriteLine("----------------------------------------");
-            RESTExample.TestFileUpload(SiteURL, Username, Password, Tenant, Branch, Locale);
-            Console.WriteLine("----------------------------------------");
-            RESTExample.TestShipmentRetrieval(SiteURL, Username, Password, Tenant, Branch, Locale);
-            Console.WriteLine("----------------------------------------");
-            RESTExample.CreateAndReleaseAPBill(SiteURL, Username, Password, Tenant, Branch, Locale);
-            Console.WriteLine("----------------------------------------");
-            RESTExample.ReadStockItemsWithTranslations(SiteURL, Username, Password, Tenant, Branch, Locale);
-            Console.WriteLine("----------------------------------------");
-            RESTExample.TryToCreateARInvoiceAndFail(SiteURL, Username, Password, Tenant, Branch, Locale);
-            Console.WriteLine("\r\nReady to continue...");
-            Console.ReadLine();
+			ConsoleReport.Run("24.200.001 - Retrieve invoice with applications", () =>
+				RESTExample_24_200_001.RetrieveInvoiceWithApplications(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
 
-            Console.WriteLine("REST API (Extended Endpoint) example");
-            Console.WriteLine("----------------------------------------");
-            ExtendedEndpointExample.ExampleMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
-            Console.WriteLine("\r\nReady to continue...");
-            Console.ReadLine();
+			ConsoleReport.Run("24.200.001 - Retrieve PO orders with lines", () =>
+				RESTExample_24_200_001.RetrievePOOrdersWithLines(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
 
-            Console.WriteLine("OData GI example");
-            Console.WriteLine("----------------------------------------");
-            ODataExample.ODataGetGI(SiteURL, Username, Password, Tenant);
-            ODataExample.ODataGetGINewUrl(SiteURL, Username, Password, Tenant);
-            Console.WriteLine("Ready to continue...");
-            Console.ReadLine();
+			ConsoleReport.Run("24.200.001 - Full sales order process", () =>
+				RESTExample_24_200_001.TestFullSOProcess(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
 
-            Console.WriteLine("OData DAC example");
-            Console.WriteLine("----------------------------------------");
-            ODataExample.ODataGetDAC(SiteURL, Username, Password, Tenant);
-            ODataExample.ODataGetDACNewUrl(SiteURL, Username, Password, Tenant);
-            Console.WriteLine("Ready to continue...");
-            Console.ReadLine();
+			ConsoleReport.Run("24.200.001 - Upload file", () =>
+				RESTExample_24_200_001.TestFileUpload(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
 
-            Console.WriteLine("OData OAuth 2.0 (Resource Owner Password Credentials flow) example");
-            Console.WriteLine("----------------------------------------");
-            ODataExample.OauthExample(SiteURL, Username, Password, ClientSecretROPC, ClientIDROPC, Tenant);
-            Console.WriteLine("Ready to continue...");
-            Console.ReadLine();
+			ConsoleReport.Run("24.200.001 - Retrieve shipment", () =>
+				RESTExample_24_200_001.TestShipmentRetrieval(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
 
-            Console.WriteLine("OAuth 2.0 (Authorization Code flow)");
-            Console.WriteLine("----------------------------------------");
-            OAuthAuthCodeExample.Example(SiteURL, ClientSecretAC, ClientIDAC, RedirectUrl);
-            Console.WriteLine("Ready to continue...");
-            Console.ReadLine();
+			ConsoleReport.Run("24.200.001 - Create and release AP bill", () =>
+				RESTExample_24_200_001.CreateAndReleaseAPBill(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
 
-            Console.WriteLine("OAuth 2.0 (Hybrid flow)");
-            Console.WriteLine("----------------------------------------");
-            OAuthHybridExample.Example(SiteURL, ClientSecretHybrid, ClientIDHybrid, RedirectUrl);
-            Console.WriteLine("Ready to continue...");
-            Console.ReadLine();
-            //await TestPerformanceAsync();
+			ConsoleReport.Run("24.200.001 - Read stock items with translations", () =>
+				RESTExample_24_200_001.ReadStockItemsWithTranslations(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
 
-        }
+			ConsoleReport.Run("24.200.001 - Create AR invoice and fail", () =>
+				RESTExample_24_200_001.TryToCreateARInvoiceAndFail(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
 
-        public static async Task TestPerformanceAsync()
-        {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-			RestApiPerformanceTest.SyncRestApiMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
-			sw.Stop(); 
+			ConsoleReport.Pause();
+		}
+
+		private static void RESTExamples_26()
+		{
+			ConsoleReport.Run("26.200.001 - Update Bill", () =>
+				RESTExample_26_200_001.UpdateBill(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Run("26.200.001 - Download report", () =>
+				RESTExample_26_200_001.TestReportDownload(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Run("26.200.001 - Retrieve invoice with applications", () =>
+				RESTExample_26_200_001.RetrieveInvoiceWithApplications(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Run("26.200.001 - Retrieve PO orders with lines", () =>
+				RESTExample_26_200_001.RetrievePOOrdersWithLines(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Run("26.200.001 - Full sales order process", () =>
+				RESTExample_26_200_001.TestFullSOProcess(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Run("26.200.001 - Upload file", () =>
+				RESTExample_26_200_001.TestFileUpload(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Run("26.200.001 - Retrieve shipment", () =>
+				RESTExample_26_200_001.TestShipmentRetrieval(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Run("26.200.001 - Create and release AP bill", () =>
+				RESTExample_26_200_001.CreateAndReleaseAPBill(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Run("26.200.001 - Read stock items with translations", () =>
+				RESTExample_26_200_001.ReadStockItemsWithTranslations(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Run("26.200.001 - Create AR invoice and fail", () =>
+				RESTExample_26_200_001.TryToCreateARInvoiceAndFail(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Pause();
+		}
+
+		private static void ExtendedEndpointExamples()
+		{
+			ConsoleReport.Run("Extended endpoint - Read extended invoices", () =>
+				ExtendedEndpointExample.ExampleMethod(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale));
+
+			ConsoleReport.Pause();
+		}
+
+		private static void ODataExamples()
+		{
+			ConsoleReport.Run("OData - Generic inquiry", () =>
+				ODataExample.ODataGetGI(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant));
+
+			ConsoleReport.Run("OData - Generic inquiry (new URL)", () =>
+				ODataExample.ODataGetGINewUrl(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant));
+
+			ConsoleReport.Run("OData - DAC", () =>
+				ODataExample.ODataGetDAC(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant));
+
+			ConsoleReport.Run("OData - DAC (new URL)", () =>
+				ODataExample.ODataGetDACNewUrl(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.Tenant));
+
+			ConsoleReport.Run("OData - OAuth 2.0 (Resource Owner Password Credentials flow)", () =>
+				ODataExample.OauthExample(
+					Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+					Settings.Default.ClientSecretROPC, Settings.Default.ClientIDROPC, Settings.Default.Tenant));
+
+			ConsoleReport.Pause();
+		}
+
+		private static void OAuthExamples()
+		{
+			ConsoleReport.Run("OAuth 2.0 - Authorization Code flow", () =>
+				OAuthAuthCodeExample.Example(
+					Settings.Default.SiteURL, Settings.Default.ClientSecretAC,
+					Settings.Default.ClientIDAC, Settings.Default.RedirectUrl));
+
+			ConsoleReport.Run("OAuth 2.0 - Hybrid flow", () =>
+				OAuthHybridExample.Example(
+					Settings.Default.SiteURL, Settings.Default.ClientSecretHybrid,
+					Settings.Default.ClientIDHybrid, Settings.Default.RedirectUrl));
+
+			ConsoleReport.Pause();
+		}
+
+		public static async Task TestPerformanceAsync()
+		{
+			Stopwatch sw = new Stopwatch();
+			sw.Start();
+			RestApiPerformanceTest.SyncRestApiMethod(
+				Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+				Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale);
+			sw.Stop();
 			Debug.WriteLine("Execution completed for sync in {0} ms.", sw.Elapsed.TotalMilliseconds);
 
-            sw.Start();
-            await RestApiPerformanceTest.AsyncRestApiMethod(SiteURL, Username, Password, Tenant, Branch, Locale);
-            sw.Stop();
-            Debug.WriteLine("Execution completed for async in {0} ms.", sw.Elapsed.TotalMilliseconds);
-        }
-
-    }
+			sw.Start();
+			await RestApiPerformanceTest.AsyncRestApiMethod(
+				Settings.Default.SiteURL, Settings.Default.Username, Settings.Default.Password,
+				Settings.Default.Tenant, Settings.Default.Branch, Settings.Default.Locale);
+			sw.Stop();
+			Debug.WriteLine("Execution completed for async in {0} ms.", sw.Elapsed.TotalMilliseconds);
+		}
+	}
 }
