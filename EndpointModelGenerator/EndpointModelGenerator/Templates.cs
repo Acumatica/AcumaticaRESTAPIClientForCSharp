@@ -78,9 +78,29 @@ namespace EndpointSchemaGenerator
 						$"\r\n\t/// <para>Key Fields: {string.Join(", ", keyFields.Select(kf => kf.Name))}</para>" : "")
                     + "\r\n\t/// </summary>")
 				+ $"\r\n\t[DataContract]\r\n\tpublic class {entityName} : {parentReference}, ITopLevelEntity\r\n\t{{\r\n{content}"
+				+ GenerateDebuggerDisplayMethod(entityName, keyFields)
 				+ expands
 				+ $"\r\n\t\tpublic {virtualModifier} string GetEndpointPath()\r\n\t\t{{\r\n\t\t\treturn \"entity/{endpointPath}\";\r\n\t\t}}\r\n\t}}\r\n}}";
 
+		}
+
+		/// <summary>
+		/// Generates an override of <c>Entity.GetDebuggerDisplay()</c> that shows the entity's type name
+		/// together with the values of its key fields, e.g. <c>Invoice - "INV" - "AR000123"</c>.
+		/// Emitted only for top-level entities, since only they carry known key fields.
+		/// </summary>
+		private static string GenerateDebuggerDisplayMethod(string entityName, IEnumerable<EntityField> keyFields)
+		{
+			if (keyFields == null || !keyFields.Any())
+			{
+				return "";
+			}
+			string valueParts = string.Join(" - ", keyFields.Select(kf =>
+			{
+				string fieldName = kf.Name == entityName ? kf.Name.ToLowerInvariant() : kf.Name;
+				return "\\\"{" + fieldName + "}\\\"";
+			}));
+			return "\r\n\t\tprotected override string GetDebuggerDisplay()\r\n\t\t{\r\n\t\t\treturn $\"{nameof(" + entityName + ")} - " + valueParts + "\";\r\n\t\t}\r\n";
 		}
 
 		//{0} = Endpoint namespace (e.g. Acumatica.Default_22_200_001)

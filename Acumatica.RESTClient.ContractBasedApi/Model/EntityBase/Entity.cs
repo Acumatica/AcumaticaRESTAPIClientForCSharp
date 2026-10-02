@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.Serialization;
 
 using Acumatica.RESTClient.ContractBasedApi.FileApi.Model;
@@ -12,6 +13,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
     /// Entity
     /// </summary>
     [DataContract]
+    [DebuggerDisplay("{GetDebuggerDisplay()}")]
     public abstract class Entity
     {
 		#region Backward compatibility with SOAP
@@ -135,6 +137,15 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Builds the text shown for this object in the debugger (see <see cref="DebuggerDisplayAttribute"/> above).
+        /// Generated top-level entities override this to show their key field values instead of just the type name.
+        /// </summary>
+        protected virtual string GetDebuggerDisplay()
+        {
+            return GetType().Name;
         }
     }
 }
