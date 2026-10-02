@@ -27,12 +27,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         public Guid? ID { get; set; }
 
         /// <summary>
-        /// Gets or Sets RowNumber
-        /// </summary>
-        public long? RowNumber { get; set; }
-
-
-        /// <summary>
         /// Gets or Sets Error
         /// </summary>
 		[JsonIgnoreOnSerialize]
