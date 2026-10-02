@@ -77,6 +77,13 @@ namespace EndpointSchemaGenerator
         public string? Remarks;
         public bool? IsKey;
 
+        /// <summary>
+        /// This field's row position in <c>ScreensMetadata.csv</c> for its screen, i.e. the order the
+        /// screen's views declare it in (e.g. DocType before RefNbr), as opposed to the server's
+        /// alphabetically-sorted Swagger schema. Null when the field wasn't found in that CSV.
+        /// </summary>
+        public int? ScreenOrder;
+
         public EntityField(string name, string type)
         {
             Name = name;

@@ -9,38 +9,28 @@ namespace ModelGeneratorConsole
 {
     internal class Program
     {
-
-        #region Settings
-        const bool GenerateArraysInstedOfLists = false;
-        const bool GenerateAPISectionForBackWardCompatibility = true;
-
-        const string OutputDirectoryTemplate = @"\Endpoints\Acumatica.{0}";
-        const string EndpointSchemaDirectory = @"\EndpointDefinitions\";
-        const string EndpointMetadataDirectory = @"\EndpointMetadata\";
-        const string DefaultNamespaceTemplate = @"Acumatica.{0}";
-        private const string AcumaticaUrlForMetadata = "https://localhost/25r200";
-        #endregion
-
         static void Main(string[] args)
         {
             string? solutionFolderPath = GetParentDirectory(Directory.GetCurrentDirectory(), 5)?.ToString();
+            string settingsDirectory = Path.Combine(solutionFolderPath!, "EndpointModelGenerator", "ModelGeneratorConsole");
+            GeneratorSettings settings = GeneratorSettings.Load(settingsDirectory);
 
-            foreach (var fileName in Directory.GetFiles(solutionFolderPath + EndpointSchemaDirectory))
+            foreach (var fileName in Directory.GetFiles(solutionFolderPath + settings.EndpointSchemaDirectory))
             {
-                string endpoint = fileName.Replace(solutionFolderPath + EndpointSchemaDirectory, "");
+                string endpoint = fileName.Replace(solutionFolderPath + settings.EndpointSchemaDirectory, "");
                 StreamReader reader = new StreamReader(fileName);
                 string endpointDefinition = reader.ReadToEnd();
                 reader.Close();
-                JsonSchemaParser.GenerateArraysInstedOfLists = GenerateArraysInstedOfLists;
+                JsonSchemaParser.GenerateArraysInstedOfLists = settings.GenerateArraysInsteadOfLists;
                 Schema endpointSchema = JsonSchemaParser.ComposeEndpointSchema(endpointDefinition);
 
-                string endpointMetadataPath = solutionFolderPath + EndpointMetadataDirectory + endpoint;
+                string endpointMetadataPath = solutionFolderPath + settings.EndpointMetadataDirectory + endpoint;
                 if (File.Exists(endpointMetadataPath))
                 {
                     reader = new StreamReader(endpointMetadataPath);
                     string endpointMetadata = reader.ReadToEnd();
                     reader.Close();
-                    reader = new StreamReader(solutionFolderPath + EndpointMetadataDirectory + "ScreensMetadata.csv");
+                    reader = new StreamReader(solutionFolderPath + settings.EndpointMetadataDirectory + "ScreensMetadata.csv");
                     string screensMetadata = reader.ReadToEnd();
                     reader.Close();
                     if (!string.IsNullOrEmpty(endpointMetadata))
@@ -51,7 +41,7 @@ namespace ModelGeneratorConsole
                 try
                 {
                     Console.WriteLine("Getting field descriptions for " + endpoint);
-                    SchemaEnricher.AddFieldDescriptions(endpointSchema, AcumaticaUrlForMetadata, "admin", "123");
+                    SchemaEnricher.AddFieldDescriptions(endpointSchema, settings.AcumaticaUrl, settings.AcumaticaUsername, settings.AcumaticaPassword);
                 }
                 catch (Exception e)
                 {
@@ -65,15 +55,15 @@ namespace ModelGeneratorConsole
                 //}
                 //writer.Close();
 
-                string pathToWrite = solutionFolderPath + string.Format(OutputDirectoryTemplate, endpoint);
+                string pathToWrite = solutionFolderPath + string.Format(settings.OutputDirectoryTemplate, endpoint);
                 Console.WriteLine($"Writing in {pathToWrite}");
                 SchemaGenerator.WriteCSharp(
                    pathToWrite,
                      endpoint,
                     endpointSchema,
                        (_) => Console.WriteLine(_),
-                      DefaultNamespaceTemplate,
-                      GenerateAPISectionForBackWardCompatibility);
+                      settings.DefaultNamespaceTemplate,
+                      settings.GenerateApiSectionForBackwardCompatibility);
             }
 
         }

@@ -33,7 +33,12 @@ namespace EndpointModelGenerator
                         parsedScreenMetadata.Add(parts[0], new ScreenMetadata());
                     }
 
-                    parsedScreenMetadata[parts[0]].Fields.TryAdd(parts[1], new FieldMetadata() { ViewName = parts[2], DACName = parts[3] });
+                    // ScreensMetadata.csv lists each screen's fields in the order the screen's views declare
+                    // them (DocType before RefNbr, etc.), unlike the server's alphabetically-sorted Swagger
+                    // schema. Recording the row position lets callers (e.g. key field ordering for the
+                    // debugger display) recover that natural order.
+                    var screenFields = parsedScreenMetadata[parts[0]].Fields;
+                    screenFields.TryAdd(parts[1], new FieldMetadata() { ViewName = parts[2], DACName = parts[3], Order = screenFields.Count });
                 }
             }
             XmlSerializer ser = new XmlSerializer(typeof(Endpoint));
@@ -234,6 +239,7 @@ namespace EndpointModelGenerator
                     if (val != null)
                     {
                         field.DAC = val.DACName;
+                        field.ScreenOrder = val.Order;
                     }
                 }
             }
@@ -343,6 +349,7 @@ namespace EndpointModelGenerator
     {
         public string? ViewName;
         public string? DACName;
+        public int Order;
 
     }
 }

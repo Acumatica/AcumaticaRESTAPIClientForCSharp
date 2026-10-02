@@ -1,0 +1,11 @@
+{
+  "acumaticaUrl": "",
+  "acumaticaUsername": "",
+  "acumaticaPassword": "",
+  "generateArraysInsteadOfLists": false,
+  "generateApiSectionForBackwardCompatibility": true,
+  "outputDirectoryTemplate": "\\Endpoints\\Acumatica.{0}",
+  "endpointSchemaDirectory": "\\EndpointDefinitions\\",
+  "endpointMetadataDirectory": "\\EndpointMetadata\\",
+  "defaultNamespaceTemplate": "Acumatica.{0}"
+}

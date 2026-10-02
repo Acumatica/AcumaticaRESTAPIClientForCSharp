@@ -215,11 +215,7 @@ namespace EndpointSchemaGenerator
             {
                 string filename = entity.Key + ".cs";
                 StreamWriter writer = new StreamWriter(modelFilesDirectory + filename);
-                StringBuilder body = new StringBuilder();
-                foreach (var field in entity.Value.Fields)
-                {
-                    body.Append(Templates.GenerateFieldCode(entity.Key, field));
-                }
+                StringBuilder body = new StringBuilder(BuildFieldRegions(entity.Key, entity.Value.Fields));
                 bool nestedExpandSyntax = UsesNestedExpandSyntax(schema);
                 List<string> expandsAppend = nestedExpandSyntax
                     ? CollectDirectExpands(schema, entity.Key, entity.Value)
@@ -243,7 +239,7 @@ namespace EndpointSchemaGenerator
                         isDerived: !isNotDerived,
                         screenID: entity.Value.ScreenID,
                         expands,
-                        entity.Value.Fields.Where(_=>_.IsKey==true)
+                        entity.Value.Fields.Where(_=>_.IsKey==true).OrderBy(_=>_.ScreenOrder ?? int.MaxValue)
                         );
                 }
                 else
@@ -258,6 +254,65 @@ namespace EndpointSchemaGenerator
                 writer.Write(result);
                 writer.Close();
             }
+        }
+
+        /// <summary>
+        /// The DAC-field wrapper types (see Acumatica.RESTClient.ContractBasedApi.Model.FieldTypes) that back
+        /// a plain scalar entity field, as opposed to a nested entity reference or a detail collection.
+        /// </summary>
+        private static readonly HashSet<string> ScalarFieldTypes = new HashSet<string>
+        {
+            "BooleanValue", "ByteValue", "DateOnlyValue", "DateTimeValue", "DecimalValue", "DoubleValue",
+            "GuidValue", "IntSingleSelectValue", "IntValue", "LongValue", "ShortValue",
+            "StringMultiSelectValue", "StringSingleSelectValue", "StringValue"
+        };
+
+        /// <summary>
+        /// True for a field whose type is a child collection (<c>List&lt;T&gt;</c>, or <c>T[]</c> when
+        /// <see cref="JsonSchemaParser.GenerateArraysInstedOfLists"/> is enabled).
+        /// </summary>
+        private static bool IsDetailFieldType(string type)
+        {
+            return type != null && (type.StartsWith("List<") || type.EndsWith("[]"));
+        }
+
+        /// <summary>
+        /// Splits an entity's fields into the <c>Fields</c> / <c>LinkedEntities</c> / <c>Details</c> regions
+        /// the generated class is organized into. <c>Fields</c> holds the plain DAC-field wrapper types
+        /// (StringValue, DecimalValue, ...), ordered with key fields first and then by each field's position
+        /// on the Acumatica screen (see <see cref="EntityField.ScreenOrder"/>) rather than alphabetically.
+        /// <c>Details</c> holds child collections (<c>List&lt;T&gt;</c>); everything else is a reference to a
+        /// single nested entity (<c>LinkedEntities</c>) and keeps its original relative order.
+        /// </summary>
+        private static string BuildFieldRegions(string entityName, IEnumerable<EntityField> fields)
+        {
+            var scalarFields = fields
+                .Where(f => ScalarFieldTypes.Contains(f.Type))
+                .OrderBy(f => f.IsKey == true ? 0 : 1)
+                .ThenBy(f => f.ScreenOrder ?? int.MaxValue)
+                .ToList();
+            var detailFields = fields.Where(f => IsDetailFieldType(f.Type)).ToList();
+            var linkedEntityFields = fields
+                .Where(f => !ScalarFieldTypes.Contains(f.Type) && !IsDetailFieldType(f.Type))
+                .ToList();
+
+            string Render(IEnumerable<EntityField> group) =>
+                string.Concat(group.Select(f => Templates.GenerateFieldCode(entityName, f)));
+
+            var body = new StringBuilder();
+            if (scalarFields.Count > 0)
+            {
+                body.Append(Templates.GenerateRegion("Fields", Render(scalarFields)));
+            }
+            if (linkedEntityFields.Count > 0)
+            {
+                body.Append(Templates.GenerateRegion("LinkedEntities", Render(linkedEntityFields)));
+            }
+            if (detailFields.Count > 0)
+            {
+                body.Append(Templates.GenerateRegion("Details", Render(detailFields)));
+            }
+            return body.ToString();
         }
 
         /// <summary>
