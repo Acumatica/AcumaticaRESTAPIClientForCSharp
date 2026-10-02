@@ -12,6 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class MaterialDetail : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Backflush { get; set; }
 
 		public DecimalValue? BatchSize { get; set; }
@@ -44,8 +45,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		public DecimalValue? QtyRequired { get; set; }
 
-		public List<BOMReferenceDesignator>? ReferenceDesignators { get; set; }
-
 		public DecimalValue? ScrapFactor { get; set; }
 
 		public StringValue? SubcontractSource { get; set; }
@@ -57,6 +56,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? UOM { get; set; }
 
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<BOMReferenceDesignator>? ReferenceDesignators { get; set; }
+
+		#endregion
 
 	}
 }

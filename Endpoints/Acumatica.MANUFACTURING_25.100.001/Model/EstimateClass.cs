@@ -16,6 +16,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EstimateClass : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: EstimateClassID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
@@ -32,12 +33,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EngineerID</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
-		/// </summary>
-		public StringValue? Engineer { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: ItemClassID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
 		/// <para>Display Name: Item Class</para>
@@ -45,10 +40,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: TaxCategoryID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
-		/// <para>Display Name: Labor Markup (%)</para>
+		/// <para>Display Name: Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		public DecimalValue? LaborMarkupPct { get; set; }
+		public StringValue? TaxCategory { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EngineerID</para>
+		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
+		/// </summary>
+		public StringValue? Engineer { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LeadTime</para>
@@ -56,6 +59,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>Display Name: Lead Time (Days)</para>
 		/// </summary>
 		public IntValue? LeadTimeDays { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
+		/// <para>Display Name: Order Qty.</para>
+		/// </summary>
+		public DecimalValue? OrderQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
+		/// <para>Display Name: Labor Markup (%)</para>
+		/// </summary>
+		public DecimalValue? LaborMarkupPct { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
@@ -71,9 +86,9 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
-		/// <para>Display Name: Order Qty.</para>
+		/// <para>Display Name: Tool Markup (%)</para>
 		/// </summary>
-		public DecimalValue? OrderQty { get; set; }
+		public DecimalValue? ToolMarkupPct { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
@@ -87,19 +102,12 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		public DecimalValue? SubcontractMarkupPct { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: TaxCategoryID</para>
-		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
-		/// <para>Display Name: Tax Category</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		public StringValue? TaxCategory { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateClass</para>
-		/// <para>Display Name: Tool Markup (%)</para>
-		/// </summary>
-		public DecimalValue? ToolMarkupPct { get; set; }
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(EstimateClass)} - \"{ClassID}\"";
+		}
 
 		public static class Expand
 		{

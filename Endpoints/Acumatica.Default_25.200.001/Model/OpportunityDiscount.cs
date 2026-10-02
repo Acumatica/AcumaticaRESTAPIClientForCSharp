@@ -12,6 +12,49 @@ namespace Acumatica.Default_25_200_001.Model
 	public class OpportunityDiscount : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
+		/// </summary>
+		public IntValue? LineNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DiscountID</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
+		/// <para>Display Name: Discount Code</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? DiscountCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DiscountSequenceID</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
+		/// <para>Display Name: Discount Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? SequenceID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Skip Discount</para>
+		/// </summary>
+		public BooleanValue? SkipDiscount { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsManual</para>
+		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
+		/// <para>Display Name: Manual Discount</para>
+		/// </summary>
+		public BooleanValue? ManualDiscount { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: CuryDiscountableAmt</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
@@ -33,14 +76,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? DiscountAmount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DiscountID</para>
-		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
-		/// <para>Display Name: Discount Code</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? DiscountCode { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: DiscountPct</para>
 		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
 		/// <para>Display Name: Discount Percent</para>
@@ -60,39 +95,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public DecimalValue? FreeItemQty { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
-		/// </summary>
-		public IntValue? LineNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IsManual</para>
-		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
-		/// <para>Display Name: Manual Discount</para>
-		/// </summary>
-		public BooleanValue? ManualDiscount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DiscountSequenceID</para>
-		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
-		/// <para>Display Name: Discount Sequence</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? SequenceID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
-		/// <para>Display Name: Skip Discount</para>
-		/// </summary>
-		public BooleanValue? SkipDiscount { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CR.CROpportunityDiscountDetail</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Type { get; set; }
+		#endregion
 
 	}
 }

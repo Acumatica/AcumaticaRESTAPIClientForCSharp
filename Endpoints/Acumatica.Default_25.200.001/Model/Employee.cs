@@ -16,14 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Employee : Entity, ITopLevelEntity
 	{
 
-		public List<AttributeValue>? Attributes { get; set; }
-
-		public List<CompanyTree>? CompanyTreeInfo { get; set; }
-
-		public Contact? ContactInfo { get; set; }
-
-		public List<EmployeeDelegate>? Delegates { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The human-readable identifier of the employee that isspecified by the user or defined by the EMPLOYEE auto-numbering sequence during thecreation of the employee. This field is a natural key, as opposedto the surrogate key BAccountID.
 		/// <para>DAC Field Name: AcctCD</para>
@@ -43,14 +36,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? EmployeeName { get; set; }
 
-		public EmployeeSettings? EmployeeSettings { get; set; }
-
-		public List<EmploymentHistoryRecord>? EmploymentHistory { get; set; }
-
-		public EmployeeFinancialSettings? FinancialSettings { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		/// <summary>
 		/// The status of the employee.
 		/// <para>DAC Field Name: VStatus</para>
@@ -58,6 +43,35 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		public StringValue? Status { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public Contact? ContactInfo { get; set; }
+
+		public EmployeeSettings? EmployeeSettings { get; set; }
+
+		public EmployeeFinancialSettings? FinancialSettings { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<AttributeValue>? Attributes { get; set; }
+
+		public List<CompanyTree>? CompanyTreeInfo { get; set; }
+
+		public List<EmployeeDelegate>? Delegates { get; set; }
+
+		public List<EmploymentHistoryRecord>? EmploymentHistory { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Employee)} - \"{EmployeeID}\"";
+		}
 
 		public static class Expand
 		{

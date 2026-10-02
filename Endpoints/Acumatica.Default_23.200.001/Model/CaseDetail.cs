@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class CaseDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The unique identifier assigned to the case in accordance with the numbering sequence assigned to cases on the Customer Management Preferences (CR101000) form.
 		/// <para>DAC Field Name: CaseCD</para>
@@ -23,6 +24,35 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? CaseID { get; set; }
 
 		/// <summary>
+		/// The status of the contact.
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// </summary>
+		public StringValue? Owner { get; set; }
+
+		/// <summary>
+		/// The identifier of the workgroup responsible for the current document.
+		/// <para>DAC Field Name: WorkgroupID</para>
+		/// <para>DAC: PX.Objects.CR.Contact</para>
+		/// </summary>
+		public StringValue? Workgroup { get; set; }
+
+		/// <summary>
+		/// The subject or description of the opportunity.
+		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
+		/// <para>Display Name: Description</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Subject { get; set; }
+
+		/// <summary>
 		/// The identifier of the case class.
 		/// <para>DAC Field Name: CaseClassID</para>
 		/// <para>DAC: PX.Objects.CR.CRCase</para>
@@ -32,12 +62,19 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ClassID { get; set; }
 
 		/// <summary>
-		/// The date and time when the case was closed. The field is filled in by the system.
-		/// <para>DAC Field Name: ResolutionDate</para>
+		/// The severity level of the case.
 		/// <para>DAC: PX.Objects.CR.CRCase</para>
-		/// <para>Display Name: Closed On</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public DateTimeValue? ClosingDate { get; set; }
+		public StringValue? Severity { get; set; }
+
+		/// <summary>
+		/// The reason why the case has been changed to the current status.
+		/// <para>DAC Field Name: Resolution</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? Reason { get; set; }
 
 		/// <summary>
 		/// Date and time of the case creation.
@@ -54,51 +91,17 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? Estimation { get; set; }
 
+		/// <summary>
+		/// The date and time when the case was closed. The field is filled in by the system.
+		/// <para>DAC Field Name: ResolutionDate</para>
+		/// <para>DAC: PX.Objects.CR.CRCase</para>
+		/// <para>Display Name: Closed On</para>
+		/// </summary>
+		public DateTimeValue? ClosingDate { get; set; }
+
 		public StringValue? InitialResponse { get; set; }
 
-		/// <summary>
-		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
-		/// <para>DAC Field Name: OwnerID</para>
-		/// <para>DAC: PX.Objects.CR.Contact</para>
-		/// </summary>
-		public StringValue? Owner { get; set; }
-
-		/// <summary>
-		/// The reason why the case has been changed to the current status.
-		/// <para>DAC Field Name: Resolution</para>
-		/// <para>DAC: PX.Objects.CR.CRCase</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		public StringValue? Reason { get; set; }
-
-		/// <summary>
-		/// The severity level of the case.
-		/// <para>DAC: PX.Objects.CR.CRCase</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Severity { get; set; }
-
-		/// <summary>
-		/// The status of the contact.
-		/// <para>DAC: PX.Objects.CR.Contact</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Status { get; set; }
-
-		/// <summary>
-		/// The subject or description of the opportunity.
-		/// <para>DAC: PX.Objects.CR.CROpportunity</para>
-		/// <para>Display Name: Description</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Subject { get; set; }
-
-		/// <summary>
-		/// The identifier of the workgroup responsible for the current document.
-		/// <para>DAC Field Name: WorkgroupID</para>
-		/// <para>DAC: PX.Objects.CR.Contact</para>
-		/// </summary>
-		public StringValue? Workgroup { get; set; }
+		#endregion
 
 	}
 }

@@ -15,6 +15,25 @@ namespace Acumatica.Default_25_200_001.Model
 	public class LaborCostRate : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: Type</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
+		/// </summary>
+		public StringValue? LaborRateType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
+		/// </summary>
+		public StringValue? Project { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
+		/// </summary>
+		public StringValue? ProjectTask { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
@@ -33,30 +52,17 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? LaborItem { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ProjectID</para>
-		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
-		/// </summary>
-		public StringValue? Project { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TaskID</para>
-		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
-		/// </summary>
-		public StringValue? ProjectTask { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Type</para>
-		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
-		/// </summary>
-		public StringValue? LaborRateType { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: UnionID</para>
 		/// <para>DAC: PX.Objects.PM.LaborCostRateMaint+PMLaborCostRateFilter</para>
 		/// </summary>
 		public StringValue? UnionLocal { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<LaborRate>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

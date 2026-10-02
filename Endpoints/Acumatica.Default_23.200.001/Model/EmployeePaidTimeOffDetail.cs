@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeePaidTimeOffDetail : Entity
 	{
 
+		#region Fields
 		public DecimalValue? AccrualLimit { get; set; }
 
 		public StringValue? AccrualMethod { get; set; }
@@ -53,6 +54,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? PTOBank { get; set; }
 
 		public BooleanValue? UseClassDefaultValues { get; set; }
+
+		#endregion
 
 	}
 }

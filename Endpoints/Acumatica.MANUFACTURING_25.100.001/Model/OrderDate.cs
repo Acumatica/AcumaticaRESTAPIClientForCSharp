@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class OrderDate : Entity
 	{
 
+		#region Fields
 		public StringValue? Branch { get; set; }
 
 		public StringValue? OrderType { get; set; }
@@ -22,7 +23,12 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		public DateTimeValue? EndDate { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<OrderDateOperationDetail>? Operations { get; set; }
+
+		#endregion
 
 	}
 }

@@ -16,10 +16,15 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MPSType : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
+		/// <para>DAC Field Name: MPSTypeID</para>
 		/// <para>DAC: PX.Objects.AM.AMMPSType</para>
+		/// <para>Display Name: Type ID</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// Key Field
 		/// </summary>
-		public BooleanValue? Dependent { get; set; }
+		public StringValue? TypeID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
@@ -37,13 +42,16 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? NumberingSequence { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MPSTypeID</para>
 		/// <para>DAC: PX.Objects.AM.AMMPSType</para>
-		/// <para>Display Name: Type ID</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// Key Field
 		/// </summary>
-		public StringValue? TypeID { get; set; }
+		public BooleanValue? Dependent { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MPSType)} - \"{TypeID}\"";
+		}
 
 		public static class Expand
 		{

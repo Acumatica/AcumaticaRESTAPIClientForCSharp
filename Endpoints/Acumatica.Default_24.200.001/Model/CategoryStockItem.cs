@@ -12,7 +12,10 @@ namespace Acumatica.Default_24_200_001.Model
 	public class CategoryStockItem : Entity
 	{
 
+		#region Fields
 		public IntValue? CategoryID { get; set; }
+
+		#endregion
 
 	}
 }

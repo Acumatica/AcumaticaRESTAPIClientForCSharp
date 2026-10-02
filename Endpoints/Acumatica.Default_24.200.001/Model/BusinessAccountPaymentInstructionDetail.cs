@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BusinessAccountPaymentInstructionDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Description { get; set; }
 
 		public IntValue? LocationID { get; set; }
@@ -21,6 +22,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? PaymentMethod { get; set; }
 
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

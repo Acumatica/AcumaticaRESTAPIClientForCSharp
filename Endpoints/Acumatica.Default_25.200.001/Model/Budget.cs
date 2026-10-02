@@ -15,11 +15,26 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Budget : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
 		/// </summary>
 		public StringValue? Branch { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: LedgerId</para>
+		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
+		/// </summary>
+		public StringValue? Ledger { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: FinYear</para>
+		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
+		/// <para>Display Name: Financial Year</para>
+		/// <para>SQL Type: varchar(4)</para>
+		/// </summary>
+		public StringValue? FinancialYear { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CompareToBranchID</para>
@@ -43,22 +58,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? ComparetoYear { get; set; }
 
-		public List<BudgetDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: FinYear</para>
-		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
-		/// <para>Display Name: Financial Year</para>
-		/// <para>SQL Type: varchar(4)</para>
-		/// </summary>
-		public StringValue? FinancialYear { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: LedgerId</para>
-		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
-		/// </summary>
-		public StringValue? Ledger { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: SubIDFilter</para>
 		/// <para>DAC: PX.Objects.GL.BudgetFilter</para>
@@ -73,6 +72,13 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		public StringValue? TreeNodeFilter { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<BudgetDetail>? Details { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

@@ -16,51 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class InventoryIssue : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Control Amount</para>
-		/// </summary>
-		public DecimalValue? ControlAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Control Qty.</para>
-		/// </summary>
-		public DecimalValue? ControlQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TranDate</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// </summary>
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TranDesc</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<InventoryIssueDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ExtRefNbr</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: External Ref.</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		public StringValue? ExternalRef { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: FinPeriodID</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Post Period</para>
-		/// <para>SQL Type: char(6)</para>
-		/// </summary>
-		public StringValue? PostPeriod { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
@@ -77,6 +33,47 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Status { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: TranDate</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// </summary>
+		public DateTimeValue? Date { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: FinPeriodID</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Post Period</para>
+		/// <para>SQL Type: char(6)</para>
+		/// </summary>
+		public StringValue? PostPeriod { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ExtRefNbr</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: External Ref.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
+		public StringValue? ExternalRef { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Total Qty.</para>
+		/// </summary>
+		public DecimalValue? TotalQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Control Qty.</para>
+		/// </summary>
+		public DecimalValue? ControlQty { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
 		/// <para>Display Name: Total Amount</para>
 		/// </summary>
@@ -84,15 +81,29 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Control Amount</para>
+		/// </summary>
+		public DecimalValue? ControlAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
 		/// <para>Display Name: Total Cost</para>
 		/// </summary>
 		public DecimalValue? TotalCost { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Total Qty.</para>
-		/// </summary>
-		public DecimalValue? TotalQty { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<InventoryIssueDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(InventoryIssue)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

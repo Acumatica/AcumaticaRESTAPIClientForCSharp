@@ -9,8 +9,32 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.eCommerce_24_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>IN203000</c> in the Acumatica ERP
+	/// </summary>
 	public class TemplateItems : Acumatica.Default_24_200_001.Model.TemplateItems, ITopLevelEntity
 	{
+
+		#region Fields
+		/// <summary>
+		/// References to Attribute which will be put as Column Attribute in Inventory Matrix by default.
+		/// <para>DAC Field Name: DefaultColumnMatrixAttributeID</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Default Column Attribute ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? DefaultColumnAttributeID { get; set; }
+
+		/// <summary>
+		/// References to Attribute which will be put as Row Attribute in Inventory Matrix by default.
+		/// <para>DAC Field Name: DefaultRowMatrixAttributeID</para>
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Default Row Attribute ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? DefaultRowAttributeID { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

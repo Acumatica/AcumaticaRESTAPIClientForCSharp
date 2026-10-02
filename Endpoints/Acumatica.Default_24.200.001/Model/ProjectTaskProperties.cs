@@ -12,20 +12,34 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ProjectTaskProperties : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The EPEmployee that approves or rejects the activities created under the given task.
-		/// <para>DAC Field Name: ApproverID</para>
+		/// The date when the task is supposed to be started.
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>Display Name: Planned Start Date</para>
 		/// </summary>
-		public StringValue? Approver { get; set; }
+		public DateTimeValue? PlannedStartDate { get; set; }
 
 		/// <summary>
-		/// The task completion state in percents. Depending on settings, this value either maintained manually or can be auto-calculated based on the budget ratio of            actual or revised values.
-		/// <para>DAC Field Name: CompletedPercent</para>
+		/// The date when the task is supposed to be finished.
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// <para>Display Name: Completed (%)</para>
+		/// <para>Display Name: Planned End Date</para>
 		/// </summary>
-		public DecimalValue? Completed { get; set; }
+		public DateTimeValue? PlannedEndDate { get; set; }
+
+		/// <summary>
+		/// The actual date when the task is started.
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
+		/// The actual date when the task is finished.
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		public DateTimeValue? EndDate { get; set; }
 
 		/// <summary>
 		/// The calculation method of the completion.
@@ -37,32 +51,21 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? CompletionMethod { get; set; }
 
 		/// <summary>
-		/// The actual date when the task is finished.
+		/// The task completion percentage.The value is either entered manually or calculated automaticallydepending on the CompletedPctMethod selected for the task.
+		/// <para>DAC Field Name: CompletedPercent</para>
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// <para>Display Name: End Date</para>
+		/// <para>Display Name: Completed (%)</para>
 		/// </summary>
-		public DateTimeValue? EndDate { get; set; }
+		public DecimalValue? Completed { get; set; }
 
 		/// <summary>
-		/// The date when the task is supposed to be finished.
+		/// The identifier of the employee that approves or rejects the activities created under the given task.
+		/// <para>DAC Field Name: ApproverID</para>
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// <para>Display Name: Planned End Date</para>
 		/// </summary>
-		public DateTimeValue? PlannedEndDate { get; set; }
+		public StringValue? Approver { get; set; }
 
-		/// <summary>
-		/// The date when the task is supposed to be started.
-		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// <para>Display Name: Planned Start Date</para>
-		/// </summary>
-		public DateTimeValue? PlannedStartDate { get; set; }
-
-		/// <summary>
-		/// The actual date when the task is started.
-		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
+		#endregion
 
 	}
 }

@@ -12,7 +12,10 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ItemPriceClassesDetails : Entity
 	{
 
+		#region Fields
 		public StringValue? PriceClassID { get; set; }
+
+		#endregion
 
 	}
 }

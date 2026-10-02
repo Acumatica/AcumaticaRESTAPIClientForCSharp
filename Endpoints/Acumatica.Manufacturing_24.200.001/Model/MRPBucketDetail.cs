@@ -12,12 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class MRPBucketDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
-		/// Key Field
-		/// </summary>
-		public IntValue? Bucket { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
 		/// <para>Display Name: Bucket ID</para>
@@ -28,13 +23,21 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? Interval { get; set; }
+		public IntValue? Bucket { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
 		/// </summary>
 		public IntValue? Value { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMRPBucketDetail</para>
+		/// </summary>
+		public StringValue? Interval { get; set; }
+
+		#endregion
 
 	}
 }

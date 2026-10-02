@@ -12,18 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class TaxZoneDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: TaxZone__DfltTaxCategoryID</para>
-		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
-		/// </summary>
-		public StringValue? DefaultTaxCategory { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TaxZone__Descr</para>
-		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The tax ID. This is the key field, which can be specified by the user.
 		/// <para>DAC: PX.Objects.TX.Tax</para>
@@ -41,6 +30,20 @@ namespace Acumatica.Default_23_200_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? TaxZoneID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaxZone__DfltTaxCategoryID</para>
+		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
+		/// </summary>
+		public StringValue? DefaultTaxCategory { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaxZone__Descr</para>
+		/// <para>DAC: PX.Objects.TX.TaxZoneDet</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		#endregion
 
 	}
 }

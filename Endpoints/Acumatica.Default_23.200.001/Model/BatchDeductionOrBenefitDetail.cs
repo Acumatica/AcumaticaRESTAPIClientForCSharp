@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class BatchDeductionOrBenefitDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: BatchNbr</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
@@ -22,42 +23,6 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? BatchNumber { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__CntAmount</para>
-		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
-		/// </summary>
-		public DecimalValue? BenefitAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__CntCalcType</para>
-		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
-		/// </summary>
-		public StringValue? BenefitCalculationMethod { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__CntPercent</para>
-		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
-		/// </summary>
-		public DecimalValue? BenefitPercent { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__ContribType</para>
-		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
-		/// </summary>
-		public StringValue? ContributionType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__DedAmount</para>
-		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
-		/// </summary>
-		public DecimalValue? DeductionAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__DedCalcType</para>
-		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
-		/// </summary>
-		public StringValue? DeductionCalculationMethod { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: CodeID</para>
 		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
 		/// <para>Display Name: Deduction Code</para>
@@ -66,10 +31,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? DeductionCode { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__DedPercent</para>
+		/// <para>DAC Field Name: IsEnabled</para>
 		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
 		/// </summary>
-		public DecimalValue? DeductionPercent { get; set; }
+		public BooleanValue? Enabled { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PRDeductCode__Description</para>
@@ -78,10 +43,46 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: IsEnabled</para>
+		/// <para>DAC Field Name: PRDeductCode__ContribType</para>
 		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
 		/// </summary>
-		public BooleanValue? Enabled { get; set; }
+		public StringValue? ContributionType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PRDeductCode__DedCalcType</para>
+		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
+		/// </summary>
+		public StringValue? DeductionCalculationMethod { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PRDeductCode__DedAmount</para>
+		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
+		/// </summary>
+		public DecimalValue? DeductionAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PRDeductCode__DedPercent</para>
+		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
+		/// </summary>
+		public DecimalValue? DeductionPercent { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PRDeductCode__CntCalcType</para>
+		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
+		/// </summary>
+		public StringValue? BenefitCalculationMethod { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PRDeductCode__CntAmount</para>
+		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
+		/// </summary>
+		public DecimalValue? BenefitAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PRDeductCode__CntPercent</para>
+		/// <para>DAC: PX.Objects.PR.PRBatchDeduct</para>
+		/// </summary>
+		public DecimalValue? BenefitPercent { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PRDeductCode__IsGarnishment</para>
@@ -90,6 +91,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? IsGarnishment { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

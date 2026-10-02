@@ -16,32 +16,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ProductionOrderDetail : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// </summary>
-		public BooleanValue? Hold { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		public List<OrderOperationDetail>? Operations { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ProdDate</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Order Date</para>
-		/// </summary>
-		public DateTimeValue? OrderDate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// <para>Display Name: Order Type</para>
@@ -60,11 +35,17 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: StatusID</para>
+		/// <para>DAC Field Name: ProdDate</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Order Date</para>
 		/// </summary>
-		public StringValue? Status { get; set; }
+		public DateTimeValue? OrderDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
@@ -77,6 +58,38 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// </summary>
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: StatusID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// </summary>
+		public BooleanValue? Hold { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// </summary>
+		public StringValue? Branch { get; set; }
+
+		public DateTimeValue? EndDate { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<OrderOperationDetail>? Operations { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProductionOrderDetail)} - \"{OrderType}\" - \"{ProductionNbr}\"";
+		}
 
 		public static class Expand
 		{

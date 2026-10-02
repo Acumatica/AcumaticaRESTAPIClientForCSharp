@@ -12,7 +12,15 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SalesInvoiceApplicationInvoice : Entity
 	{
 
-		public StringValue? AdjustedDocReferenceNbr { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: AdjgDocType</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
+		/// <para>Display Name: Doc. Type</para>
+		/// <para>SQL Type: char(3)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? DocType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AdjgRefNbr</para>
@@ -32,11 +40,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? AdjustmentNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CuryAdjdAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
-		/// <para>Display Name: Amount Paid</para>
+		/// The identifier of the Customer record associated with the document.
+		/// <para>DAC Field Name: CustomerID</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
 		/// </summary>
-		public DecimalValue? AmountPaid { get; set; }
+		public StringValue? Customer { get; set; }
 
 		/// <summary>
 		/// The open balance of the document.Given in the currency of the document.
@@ -46,6 +54,13 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? Balance { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryAdjdAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
+		/// <para>Display Name: Amount Paid</para>
+		/// </summary>
+		public DecimalValue? AmountPaid { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: CuryAdjgDiscAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
 		/// <para>Display Name: Cash Discount Taken</para>
@@ -53,17 +68,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? CashDiscountTaken { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ARPayment__CuryID</para>
+		/// <para>DAC Field Name: ARPayment__DocDate</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
 		/// </summary>
-		public StringValue? Currency { get; set; }
-
-		/// <summary>
-		/// The identifier of the Customer record associated with the document.
-		/// <para>DAC Field Name: CustomerID</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// </summary>
-		public StringValue? Customer { get; set; }
+		public DateTimeValue? PaymentDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ARPayment__DocDesc</para>
@@ -72,21 +80,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: AdjgDocType</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
-		/// <para>Display Name: Doc. Type</para>
-		/// <para>SQL Type: char(3)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? DocType { get; set; }
-
-		public StringValue? DocumentType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ARPayment__DocDate</para>
+		/// <para>DAC Field Name: ARPayment__CuryID</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
 		/// </summary>
-		public DateTimeValue? PaymentDate { get; set; }
+		public StringValue? Currency { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ARPayment__FinPeriodID</para>
@@ -105,6 +102,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.AR.ARAdjust2</para>
 		/// </summary>
 		public StringValue? Status { get; set; }
+
+		public StringValue? AdjustedDocReferenceNbr { get; set; }
+
+		public StringValue? DocumentType { get; set; }
+
+		#endregion
 
 	}
 }

@@ -16,24 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Subaccount : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// Indicates whether the Subaccount is active.Inactive subaccounts do not appear in the lists of available subaccounts andthus can't be selected for documents, transactions and other entities.
-		/// <para>DAC: PX.Objects.GL.Sub</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// The description of the Subaccount.
-		/// <para>DAC: PX.Objects.GL.Sub</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.GL.Sub</para>
-		/// </summary>
-		public BooleanValue? Secured { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Key field.Unique user-friendly segmented key of the Subaccount.
 		/// <para>DAC Field Name: SubCD</para>
@@ -51,6 +34,31 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Sub. ID</para>
 		/// </summary>
 		public IntValue? SubaccountID { get; set; }
+
+		/// <summary>
+		/// Indicates whether the Subaccount is <c>active</c>.Inactive subaccounts do not appear in the lists of available subaccounts andthus can't be selected for documents, transactions and other entities.
+		/// <para>DAC: PX.Objects.GL.Sub</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// The description of the Subaccount.
+		/// <para>DAC: PX.Objects.GL.Sub</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.GL.Sub</para>
+		/// </summary>
+		public BooleanValue? Secured { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Subaccount)} - \"{SubaccountCD}\"";
+		}
 
 		public static class Expand
 		{

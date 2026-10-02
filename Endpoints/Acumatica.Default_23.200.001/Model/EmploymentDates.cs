@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmploymentDates : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// Hire date.
 		/// <para>DAC: PX.Objects.PR.EmploymentHistory</para>
@@ -25,6 +26,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Termination Date</para>
 		/// </summary>
 		public DateTimeValue? TerminationDate { get; set; }
+
+		#endregion
 
 	}
 }

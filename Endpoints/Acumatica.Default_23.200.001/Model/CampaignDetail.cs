@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class CampaignDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? CampaignID { get; set; }
 
 		public StringValue? CampaignName { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? ContactID { get; set; }
 
 		public StringValue? Stage { get; set; }
+
+		#endregion
 
 	}
 }

@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EngineeringChangeRequestMaterial : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Backflush { get; set; }
 
 		public DecimalValue? BatchSize { get; set; }
@@ -50,8 +51,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		public DecimalValue? QtyRequired { get; set; }
 
-		public List<ECRReferenceDesignator>? ReferenceDesignators { get; set; }
-
 		public StringValue? Revision { get; set; }
 
 		public DecimalValue? ScrapFactor { get; set; }
@@ -65,6 +64,13 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? UOM { get; set; }
 
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ECRReferenceDesignator>? ReferenceDesignators { get; set; }
+
+		#endregion
 
 	}
 }

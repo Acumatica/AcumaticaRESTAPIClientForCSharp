@@ -15,17 +15,23 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	public class ConsolidationData : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter</para>
-		/// </summary>
-		public StringValue? BranchCD { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter</para>
 		/// </summary>
 		public StringValue? LedgerCD { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.GL.Consolidation.ConsolSourceDataMaint+ConsolRecordsFilter</para>
+		/// </summary>
+		public StringValue? BranchCD { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<ConsolidationItem>? Result { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

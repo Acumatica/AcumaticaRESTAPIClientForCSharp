@@ -12,20 +12,19 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EventAttendee : Entity
 	{
 
-		/// <summary>
-		/// The comment of the event owner for the attendee.
-		/// <para>DAC: PX.Objects.EP.EPAttendee</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Comment { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.EP.SendCardFilter</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		public StringValue? Email { get; set; }
 
-		public GuidValue? EventNoteID { get; set; }
+		/// <summary>
+		/// The comment of the event owner for the attendee.
+		/// <para>DAC: PX.Objects.EP.EPAttendee</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Comment { get; set; }
 
 		/// <summary>
 		/// The invitation status of the attendee.
@@ -35,6 +34,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? InvitationStatus { get; set; }
 
+		public GuidValue? EventNoteID { get; set; }
+
 		public StringValue? Key { get; set; }
 
 		public StringValue? Name { get; set; }
@@ -42,6 +43,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? NameAttendeeName { get; set; }
 
 		public IntValue? Type { get; set; }
+
+		#endregion
 
 	}
 }

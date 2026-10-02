@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmployeeDeductionOrBenefitDetail : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Active { get; set; }
 
 		public DecimalValue? ContributionAmount { get; set; }
@@ -36,8 +37,6 @@ namespace Acumatica.Default_25_200_001.Model
 
 		public DateTimeValue? EndDate { get; set; }
 
-		public GarnishmentDetails? GarnishmentDetails { get; set; }
-
 		public BooleanValue? IsGarnish { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
@@ -49,6 +48,13 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? UseContributionDefaults { get; set; }
 
 		public BooleanValue? UseDeductionDefaults { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public GarnishmentDetails? GarnishmentDetails { get; set; }
+
+		#endregion
 
 	}
 }

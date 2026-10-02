@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class InventoryIssueDetailAllocation : Entity
 	{
 
+		#region Fields
 		public DateTimeValue? ExpirationDate { get; set; }
 
 		public StringValue? InventoryID { get; set; }
@@ -27,6 +28,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Subitem { get; set; }
 
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

@@ -12,11 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmployeePaycheckSummary : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
-		/// </summary>
-		public DecimalValue? Amount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: AcctCD</para>
 		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
@@ -32,15 +28,21 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? EmployeeName { get; set; }
 
-		public EmployeePaycheckEarnings? EmployeePaycheckEarnings { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: HourQty</para>
 		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
 		/// </summary>
 		public DecimalValue? Hours { get; set; }
 
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
+		/// </summary>
+		public DecimalValue? Rate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
+		/// </summary>
+		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PaymentDocAndRef</para>
@@ -51,17 +53,21 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? PaycheckRef { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
-		/// </summary>
-		public DecimalValue? Rate { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: VoidPaymentDocAndRef</para>
 		/// <para>DAC: PX.Objects.PR.PRBatchEmployee</para>
 		/// <para>Display Name: Void Paycheck Ref</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		public StringValue? VoidPaycheckRef { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public EmployeePaycheckEarnings? EmployeePaycheckEarnings { get; set; }
+
+		#endregion
 
 	}
 }

@@ -15,26 +15,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ItemWhereUsedInquiry : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ItemClassID</para>
-		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
-		/// <para>Display Name: Item Class</para>
-		/// </summary>
-		public StringValue? ItemClass { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
-		/// <para>Display Name: Show Multilevel Results</para>
-		/// </summary>
-		public BooleanValue? MultiLevel { get; set; }
-
-		public List<ItemWhereUsedRow>? Results { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
@@ -43,11 +29,31 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
+		/// <para>Display Name: Show Multilevel Results</para>
+		/// </summary>
+		public BooleanValue? MultiLevel { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
 		/// <para>Display Name: BOM Warehouse</para>
 		/// </summary>
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ItemClassID</para>
+		/// <para>DAC: PX.Objects.AM.BomWhereUsedFilter</para>
+		/// <para>Display Name: Item Class</para>
+		/// </summary>
+		public StringValue? ItemClass { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ItemWhereUsedRow>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

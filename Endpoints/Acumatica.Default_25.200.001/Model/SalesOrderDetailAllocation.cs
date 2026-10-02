@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesOrderDetailAllocation : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Allocated { get; set; }
 
 		public StringValue? AllocWarehouseID { get; set; }
@@ -51,6 +52,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Subitem { get; set; }
 
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

@@ -15,6 +15,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class Subcontract : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		public StringValue? SubcontractNbr { get; set; }
 
 		public StringValue? Status { get; set; }
@@ -77,13 +78,21 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		#endregion
+
+		#region LinkedEntities
+		public SubcontractVendorAddressInfo? VendorAddressInfo { get; set; }
+
+		public SubcontractVendorContactInfo? VendorContactInfo { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<SubcontractDetail>? Details { get; set; }
 
 		public List<SubcontractTaxDetail>? TaxDetails { get; set; }
 
-		public SubcontractVendorAddressInfo? VendorAddressInfo { get; set; }
-
-		public SubcontractVendorContactInfo? VendorContactInfo { get; set; }
+		#endregion
 
 		public static class Expand
 		{

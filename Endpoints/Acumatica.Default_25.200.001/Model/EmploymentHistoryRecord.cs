@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmploymentHistoryRecord : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
@@ -20,25 +21,10 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
-		/// <para>Display Name: End Date</para>
-		/// </summary>
-		public DateTimeValue? EndDate { get; set; }
-
-		public IntValue? LineNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
 		/// <para>Display Name: Position</para>
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		public StringValue? PositionID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IsRehirable</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
-		/// <para>Display Name: Eligible for Rehire</para>
-		/// </summary>
-		public BooleanValue? RehireEligible { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
@@ -54,6 +40,12 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? StartReason { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		public DateTimeValue? EndDate { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: IsTerminated</para>
 		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
 		/// </summary>
@@ -66,6 +58,17 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		public StringValue? TerminationReason { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsRehirable</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Eligible for Rehire</para>
+		/// </summary>
+		public BooleanValue? RehireEligible { get; set; }
+
+		public IntValue? LineNbr { get; set; }
+
+		#endregion
 
 	}
 }

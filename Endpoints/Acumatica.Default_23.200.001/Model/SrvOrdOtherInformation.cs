@@ -12,14 +12,15 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SrvOrdOtherInformation : Entity
 	{
 
-		public StringValue? BatchNumber { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LongDescr</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
 		public StringValue? Description { get; set; }
+
+		public StringValue? BatchNumber { get; set; }
 
 		public StringValue? DocumentType { get; set; }
 
@@ -28,6 +29,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? IssueReferenceNbr { get; set; }
 
 		public StringValue? ReferenceNbr { get; set; }
+
+		#endregion
 
 	}
 }

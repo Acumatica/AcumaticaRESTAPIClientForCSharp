@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ContactRoles : Entity
 	{
 
+		#region Fields
 		public StringValue? RoleDescription { get; set; }
 
 		public StringValue? RoleName { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? Selected { get; set; }
 
 		public IntValue? UserType { get; set; }
+
+		#endregion
 
 	}
 }

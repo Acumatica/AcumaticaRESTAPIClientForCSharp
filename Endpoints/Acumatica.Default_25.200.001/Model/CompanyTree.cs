@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CompanyTree : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.ContactNotification</para>
 		/// </summary>
@@ -30,6 +31,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Workgroup</para>
 		/// </summary>
 		public StringValue? WorkgroupID { get; set; }
+
+		#endregion
 
 	}
 }

@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BatchOvertimeRules : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: ApplyOvertimeRules</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
@@ -19,7 +20,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public BooleanValue? ApplyOvertimeRulesfortheDocument { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<BatchOvertimeRulesDetail>? OvertimeRulesDetails { get; set; }
+
+		#endregion
 
 	}
 }

@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ProFormaFinancialDetails : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The type of the corresponding accounts receivable document created on release of the pro forma invoice.
 		/// <para>DAC Field Name: ARInvoiceDocType</para>
@@ -31,11 +32,26 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? ARRefNbr { get; set; }
 
 		/// <summary>
-		/// The identifier of the Branch to which the pro forma invoice belongs.
+		/// The identifier of the branch to which the pro forma invoice belongs.
 		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.PM.PMProforma</para>
 		/// </summary>
 		public StringValue? Branch { get; set; }
+
+		/// <summary>
+		/// The identifier of the credit terms object associated with the document.
+		/// <para>DAC Field Name: TermsID</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? Terms { get; set; }
+
+		/// <summary>
+		/// The date when the payment for the document is due, in accordance with the credit terms.
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Due Date</para>
+		/// </summary>
+		public DateTimeValue? DueDate { get; set; }
 
 		/// <summary>
 		/// The end date of the cash discount period, which the system calculates by using the credit terms.
@@ -63,20 +79,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public StringValue? CustomerUsageType { get; set; }
 
-		/// <summary>
-		/// The date when the payment for the document is due, in accordance with the credit terms.
-		/// <para>DAC: PX.Objects.PM.PMProforma</para>
-		/// <para>Display Name: Due Date</para>
-		/// </summary>
-		public DateTimeValue? DueDate { get; set; }
-
-		/// <summary>
-		/// The identifier of the credit terms object associated with the document.
-		/// <para>DAC Field Name: TermsID</para>
-		/// <para>DAC: PX.Objects.PM.PMProforma</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? Terms { get; set; }
+		#endregion
 
 	}
 }

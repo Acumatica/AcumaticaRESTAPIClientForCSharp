@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationMaintenanceFeature : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: Configuration ID</para>
@@ -19,6 +20,20 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? ConfigurationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? Revision { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Line Nbr</para>
+		/// Key Field
+		/// </summary>
+		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
@@ -42,24 +57,16 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Line Nbr</para>
-		/// Key Field
+		/// <para>Display Name: Sort Order</para>
 		/// </summary>
-		public IntValue? LineNbr { get; set; }
+		public IntValue? SortOrder { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Lot Qty.</para>
+		/// <para>Display Name: Min Selection</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		public StringValue? LotQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Max. Qty.</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		public StringValue? MaxQty { get; set; }
+		public StringValue? MinSelection { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
@@ -77,19 +84,22 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Min Selection</para>
+		/// <para>Display Name: Max. Qty.</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		public StringValue? MinSelection { get; set; }
-
-		public List<ConfigurationMaintFeatureOption>? Options { get; set; }
+		public StringValue? MaxQty { get; set; }
 
 		/// <summary>
-		/// Flag used for reporting
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Print Results</para>
+		/// <para>Display Name: Lot Qty.</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		public BooleanValue? PrintResults { get; set; }
+		public StringValue? LotQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// </summary>
+		public BooleanValue? Visible { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
@@ -98,24 +108,20 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public BooleanValue? ResultsCopy { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
+		/// Flag used for reporting
+		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
+		/// <para>Display Name: Print Results</para>
 		/// </summary>
-		public StringValue? Revision { get; set; }
+		public BooleanValue? PrintResults { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ConfigurationMaintFeatureOption>? Options { get; set; }
 
 		public List<ConfigurationMaintFeatureRule>? Rules { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// <para>Display Name: Sort Order</para>
-		/// </summary>
-		public IntValue? SortOrder { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationFeature</para>
-		/// </summary>
-		public BooleanValue? Visible { get; set; }
+		#endregion
 
 	}
 }

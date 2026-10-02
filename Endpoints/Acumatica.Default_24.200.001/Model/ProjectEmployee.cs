@@ -12,11 +12,14 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ProjectEmployee : Entity
 	{
 
+		#region Fields
 		public StringValue? Department { get; set; }
 
 		public StringValue? EmployeeID { get; set; }
 
 		public StringValue? EmployeeName { get; set; }
+
+		#endregion
 
 	}
 }

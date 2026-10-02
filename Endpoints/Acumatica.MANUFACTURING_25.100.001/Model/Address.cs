@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class Address : Entity
 	{
 
+		#region Fields
 		public StringValue? AddressLine1 { get; set; }
 
 		public StringValue? AddressLine2 { get; set; }
@@ -25,6 +26,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? State { get; set; }
 
 		public BooleanValue? Validated { get; set; }
+
+		#endregion
 
 	}
 }

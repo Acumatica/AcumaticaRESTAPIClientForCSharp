@@ -12,22 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EarningCodeGLAccounts : Entity
 	{
 
-		/// <summary>
-		/// The unique identifier of the expense account to be used by default to record the benefit expense linked with the earning.The field is included in BenefitExpenseAccount.
-		/// <para>DAC Field Name: BenefitExpenseAcctID</para>
-		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
-		/// <para>Display Name: Benefit Expense Account</para>
-		/// </summary>
-		public StringValue? BenefitExpenseAccount { get; set; }
-
-		/// <summary>
-		/// The unique identifier of the corresponding subaccount to be used with the benefit expense account.The field is included in BenefitExpenseSubaccount.
-		/// <para>DAC Field Name: BenefitExpenseSubID</para>
-		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
-		/// <para>Display Name: Benefit Expense Sub.</para>
-		/// </summary>
-		public StringValue? BenefitExpenseSub { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The unique identifier of the expense account to be used by default to record the earnings.The field is included in EarningsAccount.
 		/// <para>DAC Field Name: EarningsAcctID</para>
@@ -45,20 +30,20 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? EarningsSub { get; set; }
 
 		/// <summary>
-		/// The unique identifier of the expense account to be used by default to record the paid time-off expenses linked with the earning.The field is included in PTOExpenseAccount.
-		/// <para>DAC Field Name: PTOExpenseAcctID</para>
+		/// The unique identifier of the expense account to be used by default to record the benefit expense linked with the earning.The field is included in BenefitExpenseAccount.
+		/// <para>DAC Field Name: BenefitExpenseAcctID</para>
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
-		/// <para>Display Name: PTO Expense Account</para>
+		/// <para>Display Name: Benefit Expense Account</para>
 		/// </summary>
-		public StringValue? PTOExpenseAccount { get; set; }
+		public StringValue? BenefitExpenseAccount { get; set; }
 
 		/// <summary>
-		/// The unique identifier of the corresponding subaccount to be used with the paid time-off expense account.The field is included in PTOExpenseSubaccount.
-		/// <para>DAC Field Name: PTOExpenseSubID</para>
+		/// The unique identifier of the corresponding subaccount to be used with the benefit expense account.The field is included in BenefitExpenseSubaccount.
+		/// <para>DAC Field Name: BenefitExpenseSubID</para>
 		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
-		/// <para>Display Name: PTO Expense Sub.</para>
+		/// <para>Display Name: Benefit Expense Sub.</para>
 		/// </summary>
-		public StringValue? PTOExpenseSub { get; set; }
+		public StringValue? BenefitExpenseSub { get; set; }
 
 		/// <summary>
 		/// The unique identifier of the expense account to be used by default to record the tax expenses linked with the earning.The field is included in TaxExpenseAccount.
@@ -75,6 +60,24 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Tax Expense Sub.</para>
 		/// </summary>
 		public StringValue? TaxExpenseSub { get; set; }
+
+		/// <summary>
+		/// The unique identifier of the expense account to be used by default to record the paid time-off expenses linked with the earning.The field is included in PTOExpenseAccount.
+		/// <para>DAC Field Name: PTOExpenseAcctID</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: PTO Expense Account</para>
+		/// </summary>
+		public StringValue? PTOExpenseAccount { get; set; }
+
+		/// <summary>
+		/// The unique identifier of the corresponding subaccount to be used with the paid time-off expense account.The field is included in PTOExpenseSubaccount.
+		/// <para>DAC Field Name: PTOExpenseSubID</para>
+		/// <para>DAC: PX.Objects.EP.EPEarningType</para>
+		/// <para>Display Name: PTO Expense Sub.</para>
+		/// </summary>
+		public StringValue? PTOExpenseSub { get; set; }
+
+		#endregion
 
 	}
 }

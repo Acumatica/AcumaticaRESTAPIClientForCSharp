@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ItemClassAtrribute : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
 		/// <para>Display Name: Attribute ID</para>
@@ -22,14 +23,16 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
-		/// </summary>
-		public BooleanValue? Required { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
 		/// <para>Display Name: Sort Order</para>
 		/// </summary>
 		public ShortValue? SortOrder { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSAttributeGroup</para>
+		/// </summary>
+		public BooleanValue? Required { get; set; }
+
+		#endregion
 
 	}
 }

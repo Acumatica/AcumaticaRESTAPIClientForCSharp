@@ -16,9 +16,15 @@ namespace Acumatica.Default_23_200_001.Model
 	public class TaxZone : Entity, ITopLevelEntity
 	{
 
-		public List<TaxZoneApplicableTaxDetail>? ApplicableTaxes { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
+		#region Fields
+		/// <summary>
+		/// A key field, which can be specified by the user.
+		/// <para>DAC: PX.Objects.TX.TaxZone</para>
+		/// <para>Display Name: Tax Zone ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? TaxZoneID { get; set; }
 
 		/// <summary>
 		/// The description of the tax zone, which can be specified by the user.
@@ -28,16 +34,21 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? Description { get; set; }
 
+		public DateTimeValue? CreatedDateTime { get; set; }
+
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// A key field, which can be specified by the user.
-		/// <para>DAC: PX.Objects.TX.TaxZone</para>
-		/// <para>Display Name: Tax Zone ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? TaxZoneID { get; set; }
+		#endregion
+
+		#region Details
+		public List<TaxZoneApplicableTaxDetail>? ApplicableTaxes { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(TaxZone)} - \"{TaxZoneID}\"";
+		}
 
 		public static class Expand
 		{

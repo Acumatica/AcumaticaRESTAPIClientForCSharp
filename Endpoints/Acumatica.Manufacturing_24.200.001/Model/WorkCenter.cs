@@ -16,32 +16,40 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class WorkCenter : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: WcID</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>Display Name: Work Center</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? WorkCenterID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// </summary>
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// </summary>
+		public StringValue? Location { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: ActiveFlg</para>
 		/// <para>DAC: PX.Objects.AM.AMWC</para>
 		/// </summary>
 		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AllowMultiClockEntry</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>Display Name: Allow Clock Entry for Multiple Production Orders</para>
-		/// </summary>
-		public BooleanValue? AllowClockEntryforMultipleProductionOrders { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BflushLbr</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>Display Name: Backflush Labor</para>
-		/// </summary>
-		public BooleanValue? BackflushLabor { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BflushMatl</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>Display Name: Backflush Materials</para>
-		/// </summary>
-		public BooleanValue? BackflushMaterials { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: WcBasis</para>
@@ -52,10 +60,51 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? BasisforCapacity { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ScrapAction</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>Display Name: Scrap Action Default</para>
+		/// </summary>
+		public StringValue? ScrapActionDefault { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BflushMatl</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>Display Name: Backflush Materials</para>
+		/// </summary>
+		public BooleanValue? BackflushMaterials { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BflushLbr</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>Display Name: Backflush Labor</para>
+		/// </summary>
+		public BooleanValue? BackflushLabor { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AllowMultiClockEntry</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>Display Name: Allow Clock Entry for Multiple Production Orders</para>
+		/// </summary>
+		public BooleanValue? AllowClockEntryforMultipleProductionOrders { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMWC</para>
 		/// <para>Display Name: Control Point</para>
 		/// </summary>
 		public BooleanValue? ControlPoint { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OutsideFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>Display Name: Outside Process</para>
+		/// </summary>
+		public BooleanValue? OutsideProcessing { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMWC</para>
+		/// <para>Display Name: Default Queue Time</para>
+		/// </summary>
+		public StringValue? DefaultQueueTime { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMWC</para>
@@ -70,69 +119,31 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? DefaultMoveTime { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>Display Name: Default Queue Time</para>
-		/// </summary>
-		public StringValue? DefaultQueueTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: LocationID</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// </summary>
-		public StringValue? Location { get; set; }
-
-		public List<MachineDetail>? Machines { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OutsideFlg</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>Display Name: Outside Process</para>
-		/// </summary>
-		public BooleanValue? OutsideProcessing { get; set; }
-
-		public List<WorkCenterOverheadDetail>? Overheads { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ScrapAction</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>Display Name: Scrap Action Default</para>
-		/// </summary>
-		public StringValue? ScrapActionDefault { get; set; }
-
-		public List<ShiftDetail>? Shifts { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: StdCost</para>
 		/// <para>DAC: PX.Objects.AM.AMWCMach</para>
 		/// <para>Display Name: Standard Cost</para>
 		/// </summary>
 		public DecimalValue? StandardCost { get; set; }
 
-		public List<WorkCenterSubstitute>? SubstituteWorkCenters { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// </summary>
-		public StringValue? Warehouse { get; set; }
+		#region Details
+		public List<MachineDetail>? Machines { get; set; }
+
+		public List<WorkCenterOverheadDetail>? Overheads { get; set; }
+
+		public List<ShiftDetail>? Shifts { get; set; }
+
+		public List<WorkCenterSubstitute>? SubstituteWorkCenters { get; set; }
 
 		public List<WhereUsedDetail>? WhereUsed { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: WcID</para>
-		/// <para>DAC: PX.Objects.AM.AMWC</para>
-		/// <para>Display Name: Work Center</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? WorkCenterID { get; set; }
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(WorkCenter)} - \"{WorkCenterID}\"";
+		}
 
 		public static class Expand
 		{

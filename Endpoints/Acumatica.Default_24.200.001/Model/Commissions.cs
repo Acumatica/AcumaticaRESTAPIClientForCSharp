@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class Commissions : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The identifier of the salesperson to be used by defaultfor each sales order line.The field is included in the SalesPerson foreign key.
 		/// <para>DAC Field Name: SalesPersonID</para>
@@ -20,7 +21,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public StringValue? DefaultSalesperson { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<SalesPersonDetail>? SalesPersons { get; set; }
+
+		#endregion
 
 	}
 }

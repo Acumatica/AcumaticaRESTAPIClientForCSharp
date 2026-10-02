@@ -12,11 +12,14 @@ namespace Acumatica.Default_24_200_001.Model
 	public class WCCCodeLaborItemSource : Entity
 	{
 
+		#region Fields
 		public StringValue? LaborItem { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public StringValue? WorkCodeID { get; set; }
+
+		#endregion
 
 	}
 }

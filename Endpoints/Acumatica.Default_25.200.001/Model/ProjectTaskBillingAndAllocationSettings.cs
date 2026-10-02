@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ProjectTaskBillingAndAllocationSettings : Entity
 	{
 
+		#region Fields
 		public StringValue? AllocationRule { get; set; }
 
 		public StringValue? BillingOption { get; set; }
@@ -29,6 +30,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? RateTable { get; set; }
 
 		public StringValue? WIPAccountGroup { get; set; }
+
+		#endregion
 
 	}
 }

@@ -16,6 +16,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class AccountGroup : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// Gets or Sets the AccountGroup identifier.This is a segmented key and format is configured under segmented key maintenance screen in CS module.
 		/// <para>DAC Field Name: GroupCD</para>
@@ -27,19 +28,18 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? AccountGroupID { get; set; }
 
 		/// <summary>
-		/// Gets or sets whether Account group is active or not.
-		/// <para>DAC Field Name: IsActive</para>
+		/// The type of the account group, which can be one of the following: Asset, Liability, Expense, Income, and Off-Balance.
 		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		public List<AttributeValue>? Attributes { get; set; }
+		public StringValue? Type { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: AccountID</para>
-		/// <para>DAC: PX.Objects.PM.AccountGroupMaint+AccountPtr</para>
+		/// A Boolean value that indicates whether the account group is an expense account groupand can be selected on the Cost Budget tab of the Projects (PM301000) form.
+		/// <para>DAC Field Name: IsExpense</para>
+		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
 		/// </summary>
-		public StringValue? DefaultAccountID { get; set; }
+		public BooleanValue? Expense { get; set; }
 
 		/// <summary>
 		/// Gets or Sets the AccountGroup description.
@@ -49,15 +49,6 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// A Boolean value that indicates whether the account group is an expense account groupand can be selected on the Cost Budget tab of the Projects (PM301000) form.
-		/// <para>DAC Field Name: IsExpense</para>
-		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
-		/// </summary>
-		public BooleanValue? Expense { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
 		/// Gets or sets sort order. Sort order is used in displaying the Balances for the Project.
 		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
 		/// <para>Display Name: Sort Order</para>
@@ -65,11 +56,31 @@ namespace Acumatica.Default_24_200_001.Model
 		public ShortValue? SortOrder { get; set; }
 
 		/// <summary>
-		/// The type of the account group, which can be one of the following: Asset, Liability, Expense, Income, and Off-Balance.
+		/// Gets or sets whether Account group is active or not.
+		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PM.PMAccountGroup</para>
-		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public StringValue? Type { get; set; }
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AccountID</para>
+		/// <para>DAC: PX.Objects.PM.AccountGroupMaint+AccountPtr</para>
+		/// </summary>
+		public StringValue? DefaultAccountID { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<AttributeValue>? Attributes { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(AccountGroup)} - \"{AccountGroupID}\"";
+		}
 
 		public static class Expand
 		{

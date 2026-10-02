@@ -16,9 +16,15 @@ namespace Acumatica.Default_23_200_001.Model
 	public class WorkCalendar : Entity, ITopLevelEntity
 	{
 
-		public List<WorkCalendarExceptionDetail>? CalendarExceptions { get; set; }
-
-		public CalendarSettings? CalendarSettings { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: CalendarID</para>
+		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
+		/// <para>Display Name: Calendar ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? WorkCalendarID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
@@ -33,14 +39,22 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? TimeZone { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: CalendarID</para>
-		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
-		/// <para>Display Name: Calendar ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? WorkCalendarID { get; set; }
+		#endregion
+
+		#region LinkedEntities
+		public CalendarSettings? CalendarSettings { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<WorkCalendarExceptionDetail>? CalendarExceptions { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(WorkCalendar)} - \"{WorkCalendarID}\"";
+		}
 
 		public static class Expand
 		{

@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationMaintAttributeRule : Entity
 	{
 
+		#region Fields
 		public StringValue? Condition { get; set; }
 
 		public StringValue? ConfigurationID { get; set; }
@@ -33,6 +34,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Value1 { get; set; }
 
 		public StringValue? Value2 { get; set; }
+
+		#endregion
 
 	}
 }

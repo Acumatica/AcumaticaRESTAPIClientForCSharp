@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class LaborEntryDetailAllocation : Entity
 	{
 
+		#region Fields
 		public DateTimeValue? ExpirationDate { get; set; }
 
 		public StringValue? InventoryID { get; set; }
@@ -29,6 +30,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Subitem { get; set; }
 
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

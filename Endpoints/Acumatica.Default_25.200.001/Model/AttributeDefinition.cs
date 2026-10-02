@@ -16,6 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class AttributeDefinition : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
 		/// <para>Display Name: Attribute ID</para>
@@ -26,17 +27,21 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
 		/// <para>Display Name: Control Type</para>
 		/// </summary>
 		public StringValue? ControlType { get; set; }
 
-		public DateTimeValue? CreatedDateTime { get; set; }
-
 		/// <summary>
+		/// <para>DAC Field Name: IsInternal</para>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
-		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		public StringValue? Description { get; set; }
+		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
@@ -46,21 +51,27 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? EntryMask { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: IsInternal</para>
-		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
-		/// </summary>
-		public BooleanValue? Internal { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
 		/// <para>Display Name: Reg. Exp.</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		public StringValue? RegExp { get; set; }
 
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<AttributeDefinitionValue>? Values { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(AttributeDefinition)} - \"{AttributeID}\"";
+		}
 
 		public static class Expand
 		{

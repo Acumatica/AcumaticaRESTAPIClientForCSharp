@@ -12,9 +12,15 @@ namespace Acumatica.Default_25_200_001.Model
 	public class TaxesDecreasingApplWage : Entity
 	{
 
+		#region Fields
+		public StringValue? InclusionType { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<TaxesDecreasingApplWageDetail>? EmployeeTaxesDecreasingApplWageDetails { get; set; }
 
-		public StringValue? InclusionType { get; set; }
+		#endregion
 
 	}
 }

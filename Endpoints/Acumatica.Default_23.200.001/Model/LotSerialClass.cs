@@ -16,14 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class LotSerialClass : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: LotSerAssign</para>
-		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
-		/// <para>Display Name: Assignment Method</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? AssignmentMethod { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LotSerClassID</para>
 		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
@@ -41,14 +34,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: LotSerIssueMethod</para>
+		/// <para>DAC Field Name: LotSerTrack</para>
 		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
-		/// <para>Display Name: Issue Method</para>
+		/// <para>Display Name: Tracking Method</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public StringValue? IssueMethod { get; set; }
-
-		public List<LotSerialClassSegment>? Segments { get; set; }
+		public StringValue? TrackingMethod { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LotSerTrackExpiration</para>
@@ -58,12 +49,32 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? TrackExpirationDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: LotSerTrack</para>
+		/// <para>DAC Field Name: LotSerAssign</para>
 		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
-		/// <para>Display Name: Tracking Method</para>
+		/// <para>Display Name: Assignment Method</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public StringValue? TrackingMethod { get; set; }
+		public StringValue? AssignmentMethod { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: LotSerIssueMethod</para>
+		/// <para>DAC: PX.Objects.IN.INLotSerClass</para>
+		/// <para>Display Name: Issue Method</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? IssueMethod { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<LotSerialClassSegment>? Segments { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(LotSerialClass)} - \"{ClassID}\"";
+		}
 
 		public static class Expand
 		{

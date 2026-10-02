@@ -16,22 +16,9 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectTemplateTask : Entity, ITopLevelEntity
 	{
 
-		public List<AttributeValue>? Attributes { get; set; }
-
-		public ProjectTaskBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
-
-		public ProjectTaskDefaultValues? DefaultValues { get; set; }
-
+		#region Fields
 		/// <summary>
-		/// The description of the task.
-		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// <para>SQL Type: nvarchar(250)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
+		/// The identifier of the project to which the task belongs.
 		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
 		/// <para>Display Name: Project ID</para>
@@ -49,9 +36,37 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? ProjectTemplateTaskID { get; set; }
 
+		/// <summary>
+		/// The description of the task.
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>SQL Type: nvarchar(250)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ProjectTaskBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
+
+		public ProjectTaskDefaultValues? DefaultValues { get; set; }
+
 		public ProjectTemplateTaskProperties? Properties { get; set; }
 
 		public VisibilitySettings? VisibilitySettings { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<AttributeValue>? Attributes { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProjectTemplateTask)} - \"{ProjectTemplateID}\" - \"{ProjectTemplateTaskID}\"";
+		}
 
 		public static class Expand
 		{

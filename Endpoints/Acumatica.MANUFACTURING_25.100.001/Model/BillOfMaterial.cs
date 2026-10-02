@@ -16,6 +16,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class BillOfMaterial : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The identifier of the bill of material.
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
@@ -24,43 +25,6 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? BOMID { get; set; }
-
-		/// <summary>
-		/// A description of the bill of material. The system copies the description to production orders that are created by using the bill of material.
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// The last date when the BOM revision was effective.
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// <para>Display Name: End Date</para>
-		/// </summary>
-		public DateTimeValue? EffEndDate { get; set; }
-
-		/// <summary>
-		/// The date when the BOM revision becomes effective.
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? EffStartDate { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates whether the BOM item is on hold.
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// </summary>
-		public BooleanValue? Hold { get; set; }
-
-		/// <summary>
-		/// The identifier of the stock item that is produced by using the bill of material.
-		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		public List<OperationDetail>? Operations { get; set; }
 
 		/// <summary>
 		/// The identifier of the BOM revision, which is the modification of the bill of material.
@@ -72,11 +36,32 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
+		/// A Boolean value that indicates whether the BOM item is on hold.
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// </summary>
+		public BooleanValue? Hold { get; set; }
+
+		/// <summary>
 		/// The status of the revision.
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// A description of the bill of material. The system copies the description to production orders that are created by using the bill of material.
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// The identifier of the stock item that is produced by using the bill of material.
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// The subitem of the stock item.
@@ -91,6 +76,32 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
 		/// </summary>
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// The date when the BOM revision becomes effective.
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? EffStartDate { get; set; }
+
+		/// <summary>
+		/// The last date when the BOM revision was effective.
+		/// <para>DAC: PX.Objects.AM.AMBomItem</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		public DateTimeValue? EffEndDate { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<OperationDetail>? Operations { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(BillOfMaterial)} - \"{BOMID}\" - \"{Revision}\"";
+		}
 
 		public static class Expand
 		{

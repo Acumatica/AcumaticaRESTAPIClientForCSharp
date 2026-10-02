@@ -16,21 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class DiscountCode : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
-		/// <para>Display Name: Applicable To</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		public StringValue? ApplicableTo { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
-		/// <para>SQL Type: nvarchar(250)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: DiscountID</para>
 		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
@@ -41,6 +27,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? DiscountCodeID { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
+		/// <para>SQL Type: nvarchar(250)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Type</para>
 		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
 		/// <para>Display Name: Discount Type</para>
@@ -48,7 +40,23 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? DiscountType { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARDiscount</para>
+		/// <para>Display Name: Applicable To</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? ApplicableTo { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(DiscountCode)} - \"{DiscountCodeID}\"";
+		}
 
 		public static class Expand
 		{

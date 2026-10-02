@@ -12,11 +12,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class StepDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Descr { get; set; }
 
 		public IntValue? LineID { get; set; }
 
 		public IntValue? LineOrder { get; set; }
+
+		#endregion
 
 	}
 }

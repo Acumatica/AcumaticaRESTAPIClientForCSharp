@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class RelationDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Account { get; set; }
 
 		public BooleanValue? AddToCc { get; set; }
@@ -37,6 +38,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Type { get; set; }
 
 		public DateTimeValue? DocumentDate { get; set; }
+
+		#endregion
 
 	}
 }

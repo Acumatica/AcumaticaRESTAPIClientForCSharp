@@ -16,12 +16,7 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	public class Printer : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.SM.SMPrinter</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: DeviceHubID</para>
 		/// <para>DAC: PX.SM.SMPrinter</para>
@@ -33,17 +28,30 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.SM.SMPrinter</para>
-		/// <para>Display Name: Active</para>
-		/// </summary>
-		public BooleanValue? IsActive { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMPrinter</para>
 		/// <para>Display Name: Printer</para>
 		/// <para>SQL Type: varchar(20)</para>
 		/// Key Field
 		/// </summary>
 		public StringValue? PrinterName { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMPrinter</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMPrinter</para>
+		/// <para>Display Name: Active</para>
+		/// </summary>
+		public BooleanValue? IsActive { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Printer)} - \"{DeviceHub}\" - \"{PrinterName}\"";
+		}
 
 		public static class Expand
 		{

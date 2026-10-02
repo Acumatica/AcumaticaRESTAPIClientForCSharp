@@ -12,58 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ExpenseClaimTaxDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: NonDeductibleTaxRate</para>
-		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
-		/// <para>Display Name: Deductible Tax Rate</para>
-		/// </summary>
-		public DecimalValue? DeductibleTaxRate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryExpenseAmt</para>
-		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
-		/// <para>Display Name: Expense Amount</para>
-		/// </summary>
-		public DecimalValue? ExpenseAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Tax__ExemptTax</para>
-		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
-		/// </summary>
-		public BooleanValue? IncludeinVATExemptTotal { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Tax__PendingTax</para>
-		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
-		/// </summary>
-		public BooleanValue? PendingVAT { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Tax__ReverseTax</para>
-		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
-		/// </summary>
-		public BooleanValue? ReverseVAT { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Tax__StatisticalTax</para>
-		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
-		/// </summary>
-		public BooleanValue? StatisticalVAT { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryTaxableAmt</para>
-		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
-		/// <para>Display Name: Taxable Amount</para>
-		/// </summary>
-		public DecimalValue? TaxableAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryTaxAmt</para>
-		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
-		/// <para>Display Name: Tax Amount</para>
-		/// </summary>
-		public DecimalValue? TaxAmount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
 		/// <para>Display Name: Tax ID</para>
@@ -80,10 +29,64 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryTaxableAmt</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Taxable Amount</para>
+		/// </summary>
+		public DecimalValue? TaxableAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryTaxAmt</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Tax Amount</para>
+		/// </summary>
+		public DecimalValue? TaxAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: NonDeductibleTaxRate</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Deductible Tax Rate</para>
+		/// </summary>
+		public DecimalValue? DeductibleTaxRate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryExpenseAmt</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// <para>Display Name: Expense Amount</para>
+		/// </summary>
+		public DecimalValue? ExpenseAmount { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Tax__TaxType</para>
 		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
 		/// </summary>
 		public StringValue? TaxType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__PendingTax</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// </summary>
+		public BooleanValue? PendingVAT { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__ReverseTax</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// </summary>
+		public BooleanValue? ReverseVAT { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__ExemptTax</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// </summary>
+		public BooleanValue? IncludeinVATExemptTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__StatisticalTax</para>
+		/// <para>DAC: PX.Objects.EP.EPTaxTran</para>
+		/// </summary>
+		public BooleanValue? StatisticalVAT { get; set; }
+
+		#endregion
 
 	}
 }

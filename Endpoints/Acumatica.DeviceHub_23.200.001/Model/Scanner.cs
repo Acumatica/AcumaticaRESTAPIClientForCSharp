@@ -16,12 +16,7 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	public class Scanner : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanner</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: DeviceHubID</para>
 		/// <para>DAC: PX.SM.SMScanner</para>
@@ -33,10 +28,63 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.SM.SMScanner</para>
+		/// <para>Display Name: Scanner ID</para>
+		/// <para>SQL Type: varchar(20)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ScannerName { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanner</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanner</para>
+		/// <para>Display Name: Paper Sources</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? PaperSourceComboValues { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanner</para>
+		/// <para>Display Name: Color Modes</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? PixelTypeComboValues { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanner</para>
+		/// <para>Display Name: Resolutions</para>
+		/// <para>SQL Type: nvarchar(4000)</para>
+		/// </summary>
+		public StringValue? ResolutionComboValues { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanner</para>
 		/// <para>Display Name: File Types</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		public StringValue? FileTypeComboValues { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanner</para>
+		/// <para>Display Name: Paper Source (Default)</para>
+		/// </summary>
+		public StringValue? PaperSourceDefValue { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanner</para>
+		/// <para>Display Name: Color Mode (Default)</para>
+		/// </summary>
+		public StringValue? PixelTypeDefValue { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanner</para>
+		/// <para>Display Name: Resolution (Default)</para>
+		/// </summary>
+		public StringValue? ResolutionDefValue { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.SM.SMScanner</para>
@@ -50,52 +98,12 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		/// </summary>
 		public BooleanValue? IsActive { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanner</para>
-		/// <para>Display Name: Paper Sources</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? PaperSourceComboValues { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanner</para>
-		/// <para>Display Name: Paper Source (Default)</para>
-		/// </summary>
-		public StringValue? PaperSourceDefValue { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanner</para>
-		/// <para>Display Name: Color Modes</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? PixelTypeComboValues { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanner</para>
-		/// <para>Display Name: Color Mode (Default)</para>
-		/// </summary>
-		public StringValue? PixelTypeDefValue { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanner</para>
-		/// <para>Display Name: Resolutions</para>
-		/// <para>SQL Type: nvarchar(4000)</para>
-		/// </summary>
-		public StringValue? ResolutionComboValues { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanner</para>
-		/// <para>Display Name: Resolution (Default)</para>
-		/// </summary>
-		public StringValue? ResolutionDefValue { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanner</para>
-		/// <para>Display Name: Scanner ID</para>
-		/// <para>SQL Type: varchar(20)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? ScannerName { get; set; }
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Scanner)} - \"{DeviceHub}\" - \"{ScannerName}\"";
+		}
 
 		public static class Expand
 		{

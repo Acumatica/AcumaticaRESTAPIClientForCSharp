@@ -16,48 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class Event : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// Specifies whether this event is an all-day event.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: All Day</para>
-		/// </summary>
-		public BooleanValue? AllDay { get; set; }
-
-		public List<EventAttendee>? Attendees { get; set; }
-
-		/// <summary>
-		/// The HTML body of the activity.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Activity Details</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		public StringValue? Body { get; set; }
-
-		/// <summary>
-		/// The identifier of the task or event category.
-		/// <para>DAC Field Name: CategoryID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		public StringValue? Category { get; set; }
-
-		public DateTimeValue? EndDate { get; set; }
-
-		public DateTimeValue? EndTime { get; set; }
-
-		/// <summary>
-		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
-		/// <para>DAC Field Name: IsPrivate</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		public BooleanValue? Internal { get; set; }
-
-		/// <summary>
-		/// The location of the event.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Location { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The identifier of the Note object associated with the document.
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
@@ -67,14 +26,26 @@ namespace Acumatica.Default_23_200_001.Model
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
-		/// The priority of the activity.
+		/// The summary description of the activity.
+		/// <para>DAC Field Name: Subject</para>
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
-		public StringValue? Priority { get; set; }
+		public StringValue? Summary { get; set; }
 
-		public List<ActivityDetail>? RelatedActivities { get; set; }
+		/// <summary>
+		/// The location of the event.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Location { get; set; }
 
-		public ReminderDetail? Reminder { get; set; }
+		/// <summary>
+		/// Specifies whether this event is an all-day event.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: All Day</para>
+		/// </summary>
+		public BooleanValue? AllDay { get; set; }
 
 		/// <summary>
 		/// The event status to be displayed on your schedule if it is public.
@@ -85,35 +56,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ShowAs { get; set; }
 
 		/// <summary>
-		/// The start date and time of the event.
-		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
-
-		/// <summary>
-		/// The status of the activity.
-		/// <para>DAC Field Name: UIStatus</para>
+		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
+		/// <para>DAC Field Name: IsPrivate</para>
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		public StringValue? Status { get; set; }
-
-		/// <summary>
-		/// The summary description of the activity.
-		/// <para>DAC Field Name: Subject</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>SQL Type: nvarchar(998)</para>
-		/// </summary>
-		public StringValue? Summary { get; set; }
-
-		public EventTimeActivity? TimeActivity { get; set; }
-
-		public StringValue? CreatedByID { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
 		/// Contains the type of the related entity, that is specified in RefNoteID.
@@ -135,7 +82,74 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </remarks>
 		public GuidValue? RelatedEntityNoteID { get; set; }
 
+		/// <summary>
+		/// The status of the activity.
+		/// <para>DAC Field Name: UIStatus</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// The priority of the activity.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		public StringValue? Priority { get; set; }
+
+		/// <summary>
+		/// The identifier of the task or event category.
+		/// <para>DAC Field Name: CategoryID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		public StringValue? Category { get; set; }
+
+		/// <summary>
+		/// The HTML body of the activity.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Activity Details</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		public StringValue? Body { get; set; }
+
+		/// <summary>
+		/// The start date and time of the event.
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
+
+		public DateTimeValue? EndDate { get; set; }
+
+		public DateTimeValue? EndTime { get; set; }
+
+		public StringValue? CreatedByID { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 		public StringValue? RelatedEntityDescription { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ReminderDetail? Reminder { get; set; }
+
+		public EventTimeActivity? TimeActivity { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<EventAttendee>? Attendees { get; set; }
+
+		public List<ActivityDetail>? RelatedActivities { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Event)} - \"{NoteID}\"";
+		}
 
 		public static class Expand
 		{

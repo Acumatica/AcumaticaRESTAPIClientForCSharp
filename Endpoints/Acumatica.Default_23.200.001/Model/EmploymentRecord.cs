@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmploymentRecord : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
@@ -20,16 +21,15 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
 		/// <para>Display Name: End Date</para>
 		/// </summary>
 		public DateTimeValue? EndDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SettlementPaycheckRefNoteID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
-		/// <para>Display Name: Final Payment</para>
-		/// </summary>
-		public GuidValue? FinalPayment { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PositionID</para>
@@ -37,19 +37,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		public StringValue? Position { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IsRehirable</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
-		/// <para>Display Name: Eligible for Rehire</para>
-		/// </summary>
-		public BooleanValue? RehireEligible { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
@@ -71,6 +58,22 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		public StringValue? TerminationReason { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsRehirable</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Eligible for Rehire</para>
+		/// </summary>
+		public BooleanValue? RehireEligible { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SettlementPaycheckRefNoteID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Final Payment</para>
+		/// </summary>
+		public GuidValue? FinalPayment { get; set; }
+
+		#endregion
 
 	}
 }

@@ -16,6 +16,35 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationMaintenance : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Configuration ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ConfigurationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? Revision { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: BOM ID</para>
@@ -32,53 +61,38 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? BOMRevision { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: IsCompletionRequired</para>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: Completion Required Before Production</para>
 		/// </summary>
 		public BooleanValue? CompletionRequiredBeforeProduction { get; set; }
 
-		public List<ConfigurationMaintAttribute>? ConfigAttributes { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>Display Name: Configuration ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? ConfigurationID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<ConfigurationMaintenanceFeature>? Features { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
+		#region LinkedEntities
 		public ConfigurationMaintKey? Keys { get; set; }
 
 		public ConfigurationMaintPrice? Price { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? Revision { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Status { get; set; }
+		#region Details
+		public List<ConfigurationMaintAttribute>? ConfigAttributes { get; set; }
+
+		public List<ConfigurationMaintenanceFeature>? Features { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ConfigurationMaintenance)} - \"{ConfigurationID}\" - \"{Revision}\"";
+		}
 
 		public static class Expand
 		{

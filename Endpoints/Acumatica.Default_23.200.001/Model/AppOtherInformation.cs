@@ -12,8 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AppOtherInformation : Entity
 	{
 
-		public StringValue? BatchNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LongDescr</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
@@ -21,20 +20,19 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? Description { get; set; }
 
-		public StringValue? DocumentType { get; set; }
-
-		public StringValue? InvoiceNbr { get; set; }
-
-		public StringValue? IssueReferenceNbr { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: ServiceContractID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Source Service Contract ID</para>
+		/// </summary>
+		public StringValue? SourceServiceContractID { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSSchedule</para>
-		/// <para>Display Name: Recurrence Description</para>
-		/// <para>SQL Type: varchar(MAX)</para>
+		/// <para>DAC Field Name: ScheduleID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Source Schedule ID</para>
 		/// </summary>
-		public StringValue? RecurrenceDescription { get; set; }
-
-		public StringValue? ReferenceNbr { get; set; }
+		public StringValue? SourceScheduleID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
@@ -50,18 +48,23 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? RouteNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ScheduleID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
-		/// <para>Display Name: Source Schedule ID</para>
+		/// <para>DAC: PX.Objects.FS.FSSchedule</para>
+		/// <para>Display Name: Recurrence Description</para>
+		/// <para>SQL Type: varchar(MAX)</para>
 		/// </summary>
-		public StringValue? SourceScheduleID { get; set; }
+		public StringValue? RecurrenceDescription { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: ServiceContractID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
-		/// <para>Display Name: Source Service Contract ID</para>
-		/// </summary>
-		public StringValue? SourceServiceContractID { get; set; }
+		public StringValue? BatchNbr { get; set; }
+
+		public StringValue? DocumentType { get; set; }
+
+		public StringValue? InvoiceNbr { get; set; }
+
+		public StringValue? IssueReferenceNbr { get; set; }
+
+		public StringValue? ReferenceNbr { get; set; }
+
+		#endregion
 
 	}
 }

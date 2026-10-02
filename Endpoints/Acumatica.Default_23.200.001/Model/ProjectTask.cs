@@ -16,35 +16,9 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectTask : Entity, ITopLevelEntity
 	{
 
-		public List<ProjectActivity>? ActivityHistory { get; set; }
-
-		public List<AttributeValue>? Attributes { get; set; }
-
-		public ProjectTaskBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
-
-		public ProjectTaskToCRMLink? CRMLink { get; set; }
-
+		#region Fields
 		/// <summary>
-		/// Specifies (if set to true) that the task is default.
-		/// <para>DAC Field Name: IsDefault</para>
-		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// </summary>
-		public BooleanValue? Default { get; set; }
-
-		public ProjectTaskDefaultValues? DefaultValues { get; set; }
-
-		/// <summary>
-		/// The description of the task.
-		/// <para>DAC: PX.Objects.PM.PMTask</para>
-		/// <para>SQL Type: nvarchar(250)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public StringValue? ExternalRefNbr { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
+		/// The identifier of the project to which the task belongs.
 		/// <para>DAC: PX.Objects.PM.PMTask</para>
 		/// <para>Display Name: Project ID</para>
 		/// Key Field
@@ -61,7 +35,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? ProjectTaskID { get; set; }
 
-		public ProjectTaskProperties? Properties { get; set; }
+		/// <summary>
+		/// The description of the task.
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// <para>SQL Type: nvarchar(250)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The task status.
@@ -70,7 +49,43 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? Status { get; set; }
 
+		/// <summary>
+		/// A Boolean value that indicates (if set to true) that the task is default.
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.PM.PMTask</para>
+		/// </summary>
+		public BooleanValue? Default { get; set; }
+
+		public StringValue? ExternalRefNbr { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ProjectTaskBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
+
+		public ProjectTaskToCRMLink? CRMLink { get; set; }
+
+		public ProjectTaskDefaultValues? DefaultValues { get; set; }
+
+		public ProjectTaskProperties? Properties { get; set; }
+
 		public VisibilitySettings? VisibilitySettings { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ProjectActivity>? ActivityHistory { get; set; }
+
+		public List<AttributeValue>? Attributes { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProjectTask)} - \"{ProjectID}\" - \"{ProjectTaskID}\"";
+		}
 
 		public static class Expand
 		{

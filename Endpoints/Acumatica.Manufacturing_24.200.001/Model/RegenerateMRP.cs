@@ -15,6 +15,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class RegenerateMRP : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LastMrpRegenCompletedDateTime</para>
 		/// <para>DAC: PX.Objects.AM.MrpProcessingSetup</para>
@@ -29,7 +30,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		public StringValue? LastCompletedBy { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<RegenerateMRPMessage>? Messages { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

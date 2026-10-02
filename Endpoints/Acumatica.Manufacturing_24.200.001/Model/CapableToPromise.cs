@@ -15,18 +15,17 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class CapableToPromise : Entity, ITopLevelEntity
 	{
 
-		public List<CapableToPromiseDetail>? Details { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
 		public StringValue? ProcessAction { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DefaultOrderType</para>
+		/// <para>DAC Field Name: SOOrderType</para>
 		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
-		public StringValue? RegularProductionOrderType { get; set; }
+		public StringValue? SOType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SOOrderNbr</para>
@@ -35,10 +34,17 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? SONbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SOOrderType</para>
+		/// <para>DAC Field Name: DefaultOrderType</para>
 		/// <para>DAC: PX.Objects.AM.CTPProcess+CTPFilter</para>
 		/// </summary>
-		public StringValue? SOType { get; set; }
+		public StringValue? RegularProductionOrderType { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<CapableToPromiseDetail>? Details { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

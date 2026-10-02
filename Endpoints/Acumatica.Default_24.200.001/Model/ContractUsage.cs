@@ -15,8 +15,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ContractUsage : Entity, ITopLevelEntity
 	{
 
-		public List<ContractUsageTransactionDetail>? BilledTransactions { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CT.UsageMaint+UsageFilter</para>
 		/// </summary>
@@ -28,7 +27,14 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public StringValue? PostPeriod { get; set; }
 
+		#endregion
+
+		#region Details
+		public List<ContractUsageTransactionDetail>? BilledTransactions { get; set; }
+
 		public List<ContractUsageTransactionDetail>? UnbilledTransactions { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

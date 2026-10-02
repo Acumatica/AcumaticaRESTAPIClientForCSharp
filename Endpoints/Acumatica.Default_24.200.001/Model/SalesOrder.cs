@@ -11,119 +11,60 @@ namespace Acumatica.Default_24_200_001.Model
 {
 	/// <summary>
 	/// Corresponds to the screen <c>SO301000</c> in the Acumatica ERP
-	/// <para>Key Fields: OrderNbr, OrderType</para>
+	/// <para>Key Fields: OrderType, OrderNbr</para>
 	/// </summary>
 	public class SalesOrder : Entity, ITopLevelEntity
 	{
 
-		public BooleanValue? Approved { get; set; }
-
+		#region Fields
 		/// <summary>
-		/// Identifier of the base Currency.
-		/// <para>DAC Field Name: BaseCuryID</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Base Currency ID</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		public StringValue? BaseCurrencyID { get; set; }
-
-		public Address? BillToAddress { get; set; }
-
-		/// <summary>
-		/// Specifies (if set to true) that the address is overriden.
-		/// <para>DAC Field Name: OverrideAddress</para>
-		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
-		/// <para>Display Name: Override Address</para>
-		/// </summary>
-		public BooleanValue? BillToAddressOverride { get; set; }
-
-		/// <summary>
-		/// Specifies (if set to true) that the address has been validated with a third-party specialized software or service.
-		/// <para>DAC Field Name: IsValidated</para>
-		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
-		/// <para>Display Name: Validated</para>
-		/// </summary>
-		public BooleanValue? BillToAddressValidated { get; set; }
-
-		public DocContact? BillToContact { get; set; }
-
-		/// <summary>
-		/// Specifies (if set to true) that the contact is overriden.
-		/// <para>DAC Field Name: OverrideContact</para>
-		/// <para>DAC: PX.Objects.SO.SOBillingContact</para>
-		/// <para>Display Name: Override Contact</para>
-		/// </summary>
-		public BooleanValue? BillToContactOverride { get; set; }
-
-		/// <summary>
-		/// The identifier of the branch.The field is included in the Branch foreign key.
-		/// <para>DAC Field Name: BranchID</para>
+		/// The type of the document, which is a part of the identifier of the order.The identifier of the order type.The field is included in the OrderType foreign key.
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// The identifier of the cash account associated with the customer payment method.The field is included in the CashAccount foreign key.
-		/// <para>DAC Field Name: CashAccountID</para>
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Cash Account</para>
-		/// </summary>
-		public StringValue? CashAccount { get; set; }
-
-		public Commissions? Commissions { get; set; }
-
-		/// <summary>
-		/// The identifier of the contact.The field is included in the Contact foreign key.
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Contact</para>
-		/// </summary>
-		public StringValue? ContactID { get; set; }
-
-		/// <summary>
-		/// The control total of the document (in the currency of the document).A user enters this amount manually.
-		/// <para>DAC Field Name: CuryControlTotal</para>
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Control Total</para>
-		/// </summary>
-		public DecimalValue? ControlTotal { get; set; }
-
-		public BooleanValue? CreditHold { get; set; }
-
-		/// <summary>
-		/// The identifier of the currency of the document.The field is included in the Currency foreign key.
-		/// <para>DAC Field Name: CuryID</para>
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Currency</para>
-		/// <para>SQL Type: nvarchar(5)</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// Key Field
 		/// </summary>
 		/// <remarks>
-		/// This field is available only if theMulticurrency Accounting feature is enabled onthe Enable/Disable Features (CS100000) form.
+		/// The type of the document, which is one of the predefined order types or a custom order type created byusing the Order Types (SO201000) form.
 		/// </remarks>
-		public StringValue? CurrencyID { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		/// <summary>
-		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// <para>DAC Field Name: SampleCuryRate</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Curr. Rate</para>
-		/// </summary>
-		public DecimalValue? CurrencyRate { get; set; }
-
-		/// <summary>
-		/// The identifier of the Rate Type associated with this object.
-		/// <para>DAC Field Name: CuryRateTypeID</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Curr. Rate Type ID</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		public StringValue? CurrencyRateTypeID { get; set; }
-
-		/// <summary>
-		/// The identifier of the customer. The field is a part of the identifier of thecustomer location.The field is included in the foreign keys Customer and CustomerLocation.
+		/// The unique reference number of the order.
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Customer</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? CustomerID { get; set; }
+		/// <remarks>
+		/// When the new sales order is saved for the first time, the system automatically generatesthis number by using the numbering sequence assigned to orders of SOOrderType.
+		/// </remarks>
+		public StringValue? OrderNbr { get; set; }
+
+		/// <summary>
+		/// The status of the order.
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// The date of the document.
+		/// <para>DAC Field Name: OrderDate</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// </summary>
+		public DateTimeValue? Date { get; set; }
+
+		/// <summary>
+		/// The date when the customer wants to receive the goods.
+		/// <para>DAC Field Name: RequestDate</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Requested On</para>
+		/// </summary>
+		/// <remarks>
+		/// This date provides the default values for the requestDate dates for order lines.
+		/// </remarks>
+		public DateTimeValue? RequestedOn { get; set; }
 
 		/// <summary>
 		/// The reference number of the original customer document that the sales order is based on.
@@ -138,19 +79,47 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? CustomerOrder { get; set; }
 
 		/// <summary>
-		/// The date of the document.
-		/// <para>DAC Field Name: OrderDate</para>
+		/// The reference number of the sales order in a third-party application if Acumatica ERP is integrated withsuch an application and imports the sales orders from it.
+		/// <para>DAC Field Name: CustomerRefNbr</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: External Reference</para>
+		/// <para>SQL Type: nvarchar(64)</para>
 		/// </summary>
-		public DateTimeValue? Date { get; set; }
+		public StringValue? ExternalRef { get; set; }
 
 		/// <summary>
-		/// A brief description of the document.
-		/// <para>DAC Field Name: OrderDesc</para>
+		/// The identifier of the customer. The field is a part of the identifier of thecustomer location.The field is included in the foreign keys Customer and CustomerLocation.
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>SQL Type: nvarchar(256)</para>
+		/// <para>Display Name: Customer</para>
 		/// </summary>
-		public StringValue? Description { get; set; }
+		public StringValue? CustomerID { get; set; }
+
+		/// <summary>
+		/// The identifier of the customer location.The field is included in the CustomerLocation foreign key.
+		/// <para>DAC Field Name: CustomerLocationID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Location</para>
+		/// </summary>
+		public StringValue? LocationID { get; set; }
+
+		/// <summary>
+		/// The identifier of the contact.The field is included in the Contact foreign key.
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Contact</para>
+		/// </summary>
+		public StringValue? ContactID { get; set; }
+
+		/// <summary>
+		/// The identifier of the currency of the document.The field is included in the Currency foreign key.
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		/// <remarks>
+		/// This field is available only if theMulticurrency Accounting feature is enabled onthe Enable/Disable Features (CS100000) form.
+		/// </remarks>
+		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
 		/// The identifier of the destination warehouse for the items to be transferred.The field is included in the foreign keys DestinationSite and ToSite.
@@ -163,59 +132,23 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </remarks>
 		public StringValue? DestinationWarehouseID { get; set; }
 
-		public List<SalesOrderDetail>? Details { get; set; }
-
 		/// <summary>
-		/// A Boolean value that indicates whether the system treats discounts that have already been applied to theselected sales order as manual.
-		/// <para>DAC Field Name: DisableAutomaticDiscountCalculation</para>
+		/// The identifier of the project.The field is included in the Project foreign key.
+		/// <para>DAC Field Name: ProjectID</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Disable Automatic Discount Update</para>
 		/// </summary>
-		public BooleanValue? DisableAutomaticDiscountUpdate { get; set; }
+		/// <remarks>
+		/// <para>This field is available only if theProject Accountingfeature is enabled on the Enable/Disable Features (CS100000) form and the integration of the Projectssubmodule with Sales Orders has been enabled(that is, visibleInSO is true.</para>
+		/// </remarks>
+		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// A Boolean value that specifies (if set to true)that the system does not need to calculate taxes, because they are already calculated.
+		/// A brief description of the document.
+		/// <para>DAC Field Name: OrderDesc</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Disable Automatic Tax Calculation</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
-
-		public List<SalesOrdersDiscountDetails>? DiscountDetails { get; set; }
-
-		/// <summary>
-		/// The date, starting from which the specified rate is considered current.
-		/// <para>DAC Field Name: CuryEffDate</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Effective Date</para>
-		/// </summary>
-		public DateTimeValue? EffectiveDate { get; set; }
-
-		/// <summary>
-		/// The reference number of the sales order in a third-party application if Acumatica ERP is integrated withsuch an application and imports the sales orders from it.
-		/// <para>DAC Field Name: CustomerRefNbr</para>
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: External Reference</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		public StringValue? ExternalRef { get; set; }
-
-		public FinancialSettings? FinancialSettings { get; set; }
-
-		public BooleanValue? Hold { get; set; }
-
-		public BooleanValue? IsTaxValid { get; set; }
-
-		public DateTimeValue? LastModified { get; set; }
-
-		/// <summary>
-		/// The identifier of the customer location.The field is included in the CustomerLocation foreign key.
-		/// <para>DAC Field Name: CustomerLocationID</para>
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Location</para>
-		/// </summary>
-		public StringValue? LocationID { get; set; }
-
-		public DecimalValue? MaxRiskScore { get; set; }
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The summarized quantity of all items that have been added to the child order from the blanket sales order.
@@ -229,18 +162,12 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? OrderedQty { get; set; }
 
 		/// <summary>
-		/// The unique reference number of the order.
+		/// The total amount of tax paid on the document (in the currency of the document).
+		/// <para>DAC Field Name: CuryTaxTotal</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Order Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
+		/// <para>Display Name: Tax Total</para>
 		/// </summary>
-		/// <remarks>
-		/// When the new sales order is saved for the first time, the system automatically generatesthis number by using the numbering sequence assigned to orders of SOOrderType.
-		/// </remarks>
-		public StringValue? OrderNbr { get; set; }
-
-		public List<OrderRisks>? OrderRisks { get; set; }
+		public DecimalValue? TaxTotal { get; set; }
 
 		/// <summary>
 		/// The total amount of the document (in the currency of the document).
@@ -251,16 +178,79 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? OrderTotal { get; set; }
 
 		/// <summary>
-		/// The type of the document, which is a part of the identifier of the order.The identifier of the order type.The field is included in the OrderType foreign key.
+		/// The control total of the document (in the currency of the document).A user enters this amount manually.
+		/// <para>DAC Field Name: CuryControlTotal</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Order Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// Key Field
+		/// <para>Display Name: Control Total</para>
+		/// </summary>
+		public DecimalValue? ControlTotal { get; set; }
+
+		/// <summary>
+		/// The identifier of the Rate Type associated with this object.
+		/// <para>DAC Field Name: CuryRateTypeID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate Type ID</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? CurrencyRateTypeID { get; set; }
+
+		/// <summary>
+		/// The date, starting from which the specified rate is considered current.
+		/// <para>DAC Field Name: CuryEffDate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Effective Date</para>
+		/// </summary>
+		public DateTimeValue? EffectiveDate { get; set; }
+
+		/// <summary>
+		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
+		/// <para>DAC Field Name: SampleCuryRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate</para>
+		/// </summary>
+		public DecimalValue? CurrencyRate { get; set; }
+
+		/// <summary>
+		/// Identifier of the base Currency.
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Base Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? BaseCurrencyID { get; set; }
+
+		/// <summary>
+		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
+		/// <para>DAC Field Name: SampleRecipRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Reciprocal Rate</para>
+		/// </summary>
+		public DecimalValue? ReciprocalRate { get; set; }
+
+		/// <summary>
+		/// The identifier of the branch.The field is included in the Branch foreign key.
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// </summary>
+		public StringValue? Branch { get; set; }
+
+		/// <summary>
+		/// A Boolean value that specifies (if set to true)that the system does not need to calculate taxes, because they are already calculated.
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Disable Automatic Tax Calculation</para>
+		/// </summary>
+		public BooleanValue? DisableAutomaticTaxCalculation { get; set; }
+
+		/// <summary>
+		/// The tax calculation mode to be used for the sales order.
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Tax Calculation Mode</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		/// <remarks>
-		/// The type of the document, which is one of the predefined order types or a custom order type created byusing the Order Types (SO201000) form.
+		/// This field is available only if theNet/Gross Entry Modefeature has been enabled on the Enable/Disable Features (CS100000) form.
 		/// </remarks>
-		public StringValue? OrderType { get; set; }
+		public StringValue? TaxCalcMode { get; set; }
 
 		/// <summary>
 		/// The identifier of the payment method to be used to pay for the salesorder. The field is included in the PaymentMethod foreign key.
@@ -271,81 +261,25 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public StringValue? PaymentMethod { get; set; }
 
-		public List<SalesOrderPayment>? Payments { get; set; }
+		/// <summary>
+		/// The identifier of the cash account associated with the customer payment method.The field is included in the CashAccount foreign key.
+		/// <para>DAC Field Name: CashAccountID</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Cash Account</para>
+		/// </summary>
+		public StringValue? CashAccount { get; set; }
 
 		/// <summary>
-		/// The identifier of the warehouse from which the goods should be shipped.The field is included in the DefaultSite foreign key.
-		/// <para>DAC Field Name: DefaultSiteID</para>
+		/// The reference number of the payment.
+		/// <para>DAC Field Name: ExtRefNbr</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Preferred Warehouse ID</para>
+		/// <para>Display Name: Payment Ref.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
 		/// <remarks>
-		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.
+		/// This field is available only for sales orders of the Cash Sales or Cash Return type.
 		/// </remarks>
-		public StringValue? PreferredWarehouseID { get; set; }
-
-		/// <summary>
-		/// The identifier of the project.The field is included in the Project foreign key.
-		/// <para>DAC Field Name: ProjectID</para>
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// </summary>
-		/// <remarks>
-		/// This field is available only if theProject Accountingfeature is enabled on the Enable/Disable Features (CS100000) form and the integration of the Projectssubmodule with Sales Orders has been enabled(that is,  is .
-		/// </remarks>
-		public StringValue? Project { get; set; }
-
-		/// <summary>
-		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// <para>DAC Field Name: SampleRecipRate</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Reciprocal Rate</para>
-		/// </summary>
-		public DecimalValue? ReciprocalRate { get; set; }
-
-		public List<RelationDetail>? Relations { get; set; }
-
-		/// <summary>
-		/// The date when the customer wants to receive the goods.
-		/// <para>DAC Field Name: RequestDate</para>
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Requested On</para>
-		/// </summary>
-		/// <remarks>
-		/// This date provides the default values for the requestDate dates for order lines.
-		/// </remarks>
-		public DateTimeValue? RequestedOn { get; set; }
-
-		public List<SalesOrderShipment>? Shipments { get; set; }
-
-		public ShippingSettings? ShippingSettings { get; set; }
-
-		public Address? ShipToAddress { get; set; }
-
-		/// <summary>
-		/// Specifies (if set to true) that the address is overriden.
-		/// <para>DAC Field Name: OverrideAddress</para>
-		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
-		/// <para>Display Name: Override Address</para>
-		/// </summary>
-		public BooleanValue? ShipToAddressOverride { get; set; }
-
-		/// <summary>
-		/// Specifies (if set to true) that the address has been validated with a third-party specialized software or service.
-		/// <para>DAC Field Name: IsValidated</para>
-		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
-		/// <para>Display Name: Validated</para>
-		/// </summary>
-		public BooleanValue? ShipToAddressValidated { get; set; }
-
-		public DocContact? ShipToContact { get; set; }
-
-		/// <summary>
-		/// Specifies (if set to true) that the contact is overriden.
-		/// <para>DAC Field Name: OverrideContact</para>
-		/// <para>DAC: PX.Objects.SO.SOBillingContact</para>
-		/// <para>Display Name: Override Contact</para>
-		/// </summary>
-		public BooleanValue? ShipToContactOverride { get; set; }
+		public StringValue? PaymentRef { get; set; }
 
 		/// <summary>
 		/// The identifier of the ship via code that represents the carrier andits service to be used for shipping the ordered goods.The field is included in the Carrier foreign key.
@@ -359,23 +293,30 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? ShipVia { get; set; }
 
 		/// <summary>
-		/// The status of the order.
+		/// A Boolean value that indicates whether the customer picks the goods from the warehouse (will call).
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Will Call</para>
 		/// </summary>
-		public StringValue? Status { get; set; }
-
-		public List<TaxDetail>? TaxDetails { get; set; }
+		public BooleanValue? WillCall { get; set; }
 
 		/// <summary>
-		/// The total amount of tax paid on the document (in the currency of the document).
-		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// The identifier of the warehouse from which the goods should be shipped.The field is included in the DefaultSite foreign key.
+		/// <para>DAC Field Name: DefaultSiteID</para>
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Tax Total</para>
+		/// <para>Display Name: Preferred Warehouse ID</para>
 		/// </summary>
-		public DecimalValue? TaxTotal { get; set; }
+		/// <remarks>
+		/// This field is available only if the Inventoryfeature is enabled on the Enable/Disable Features (CS100000) form.
+		/// </remarks>
+		public StringValue? PreferredWarehouseID { get; set; }
 
-		public Totals? Totals { get; set; }
+		/// <summary>
+		/// A Boolean value that indicates whether the system treats discounts that have already been applied to theselected sales order as manual.
+		/// <para>DAC Field Name: DisableAutomaticDiscountCalculation</para>
+		/// <para>DAC: PX.Objects.SO.SOOrder</para>
+		/// <para>Display Name: Disable Automatic Discount Update</para>
+		/// </summary>
+		public BooleanValue? DisableAutomaticDiscountUpdate { get; set; }
 
 		/// <summary>
 		/// The document total that is exemptfrom VAT (in the currency of the document).
@@ -393,28 +334,77 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public DecimalValue? VATTaxableTotal { get; set; }
 
+		/// <summary>
+		/// Specifies (if set to true) that the address is overriden.
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
+		/// <para>Display Name: Override Address</para>
+		/// </summary>
+		public BooleanValue? BillToAddressOverride { get; set; }
+
+		/// <summary>
+		/// Specifies (if set to true) that the address is overriden.
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
+		/// <para>Display Name: Override Address</para>
+		/// </summary>
+		public BooleanValue? ShipToAddressOverride { get; set; }
+
+		/// <summary>
+		/// Specifies (if set to true) that the address has been validated with a third-party specialized software or service.
+		/// <para>DAC Field Name: IsValidated</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
+		/// <para>Display Name: Validated</para>
+		/// </summary>
+		public BooleanValue? BillToAddressValidated { get; set; }
+
+		/// <summary>
+		/// Specifies (if set to true) that the address has been validated with a third-party specialized software or service.
+		/// <para>DAC Field Name: IsValidated</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingAddress</para>
+		/// <para>Display Name: Validated</para>
+		/// </summary>
+		public BooleanValue? ShipToAddressValidated { get; set; }
+
+		/// <summary>
+		/// Specifies (if set to true) that the contact is overriden.
+		/// <para>DAC Field Name: OverrideContact</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingContact</para>
+		/// <para>Display Name: Override Contact</para>
+		/// </summary>
+		public BooleanValue? BillToContactOverride { get; set; }
+
+		/// <summary>
+		/// Specifies (if set to true) that the contact is overriden.
+		/// <para>DAC Field Name: OverrideContact</para>
+		/// <para>DAC: PX.Objects.SO.SOBillingContact</para>
+		/// <para>Display Name: Override Contact</para>
+		/// </summary>
+		public BooleanValue? ShipToContactOverride { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was created.
+		/// <para>DAC Field Name: CreatedDateTime</para>
+		/// <para>DAC: PX.Objects.EP.EPApproval</para>
+		/// <para>Display Name: Assignment Date</para>
+		/// </summary>
+		public DateTimeValue? CreatedDate { get; set; }
+
+		public BooleanValue? Approved { get; set; }
+
+		public BooleanValue? CreditHold { get; set; }
+
+		public BooleanValue? Hold { get; set; }
+
+		public BooleanValue? IsTaxValid { get; set; }
+
+		public DateTimeValue? LastModified { get; set; }
+
+		public DecimalValue? MaxRiskScore { get; set; }
+
 		public BooleanValue? ExternalOrderOriginal { get; set; }
 
 		public StringValue? ExternalRefundRef { get; set; }
-
-		/// <summary>
-		/// A Boolean value that indicates whether the customer picks the goods from the warehouse (will call).
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Will Call</para>
-		/// </summary>
-		public BooleanValue? WillCall { get; set; }
-
-		/// <summary>
-		/// The reference number of the payment.
-		/// <para>DAC Field Name: ExtRefNbr</para>
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Payment Ref.</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		/// <remarks>
-		/// This field is available only for sales orders of the Cash Sales or Cash Return type.
-		/// </remarks>
-		public StringValue? PaymentRef { get; set; }
 
 		public GuidValue? NoteID { get; set; }
 
@@ -424,24 +414,48 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public StringValue? ExternalOrderSource { get; set; }
 
-		/// <summary>
-		/// The tax calculation mode to be used for the sales order.
-		/// <para>DAC: PX.Objects.SO.SOOrder</para>
-		/// <para>Display Name: Tax Calculation Mode</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		/// <remarks>
-		/// This field is available only if theNet/Gross Entry Modefeature has been enabled on the Enable/Disable Features (CS100000) form.
-		/// </remarks>
-		public StringValue? TaxCalcMode { get; set; }
+		#endregion
 
-		/// <summary>
-		/// The date and time when the record was created.
-		/// <para>DAC Field Name: CreatedDateTime</para>
-		/// <para>DAC: PX.Objects.EP.EPApproval</para>
-		/// <para>Display Name: Assignment Date</para>
-		/// </summary>
-		public DateTimeValue? CreatedDate { get; set; }
+		#region LinkedEntities
+		public Address? BillToAddress { get; set; }
+
+		public DocContact? BillToContact { get; set; }
+
+		public Commissions? Commissions { get; set; }
+
+		public FinancialSettings? FinancialSettings { get; set; }
+
+		public ShippingSettings? ShippingSettings { get; set; }
+
+		public Address? ShipToAddress { get; set; }
+
+		public DocContact? ShipToContact { get; set; }
+
+		public Totals? Totals { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<SalesOrderDetail>? Details { get; set; }
+
+		public List<SalesOrdersDiscountDetails>? DiscountDetails { get; set; }
+
+		public List<OrderRisks>? OrderRisks { get; set; }
+
+		public List<SalesOrderPayment>? Payments { get; set; }
+
+		public List<RelationDetail>? Relations { get; set; }
+
+		public List<SalesOrderShipment>? Shipments { get; set; }
+
+		public List<TaxDetail>? TaxDetails { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(SalesOrder)} - \"{OrderType}\" - \"{OrderNbr}\"";
+		}
 
 		public static class Expand
 		{

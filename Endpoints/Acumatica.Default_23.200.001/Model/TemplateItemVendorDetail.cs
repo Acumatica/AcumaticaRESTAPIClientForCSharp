@@ -12,6 +12,13 @@ namespace Acumatica.Default_23_200_001.Model
 	public class TemplateItemVendorDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		public BooleanValue? Default { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
 		/// <para>Display Name: Vendor ID</para>
@@ -24,11 +31,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? VendorName { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: IsDefault</para>
-		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
-		/// </summary>
-		public BooleanValue? Default { get; set; }
+		#endregion
 
 	}
 }

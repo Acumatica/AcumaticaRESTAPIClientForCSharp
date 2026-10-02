@@ -12,13 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class DisassemblyEntryAllocation : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: ExpireDate</para>
-		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
-		/// <para>Display Name: Expiration Date</para>
-		/// </summary>
-		public DateTimeValue? ExpirationDate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
 		/// <para>Display Name: Line Nbr.</para>
@@ -27,10 +21,28 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
+		/// </summary>
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: LocationID</para>
 		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
 		/// </summary>
 		public StringValue? Location { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
+		/// </summary>
+		public DecimalValue? Quantity { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
@@ -40,24 +52,15 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Qty</para>
-		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.AM.AMDisassembleTran</para>
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
-		public DecimalValue? Quantity { get; set; }
+		public DateTimeValue? ExpirationDate { get; set; }
 
 		public IntValue? SplitLineNbr { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
-		/// </summary>
-		public StringValue? Subitem { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMDisassembleBatch</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		public StringValue? UOM { get; set; }
+		#endregion
 
 	}
 }

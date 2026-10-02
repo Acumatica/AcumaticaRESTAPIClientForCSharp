@@ -15,14 +15,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class MRPRequirementsByItem : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
 		/// <para>Display Name: Bucket ID</para>
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		public StringValue? BucketID { get; set; }
-
-		public List<MRPRequirementsByItemDetail>? Detail { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
@@ -31,16 +30,23 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// <para>Display Name: Lead Time</para>
 		/// </summary>
-		public IntValue? LeadTime { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// <para>Display Name: Preferred Vendor</para>
 		/// </summary>
-		public StringValue? PreferredVendorID { get; set; }
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: QtyOnHand</para>
+		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
+		/// <para>Display Name: Qty. On Hand</para>
+		/// </summary>
+		public DecimalValue? QtyonHand { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ProductManagerID</para>
@@ -56,13 +62,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ProductMgrContact { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: QtyOnHand</para>
-		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// <para>Display Name: Qty. On Hand</para>
-		/// </summary>
-		public DecimalValue? QtyonHand { get; set; }
-
-		/// <summary>
 		/// Replenishment source
 		/// <para>DAC Field Name: ReplenishmentSource</para>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
@@ -73,21 +72,24 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// <para>Display Name: Safety Stock</para>
+		/// <para>Display Name: Preferred Vendor</para>
 		/// </summary>
+		public StringValue? PreferredVendorID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
+		/// <para>Display Name: Lead Time</para>
+		/// </summary>
+		public IntValue? LeadTime { get; set; }
+
 		public DecimalValue? SafetyStock { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// </summary>
-		public StringValue? Subitem { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.AM.BucketFilter</para>
-		/// </summary>
-		public StringValue? Warehouse { get; set; }
+		#region Details
+		public List<MRPRequirementsByItemDetail>? Detail { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

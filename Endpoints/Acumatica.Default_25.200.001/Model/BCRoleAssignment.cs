@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class BCRoleAssignment : Entity
 	{
 
+		#region Fields
 		public IntValue? RoleAssignmentID { get; set; }
 
 		public IntValue? BAccountID { get; set; }
@@ -25,6 +26,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? CreatedDateTime { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

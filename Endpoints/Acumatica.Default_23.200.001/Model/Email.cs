@@ -16,6 +16,49 @@ namespace Acumatica.Default_23_200_001.Model
 	public class Email : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The identifier of the Note object associated with the document.
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// Key Field
+		/// </summary>
+		public GuidValue? NoteID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailAccountID</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>Display Name: From</para>
+		/// </summary>
+		public IntValue? FromEmailAccountID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailAccountID_description</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// </summary>
+		public StringValue? FromEmailAccountDisplayName { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailFrom</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>SQL Type: nvarchar(500)</para>
+		/// </summary>
+		public StringValue? From { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailTo</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>SQL Type: nvarchar(3000)</para>
+		/// </summary>
+		public StringValue? To { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MailCc</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>Display Name: CC</para>
+		/// <para>SQL Type: nvarchar(3000)</para>
+		/// </summary>
+		public StringValue? Cc { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: MailBcc</para>
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
@@ -25,19 +68,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Bcc { get; set; }
 
 		/// <summary>
+		/// The summary description of the activity.
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: Activity Details</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// <para>Display Name: Summary</para>
+		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
-		public StringValue? Body { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MailCc</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: CC</para>
-		/// <para>SQL Type: nvarchar(3000)</para>
-		/// </summary>
-		public StringValue? Cc { get; set; }
+		public StringValue? Subject { get; set; }
 
 		/// <summary>
 		/// Returns either additional information about the related entity or the last error message. The property isused by the CREmailActivityMaint graph to show additional infomation about the SMEmail status.
@@ -49,24 +85,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MailFrom</para>
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>SQL Type: nvarchar(500)</para>
+		/// <para>Display Name: Activity Details</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		public StringValue? From { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MailAccountID_description</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// </summary>
-		public StringValue? FromEmailAccountDisplayName { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MailAccountID</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: From</para>
-		/// </summary>
-		public IntValue? FromEmailAccountID { get; set; }
+		public StringValue? Body { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: IsIncome</para>
@@ -83,12 +106,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MPStatus</para>
+		/// The identifier of the workgroup responsible for the current document.
+		/// <para>DAC Field Name: WorkgroupID</para>
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: Email Status</para>
-		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		public StringValue? MailStatus { get; set; }
+		public StringValue? Workgroup { get; set; }
 
 		/// <summary>
 		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
@@ -96,54 +118,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
 		/// </summary>
 		public StringValue? Owner { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ParentNoteID</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: Task</para>
-		/// </summary>
-		public GuidValue? Parent { get; set; }
-
-		public StringValue? ParentSummary { get; set; }
-
-		public DateTimeValue? StartDate { get; set; }
-
-		/// <summary>
-		/// The summary description of the activity.
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>Display Name: Summary</para>
-		/// <para>SQL Type: nvarchar(998)</para>
-		/// </summary>
-		public StringValue? Subject { get; set; }
-
-		public TimeActivity? TimeActivity { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MailTo</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// <para>SQL Type: nvarchar(3000)</para>
-		/// </summary>
-		public StringValue? To { get; set; }
-
-		/// <summary>
-		/// The identifier of the workgroup responsible for the current document.
-		/// <para>DAC Field Name: WorkgroupID</para>
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// </summary>
-		public StringValue? Workgroup { get; set; }
-
-		public StringValue? CreatedByID { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// The identifier of the Note object associated with the document.
-		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
-		/// Key Field
-		/// </summary>
-		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
 		/// Contains the type of the related entity, that is specified in RefNoteID.
@@ -165,7 +139,44 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </remarks>
 		public GuidValue? RelatedEntityNoteID { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: ParentNoteID</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>Display Name: Task</para>
+		/// </summary>
+		public GuidValue? Parent { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MPStatus</para>
+		/// <para>DAC: PX.Objects.CR.CRSMEmail</para>
+		/// <para>Display Name: Email Status</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? MailStatus { get; set; }
+
+		public StringValue? ParentSummary { get; set; }
+
+		public DateTimeValue? StartDate { get; set; }
+
+		public StringValue? CreatedByID { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 		public StringValue? RelatedEntityDescription { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public TimeActivity? TimeActivity { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Email)} - \"{NoteID}\"";
+		}
 
 		public static class Expand
 		{

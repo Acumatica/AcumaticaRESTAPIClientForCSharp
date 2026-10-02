@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ApplicableWage : Entity
 	{
 
+		#region LinkedEntities
 		public BenefitIncreasingApplWage? BenefitIncreasingApplWage { get; set; }
 
 		public DeductionDecreasingApplWage? DeductionsDecreasingApplWage { get; set; }
@@ -21,6 +22,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public TaxesDecreasingApplWage? EmployeeTaxesDecreasingApplWage { get; set; }
 
 		public EmployerTaxesIncreasingApplWage? EmployerTaxesIncreasingApplWage { get; set; }
+
+		#endregion
 
 	}
 }

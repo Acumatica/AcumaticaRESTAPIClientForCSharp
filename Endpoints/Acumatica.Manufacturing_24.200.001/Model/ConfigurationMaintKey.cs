@@ -12,12 +12,21 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ConfigurationMaintKey : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: KeyFormat</para>
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		public StringValue? Format { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: KeyNumberingID</para>
+		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
+		/// <para>Display Name: Number Sequence</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? NumberSequence { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: KeyEquation</para>
@@ -34,20 +43,14 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? KeyDescription { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: KeyNumberingID</para>
-		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
-		/// <para>Display Name: Number Sequence</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? NumberSequence { get; set; }
-
-		/// <summary>
 		/// Formula field to configure a custom transaction description for sales order tran description.
 		/// <para>DAC: PX.Objects.AM.AMConfiguration</para>
 		/// <para>Display Name: Tran Description</para>
 		/// <para>SQL Type: nvarchar(512)</para>
 		/// </summary>
 		public StringValue? TranDescription { get; set; }
+
+		#endregion
 
 	}
 }

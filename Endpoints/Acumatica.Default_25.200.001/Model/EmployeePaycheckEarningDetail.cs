@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmployeePaycheckEarningDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Account { get; set; }
 
 		public DecimalValue? Amount { get; set; }
@@ -55,6 +56,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? UnitType { get; set; }
 
 		public StringValue? WCCCode { get; set; }
+
+		#endregion
 
 	}
 }

@@ -16,110 +16,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ExpenseClaim : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The date when the claim was approved.
-		/// <para>DAC Field Name: ApproveDate</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Approval Date</para>
-		/// </summary>
-		public DateTimeValue? ApprovalDate { get; set; }
-
-		public List<Approval>? ApprovalDetails { get; set; }
-
-		/// <summary>
-		/// Identifier of the base Currency.
-		/// <para>DAC Field Name: BaseCuryID</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Base Currency ID</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		public StringValue? BaseCurrencyID { get; set; }
-
-		/// <summary>
-		/// The identifier of the employee who claims the expenses.When the claim is released, an Accounts Payable bill will be generated for this employee.
-		/// <para>DAC Field Name: EmployeeID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Claimed By</para>
-		/// </summary>
-		public StringValue? ClaimedBy { get; set; }
-
-		/// <summary>
-		/// The total amount of the claim in the currency of the document.The amount is calculated as the sum of the amounts in the Claim Amount column of the Expense Claim Details table located on the Expense Claim (EP301000) form for all lines specified for the claim with taxes applied.
-		/// <para>DAC Field Name: CuryDocBal</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Claim Total</para>
-		/// </summary>
-		public DecimalValue? ClaimTotal { get; set; }
-
-		/// <summary>
-		/// The code of the currency of the document.
-		/// <para>DAC Field Name: CuryID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Currency</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		public StringValue? CurrencyID { get; set; }
-
-		/// <summary>
-		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// <para>DAC Field Name: SampleCuryRate</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Curr. Rate</para>
-		/// </summary>
-		public DecimalValue? CurrencyRate { get; set; }
-
-		/// <summary>
-		/// The identifier of the Customer associated with the expense claim.
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Customer</para>
-		/// </summary>
-		public StringValue? CustomerID { get; set; }
-
-		/// <summary>
-		/// The date when the claim was entered.
-		/// <para>DAC Field Name: DocDate</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// </summary>
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// The department associated with the expense claim.
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Department ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? DepartmentID { get; set; }
-
-		/// <summary>
-		/// A description of the claim.
-		/// <para>DAC Field Name: DocDesc</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<ExpenseClaimDetails>? Details { get; set; }
-
-		public ExpenseClaimFinancialDetail? FinancialDetails { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// The identifier of the customer location associated with the document.
-		/// <para>DAC Field Name: CustomerLocationID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Location</para>
-		/// </summary>
-		public StringValue? LocationID { get; set; }
-
-		/// <summary>
-		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// <para>DAC Field Name: SampleRecipRate</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Reciprocal Rate</para>
-		/// </summary>
-		public DecimalValue? ReciprocalRate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The unique reference number of the expense claim document, which the system assigns based on the numbering sequence specified for claims on the Time and Expenses Preferences (EP101000) form (which corresponds to the EPSetupMaint graph).This field is the key field.
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
@@ -136,15 +33,84 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public StringValue? Status { get; set; }
 
-		public List<ExpenseClaimTaxDetail>? TaxDetails { get; set; }
+		/// <summary>
+		/// The date when the claim was entered.
+		/// <para>DAC Field Name: DocDate</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// </summary>
+		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
-		/// The total amount of taxes associated with the document in the currency of the document.(Presented in the currency of the document, see CuryID)
-		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// The date when the claim was approved.
+		/// <para>DAC Field Name: ApproveDate</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Tax Total</para>
+		/// <para>Display Name: Approval Date</para>
 		/// </summary>
-		public DecimalValue? TaxTotal { get; set; }
+		public DateTimeValue? ApprovalDate { get; set; }
+
+		/// <summary>
+		/// A description of the claim.
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// The identifier of the employee who claims the expenses.When the claim is released, an Accounts Payable bill will be generated for this employee.
+		/// <para>DAC Field Name: EmployeeID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Claimed By</para>
+		/// </summary>
+		public StringValue? ClaimedBy { get; set; }
+
+		/// <summary>
+		/// The code of the currency of the document.
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? CurrencyID { get; set; }
+
+		/// <summary>
+		/// The department associated with the expense claim.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Department ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? DepartmentID { get; set; }
+
+		/// <summary>
+		/// The identifier of the Customer associated with the expense claim.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Customer</para>
+		/// </summary>
+		public StringValue? CustomerID { get; set; }
+
+		/// <summary>
+		/// The identifier of the customer location associated with the document.
+		/// <para>DAC Field Name: CustomerLocationID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Location</para>
+		/// </summary>
+		public StringValue? LocationID { get; set; }
+
+		/// <summary>
+		/// The total amount of the claim in the currency of the document.The amount is calculated as the sum of the amounts in the Claim Amount column of the Expense Claim Details table located on the Expense Claim (EP301000) form for all lines specified for the claim with taxes applied.
+		/// <para>DAC Field Name: CuryDocBal</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Claim Total</para>
+		/// </summary>
+		public DecimalValue? ClaimTotal { get; set; }
+
+		/// <summary>
+		/// The document total (in the currency of the document) that is subject to VAT.This box is available only if the VAT Reporting feature is enabled on the Enable/Disable Features (CS100000) form (which corresponds to the FeaturesMaint graph). The VAT taxable amount is displayed in this box only if the Include in VAT Taxable Total check box is selected for the applicable tax on the Taxes (TX205000) form (which corresponds to the SalesTaxMaint graph). If the check box is cleared, this box will be empty.(Presented in the currency of the document, see CuryID)
+		/// <para>DAC Field Name: CuryVatTaxableTotal</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: VAT Taxable Total</para>
+		/// </summary>
+		public DecimalValue? VATTaxableTotal { get; set; }
 
 		/// <summary>
 		/// The document total (in the currency of the document) that is exempt from VAT.This total is calculated as the taxable amount for the tax with the Include in VAT Exempt Total check box selected on the Taxes (TX205000) form. This box is available only if the VAT Reporting feature is enabled on the Enable/Disable Features (CS100000) form (which corresponds to the FeaturesMaint graph).(Presented in the currency of the document, see CuryID)
@@ -155,12 +121,60 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? VATExemptTotal { get; set; }
 
 		/// <summary>
-		/// The document total (in the currency of the document) that is subject to VAT.This box is available only if the VAT Reporting feature is enabled on the Enable/Disable Features (CS100000) form (which corresponds to the FeaturesMaint graph). The VAT taxable amount is displayed in this box only if the Include in VAT Taxable Total check box is selected for the applicable tax on the Taxes (TX205000) form (which corresponds to the SalesTaxMaint graph). If the check box is cleared, this box will be empty.(Presented in the currency of the document, see CuryID)
-		/// <para>DAC Field Name: CuryVatTaxableTotal</para>
+		/// The total amount of taxes associated with the document in the currency of the document.(Presented in the currency of the document, see CuryID)
+		/// <para>DAC Field Name: CuryTaxTotal</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: VAT Taxable Total</para>
+		/// <para>Display Name: Tax Total</para>
 		/// </summary>
-		public DecimalValue? VATTaxableTotal { get; set; }
+		public DecimalValue? TaxTotal { get; set; }
+
+		/// <summary>
+		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
+		/// <para>DAC Field Name: SampleCuryRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate</para>
+		/// </summary>
+		public DecimalValue? CurrencyRate { get; set; }
+
+		/// <summary>
+		/// Identifier of the base Currency.
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Base Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? BaseCurrencyID { get; set; }
+
+		/// <summary>
+		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
+		/// <para>DAC Field Name: SampleRecipRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Reciprocal Rate</para>
+		/// </summary>
+		public DecimalValue? ReciprocalRate { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ExpenseClaimFinancialDetail? FinancialDetails { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<Approval>? ApprovalDetails { get; set; }
+
+		public List<ExpenseClaimDetails>? Details { get; set; }
+
+		public List<ExpenseClaimTaxDetail>? TaxDetails { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ExpenseClaim)} - \"{RefNbr}\"";
+		}
 
 		public static class Expand
 		{

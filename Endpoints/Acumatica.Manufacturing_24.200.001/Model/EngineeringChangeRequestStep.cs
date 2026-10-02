@@ -12,6 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class EngineeringChangeRequestStep : Entity
 	{
 
+		#region Fields
 		public StringValue? ChangeStatus { get; set; }
 
 		public StringValue? Description { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? OperationID { get; set; }
 
 		public StringValue? Revision { get; set; }
+
+		#endregion
 
 	}
 }

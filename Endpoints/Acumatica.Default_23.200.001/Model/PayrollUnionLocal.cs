@@ -16,27 +16,9 @@ namespace Acumatica.Default_23_200_001.Model
 	public class PayrollUnionLocal : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.PM.PMUnion</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		public List<UnionDeductionOrBenefitDetail>? DeductionsAndBenefits { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PM.PMUnion</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<UnionEarningRateDetail>? EarningRates { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		public StringValue? Location { get; set; }
-
-		/// <summary>
+		/// The unique identifier of the union local.
 		/// <para>DAC Field Name: UnionID</para>
 		/// <para>DAC: PX.Objects.PM.PMUnion</para>
 		/// <para>Display Name: Union Local ID</para>
@@ -45,7 +27,38 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? PayrollUnionLocalID { get; set; }
 
+		/// <summary>
+		/// A Boolean value that indicates (if set to true) whether the union local is active.
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PM.PMUnion</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PM.PMUnion</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		public StringValue? Location { get; set; }
+
 		public StringValue? Vendor { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<UnionDeductionOrBenefitDetail>? DeductionsAndBenefits { get; set; }
+
+		public List<UnionEarningRateDetail>? EarningRates { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PayrollUnionLocal)} - \"{PayrollUnionLocalID}\"";
+		}
 
 		public static class Expand
 		{

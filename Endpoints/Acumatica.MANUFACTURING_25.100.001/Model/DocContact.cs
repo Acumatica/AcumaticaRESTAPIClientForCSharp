@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class DocContact : Entity
 	{
 
+		#region Fields
 		public StringValue? Attention { get; set; }
 
 		public StringValue? CompanyName { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Email { get; set; }
 
 		public StringValue? Phone1 { get; set; }
+
+		#endregion
 
 	}
 }

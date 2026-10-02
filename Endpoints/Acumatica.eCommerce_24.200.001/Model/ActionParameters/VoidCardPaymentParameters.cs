@@ -18,6 +18,8 @@ namespace Acumatica.eCommerce_24_200_001.Model
 
 		public StringValue? TranNbr { get; set; }
 
+		public StringValue? TranApiNbr { get; set; }
+
 		public StringValue? ExtProfileId { get; set; }
 
 		public DateTimeValue? TranDate { get; set; }

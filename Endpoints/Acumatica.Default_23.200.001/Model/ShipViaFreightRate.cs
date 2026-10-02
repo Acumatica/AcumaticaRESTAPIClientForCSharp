@@ -12,12 +12,11 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ShipViaFreightRate : Entity
 	{
 
-		public IntValue? LineNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.FreightRate</para>
 		/// </summary>
-		public DecimalValue? Rate { get; set; }
+		public DecimalValue? Weight { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.FreightRate</para>
@@ -26,15 +25,19 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.FreightRate</para>
-		/// </summary>
-		public DecimalValue? Weight { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.FreightRate</para>
 		/// <para>Display Name: Zone ID</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		public StringValue? ZoneID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.FreightRate</para>
+		/// </summary>
+		public DecimalValue? Rate { get; set; }
+
+		public IntValue? LineNbr { get; set; }
+
+		#endregion
 
 	}
 }

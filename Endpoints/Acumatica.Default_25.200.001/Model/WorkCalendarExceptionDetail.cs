@@ -12,17 +12,12 @@ namespace Acumatica.Default_25_200_001.Model
 	public class WorkCalendarExceptionDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
 		/// Key Field
 		/// </summary>
 		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
-		/// <para>Display Name: Day Of Week</para>
-		/// </summary>
-		public StringValue? DayOfWeek { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendar</para>
@@ -32,9 +27,15 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
-		/// <para>Display Name: End Time</para>
+		/// <para>Display Name: Day Of Week</para>
 		/// </summary>
-		public DateTimeValue? EndTime { get; set; }
+		public StringValue? DayOfWeek { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
+		/// <para>Display Name: Work Day</para>
+		/// </summary>
+		public BooleanValue? WorkDay { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
@@ -43,17 +44,19 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? StartTime { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
+		/// <para>Display Name: End Time</para>
+		/// </summary>
+		public DateTimeValue? EndTime { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: UnpaidTime</para>
 		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
 		/// <para>Display Name: Break Duration</para>
 		/// </summary>
 		public StringValue? UnpaidBreakTime { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSCalendarExceptions</para>
-		/// <para>Display Name: Work Day</para>
-		/// </summary>
-		public BooleanValue? WorkDay { get; set; }
+		#endregion
 
 	}
 }

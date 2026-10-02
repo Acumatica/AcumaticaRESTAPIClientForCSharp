@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.Default_26_200_001.Model
+{
+	public class BoxStockItem : Entity
+	{
+
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
+		/// <para>Display Name: Box ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? BoxID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INComponent</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INComponent</para>
+		/// <para>Display Name: Quantity</para>
+		/// </summary>
+		public DecimalValue? Qty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INItemRep</para>
+		/// <para>Display Name: Max Qty.</para>
+		/// </summary>
+		public DecimalValue? MaxQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
+		/// <para>Display Name: Max. Weight</para>
+		/// </summary>
+		public DecimalValue? MaxWeight { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INItemBoxEx</para>
+		/// <para>Display Name: Max Volume</para>
+		/// </summary>
+		public DecimalValue? MaxVolume { get; set; }
+
+		#endregion
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+
+			//Intentionally excluded
+			//public const string All = "Files";
+		}
+	}
+}

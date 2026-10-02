@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class Approval : Entity
 	{
 
+		#region Fields
 		public StringValue? ApprovedBy { get; set; }
 
 		public StringValue? ApprovedByName { get; set; }
@@ -25,6 +26,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Status { get; set; }
 
 		public StringValue? Workgroup { get; set; }
+
+		#endregion
 
 	}
 }

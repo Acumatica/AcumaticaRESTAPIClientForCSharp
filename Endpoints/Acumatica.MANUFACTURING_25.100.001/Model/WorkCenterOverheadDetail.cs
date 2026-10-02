@@ -12,18 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class WorkCenterOverheadDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: AMOverhead__Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMWCOvhd</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OFactor</para>
-		/// <para>DAC: PX.Objects.AM.AMWCOvhd</para>
-		/// </summary>
-		public DecimalValue? Factor { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: OvhdID</para>
 		/// <para>DAC: PX.Objects.AM.AMWCOvhd</para>
@@ -34,10 +23,24 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Overhead { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: AMOverhead__Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMWCOvhd</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: AMOverhead__OvhdType</para>
 		/// <para>DAC: PX.Objects.AM.AMWCOvhd</para>
 		/// </summary>
 		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OFactor</para>
+		/// <para>DAC: PX.Objects.AM.AMWCOvhd</para>
+		/// </summary>
+		public DecimalValue? Factor { get; set; }
+
+		#endregion
 
 	}
 }

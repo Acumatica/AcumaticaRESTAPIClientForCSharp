@@ -16,23 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Activity : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The HTML body of the activity.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Activity Details</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		public StringValue? Body { get; set; }
-
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
-		/// <para>DAC Field Name: IsPrivate</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		public BooleanValue? Internal { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The identifier of the Note object associated with the document.
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
@@ -42,31 +26,12 @@ namespace Acumatica.Default_25_200_001.Model
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
-		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
-		/// <para>DAC Field Name: OwnerID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		public StringValue? Owner { get; set; }
-
-		public StringValue? Status { get; set; }
-
-		/// <summary>
 		/// The summary description of the activity.
 		/// <para>DAC Field Name: Subject</para>
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
 		public StringValue? Summary { get; set; }
-
-		/// <summary>
-		/// The identifier of the parent task or event of the current activity.
-		/// <para>DAC Field Name: ParentNoteID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Parent Activity</para>
-		/// </summary>
-		public StringValue? Task { get; set; }
-
-		public TimeActivity? TimeActivity { get; set; }
 
 		/// <summary>
 		/// The type of the activity, which is one of the options defined on the Activity Types (CR102000) form.
@@ -82,11 +47,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? Workgroup { get; set; }
 
-		public StringValue? CreatedByID { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		/// <summary>
+		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		public StringValue? Owner { get; set; }
 
 		/// <summary>
 		/// Contains the type of the related entity, that is specified in RefNoteID.
@@ -108,7 +74,52 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </remarks>
 		public GuidValue? RelatedEntityNoteID { get; set; }
 
+		/// <summary>
+		/// The identifier of the parent task or event of the current activity.
+		/// <para>DAC Field Name: ParentNoteID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Parent Activity</para>
+		/// </summary>
+		public StringValue? Task { get; set; }
+
+		/// <summary>
+		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
+		/// <para>DAC Field Name: IsPrivate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		public BooleanValue? Internal { get; set; }
+
+		/// <summary>
+		/// The HTML body of the activity.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Activity Details</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		public StringValue? Body { get; set; }
+
+		public DateTimeValue? Date { get; set; }
+
+		public StringValue? Status { get; set; }
+
+		public StringValue? CreatedByID { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 		public StringValue? RelatedEntityDescription { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public TimeActivity? TimeActivity { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Activity)} - \"{NoteID}\"";
+		}
 
 		public static class Expand
 		{

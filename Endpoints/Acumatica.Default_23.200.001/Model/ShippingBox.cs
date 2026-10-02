@@ -16,12 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ShippingBox : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// <para>Display Name: Active by Default</para>
-		/// </summary>
-		public BooleanValue? ActiveByDefault { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// <para>Display Name: Box ID</para>
@@ -32,49 +27,21 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// <para>Display Name: Box Weight</para>
-		/// </summary>
-		public DecimalValue? BoxWeight { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CarrierBox</para>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// </summary>
-		public StringValue? CarriersPackage { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Box Weight</para>
 		/// </summary>
-		public DecimalValue? Height { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// </summary>
-		public DecimalValue? Length { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// <para>Display Name: Max Volume</para>
-		/// </summary>
-		public DecimalValue? MaxVolume { get; set; }
+		public DecimalValue? BoxWeight { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// <para>Display Name: Max. Weight</para>
 		/// </summary>
 		public DecimalValue? MaxWeight { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CommonSetup__VolumeUOM</para>
-		/// <para>DAC: PX.Objects.CS.CSBox</para>
-		/// </summary>
-		public StringValue? VolumeUOM { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CommonSetup__WeightUOM</para>
@@ -84,14 +51,51 @@ namespace Acumatica.Default_23_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Max Volume</para>
+		/// </summary>
+		public DecimalValue? MaxVolume { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CommonSetup__VolumeUOM</para>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
+		public StringValue? VolumeUOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
+		public DecimalValue? Length { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// </summary>
 		public DecimalValue? Width { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// </summary>
+		public DecimalValue? Height { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CommonSetup__LinearUOM</para>
 		/// <para>DAC: PX.Objects.CS.CSBox</para>
 		/// </summary>
 		public StringValue? LinearUOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSBox</para>
+		/// <para>Display Name: Active by Default</para>
+		/// </summary>
+		public BooleanValue? ActiveByDefault { get; set; }
+
+		public StringValue? CarriersPackage { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ShippingBox)} - \"{BoxID}\"";
+		}
 
 		public static class Expand
 		{

@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ActivityDetail : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Billable { get; set; }
 
 		public StringValue? Overtime { get; set; }
@@ -53,6 +54,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Type { get; set; }
 
 		public StringValue? WorkgroupID { get; set; }
+
+		#endregion
 
 	}
 }

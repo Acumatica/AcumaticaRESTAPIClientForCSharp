@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class TimeActivity : Entity
 	{
 
+		#region Fields
 		public StringValue? Approver { get; set; }
 
 		public BooleanValue? Billable { get; set; }
@@ -39,6 +40,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? TimeSpent { get; set; }
 
 		public BooleanValue? TrackTime { get; set; }
+
+		#endregion
 
 	}
 }

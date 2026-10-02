@@ -16,7 +16,28 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PayPeriod : Entity, ITopLevelEntity
 	{
 
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: PayGroupID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroupYear</para>
+		/// <para>Display Name: Pay Group</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? PayGroup { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRPayGroupYear</para>
+		/// <para>SQL Type: char(4)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? Year { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRPayGroupYear</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: FinPeriods</para>
@@ -31,29 +52,19 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public BooleanValue? Override { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: PayGroupID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroupYear</para>
-		/// <para>Display Name: Pay Group</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? PayGroup { get; set; }
+		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<PaymentPeriod>? PaymentPeriods { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRPayGroupYear</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRPayGroupYear</para>
-		/// <para>SQL Type: char(4)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? Year { get; set; }
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PayPeriod)} - \"{PayGroup}\" - \"{Year}\"";
+		}
 
 		public static class Expand
 		{

@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesInvoiceDocContact : Entity
 	{
 
+		#region Fields
 		public StringValue? Attention { get; set; }
 
 		public StringValue? BusinessName { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Email { get; set; }
 
 		public StringValue? Phone1 { get; set; }
+
+		#endregion
 
 	}
 }

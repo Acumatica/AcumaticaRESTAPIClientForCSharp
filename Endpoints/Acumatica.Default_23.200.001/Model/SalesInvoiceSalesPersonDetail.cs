@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SalesInvoiceSalesPersonDetail : Entity
 	{
 
+		#region Fields
 		public DecimalValue? CommissionableAmount { get; set; }
 
 		public DecimalValue? CommissionAmount { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? CommissionPercent { get; set; }
 
 		public StringValue? SalespersonID { get; set; }
+
+		#endregion
 
 	}
 }

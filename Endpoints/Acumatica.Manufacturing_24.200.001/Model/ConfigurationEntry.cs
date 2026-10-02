@@ -16,19 +16,19 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ConfigurationEntry : Entity, ITopLevelEntity
 	{
 
-		public List<ConfigurationEntryAttributes>? Attributes { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// </summary>
-		public BooleanValue? Completed { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
 		/// <para>Display Name: Config Results ID</para>
 		/// Key Field
 		/// </summary>
 		public IntValue? ConfigResultsID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
@@ -45,62 +45,16 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		public StringValue? ConfRevision { get; set; }
 
-		public List<ConfigurationEntryFeatures>? Features { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// </summary>
+		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: Opportunity Line Nbr</para>
-		/// </summary>
-		public IntValue? OpportunityLineNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: Opportunity Quote ID</para>
-		/// </summary>
-		public GuidValue? OpportunityQuoteID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: Prod Order Nbr</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		public StringValue? ProdOrderNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: Prod Order Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		public StringValue? ProdOrderType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OrdLineRef</para>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: SO Line Nbr.</para>
-		/// </summary>
-		public IntValue? SOLineNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OrdNbrRef</para>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: SO Order Nbr</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		public StringValue? SOOrderNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OrdTypeRef</para>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: SO Order Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		public StringValue? SOOrderType { get; set; }
+		public BooleanValue? Completed { get; set; }
 
 		/// <summary>
 		/// Indicates the configuration is running in test mode (no persist to the database)
@@ -111,10 +65,67 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public BooleanValue? TestConfiguration { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC Field Name: OrdTypeRef</para>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: SO Order Type</para>
+		/// <para>SQL Type: char(2)</para>
 		/// </summary>
-		public StringValue? Warehouse { get; set; }
+		public StringValue? SOOrderType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OrdNbrRef</para>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: SO Order Nbr</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		public StringValue? SOOrderNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OrdLineRef</para>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: SO Line Nbr.</para>
+		/// </summary>
+		public IntValue? SOLineNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: Opportunity Quote ID</para>
+		/// </summary>
+		public GuidValue? OpportunityQuoteID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: Opportunity Line Nbr</para>
+		/// </summary>
+		public IntValue? OpportunityLineNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: Prod Order Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? ProdOrderType { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: Prod Order Nbr</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		public StringValue? ProdOrderNbr { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ConfigurationEntryAttributes>? Attributes { get; set; }
+
+		public List<ConfigurationEntryFeatures>? Features { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ConfigurationEntry)} - \"{ConfigResultsID}\"";
+		}
 
 		public static class Expand
 		{

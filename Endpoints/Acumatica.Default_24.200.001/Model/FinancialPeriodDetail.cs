@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class FinancialPeriodDetail : Entity
 	{
 
+		#region Fields
 		public BooleanValue? AdjustmentPeriod { get; set; }
 
 		public BooleanValue? ClosedInAP { get; set; }
@@ -37,6 +38,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? StartDate { get; set; }
 
 		public StringValue? Status { get; set; }
+
+		#endregion
 
 	}
 }

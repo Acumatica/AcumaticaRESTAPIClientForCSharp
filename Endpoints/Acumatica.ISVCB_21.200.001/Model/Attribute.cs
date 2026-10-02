@@ -12,9 +12,12 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class Attribute : Entity
 	{
 
+		#region Fields
 		public StringValue? AttributeName { get; set; }
 
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

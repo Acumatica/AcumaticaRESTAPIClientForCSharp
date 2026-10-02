@@ -16,12 +16,15 @@ namespace Acumatica.Default_25_200_001.Model
 	public class TaxCategory : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
+		/// The tax category ID. This is the key field, which can be specified by the user.
 		/// <para>DAC: PX.Objects.TX.TaxCategory</para>
+		/// <para>Display Name: Tax Category ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
 		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
+		public StringValue? TaxCategoryID { get; set; }
 
 		/// <summary>
 		/// The description of the tax category, which can be specified by the user.
@@ -31,7 +34,10 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? Description { get; set; }
 
-		public List<TaxCategoryTaxDetail>? Details { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.TX.TaxCategory</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
 
 		/// <summary>
 		/// "Exclude Listed Taxes" flag. Specifies how the taxes that are included in the category should be applied to the document line.false: Only the taxes of the category that are intersected with the taxes of the tax zone should be applied to the document line.true: All taxes of the tax zone except the taxes of the category should be applied to the document line.
@@ -41,16 +47,21 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public BooleanValue? ExcludeListedTaxes { get; set; }
 
+		public DateTimeValue? CreatedDateTime { get; set; }
+
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// The tax category ID. This is the key field, which can be specified by the user.
-		/// <para>DAC: PX.Objects.TX.TaxCategory</para>
-		/// <para>Display Name: Tax Category ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? TaxCategoryID { get; set; }
+		#endregion
+
+		#region Details
+		public List<TaxCategoryTaxDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(TaxCategory)} - \"{TaxCategoryID}\"";
+		}
 
 		public static class Expand
 		{

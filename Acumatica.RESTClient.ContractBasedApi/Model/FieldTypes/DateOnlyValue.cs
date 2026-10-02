@@ -1,6 +1,5 @@
 using System;
 using System.Globalization;
-using System.Runtime.Serialization;
 
 using Newtonsoft.Json;
 
@@ -11,7 +10,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
     /// Although the inner value is DateTime, the time component is discarded on every assignment, and the value is sent to and read
     /// from the server as a bare "yyyy-MM-dd" date.
     /// </summary>
-    [DataContract]
     public partial class DateOnlyValue : RestValueBase<DateTime?>
     {
         /// <summary>
@@ -36,7 +34,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         /// so the value always reads back at midnight with a <see cref="DateTimeKind"/> of
         /// <see cref="DateTimeKind.Unspecified"/> - a calendar date carries no time zone.
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [JsonProperty("value")]
         [JsonConverter(typeof(DateOnlyConverter))]
         public override DateTime? Value
         {
@@ -63,4 +61,4 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             return res ?? "{}";
         }
     }
-}
+}

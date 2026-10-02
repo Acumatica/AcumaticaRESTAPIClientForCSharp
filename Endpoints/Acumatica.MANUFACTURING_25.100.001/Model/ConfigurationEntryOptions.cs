@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationEntryOptions : Entity
 	{
 
+		#region Fields
 		public IntValue? ConfigResultsID { get; set; }
 
 		public StringValue? Description { get; set; }
@@ -33,6 +34,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Subitem { get; set; }
 
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

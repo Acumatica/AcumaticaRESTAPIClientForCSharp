@@ -12,6 +12,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class ISVSolution : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		public StringValue? Initials { get; set; }
 
 		public StringValue? SolutionCode { get; set; }
@@ -30,11 +31,16 @@ namespace Acumatica.ISVCB_21_200_001.Model
 
 		public StringValue? ISVCERTND { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<Customers>? Customers { get; set; }
 
 		public List<RepositoryLines>? Repository { get; set; }
 
 		public List<Attribute>? Attributes { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

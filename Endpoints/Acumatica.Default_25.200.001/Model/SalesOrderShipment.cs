@@ -12,18 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesOrderShipment : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: InvtDocType</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		public StringValue? InventoryDocType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InvtRefNbr</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		public StringValue? InventoryRefNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The reference number of the original invoice (which lists the goods that were ordered andlater returned by the customer).The field is included in the Invoice foreign key.
 		/// <para>DAC: PX.Objects.SO.SOOrder</para>
@@ -34,11 +23,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// This field is available for orders of the CR, RC, RR, and RM types.
 		/// </remarks>
 		public StringValue? InvoiceNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		public StringValue? InvoiceType { get; set; }
 
 		/// <summary>
 		/// The date when the ordered goods are scheduled to be shipped.
@@ -54,12 +38,18 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		public StringValue? ShipmentNbr { get; set; }
+		public StringValue? ShipmentType { get; set; }
 
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		public StringValue? ShipmentType { get; set; }
+		public StringValue? ShipmentNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SOShipment__StatusIsNull</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ShipmentQty</para>
@@ -68,22 +58,33 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? ShippedQty { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ShipmentVolume</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		public DecimalValue? ShippedVolume { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: ShipmentWeight</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
 		public DecimalValue? ShippedWeight { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SOShipment__StatusIsNull</para>
+		/// <para>DAC Field Name: ShipmentVolume</para>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		public StringValue? Status { get; set; }
+		public DecimalValue? ShippedVolume { get; set; }
+
+		/// <summary>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		public StringValue? InvoiceType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InvtDocType</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		public StringValue? InventoryDocType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InvtRefNbr</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		public StringValue? InventoryRefNbr { get; set; }
 
 		public GuidValue? InventoryNoteID { get; set; }
 
@@ -92,6 +93,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public GuidValue? OrderNoteID { get; set; }
 
 		public GuidValue? ShippingNoteID { get; set; }
+
+		#endregion
 
 	}
 }

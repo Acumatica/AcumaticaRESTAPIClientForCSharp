@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ProductionOrderOperationTotal : Entity
 	{
 
+		#region Fields
 		public DecimalValue? ActualFixedOverhead { get; set; }
 
 		public DecimalValue? ActualLabor { get; set; }
@@ -79,6 +80,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DecimalValue? WIPBalance { get; set; }
 
 		public DecimalValue? WIPTotal { get; set; }
+
+		#endregion
 
 	}
 }

@@ -16,6 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class CostCode : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// Get or sets unique identifier.This is a segmented key and format is configured under segmented key maintenance screen in CS module.
 		/// <para>DAC Field Name: CostCodeCD</para>
@@ -34,6 +35,13 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Description { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(CostCode)} - \"{CostCodeID}\"";
+		}
 
 		public static class Expand
 		{

@@ -11,34 +11,12 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 {
 	/// <summary>
 	/// Corresponds to the screen <c>AM312000</c> in the Acumatica ERP
-	/// <para>Key Fields: LotSerialNbr, OrderType, ProductionNbr</para>
+	/// <para>Key Fields: OrderType, ProductionNbr, LotSerialNbr</para>
 	/// </summary>
 	public class LateAssignment : Entity, ITopLevelEntity
 	{
 
-		public List<LateAssignmentAllocatedDetail>? AllocatedDetail { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: QtyComplete</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// <para>Display Name: Complete Qty.</para>
-		/// </summary>
-		public DecimalValue? CompleteQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// <para>Display Name: Lot/Serial Nbr.</para>
-		/// <para>SQL Type: nvarchar(100)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? LotSerialNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
 		/// <para>Display Name: Order Type</para>
@@ -57,6 +35,33 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? LotSerialNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: StatusID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteId</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// </summary>
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Qty</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
 		/// <para>Display Name: Qty. to Produce</para>
@@ -64,12 +69,11 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DecimalValue? QtytoProduce { get; set; }
 
 		/// <summary>
-		/// Quantity remaining to be completed on the production order
-		/// <para>DAC Field Name: QtyRemaining</para>
+		/// <para>DAC Field Name: QtyComplete</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// <para>Display Name: Remaining Qty.</para>
+		/// <para>Display Name: Complete Qty.</para>
 		/// </summary>
-		public DecimalValue? RemainingQty { get; set; }
+		public DecimalValue? CompleteQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: QtyScrapped</para>
@@ -79,19 +83,26 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DecimalValue? ScrappedQty { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: StatusID</para>
+		/// Quantity remaining to be completed on the production order
+		/// <para>DAC Field Name: QtyRemaining</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Remaining Qty.</para>
 		/// </summary>
-		public StringValue? Status { get; set; }
+		public DecimalValue? RemainingQty { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<LateAssignmentAllocatedDetail>? AllocatedDetail { get; set; }
 
 		public List<LateAssignmentUnallocatedDetail>? UnallocatedDetail { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SiteId</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// </summary>
-		public StringValue? Warehouse { get; set; }
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(LateAssignment)} - \"{OrderType}\" - \"{ProductionNbr}\" - \"{LotSerialNbr}\"";
+		}
 
 		public static class Expand
 		{

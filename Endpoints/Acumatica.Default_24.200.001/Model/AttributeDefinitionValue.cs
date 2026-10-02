@@ -12,16 +12,20 @@ namespace Acumatica.Default_24_200_001.Model
 	public class AttributeDefinitionValue : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
+		/// <para>Display Name: Value ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ValueID { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttribute</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
-		/// </summary>
-		public BooleanValue? Disabled { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
@@ -31,11 +35,10 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CSAttributeDetail</para>
-		/// <para>Display Name: Value ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
 		/// </summary>
-		public StringValue? ValueID { get; set; }
+		public BooleanValue? Disabled { get; set; }
+
+		#endregion
 
 	}
 }

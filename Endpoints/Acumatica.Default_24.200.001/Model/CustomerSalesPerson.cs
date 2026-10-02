@@ -12,20 +12,14 @@ namespace Acumatica.Default_24_200_001.Model
 	public class CustomerSalesPerson : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The default sales commission percentage received by the salesperson for the specified customer and location.
-		/// <para>DAC Field Name: CommisionPct</para>
+		/// The integer identifier of the salesperson. This field is a part of the compound key of the record.
+		/// <para>DAC Field Name: SalesPersonID</para>
 		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
-		/// <para>Display Name: Commission %</para>
+		/// Key Field
 		/// </summary>
-		public DecimalValue? Commission { get; set; }
-
-		/// <summary>
-		/// This field indicates whether the location is default for the corresponding business account.
-		/// <para>DAC Field Name: IsDefault</para>
-		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
-		/// </summary>
-		public BooleanValue? Default { get; set; }
+		public StringValue? SalespersonID { get; set; }
 
 		/// <summary>
 		/// The integer identifier of the customer location. This field is a part of the compound key of the record.
@@ -36,10 +30,11 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: LocationID_description</para>
-		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
+		/// This field indicates whether the location is default for the corresponding business account.
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.CR.Standalone.Location</para>
 		/// </summary>
-		public StringValue? LocationName { get; set; }
+		public BooleanValue? Default { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SalesPersonID_SalesPerson_descr</para>
@@ -48,12 +43,20 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Name { get; set; }
 
 		/// <summary>
-		/// The integer identifier of the salesperson. This field is a part of the compound key of the record.
-		/// <para>DAC Field Name: SalesPersonID</para>
+		/// <para>DAC Field Name: LocationID_description</para>
 		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
-		/// Key Field
 		/// </summary>
-		public StringValue? SalespersonID { get; set; }
+		public StringValue? LocationName { get; set; }
+
+		/// <summary>
+		/// The default sales commission percentage received by the salesperson for the specified customer and location.
+		/// <para>DAC Field Name: CommisionPct</para>
+		/// <para>DAC: PX.Objects.AR.CustSalesPeople</para>
+		/// <para>Display Name: Commission %</para>
+		/// </summary>
+		public DecimalValue? Commission { get; set; }
+
+		#endregion
 
 	}
 }

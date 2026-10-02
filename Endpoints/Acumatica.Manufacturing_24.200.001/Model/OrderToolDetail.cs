@@ -12,6 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class OrderToolDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Description { get; set; }
 
 		public IntValue? LineID { get; set; }
@@ -47,6 +48,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public DecimalValue? TotalActualUses { get; set; }
 
 		public DecimalValue? UnitCost { get; set; }
+
+		#endregion
 
 	}
 }

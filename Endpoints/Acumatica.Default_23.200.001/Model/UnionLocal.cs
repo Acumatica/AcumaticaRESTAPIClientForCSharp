@@ -16,7 +16,19 @@ namespace Acumatica.Default_23_200_001.Model
 	public class UnionLocal : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
+		/// The unique identifier of the union local.
+		/// <para>DAC Field Name: UnionID</para>
+		/// <para>DAC: PX.Objects.PM.PMUnion</para>
+		/// <para>Display Name: Union Local ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? UnionLocalID { get; set; }
+
+		/// <summary>
+		/// A Boolean value that indicates (if set to true) whether the union local is active.
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PM.PMUnion</para>
 		/// </summary>
@@ -28,14 +40,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? Description { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: UnionID</para>
-		/// <para>DAC: PX.Objects.PM.PMUnion</para>
-		/// <para>Display Name: Union Local ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? UnionLocalID { get; set; }
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(UnionLocal)} - \"{UnionLocalID}\"";
+		}
 
 		public static class Expand
 		{

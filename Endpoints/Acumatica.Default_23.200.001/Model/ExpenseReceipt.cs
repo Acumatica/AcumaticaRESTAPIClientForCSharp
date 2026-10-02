@@ -16,48 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ExpenseReceipt : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The company branch that will incur the expenses. If multiple expense receipts associated with different branches are added to one expense claim,the branch specified for the claim on the Financial Details tab of the Expense Claim (EP301000) form (which corresponds to the ExpenseClaimEntry graph)will reimburse the expenses and the branches specified in this box for the receipts will incur the expenses.
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// The amount to be reimbursed to the employee in the currency of the document.
-		/// <para>DAC Field Name: CuryTranAmtWithTaxes</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Claim Amount</para>
-		/// </summary>
-		public DecimalValue? ClaimAmount { get; set; }
-
-		/// <summary>
-		/// The identifier of the employee who is claiming the expenses.
-		/// <para>DAC Field Name: EmployeeID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Claimed by</para>
-		/// </summary>
-		public StringValue? ClaimedBy { get; set; }
-
-		/// <summary>
-		/// The date of the receipt. By default, the current business date is used when a new receipt is created.
-		/// <para>DAC Field Name: ExpenseDate</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// </summary>
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// The non-stock item  of the expense, which determines the financial accounts,the default tax category, and the unit of measure used for the receipt.
-		/// <para>DAC Field Name: InventoryID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Expense Item</para>
-		/// </summary>
-		public StringValue? ExpenseItemID { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		public ExpenseReceiptDetails? ReceiptDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The user-friendly unique identifier of the receipt.
 		/// <para>DAC Field Name: ClaimDetailCD</para>
@@ -75,7 +34,20 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? Status { get; set; }
 
-		public List<ExpenseReceiptTaxDetails>? TaxDetails { get; set; }
+		/// <summary>
+		/// The amount to be reimbursed to the employee in the currency of the document.
+		/// <para>DAC Field Name: CuryTranAmtWithTaxes</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Claim Amount</para>
+		/// </summary>
+		public DecimalValue? ClaimAmount { get; set; }
+
+		/// <summary>
+		/// The date of the receipt. By default, the current business date is used when a new receipt is created.
+		/// <para>DAC Field Name: ExpenseDate</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// </summary>
+		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
 		/// The total amount of taxes associated with the document in the currency of the document.
@@ -84,6 +56,48 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Tax Total</para>
 		/// </summary>
 		public DecimalValue? TaxTotal { get; set; }
+
+		/// <summary>
+		/// The non-stock item  of the expense, which determines the financial accounts,the default tax category, and the unit of measure used for the receipt.
+		/// <para>DAC Field Name: InventoryID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Expense Item</para>
+		/// </summary>
+		public StringValue? ExpenseItemID { get; set; }
+
+		/// <summary>
+		/// The identifier of the employee who is claiming the expenses.
+		/// <para>DAC Field Name: EmployeeID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Claimed by</para>
+		/// </summary>
+		public StringValue? ClaimedBy { get; set; }
+
+		/// <summary>
+		/// The company branch that will incur the expenses. If multiple expense receipts associated with different branches are added to one expense claim,the branch specified for the claim on the Financial Details tab of the Expense Claim (EP301000) form (which corresponds to the ExpenseClaimEntry graph)will reimburse the expenses and the branches specified in this box for the receipts will incur the expenses.
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// </summary>
+		public StringValue? Branch { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ExpenseReceiptDetails? ReceiptDetails { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ExpenseReceiptTaxDetails>? TaxDetails { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ExpenseReceipt)} - \"{ReceiptID}\"";
+		}
 
 		public static class Expand
 		{

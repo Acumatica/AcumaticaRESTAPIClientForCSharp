@@ -12,5 +12,14 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class PurchaseReceiptDetail : Acumatica.Default_24_200_001.Model.PurchaseReceiptDetail
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.PO.POReceipt</para>
+		/// </summary>
+		public StringValue? Project { get; set; }
+
+		#endregion
+
 	}
 }

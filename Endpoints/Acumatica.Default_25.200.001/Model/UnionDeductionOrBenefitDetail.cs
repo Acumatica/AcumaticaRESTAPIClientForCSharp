@@ -12,40 +12,13 @@ namespace Acumatica.Default_25_200_001.Model
 	public class UnionDeductionOrBenefitDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The contribution amount to be used if the calculation method is set to either FixedAmount or AmountPerHour.
-		/// <para>DAC Field Name: BenefitAmount</para>
-		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
-		/// <para>Display Name: Contribution Amount</para>
+		/// The date on which the labor cost rate becomes effective.
+		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
+		/// <para>Display Name: Effective Date</para>
 		/// </summary>
-		public DecimalValue? ContributionAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__CntCalcType</para>
-		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
-		/// </summary>
-		public StringValue? ContributionCalculationMethod { get; set; }
-
-		/// <summary>
-		/// The contribution percentage to be used if the calculation method is set to either PercentOfGross or PercentOfNet.
-		/// <para>DAC Field Name: BenefitRate</para>
-		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
-		/// <para>Display Name: Contribution Percent</para>
-		/// </summary>
-		public DecimalValue? ContributionPercent { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__ContribType</para>
-		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
-		/// </summary>
-		public StringValue? ContributionType { get; set; }
-
-		/// <summary>
-		/// The deduction amount to be used if the calculation method is set to either FixedAmount or AmountPerHour.
-		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
-		/// <para>Display Name: Deduction Amount</para>
-		/// </summary>
-		public DecimalValue? DeductionAmount { get; set; }
+		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
 		/// The unique identifier of the deduction or benefit code.The field is included in DeductionCode.
@@ -56,10 +29,37 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? DeductionAndBenefitCode { get; set; }
 
 		/// <summary>
+		/// A labor item associated with the union pay rate.The field is included in LaborItem.
+		/// <para>DAC Field Name: LaborItemID</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// <para>Display Name: Labor Item</para>
+		/// </summary>
+		public StringValue? LaborItem { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PRDeductCode__Description</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PRDeductCode__ContribType</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// </summary>
+		public StringValue? ContributionType { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: PRDeductCode__DedCalcType</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
 		/// </summary>
 		public StringValue? DeductionCalculationMethod { get; set; }
+
+		/// <summary>
+		/// The deduction amount to be used if the calculation method is set to either FixedAmount or AmountPerHour.
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// <para>Display Name: Deduction Amount</para>
+		/// </summary>
+		public DecimalValue? DeductionAmount { get; set; }
 
 		/// <summary>
 		/// The deduction percentage to be used if the calculation method is set to either PercentOfGross or PercentOfNet.
@@ -70,26 +70,30 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? DeductionPercent { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PRDeductCode__Description</para>
+		/// <para>DAC Field Name: PRDeductCode__CntCalcType</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
 		/// </summary>
-		public StringValue? Description { get; set; }
+		public StringValue? ContributionCalculationMethod { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.PM.PMLaborCostRate</para>
-		/// <para>Display Name: Effective Date</para>
-		/// </summary>
-		public DateTimeValue? EffectiveDate { get; set; }
-
-		/// <summary>
-		/// A labor item associated with the union pay rate.The field is included in LaborItem.
-		/// <para>DAC Field Name: LaborItemID</para>
+		/// The contribution amount to be used if the calculation method is set to either FixedAmount or AmountPerHour.
+		/// <para>DAC Field Name: BenefitAmount</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
-		/// <para>Display Name: Labor Item</para>
+		/// <para>Display Name: Contribution Amount</para>
 		/// </summary>
-		public StringValue? LaborItem { get; set; }
+		public DecimalValue? ContributionAmount { get; set; }
+
+		/// <summary>
+		/// The contribution percentage to be used if the calculation method is set to either PercentOfGross or PercentOfNet.
+		/// <para>DAC Field Name: BenefitRate</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductionAndBenefitUnionPackage</para>
+		/// <para>Display Name: Contribution Percent</para>
+		/// </summary>
+		public DecimalValue? ContributionPercent { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

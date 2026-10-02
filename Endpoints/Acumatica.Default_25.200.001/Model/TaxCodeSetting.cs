@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class TaxCodeSetting : Entity
 	{
 
+		#region Fields
 		public StringValue? AdditionalInformation { get; set; }
 
 		public StringValue? CompanyNotes { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? Required { get; set; }
 
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

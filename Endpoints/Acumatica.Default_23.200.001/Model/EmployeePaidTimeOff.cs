@@ -12,9 +12,15 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeePaidTimeOff : Entity
 	{
 
+		#region Fields
+		public BooleanValue? UsePTOBanksfromEmployeeClass { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<EmployeePaidTimeOffDetail>? PaidTimeOffDetails { get; set; }
 
-		public BooleanValue? UsePTOBanksfromEmployeeClass { get; set; }
+		#endregion
 
 	}
 }

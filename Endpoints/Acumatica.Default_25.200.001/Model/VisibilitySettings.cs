@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class VisibilitySettings : Entity
 	{
 
+		#region Fields
 		public BooleanValue? AP { get; set; }
 
 		public BooleanValue? AR { get; set; }
@@ -31,6 +32,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? SO { get; set; }
 
 		public BooleanValue? TimeEntries { get; set; }
+
+		#endregion
 
 	}
 }

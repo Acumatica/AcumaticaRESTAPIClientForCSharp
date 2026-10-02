@@ -11,90 +11,19 @@ namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
 	/// Corresponds to the screen <c>PO301000</c> in the Acumatica ERP
-	/// <para>Key Fields: OrderNbr, Type</para>
+	/// <para>Key Fields: Type, OrderNbr</para>
 	/// </summary>
 	public class PurchaseOrder : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: BaseCuryID</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		public StringValue? BaseCurrencyID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC Field Name: OrderType</para>
 		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>SQL Type: char(2)</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryControlTotal</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>Display Name: Control Total</para>
-		/// </summary>
-		public DecimalValue? ControlTotal { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryID</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>Display Name: Currency</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		public StringValue? CurrencyID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryEffDate</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		public DateTimeValue? CurrencyEffectiveDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SampleCuryRate</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		public DecimalValue? CurrencyRate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryRateTypeID</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		public StringValue? CurrencyRateTypeID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SampleRecipRate</para>
-		/// <para>DAC: {}</para>
-		/// </summary>
-		public DecimalValue? CurrencyReciprocalRate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OrderDate</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// </summary>
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OrderDesc</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<PurchaseOrderDetail>? Details { get; set; }
-
-		public BooleanValue? Hold { get; set; }
-
-		public BooleanValue? IsTaxValid { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		public DecimalValue? LineTotal { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: VendorLocationID</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// </summary>
-		public StringValue? Location { get; set; }
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PO.POOrder</para>
@@ -105,11 +34,42 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CuryOrderTotal</para>
 		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>Display Name: Order Total</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public DecimalValue? OrderTotal { get; set; }
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OrderDate</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// </summary>
+		public DateTimeValue? Date { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ExpectedDate</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Promised On</para>
+		/// </summary>
+		public DateTimeValue? PromisedOn { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OrderDesc</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Vendor</para>
+		/// </summary>
+		public StringValue? VendorID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: VendorLocationID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// </summary>
+		public StringValue? Location { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: OwnerID</para>
@@ -124,49 +84,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Project { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ExpectedDate</para>
+		/// <para>DAC Field Name: CuryID</para>
 		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>Display Name: Promised On</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		public DateTimeValue? PromisedOn { get; set; }
-
-		public ShippingInstructions? ShippingInstructions { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Status { get; set; }
-
-		public List<PurchaseOrderTaxDetail>? TaxDetails { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryTaxTotal</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>Display Name: Tax Total</para>
-		/// </summary>
-		public DecimalValue? TaxTotal { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TermsID</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? Terms { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OrderType</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>SQL Type: char(2)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? Type { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>Display Name: Vendor</para>
-		/// </summary>
-		public StringValue? VendorID { get; set; }
+		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: VendorRefNbr</para>
@@ -177,12 +100,103 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? VendorRef { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Tax Total</para>
+		/// </summary>
+		public DecimalValue? TaxTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryOrderTotal</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Order Total</para>
+		/// </summary>
+		public DecimalValue? OrderTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryControlTotal</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Control Total</para>
+		/// </summary>
+		public DecimalValue? ControlTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryRateTypeID</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		public StringValue? CurrencyRateTypeID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryEffDate</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		public DateTimeValue? CurrencyEffectiveDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SampleCuryRate</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		public DecimalValue? CurrencyRate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		public StringValue? BaseCurrencyID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SampleRecipRate</para>
+		/// <para>DAC: {}</para>
+		/// </summary>
+		public DecimalValue? CurrencyReciprocalRate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TermsID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? Terms { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: TaxZoneID</para>
 		/// <para>DAC: PX.Objects.PO.POOrder</para>
 		/// <para>Display Name: Vendor Tax Zone</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
 		public StringValue? VendorTaxZone { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// </summary>
+		public StringValue? Branch { get; set; }
+
+		public BooleanValue? Hold { get; set; }
+
+		public BooleanValue? IsTaxValid { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		public DecimalValue? LineTotal { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ShippingInstructions? ShippingInstructions { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<PurchaseOrderDetail>? Details { get; set; }
+
+		public List<PurchaseOrderTaxDetail>? TaxDetails { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PurchaseOrder)} - \"{Type}\" - \"{OrderNbr}\"";
+		}
 
 		public static class Expand
 		{

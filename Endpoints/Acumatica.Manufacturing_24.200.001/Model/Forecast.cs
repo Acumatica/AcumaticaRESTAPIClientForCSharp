@@ -16,11 +16,50 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class Forecast : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: ActiveFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMForecast</para>
+		/// <para>Display Name: Forecast ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ForecastID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMForecast</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.AM.AMForecast</para>
 		/// </summary>
-		public BooleanValue? Active { get; set; }
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMForecast</para>
+		/// </summary>
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMForecast</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Interval { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMForecast</para>
+		/// </summary>
+		public DecimalValue? Quantity { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMForecast</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? UOM { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMForecast</para>
@@ -29,10 +68,21 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public DateTimeValue? BeginDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.AM.AMForecast</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		public DateTimeValue? EndDate { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMForecast</para>
 		/// </summary>
-		public StringValue? Branch { get; set; }
+		public BooleanValue? Dependent { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActiveFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMForecast</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CustomerID</para>
@@ -47,65 +97,23 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? CustomerName { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMForecast</para>
-		/// </summary>
-		public BooleanValue? Dependent { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: InventoryID_description</para>
 		/// <para>DAC: PX.Objects.AM.AMForecast</para>
 		/// </summary>
 		public StringValue? Description { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AM.AMForecast</para>
-		/// <para>Display Name: End Date</para>
 		/// </summary>
-		public DateTimeValue? EndDate { get; set; }
+		public StringValue? Branch { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMForecast</para>
-		/// <para>Display Name: Forecast ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? ForecastID { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMForecast</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Interval { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMForecast</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Qty</para>
-		/// <para>DAC: PX.Objects.AM.AMForecast</para>
-		/// </summary>
-		public DecimalValue? Quantity { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.AM.AMForecast</para>
-		/// </summary>
-		public StringValue? Subitem { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMForecast</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		public StringValue? UOM { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.AM.AMForecast</para>
-		/// </summary>
-		public StringValue? Warehouse { get; set; }
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Forecast)} - \"{ForecastID}\"";
+		}
 
 		public static class Expand
 		{

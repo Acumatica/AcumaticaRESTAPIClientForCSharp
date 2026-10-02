@@ -16,17 +16,51 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MRPDisplay : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Action Date</para>
+		/// <para>Display Name: Record ID</para>
+		/// Key Field
 		/// </summary>
-		public DateTimeValue? ActionDate { get; set; }
+		public IntValue? RecordID { get; set; }
+
+		/// <summary>
+		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// </summary>
+		public BooleanValue? Selected { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Action Lead Time</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		public IntValue? ActionLeadTime { get; set; }
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// </summary>
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// Replenishment source
+		/// <para>DAC Field Name: ReplenishmentSource</para>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Source { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// </summary>
+		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
@@ -36,10 +70,90 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Base UOM</para>
-		/// <para>SQL Type: nvarchar(6)</para>
+		/// <para>Display Name: Promise Date</para>
 		/// </summary>
-		public StringValue? BaseUOM { get; set; }
+		public DateTimeValue? PromiseDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Action Date</para>
+		/// </summary>
+		public DateTimeValue? ActionDate { get; set; }
+
+		/// <summary>
+		/// Planning Type
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Product Manager ID</para>
+		/// </summary>
+		public StringValue? ProductManagerID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Preferred Vendor ID</para>
+		/// </summary>
+		public StringValue? PreferredVendorID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Parent Inventory ID</para>
+		/// </summary>
+		public StringValue? ParentInventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ParentSubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Parent Subitem</para>
+		/// </summary>
+		public StringValue? ParentSubitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Product Inventory ID</para>
+		/// </summary>
+		public StringValue? ProductInventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ProductSubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Product Subitem</para>
+		/// </summary>
+		public StringValue? ProductSubitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: SD Flag</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? SDFlag { get; set; }
+
+		/// <summary>
+		/// Plan type related to the RefOrdertype and RefOrderNbr
+		/// <para>DAC Field Name: RefType</para>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Reference Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? ReferenceType { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Action Lead Time</para>
+		/// </summary>
+		public IntValue? ActionLeadTime { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was created.
+		/// <para>DAC Field Name: CreatedDateTime</para>
+		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Inventory Planning Date</para>
+		/// </summary>
+		public DateTimeValue? MRPDate { get; set; }
 
 		/// <summary>
 		/// BOM ID - ID of Bill of materials record
@@ -59,97 +173,11 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? BOMRevision { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
+		/// <para>Display Name: Base UOM</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ItemClassID</para>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Item Class</para>
-		/// </summary>
-		public StringValue? ItemClass { get; set; }
-
-		/// <summary>
-		/// The date and time when the record was created.
-		/// <para>DAC Field Name: CreatedDateTime</para>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Inventory Planning Date</para>
-		/// </summary>
-		public DateTimeValue? MRPDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Parent Inventory ID</para>
-		/// </summary>
-		public StringValue? ParentInventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ParentSubItemID</para>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Parent Subitem</para>
-		/// </summary>
-		public StringValue? ParentSubitem { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Preferred Vendor ID</para>
-		/// </summary>
-		public StringValue? PreferredVendorID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Product Inventory ID</para>
-		/// </summary>
-		public StringValue? ProductInventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Product Manager ID</para>
-		/// </summary>
-		public StringValue? ProductManagerID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ProductSubItemID</para>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Product Subitem</para>
-		/// </summary>
-		public StringValue? ProductSubitem { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Promise Date</para>
-		/// </summary>
-		public DateTimeValue? PromiseDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Record ID</para>
-		/// Key Field
-		/// </summary>
-		public IntValue? RecordID { get; set; }
-
-		/// <summary>
-		/// Plan type related to the RefOrdertype and RefOrderNbr
-		/// <para>DAC Field Name: RefType</para>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: Reference Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		public StringValue? ReferenceType { get; set; }
+		public StringValue? BaseUOM { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
@@ -176,31 +204,17 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? RelatedProductDocument { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ItemClassID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>Display Name: SD Flag</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Item Class</para>
 		/// </summary>
-		public StringValue? SDFlag { get; set; }
+		public StringValue? ItemClass { get; set; }
 
 		/// <summary>
-		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
+		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
 		/// </summary>
-		public BooleanValue? Selected { get; set; }
-
-		/// <summary>
-		/// Replenishment source
-		/// <para>DAC Field Name: ReplenishmentSource</para>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Source { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// </summary>
-		public StringValue? Subitem { get; set; }
+		public StringValue? Branch { get; set; }
 
 		/// <summary>
 		/// Transfer Warehouse ID
@@ -210,20 +224,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		public StringValue? TransferWarehouse { get; set; }
 
-		/// <summary>
-		/// Planning Type
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		public StringValue? Type { get; set; }
-
 		public StringValue? VendorName { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.AM.AMRPDetail</para>
-		/// </summary>
-		public StringValue? Warehouse { get; set; }
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MRPDisplay)} - \"{RecordID}\"";
+		}
 
 		public static class Expand
 		{

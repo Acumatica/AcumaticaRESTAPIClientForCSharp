@@ -16,14 +16,86 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Shipment : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// Identifier of the base Currency.
-		/// <para>DAC Field Name: BaseCuryID</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Base Currency ID</para>
-		/// <para>SQL Type: nvarchar(5)</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipment Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? BaseCurrencyID { get; set; }
+		public StringValue? ShipmentNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ShipmentType</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Operation { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ShipDate</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipment Date</para>
+		/// </summary>
+		public DateTimeValue? ShipmentDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Customer</para>
+		/// </summary>
+		public StringValue? CustomerID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CustomerLocationID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Location</para>
+		/// </summary>
+		public StringValue? LocationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Warehouse ID</para>
+		/// </summary>
+		public StringValue? WarehouseID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DestinationSiteID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: To Warehouse</para>
+		/// </summary>
+		public StringValue? ToWarehouseID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Workgroup</para>
+		/// </summary>
+		public StringValue? WorkgroupID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// </summary>
+		public StringValue? Owner { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ShipmentQty</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipped Quantity</para>
+		/// </summary>
+		public DecimalValue? ShippedQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.SO.SOShipment</para>
@@ -31,15 +103,38 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public DecimalValue? ControlQty { get; set; }
 
-		public DateTimeValue? CreatedDateTime { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: ShipmentWeight</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipped Weight</para>
+		/// </summary>
+		public DecimalValue? ShippedWeight { get; set; }
 
 		/// <summary>
-		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// <para>DAC Field Name: SampleCuryRate</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Curr. Rate</para>
+		/// <para>DAC Field Name: ShipmentVolume</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Shipped Volume</para>
 		/// </summary>
-		public DecimalValue? CurrencyRate { get; set; }
+		public DecimalValue? ShippedVolume { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Packages</para>
+		/// </summary>
+		public IntValue? PackageCount { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Package Weight</para>
+		/// </summary>
+		public DecimalValue? PackageWeight { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ShipmentDesc</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// The identifier of the Rate Type associated with this object.
@@ -51,29 +146,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? CurrencyRateTypeID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CuryViewState</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// </summary>
-		public BooleanValue? CurrencyViewState { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Customer</para>
-		/// </summary>
-		public StringValue? CustomerID { get; set; }
-
-		public BooleanValue? CreateNewShipmentForEveryOrder { get; set; }
-
-		public List<ShipmentDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ShipmentDesc</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
 		/// The date, starting from which the specified rate is considered current.
 		/// <para>DAC Field Name: CuryEffDate</para>
 		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
@@ -82,92 +154,21 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: FOB Point</para>
-		/// <para>SQL Type: nvarchar(15)</para>
+		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
+		/// <para>DAC Field Name: SampleCuryRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate</para>
 		/// </summary>
-		public StringValue? FOBPoint { get; set; }
+		public DecimalValue? CurrencyRate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: OverrideFreightAmount</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Override Freight Price</para>
-		/// </summary>
-		public BooleanValue? OverrideFreightPrice { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryFreightAmt</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Freight Price</para>
-		/// </summary>
-		public DecimalValue? FreightPrice { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryFreightCost</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Freight Cost</para>
-		/// </summary>
-		public DecimalValue? FreightCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryID</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Freight Currency</para>
+		/// Identifier of the base Currency.
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Base Currency ID</para>
 		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		public StringValue? FreightCurrencyID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Ground Collect</para>
-		/// </summary>
-		public BooleanValue? GroundCollect { get; set; }
-
-		public BooleanValue? Hold { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// </summary>
-		public BooleanValue? Insurance { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CustomerLocationID</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Location</para>
-		/// </summary>
-		public StringValue? LocationID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Operation { get; set; }
-
-		public List<ShipmentOrderDetail>? Orders { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OwnerID</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// </summary>
-		public StringValue? Owner { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Packages</para>
-		/// </summary>
-		public IntValue? PackageCount { get; set; }
-
-		public List<ShipmentPackage>? Packages { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Package Weight</para>
-		/// </summary>
-		public DecimalValue? PackageWeight { get; set; }
-
-		public BooleanValue? Picked { get; set; }
+		public StringValue? BaseCurrencyID { get; set; }
 
 		/// <summary>
 		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
@@ -178,55 +179,18 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? ReciprocalRate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Resedential</para>
 		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Residential Delivery</para>
-		/// </summary>
-		public BooleanValue? ResidentialDelivery { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Saturday Delivery</para>
-		/// </summary>
-		public BooleanValue? SaturdayDelivery { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ShipDate</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Shipment Date</para>
-		/// </summary>
-		public DateTimeValue? ShipmentDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Shipment Nbr.</para>
+		/// <para>Display Name: Ship Via</para>
 		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
 		/// </summary>
-		public StringValue? ShipmentNbr { get; set; }
+		public StringValue? ShipVia { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ShipmentQty</para>
 		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Shipped Quantity</para>
+		/// <para>Display Name: FOB Point</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		public DecimalValue? ShippedQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ShipmentVolume</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Shipped Volume</para>
-		/// </summary>
-		public DecimalValue? ShippedVolume { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ShipmentWeight</para>
-		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Shipped Weight</para>
-		/// </summary>
-		public DecimalValue? ShippedWeight { get; set; }
-
-		public ShipToSettings? ShippingSettings { get; set; }
+		public StringValue? FOBPoint { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ShipTermsID</para>
@@ -245,33 +209,39 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? ShippingZoneID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryID</para>
 		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Ship Via</para>
-		/// <para>SQL Type: nvarchar(15)</para>
+		/// <para>Display Name: Freight Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
 		/// </summary>
-		public StringValue? ShipVia { get; set; }
+		public StringValue? FreightCurrencyID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryViewState</para>
 		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public StringValue? Status { get; set; }
+		public BooleanValue? CurrencyViewState { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DestinationSiteID</para>
+		/// <para>DAC Field Name: CuryFreightCost</para>
 		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: To Warehouse</para>
+		/// <para>Display Name: Freight Cost</para>
 		/// </summary>
-		public StringValue? ToWarehouseID { get; set; }
+		public DecimalValue? FreightCost { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ShipmentType</para>
+		/// <para>DAC Field Name: OverrideFreightAmount</para>
 		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Override Freight Price</para>
 		/// </summary>
-		public StringValue? Type { get; set; }
+		public BooleanValue? OverrideFreightPrice { get; set; }
 
-		public BooleanValue? UnlimitedPackages { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: CuryFreightAmt</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Freight Price</para>
+		/// </summary>
+		public DecimalValue? FreightPrice { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: UseCustomerAccount</para>
@@ -281,19 +251,63 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? UseCustomersAccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Warehouse ID</para>
 		/// </summary>
-		public StringValue? WarehouseID { get; set; }
+		public BooleanValue? Insurance { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.SO.SOShipment</para>
-		/// <para>Display Name: Workgroup</para>
+		/// <para>Display Name: Ground Collect</para>
 		/// </summary>
-		public StringValue? WorkgroupID { get; set; }
+		public BooleanValue? GroundCollect { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Resedential</para>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Residential Delivery</para>
+		/// </summary>
+		public BooleanValue? ResidentialDelivery { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.SO.SOShipment</para>
+		/// <para>Display Name: Saturday Delivery</para>
+		/// </summary>
+		public BooleanValue? SaturdayDelivery { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public BooleanValue? CreateNewShipmentForEveryOrder { get; set; }
+
+		public BooleanValue? Hold { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		public BooleanValue? Picked { get; set; }
+
+		public BooleanValue? UnlimitedPackages { get; set; }
 
 		public GuidValue? NoteID { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ShipToSettings? ShippingSettings { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ShipmentDetail>? Details { get; set; }
+
+		public List<ShipmentOrderDetail>? Orders { get; set; }
+
+		public List<ShipmentPackage>? Packages { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Shipment)} - \"{ShipmentNbr}\"";
+		}
 
 		public static class Expand
 		{

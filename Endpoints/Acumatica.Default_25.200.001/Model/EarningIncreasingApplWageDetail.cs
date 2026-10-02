@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EarningIncreasingApplWageDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Description { get; set; }
 
 		public StringValue? EarningTypeCategory { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? EarningTypeCode { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

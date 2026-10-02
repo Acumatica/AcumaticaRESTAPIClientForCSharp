@@ -12,29 +12,47 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectProFormaDetails : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__DocDate</para>
+		/// The sequence number of the invoice that is being assigned to the invoices of the project in order of the creation of the invoices.
+		/// <para>DAC Field Name: RecordNumber</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
+		/// <para>Display Name: Billing Number</para>
 		/// </summary>
-		public DateTimeValue? ARDocDate { get; set; }
+		public IntValue? BillingNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__DocDesc</para>
+		/// <para>DAC Field Name: PMProforma__InvoiceDate</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
 		/// </summary>
-		public StringValue? ARDocDescription { get; set; }
+		public DateTimeValue? ProFormaDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__CuryOrigDocAmt</para>
+		/// The reference number of the parent pro forma invoice.
+		/// <para>DAC Field Name: ProformaRefNbr</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
+		/// <para>Display Name: Pro Forma Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		public DecimalValue? ARDocOriginalAmount { get; set; }
+		public StringValue? ProFormaReferenceNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__Status</para>
+		/// <para>DAC Field Name: PMProforma__Description</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
 		/// </summary>
-		public StringValue? ARDocStatus { get; set; }
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PMProforma__Status</para>
+		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PMProforma__CuryDocTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
+		/// </summary>
+		public DecimalValue? InvoiceTotal { get; set; }
 
 		/// <summary>
 		/// The type of the AR document that is created during the billing.
@@ -54,24 +72,34 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ARReferenceNbr { get; set; }
 
 		/// <summary>
-		/// The sequence number of the invoice that is being assigned to the invoices of the project in order of the creation of the invoices.
-		/// <para>DAC Field Name: RecordNumber</para>
+		/// <para>DAC Field Name: ARInvoice__DocDate</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
-		/// <para>Display Name: Billing Number</para>
 		/// </summary>
-		public IntValue? BillingNbr { get; set; }
+		public DateTimeValue? ARDocDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PMProforma__Description</para>
+		/// <para>DAC Field Name: ARInvoice__DocDesc</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
 		/// </summary>
-		public StringValue? Description { get; set; }
+		public StringValue? ARDocDescription { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PMProforma__CuryDocTotal</para>
+		/// <para>DAC Field Name: ARInvoice__CuryOrigDocAmt</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
 		/// </summary>
-		public DecimalValue? InvoiceTotal { get; set; }
+		public DecimalValue? ARDocOriginalAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ARInvoice__CuryRetainageTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
+		/// </summary>
+		public DecimalValue? OriginalRetainage { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ARInvoice__CuryOrigDocAmtWithRetainageTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
+		/// </summary>
+		public DecimalValue? TotalAmount { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ARInvoice__CuryDocBal</para>
@@ -80,33 +108,16 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? OpenARBalance { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__OrigRefNbr</para>
+		/// <para>DAC Field Name: ARInvoice__Status</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
 		/// </summary>
-		public StringValue? OriginalRefNbr { get; set; }
+		public StringValue? ARDocStatus { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__CuryRetainageTotal</para>
+		/// <para>DAC Field Name: ARInvoice__CuryRetainageUnreleasedAmt</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
 		/// </summary>
-		public DecimalValue? OriginalRetainage { get; set; }
-
-		public DecimalValue? PaidRetainage { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PMProforma__InvoiceDate</para>
-		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
-		/// </summary>
-		public DateTimeValue? ProFormaDate { get; set; }
-
-		/// <summary>
-		/// The reference number of the parent pro forma invoice.
-		/// <para>DAC Field Name: ProformaRefNbr</para>
-		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
-		/// <para>Display Name: Pro Forma Reference Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		public StringValue? ProFormaReferenceNbr { get; set; }
+		public DecimalValue? UnreleasedRetainage { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ARInvoice__IsRetainageDocument</para>
@@ -115,24 +126,16 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? RetainageInvoice { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PMProforma__Status</para>
+		/// <para>DAC Field Name: ARInvoice__OrigRefNbr</para>
 		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
 		/// </summary>
-		public StringValue? Status { get; set; }
+		public StringValue? OriginalRefNbr { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__CuryOrigDocAmtWithRetainageTotal</para>
-		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
-		/// </summary>
-		public DecimalValue? TotalAmount { get; set; }
+		public DecimalValue? PaidRetainage { get; set; }
 
 		public DecimalValue? UnpaidRetainage { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__CuryRetainageUnreleasedAmt</para>
-		/// <para>DAC: PX.Objects.PM.PMBillingRecord</para>
-		/// </summary>
-		public DecimalValue? UnreleasedRetainage { get; set; }
+		#endregion
 
 	}
 }

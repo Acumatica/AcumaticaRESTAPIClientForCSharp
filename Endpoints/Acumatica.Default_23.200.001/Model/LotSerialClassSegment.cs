@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class LotSerialClassSegment : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: SegmentID</para>
 		/// <para>DAC: PX.Objects.IN.INLotSerSegment</para>
@@ -33,6 +34,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

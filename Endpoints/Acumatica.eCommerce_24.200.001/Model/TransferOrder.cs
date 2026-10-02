@@ -9,8 +9,20 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.eCommerce_24_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>IN304000</c> in the Acumatica ERP
+	/// </summary>
 	public class TransferOrder : Acumatica.Default_24_200_001.Model.TransferOrder, ITopLevelEntity
 	{
+
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// </summary>
+		public StringValue? Branch { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

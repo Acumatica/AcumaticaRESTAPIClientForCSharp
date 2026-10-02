@@ -12,12 +12,23 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ExpenseReceiptDetails : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The total amount of the receipt in the currency of the document.
-		/// <para>DAC Field Name: CuryExtCost</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// The identifier of the Rate Type associated with this object.
+		/// <para>DAC Field Name: CuryRateTypeID</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate Type ID</para>
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		public DecimalValue? Amount { get; set; }
+		public StringValue? CurrancyRateTypeID { get; set; }
+
+		/// <summary>
+		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
+		/// <para>DAC Field Name: SampleCuryRate</para>
+		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
+		/// <para>Display Name: Curr. Rate</para>
+		/// </summary>
+		public DecimalValue? CurrencyRate { get; set; }
 
 		/// <summary>
 		/// Identifier of the base Currency.
@@ -29,27 +40,65 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? BaseCurrencyID { get; set; }
 
 		/// <summary>
-		/// Indicates (if set to true) that the customer should be billed for the claim amount.You can use the Bill Expense Claims (EP502000) form to bill the customer if no project is specified.
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// </summary>
-		public BooleanValue? Billable { get; set; }
-
-		/// <summary>
-		/// The identifier of the cost code associated with the record.
-		/// <para>DAC Field Name: CostCodeID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Cost Code</para>
-		/// </summary>
-		public StringValue? CostCode { get; set; }
-
-		/// <summary>
-		/// The identifier of the Rate Type associated with this object.
-		/// <para>DAC Field Name: CuryRateTypeID</para>
+		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
+		/// <para>DAC Field Name: SampleRecipRate</para>
 		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Curr. Rate Type ID</para>
+		/// <para>Display Name: Reciprocal Rate</para>
+		/// </summary>
+		public DecimalValue? ReciprocalRate { get; set; }
+
+		/// <summary>
+		/// The description of the expense.
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// The quantity of the expense item that the employee purchased according to the receipt.The quantity is expressed in the unit of measure specifiedfor the selected expense non-stock item.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Quantity</para>
+		/// </summary>
+		public DecimalValue? Qty { get; set; }
+
+		/// <summary>
+		/// The cost of one unit of the expense item in the currency of the document.If a standard cost is specified for the expense non-stock item, the standard cost is used as the default unit cost.
+		/// <para>DAC Field Name: CuryUnitCost</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Unit Cost</para>
+		/// </summary>
+		public DecimalValue? UnitCost { get; set; }
+
+		/// <summary>
+		/// The total amount of the receipt in the currency of the document.
+		/// <para>DAC Field Name: CuryExtCost</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// </summary>
+		public DecimalValue? Amount { get; set; }
+
+		/// <summary>
+		/// The unit of measure of the expense item.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		public StringValue? CurrancyRateTypeID { get; set; }
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// The part of the total amount that will not be paid back to the employee in the currency of the document.
+		/// <para>DAC Field Name: CuryEmployeePart</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Employee Part</para>
+		/// </summary>
+		public DecimalValue? EmployeePart { get; set; }
+
+		/// <summary>
+		/// The amount of non-taxable tips in the document currency that will not be included in the tax base of the receipt.
+		/// <para>DAC Field Name: CuryTipAmt</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Tip Amount</para>
+		/// </summary>
+		public DecimalValue? TipAmount { get; set; }
 
 		/// <summary>
 		/// The code of the currency of the document.By default, the receipt currency is the currency specified as the default for the employee.
@@ -61,42 +110,37 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// The exchange rate used for calculations and determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// <para>DAC Field Name: SampleCuryRate</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Curr. Rate</para>
+		/// The reference number, which usually matches the number of the original receipt.
+		/// <para>DAC Field Name: ExpenseRefNbr</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Ref. Nbr.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
 		/// </summary>
-		public DecimalValue? CurrencyRate { get; set; }
+		public StringValue? RefNbr { get; set; }
 
 		/// <summary>
+		/// The project or contract, which should be specified if theemployee incurred the expenses while working on a particular project or contract.The value of this field can be specified only if the Project Accounting or Contract Management feature,respectively, is enabled on the Enable/Disable Features (CS100000) form.
+		/// <para>DAC Field Name: ContractID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Customer</para>
+		/// <para>Display Name: Project/Contract</para>
 		/// </summary>
-		public StringValue? CustomerID { get; set; }
+		public StringValue? ProjectID { get; set; }
 
 		/// <summary>
-		/// The description of the expense.
-		/// <para>DAC Field Name: TranDesc</para>
+		/// The project task to which the expenses are related.This box is available only if the Project Management feature is enabled on the Enable/Disable Features (CS100000) form.
+		/// <para>DAC Field Name: TaskID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>SQL Type: nvarchar(256)</para>
+		/// <para>Display Name: Project Task</para>
 		/// </summary>
-		public StringValue? Description { get; set; }
+		public StringValue? ProjectTaskID { get; set; }
 
 		/// <summary>
-		/// The part of the total amount that will not be paid back to the employee in the currency of the document.
-		/// <para>DAC Field Name: CuryEmployeePart</para>
+		/// The identifier of the cost code associated with the record.
+		/// <para>DAC Field Name: CostCodeID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Employee Part</para>
+		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		public DecimalValue? EmployeePart { get; set; }
-
-		/// <summary>
-		/// The expense account to which the system records the part of the expense to be paid back to the employee.
-		/// <para>DAC Field Name: ExpenseAccountID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Expense Account</para>
-		/// </summary>
-		public StringValue? ExpenseAccount { get; set; }
+		public StringValue? CostCode { get; set; }
 
 		/// <summary>
 		/// The reference number, which usually matches the number of the original receipt.
@@ -117,60 +161,60 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? ExpenseClaimStatus { get; set; }
 
 		/// <summary>
+		/// The way the expense receipt has been paid.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Paid With</para>
+		/// <para>SQL Type: varchar(8)</para>
+		/// </summary>
+		public StringValue? PaidWith { get; set; }
+
+		/// <summary>
+		/// The identifier of the corporate card that is used to pay the expense receipt.
+		/// <para>DAC Field Name: CorpCardID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Corporate Card</para>
+		/// </summary>
+		public StringValue? CorporateCard { get; set; }
+
+		/// <summary>
+		/// The identifier of the tax zone associated with the receipt.
+		/// <para>DAC Field Name: TaxZoneID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? TaxZone { get; set; }
+
+		/// <summary>
+		/// The tax category associated with the expense item.
+		/// <para>DAC Field Name: TaxCategoryID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		public StringValue? TaxCategory { get; set; }
+
+		/// <summary>
+		/// Indicates (if set to <c>true</c>) that the customer should be billed for the claim amount.You can use the Bill Expense Claims (EP502000) form to bill the customer if no project is specified.
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// </summary>
+		public BooleanValue? Billable { get; set; }
+
+		/// <summary>
+		/// The expense account to which the system records the part of the expense to be paid back to the employee.
+		/// <para>DAC Field Name: ExpenseAccountID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
+		/// <para>Display Name: Expense Account</para>
+		/// </summary>
+		public StringValue? ExpenseAccount { get; set; }
+
+		/// <summary>
 		/// The corresponding subaccount the system uses to record the part of the expense to be paid back to the employee.The segments of the expense subaccount are combined according to the settings specified on the Time and Expenses Preferences (EP101000) form.
 		/// <para>DAC Field Name: ExpenseSubID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
 		/// <para>Display Name: Expense Sub.</para>
 		/// </summary>
 		public StringValue? ExpenseSubaccount { get; set; }
-
-		/// <summary>
-		/// The location of the customer related to the expenses.
-		/// <para>DAC Field Name: CustomerLocationID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Location</para>
-		/// </summary>
-		public StringValue? LocationID { get; set; }
-
-		/// <summary>
-		/// The project or contract, which should be specified if theemployee incurred the expenses while working on a particular project or contract.The value of this field can be specified only if the Project Accounting or Contract Management feature,respectively, is enabled on the Enable/Disable Features (CS100000) form.
-		/// <para>DAC Field Name: ContractID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Project/Contract</para>
-		/// </summary>
-		public StringValue? ProjectID { get; set; }
-
-		/// <summary>
-		/// The project task to which the expenses are related.This box is available only if the Project Management feature is enabled on the Enable/Disable Features (CS100000) form.
-		/// <para>DAC Field Name: TaskID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Project Task</para>
-		/// </summary>
-		public StringValue? ProjectTaskID { get; set; }
-
-		/// <summary>
-		/// The quantity of the expense item that the employee purchased according to the receipt.The quantity is expressed in the unit of measure specifiedfor the selected expense non-stock item.
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Quantity</para>
-		/// </summary>
-		public DecimalValue? Qty { get; set; }
-
-		/// <summary>
-		/// The inverse of the SampleCuryRate. This value is also determined by the values ofthe CuryMultDiv, CuryRate and RecipRate fields.
-		/// <para>DAC Field Name: SampleRecipRate</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyInfo</para>
-		/// <para>Display Name: Reciprocal Rate</para>
-		/// </summary>
-		public DecimalValue? ReciprocalRate { get; set; }
-
-		/// <summary>
-		/// The reference number, which usually matches the number of the original receipt.
-		/// <para>DAC Field Name: ExpenseRefNbr</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Ref. Nbr.</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		public StringValue? RefNbr { get; set; }
 
 		/// <summary>
 		/// The sales account to which the system records the part of the amount to charge the customer for.If the Billable check box is selected, the sales account specified for the expense non-stock item is filled in by default.
@@ -189,37 +233,20 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? SalesSubaccount { get; set; }
 
 		/// <summary>
-		/// The tax category associated with the expense item.
-		/// <para>DAC Field Name: TaxCategoryID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Tax Category</para>
-		/// <para>SQL Type: nvarchar(15)</para>
+		/// <para>Display Name: Customer</para>
 		/// </summary>
-		public StringValue? TaxCategory { get; set; }
+		public StringValue? CustomerID { get; set; }
 
 		/// <summary>
-		/// The identifier of the tax zone associated with the receipt.
-		/// <para>DAC Field Name: TaxZoneID</para>
+		/// The location of the customer related to the expenses.
+		/// <para>DAC Field Name: CustomerLocationID</para>
 		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Tax Zone</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>Display Name: Location</para>
 		/// </summary>
-		public StringValue? TaxZone { get; set; }
+		public StringValue? LocationID { get; set; }
 
-		/// <summary>
-		/// The cost of one unit of the expense item in the currency of the document.If a standard cost is specified for the expense non-stock item, the standard cost is used as the default unit cost.
-		/// <para>DAC Field Name: CuryUnitCost</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>Display Name: Unit Cost</para>
-		/// </summary>
-		public DecimalValue? UnitCost { get; set; }
-
-		/// <summary>
-		/// The unit of measure of the expense item.
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaimDetails</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		public StringValue? UOM { get; set; }
+		#endregion
 
 	}
 }

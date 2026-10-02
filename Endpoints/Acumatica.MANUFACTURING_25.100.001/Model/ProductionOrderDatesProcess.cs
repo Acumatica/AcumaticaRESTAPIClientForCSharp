@@ -15,9 +15,15 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ProductionOrderDatesProcess : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		public StringValue? ErrorMessages { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<OrderDate>? Orders { get; set; }
 
-		public StringValue? ErrorMessages { get; set; }
+		#endregion
 
 		public static class Expand
 		{

@@ -12,31 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class LateAssignmentUnallocatedDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		public IntValue? LineID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
-		/// <para>Display Name: Lot/Serial Nbr.</para>
-		/// <para>SQL Type: nvarchar(100)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? LotSerialNbr { get; set; }
-
-		public StringValue? OperationID { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
 		/// <para>Display Name: Order Type</para>
@@ -44,8 +20,6 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? OrderType { get; set; }
-
-		public StringValue? ParentLotSerialNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ProdOrdID</para>
@@ -57,17 +31,25 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialUnassigned</para>
-		/// <para>Display Name: Required Qty.</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// Key Field
 		/// </summary>
-		public DecimalValue? QtyRequired { get; set; }
+		public StringValue? LotSerialNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: QtyToAllocate</para>
-		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialUnassigned</para>
-		/// <para>Display Name: Qty. to Allocate</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItemSplitPreassign</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		public DecimalValue? QtytoAllocate { get; set; }
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialAssigned</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: QtyIssued</para>
@@ -82,6 +64,27 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialUnassigned</para>
+		/// <para>Display Name: Required Qty.</para>
+		/// </summary>
+		public DecimalValue? QtyRequired { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: QtyToAllocate</para>
+		/// <para>DAC: PX.Objects.AM.AMProdMatlLotSerialUnassigned</para>
+		/// <para>Display Name: Qty. to Allocate</para>
+		/// </summary>
+		public DecimalValue? QtytoAllocate { get; set; }
+
+		public IntValue? LineID { get; set; }
+
+		public StringValue? OperationID { get; set; }
+
+		public StringValue? ParentLotSerialNbr { get; set; }
+
+		#endregion
 
 	}
 }

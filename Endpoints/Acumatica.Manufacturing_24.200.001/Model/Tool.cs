@@ -16,44 +16,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class Tool : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: AcctID</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// </summary>
-		public StringValue? Account { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ActualCost</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
-		/// <para>Display Name: Consumed Cost</para>
-		/// </summary>
-		public DecimalValue? ConsumedCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// Indicates the tool is scheduled in APS.(Only used in APS.)
-		/// <para>DAC Field Name: ScheduleEnabled</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// </summary>
-		public BooleanValue? Schedule { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SubID</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// </summary>
-		public StringValue? Subaccount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
 		/// <para>Display Name: Tool ID</para>
@@ -63,10 +26,42 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ToolID { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
-		/// <para>Display Name: Total Cost</para>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		public DecimalValue? TotalCost { get; set; }
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActualUses</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// <para>Display Name: Total Uses</para>
+		/// </summary>
+		public DecimalValue? TotalUses { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AcctID</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// </summary>
+		public StringValue? Account { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubID</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// </summary>
+		public StringValue? Subaccount { get; set; }
+
+		/// <summary>
+		/// Indicates the tool is scheduled in APS.(Only used in APS.)
+		/// <para>DAC Field Name: ScheduleEnabled</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
+		/// </summary>
+		public BooleanValue? Schedule { get; set; }
 
 		/// <summary>
 		/// APS Schedule qty/units for scheduling tools. The number of tools available for scheduling.
@@ -77,17 +72,30 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public IntValue? TotalScheduleQty { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ActualUses</para>
-		/// <para>DAC: PX.Objects.AM.AMToolMst</para>
-		/// <para>Display Name: Total Uses</para>
-		/// </summary>
-		public DecimalValue? TotalUses { get; set; }
-
-		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
 		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
 		public DecimalValue? UnitCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
+		/// <para>Display Name: Total Cost</para>
+		/// </summary>
+		public DecimalValue? TotalCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActualCost</para>
+		/// <para>DAC: PX.Objects.AM.AMToolMstCurySettings</para>
+		/// <para>Display Name: Consumed Cost</para>
+		/// </summary>
+		public DecimalValue? ConsumedCost { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Tool)} - \"{ToolID}\"";
+		}
 
 		public static class Expand
 		{

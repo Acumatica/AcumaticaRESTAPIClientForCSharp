@@ -16,41 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class Discount : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
-		/// <para>Display Name: Break By</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? BreakBy { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		public List<DiscountCustomerPriceClassesDetail>? CustomerPriceClasses { get; set; }
-
-		public List<DiscountCustomerDetail>? Customers { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
-		/// <para>SQL Type: nvarchar(250)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<DiscountBreakpointDetail>? DiscountBreakpoints { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DiscountedFor</para>
-		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
-		/// <para>Display Name: Discount By</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? DiscountBy { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: DiscountID</para>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
@@ -61,30 +27,52 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? DiscountCode { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: StartDate</para>
+		/// <para>DAC Field Name: DiscountSequenceID</para>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
-		/// <para>Display Name: Effective Date</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
 		/// </summary>
-		public DateTimeValue? EffectiveDate { get; set; }
+		public StringValue? Sequence { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EndDate</para>
+		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
-		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
-		public DateTimeValue? ExpirationDate { get; set; }
-
-		public List<DiscountItemPriceClassesDetail>? ItemPriceClasses { get; set; }
-
-		public List<DiscountItemDetail>? Items { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: IsPromotion</para>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// </summary>
 		public BooleanValue? Promotional { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>SQL Type: nvarchar(250)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DiscountedFor</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>Display Name: Discount By</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? DiscountBy { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>Display Name: Break By</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? BreakBy { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: StartDate</para>
+		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
+		/// <para>Display Name: Effective Date</para>
+		/// </summary>
+		public DateTimeValue? EffectiveDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Prorate</para>
@@ -94,19 +82,42 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? ProrateDiscount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DiscountSequenceID</para>
+		/// <para>DAC Field Name: EndDate</para>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
+		/// <para>Display Name: Expiration Date</para>
 		/// </summary>
-		public StringValue? Sequence { get; set; }
+		public DateTimeValue? ExpirationDate { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.DiscountSequence</para>
 		/// </summary>
 		public BooleanValue? ShowFreeItem { get; set; }
 
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<DiscountCustomerPriceClassesDetail>? CustomerPriceClasses { get; set; }
+
+		public List<DiscountCustomerDetail>? Customers { get; set; }
+
+		public List<DiscountBreakpointDetail>? DiscountBreakpoints { get; set; }
+
+		public List<DiscountItemPriceClassesDetail>? ItemPriceClasses { get; set; }
+
+		public List<DiscountItemDetail>? Items { get; set; }
+
 		public List<DiscountWarehouseDetail>? Warehouses { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Discount)} - \"{DiscountCode}\" - \"{Sequence}\"";
+		}
 
 		public static class Expand
 		{

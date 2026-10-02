@@ -12,14 +12,13 @@ namespace Acumatica.Default_23_200_001.Model
 	public class TransferOrderDetail : Entity
 	{
 
-		public List<TransferOrderDetailAllocation>? Allocations { get; set; }
-
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: CostCodeID</para>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Cost Code</para>
+		/// <para>Display Name: Line Number</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? CostCode { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TranDesc</para>
@@ -29,11 +28,16 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ExpireDate</para>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Expiration Date</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		public DateTimeValue? ExpirationDate { get; set; }
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// </summary>
+		public StringValue? Subitem { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: LocationID</para>
@@ -43,24 +47,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? FromLocationID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: SpecialOrderCostCenterID</para>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Inventory ID</para>
+		/// <para>Display Name: Special Order Nbr.</para>
 		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Line Number</para>
-		/// Key Field
-		/// </summary>
-		public IntValue? LineNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Lot/Serial Nbr.</para>
-		/// <para>SQL Type: nvarchar(100)</para>
-		/// </summary>
-		public StringValue? LotSerialNbr { get; set; }
+		public StringValue? SpecialOrderNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ProjectID</para>
@@ -76,30 +67,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ProjectTask { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CostCodeID</para>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Quantity</para>
+		/// <para>Display Name: Cost Code</para>
 		/// </summary>
-		public DecimalValue? Qty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Reason Code</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// </summary>
-		public StringValue? ReasonCode { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SpecialOrderCostCenterID</para>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: Special Order Nbr.</para>
-		/// </summary>
-		public StringValue? SpecialOrderNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// </summary>
-		public StringValue? Subitem { get; set; }
+		public StringValue? CostCode { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
@@ -108,18 +80,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ToLocationID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ToCostCodeID</para>
-		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: To Cost Code</para>
-		/// </summary>
-		public StringValue? ToCostCode { get; set; }
-
-		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
 		/// <para>Display Name: To Cost Layer Type</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		public StringValue? ToCostLayerType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ToSpecialOrderCostCenterID</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: To Special Order Nbr.</para>
+		/// </summary>
+		public StringValue? ToSpecialOrderNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ToProjectID</para>
@@ -136,17 +108,51 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ToProjectTask { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ToSpecialOrderCostCenterID</para>
+		/// <para>DAC Field Name: ToCostCodeID</para>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
-		/// <para>Display Name: To Special Order Nbr.</para>
+		/// <para>Display Name: To Cost Code</para>
 		/// </summary>
-		public StringValue? ToSpecialOrderNbr { get; set; }
+		public StringValue? ToCostCode { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INTran</para>
 		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
 		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Quantity</para>
+		/// </summary>
+		public DecimalValue? Qty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Lot/Serial Nbr.</para>
+		/// <para>SQL Type: nvarchar(100)</para>
+		/// </summary>
+		public StringValue? LotSerialNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ExpireDate</para>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Expiration Date</para>
+		/// </summary>
+		public DateTimeValue? ExpirationDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INTran</para>
+		/// <para>Display Name: Reason Code</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// </summary>
+		public StringValue? ReasonCode { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<TransferOrderDetailAllocation>? Allocations { get; set; }
+
+		#endregion
 
 	}
 }

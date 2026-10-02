@@ -16,36 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Ledger : Entity, ITopLevelEntity
 	{
 
-		public List<LedgerBranches>? Branches { get; set; }
-
-		public List<LedgerCompanies>? Companies { get; set; }
-
-		/// <summary>
-		/// When set to true, indicates that the system must use the Ledger as a source Ledger for consolidation.
-		/// <para>DAC Field Name: ConsolAllowed</para>
-		/// <para>DAC: PX.Objects.GL.Ledger</para>
-		/// <para>Display Name: Consolidation Source</para>
-		/// </summary>
-		public BooleanValue? ConsolidationSource { get; set; }
-
-		/// <summary>
-		/// Base Currency of the Ledger.
-		/// <para>DAC Field Name: BaseCuryID</para>
-		/// <para>DAC: PX.Objects.GL.Ledger</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		public StringValue? Currency { get; set; }
-
-		/// <summary>
-		/// The description of the Ledger.
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.GL.Ledger</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Key field.Unique user-friendly identifier of the Ledger.
 		/// <para>DAC Field Name: LedgerCD</para>
@@ -57,12 +28,52 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? LedgerID { get; set; }
 
 		/// <summary>
+		/// The description of the Ledger.
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
 		/// The type of the balance of the ledger.
 		/// <para>DAC Field Name: BalanceType</para>
 		/// <para>DAC: PX.Objects.GL.Ledger</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// Base Currency of the Ledger.
+		/// <para>DAC Field Name: BaseCuryID</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? Currency { get; set; }
+
+		/// <summary>
+		/// When set to <c>true</c>, indicates that the system must use the Ledger as a source Ledger for consolidation.
+		/// <para>DAC Field Name: ConsolAllowed</para>
+		/// <para>DAC: PX.Objects.GL.Ledger</para>
+		/// <para>Display Name: Consolidation Source</para>
+		/// </summary>
+		public BooleanValue? ConsolidationSource { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<LedgerBranches>? Branches { get; set; }
+
+		public List<LedgerCompanies>? Companies { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Ledger)} - \"{LedgerID}\"";
+		}
 
 		public static class Expand
 		{

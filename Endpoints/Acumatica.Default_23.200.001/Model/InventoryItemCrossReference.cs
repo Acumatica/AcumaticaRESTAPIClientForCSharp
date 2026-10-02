@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class InventoryItemCrossReference : Entity
 	{
 
+		#region Fields
 		public StringValue? AlternateID { get; set; }
 
 		public StringValue? AlternateType { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? VendorOrCustomer { get; set; }
 
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

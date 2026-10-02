@@ -12,6 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ECOReferenceDesignator : Entity
 	{
 
+		#region Fields
 		public StringValue? ChangeStatus { get; set; }
 
 		public StringValue? Description { get; set; }
@@ -27,6 +28,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? RefDes { get; set; }
 
 		public StringValue? Revision { get; set; }
+
+		#endregion
 
 	}
 }

@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.Default_26_200_001.Model
+{
+	public class CheckDetail : Entity
+	{
+
+		#region Fields
+		/// <summary>
+		/// The type of the adjusted document.
+		/// <para>DAC Field Name: AdjdDocType</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Document Type</para>
+		/// <para>SQL Type: char(3)</para>
+		/// Key Field
+		/// </summary>
+		public StringSingleSelectValue? DocType { get; set; }
+
+		/// <summary>
+		/// Reference number of the adjusted document.
+		/// <para>DAC Field Name: AdjdRefNbr</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ReferenceNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AdjdLineNbr</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
+		/// </summary>
+		public IntValue? DocLineNbr { get; set; }
+
+		/// <summary>
+		/// The actual amount paid on the document.Presented in the currency of the document, see CuryID.
+		/// <para>DAC Field Name: CuryAdjgAmt</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Amount Paid in Payment Currency</para>
+		/// </summary>
+		public DecimalValue? AmountPaid { get; set; }
+
+		/// <summary>
+		/// The amount of the adjustment before the discount is taken.(Presented in the currency of the document, see CuryID)
+		/// <para>DAC Field Name: CuryDocBal</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// </summary>
+		public DecimalValue? Balance { get; set; }
+
+		/// <summary>
+		/// The difference between the cash discount that was available and the actual amount of cash discount taken.(Presented in the currency of the document, see CuryID)
+		/// <para>DAC Field Name: CuryDiscBal</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>Display Name: Cash Discount Balance</para>
+		/// </summary>
+		public DecimalValue? CashDiscountBalance { get; set; }
+
+		#endregion
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+
+			//Intentionally excluded
+			//public const string All = "Files";
+		}
+	}
+}

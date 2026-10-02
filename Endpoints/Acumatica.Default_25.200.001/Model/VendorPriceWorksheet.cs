@@ -16,44 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class VendorPriceWorksheet : Entity, ITopLevelEntity
 	{
 
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// <para>SQL Type: nvarchar(150)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// <para>Display Name: Effective Date</para>
-		/// </summary>
-		public DateTimeValue? EffectiveDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// <para>Display Name: Expiration Date</para>
-		/// </summary>
-		public DateTimeValue? ExpirationDate { get; set; }
-
-		public BooleanValue? Hold { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OverwriteOverlapping</para>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// <para>Display Name: Overwrite Overlapping Prices</para>
-		/// </summary>
-		public BooleanValue? OverwriteOverlappingPrices { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: IsPromotional</para>
-		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
-		/// </summary>
-		public BooleanValue? Promotional { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
 		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
@@ -69,7 +32,55 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? Status { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>SQL Type: nvarchar(150)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Effective Date</para>
+		/// </summary>
+		public DateTimeValue? EffectiveDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsPromotional</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// </summary>
+		public BooleanValue? Promotional { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Expiration Date</para>
+		/// </summary>
+		public DateTimeValue? ExpirationDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OverwriteOverlapping</para>
+		/// <para>DAC: PX.Objects.AP.APPriceWorksheet</para>
+		/// <para>Display Name: Overwrite Overlapping Prices</para>
+		/// </summary>
+		public BooleanValue? OverwriteOverlappingPrices { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public BooleanValue? Hold { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<VendorPriceWorksheetDetail>? VendorSalesPrices { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(VendorPriceWorksheet)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

@@ -16,6 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class Account : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// Key field.The user-friendly unique identifier of the account.
 		/// <para>DAC: PX.Objects.GL.Account</para>
@@ -24,6 +25,13 @@ namespace Acumatica.Default_23_200_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? AccountCD { get; set; }
+
+		/// <summary>
+		/// Unique identifier of the account. Database identity.
+		/// <para>DAC: PX.Objects.GL.Account</para>
+		/// <para>Display Name: Account ID</para>
+		/// </summary>
+		public IntValue? AccountID { get; set; }
 
 		/// <summary>
 		/// Identifier of the account class, to which the account is assigned.
@@ -35,19 +43,11 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? AccountClass { get; set; }
 
 		/// <summary>
-		/// Identifier of the Account Group, that includes this account.Used only if the Projects module has been activated.
-		/// <para>DAC Field Name: AccountGroupID</para>
+		/// The type of the account.
 		/// <para>DAC: PX.Objects.GL.Account</para>
-		/// <para>Display Name: Account Group</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public StringValue? AccountGroup { get; set; }
-
-		/// <summary>
-		/// Unique identifier of the account. Database identity.
-		/// <para>DAC: PX.Objects.GL.Account</para>
-		/// <para>Display Name: Account ID</para>
-		/// </summary>
-		public IntValue? AccountID { get; set; }
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// Indicates whether the Account is active.
@@ -56,12 +56,19 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// Indicates whether the accounts has on or several Cash Accounts associated with it.
-		/// <para>DAC Field Name: IsCashAccount</para>
+		/// The description of the account.
 		/// <para>DAC: PX.Objects.GL.Account</para>
-		/// <para>Display Name: Cash Account</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		public BooleanValue? CashAccount { get; set; }
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// Defines how the transactions created in other modules are posted to this account.In the scope of the account overrides the APSetup.SummaryPost,ARSetup.SummaryPost and similar settings in other modules.
+		/// <para>DAC: PX.Objects.GL.Account</para>
+		/// <para>Display Name: Post Option</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? PostOption { get; set; }
 
 		/// <summary>
 		/// The relative order of the account in the chart of accounts.
@@ -72,15 +79,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? ChartOfAccountsOrder { get; set; }
 
 		/// <summary>
-		/// The identifier of the external General Ledger account in the chart of accounts of the parent company,to which the balance of this account will be exported in the process of consolidation.This field is relevant only if the company is a consolidation unit in the parent company.
-		/// <para>DAC Field Name: GLConsolAccountCD</para>
+		/// Indicates whether the accounts has on or several Cash Accounts associated with it.
+		/// <para>DAC Field Name: IsCashAccount</para>
 		/// <para>DAC: PX.Objects.GL.Account</para>
-		/// <para>Display Name: Consolidation Account</para>
-		/// <para>SQL Type: nvarchar(30)</para>
+		/// <para>Display Name: Cash Account</para>
 		/// </summary>
-		public StringValue? ConsolidationAccount { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
+		public BooleanValue? CashAccount { get; set; }
 
 		/// <summary>
 		/// Identifier of the Currency of the account.
@@ -92,30 +96,6 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? CurrencyID { get; set; }
 
 		/// <summary>
-		/// The description of the account.
-		/// <para>DAC: PX.Objects.GL.Account</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// Defines how the transactions created in other modules are posted to this account.In the scope of the account overrides the APSetup.SummaryPost,ARSetup.SummaryPost and similar settings in other modules.
-		/// <para>DAC: PX.Objects.GL.Account</para>
-		/// <para>Display Name: Post Option</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? PostOption { get; set; }
-
-		/// <summary>
-		/// When set to true, indicates that every transaction posted to this account must haveQunatity and Units of Measure specified.
-		/// <para>DAC: PX.Objects.GL.Account</para>
-		/// <para>Display Name: Require Units</para>
-		/// </summary>
-		public BooleanValue? RequireUnits { get; set; }
-
-		/// <summary>
 		/// The identifier of the Exchange Rate Typethat is used for the account in the process of revaluation.This field is required only for the accounts denominated to a foreign currency.
 		/// <para>DAC Field Name: RevalCuryRateTypeId</para>
 		/// <para>DAC: PX.Objects.GL.Account</para>
@@ -125,9 +105,21 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? RevaluationRateType { get; set; }
 
 		/// <summary>
+		/// The identifier of the external General Ledger account in the chart of accounts of the parent company,to which the balance of this account will be exported in the process of consolidation.This field is relevant only if the company is a consolidation unit in the parent company.
+		/// <para>DAC Field Name: GLConsolAccountCD</para>
 		/// <para>DAC: PX.Objects.GL.Account</para>
+		/// <para>Display Name: Consolidation Account</para>
+		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
-		public BooleanValue? Secured { get; set; }
+		public StringValue? ConsolidationAccount { get; set; }
+
+		/// <summary>
+		/// Identifier of the Account Group, that includes this account.Used only if the Projects module has been activated.
+		/// <para>DAC Field Name: AccountGroupID</para>
+		/// <para>DAC: PX.Objects.GL.Account</para>
+		/// <para>Display Name: Account Group</para>
+		/// </summary>
+		public StringValue? AccountGroup { get; set; }
 
 		/// <summary>
 		/// Identifier of the Tax Category associated with the account.
@@ -139,19 +131,35 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
-		/// The type of the account.
-		/// <para>DAC: PX.Objects.GL.Account</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Type { get; set; }
-
-		/// <summary>
-		/// If set to true, indicates that the system must set the subaccount to the default subaccount,when this account is selected for a document or transaction.
+		/// If set to <c>true</c>, indicates that the system must set the subaccount to the default subaccount,when this account is selected for a document or transaction.
 		/// <para>DAC Field Name: NoSubDetail</para>
 		/// <para>DAC: PX.Objects.GL.Account</para>
 		/// <para>Display Name: Use Default Subaccount</para>
 		/// </summary>
 		public BooleanValue? UseDefaultSubaccount { get; set; }
+
+		/// <summary>
+		/// When set to <c>true</c>, indicates that every transaction posted to this account must haveQunatity and Units of Measure specified.
+		/// <para>DAC: PX.Objects.GL.Account</para>
+		/// <para>Display Name: Require Units</para>
+		/// </summary>
+		public BooleanValue? RequireUnits { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.GL.Account</para>
+		/// </summary>
+		public BooleanValue? Secured { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Account)} - \"{AccountCD}\"";
+		}
 
 		public static class Expand
 		{

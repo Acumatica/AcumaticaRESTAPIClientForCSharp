@@ -15,13 +15,19 @@ namespace Acumatica.Default_23_200_001.Model
 	public class StorageDetailsInquiry : Entity, ITopLevelEntity
 	{
 
-		public List<StorageDetail>? StorageDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: Warehouse</para>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		public StringValue? WarehouseID { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<StorageDetail>? StorageDetails { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

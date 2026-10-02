@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class DuplicateDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? AccountName { get; set; }
 
 		public StringValue? BusinessAccount { get; set; }
@@ -33,6 +34,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public DateTimeValue? LastModifiedDate { get; set; }
 
 		public StringValue? Type { get; set; }
+
+		#endregion
 
 	}
 }

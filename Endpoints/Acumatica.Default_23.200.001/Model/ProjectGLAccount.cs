@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectGLAccount : Entity
 	{
 
+		#region Fields
 		public StringValue? AccrualAccount { get; set; }
 
 		public StringValue? AccrualSubaccount { get; set; }
@@ -24,7 +25,12 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public StringValue? DefaultCostSubaccount { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<DefaultTaskForGLAccount>? DefaultTaskForGLAccounts { get; set; }
+
+		#endregion
 
 	}
 }

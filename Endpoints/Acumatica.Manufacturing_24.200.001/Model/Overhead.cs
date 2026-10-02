@@ -16,25 +16,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class Overhead : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: AcctID</para>
-		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
-		/// </summary>
-		public StringValue? Account { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
-		/// <para>Display Name: Cost Rate</para>
-		/// </summary>
-		public DecimalValue? CostRate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: OvhdID</para>
 		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
@@ -45,6 +27,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? OverheadID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: OvhdType</para>
 		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
 		/// <para>Display Name: Type</para>
@@ -53,10 +42,29 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? OverheadType { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
+		/// <para>Display Name: Cost Rate</para>
+		/// </summary>
+		public DecimalValue? CostRate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AcctID</para>
+		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
+		/// </summary>
+		public StringValue? Account { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: SubID</para>
 		/// <para>DAC: PX.Objects.AM.AMOverhead</para>
 		/// </summary>
 		public StringValue? Subaccount { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Overhead)} - \"{OverheadID}\"";
+		}
 
 		public static class Expand
 		{

@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationMaintFeatureRule : Entity
 	{
 
+		#region Fields
 		public StringValue? ConfigurationID { get; set; }
 
 		public IntValue? LineNbr { get; set; }
@@ -29,6 +30,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? TargetFeature { get; set; }
 
 		public StringValue? TargetOption { get; set; }
+
+		#endregion
 
 	}
 }

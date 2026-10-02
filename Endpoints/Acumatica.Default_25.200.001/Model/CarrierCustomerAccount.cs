@@ -12,18 +12,12 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CarrierCustomerAccount : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
 		/// </summary>
 		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
-		/// <para>Display Name: Carrier Billing Account</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? CarrierAccount { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
@@ -46,12 +40,21 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
+		/// <para>Display Name: Carrier Billing Account</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? CarrierAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CS.CarrierPluginCustomer</para>
 		/// <para>Display Name: Billing Postal Code</para>
 		/// <para>SQL Type: varchar(10)</para>
 		/// </summary>
 		public StringValue? PostalCode { get; set; }
 
 		public IntValue? RecordID { get; set; }
+
+		#endregion
 
 	}
 }

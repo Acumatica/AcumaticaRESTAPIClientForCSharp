@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DataContract]
     public partial class StringMultiSelectValue : RestValueBase<List<StringSelectInnerValue>>
     {
         public static implicit operator List<string>?(StringMultiSelectValue? value) => value?.Value?.Select(_ => _.ID).ToList();

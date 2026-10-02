@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ProjectBillingAndAllocationSettings : Entity
 	{
 
+		#region Fields
 		public StringValue? AllocationRule { get; set; }
 
 		public BooleanValue? AutomaticallyReleaseARDocuments { get; set; }
@@ -37,6 +38,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? UseTMRevenueBudgetLimits { get; set; }
 
 		public StringValue? BillingCurrency { get; set; }
+
+		#endregion
 
 	}
 }

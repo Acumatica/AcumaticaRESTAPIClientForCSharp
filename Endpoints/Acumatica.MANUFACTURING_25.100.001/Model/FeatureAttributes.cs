@@ -12,33 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class FeatureAttributes : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
-		/// <para>Display Name: Attribute ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? AttributeID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Value</para>
-		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
-		/// <para>Display Name: Default Value</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? DefaultValue { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMFeature</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
-		/// </summary>
-		public BooleanValue? Enabled { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeature</para>
 		/// <para>Display Name: Feature ID</para>
@@ -48,10 +22,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? FeatureID { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
-		/// <para>Display Name: Is Formula</para>
+		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
 		/// </summary>
-		public BooleanValue? IsFormula { get; set; }
+		public IntValue? LineNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMFeature</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
@@ -60,16 +42,17 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Label { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMFeatureOption</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
+		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
+		/// <para>Display Name: Attribute ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		public IntValue? LineNbr { get; set; }
+		public StringValue? AttributeID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
+		/// <para>Display Name: Is Formula</para>
 		/// </summary>
-		public BooleanValue? Required { get; set; }
+		public BooleanValue? IsFormula { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
@@ -80,7 +63,27 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
 		/// </summary>
+		public BooleanValue? Enabled { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
+		/// </summary>
+		public BooleanValue? Required { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
+		/// </summary>
 		public BooleanValue? Visible { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Value</para>
+		/// <para>DAC: PX.Objects.AM.AMFeatureAttribute</para>
+		/// <para>Display Name: Default Value</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? DefaultValue { get; set; }
+
+		#endregion
 
 	}
 }

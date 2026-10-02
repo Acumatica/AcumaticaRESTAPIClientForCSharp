@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SubcontractVendorAddressInfo : Entity
 	{
 
+		#region Fields
 		public StringValue? AddressLine1 { get; set; }
 
 		public StringValue? AddressLine2 { get; set; }
@@ -25,6 +26,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? PostalCode { get; set; }
 
 		public StringValue? State { get; set; }
+
+		#endregion
 
 	}
 }

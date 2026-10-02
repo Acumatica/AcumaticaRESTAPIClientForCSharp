@@ -15,34 +15,22 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class CreateProductionOrder : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
-		/// </summary>
-		public DateTimeValue? CreationDate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
 		/// </summary>
 		public StringValue? CreationOrderType { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CustomerID</para>
 		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
 		/// </summary>
-		public StringValue? Customer { get; set; }
-
-		public List<CreateProductionDocuments>? Documents { get; set; }
+		public DateTimeValue? CreationDate { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: OwnerID</para>
 		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
 		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ItemClassCD</para>
-		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
-		/// </summary>
-		public StringValue? ItemClassID { get; set; }
+		public StringValue? ProductManager { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: MyOwner</para>
@@ -51,10 +39,59 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public BooleanValue? Me { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: WorkGroupID</para>
+		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
+		/// </summary>
+		public StringValue? ProductWorkgroup { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: MyWorkGroup</para>
 		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
 		/// </summary>
 		public BooleanValue? My { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ItemClassCD</para>
+		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
+		/// </summary>
+		public StringValue? ItemClassID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
+		/// </summary>
+		public StringValue? WarehouseID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
+		/// </summary>
+		public DateTimeValue? RequestedOnStartDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
+		/// </summary>
+		public DateTimeValue? RequestedOnEndDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CustomerID</para>
+		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
+		/// </summary>
+		public StringValue? Customer { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
+		/// </summary>
+		public StringValue? SOOrderType { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
+		/// </summary>
+		public StringValue? SOOrderNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: OrderType</para>
@@ -68,43 +105,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// </summary>
 		public StringValue? ProductionNbr { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: OwnerID</para>
-		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
-		/// </summary>
-		public StringValue? ProductManager { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC Field Name: WorkGroupID</para>
-		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
-		/// </summary>
-		public StringValue? ProductWorkgroup { get; set; }
+		#region Details
+		public List<CreateProductionDocuments>? Documents { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
-		/// </summary>
-		public DateTimeValue? RequestedOnEndDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
-		/// </summary>
-		public DateTimeValue? RequestedOnStartDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
-		/// </summary>
-		public StringValue? SOOrderNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
-		/// </summary>
-		public StringValue? SOOrderType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.AM.CreateProductionOrdersProcess+ProductionOrdersCreateFilter</para>
-		/// </summary>
-		public StringValue? WarehouseID { get; set; }
+		#endregion
 
 		public static class Expand
 		{

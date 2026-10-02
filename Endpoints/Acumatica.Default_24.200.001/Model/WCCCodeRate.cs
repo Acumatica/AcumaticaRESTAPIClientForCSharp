@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class WCCCodeRate : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Active { get; set; }
 
 		public StringValue? BenefitCalculationMethod { get; set; }
@@ -35,6 +36,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? State { get; set; }
 
 		public StringValue? WorkCodeID { get; set; }
+
+		#endregion
 
 	}
 }

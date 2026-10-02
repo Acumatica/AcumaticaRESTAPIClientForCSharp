@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ShippingTermDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
 		/// <para>Display Name: Break Amount</para>
@@ -33,6 +34,13 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? InvoiceAmount { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ShippingHandling</para>
+		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
+		/// <para>Display Name: Shipping and Handling</para>
+		/// </summary>
+		public DecimalValue? ShippingandHandling { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
 		/// <para>Display Name: Line Handling</para>
 		/// </summary>
@@ -40,12 +48,7 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public IntValue? LineNbr { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: ShippingHandling</para>
-		/// <para>DAC: PX.Objects.CS.ShipTermsDetail</para>
-		/// <para>Display Name: Shipping and Handling</para>
-		/// </summary>
-		public DecimalValue? ShippingandHandling { get; set; }
+		#endregion
 
 	}
 }

@@ -15,58 +15,13 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MRPDetailInquiry : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// U o m
-		/// <para>DAC Field Name: UOM</para>
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Base Unit</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		public StringValue? BaseUnit { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Inventory ID
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		public StringValue? InventoryID { get; set; }
-
-		/// <summary>
-		/// Lot qty
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Lot Qty.</para>
-		/// </summary>
-		public DecimalValue? LotQty { get; set; }
-
-		/// <summary>
-		/// Max order qty
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Max. Order Qty.</para>
-		/// </summary>
-		public DecimalValue? MaxOrderQty { get; set; }
-
-		/// <summary>
-		/// Min order qty
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Min. Order Qty.</para>
-		/// </summary>
-		public DecimalValue? MinOrderQty { get; set; }
-
-		/// <summary>
-		/// Qty on hand
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Qty. On Hand</para>
-		/// </summary>
-		public DecimalValue? QtyOnHand { get; set; }
-
-		public List<MRPDetailInquiryResult>? Results { get; set; }
-
-		/// <summary>
-		/// Safety stock
-		/// <para>DAC: PX.Objects.AM.InvLookup</para>
-		/// <para>Display Name: Safety Stock</para>
-		/// </summary>
-		public DecimalValue? SafetyStock { get; set; }
 
 		/// <summary>
 		/// Sub item ID
@@ -81,6 +36,57 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.InvLookup</para>
 		/// </summary>
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// Qty on hand
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Qty. On Hand</para>
+		/// </summary>
+		public DecimalValue? QtyOnHand { get; set; }
+
+		/// <summary>
+		/// U o m
+		/// <para>DAC Field Name: UOM</para>
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Base Unit</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		public StringValue? BaseUnit { get; set; }
+
+		/// <summary>
+		/// Safety stock
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Safety Stock</para>
+		/// </summary>
+		public DecimalValue? SafetyStock { get; set; }
+
+		/// <summary>
+		/// Min order qty
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Min. Order Qty.</para>
+		/// </summary>
+		public DecimalValue? MinOrderQty { get; set; }
+
+		/// <summary>
+		/// Max order qty
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Max. Order Qty.</para>
+		/// </summary>
+		public DecimalValue? MaxOrderQty { get; set; }
+
+		/// <summary>
+		/// Lot qty
+		/// <para>DAC: PX.Objects.AM.InvLookup</para>
+		/// <para>Display Name: Lot Qty.</para>
+		/// </summary>
+		public DecimalValue? LotQty { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<MRPDetailInquiryResult>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

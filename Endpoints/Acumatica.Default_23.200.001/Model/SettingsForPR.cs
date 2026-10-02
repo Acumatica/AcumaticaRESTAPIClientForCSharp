@@ -12,13 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SettingsForPR : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: PRBatchExportSYMappingID</para>
-		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
-		/// <para>Display Name: Export Scenario</para>
-		/// </summary>
-		public StringValue? ExportScenario { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
@@ -31,6 +25,15 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: varchar(8)</para>
 		/// </summary>
 		public StringValue? Report { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PRBatchExportSYMappingID</para>
+		/// <para>DAC: PX.Objects.CA.PaymentMethod</para>
+		/// <para>Display Name: Export Scenario</para>
+		/// </summary>
+		public StringValue? ExportScenario { get; set; }
+
+		#endregion
 
 	}
 }

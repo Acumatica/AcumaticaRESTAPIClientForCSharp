@@ -16,27 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectTemplate : Entity, ITopLevelEntity
 	{
 
-		public List<AttributeValue>? Attributes { get; set; }
-
-		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
-
-		/// <summary>
-		/// The project description.
-		/// <para>DAC: PX.Objects.PM.PMProject</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<ProjectEmployee>? Employees { get; set; }
-
-		public List<ProjectEquipment>? Equipments { get; set; }
-
-		public ProjectGLAccount? GLAccounts { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		public ProjectProperties? ProjectProperties { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The project CD. This is a segmented key. Its format is configured on the Segmented Keys (CS202000) form.
 		/// <para>DAC Field Name: ContractCD</para>
@@ -54,7 +34,41 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? Status { get; set; }
 
+		/// <summary>
+		/// The project description.
+		/// <para>DAC: PX.Objects.PM.PMProject</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ProjectBillingAndAllocationSettings? BillingAndAllocationSettings { get; set; }
+
+		public ProjectGLAccount? GLAccounts { get; set; }
+
+		public ProjectProperties? ProjectProperties { get; set; }
+
 		public VisibilitySettings? VisibilitySettings { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<AttributeValue>? Attributes { get; set; }
+
+		public List<ProjectEmployee>? Employees { get; set; }
+
+		public List<ProjectEquipment>? Equipments { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProjectTemplate)} - \"{ProjectTemplateID}\"";
+		}
 
 		public static class Expand
 		{

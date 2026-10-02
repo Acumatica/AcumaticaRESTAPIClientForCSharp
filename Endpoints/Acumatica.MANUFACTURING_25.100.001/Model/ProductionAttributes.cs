@@ -15,15 +15,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ProductionAttributes : Entity, ITopLevelEntity
 	{
 
-		public List<ProductionAttributesDetail>? Detail { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ShowOrderAttributes</para>
-		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
-		/// <para>Display Name: Order Attributes</para>
-		/// </summary>
-		public BooleanValue? OrderAttributes { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
 		/// <para>Display Name: Order Type</para>
@@ -45,6 +37,20 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>Display Name: Transaction Attributes</para>
 		/// </summary>
 		public BooleanValue? TransactionAttributes { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ShowOrderAttributes</para>
+		/// <para>DAC: PX.Objects.AM.ProductionAttributesFilter</para>
+		/// <para>Display Name: Order Attributes</para>
+		/// </summary>
+		public BooleanValue? OrderAttributes { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ProductionAttributesDetail>? Detail { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ExpenseClaimAPDocument : Entity
 	{
 
+		#region Fields
 		public DecimalValue? Amount { get; set; }
 
 		public StringValue? RefNbr { get; set; }
@@ -21,6 +22,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? TaxZone { get; set; }
 
 		public StringValue? Type { get; set; }
+
+		#endregion
 
 	}
 }

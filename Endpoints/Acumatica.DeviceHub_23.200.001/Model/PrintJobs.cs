@@ -16,20 +16,7 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	public class PrintJobs : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
-		/// <para>Display Name: End Date</para>
-		/// </summary>
-		public DateTimeValue? EndDate { get; set; }
-
-		public DateTimeValue? EndModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
-		/// <para>Display Name: Hide Processed</para>
-		/// </summary>
-		public BooleanValue? HideProcessed { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.SM.SMPrintJob</para>
 		/// <para>Display Name: Job ID</para>
@@ -37,15 +24,39 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		/// </summary>
 		public IntValue? JobID { get; set; }
 
-		public List<PrintJob>? Jobs { get; set; }
-
 		/// <summary>
 		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
 		/// <para>Display Name: Start Date</para>
 		/// </summary>
 		public DateTimeValue? StartDate { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		public DateTimeValue? EndDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.SM.SMPrintJobFilter</para>
+		/// <para>Display Name: Hide Processed</para>
+		/// </summary>
+		public BooleanValue? HideProcessed { get; set; }
+
+		public DateTimeValue? EndModifiedDateTime { get; set; }
+
 		public DateTimeValue? StartModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<PrintJob>? Jobs { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PrintJobs)} - \"{JobID}\"";
+		}
 
 		public static class Expand
 		{

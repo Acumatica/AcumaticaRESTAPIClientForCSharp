@@ -12,21 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PaymentCharge : Entity
 	{
 
-		public StringValue? AccountID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryTranAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARPaymentChargeTran</para>
-		/// </summary>
-		public DecimalValue? Amount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TranDesc</para>
-		/// <para>DAC: PX.Objects.AR.ARPaymentChargeTran</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.ARPayment</para>
 		/// <para>Display Name: Type</para>
@@ -36,11 +22,12 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? DocType { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARPaymentChargeTran</para>
-		/// <para>Display Name: Entry Type</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? EntryTypeID { get; set; }
+		public StringValue? RefNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.ARTranPostBal</para>
@@ -49,14 +36,30 @@ namespace Acumatica.Default_25_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Reference Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
+		/// <para>DAC: PX.Objects.AR.ARPaymentChargeTran</para>
+		/// <para>Display Name: Entry Type</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		public StringValue? RefNbr { get; set; }
+		public StringValue? EntryTypeID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.AR.ARPaymentChargeTran</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryTranAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARPaymentChargeTran</para>
+		/// </summary>
+		public DecimalValue? Amount { get; set; }
+
+		public StringValue? AccountID { get; set; }
 
 		public StringValue? SubID { get; set; }
+
+		#endregion
 
 	}
 }

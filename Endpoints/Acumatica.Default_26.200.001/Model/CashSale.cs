@@ -1,0 +1,155 @@
+using System;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.Default_26_200_001.Model
+{
+	/// <summary>
+	/// Corresponds to the screen <c>AR304000</c> in the Acumatica ERP
+	/// <para>Key Fields: Type, ReferenceNbr</para>
+	/// </summary>
+	public class CashSale : Entity, ITopLevelEntity
+	{
+
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: DocType</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>SQL Type: char(3)</para>
+		/// Key Field
+		/// </summary>
+		public StringSingleSelectValue? Type { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ReferenceNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringSingleSelectValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AdjDate</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// </summary>
+		public DateOnlyValue? Date { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ExtRefNbr</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>Display Name: Payment Ref.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
+		public StringValue? PaymentRef { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>Display Name: Customer</para>
+		/// </summary>
+		public StringValue? CustomerID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PaymentMethodID</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>Display Name: Payment Method</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? PaymentMethod { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CashAccountID</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>Display Name: Cash Account</para>
+		/// </summary>
+		public StringValue? CashAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// </summary>
+		public StringValue? Project { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>SQL Type: nvarchar(512)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>Display Name: Tax Total</para>
+		/// </summary>
+		public DecimalValue? TaxTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryOrigDocAmt</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// <para>Display Name: Payment Amount</para>
+		/// </summary>
+		public DecimalValue? Amount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryDocBal</para>
+		/// <para>DAC: PX.Objects.AR.Standalone.ARCashSale</para>
+		/// </summary>
+		public DecimalValue? Balance { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was created.
+		/// <para>DAC: PX.Objects.EP.EPApproval</para>
+		/// <para>Display Name: Assignment Date</para>
+		/// </summary>
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public BooleanValue? Hold { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<CashSaleDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(CashSale)} - \"{Type}\" - \"{ReferenceNbr}\"";
+		}
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+			public const string Translations = "Translations";
+			public const string Details = "Details";
+
+			//Intentionally excluded
+			//public const string All = "Files,Translations,Details";
+		}
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/26.200.001";
+		}
+	}
+}

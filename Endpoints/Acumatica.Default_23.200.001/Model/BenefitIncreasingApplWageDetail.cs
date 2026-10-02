@@ -12,11 +12,14 @@ namespace Acumatica.Default_23_200_001.Model
 	public class BenefitIncreasingApplWageDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? BenefitCode { get; set; }
 
 		public StringValue? Description { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

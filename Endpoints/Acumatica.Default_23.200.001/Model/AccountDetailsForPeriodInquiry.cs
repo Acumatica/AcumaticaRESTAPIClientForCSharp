@@ -15,6 +15,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AccountDetailsForPeriodInquiry : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
@@ -23,14 +24,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
-		public StringValue? Ledger { get; set; }
-
-		public List<AccountDetailsForPeriodInquiryDetail>? Results { get; set; }
+		public StringValue? ToPeriod { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
-		public StringValue? ToPeriod { get; set; }
+		public StringValue? Ledger { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
@@ -41,6 +40,13 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		public BooleanValue? IncludeUnreleased { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<AccountDetailsForPeriodInquiryDetail>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

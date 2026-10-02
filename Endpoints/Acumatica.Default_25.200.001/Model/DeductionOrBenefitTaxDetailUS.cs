@@ -12,11 +12,14 @@ namespace Acumatica.Default_25_200_001.Model
 	public class DeductionOrBenefitTaxDetailUS : Entity
 	{
 
+		#region Fields
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public StringValue? TaxCode { get; set; }
 
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 	}
 }

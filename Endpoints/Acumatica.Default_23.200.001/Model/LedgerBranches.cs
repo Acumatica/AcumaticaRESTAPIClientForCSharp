@@ -12,12 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class LedgerBranches : Entity
 	{
 
-		/// <summary>
-		/// Indicates whether the Branch is active.
-		/// <para>DAC: PX.Objects.GL.Branch</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Key field.User-friendly unique identifier of the Branch.
 		/// <para>DAC Field Name: BranchCD</para>
@@ -38,10 +33,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? BranchName { get; set; }
 
 		/// <summary>
+		/// Indicates whether the Branch is active.
+		/// <para>DAC: PX.Objects.GL.Branch</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Organization__OrganizationName</para>
 		/// <para>DAC: PX.Objects.GL.Branch</para>
 		/// </summary>
 		public StringValue? CompanyName { get; set; }
+
+		#endregion
 
 	}
 }

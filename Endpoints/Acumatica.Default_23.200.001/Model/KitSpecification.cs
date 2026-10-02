@@ -16,35 +16,13 @@ namespace Acumatica.Default_23_200_001.Model
 	public class KitSpecification : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
-		/// <para>Display Name: Non-Stock</para>
-		/// </summary>
-		public BooleanValue? IsNonStock { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
 		/// <para>Display Name: Kit Inventory ID</para>
 		/// Key Field
 		/// </summary>
 		public StringValue? KitInventoryID { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		public List<KitNonStockComponent>? NonStockComponents { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
@@ -54,7 +32,40 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? RevisionID { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// <para>Display Name: Non-Stock</para>
+		/// </summary>
+		public BooleanValue? IsNonStock { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.IN.INKitSpecHdr</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<KitNonStockComponent>? NonStockComponents { get; set; }
+
 		public List<KitStockComponent>? StockComponents { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(KitSpecification)} - \"{KitInventoryID}\" - \"{RevisionID}\"";
+		}
 
 		public static class Expand
 		{

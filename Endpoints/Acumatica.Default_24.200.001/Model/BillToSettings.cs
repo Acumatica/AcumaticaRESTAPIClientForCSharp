@@ -12,15 +12,21 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BillToSettings : Entity
 	{
 
-		public Address? BillToAddress { get; set; }
-
+		#region Fields
 		public BooleanValue? BillToAddressOverride { get; set; }
-
-		public DocContact? BillToContact { get; set; }
 
 		public BooleanValue? BillToContactOverride { get; set; }
 
 		public StringValue? CustomerLocation { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public Address? BillToAddress { get; set; }
+
+		public DocContact? BillToContact { get; set; }
+
+		#endregion
 
 	}
 }

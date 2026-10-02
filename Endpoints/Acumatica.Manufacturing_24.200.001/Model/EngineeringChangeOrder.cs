@@ -16,7 +16,21 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class EngineeringChangeOrder : Entity, ITopLevelEntity
 	{
 
-		public List<EngineeringChangeOrderAttribute>? Attributes { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: ECO ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ECOID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: RevisionID</para>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? Revision { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
@@ -34,6 +48,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? BOMRevision { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
 		/// <para>SQL Type: nvarchar(256)</para>
@@ -42,54 +62,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>Display Name: ECO ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? ECOID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>Display Name: Effective Date</para>
-		/// </summary>
-		public DateTimeValue? EffectiveDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		public StringValue? InventoryID { get; set; }
-
-		public List<EngineeringChangeOrderOperation>? Operations { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// </summary>
-		public IntValue? Priority { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>Display Name: Request Date</para>
-		/// </summary>
-		public DateTimeValue? RequestDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// </summary>
-		public StringValue? Requestor { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: RevisionID</para>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? Revision { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
@@ -102,6 +77,42 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
 		/// </summary>
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: Request Date</para>
+		/// </summary>
+		public DateTimeValue? RequestDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// <para>Display Name: Effective Date</para>
+		/// </summary>
+		public DateTimeValue? EffectiveDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// </summary>
+		public StringValue? Requestor { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMECOItem</para>
+		/// </summary>
+		public IntValue? Priority { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<EngineeringChangeOrderAttribute>? Attributes { get; set; }
+
+		public List<EngineeringChangeOrderOperation>? Operations { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(EngineeringChangeOrder)} - \"{ECOID}\"";
+		}
 
 		public static class Expand
 		{

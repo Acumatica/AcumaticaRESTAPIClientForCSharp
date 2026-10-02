@@ -16,23 +16,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class Shift : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: AMCrewSize</para>
-		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
-		/// </summary>
-		public DecimalValue? CrewSize { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
-		/// </summary>
-		public StringValue? DiffType { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: ShiftCD</para>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
@@ -43,10 +27,38 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? shift { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>Display Name: Differential Type</para>
+		/// <para>SQL Type: nchar(1)</para>
+		/// </summary>
+		public StringValue? DiffType { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: ShftDiff</para>
 		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>Display Name: Shift Differential</para>
 		/// </summary>
 		public DecimalValue? ShiftDiff { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AMCrewSize</para>
+		/// <para>DAC: PX.Objects.EP.EPShiftCode</para>
+		/// <para>Display Name: Crew Size</para>
+		/// </summary>
+		public DecimalValue? CrewSize { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Shift)} - \"{shift}\"";
+		}
 
 		public static class Expand
 		{

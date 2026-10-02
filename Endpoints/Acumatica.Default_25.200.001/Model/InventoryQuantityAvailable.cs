@@ -15,11 +15,17 @@ namespace Acumatica.Default_25_200_001.Model
 	public class InventoryQuantityAvailable : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		public StringValue? InventoryID { get; set; }
 
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<InventoryQuantityAvailableDetail>? Results { get; set; }
 
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		#endregion
 
 		public static class Expand
 		{

@@ -16,15 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class UnitsOfMeasure : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: UnitRate</para>
-		/// <para>DAC: PX.Objects.IN.INUnit</para>
-		/// <para>Display Name: Conversion Factor</para>
-		/// </summary>
-		public DecimalValue? ConversionFactor { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: FromUnit</para>
 		/// <para>DAC: PX.Objects.IN.INUnit</para>
@@ -34,7 +26,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? FromUOM { get; set; }
 
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: ToUnit</para>
+		/// <para>DAC: PX.Objects.IN.INUnit</para>
+		/// <para>Display Name: To Unit</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ToUOM { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: UnitMultDiv</para>
@@ -45,13 +44,22 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? MultiplyOrDivide { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ToUnit</para>
+		/// <para>DAC Field Name: UnitRate</para>
 		/// <para>DAC: PX.Objects.IN.INUnit</para>
-		/// <para>Display Name: To Unit</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// Key Field
+		/// <para>Display Name: Conversion Factor</para>
 		/// </summary>
-		public StringValue? ToUOM { get; set; }
+		public DecimalValue? ConversionFactor { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(UnitsOfMeasure)} - \"{FromUOM}\" - \"{ToUOM}\"";
+		}
 
 		public static class Expand
 		{

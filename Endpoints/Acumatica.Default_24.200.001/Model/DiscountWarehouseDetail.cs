@@ -12,12 +12,15 @@ namespace Acumatica.Default_24_200_001.Model
 	public class DiscountWarehouseDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AR.DiscountSite</para>
 		/// Key Field
 		/// </summary>
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
 
 	}
 }

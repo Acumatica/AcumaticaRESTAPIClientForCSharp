@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class DiscountCustomerDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.DiscountCustomer</para>
 		/// <para>Display Name: Customer</para>
@@ -24,6 +25,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.AR.DiscountCustomer</para>
 		/// </summary>
 		public StringValue? CustomerName { get; set; }
+
+		#endregion
 
 	}
 }

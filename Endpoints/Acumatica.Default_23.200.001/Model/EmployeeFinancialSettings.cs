@@ -12,29 +12,22 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeeFinancialSettings : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The identifier of the AP account of the vendor location.
-		/// <para>DAC Field Name: VAPAccountID</para>
-		/// <para>DAC: PX.Objects.CR.Location</para>
-		/// <para>Display Name: AP Account</para>
+		/// Identifier of the AP account to be used to record prepayments paid to the employee.
+		/// <para>DAC Field Name: PrepaymentAcctID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Prepayment Account</para>
 		/// </summary>
-		public StringValue? APAccount { get; set; }
+		public StringValue? PrepaymentAccount { get; set; }
 
 		/// <summary>
-		/// The identifier of the AP subaccount of the vendor location.
-		/// <para>DAC Field Name: VAPSubID</para>
-		/// <para>DAC: PX.Objects.CR.Location</para>
-		/// <para>Display Name: AP Sub.</para>
+		/// The identifier of the corresponding subaccount to be used to record prepayments paid to the employee.
+		/// <para>DAC Field Name: PrepaymentSubID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Prepayment Sub.</para>
 		/// </summary>
-		public StringValue? APSubaccount { get; set; }
-
-		/// <summary>
-		/// The cash account indentifier of the vendor location.
-		/// <para>DAC Field Name: VCashAccountID</para>
-		/// <para>DAC: PX.Objects.CR.Location</para>
-		/// <para>Display Name: Cash Account</para>
-		/// </summary>
-		public StringValue? CashAccount { get; set; }
+		public StringValue? PrepaymentSubaccount { get; set; }
 
 		/// <summary>
 		/// Identifier of the account that will be used to record compensation amounts paid to the employee.
@@ -51,33 +44,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>Display Name: Expense Sub.</para>
 		/// </summary>
 		public StringValue? ExpenseSubaccount { get; set; }
-
-		public List<BusinessAccountPaymentInstructionDetail>? PaymentInstructions { get; set; }
-
-		/// <summary>
-		/// The payment method indentifier of the vendor location.
-		/// <para>DAC Field Name: VPaymentMethodID</para>
-		/// <para>DAC: PX.Objects.CR.Location</para>
-		/// <para>Display Name: Payment Method</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? PaymentMethod { get; set; }
-
-		/// <summary>
-		/// Identifier of the AP account to be used to record prepayments paid to the employee.
-		/// <para>DAC Field Name: PrepaymentAcctID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Prepayment Account</para>
-		/// </summary>
-		public StringValue? PrepaymentAccount { get; set; }
-
-		/// <summary>
-		/// The identifier of the corresponding subaccount to be used to record prepayments paid to the employee.
-		/// <para>DAC Field Name: PrepaymentSubID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Prepayment Sub.</para>
-		/// </summary>
-		public StringValue? PrepaymentSubaccount { get; set; }
 
 		/// <summary>
 		/// Identifier of the account to be used to record sales made by the employee, if applicable.
@@ -96,6 +62,29 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? SalesSubaccount { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: TermsID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? Terms { get; set; }
+
+		/// <summary>
+		/// The identifier of the AP account of the vendor location.
+		/// <para>DAC Field Name: VAPAccountID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: AP Account</para>
+		/// </summary>
+		public StringValue? APAccount { get; set; }
+
+		/// <summary>
+		/// The identifier of the AP subaccount of the vendor location.
+		/// <para>DAC Field Name: VAPSubID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: AP Sub.</para>
+		/// </summary>
+		public StringValue? APSubaccount { get; set; }
+
+		/// <summary>
 		/// The vendor's tax zone.
 		/// <para>DAC Field Name: VTaxZoneID</para>
 		/// <para>DAC: PX.Objects.CR.Location</para>
@@ -105,11 +94,28 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: TermsID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// The payment method indentifier of the vendor location.
+		/// <para>DAC Field Name: VPaymentMethodID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Payment Method</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		public StringValue? Terms { get; set; }
+		public StringValue? PaymentMethod { get; set; }
+
+		/// <summary>
+		/// The cash account indentifier of the vendor location.
+		/// <para>DAC Field Name: VCashAccountID</para>
+		/// <para>DAC: PX.Objects.CR.Location</para>
+		/// <para>Display Name: Cash Account</para>
+		/// </summary>
+		public StringValue? CashAccount { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<BusinessAccountPaymentInstructionDetail>? PaymentInstructions { get; set; }
+
+		#endregion
 
 	}
 }

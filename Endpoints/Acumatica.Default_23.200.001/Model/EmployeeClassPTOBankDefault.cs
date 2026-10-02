@@ -12,6 +12,22 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeeClassPTOBankDefault : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: EmployeeClassID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
+		/// <para>Display Name: Payroll Class ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? EmployeeClass { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
+		/// <para>Display Name: Working Hours per Year</para>
+		/// </summary>
+		public DecimalValue? HoursPerYear { get; set; }
+
 		public DecimalValue? AccrualLimit { get; set; }
 
 		public StringValue? AccrualMethod { get; set; }
@@ -30,26 +46,13 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public DateTimeValue? EffectiveDate { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: EmployeeClassID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
-		/// <para>Display Name: Payroll Class ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? EmployeeClass { get; set; }
-
 		public DecimalValue? FrontLoadingAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
-		/// <para>Display Name: Working Hours per Year</para>
-		/// </summary>
-		public DecimalValue? HoursPerYear { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public StringValue? PTOBank { get; set; }
+
+		#endregion
 
 	}
 }

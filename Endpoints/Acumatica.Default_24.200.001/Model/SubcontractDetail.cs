@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class SubcontractDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Account { get; set; }
 
 		public StringValue? AlternateID { get; set; }
@@ -79,6 +80,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? UnitCost { get; set; }
 
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

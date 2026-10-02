@@ -12,19 +12,20 @@ namespace Acumatica.Default_23_200_001.Model
 	public class PurchaseOrderTaxDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: CuryRetainedTaxableAmt</para>
 		/// <para>DAC: PX.Objects.PO.POTaxTran</para>
-		/// <para>Display Name: Retained Taxable</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// Key Field
 		/// </summary>
-		public DecimalValue? RetainedTaxableAmount { get; set; }
+		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CuryRetainedTaxAmt</para>
 		/// <para>DAC: PX.Objects.PO.POTaxTran</para>
-		/// <para>Display Name: Retained Tax</para>
+		/// <para>Display Name: Tax Rate</para>
 		/// </summary>
-		public DecimalValue? RetainedTaxAmount { get; set; }
+		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryTaxableAmt</para>
@@ -41,18 +42,20 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryRetainedTaxableAmt</para>
 		/// <para>DAC: PX.Objects.PO.POTaxTran</para>
-		/// <para>Display Name: Tax ID</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// Key Field
+		/// <para>Display Name: Retained Taxable</para>
 		/// </summary>
-		public StringValue? TaxID { get; set; }
+		public DecimalValue? RetainedTaxableAmount { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CuryRetainedTaxAmt</para>
 		/// <para>DAC: PX.Objects.PO.POTaxTran</para>
-		/// <para>Display Name: Tax Rate</para>
+		/// <para>Display Name: Retained Tax</para>
 		/// </summary>
-		public DecimalValue? TaxRate { get; set; }
+		public DecimalValue? RetainedTaxAmount { get; set; }
+
+		#endregion
 
 	}
 }

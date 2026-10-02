@@ -15,14 +15,20 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class CloseProductionOrders : Entity, ITopLevelEntity
 	{
 
-		public List<CloseProductionOrdersDetail>? Details { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: FinancialPeriodID</para>
 		/// <para>DAC: PX.Objects.AM.FinancialPeriod</para>
 		/// <para>SQL Type: char(6)</para>
 		/// </summary>
 		public StringValue? Period { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<CloseProductionOrdersDetail>? Details { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

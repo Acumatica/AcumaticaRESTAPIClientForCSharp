@@ -16,6 +16,60 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PayGroup : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: Pay Group ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? PayGroupID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Description</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: Pay Group Name</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		public StringValue? PayGroupName { get; set; }
+
+		/// <summary>
+		/// The name of the Role to be used to grant users access to the data of the Pay Group.
+		/// <para>DAC Field Name: RoleName</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: User Role</para>
+		/// <para>SQL Type: nvarchar(64)</para>
+		/// </summary>
+		public StringValue? UserRole { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EarningsAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: Earnings Account</para>
+		/// </summary>
+		public StringValue? EarningsAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EarningsSubID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: Earnings Sub.</para>
+		/// </summary>
+		public StringValue? EarningsSub { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DedLiabilityAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: Deduction Liability Account</para>
+		/// </summary>
+		public StringValue? DeductionLiabilityAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DedLiabilitySubID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: Deduction Liability Sub.</para>
+		/// </summary>
+		public StringValue? DeductionLiabilitySub { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: BenefitExpenseAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
@@ -43,100 +97,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Benefit Liability Sub.</para>
 		/// </summary>
 		public StringValue? BenefitLiabilitySub { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DedLiabilityAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: Deduction Liability Account</para>
-		/// </summary>
-		public StringValue? DeductionLiabilityAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DedLiabilitySubID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: Deduction Liability Sub.</para>
-		/// </summary>
-		public StringValue? DeductionLiabilitySub { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: EarningsAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: Earnings Account</para>
-		/// </summary>
-		public StringValue? EarningsAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: EarningsSubID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: Earnings Sub.</para>
-		/// </summary>
-		public StringValue? EarningsSub { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: Default</para>
-		/// </summary>
-		public BooleanValue? IsDefault { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: Pay Group ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? PayGroupID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Description</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: Pay Group Name</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		public StringValue? PayGroupName { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOAssetAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: PTO Asset Account</para>
-		/// </summary>
-		public StringValue? PTOAssetAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOAssetSubID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: PTO Asset Sub.</para>
-		/// </summary>
-		public StringValue? PTOAssetSub { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOExpenseAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: PTO Expense Account</para>
-		/// </summary>
-		public StringValue? PTOExpenseAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOExpenseSubID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: PTO Expense Sub.</para>
-		/// </summary>
-		public StringValue? PTOExpenseSub { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOLiabilityAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: PTO Liability Account</para>
-		/// </summary>
-		public StringValue? PTOLiabilityAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOLiabilitySubID</para>
-		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: PTO Liability Sub.</para>
-		/// </summary>
-		public StringValue? PTOLiabilitySub { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TaxExpenseAcctID</para>
@@ -167,13 +127,61 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? TaxLiabilitySub { get; set; }
 
 		/// <summary>
-		/// The name of the Role to be used to grant users access to the data of the Pay Group.
-		/// <para>DAC Field Name: RoleName</para>
+		/// <para>DAC Field Name: PTOExpenseAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
-		/// <para>Display Name: User Role</para>
-		/// <para>SQL Type: nvarchar(64)</para>
+		/// <para>Display Name: PTO Expense Account</para>
 		/// </summary>
-		public StringValue? UserRole { get; set; }
+		public StringValue? PTOExpenseAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PTOExpenseSubID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: PTO Expense Sub.</para>
+		/// </summary>
+		public StringValue? PTOExpenseSub { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PTOLiabilityAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: PTO Liability Account</para>
+		/// </summary>
+		public StringValue? PTOLiabilityAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PTOLiabilitySubID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: PTO Liability Sub.</para>
+		/// </summary>
+		public StringValue? PTOLiabilitySub { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PTOAssetAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: PTO Asset Account</para>
+		/// </summary>
+		public StringValue? PTOAssetAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PTOAssetSubID</para>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: PTO Asset Sub.</para>
+		/// </summary>
+		public StringValue? PTOAssetSub { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRPayGroup</para>
+		/// <para>Display Name: Default</para>
+		/// </summary>
+		public BooleanValue? IsDefault { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PayGroup)} - \"{PayGroupID}\"";
+		}
 
 		public static class Expand
 		{

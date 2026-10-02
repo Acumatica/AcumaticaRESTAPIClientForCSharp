@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class DeductionOrBenefitTaxDetailCA : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Benefitincreasestaxablewage { get; set; }
 
 		public BooleanValue? Deductiondecreasestaxablewage { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? TaxCode { get; set; }
 
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 	}
 }

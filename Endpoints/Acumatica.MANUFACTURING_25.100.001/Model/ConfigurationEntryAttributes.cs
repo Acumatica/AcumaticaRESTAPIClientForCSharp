@@ -12,6 +12,14 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationEntryAttributes : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
+		/// <para>Display Name: Config Results ID</para>
+		/// Key Field
+		/// </summary>
+		public IntValue? ConfigResultsID { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
 		/// <para>Display Name: Attribute Line Nbr</para>
@@ -21,34 +29,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
-		/// <para>Display Name: Config Results ID</para>
-		/// Key Field
-		/// </summary>
-		public IntValue? ConfigResultsID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
 		/// <para>Display Name: Configuration ID</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		public StringValue? ConfigurationID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AMConfigurationAttribute__Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AMConfigurationAttribute__Label</para>
-		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
-		/// </summary>
-		public StringValue? Label { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
-		/// </summary>
-		public BooleanValue? Required { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
@@ -58,10 +42,29 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? Revision { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: AMConfigurationAttribute__Label</para>
+		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
+		/// </summary>
+		public StringValue? Label { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AMConfigurationAttribute__Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
+		/// </summary>
+		public BooleanValue? Required { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsAttribute</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

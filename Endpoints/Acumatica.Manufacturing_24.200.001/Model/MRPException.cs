@@ -16,17 +16,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class MRPException : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
+		/// <para>Display Name: Record ID</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
-		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
+		public IntValue? RecordID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
@@ -35,36 +31,23 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ItemClassID</para>
+		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Item Class</para>
 		/// </summary>
-		public StringValue? ItemClass { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Product Manager ID</para>
 		/// </summary>
-		public StringValue? ProductManagerID { get; set; }
+		public StringValue? Description { get; set; }
 
 		/// <summary>
+		/// Type of MRP Exception
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Promise Date</para>
+		/// <para>SQL Type: varchar(2)</para>
 		/// </summary>
-		public DateTimeValue? PromiseDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Qty</para>
-		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// </summary>
-		public DecimalValue? Quantity { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>Display Name: Record ID</para>
-		/// Key Field
-		/// </summary>
-		public IntValue? RecordID { get; set; }
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// Reference type
@@ -83,16 +66,28 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? RelatedDocument { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
+		/// </summary>
+		public DecimalValue? Quantity { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
 		/// <para>Display Name: Required Date</para>
 		/// </summary>
 		public DateTimeValue? RequiredDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
+		/// <para>Display Name: Promise Date</para>
+		/// </summary>
+		public DateTimeValue? PromiseDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
 		/// </summary>
-		public StringValue? Subitem { get; set; }
+		public StringValue? Warehouse { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
@@ -109,17 +104,30 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? SupplyWarehouse { get; set; }
 
 		/// <summary>
-		/// Type of MRP Exception
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
-		/// <para>SQL Type: varchar(2)</para>
+		/// <para>Display Name: Product Manager ID</para>
 		/// </summary>
-		public StringValue? Type { get; set; }
+		public StringValue? ProductManagerID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC Field Name: ItemClassID</para>
+		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
+		/// <para>Display Name: Item Class</para>
+		/// </summary>
+		public StringValue? ItemClass { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPExceptions</para>
 		/// </summary>
-		public StringValue? Warehouse { get; set; }
+		public StringValue? Branch { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MRPException)} - \"{RecordID}\"";
+		}
 
 		public static class Expand
 		{

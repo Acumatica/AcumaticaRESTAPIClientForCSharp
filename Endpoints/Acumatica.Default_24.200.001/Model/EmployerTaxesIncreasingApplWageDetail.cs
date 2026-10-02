@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class EmployerTaxesIncreasingApplWageDetail : Entity
 	{
 
+		#region Fields
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public StringValue? TaxCategory { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? TaxCode { get; set; }
 
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 	}
 }

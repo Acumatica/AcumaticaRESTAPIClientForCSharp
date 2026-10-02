@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SalesOrderCreditCardTransactionDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? AuthNbr { get; set; }
 
 		public StringValue? ExtProfileId { get; set; }
@@ -25,6 +26,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? TranType { get; set; }
 
 		public StringValue? CardType { get; set; }
+
+		#endregion
 
 	}
 }

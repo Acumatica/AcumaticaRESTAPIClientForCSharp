@@ -12,12 +12,15 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PaymentOrderDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: CuryAdjgAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Amount Paid in Payment Currency</para>
+		/// <para>DAC Field Name: AdjdOrderType</para>
+		/// <para>DAC: PX.Objects.SO.SOAdjust</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// Key Field
 		/// </summary>
-		public DecimalValue? AppliedToOrder { get; set; }
+		public StringValue? OrderType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AdjdOrderNbr</para>
@@ -29,13 +32,13 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: AdjdOrderType</para>
-		/// <para>DAC: PX.Objects.SO.SOAdjust</para>
-		/// <para>Display Name: Order Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// Key Field
+		/// <para>DAC Field Name: CuryAdjgAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Amount Paid in Payment Currency</para>
 		/// </summary>
-		public StringValue? OrderType { get; set; }
+		public DecimalValue? AppliedToOrder { get; set; }
+
+		#endregion
 
 	}
 }

@@ -12,18 +12,42 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PurchaseOrderDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: ExpenseAcctID</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? Account { get; set; }
+		public StringValue? OrderType { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? OrderNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Alternate ID</para>
-		/// <para>SQL Type: nvarchar(50)</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? AlternateID { get; set; }
+		public IntValue? LineNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// </summary>
+		public StringValue? Project { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.PO.POOrder</para>
+		/// <para>Display Name: Warehouse</para>
+		/// </summary>
+		public StringValue? WarehouseID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PO.POOrder</para>
@@ -31,50 +55,24 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public StringValue? BranchID { get; set; }
 
-		public BooleanValue? CalculateDiscountsOnImport { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// </summary>
-		public BooleanValue? Cancelled { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// </summary>
-		public BooleanValue? Completed { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: RcptQtyThreshold</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Complete On (%)</para>
-		/// </summary>
-		public DecimalValue? CompleteOn { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CostCodeID</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Cost Code</para>
-		/// </summary>
-		public StringValue? CostCode { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ExpenseAcctID_Account_description</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryLineAmt</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Ext. Cost</para>
-		/// </summary>
-		public DecimalValue? ExtendedCost { get; set; }
-
 		/// <summary>
 		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// </summary>
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Line Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? LineType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TranDesc</para>
@@ -86,39 +84,9 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
+		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		public IntValue? LineNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Line Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		public StringValue? LineType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: RcptQtyMax</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Max. Receipt (%)</para>
-		/// </summary>
-		public DecimalValue? MaxReceiptPercent { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: RcptQtyMin</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Min. Receipt (%)</para>
-		/// </summary>
-		public DecimalValue? MinReceiptPercent { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>Display Name: Order Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? OrderNbr { get; set; }
+		public StringValue? UOM { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PO.POLine</para>
@@ -133,54 +101,53 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? OrderedQty { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>Display Name: Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? OrderType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PONbr</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Blanket PO Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		public StringValue? OrigPONbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: POType</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Blanket PO Type</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		public StringValue? OrigPOType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ProjectID</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// </summary>
-		public StringValue? Project { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TaskID</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Project Task</para>
-		/// </summary>
-		public StringValue? ProjectTask { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PromisedDate</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// </summary>
-		public DateTimeValue? Promised { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: ReceivedQty</para>
 		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// <para>Display Name: Qty. On Receipts</para>
 		/// </summary>
 		public DecimalValue? QtyOnReceipts { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryUnitCost</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Unit Cost</para>
+		/// </summary>
+		public DecimalValue? UnitCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryLineAmt</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Ext. Cost</para>
+		/// </summary>
+		public DecimalValue? ExtendedCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Alternate ID</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
+		public StringValue? AlternateID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: RcptQtyMin</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Min. Receipt (%)</para>
+		/// </summary>
+		public DecimalValue? MinReceiptPercent { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: RcptQtyMax</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Max. Receipt (%)</para>
+		/// </summary>
+		public DecimalValue? MaxReceiptPercent { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: RcptQtyThreshold</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Complete On (%)</para>
+		/// </summary>
+		public DecimalValue? CompleteOn { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: RcptQtyAction</para>
@@ -189,27 +156,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		public StringValue? ReceiptAction { get; set; }
-
-		public DecimalValue? ReceivedAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: RequestedDate</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// </summary>
-		public DateTimeValue? Requested { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ExpenseSubID</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Sub.</para>
-		/// </summary>
-		public StringValue? Subaccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// </summary>
-		public StringValue? Subitem { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: TaxCategoryID</para>
@@ -220,24 +166,81 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? TaxCategory { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CuryUnitCost</para>
+		/// <para>DAC Field Name: ExpenseAcctID</para>
 		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>Display Name: Unit Cost</para>
 		/// </summary>
-		public DecimalValue? UnitCost { get; set; }
+		public StringValue? Account { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ExpenseAcctID_Account_description</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ExpenseSubID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Sub.</para>
+		/// </summary>
+		public StringValue? Subaccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Project Task</para>
+		/// </summary>
+		public StringValue? ProjectTask { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Cost Code</para>
+		/// </summary>
+		public StringValue? CostCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: RequestedDate</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// </summary>
+		public DateTimeValue? Requested { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PromisedDate</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// </summary>
+		public DateTimeValue? Promised { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PO.POLine</para>
-		/// <para>SQL Type: nvarchar(6)</para>
 		/// </summary>
-		public StringValue? UOM { get; set; }
+		public BooleanValue? Completed { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
-		/// <para>DAC: PX.Objects.PO.POOrder</para>
-		/// <para>Display Name: Warehouse</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
 		/// </summary>
-		public StringValue? WarehouseID { get; set; }
+		public BooleanValue? Cancelled { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: POType</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Blanket PO Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? OrigPOType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PONbr</para>
+		/// <para>DAC: PX.Objects.PO.POLine</para>
+		/// <para>Display Name: Blanket PO Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		public StringValue? OrigPONbr { get; set; }
+
+		public BooleanValue? CalculateDiscountsOnImport { get; set; }
+
+		public DecimalValue? ReceivedAmount { get; set; }
+
+		#endregion
 
 	}
 }

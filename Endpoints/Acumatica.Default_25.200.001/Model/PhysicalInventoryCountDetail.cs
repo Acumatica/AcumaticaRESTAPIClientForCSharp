@@ -12,23 +12,15 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PhysicalInventoryCountDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// <para>Display Name: Book Quantity</para>
+		/// <para>DAC Field Name: PIID</para>
+		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
 		/// </summary>
-		public DecimalValue? BookQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
-		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
+		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
@@ -45,10 +37,34 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.PICountFilter</para>
 		/// <para>Display Name: Lot/Serial Nbr.</para>
 		/// <para>SQL Type: nvarchar(100)</para>
 		/// </summary>
 		public StringValue? LotSerialNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.IN.INBarCodeItem</para>
+		/// </summary>
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InventoryID_InventoryItem_descr</para>
+		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
+		/// <para>Display Name: Book Quantity</para>
+		/// </summary>
+		public DecimalValue? BookQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INPIDetail</para>
@@ -56,20 +72,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public DecimalValue? PhysicalQty { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: PIID</para>
-		/// <para>DAC: PX.Objects.IN.INPIHeader</para>
-		/// <para>Display Name: Reference Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? ReferenceNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.IN.INBarCodeItem</para>
-		/// </summary>
-		public StringValue? Subitem { get; set; }
+		#endregion
 
 	}
 }

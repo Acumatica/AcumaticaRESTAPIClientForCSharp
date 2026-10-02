@@ -12,32 +12,12 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CheckHistoryDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: CuryAmt</para>
-		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// <para>Display Name: Amount Paid</para>
+		/// <para>DAC Field Name: APInvoice__InvoiceNbr</para>
+		/// <para>DAC: PX.Objects.AP.APAdjust</para>
 		/// </summary>
-		public DecimalValue? AmountPaid { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryBalanceAmt</para>
-		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// </summary>
-		public DecimalValue? Balance { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryDiscBalanceAmt</para>
-		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// <para>Display Name: Cash Discount Balance</para>
-		/// </summary>
-		public DecimalValue? CashDiscountBalance { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryPPDAmt</para>
-		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
-		/// <para>Display Name: Cash Discount Taken</para>
-		/// </summary>
-		public DecimalValue? CashDiscountTaken { get; set; }
+		public StringValue? VendorRef { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SourceDocType</para>
@@ -56,10 +36,33 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: APInvoice__InvoiceNbr</para>
-		/// <para>DAC: PX.Objects.AP.APAdjust</para>
+		/// <para>DAC Field Name: CuryAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Amount Paid</para>
 		/// </summary>
-		public StringValue? VendorRef { get; set; }
+		public DecimalValue? AmountPaid { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryPPDAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Cash Discount Taken</para>
+		/// </summary>
+		public DecimalValue? CashDiscountTaken { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryBalanceAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// </summary>
+		public DecimalValue? Balance { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryDiscBalanceAmt</para>
+		/// <para>DAC: PX.Objects.AP.APTranPostBal</para>
+		/// <para>Display Name: Cash Discount Balance</para>
+		/// </summary>
+		public DecimalValue? CashDiscountBalance { get; set; }
+
+		#endregion
 
 	}
 }

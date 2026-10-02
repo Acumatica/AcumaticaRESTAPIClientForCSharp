@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class WCCCodeMaxInsurableWage : Entity
 	{
 
+		#region Fields
 		public StringValue? DeductionandBenefitCode { get; set; }
 
 		public DateTimeValue? EffectiveDate { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? Wage { get; set; }
 
 		public StringValue? WCCode { get; set; }
+
+		#endregion
 
 	}
 }

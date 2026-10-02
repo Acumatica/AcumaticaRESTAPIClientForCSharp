@@ -12,6 +12,23 @@ namespace Acumatica.Default_25_200_001.Model
 	public class DeductionOrBenefitCodeGLAccounts : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// The unique identifier of the liability account used by default to record the deduction from employee paycheck.The field is included in DeductionLiabilityAccount.
+		/// <para>DAC Field Name: DedLiabilityAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
+		/// <para>Display Name: Deduction Liability Account</para>
+		/// </summary>
+		public StringValue? DeductionLiabilityAccount { get; set; }
+
+		/// <summary>
+		/// The unique identifier of the corresponding subaccount used with the deduction liability account.The field is included in DeductionLiabilitySubaccount.
+		/// <para>DAC Field Name: DedLiabilitySubID</para>
+		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
+		/// <para>Display Name: Deduction Liability Sub.</para>
+		/// </summary>
+		public StringValue? DeductionLiabilitySub { get; set; }
+
 		/// <summary>
 		/// The unique identifier of the expense account to be used by default to record the benefit to employee paycheck.The field is included in BenefitExpenseAccount.
 		/// <para>DAC Field Name: BenefitExpenseAcctID</para>
@@ -44,21 +61,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? BenefitLiabilitySub { get; set; }
 
-		/// <summary>
-		/// The unique identifier of the liability account used by default to record the deduction from employee paycheck.The field is included in DeductionLiabilityAccount.
-		/// <para>DAC Field Name: DedLiabilityAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
-		/// <para>Display Name: Deduction Liability Account</para>
-		/// </summary>
-		public StringValue? DeductionLiabilityAccount { get; set; }
-
-		/// <summary>
-		/// The unique identifier of the corresponding subaccount used with the deduction liability account.The field is included in DeductionLiabilitySubaccount.
-		/// <para>DAC Field Name: DedLiabilitySubID</para>
-		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
-		/// <para>Display Name: Deduction Liability Sub.</para>
-		/// </summary>
-		public StringValue? DeductionLiabilitySub { get; set; }
+		#endregion
 
 	}
 }

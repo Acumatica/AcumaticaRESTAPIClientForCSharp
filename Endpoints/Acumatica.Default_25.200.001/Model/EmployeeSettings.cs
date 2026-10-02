@@ -12,55 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmployeeSettings : Entity
 	{
 
-		/// <summary>
-		/// Represents the branch of your organization where the employee works.
-		/// <para>DAC Field Name: ParentBAccountID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Branch</para>
-		/// </summary>
-		public StringValue? BranchID { get; set; }
-
-		/// <summary>
-		/// The identifier of the calendar that records the working hours of the employee and the time zone of the employee.
-		/// <para>DAC Field Name: CalendarID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? Calendar { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Currency</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		public StringValue? CurrencyID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryRateTypeID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Curr. Rate Type</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		public StringValue? CurrencyRateTypeID { get; set; }
-
-		/// <summary>
-		/// Identifier of the employee department that the employee belongs to.
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Department</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? DepartmentID { get; set; }
-
-		/// <summary>
-		/// The identifier of the employee class that the employee belongs to.
-		/// <para>DAC Field Name: VendorClassID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Employee Class</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? EmployeeClass { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The external reference number of the employee.
 		/// <para>DAC Field Name: AcctReferenceNbr</para>
@@ -74,11 +26,84 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? EmployeeRefNbr { get; set; }
 
 		/// <summary>
+		/// The identifier of the employee class that the employee belongs to.
+		/// <para>DAC Field Name: VendorClassID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Employee Class</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? EmployeeClass { get; set; }
+
+		/// <summary>
+		/// Represents the branch of your organization where the employee works.
+		/// <para>DAC Field Name: ParentBAccountID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Branch</para>
+		/// </summary>
+		public StringValue? BranchID { get; set; }
+
+		/// <summary>
+		/// Identifier of the employee department that the employee belongs to.
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Department</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? DepartmentID { get; set; }
+
+		/// <summary>
+		/// The identifier of the calendar that records the working hours of the employee and the time zone of the employee.
+		/// <para>DAC Field Name: CalendarID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? Calendar { get; set; }
+
+		/// <summary>
+		/// The extent of validation of regular work hours for this employee.
+		/// <para>DAC Field Name: HoursValidation</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Regular Hours Validation</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? RegularHoursValidation { get; set; }
+
+		/// <summary>
+		/// The identifier of the employee to whom the current employee sends reports.
+		/// <para>DAC Field Name: SupervisorID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Reports to</para>
+		/// </summary>
+		public StringValue? ReportsTo { get; set; }
+
+		/// <summary>
+		/// The identifier of the sales person to whom the current employee matches.
+		/// <para>DAC Field Name: SalesPersonID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// </summary>
+		public StringValue? Salesperson { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? CurrencyID { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: AllowOverrideCury</para>
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
 		/// <para>Display Name: Enable Currency Override</para>
 		/// </summary>
 		public BooleanValue? EnableCurrencyOverride { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryRateTypeID</para>
+		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
+		/// <para>Display Name: Curr. Rate Type</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? CurrencyRateTypeID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AllowOverrideRate</para>
@@ -99,21 +124,13 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? LaborItem { get; set; }
 
 		/// <summary>
-		/// The extent of validation of regular work hours for this employee.
-		/// <para>DAC Field Name: HoursValidation</para>
+		/// The local identifier of the union associated with the employee.
+		/// <para>DAC Field Name: UnionID</para>
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Regular Hours Validation</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Union Local ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		public StringValue? RegularHoursValidation { get; set; }
-
-		/// <summary>
-		/// The identifier of the employee to whom the current employee sends reports.
-		/// <para>DAC Field Name: SupervisorID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Reports to</para>
-		/// </summary>
-		public StringValue? ReportsTo { get; set; }
+		public StringValue? UnionLocalID { get; set; }
 
 		/// <summary>
 		/// Specifies whether the emails addressed to this employee should be routedfrom an email account to the employee's email address if the processing of incoming mail is enabledfor the email account and the Route Employee Emails check box is selectedon the Email Accounts (SM204002) form. For details, see Incoming Mail Processing.
@@ -123,13 +140,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? RouteEmails { get; set; }
 
 		/// <summary>
-		/// The identifier of the sales person to whom the current employee matches.
-		/// <para>DAC Field Name: SalesPersonID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// </summary>
-		public StringValue? Salesperson { get; set; }
-
-		/// <summary>
 		/// Specifies whether time cards are required for this employee.
 		/// <para>DAC Field Name: TimeCardRequired</para>
 		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
@@ -137,14 +147,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public BooleanValue? TimeCardIsRequired { get; set; }
 
-		/// <summary>
-		/// The local identifier of the union associated with the employee.
-		/// <para>DAC Field Name: UnionID</para>
-		/// <para>DAC: PX.Objects.EP.EPEmployee</para>
-		/// <para>Display Name: Union Local ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		public StringValue? UnionLocalID { get; set; }
+		#endregion
 
 	}
 }

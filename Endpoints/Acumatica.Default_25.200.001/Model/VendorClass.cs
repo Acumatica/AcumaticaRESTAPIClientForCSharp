@@ -16,8 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class VendorClass : Entity, ITopLevelEntity
 	{
 
-		public List<BusinessAccountClassAttributeDetail>? Attributes { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: VendorClassID</para>
 		/// <para>DAC: PX.Objects.AP.VendorClass</para>
@@ -27,8 +26,6 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? ClassID { get; set; }
 
-		public DateTimeValue? CreatedDateTime { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.AP.VendorClass</para>
@@ -36,7 +33,21 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? Description { get; set; }
 
+		public DateTimeValue? CreatedDateTime { get; set; }
+
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<BusinessAccountClassAttributeDetail>? Attributes { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(VendorClass)} - \"{ClassID}\"";
+		}
 
 		public static class Expand
 		{

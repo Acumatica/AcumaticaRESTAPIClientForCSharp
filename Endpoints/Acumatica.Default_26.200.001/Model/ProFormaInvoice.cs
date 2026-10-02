@@ -1,0 +1,200 @@
+using System;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.Default_26_200_001.Model
+{
+	/// <summary>
+	/// Corresponds to the screen <c>PM307000</c> in the Acumatica ERP
+	/// <para>Key Fields: RefNbr</para>
+	/// </summary>
+	public class ProFormaInvoice : Entity, ITopLevelEntity
+	{
+
+		#region Fields
+		/// <summary>
+		/// The reference number of the pro forma invoice.
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? RefNbr { get; set; }
+
+		/// <summary>
+		/// The read-only status of the document.
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringSingleSelectValue? Status { get; set; }
+
+		/// <summary>
+		/// The date on which the pro forma invoice was created.
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Invoice Date</para>
+		/// </summary>
+		public DateTimeValue? InvoiceDate { get; set; }
+
+		/// <summary>
+		/// The financial period that corresponds to the invoice date.
+		/// <para>DAC Field Name: FinPeriodID</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Post Period</para>
+		/// <para>SQL Type: char(6)</para>
+		/// </summary>
+		public StringValue? PostPeriod { get; set; }
+
+		/// <summary>
+		/// The description of the pro forma invoice, which is provided by the billing ruleand can be manually modified.
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// The identifier of the project associated with the pro forma invoice.
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Project</para>
+		/// </summary>
+		public StringValue? ProjectID { get; set; }
+
+		/// <summary>
+		/// The identifier of the Customer associated with the pro forma invoice.
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Customer</para>
+		/// </summary>
+		public StringValue? CustomerID { get; set; }
+
+		/// <summary>
+		/// The identifier of the Location associated with the pro forma invoice.
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// </summary>
+		public StringValue? Location { get; set; }
+
+		/// <summary>
+		/// The identifier of the pro forma invoice currency.
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? CurrencyID { get; set; }
+
+		/// <summary>
+		/// The total amount to invoice of the progress billing lines of the document.
+		/// <para>DAC Field Name: CuryProgressiveTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Progress Billing Total</para>
+		/// </summary>
+		public DecimalValue? ProgressBillingTotal { get; set; }
+
+		/// <summary>
+		/// The total amount to invoice of the time and material lines of the document.
+		/// <para>DAC Field Name: CuryTransactionalTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Time and Material Total</para>
+		/// </summary>
+		public DecimalValue? TimeAndMaterialTotal { get; set; }
+
+		/// <summary>
+		/// The invoice total.
+		/// <para>DAC Field Name: CuryDocTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Invoice Total</para>
+		/// </summary>
+		public DecimalValue? InvoiceTotal { get; set; }
+
+		/// <summary>
+		/// The total retained amount.
+		/// <para>DAC Field Name: CuryRetainageTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Retainage Total</para>
+		/// </summary>
+		public DecimalValue? RetainageTotal { get; set; }
+
+		/// <summary>
+		/// The amount due.
+		/// <para>DAC Field Name: CuryAmountDue</para>
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// <para>Display Name: Amount Due</para>
+		/// </summary>
+		public DecimalValue? AmountDue { get; set; }
+
+		/// <summary>
+		/// Specifies (if set to true) that the document is on hold.
+		/// <para>DAC: PX.Objects.PM.PMProforma</para>
+		/// </summary>
+		public BooleanValue? Hold { get; set; }
+
+		/// <summary>
+		/// The total tax amount of the document.
+		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// <para>DAC: PX.Objects.PM.PMProformaRevision</para>
+		/// <para>Display Name: Tax Total</para>
+		/// </summary>
+		public DecimalValue? TaxTotal { get; set; }
+
+		public DateTimeValue? EffectiveDate { get; set; }
+
+		public StringValue? ExternalRefNbr { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public BillToSettings? BillingSettings { get; set; }
+
+		public ProFormaFinancialDetails? FinancialDetails { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<Approval>? ApprovalDetails { get; set; }
+
+		public List<ProgressBilling>? ProgressBilling { get; set; }
+
+		public List<ProFormaTaxDetail>? TaxDetails { get; set; }
+
+		public List<TimeAndMaterial>? TimeAndMaterial { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProFormaInvoice)} - \"{RefNbr}\"";
+		}
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+			public const string Translations = "Translations";
+			public const string ApprovalDetails = "ApprovalDetails";
+			public const string BillingSettings = "BillingSettings";
+			public const string FinancialDetails = "FinancialDetails";
+			public const string ProgressBilling = "ProgressBilling";
+			public const string TaxDetails = "TaxDetails";
+			public const string TimeAndMaterial = "TimeAndMaterial";
+
+			//Intentionally excluded
+			//public const string All = "Files,Translations,ApprovalDetails,BillingSettings,FinancialDetails,ProgressBilling,TaxDetails,TimeAndMaterial";
+		}
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/26.200.001";
+		}
+	}
+}

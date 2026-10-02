@@ -16,14 +16,13 @@ namespace Acumatica.Default_24_200_001.Model
 	public class CompanyFinancialPeriod : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: OrganizationID</para>
 		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
 		/// Key Field
 		/// </summary>
 		public StringValue? Company { get; set; }
-
-		public List<FinancialPeriodDetail>? Details { get; set; }
 
 		/// <summary>
 		/// Key field.The financial year.
@@ -36,6 +35,13 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? FinancialYear { get; set; }
 
 		/// <summary>
+		/// The start date of the year.
+		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
 		/// The number of periods in the year.
 		/// <para>DAC Field Name: FinPeriods</para>
 		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
@@ -43,12 +49,17 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public ShortValue? NbrOfPeriods { get; set; }
 
-		/// <summary>
-		/// The start date of the year.
-		/// <para>DAC: PX.Objects.GL.FinPeriods.OrganizationFinYear</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
+		#endregion
+
+		#region Details
+		public List<FinancialPeriodDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(CompanyFinancialPeriod)} - \"{Company}\" - \"{FinancialYear}\"";
+		}
 
 		public static class Expand
 		{

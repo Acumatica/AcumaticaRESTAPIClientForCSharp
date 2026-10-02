@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EngineeringChangeRequestTools : Entity
 	{
 
+		#region Fields
 		public StringValue? ChangeStatus { get; set; }
 
 		public StringValue? Description { get; set; }
@@ -29,6 +30,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? ToolID { get; set; }
 
 		public DecimalValue? UnitCost { get; set; }
+
+		#endregion
 
 	}
 }

@@ -12,6 +12,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class Customers : Entity
 	{
 
+		#region Fields
 		public StringValue? InstalledAcumaticaVersion { get; set; }
 
 		public StringValue? PartnerAccountName { get; set; }
@@ -25,6 +26,8 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		public StringValue? CustomerName { get; set; }
 
 		public StringValue? InstalledISVVersion { get; set; }
+
+		#endregion
 
 	}
 }

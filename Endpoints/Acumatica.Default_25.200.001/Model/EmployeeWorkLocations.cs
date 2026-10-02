@@ -12,13 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmployeeWorkLocations : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: UsePayrollProjectWorkLocationUseDflt</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Use Class Default Value</para>
-		/// </summary>
-		public BooleanValue? UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: UsePayrollProjectWorkLocation</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
@@ -27,13 +21,25 @@ namespace Acumatica.Default_25_200_001.Model
 		public BooleanValue? UsePayrollWorkLocationfromProject { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: UsePayrollProjectWorkLocationUseDflt</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Class Default Value</para>
+		/// </summary>
+		public BooleanValue? UseClassDefaultValueUsePayrollProjectWorkLocationUseDflt { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: LocationUseDflt</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Use Class Default Work Locations</para>
 		/// </summary>
 		public BooleanValue? WorkLocationClassDefaults { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<EmployeeWorkLocationDetail>? WorkLocationDetails { get; set; }
+
+		#endregion
 
 	}
 }

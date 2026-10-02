@@ -1,9 +1,7 @@
 using System;
-using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DataContract]
     public partial class StringSingleSelectValue : RestValueBase<StringSelectInnerValue>
     {
         public static implicit operator string?(StringSingleSelectValue? value) => value?.Value?.ID;
@@ -29,7 +27,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         }
     }
 
-    [DataContract]
     public class StringSelectInnerValue : IEquatable<StringSelectInnerValue>
     {
         public StringSelectInnerValue(string id)
@@ -37,10 +34,8 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             ID = id;
         }
 
-        [DataMember(Name = "ID")]
         public string ID { get; set; }
 
-        [DataMember(Name = "Description", EmitDefaultValue = false)]
         public string? Description { get; set; }
 
         public override string ToString() => ID;

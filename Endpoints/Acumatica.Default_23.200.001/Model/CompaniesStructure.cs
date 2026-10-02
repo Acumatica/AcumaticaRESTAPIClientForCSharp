@@ -15,7 +15,10 @@ namespace Acumatica.Default_23_200_001.Model
 	public class CompaniesStructure : Entity, ITopLevelEntity
 	{
 
+		#region Details
 		public List<CompaniesStructureDetail>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

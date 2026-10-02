@@ -12,6 +12,16 @@ namespace Acumatica.Default_24_200_001.Model
 	public class AppResourceEquipment : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: SrvOrdType</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Service Order Type</para>
+		/// <para>SQL Type: char(4)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ServiceOrderType { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
 		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
@@ -20,6 +30,13 @@ namespace Acumatica.Default_24_200_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? AppointmentNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SMEquipmentID</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Target Equipment ID</para>
+		/// </summary>
+		public StringValue? EquipmentID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
@@ -34,21 +51,7 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public StringValue? Description { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: SMEquipmentID</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Target Equipment ID</para>
-		/// </summary>
-		public StringValue? EquipmentID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SrvOrdType</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
-		/// <para>Display Name: Service Order Type</para>
-		/// <para>SQL Type: char(4)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? ServiceOrderType { get; set; }
+		#endregion
 
 	}
 }

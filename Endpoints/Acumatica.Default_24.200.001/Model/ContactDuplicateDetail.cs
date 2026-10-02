@@ -12,6 +12,13 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ContactDuplicateDetail : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: DuplicateContact__DisplayName</para>
+		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord</para>
+		/// </summary>
+		public StringValue? DisplayName { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: DuplicateContact__BAccountID</para>
 		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord</para>
@@ -19,30 +26,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? BusinessAccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: BAccountR__AcctName</para>
-		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking</para>
-		/// </summary>
-		public StringValue? BusinessAccountName { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: BAccountR__Type</para>
 		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord</para>
 		/// </summary>
 		public StringValue? BusinessAccountType { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DuplicateContact__DisplayName</para>
-		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecord</para>
-		/// </summary>
-		public StringValue? DisplayName { get; set; }
-
-		public StringValue? Duplicate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DuplicateContact__Email</para>
-		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking</para>
-		/// </summary>
-		public StringValue? Email { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: DuplicateContact__LastModifiedDateTime</para>
@@ -55,6 +42,22 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking</para>
 		/// </summary>
 		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DuplicateContact__Email</para>
+		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking</para>
+		/// </summary>
+		public StringValue? Email { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BAccountR__AcctName</para>
+		/// <para>DAC: PX.Objects.CR.Extensions.CRDuplicateEntities.CRDuplicateRecordForLinking</para>
+		/// </summary>
+		public StringValue? BusinessAccountName { get; set; }
+
+		public StringValue? Duplicate { get; set; }
+
+		#endregion
 
 	}
 }

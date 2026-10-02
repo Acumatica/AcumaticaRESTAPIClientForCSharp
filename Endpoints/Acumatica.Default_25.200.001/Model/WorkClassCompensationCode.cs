@@ -16,33 +16,9 @@ namespace Acumatica.Default_25_200_001.Model
 	public class WorkClassCompensationCode : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PM.PMWorkCodeCostCodeRange</para>
-		/// <para>Display Name: Cost Code From</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// </summary>
-		public StringValue? CostCodeFrom { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PM.PMWorkCodeCostCodeRange</para>
-		/// <para>Display Name: Cost Code To</para>
-		/// <para>SQL Type: nvarchar(30)</para>
-		/// </summary>
-		public StringValue? CostCodeTo { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
+		/// The unique identifier of the workers' compensation code.
 		/// <para>DAC Field Name: WorkCodeID</para>
 		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
 		/// <para>Display Name: WCC Code</para>
@@ -50,6 +26,43 @@ namespace Acumatica.Default_25_200_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? WCCCode { get; set; }
+
+		/// <summary>
+		/// A Boolean value that indicates (if set to true) that the workers' compensation code is active and can be used.
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// The description of the workers' compensation code.
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// The identifier of the cost code that defines the start of the cost code range.The field is included in CostCodeFrom.
+		/// <para>DAC: PX.Objects.PM.PMWorkCodeCostCodeRange</para>
+		/// <para>Display Name: Cost Code From</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
+		public StringValue? CostCodeFrom { get; set; }
+
+		/// <summary>
+		/// The identifier of the cost code that defines the end of the cost code range.The field is included in CostCodeTo.
+		/// <para>DAC: PX.Objects.PM.PMWorkCodeCostCodeRange</para>
+		/// <para>Display Name: Cost Code To</para>
+		/// <para>SQL Type: nvarchar(30)</para>
+		/// </summary>
+		public StringValue? CostCodeTo { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(WorkClassCompensationCode)} - \"{WCCCode}\"";
+		}
 
 		public static class Expand
 		{

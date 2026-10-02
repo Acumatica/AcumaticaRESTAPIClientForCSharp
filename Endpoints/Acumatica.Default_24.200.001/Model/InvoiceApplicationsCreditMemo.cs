@@ -12,8 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class InvoiceApplicationsCreditMemo : Entity
 	{
 
-		public DecimalValue? AmountPaid { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The open balance of the document.Given in the currency of the document.
 		/// <para>DAC Field Name: CuryDocBal</para>
@@ -21,13 +20,15 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public DecimalValue? Balance { get; set; }
 
-		public StringValue? Customer { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: ARInvoice__InvoiceNbr</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
 		/// </summary>
 		public StringValue? CustomerOrder { get; set; }
+
+		public DecimalValue? AmountPaid { get; set; }
+
+		public StringValue? Customer { get; set; }
 
 		public StringValue? Description { get; set; }
 
@@ -38,6 +39,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? ReferenceNbr { get; set; }
 
 		public StringValue? Status { get; set; }
+
+		#endregion
 
 	}
 }

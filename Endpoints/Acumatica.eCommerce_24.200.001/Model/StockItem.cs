@@ -9,8 +9,21 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 namespace Acumatica.eCommerce_24_200_001.Model
 {
+	/// <summary>
+	/// Corresponds to the screen <c>IN202500</c> in the Acumatica ERP
+	/// </summary>
 	public class StockItem : Acumatica.Default_24_200_001.Model.StockItem, ITopLevelEntity
 	{
+
+		#region Fields
+		/// <summary>
+		/// APS Schedule option - Check for Material Availability.
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Check for Material Availability</para>
+		/// </summary>
+		public StringValue? AMCheckSchdMatlAvailability { get; set; }
+
+		#endregion
 
 		public override string GetEndpointPath()
 		{

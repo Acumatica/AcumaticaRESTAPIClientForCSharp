@@ -12,44 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PaymentDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: CuryAdjgAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Amount Paid in Payment Currency</para>
-		/// </summary>
-		public DecimalValue? AmountPaid { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryAdjgWOAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Write-Off Amount in Payment Currency</para>
-		/// </summary>
-		public DecimalValue? BalanceWriteOff { get; set; }
-
-		/// <summary>
-		/// The cash discount amount displayed for the document.Given in the  currency of the adjusting document.
-		/// <para>DAC Field Name: CuryAdjgPPDAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Cash Discount Taken in Payment Currency</para>
-		/// </summary>
-		public DecimalValue? CashDiscountTaken { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ARInvoice__InvoiceNbr</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// </summary>
-		public StringValue? CustomerOrder { get; set; }
-
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AdjdLineNbr</para>
-		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
-		/// <para>Display Name: Line Nbr.</para>
-		/// Key Field
-		/// </summary>
-		public IntValue? DocLineNbr { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: AdjdDocType</para>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
@@ -69,11 +32,51 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? ReferenceNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: AdjdLineNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Line Nbr.</para>
+		/// Key Field
+		/// </summary>
+		public IntValue? DocLineNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryAdjgAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Amount Paid in Payment Currency</para>
+		/// </summary>
+		public DecimalValue? AmountPaid { get; set; }
+
+		/// <summary>
+		/// The cash discount amount displayed for the document.Given in the  currency of the adjusting document.
+		/// <para>DAC Field Name: CuryAdjgPPDAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Cash Discount Taken in Payment Currency</para>
+		/// </summary>
+		public DecimalValue? CashDiscountTaken { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryAdjgWOAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// <para>Display Name: Write-Off Amount in Payment Currency</para>
+		/// </summary>
+		public DecimalValue? BalanceWriteOff { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
 		/// <para>Display Name: Write-Off Reason Code</para>
 		/// <para>SQL Type: nvarchar(20)</para>
 		/// </summary>
 		public StringValue? WriteOffReasonCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ARInvoice__InvoiceNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARAdjust</para>
+		/// </summary>
+		public StringValue? CustomerOrder { get; set; }
+
+		public StringValue? Description { get; set; }
+
+		#endregion
 
 	}
 }

@@ -16,6 +16,7 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 	public class ConsolAccount : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.GL.GLConsolAccount</para>
 		/// <para>Display Name: Account</para>
@@ -29,6 +30,13 @@ namespace Acumatica.GLConsolidation_22_200_001.Model
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		public StringValue? Description { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ConsolAccount)} - \"{AccountCD}\"";
+		}
 
 		public static class Expand
 		{

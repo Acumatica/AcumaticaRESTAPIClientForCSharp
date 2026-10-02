@@ -12,11 +12,14 @@ namespace Acumatica.Default_23_200_001.Model
 	public class PurchaseSettings : Entity
 	{
 
+		#region Fields
 		public StringValue? POSiteID { get; set; }
 
 		public StringValue? POSource { get; set; }
 
 		public StringValue? VendorID { get; set; }
+
+		#endregion
 
 	}
 }

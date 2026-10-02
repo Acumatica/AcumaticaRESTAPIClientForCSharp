@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ConfigurationEntryFeatures : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigurationResults</para>
 		/// <para>Display Name: Config Results ID</para>
@@ -34,15 +35,9 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Lot Qty.</para>
+		/// <para>Display Name: Min Selection</para>
 		/// </summary>
-		public DecimalValue? LotQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Max. Qty.</para>
-		/// </summary>
-		public DecimalValue? MaxQty { get; set; }
+		public IntValue? MinSelection { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
@@ -58,17 +53,28 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
-		/// <para>Display Name: Min Selection</para>
+		/// <para>Display Name: Max. Qty.</para>
 		/// </summary>
-		public IntValue? MinSelection { get; set; }
+		public DecimalValue? MaxQty { get; set; }
 
-		public List<ConfigurationEntryOptions>? Options { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
+		/// <para>Display Name: Lot Qty.</para>
+		/// </summary>
+		public DecimalValue? LotQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMConfigResultsFeature</para>
 		/// <para>Display Name: Total Qty.</para>
 		/// </summary>
 		public DecimalValue? TotalQty { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ConfigurationEntryOptions>? Options { get; set; }
+
+		#endregion
 
 	}
 }

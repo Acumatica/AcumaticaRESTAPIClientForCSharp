@@ -16,14 +16,25 @@ namespace Acumatica.Default_23_200_001.Model
 	public class BigCommerceStores : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The access token of the BigCommerce store.
-		/// <para>DAC Field Name: StoreXAuthToken</para>
-		/// <para>DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce</para>
-		/// <para>Display Name: Access Token</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// Represents a connector to which the store belongs.The property is a key field.
+		/// <para>DAC Field Name: ConnectorType</para>
+		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
+		/// <para>SQL Type: char(3)</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? AccessToken { get; set; }
+		public StringValue? Connector { get; set; }
+
+		/// <summary>
+		/// A user-friendly name of the store.
+		/// <para>DAC Field Name: BindingName</para>
+		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
+		/// <para>Display Name: Store Name</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? StoreName { get; set; }
 
 		/// <summary>
 		/// Determines whether the store is accessible through other Commerce forms.
@@ -31,6 +42,22 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
 		/// </summary>
 		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// Determines whether the store will be chosen as default through other Commerce screens.
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
+		/// </summary>
+		public BooleanValue? Default { get; set; }
+
+		/// <summary>
+		/// The admin URL of the BigCommerce store.
+		/// <para>DAC Field Name: StoreAdminUrl</para>
+		/// <para>DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce</para>
+		/// <para>Display Name: Store Admin URL</para>
+		/// <para>SQL Type: nvarchar(200)</para>
+		/// </summary>
+		public StringValue? StoreAdminPath { get; set; }
 
 		/// <summary>
 		/// The base URL of the BigCommerce store.
@@ -51,48 +78,13 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ClientID { get; set; }
 
 		/// <summary>
-		/// Represents a connector to which the store belongs.The property is a key field.
-		/// <para>DAC Field Name: ConnectorType</para>
-		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
-		/// <para>SQL Type: char(3)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? Connector { get; set; }
-
-		/// <summary>
-		/// Determines whether the store will be chosen as default through other Commerce screens.
-		/// <para>DAC Field Name: IsDefault</para>
-		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
-		/// </summary>
-		public BooleanValue? Default { get; set; }
-
-		/// <summary>
-		/// The admin URL of the BigCommerce store.
-		/// <para>DAC Field Name: StoreAdminUrl</para>
+		/// The access token of the BigCommerce store.
+		/// <para>DAC Field Name: StoreXAuthToken</para>
 		/// <para>DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce</para>
-		/// <para>Display Name: Store Admin URL</para>
-		/// <para>SQL Type: nvarchar(200)</para>
-		/// </summary>
-		public StringValue? StoreAdminPath { get; set; }
-
-		/// <summary>
-		/// A user-friendly name of the store.
-		/// <para>DAC Field Name: BindingName</para>
-		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
-		/// <para>Display Name: Store Name</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? StoreName { get; set; }
-
-		/// <summary>
-		/// The password for the DAV server of the BigCommerce store.
-		/// <para>DAC Field Name: StoreWDAVClientPass</para>
-		/// <para>DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce</para>
-		/// <para>Display Name: WebDAV Password</para>
+		/// <para>Display Name: Access Token</para>
 		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		public StringValue? WebDAVPassword { get; set; }
+		public StringValue? AccessToken { get; set; }
 
 		/// <summary>
 		/// The URL of the DAV server of the BigCommerce store.
@@ -111,6 +103,22 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(50)</para>
 		/// </summary>
 		public StringValue? WebDAVUsername { get; set; }
+
+		/// <summary>
+		/// The password for the DAV server of the BigCommerce store.
+		/// <para>DAC Field Name: StoreWDAVClientPass</para>
+		/// <para>DAC: PX.Commerce.BigCommerce.BCBindingBigCommerce</para>
+		/// <para>Display Name: WebDAV Password</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		public StringValue? WebDAVPassword { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(BigCommerceStores)} - \"{Connector}\" - \"{StoreName}\"";
+		}
 
 		public static class Expand
 		{

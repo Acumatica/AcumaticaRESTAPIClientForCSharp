@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class WCCCodeRateDetail : Entity
 	{
 
+		#region Fields
 		public GuidValue? Active { get; set; }
 
 		public DecimalValue? BenefitRate { get; set; }
@@ -28,7 +29,12 @@ namespace Acumatica.Default_23_200_001.Model
 
 		public StringValue? WCCCode { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<WCCCodeMaxInsurableWageDetail>? WCCCodeMaxInsurableWages { get; set; }
+
+		#endregion
 
 	}
 }

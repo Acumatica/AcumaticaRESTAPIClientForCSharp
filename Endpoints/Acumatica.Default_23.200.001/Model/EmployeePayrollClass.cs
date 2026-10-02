@@ -16,13 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeePayrollClass : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: EmployeeClassID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
@@ -32,11 +26,31 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? EmployeePayrollClassID { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.PR.PREmployeeClass</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
+		#endregion
+
+		#region LinkedEntities
 		public EmployeePayrollClassDefaults? PayrollDefaults { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<EmployeeClassPTOBankDefault>? PTODefaults { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(EmployeePayrollClass)} - \"{EmployeePayrollClassID}\"";
+		}
 
 		public static class Expand
 		{

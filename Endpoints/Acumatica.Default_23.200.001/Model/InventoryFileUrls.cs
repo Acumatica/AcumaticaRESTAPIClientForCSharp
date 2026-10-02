@@ -12,11 +12,14 @@ namespace Acumatica.Default_23_200_001.Model
 	public class InventoryFileUrls : Entity
 	{
 
+		#region Fields
 		public StringValue? FileType { get; set; }
 
 		public StringValue? FileURL { get; set; }
 
 		public GuidValue? NoteID { get; set; }
+
+		#endregion
 
 	}
 }

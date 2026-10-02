@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class OrderStepDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Description { get; set; }
 
 		public IntValue? LineID { get; set; }
@@ -35,6 +36,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? PhantomMatlOperNbr { get; set; }
 
 		public StringValue? PhantomMatlRevision { get; set; }
+
+		#endregion
 
 	}
 }

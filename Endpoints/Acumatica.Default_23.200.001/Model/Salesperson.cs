@@ -16,33 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class Salesperson : Entity, ITopLevelEntity
 	{
 
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		/// <summary>
-		/// The default commission percentage of the salesperson.
-		/// <para>DAC Field Name: CommnPct</para>
-		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
-		/// <para>Display Name: Default Commission %</para>
-		/// </summary>
-		public DecimalValue? DefaultCommission { get; set; }
-
-		/// <summary>
-		/// Indicates (if set to true) that the salesperson is active and can be used for recording sales in invoice lines or sales order lines.
-		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
-		/// <para>Display Name: Is Active</para>
-		/// </summary>
-		public BooleanValue? IsActive { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// The name of the salesperson.
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		public StringValue? Name { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The unique identifier of the salesperson. This field is the key field.
 		/// <para>DAC Field Name: SalesPersonCD</para>
@@ -54,12 +28,46 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? SalespersonID { get; set; }
 
 		/// <summary>
+		/// Indicates (if set to <c>true</c>) that the salesperson is active and can be used for recording sales in invoice lines or sales order lines.
+		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
+		/// <para>Display Name: Is Active</para>
+		/// </summary>
+		public BooleanValue? IsActive { get; set; }
+
+		/// <summary>
+		/// The name of the salesperson.
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		public StringValue? Name { get; set; }
+
+		/// <summary>
+		/// The default commission percentage of the salesperson.
+		/// <para>DAC Field Name: CommnPct</para>
+		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
+		/// <para>Display Name: Default Commission %</para>
+		/// </summary>
+		public DecimalValue? DefaultCommission { get; set; }
+
+		/// <summary>
 		/// The default sales subaccount associated with the salesperson.The value of this field can be used to construct the sales subaccount in the invoice line that references the salesperson according to the rules defined by SalesSubMask.
 		/// <para>DAC Field Name: SalesSubID</para>
 		/// <para>DAC: PX.Objects.AR.SalesPerson</para>
 		/// <para>Display Name: Sales Sub.</para>
 		/// </summary>
 		public StringValue? SalesSubaccount { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Salesperson)} - \"{SalespersonID}\"";
+		}
 
 		public static class Expand
 		{

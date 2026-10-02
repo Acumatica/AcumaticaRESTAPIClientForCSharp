@@ -16,12 +16,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MRPBuckets : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: ActiveFlg</para>
-		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
 		/// <para>Display Name: Bucket ID</para>
@@ -31,13 +26,29 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? BucketID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ActiveFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
 		/// <para>DAC: PX.Objects.AM.AMMRPBucket</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		public StringValue? Description { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<MRPBucketDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MRPBuckets)} - \"{BucketID}\"";
+		}
 
 		public static class Expand
 		{

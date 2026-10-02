@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ProjectProperties : Entity
 	{
 
+		#region Fields
 		public BooleanValue? CertifiedJob { get; set; }
 
 		public BooleanValue? ChangeOrderWorkflow { get; set; }
@@ -45,6 +46,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? CostTaxZone { get; set; }
 
 		public StringValue? RevenueTaxZone { get; set; }
+
+		#endregion
 
 	}
 }

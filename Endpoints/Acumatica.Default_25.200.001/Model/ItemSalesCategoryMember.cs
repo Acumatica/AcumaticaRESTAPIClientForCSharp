@@ -12,18 +12,19 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ItemSalesCategoryMember : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: InventoryItem__Descr</para>
-		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// Key Field
 		/// </summary>
 		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InventoryItem__Descr</para>
+		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: InventoryItem__ItemClassID</para>
@@ -36,6 +37,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
 		/// </summary>
 		public StringValue? ItemStatus { get; set; }
+
+		#endregion
 
 	}
 }

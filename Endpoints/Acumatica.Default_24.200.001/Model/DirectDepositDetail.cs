@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class DirectDepositDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: BankAcctNbr</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
@@ -30,11 +31,6 @@ namespace Acumatica.Default_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
-		/// </summary>
-		public DecimalValue? Amount { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
 		/// <para>Display Name: Bank Name</para>
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
@@ -47,6 +43,16 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		public StringValue? BankRoutingNumber { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
+		/// </summary>
+		public DecimalValue? Amount { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
+		/// </summary>
+		public DecimalValue? Percent { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SortOrder</para>
@@ -63,10 +69,7 @@ namespace Acumatica.Default_24_200_001.Model
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PREmployeeDirectDeposit</para>
-		/// </summary>
-		public DecimalValue? Percent { get; set; }
+		#endregion
 
 	}
 }

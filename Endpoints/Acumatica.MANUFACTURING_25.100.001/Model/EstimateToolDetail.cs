@@ -12,13 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class EstimateToolDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
-		/// <para>Display Name: Operation Desc</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LineID</para>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
@@ -28,10 +22,23 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateOper</para>
+		/// <para>Display Name: Operation Desc</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
 		/// <para>Display Name: Required Qty.</para>
 		/// </summary>
 		public DecimalValue? QtyReq { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
+		/// <para>Display Name: Unit Cost</para>
+		/// </summary>
+		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMEstimateTool</para>
@@ -40,11 +47,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		public StringValue? ToolID { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMEstimateMatl</para>
-		/// <para>Display Name: Unit Cost</para>
-		/// </summary>
-		public DecimalValue? UnitCost { get; set; }
+		#endregion
 
 	}
 }

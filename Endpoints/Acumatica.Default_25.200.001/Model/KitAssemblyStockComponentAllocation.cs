@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class KitAssemblyStockComponentAllocation : Entity
 	{
 
+		#region Fields
 		public StringValue? DocType { get; set; }
 
 		public DateTimeValue? ExpirationDate { get; set; }
@@ -33,6 +34,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Subitem { get; set; }
 
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

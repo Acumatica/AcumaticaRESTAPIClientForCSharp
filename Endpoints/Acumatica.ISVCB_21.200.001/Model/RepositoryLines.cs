@@ -12,6 +12,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class RepositoryLines : Entity
 	{
 
+		#region Fields
 		public StringValue? AcumaticaBuild { get; set; }
 
 		public BooleanValue? Certified { get; set; }
@@ -37,6 +38,8 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		public StringValue? Status { get; set; }
 
 		public StringValue? TestFiles { get; set; }
+
+		#endregion
 
 	}
 }

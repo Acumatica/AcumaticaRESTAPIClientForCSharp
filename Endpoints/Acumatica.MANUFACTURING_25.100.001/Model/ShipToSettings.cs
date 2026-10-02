@@ -12,65 +12,20 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ShipToSettings : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Ship Via</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		public StringValue? ShipVia { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
 		/// <para>Display Name: FOB Point</para>
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		public StringValue? FOBPoint { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryFreightCost</para>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
-		/// <para>Display Name: Freight Cost</para>
-		/// </summary>
-		public DecimalValue? FreightCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryFreightAmt</para>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
-		/// <para>Display Name: Freight Price</para>
-		/// </summary>
-		public DecimalValue? FreightPrice { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
-		/// <para>Display Name: Ground Collect</para>
-		/// </summary>
-		public BooleanValue? GroundCollect { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
-		/// </summary>
-		public BooleanValue? Insurance { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: FreightAmountSource</para>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
-		/// <para>Display Name: Invoice Freight Price Based On</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? InvoiceFreightPriceBasedOn { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OverrideFreightAmount</para>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
-		/// <para>Display Name: Override Freight Price</para>
-		/// </summary>
-		public BooleanValue? OverrideFreightPrice { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Residential</para>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
-		/// <para>Display Name: Residential Delivery</para>
-		/// </summary>
-		public BooleanValue? ResidentialDelivery { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
-		/// <para>Display Name: Saturday Delivery</para>
-		/// </summary>
-		public BooleanValue? SaturdayDelivery { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ShipTermsID</para>
@@ -88,16 +43,58 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		public StringValue? ShippingZoneID { get; set; }
 
-		public Address? ShipToAddress { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: Residential</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Residential Delivery</para>
+		/// </summary>
+		public BooleanValue? ResidentialDelivery { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: OverrideAddress</para>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipmentAddress</para>
-		/// <para>Display Name: Override</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Saturday Delivery</para>
 		/// </summary>
-		public BooleanValue? ShipToAddressOverride { get; set; }
+		public BooleanValue? SaturdayDelivery { get; set; }
 
-		public DocContact? ShipToContact { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// </summary>
+		public BooleanValue? Insurance { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Ground Collect</para>
+		/// </summary>
+		public BooleanValue? GroundCollect { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryFreightCost</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Freight Cost</para>
+		/// </summary>
+		public DecimalValue? FreightCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OverrideFreightAmount</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Override Freight Price</para>
+		/// </summary>
+		public BooleanValue? OverrideFreightPrice { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: FreightAmountSource</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Invoice Freight Price Based On</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? InvoiceFreightPriceBasedOn { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryFreightAmt</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
+		/// <para>Display Name: Freight Price</para>
+		/// </summary>
+		public DecimalValue? FreightPrice { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: OverrideContact</para>
@@ -107,11 +104,20 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public BooleanValue? ShipToContactOverride { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMVendorShipment</para>
-		/// <para>Display Name: Ship Via</para>
-		/// <para>SQL Type: nvarchar(15)</para>
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.AM.AMVendorShipmentAddress</para>
+		/// <para>Display Name: Override</para>
 		/// </summary>
-		public StringValue? ShipVia { get; set; }
+		public BooleanValue? ShipToAddressOverride { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public Address? ShipToAddress { get; set; }
+
+		public DocContact? ShipToContact { get; set; }
+
+		#endregion
 
 	}
 }

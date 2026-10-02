@@ -12,11 +12,14 @@ namespace Acumatica.Default_24_200_001.Model
 	public class InventoryQuantityAvailableDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? InventoryID { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public DecimalValue? QtyAvailable { get; set; }
+
+		#endregion
 
 	}
 }

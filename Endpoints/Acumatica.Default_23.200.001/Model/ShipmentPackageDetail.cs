@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ShipmentPackageDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? InventoryID { get; set; }
 
 		public StringValue? LotSerialNbr { get; set; }
@@ -27,6 +28,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Subitem { get; set; }
 
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

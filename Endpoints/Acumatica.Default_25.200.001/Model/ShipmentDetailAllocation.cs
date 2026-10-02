@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ShipmentDetailAllocation : Entity
 	{
 
+		#region Fields
 		public StringValue? Description { get; set; }
 
 		public DateTimeValue? ExpirationDate { get; set; }
@@ -33,6 +34,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public IntValue? SplitLineNbr { get; set; }
 
 		public StringValue? UOM { get; set; }
+
+		#endregion
 
 	}
 }

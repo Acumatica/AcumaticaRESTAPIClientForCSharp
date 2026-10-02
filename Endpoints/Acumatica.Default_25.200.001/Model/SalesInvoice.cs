@@ -11,139 +11,20 @@ namespace Acumatica.Default_25_200_001.Model
 {
 	/// <summary>
 	/// Corresponds to the screen <c>SO303000</c> in the Acumatica ERP
-	/// <para>Key Fields: ReferenceNbr, Type</para>
+	/// <para>Key Fields: Type, ReferenceNbr</para>
 	/// </summary>
 	public class SalesInvoice : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The amount of the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryOrigDocAmt</para>
+		/// The type of the document.This field is a part of the compound key of the document.
+		/// <para>DAC Field Name: DocType</para>
 		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>SQL Type: char(3)</para>
+		/// Key Field
 		/// </summary>
-		public DecimalValue? Amount { get; set; }
-
-		public List<SalesInvoiceApplicationCreditMemo>? ApplicationsCreditMemo { get; set; }
-
-		public List<SalesInvoiceApplicationInvoice>? ApplicationsInvoice { get; set; }
-
-		/// <summary>
-		/// The open balance of the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryDocBal</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// </summary>
-		public DecimalValue? Balance { get; set; }
-
-		public BillToSettings? BillingSettings { get; set; }
-
-		/// <summary>
-		/// The cash discount entered for the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryOrigDiscAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Cash Discount</para>
-		/// </summary>
-		public DecimalValue? CashDiscount { get; set; }
-
-		public SalesInvoiceCommissions? Commissions { get; set; }
-
-		public BooleanValue? CreditHold { get; set; }
-
-		/// <summary>
-		/// The code of the Currency of the document.
-		/// <para>DAC Field Name: CuryID</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		public StringValue? Currency { get; set; }
-
-		/// <summary>
-		/// The identifier of the Customer record associated with the document.
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Customer</para>
-		/// </summary>
-		public StringValue? CustomerID { get; set; }
-
-		/// <summary>
-		/// The original reference number or ID assigned by the customer to the customer document.
-		/// <para>DAC Field Name: InvoiceNbr</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Customer Order Nbr.</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		public StringValue? CustomerOrder { get; set; }
-
-		/// <summary>
-		/// The date of the document.
-		/// <para>DAC Field Name: DocDate</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// </summary>
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// The description of the document.
-		/// <para>DAC Field Name: DocDesc</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>SQL Type: nvarchar(512)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<SalesInvoiceDetail>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryLineTotal</para>
-		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
-		/// <para>Display Name: Line Total</para>
-		/// </summary>
-		public DecimalValue? DetailTotal { get; set; }
-
-		public List<SalesInvoiceDiscountDetails>? DiscountDetails { get; set; }
-
-		/// <summary>
-		/// The group and document discount total for the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryDiscTot</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Group and Document Discount Total</para>
-		/// </summary>
-		public DecimalValue? DiscountTotal { get; set; }
-
-		/// <summary>
-		/// The due date of the document.
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Due Date</para>
-		/// </summary>
-		public DateTimeValue? DueDate { get; set; }
-
-		public BooleanValue? IsTaxValid { get; set; }
-
-		public SalesInvoiceFinancialDetails? FinancialDetails { get; set; }
-
-		public List<SalesInvoiceFreightDetail>? FreightDetails { get; set; }
-
-		/// <summary>
-		/// The amount of freight associated with the document.Given in the currency of the document.
-		/// <para>DAC Field Name: CuryFreightAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Freight Price</para>
-		/// </summary>
-		public DecimalValue? FreightPrice { get; set; }
-
-		public BooleanValue? Hold { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryPaymentTotal</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Total Paid</para>
-		/// </summary>
-		public DecimalValue? PaymentTotal { get; set; }
-
-		/// <summary>
-		/// The identifier of the project associated with the documentor the non-project code, which indicates that the document is not related to any particular project.
-		/// <para>DAC Field Name: ProjectID</para>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// </summary>
-		public StringValue? Project { get; set; }
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// The reference number of the document.This field is a part of the compound key of the document.
@@ -161,7 +42,66 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? Status { get; set; }
 
-		public List<SalesInvoiceTaxDetail>? TaxDetails { get; set; }
+		/// <summary>
+		/// The date of the document.
+		/// <para>DAC Field Name: DocDate</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// </summary>
+		public DateTimeValue? Date { get; set; }
+
+		/// <summary>
+		/// The original reference number or ID assigned by the customer to the customer document.
+		/// <para>DAC Field Name: InvoiceNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Customer Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
+		public StringValue? CustomerOrder { get; set; }
+
+		/// <summary>
+		/// The identifier of the project associated with the documentor the non-project code, which indicates that the document is not related to any particular project.
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// </summary>
+		public StringValue? Project { get; set; }
+
+		/// <summary>
+		/// The description of the document.
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>SQL Type: nvarchar(512)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// The identifier of the Customer record associated with the document.
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Customer</para>
+		/// </summary>
+		public StringValue? CustomerID { get; set; }
+
+		/// <summary>
+		/// The code of the Currency of the document.
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? Currency { get; set; }
+
+		/// <summary>
+		/// The due date of the document.
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Due Date</para>
+		/// </summary>
+		public DateTimeValue? DueDate { get; set; }
+
+		/// <summary>
+		/// The group and document discount total for the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryDiscTot</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Group and Document Discount Total</para>
+		/// </summary>
+		public DecimalValue? DiscountTotal { get; set; }
 
 		/// <summary>
 		/// The total amount of tax associated with the document.Given in the currency of the document.
@@ -172,13 +112,41 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? TaxTotal { get; set; }
 
 		/// <summary>
-		/// The type of the document.This field is a part of the compound key of the document.
-		/// <para>DAC Field Name: DocType</para>
+		/// The amount of the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryOrigDocAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>SQL Type: char(3)</para>
-		/// Key Field
 		/// </summary>
-		public StringValue? Type { get; set; }
+		public DecimalValue? Amount { get; set; }
+
+		/// <summary>
+		/// The open balance of the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryDocBal</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// </summary>
+		public DecimalValue? Balance { get; set; }
+
+		/// <summary>
+		/// The cash discount entered for the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryOrigDiscAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Cash Discount</para>
+		/// </summary>
+		public DecimalValue? CashDiscount { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Tax Calculation Mode</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? TaxCalcMode { get; set; }
+
+		/// <summary>
+		/// The portion of the document total that is subjected to VAT.Given in the currency of the document.This field is relevant only if the VAT Reporting feature is enabled.
+		/// <para>DAC Field Name: CuryVatTaxableTotal</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Taxable Total</para>
+		/// </summary>
+		public DecimalValue? VATTaxableTotal { get; set; }
 
 		/// <summary>
 		/// The portion of the document total that is exempt from VAT.Given in the currency of the document.This field is relevant only if the VAT Reporting feature is enabled.
@@ -189,20 +157,42 @@ namespace Acumatica.Default_25_200_001.Model
 		public DecimalValue? VATExemptTotal { get; set; }
 
 		/// <summary>
-		/// The portion of the document total that is subjected to VAT.Given in the currency of the document.This field is relevant only if the VAT Reporting feature is enabled.
-		/// <para>DAC Field Name: CuryVatTaxableTotal</para>
+		/// The amount of freight associated with the document.Given in the currency of the document.
+		/// <para>DAC Field Name: CuryFreightAmt</para>
 		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Taxable Total</para>
+		/// <para>Display Name: Freight Price</para>
 		/// </summary>
-		public DecimalValue? VATTaxableTotal { get; set; }
+		public DecimalValue? FreightPrice { get; set; }
 
-		public SalesInvoiceAddress? BillToAddress { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: CuryPaymentTotal</para>
+		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
+		/// <para>Display Name: Total Paid</para>
+		/// </summary>
+		public DecimalValue? PaymentTotal { get; set; }
 
-		public BooleanValue? BillToAddressOverride { get; set; }
+		/// <summary>
+		/// If set to <c>true</c>, indicates that the addressoverrides the default Address record, which isreferenced by CustomerAddressID. This field is the inverse of IsDefaultBillAddress.
+		/// <para>DAC Field Name: OverrideAddress</para>
+		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
+		/// <para>Display Name: Override Address</para>
+		/// </summary>
+		public BooleanValue? ShipToAddressOverride { get; set; }
 
-		public SalesInvoiceDocContact? BillToContact { get; set; }
+		/// <summary>
+		/// If set to <c>true</c>, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
+		/// <para>DAC Field Name: OverrideContact</para>
+		/// <para>DAC: PX.Objects.AR.ARShippingContact</para>
+		/// <para>Display Name: Override Contact</para>
+		/// </summary>
+		public BooleanValue? ShipToContactOverride { get; set; }
 
-		public BooleanValue? BillToContactOverride { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: CuryLineTotal</para>
+		/// <para>DAC: PX.Objects.SO.SOFreightDetail</para>
+		/// <para>Display Name: Line Total</para>
+		/// </summary>
+		public DecimalValue? DetailTotal { get; set; }
 
 		/// <summary>
 		/// The date and time when the record was created.
@@ -212,36 +202,60 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public DateTimeValue? CreatedDate { get; set; }
 
+		public BooleanValue? CreditHold { get; set; }
+
+		public BooleanValue? IsTaxValid { get; set; }
+
+		public BooleanValue? Hold { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		public BooleanValue? BillToAddressOverride { get; set; }
+
+		public BooleanValue? BillToContactOverride { get; set; }
+
 		public StringValue? ExternalRef { get; set; }
 
 		public DateTimeValue? LastModifiedDate { get; set; }
 
-		public SalesInvoiceAddress? ShipToAddress { get; set; }
+		#endregion
 
-		/// <summary>
-		/// If set to true, indicates that the addressoverrides the default Address record, which isreferenced by CustomerAddressID. This field is the inverse of IsDefaultBillAddress.
-		/// <para>DAC Field Name: OverrideAddress</para>
-		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
-		/// <para>Display Name: Override Address</para>
-		/// </summary>
-		public BooleanValue? ShipToAddressOverride { get; set; }
+		#region LinkedEntities
+		public BillToSettings? BillingSettings { get; set; }
+
+		public SalesInvoiceCommissions? Commissions { get; set; }
+
+		public SalesInvoiceFinancialDetails? FinancialDetails { get; set; }
+
+		public SalesInvoiceAddress? BillToAddress { get; set; }
+
+		public SalesInvoiceDocContact? BillToContact { get; set; }
+
+		public SalesInvoiceAddress? ShipToAddress { get; set; }
 
 		public SalesInvoiceDocContact? ShipToContact { get; set; }
 
-		/// <summary>
-		/// If set to true, indicates that the contactoverrides the default Contact recordreferenced by the CustomerContactID field.
-		/// <para>DAC Field Name: OverrideContact</para>
-		/// <para>DAC: PX.Objects.AR.ARShippingContact</para>
-		/// <para>Display Name: Override Contact</para>
-		/// </summary>
-		public BooleanValue? ShipToContactOverride { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARInvoice</para>
-		/// <para>Display Name: Tax Calculation Mode</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? TaxCalcMode { get; set; }
+		#region Details
+		public List<SalesInvoiceApplicationCreditMemo>? ApplicationsCreditMemo { get; set; }
+
+		public List<SalesInvoiceApplicationInvoice>? ApplicationsInvoice { get; set; }
+
+		public List<SalesInvoiceDetail>? Details { get; set; }
+
+		public List<SalesInvoiceDiscountDetails>? DiscountDetails { get; set; }
+
+		public List<SalesInvoiceFreightDetail>? FreightDetails { get; set; }
+
+		public List<SalesInvoiceTaxDetail>? TaxDetails { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(SalesInvoice)} - \"{Type}\" - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

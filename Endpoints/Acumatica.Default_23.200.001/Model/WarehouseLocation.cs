@@ -12,25 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class WarehouseLocation : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INSite</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: AssemblyValid</para>
-		/// <para>DAC: PX.Objects.IN.INLocation</para>
-		/// <para>Display Name: Assembly Allowed</para>
-		/// </summary>
-		public BooleanValue? AssemblyAllowed { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.IN.INSite</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: LocationCD</para>
 		/// <para>DAC: PX.Objects.IN.INLocation</para>
@@ -41,17 +23,16 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? LocationID { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INLocation</para>
-		/// <para>Display Name: Pick Priority</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
 		/// </summary>
-		public ShortValue? PickPriority { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ReceiptsValid</para>
-		/// <para>DAC: PX.Objects.IN.INLocation</para>
-		/// <para>Display Name: Receipts Allowed</para>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.IN.INSite</para>
+		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		public BooleanValue? ReceiptsAllowed { get; set; }
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SalesValid</para>
@@ -61,11 +42,33 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? SalesAllowed { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ReceiptsValid</para>
+		/// <para>DAC: PX.Objects.IN.INLocation</para>
+		/// <para>Display Name: Receipts Allowed</para>
+		/// </summary>
+		public BooleanValue? ReceiptsAllowed { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: TransfersValid</para>
 		/// <para>DAC: PX.Objects.IN.INLocation</para>
 		/// <para>Display Name: Transfers Allowed</para>
 		/// </summary>
 		public BooleanValue? TransfersAllowed { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: AssemblyValid</para>
+		/// <para>DAC: PX.Objects.IN.INLocation</para>
+		/// <para>Display Name: Assembly Allowed</para>
+		/// </summary>
+		public BooleanValue? AssemblyAllowed { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INLocation</para>
+		/// <para>Display Name: Pick Priority</para>
+		/// </summary>
+		public ShortValue? PickPriority { get; set; }
+
+		#endregion
 
 	}
 }

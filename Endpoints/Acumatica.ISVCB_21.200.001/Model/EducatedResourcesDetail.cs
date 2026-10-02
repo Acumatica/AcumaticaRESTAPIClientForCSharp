@@ -12,6 +12,7 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class EducatedResourcesDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Geography { get; set; }
 
 		public StringValue? AccountID { get; set; }
@@ -91,6 +92,8 @@ namespace Acumatica.ISVCB_21_200_001.Model
 		public DateTimeValue? ExpirationDate { get; set; }
 
 		public DateTimeValue? LastUCPDate { get; set; }
+
+		#endregion
 
 	}
 }

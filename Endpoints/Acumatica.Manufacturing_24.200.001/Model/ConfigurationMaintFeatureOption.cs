@@ -12,6 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class ConfigurationMaintFeatureOption : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Backflush { get; set; }
 
 		public DecimalValue? BatchSize { get; set; }
@@ -69,6 +70,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? UOM { get; set; }
 
 		public StringValue? Warehouse { get; set; }
+
+		#endregion
 
 	}
 }

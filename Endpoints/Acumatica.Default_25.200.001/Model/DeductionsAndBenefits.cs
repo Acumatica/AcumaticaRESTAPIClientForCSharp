@@ -12,15 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class DeductionsAndBenefits : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: GrnMaxPctuseDflt</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Use Default</para>
-		/// </summary>
-		public BooleanValue? DeductionAndBenefitUseClassDefaults { get; set; }
-
-		public List<EmployeeDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: DedSplitType</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
@@ -35,6 +27,20 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>Display Name: Maximum Percent of Net Pay for All Garnishments</para>
 		/// </summary>
 		public DecimalValue? MaxPercOfNetPayForAllGarnishm { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: GrnMaxPctuseDflt</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Default</para>
+		/// </summary>
+		public BooleanValue? DeductionAndBenefitUseClassDefaults { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<EmployeeDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
+
+		#endregion
 
 	}
 }

@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class BomOverheadDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? Description { get; set; }
 
 		public DecimalValue? Factor { get; set; }
@@ -21,6 +22,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? OverheadID { get; set; }
 
 		public StringValue? Type { get; set; }
+
+		#endregion
 
 	}
 }

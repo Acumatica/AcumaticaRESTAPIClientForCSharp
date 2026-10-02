@@ -1,0 +1,130 @@
+using System;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.Manufacturing_26_200_001.Model
+{
+	/// <summary>
+	/// Corresponds to the screen <c>AM201000</c> in the Acumatica ERP
+	/// <para>Key Fields: Type, MPSID</para>
+	/// </summary>
+	public class MasterProductionSchedule : Entity, ITopLevelEntity
+	{
+
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: MPSTypeID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? Type { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>Display Name: MPS ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? MPSID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public StringValue? Subitem { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>Display Name: Plan Date</para>
+		/// </summary>
+		public DateTimeValue? PlanDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public DecimalValue? Quantity { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>Display Name: BOM ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		public StringValue? BOMID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActiveFlg</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InventoryID_description</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BOMID_description</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public StringValue? BOMDescription { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public StringValue? Branch { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MasterProductionSchedule)} - \"{Type}\" - \"{MPSID}\"";
+		}
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+			public const string Translations = "Translations";
+
+			//Intentionally excluded
+			//public const string All = "Files,Translations";
+		}
+		public virtual string GetEndpointPath()
+		{
+			return "entity/MANUFACTURING/26.200.001";
+		}
+	}
+}

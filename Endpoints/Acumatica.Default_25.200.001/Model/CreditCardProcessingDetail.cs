@@ -12,13 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CreditCardProcessingDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: Amount</para>
-		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
-		/// <para>Display Name: Tran. Amount</para>
-		/// </summary>
-		public DecimalValue? TransactionAmount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: TranStatus</para>
 		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
@@ -26,6 +20,15 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		public StringValue? TransactionStatus { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Amount</para>
+		/// <para>DAC: PX.Objects.AR.CCProcTran</para>
+		/// <para>Display Name: Tran. Amount</para>
+		/// </summary>
+		public DecimalValue? TransactionAmount { get; set; }
+
+		#endregion
 
 	}
 }

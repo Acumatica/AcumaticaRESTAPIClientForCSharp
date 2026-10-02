@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SrvOrdAddress : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAddress</para>
 		/// <para>Display Name: Address Line 1</para>
@@ -41,16 +42,16 @@ namespace Acumatica.Default_25_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAddress</para>
+		/// <para>SQL Type: nvarchar(50)</para>
+		/// </summary>
+		public StringValue? State { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAddress</para>
 		/// <para>Display Name: Postal Code</para>
 		/// <para>SQL Type: varchar(20)</para>
 		/// </summary>
 		public StringValue? PostalCode { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAddress</para>
-		/// <para>SQL Type: nvarchar(50)</para>
-		/// </summary>
-		public StringValue? State { get; set; }
 
 		public StringValue? Department { get; set; }
 
@@ -73,6 +74,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? TownLocationName { get; set; }
 
 		public StringValue? DistrictName { get; set; }
+
+		#endregion
 
 	}
 }

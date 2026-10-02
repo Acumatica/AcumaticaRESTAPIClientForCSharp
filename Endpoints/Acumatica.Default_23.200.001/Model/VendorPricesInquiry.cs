@@ -15,11 +15,12 @@ namespace Acumatica.Default_23_200_001.Model
 	public class VendorPricesInquiry : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
+		/// <para>DAC Field Name: VendorID</para>
 		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
-		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		public StringValue? InventoryID { get; set; }
+		public StringValue? Vendor { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ItemClassCD</para>
@@ -28,6 +29,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(30)</para>
 		/// </summary>
 		public StringValue? ItemClass { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: OwnerID</para>
@@ -43,13 +50,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? ProductWorkgroup { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: VendorID</para>
-		/// <para>DAC: PX.Objects.AP.APVendorPriceFilter</para>
-		/// </summary>
-		public StringValue? Vendor { get; set; }
+		#endregion
 
+		#region Details
 		public List<VendorPriceDetail>? VendorPriceDetails { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

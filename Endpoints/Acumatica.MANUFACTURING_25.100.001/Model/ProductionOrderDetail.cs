@@ -16,38 +16,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class ProductionOrderDetail : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: End Date</para>
-		/// </summary>
-		public DateTimeValue? EndDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// </summary>
-		public BooleanValue? Hold { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
-		public List<OrderOperationDetail>? Operations { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ProdDate</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Order Date</para>
-		/// </summary>
-		public DateTimeValue? OrderDate { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// <para>Display Name: Order Type</para>
@@ -65,20 +34,18 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		public StringValue? ProductionNbr { get; set; }
 
-		public StringValue? SchedulingMethod { get; set; }
-
 		/// <summary>
-		/// <para>DAC Field Name: StatusID</para>
+		/// <para>DAC Field Name: ProdDate</para>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Order Date</para>
 		/// </summary>
-		public StringValue? Status { get; set; }
+		public DateTimeValue? OrderDate { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Start Date</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
@@ -91,6 +58,50 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// </summary>
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: StatusID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// </summary>
+		public BooleanValue? Hold { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// </summary>
+		public StringValue? Branch { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		public DateTimeValue? EndDate { get; set; }
+
+		public StringValue? SchedulingMethod { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<OrderOperationDetail>? Operations { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ProductionOrderDetail)} - \"{OrderType}\" - \"{ProductionNbr}\"";
+		}
 
 		public static class Expand
 		{

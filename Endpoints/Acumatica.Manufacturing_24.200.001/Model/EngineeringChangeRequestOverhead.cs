@@ -12,6 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class EngineeringChangeRequestOverhead : Entity
 	{
 
+		#region Fields
 		public StringValue? ChangeStatus { get; set; }
 
 		public StringValue? Description { get; set; }
@@ -29,6 +30,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? Revision { get; set; }
 
 		public StringValue? Type { get; set; }
+
+		#endregion
 
 	}
 }

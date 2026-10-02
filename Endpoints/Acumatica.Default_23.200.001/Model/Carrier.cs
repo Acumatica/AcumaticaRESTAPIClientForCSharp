@@ -16,6 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class Carrier : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: CarrierPluginID</para>
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
@@ -26,26 +27,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? CarrierID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: UnitType</para>
-		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
-		/// <para>Display Name: Carrier Units</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? CarrierUnits { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		public List<CarrierCustomerAccount>? CustomerAccounts { get; set; }
-
-		/// <summary>
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		public StringValue? Description { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		public List<CarrierPluginParameter>? PlugInParameters { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PluginTypeName</para>
@@ -56,18 +41,12 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? PlugInType { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CentimeterUOM</para>
+		/// <para>DAC Field Name: UnitType</para>
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
-		/// <para>SQL Type: nvarchar(6)</para>
+		/// <para>Display Name: Carrier Units</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public StringValue? Centimeter { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InchUOM</para>
-		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		public StringValue? Inch { get; set; }
+		public StringValue? CarrierUnits { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: KilogramUOM</para>
@@ -84,11 +63,43 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Pound { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: CentimeterUOM</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? Centimeter { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InchUOM</para>
+		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? Inch { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: SiteID</para>
 		/// <para>DAC: PX.Objects.CS.CarrierPlugin</para>
 		/// <para>Display Name: Warehouse</para>
 		/// </summary>
 		public StringValue? WarehouseID { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<CarrierCustomerAccount>? CustomerAccounts { get; set; }
+
+		public List<CarrierPluginParameter>? PlugInParameters { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Carrier)} - \"{CarrierID}\"";
+		}
 
 		public static class Expand
 		{

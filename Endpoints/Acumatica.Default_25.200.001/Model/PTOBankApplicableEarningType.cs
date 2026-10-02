@@ -12,9 +12,15 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PTOBankApplicableEarningType : Entity
 	{
 
+		#region Fields
+		public StringValue? AccrueTimeOffBasedOn { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<PTOBankApplicableEarningTypeDetail>? ApplicableEarningTypeDetail { get; set; }
 
-		public StringValue? AccrueTimeOffBasedOn { get; set; }
+		#endregion
 
 	}
 }

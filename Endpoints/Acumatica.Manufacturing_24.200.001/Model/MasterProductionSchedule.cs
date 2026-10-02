@@ -11,47 +11,19 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 {
 	/// <summary>
 	/// Corresponds to the screen <c>AM201000</c> in the Acumatica ERP
-	/// <para>Key Fields: MPSID, Type</para>
+	/// <para>Key Fields: Type, MPSID</para>
 	/// </summary>
 	public class MasterProductionSchedule : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: ActiveFlg</para>
+		/// <para>DAC Field Name: MPSTypeID</para>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// Key Field
 		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BOMID_description</para>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// </summary>
-		public StringValue? BOMDescription { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// <para>Display Name: BOM ID</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		public StringValue? BOMID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: InventoryID_description</para>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
@@ -63,15 +35,9 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// <para>Display Name: Plan Date</para>
+		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		public DateTimeValue? PlanDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Qty</para>
-		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// </summary>
-		public DecimalValue? Quantity { get; set; }
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
@@ -80,12 +46,22 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? Subitem { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MPSTypeID</para>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// Key Field
+		/// <para>Display Name: Plan Date</para>
 		/// </summary>
-		public StringValue? Type { get; set; }
+		public DateTimeValue? PlanDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Qty</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public DecimalValue? Quantity { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
@@ -94,10 +70,42 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? UOM { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SiteID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// <para>Display Name: BOM ID</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		public StringValue? BOMID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActiveFlg</para>
 		/// <para>DAC: PX.Objects.AM.AMMPS</para>
 		/// </summary>
-		public StringValue? Warehouse { get; set; }
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: InventoryID_description</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BOMID_description</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public StringValue? BOMDescription { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.AM.AMMPS</para>
+		/// </summary>
+		public StringValue? Branch { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(MasterProductionSchedule)} - \"{Type}\" - \"{MPSID}\"";
+		}
 
 		public static class Expand
 		{

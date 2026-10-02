@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PurchaseReceiptDetailAllocation : Entity
 	{
 
+		#region Fields
 		public IntValue? LineNbr { get; set; }
 
 		public StringValue? Location { get; set; }
@@ -25,6 +26,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public IntValue? SplitLineNbr { get; set; }
 
 		public DateTimeValue? ExpirationDate { get; set; }
+
+		#endregion
 
 	}
 }

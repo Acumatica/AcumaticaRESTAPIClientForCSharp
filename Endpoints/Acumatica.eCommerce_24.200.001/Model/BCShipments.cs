@@ -15,6 +15,17 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class BCShipments : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Data.GenericFilter</para>
+		/// </summary>
+		public StringValue? OrderType { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Data.GenericFilter</para>
+		/// </summary>
+		public StringValue? OrderNbr { get; set; }
+
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
@@ -28,19 +39,14 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		/// <summary>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
-		public StringValue? OrderNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Data.GenericFilter</para>
-		/// </summary>
-		public StringValue? OrderType { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Data.GenericFilter</para>
-		/// </summary>
 		public IntValue? BindingID { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<BCShipmentsResult>? Results { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

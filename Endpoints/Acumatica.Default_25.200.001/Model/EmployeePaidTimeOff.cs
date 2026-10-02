@@ -12,14 +12,20 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmployeePaidTimeOff : Entity
 	{
 
-		public List<EmployeePaidTimeOffDetail>? PaidTimeOffDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Indicates (if set to true) that the employee is using customized paid-time-off banks instead of the default ones provided by their payroll class.
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Use Custom Settings</para>
 		/// </summary>
 		public BooleanValue? UseCustomSettings { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<EmployeePaidTimeOffDetail>? PaidTimeOffDetails { get; set; }
+
+		#endregion
 
 	}
 }

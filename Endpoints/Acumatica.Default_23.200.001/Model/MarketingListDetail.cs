@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class MarketingListDetail : Entity
 	{
 
+		#region Fields
 		public IntValue? ContactID { get; set; }
 
 		public BooleanValue? DynamicList { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? MarketingListID { get; set; }
 
 		public BooleanValue? Subscribed { get; set; }
+
+		#endregion
 
 	}
 }

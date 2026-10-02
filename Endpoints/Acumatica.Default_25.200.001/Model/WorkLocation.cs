@@ -16,25 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class WorkLocation : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// A boolean value that specifies (if set to true) that the location is used.
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.PR.PRLocation</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		public Address? AddressInfo { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// The unique identifier of the branch to which the work location belongs.The field is included in Branch.
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.PR.PRLocation</para>
-		/// <para>Display Name: Use Address from Branch ID</para>
-		/// </summary>
-		public StringValue? UseAddressfromBranchID { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The user-friendly unique identifier of the work location.
 		/// <para>DAC Field Name: LocationCD</para>
@@ -53,6 +35,35 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		public StringValue? WorkLocationName { get; set; }
+
+		/// <summary>
+		/// A boolean value that specifies (if set to true) that the location is used.
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PR.PRLocation</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// The unique identifier of the branch to which the work location belongs.The field is included in Branch.
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.PR.PRLocation</para>
+		/// <para>Display Name: Use Address from Branch ID</para>
+		/// </summary>
+		public StringValue? UseAddressfromBranchID { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public Address? AddressInfo { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(WorkLocation)} - \"{WorkLocationID}\"";
+		}
 
 		public static class Expand
 		{

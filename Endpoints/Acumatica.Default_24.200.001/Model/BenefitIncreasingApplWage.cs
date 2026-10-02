@@ -12,9 +12,15 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BenefitIncreasingApplWage : Entity
 	{
 
+		#region Fields
+		public StringValue? InclusionType { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<BenefitIncreasingApplWageDetail>? BenefitIncreasingApplWageDetails { get; set; }
 
-		public StringValue? InclusionType { get; set; }
+		#endregion
 
 	}
 }

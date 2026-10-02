@@ -16,7 +16,21 @@ namespace Acumatica.Default_24_200_001.Model
 	public class SalesPriceWorksheet : Entity, ITopLevelEntity
 	{
 
-		public DateTimeValue? CreatedDateTime { get; set; }
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: RefNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>Display Name: Reference Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? ReferenceNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
@@ -37,10 +51,6 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public DateTimeValue? ExpirationDate { get; set; }
 
-		public BooleanValue? Hold { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		/// <summary>
 		/// <para>DAC Field Name: OverwriteOverlapping</para>
 		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
@@ -48,22 +58,23 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public BooleanValue? OverwriteOverlappingPrices { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: RefNbr</para>
-		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
-		/// <para>Display Name: Reference Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? ReferenceNbr { get; set; }
+		public DateTimeValue? CreatedDateTime { get; set; }
 
+		public BooleanValue? Hold { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<SalesPricesWorksheetDetail>? SalesPrices { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARPriceWorksheet</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Status { get; set; }
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(SalesPriceWorksheet)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

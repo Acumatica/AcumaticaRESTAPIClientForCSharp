@@ -15,6 +15,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class UnitsOfMeasure : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: Unit</para>
 		/// <para>DAC: PX.Objects.Localizations.CA.CS.UnitOfMeasure</para>
@@ -32,7 +33,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? L3Code { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<Units>? Conversion { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

@@ -12,12 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class OpportunityTaxDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: Tax__ExemptTax</para>
-		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
-		/// </summary>
-		public BooleanValue? IncludeInVATExemptTotal { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.CR.CROpportunityProducts</para>
 		/// <para>Display Name: Line Nbr.</para>
@@ -26,22 +21,17 @@ namespace Acumatica.Default_23_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Tax__PendingTax</para>
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
+		/// <para>Display Name: Tax ID</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// Key Field
 		/// </summary>
-		public BooleanValue? PendingVAT { get; set; }
+		public StringValue? TaxID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: Tax__ReverseTax</para>
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
-		public BooleanValue? ReverseVAT { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Tax__StatisticalTax</para>
-		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
-		/// </summary>
-		public BooleanValue? StatisticalVAT { get; set; }
+		public DecimalValue? TaxRate { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryTaxableAmt</para>
@@ -58,23 +48,36 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? TaxAmount { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
-		/// <para>Display Name: Tax ID</para>
-		/// <para>SQL Type: nvarchar(60)</para>
-		/// Key Field
-		/// </summary>
-		public StringValue? TaxID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
-		/// </summary>
-		public DecimalValue? TaxRate { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: Tax__TaxType</para>
 		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
 		/// </summary>
 		public StringValue? TaxType { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__PendingTax</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
+		/// </summary>
+		public BooleanValue? PendingVAT { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__ReverseTax</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
+		/// </summary>
+		public BooleanValue? ReverseVAT { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__ExemptTax</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
+		/// </summary>
+		public BooleanValue? IncludeInVATExemptTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Tax__StatisticalTax</para>
+		/// <para>DAC: PX.Objects.CR.CRTaxTran</para>
+		/// </summary>
+		public BooleanValue? StatisticalVAT { get; set; }
+
+		#endregion
 
 	}
 }

@@ -16,30 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ShopifyStore : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The API access token of the Shopify store.
-		/// <para>DAC Field Name: ShopifyAccessToken</para>
-		/// <para>DAC: PX.Commerce.Shopify.BCBindingShopify</para>
-		/// <para>Display Name: API Access Token</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		public StringValue? AccessToken { get; set; }
-
-		/// <summary>
-		/// Determines whether the store is accessible through other Commerce forms.
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ShopifyApiKey</para>
-		/// <para>DAC: PX.Commerce.Shopify.BCBindingShopify</para>
-		/// </summary>
-		public StringValue? APIKey { get; set; }
-
-		public StringValue? APIPassword { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Represents a connector to which the store belongs.The property is a key field.
 		/// <para>DAC Field Name: ConnectorType</para>
@@ -50,20 +27,28 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Connector { get; set; }
 
 		/// <summary>
+		/// A user-friendly name of the store.
+		/// <para>DAC Field Name: BindingName</para>
+		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
+		/// <para>Display Name: Store Name</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? StoreName { get; set; }
+
+		/// <summary>
+		/// Determines whether the store is accessible through other Commerce forms.
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
 		/// Determines whether the store will be chosen as default through other Commerce screens.
 		/// <para>DAC Field Name: IsDefault</para>
 		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
 		/// </summary>
 		public BooleanValue? Default { get; set; }
-
-		/// <summary>
-		/// The API secret key of the Shopify store.
-		/// <para>DAC Field Name: StoreSharedSecret</para>
-		/// <para>DAC: PX.Commerce.Shopify.BCBindingShopify</para>
-		/// <para>Display Name: API Secret Key</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		public StringValue? SharedSecret { get; set; }
 
 		/// <summary>
 		/// The admin URL of the Shopify store.
@@ -75,14 +60,37 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? StoreAdminURL { get; set; }
 
 		/// <summary>
-		/// A user-friendly name of the store.
-		/// <para>DAC Field Name: BindingName</para>
-		/// <para>DAC: PX.Commerce.Core.BCBinding</para>
-		/// <para>Display Name: Store Name</para>
-		/// <para>SQL Type: nvarchar(20)</para>
-		/// Key Field
+		/// <para>DAC Field Name: ShopifyApiKey</para>
+		/// <para>DAC: PX.Commerce.Shopify.BCBindingShopify</para>
 		/// </summary>
-		public StringValue? StoreName { get; set; }
+		public StringValue? APIKey { get; set; }
+
+		/// <summary>
+		/// The API access token of the Shopify store.
+		/// <para>DAC Field Name: ShopifyAccessToken</para>
+		/// <para>DAC: PX.Commerce.Shopify.BCBindingShopify</para>
+		/// <para>Display Name: API Access Token</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		public StringValue? AccessToken { get; set; }
+
+		/// <summary>
+		/// The API secret key of the Shopify store.
+		/// <para>DAC Field Name: StoreSharedSecret</para>
+		/// <para>DAC: PX.Commerce.Shopify.BCBindingShopify</para>
+		/// <para>Display Name: API Secret Key</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		public StringValue? SharedSecret { get; set; }
+
+		public StringValue? APIPassword { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ShopifyStore)} - \"{Connector}\" - \"{StoreName}\"";
+		}
 
 		public static class Expand
 		{

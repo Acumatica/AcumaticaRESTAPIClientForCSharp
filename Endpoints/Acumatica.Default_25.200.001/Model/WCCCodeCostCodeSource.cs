@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class WCCCodeCostCodeSource : Entity
 	{
 
+		#region Fields
 		public StringValue? CostCodeFrom { get; set; }
 
 		public StringValue? CostCodeTo { get; set; }
@@ -21,6 +22,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public IntValue? LineNbr { get; set; }
 
 		public StringValue? WorkCodeID { get; set; }
+
+		#endregion
 
 	}
 }

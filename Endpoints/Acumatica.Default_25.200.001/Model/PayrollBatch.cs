@@ -16,6 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class PayrollBatch : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: BatchNbr</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
@@ -25,35 +26,24 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? BatchID { get; set; }
 
-		public List<BatchDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
-
 		/// <summary>
-		/// <para>DAC Field Name: DocDesc</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>SQL Type: nvarchar(128)</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<BatchEarningDetail>? EarningDetails { get; set; }
-
-		public List<EmployeePaycheckSummary>? EmployeeSummary { get; set; }
+		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// When set to true indicates that the document is on hold and thus cannot be released.
+		/// When set to <c>true</c> indicates that the document is on hold and thus cannot be released.
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
 		/// </summary>
 		public BooleanValue? Hold { get; set; }
 
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
 		/// <summary>
-		/// <para>DAC Field Name: NumberOfEmployees</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>Display Name: Number of Employees</para>
+		/// <para>Display Name: Payroll Type</para>
+		/// <para>SQL Type: char(3)</para>
 		/// </summary>
-		public IntValue? NumberofEmployees { get; set; }
-
-		public BatchOvertimeRules? OvertimeRules { get; set; }
+		public StringValue? PayrollType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PayGroupID</para>
@@ -72,23 +62,11 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? PayPeriod { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
-		/// <para>Display Name: Total Earnings</para>
-		/// </summary>
-		public DecimalValue? TotalEarnings { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
-		/// <para>Display Name: Total Hour Qty</para>
-		/// </summary>
-		public DecimalValue? TotalHourQty { get; set; }
-
-		/// <summary>
+		/// <para>DAC Field Name: StartDate</para>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>Display Name: Payroll Type</para>
-		/// <para>SQL Type: char(3)</para>
+		/// <para>Display Name: Period Start</para>
 		/// </summary>
-		public StringValue? PayrollType { get; set; }
+		public DateTimeValue? PeriodStart { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: EndDate</para>
@@ -98,23 +76,59 @@ namespace Acumatica.Default_25_200_001.Model
 		public DateTimeValue? PeriodEnd { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: StartDate</para>
-		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>Display Name: Period Start</para>
-		/// </summary>
-		public DateTimeValue? PeriodStart { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PRBatch</para>
-		/// <para>SQL Type: char(3)</para>
-		/// </summary>
-		public StringValue? Status { get; set; }
-
-		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PRBatch</para>
 		/// <para>Display Name: Transaction Date</para>
 		/// </summary>
 		public DateTimeValue? TransactionDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>SQL Type: nvarchar(128)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: NumberOfEmployees</para>
+		/// <para>DAC: PX.Objects.PR.PRBatch</para>
+		/// <para>Display Name: Number of Employees</para>
+		/// </summary>
+		public IntValue? NumberofEmployees { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
+		/// <para>Display Name: Total Hour Qty</para>
+		/// </summary>
+		public DecimalValue? TotalHourQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PRBatchTotalsFilter</para>
+		/// <para>Display Name: Total Earnings</para>
+		/// </summary>
+		public DecimalValue? TotalEarnings { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public BatchOvertimeRules? OvertimeRules { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<BatchDeductionOrBenefitDetail>? DeductionsAndBenefitsDetails { get; set; }
+
+		public List<BatchEarningDetail>? EarningDetails { get; set; }
+
+		public List<EmployeePaycheckSummary>? EmployeeSummary { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(PayrollBatch)} - \"{BatchID}\"";
+		}
 
 		public static class Expand
 		{

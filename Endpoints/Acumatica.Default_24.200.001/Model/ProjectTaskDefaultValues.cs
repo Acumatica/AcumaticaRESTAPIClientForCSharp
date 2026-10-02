@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ProjectTaskDefaultValues : Entity
 	{
 
+		#region Fields
 		public StringValue? AccrualAccount { get; set; }
 
 		public StringValue? AccrualSubaccount { get; set; }
@@ -25,6 +26,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? DefaultCostSubaccount { get; set; }
 
 		public StringValue? TaxCategory { get; set; }
+
+		#endregion
 
 	}
 }

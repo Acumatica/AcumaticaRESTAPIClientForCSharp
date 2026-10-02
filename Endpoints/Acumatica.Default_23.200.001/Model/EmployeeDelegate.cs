@@ -12,6 +12,21 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeeDelegate : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
+		/// <para>Display Name: Active</para>
+		/// </summary>
+		public BooleanValue? IsActive { get; set; }
+
+		/// <summary>
+		/// Represents the type of the delegation.
+		/// <para>DAC: PX.Objects.EP.EPWingman</para>
+		/// <para>Display Name: Delegation Of</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? DelegationOf { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: WingmanID</para>
 		/// <para>DAC: PX.Objects.EP.EPWingman</para>
@@ -24,14 +39,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.EP.EPWingman</para>
 		/// </summary>
 		public StringValue? EmployeeName { get; set; }
-
-		/// <summary>
-		/// Represents the type of the delegation.
-		/// <para>DAC: PX.Objects.EP.EPWingman</para>
-		/// <para>Display Name: Delegation Of</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? DelegationOf { get; set; }
 
 		/// <summary>
 		/// Delegation start date
@@ -47,11 +54,7 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public DateTimeValue? ExpiresOn { get; set; }
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.EP.EPEmployeePosition</para>
-		/// <para>Display Name: Active</para>
-		/// </summary>
-		public BooleanValue? IsActive { get; set; }
+		#endregion
 
 	}
 }

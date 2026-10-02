@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class OrderDateOperationDetail : Entity
 	{
 
+		#region Fields
 		public DateTimeValue? StartDate { get; set; }
 
 		public DateTimeValue? EndDate { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? OrderType { get; set; }
 
 		public StringValue? ProductionNbr { get; set; }
+
+		#endregion
 
 	}
 }

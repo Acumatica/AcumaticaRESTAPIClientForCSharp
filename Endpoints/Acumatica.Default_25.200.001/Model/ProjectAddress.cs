@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ProjectAddress : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The first address line.
 		/// <para>DAC: PX.Objects.PM.PMAddress</para>
@@ -28,14 +29,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? City { get; set; }
 
 		/// <summary>
-		/// The identifier of the Country record.
-		/// <para>DAC Field Name: CountryId</para>
-		/// <para>DAC: PX.Objects.PM.PMSiteAddress</para>
-		/// <para>SQL Type: nvarchar(2)</para>
-		/// </summary>
-		public StringValue? Country { get; set; }
-
-		/// <summary>
 		/// The name of the state.
 		/// <para>DAC: PX.Objects.PM.PMAddress</para>
 		/// <para>SQL Type: nvarchar(50)</para>
@@ -49,6 +42,14 @@ namespace Acumatica.Default_25_200_001.Model
 		/// <para>SQL Type: varchar(20)</para>
 		/// </summary>
 		public StringValue? PostalCode { get; set; }
+
+		/// <summary>
+		/// The identifier of the Country record.
+		/// <para>DAC Field Name: CountryId</para>
+		/// <para>DAC: PX.Objects.PM.PMSiteAddress</para>
+		/// <para>SQL Type: nvarchar(2)</para>
+		/// </summary>
+		public StringValue? Country { get; set; }
 
 		/// <summary>
 		/// The latitude of the address.
@@ -83,6 +84,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? TownLocationName { get; set; }
 
 		public StringValue? DistrictName { get; set; }
+
+		#endregion
 
 	}
 }

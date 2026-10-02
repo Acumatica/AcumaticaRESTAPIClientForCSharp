@@ -12,10 +12,11 @@ namespace Acumatica.Default_23_200_001.Model
 	public class OrderRisks : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		public StringValue? Message { get; set; }
+		public DecimalValue? Score { get; set; }
 
 		/// <summary>
 		/// <para>DAC: {}</para>
@@ -25,7 +26,9 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <summary>
 		/// <para>DAC: {}</para>
 		/// </summary>
-		public DecimalValue? Score { get; set; }
+		public StringValue? Message { get; set; }
+
+		#endregion
 
 	}
 }

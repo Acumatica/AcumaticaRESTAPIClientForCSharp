@@ -1,0 +1,144 @@
+using System;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.Default_26_200_001.Model
+{
+	public class StockItemVendorDetail : Entity
+	{
+
+		#region Fields
+		/// <summary>
+		/// The Unit of Measure used as the purchase unit for the Inventory Item.This field can be changed only if the Multiple Units of Measure feature is enabled.Otherwise, the purchase unit is assumed to be the same as the Base Unit.
+		/// <para>DAC: PX.Objects.IN.InventoryItem</para>
+		/// <para>Display Name: Purchase Unit</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? PurchaseUnit { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: IsDefault</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		public BooleanValue? Default { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// <para>Display Name: Vendor ID</para>
+		/// </summary>
+		public StringValue? VendorID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Vendor__AcctName</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		public StringValue? VendorName { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: VendorLocationID</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		public StringValue? Location { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Location__VSiteID</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Location__VLeadTime</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		public ShortValue? LeadTimeDays { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OverrideSettings</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		public BooleanValue? Override { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// <para>Display Name: Add. Lead Time (Days)</para>
+		/// </summary>
+		public ShortValue? AddLeadTimeDays { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MinOrdFreq</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// <para>Display Name: Min. Order Freq.(Days)</para>
+		/// </summary>
+		public IntValue? MinOrderFrequencyInDays { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MinOrdQty</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// <para>Display Name: Min. Order Qty.</para>
+		/// </summary>
+		public DecimalValue? MinOrderQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: MaxOrdQty</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// <para>Display Name: Max Order Qty.</para>
+		/// </summary>
+		public DecimalValue? MaxOrderQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// <para>Display Name: Lot Size</para>
+		/// </summary>
+		public DecimalValue? LotSize { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ERQ</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// </summary>
+		public DecimalValue? EOQ { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// <para>Display Name: Currency ID</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? CurrencyID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: LastPrice</para>
+		/// <para>DAC: PX.Objects.PO.POVendorInventory</para>
+		/// <para>Display Name: Last Vendor Price</para>
+		/// </summary>
+		public DecimalValue? LastVendorPrice { get; set; }
+
+		public IntValue? RecordID { get; set; }
+
+		#endregion
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+
+			//Intentionally excluded
+			//public const string All = "Files";
+		}
+	}
+}

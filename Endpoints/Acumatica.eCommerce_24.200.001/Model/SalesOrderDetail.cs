@@ -12,5 +12,12 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class SalesOrderDetail : Acumatica.Default_24_200_001.Model.SalesOrderDetail
 	{
 
+		#region Fields
+		public StringValue? OrigOrderNbr { get; set; }
+
+		public StringValue? OrigOrderType { get; set; }
+
+		#endregion
+
 	}
 }

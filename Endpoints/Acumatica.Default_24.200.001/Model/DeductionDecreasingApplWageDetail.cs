@@ -12,11 +12,14 @@ namespace Acumatica.Default_24_200_001.Model
 	public class DeductionDecreasingApplWageDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? DeductionCode { get; set; }
 
 		public StringValue? Description { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

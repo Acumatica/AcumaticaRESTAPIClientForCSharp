@@ -16,46 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class Task : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// The HTML body of the activity.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Activity Details</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
-		/// </summary>
-		public StringValue? Body { get; set; }
-
-		/// <summary>
-		/// The identifier of the task or event category.
-		/// <para>DAC Field Name: CategoryID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		public StringValue? Category { get; set; }
-
-		/// <summary>
-		/// The date and time when activity was completed(UIStatus was set to Completed).
-		/// <para>DAC Field Name: CompletedDate</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Completed On</para>
-		/// </summary>
-		public DateTimeValue? CompletedAt { get; set; }
-
-		/// <summary>
-		/// The estimation of the task completion expressed as a percentage.
-		/// <para>DAC Field Name: PercentCompletion</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Completion (%)</para>
-		/// </summary>
-		public IntValue? CompletionPercentage { get; set; }
-
-		public DateTimeValue? DueDate { get; set; }
-
-		/// <summary>
-		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
-		/// <para>DAC Field Name: IsPrivate</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		public BooleanValue? Internal { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// The identifier of the Note object associated with the document.
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
@@ -65,50 +26,6 @@ namespace Acumatica.Default_25_200_001.Model
 		public GuidValue? NoteID { get; set; }
 
 		/// <summary>
-		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
-		/// <para>DAC Field Name: OwnerID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		public StringValue? Owner { get; set; }
-
-		/// <summary>
-		/// The identifier of the parent task or event of the current activity.
-		/// <para>DAC Field Name: ParentNoteID</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Parent Activity</para>
-		/// </summary>
-		public GuidValue? Parent { get; set; }
-
-		public StringValue? ParentSummary { get; set; }
-
-		/// <summary>
-		/// The priority of the activity.
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// </summary>
-		public StringValue? Priority { get; set; }
-
-		public List<ActivityDetail>? RelatedActivities { get; set; }
-
-		public List<TaskRelatedTask>? RelatedTasks { get; set; }
-
-		public ReminderDetail? Reminder { get; set; }
-
-		/// <summary>
-		/// The start date and time of the event.
-		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
-
-		/// <summary>
-		/// The status of the activity.
-		/// <para>DAC Field Name: UIStatus</para>
-		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>SQL Type: char(2)</para>
-		/// </summary>
-		public StringValue? Status { get; set; }
-
-		/// <summary>
 		/// The summary description of the activity.
 		/// <para>DAC Field Name: Subject</para>
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
@@ -116,7 +33,20 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? Summary { get; set; }
 
-		public TaskTimeActivity? TimeActivity { get; set; }
+		/// <summary>
+		/// The estimation of the task completion expressed as a percentage.
+		/// <para>DAC Field Name: PercentCompletion</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Completion (%)</para>
+		/// </summary>
+		public IntValue? CompletionPercentage { get; set; }
+
+		/// <summary>
+		/// The identifier of the user responsible for the current document.If the WorkgroupID is specified, only a user that belongsto the specified workgroup can be used.
+		/// <para>DAC Field Name: OwnerID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		public StringValue? Owner { get; set; }
 
 		/// <summary>
 		/// The identifier of the workgroup responsible for the current document.
@@ -125,16 +55,12 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? WorkgroupID { get; set; }
 
-		public StringValue? CreatedByID { get; set; }
-
 		/// <summary>
-		/// The date and time when the record was created.
-		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
-		/// <para>Display Name: Created At</para>
+		/// Specifies whether this activity is hidden from external usersand not visible on the portal site.
+		/// <para>DAC Field Name: IsPrivate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
 		/// </summary>
-		public DateTimeValue? CreatedDateTime { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		public BooleanValue? Internal { get; set; }
 
 		/// <summary>
 		/// Contains the type of the related entity, that is specified in RefNoteID.
@@ -156,7 +82,95 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </remarks>
 		public GuidValue? RelatedEntityNoteID { get; set; }
 
+		/// <summary>
+		/// The identifier of the parent task or event of the current activity.
+		/// <para>DAC Field Name: ParentNoteID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Parent Activity</para>
+		/// </summary>
+		public GuidValue? Parent { get; set; }
+
+		/// <summary>
+		/// The status of the activity.
+		/// <para>DAC Field Name: UIStatus</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// The priority of the activity.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		public StringValue? Priority { get; set; }
+
+		/// <summary>
+		/// The identifier of the task or event category.
+		/// <para>DAC Field Name: CategoryID</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// </summary>
+		public StringValue? Category { get; set; }
+
+		/// <summary>
+		/// The date and time when activity was completed(UIStatus was set to Completed).
+		/// <para>DAC Field Name: CompletedDate</para>
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Completed On</para>
+		/// </summary>
+		public DateTimeValue? CompletedAt { get; set; }
+
+		/// <summary>
+		/// The HTML body of the activity.
+		/// <para>DAC: PX.Objects.CR.CRActivity</para>
+		/// <para>Display Name: Activity Details</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// </summary>
+		public StringValue? Body { get; set; }
+
+		/// <summary>
+		/// The start date and time of the event.
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
+		/// The date and time when the record was created.
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Created At</para>
+		/// </summary>
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? DueDate { get; set; }
+
+		public StringValue? ParentSummary { get; set; }
+
+		public StringValue? CreatedByID { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
 		public StringValue? RelatedEntityDescription { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ReminderDetail? Reminder { get; set; }
+
+		public TaskTimeActivity? TimeActivity { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ActivityDetail>? RelatedActivities { get; set; }
+
+		public List<TaskRelatedTask>? RelatedTasks { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Task)} - \"{NoteID}\"";
+		}
 
 		public static class Expand
 		{

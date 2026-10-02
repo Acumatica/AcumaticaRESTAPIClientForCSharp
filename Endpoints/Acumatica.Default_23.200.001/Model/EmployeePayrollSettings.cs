@@ -16,35 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EmployeePayrollSettings : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: ActiveInPayroll</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		public Address? AddressInfo { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CashAccountID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Cash Account</para>
-		/// </summary>
-		public StringValue? CashAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: EmployeeClassID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Class ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? ClassID { get; set; }
-
-		public List<CompensationDetail>? Compensation { get; set; }
-
-		public DeductionsAndBenefits? DeductionsAndBenefits { get; set; }
-
-		public List<DirectDepositDetail>? DirectDepositDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: AcctCD</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
@@ -64,6 +36,20 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? EmployeeName { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: ActiveInPayroll</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EmployeeClassID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Class ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? ClassID { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: EmpType</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
 		/// <para>Display Name: Employee Type</para>
@@ -71,17 +57,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? EmployeeType { get; set; }
 
-		public EmploymentDates? EmploymentDates { get; set; }
-
-		public List<EmploymentRecord>? EmploymentRecords { get; set; }
-
-		public EmployeeGeneralInfo? GeneralInfo { get; set; }
-
-		public EmployeeGLAccounts? GLAccounts { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		public EmployeePaidTimeOff? PaidTimeOff { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: EmpTypeUseDflt</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Use Default</para>
+		/// </summary>
+		public BooleanValue? EmployeeTypeClassDefault { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PaymentMethodID</para>
@@ -91,18 +72,51 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? PaymentMethod { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: CashAccountID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Cash Account</para>
+		/// </summary>
+		public StringValue? CashAccount { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public Address? AddressInfo { get; set; }
+
+		public DeductionsAndBenefits? DeductionsAndBenefits { get; set; }
+
+		public EmploymentDates? EmploymentDates { get; set; }
+
+		public EmployeeGeneralInfo? GeneralInfo { get; set; }
+
+		public EmployeeGLAccounts? GLAccounts { get; set; }
+
+		public EmployeePaidTimeOff? PaidTimeOff { get; set; }
+
+		public EmployeeWorkLocations? WorkLocations { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<CompensationDetail>? Compensation { get; set; }
+
+		public List<DirectDepositDetail>? DirectDepositDetails { get; set; }
+
+		public List<EmploymentRecord>? EmploymentRecords { get; set; }
+
 		public List<EmployeeTaxDetail>? Taxes { get; set; }
 
 		public List<TaxSettingDetail>? TaxSettings { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: EmpTypeUseDflt</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Use Default</para>
-		/// </summary>
-		public BooleanValue? EmployeeTypeClassDefault { get; set; }
+		#endregion
 
-		public EmployeeWorkLocations? WorkLocations { get; set; }
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(EmployeePayrollSettings)} - \"{EmployeeID}\"";
+		}
 
 		public static class Expand
 		{

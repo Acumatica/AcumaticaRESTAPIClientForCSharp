@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.Default_26_200_001.Model
+{
+	public class EmploymentDates : Entity
+	{
+
+		#region Fields
+		/// <summary>
+		/// Hire date.
+		/// <para>DAC: PX.Objects.PR.EmploymentHistory</para>
+		/// <para>Display Name: Hire Date</para>
+		/// </summary>
+		public DateTimeValue? HireDate { get; set; }
+
+		/// <summary>
+		/// Termination date.
+		/// <para>DAC: PX.Objects.PR.EmploymentHistory</para>
+		/// <para>Display Name: Termination Date</para>
+		/// </summary>
+		public DateTimeValue? TerminationDate { get; set; }
+
+		#endregion
+
+	}
+}

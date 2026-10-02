@@ -12,27 +12,12 @@ namespace Acumatica.Default_24_200_001.Model
 	public class KitAssemblyStockComponent : Entity
 	{
 
-		public List<KitAssemblyStockComponentAllocation>? Allocations { get; set; }
-
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: INKitSpecStkDet__DfltCompQty</para>
-		/// <para>DAC: PX.Objects.IN.INComponentTran</para>
-		/// </summary>
-		public DecimalValue? ComponentQty { get; set; }
-
-		public IntValue? LineNbr { get; set; }
-
-		/// <summary>
+		/// <para>DAC Field Name: SubItemID</para>
 		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
-		/// <para>Display Name: Location</para>
 		/// </summary>
-		public StringValue? LocationID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
-		/// <para>Display Name: Quantity</para>
-		/// </summary>
-		public DecimalValue? Qty { get; set; }
+		public StringValue? Subitem { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
@@ -42,17 +27,29 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? ReasonCode { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Location</para>
+		/// </summary>
+		public StringValue? LocationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
+		/// <para>Display Name: Quantity</para>
+		/// </summary>
+		public DecimalValue? Qty { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: InventoryID</para>
 		/// <para>DAC: PX.Objects.IN.INComponentTran</para>
 		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
 		public StringValue? StockInventoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: SubItemID</para>
-		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
-		/// </summary>
-		public StringValue? Subitem { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INComponentTran</para>
@@ -61,10 +58,19 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INKitRegister</para>
-		/// <para>SQL Type: nvarchar(6)</para>
+		/// <para>DAC Field Name: INKitSpecStkDet__DfltCompQty</para>
+		/// <para>DAC: PX.Objects.IN.INComponentTran</para>
 		/// </summary>
-		public StringValue? UOM { get; set; }
+		public DecimalValue? ComponentQty { get; set; }
+
+		public IntValue? LineNbr { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<KitAssemblyStockComponentAllocation>? Allocations { get; set; }
+
+		#endregion
 
 	}
 }

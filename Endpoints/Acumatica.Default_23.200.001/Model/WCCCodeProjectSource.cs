@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class WCCCodeProjectSource : Entity
 	{
 
+		#region Fields
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
 		public IntValue? LineNbr { get; set; }
@@ -21,6 +22,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ProjectTask { get; set; }
 
 		public StringValue? WorkCodeID { get; set; }
+
+		#endregion
 
 	}
 }

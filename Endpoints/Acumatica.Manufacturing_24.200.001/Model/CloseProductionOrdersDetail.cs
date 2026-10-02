@@ -12,25 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class CloseProductionOrdersDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CostCodeID</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Cost Code</para>
-		/// </summary>
-		public StringValue? CostCode { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// <para>Display Name: Order Type</para>
@@ -49,33 +31,16 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? ProductionNbr { get; set; }
 
 		/// <summary>
-		/// Selected Project fot the Production Order
-		/// <para>DAC Field Name: ProjectID</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// </summary>
-		public StringValue? Project { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TaskID</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Project Task</para>
-		/// </summary>
-		public StringValue? ProjectTask { get; set; }
-
-		public DecimalValue? QtyComplete { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: QtytoProd</para>
-		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
-		/// <para>Display Name: Qty. to Produce</para>
-		/// </summary>
-		public DecimalValue? QtytoProduce { get; set; }
-
-		/// <summary>
 		/// Specifies (if set to true) that a user has selected the record in the table on the form for processing.
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// </summary>
 		public BooleanValue? Selected { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SubItemID</para>
@@ -88,6 +53,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
 		/// </summary>
 		public StringValue? Warehouse { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: QtytoProd</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Qty. to Produce</para>
+		/// </summary>
+		public DecimalValue? QtytoProduce { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
@@ -108,6 +80,37 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: WIP Variance Subaccount</para>
 		/// </summary>
 		public StringValue? WIPVarianceSubaccount { get; set; }
+
+		/// <summary>
+		/// Selected Project fot the Production Order
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// </summary>
+		public StringValue? Project { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Project Task</para>
+		/// </summary>
+		public StringValue? ProjectTask { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// <para>Display Name: Cost Code</para>
+		/// </summary>
+		public StringValue? CostCode { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdItem</para>
+		/// </summary>
+		public StringValue? Branch { get; set; }
+
+		public DecimalValue? QtyComplete { get; set; }
+
+		#endregion
 
 	}
 }

@@ -12,8 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ShipToSettings : Entity
 	{
 
-		public Address? ShipToAddress { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// Specifies (if set to true) that the address is overriden.
 		/// <para>DAC Field Name: OverrideAddress</para>
@@ -22,7 +21,12 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public BooleanValue? ShipToAddressOverride { get; set; }
 
-		public DocContact? ShipToContact { get; set; }
+		/// <summary>
+		/// Specifies (if set to true) that the address has been validated with a third-party specialized software or service.
+		/// <para>DAC Field Name: IsValidated</para>
+		/// <para>DAC: PX.Objects.SO.SOShipmentAddress</para>
+		/// </summary>
+		public BooleanValue? Validated { get; set; }
 
 		/// <summary>
 		/// Specifies (if set to true) that the contact is overriden.
@@ -32,12 +36,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public BooleanValue? ShipToContactOverride { get; set; }
 
-		/// <summary>
-		/// Specifies (if set to true) that the address has been validated with a third-party specialized software or service.
-		/// <para>DAC Field Name: IsValidated</para>
-		/// <para>DAC: PX.Objects.SO.SOShipmentAddress</para>
-		/// </summary>
-		public BooleanValue? Validated { get; set; }
+		#endregion
+
+		#region LinkedEntities
+		public Address? ShipToAddress { get; set; }
+
+		public DocContact? ShipToContact { get; set; }
+
+		#endregion
 
 	}
 }

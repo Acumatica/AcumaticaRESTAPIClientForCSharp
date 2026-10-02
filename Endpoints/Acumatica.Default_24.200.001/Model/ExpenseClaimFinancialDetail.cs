@@ -12,7 +12,15 @@ namespace Acumatica.Default_24_200_001.Model
 	public class ExpenseClaimFinancialDetail : Entity
 	{
 
-		public List<ExpenseClaimAPDocument>? APDocuments { get; set; }
+		#region Fields
+		/// <summary>
+		/// The tax zone associated with the branch.
+		/// <para>DAC Field Name: TaxZoneID</para>
+		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
+		/// <para>Display Name: Tax Zone</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? TaxZone { get; set; }
 
 		/// <summary>
 		/// The branch of the claim.
@@ -30,14 +38,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public StringValue? PosttoPeriod { get; set; }
 
-		/// <summary>
-		/// The tax zone associated with the branch.
-		/// <para>DAC Field Name: TaxZoneID</para>
-		/// <para>DAC: PX.Objects.EP.EPExpenseClaim</para>
-		/// <para>Display Name: Tax Zone</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? TaxZone { get; set; }
+		#endregion
+
+		#region Details
+		public List<ExpenseClaimAPDocument>? APDocuments { get; set; }
+
+		#endregion
 
 	}
 }

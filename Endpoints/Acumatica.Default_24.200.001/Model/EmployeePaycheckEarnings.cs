@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class EmployeePaycheckEarnings : Entity
 	{
 
+		#region Fields
 		public DecimalValue? Amount { get; set; }
 
 		public StringValue? Employee { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? ManualAmount { get; set; }
 
 		public DecimalValue? RegularAmounttoBePaid { get; set; }
+
+		#endregion
 
 	}
 }

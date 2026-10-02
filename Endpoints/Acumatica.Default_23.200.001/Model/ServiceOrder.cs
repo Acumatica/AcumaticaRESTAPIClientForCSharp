@@ -11,143 +11,20 @@ namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
 	/// Corresponds to the screen <c>FS300100</c> in the Acumatica ERP
-	/// <para>Key Fields: ServiceOrderNbr, ServiceOrderType</para>
+	/// <para>Key Fields: ServiceOrderType, ServiceOrderNbr</para>
 	/// </summary>
 	public class ServiceOrder : Entity, ITopLevelEntity
 	{
 
-		public SrvOrdAddress? Address { get; set; }
-
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: ApptDurationTotal</para>
+		/// <para>DAC Field Name: SrvOrdType</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Appointment Duration</para>
+		/// <para>Display Name: Order Type</para>
+		/// <para>SQL Type: char(4)</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? AppointmentDuration { get; set; }
-
-		public List<SrvOrdAppointments>? Appointments { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Appointments Needed</para>
-		/// </summary>
-		public BooleanValue? AppointmentsNeeded { get; set; }
-
-		public List<SrvOrdAttributes>? Attributes { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryEffectiveBillableDocTotal</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Invoice Total</para>
-		/// </summary>
-		public DecimalValue? BillableTotal { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BranchLocationID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Branch Location</para>
-		/// </summary>
-		public StringValue? BranchLocation { get; set; }
-
-		public SrvOrdContact? Contact { get; set; }
-
-		public SrvOrdContractInfo? ContractInfo { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		public StringValue? Currency { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CustomerID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// </summary>
-		public StringValue? Customer { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CustPORefNbr</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Customer Order</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		public StringValue? CustomerOrder { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: OrderDate</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// </summary>
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DfltProjectTaskID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Default Project Task</para>
-		/// </summary>
-		public StringValue? DefaultProjectTask { get; set; }
-
-		public List<SrvOrdDefaultStaff>? DefaultStaff { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DocDesc</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<SrvOrdDetails>? Details { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: EstimatedDurationTotal</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Estimated Duration</para>
-		/// </summary>
-		public StringValue? EstimatedDuration { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CustWorkOrderRefNbr</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: External Reference</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		public StringValue? ExternalReference { get; set; }
-
-		public SrvOrdFinancialDetails? FinancialDetails { get; set; }
-
-		public BooleanValue? Hold { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: LocationID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// </summary>
-		public StringValue? Location { get; set; }
-
-		public SrvOrdOtherInformation? OtherInformation { get; set; }
-
-		public BooleanValue? Override { get; set; }
-
-		public List<SrvOrdPrepayments>? Prepayments { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>SQL Type: char(1)</para>
-		/// </summary>
-		public StringValue? Priority { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ProblemID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// </summary>
-		public StringValue? Problem { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ProjectID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// </summary>
-		public StringValue? Project { get; set; }
+		public StringValue? ServiceOrderType { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
@@ -159,6 +36,101 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ServiceOrderNbr { get; set; }
 
 		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: WFStageID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Workflow Stage</para>
+		/// </summary>
+		public StringValue? WorkflowStage { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: OrderDate</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// </summary>
+		public DateTimeValue? Date { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CustPORefNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Customer Order</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
+		public StringValue? CustomerOrder { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CustWorkOrderRefNbr</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: External Reference</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
+		public StringValue? ExternalReference { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CustomerID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// </summary>
+		public StringValue? Customer { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: LocationID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// </summary>
+		public StringValue? Location { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? Currency { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BranchLocationID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Branch Location</para>
+		/// </summary>
+		public StringValue? BranchLocation { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// </summary>
+		public StringValue? Project { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DfltProjectTaskID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Default Project Task</para>
+		/// </summary>
+		public StringValue? DefaultProjectTask { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EstimatedDurationTotal</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Estimated Duration</para>
+		/// </summary>
+		public StringValue? EstimatedDuration { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Estimated Tax Total</para>
+		/// </summary>
+		public DecimalValue? TaxTotal { get; set; }
+
+		/// <summary>
 		/// <para>DAC Field Name: CuryDocTotal</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>Display Name: Estimated Total</para>
@@ -166,19 +138,24 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? ServiceOrderTotal { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: SrvOrdType</para>
+		/// <para>DAC Field Name: CuryEffectiveBillableDocTotal</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Order Type</para>
-		/// <para>SQL Type: char(4)</para>
-		/// Key Field
+		/// <para>Display Name: Invoice Total</para>
 		/// </summary>
-		public StringValue? ServiceOrderType { get; set; }
+		public DecimalValue? BillableTotal { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: WaitingForParts</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Waiting for Purchased Items</para>
+		/// </summary>
+		public BooleanValue? WaitingforPurchasedItems { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>SQL Type: char(1)</para>
+		/// <para>Display Name: Appointments Needed</para>
 		/// </summary>
-		public StringValue? Severity { get; set; }
+		public BooleanValue? AppointmentsNeeded { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: SLAETA_Date</para>
@@ -196,7 +173,13 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public StringValue? Status { get; set; }
+		public StringValue? Severity { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>SQL Type: char(1)</para>
+		/// </summary>
+		public StringValue? Priority { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: AssignedEmpID</para>
@@ -204,30 +187,61 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? Supervisor { get; set; }
 
-		public List<SrvOrdTaxDetails>? TaxDetails { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: ProblemID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// </summary>
+		public StringValue? Problem { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CuryTaxTotal</para>
+		/// <para>DAC Field Name: ApptDurationTotal</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Estimated Tax Total</para>
+		/// <para>Display Name: Appointment Duration</para>
 		/// </summary>
-		public DecimalValue? TaxTotal { get; set; }
+		public StringValue? AppointmentDuration { get; set; }
+
+		public BooleanValue? Hold { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		public BooleanValue? Override { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public SrvOrdAddress? Address { get; set; }
+
+		public SrvOrdContact? Contact { get; set; }
+
+		public SrvOrdContractInfo? ContractInfo { get; set; }
+
+		public SrvOrdFinancialDetails? FinancialDetails { get; set; }
+
+		public SrvOrdOtherInformation? OtherInformation { get; set; }
 
 		public SrvOrdTotals? Totals { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: WaitingForParts</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Waiting for Purchased Items</para>
-		/// </summary>
-		public BooleanValue? WaitingforPurchasedItems { get; set; }
+		#endregion
 
-		/// <summary>
-		/// <para>DAC Field Name: WFStageID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Workflow Stage</para>
-		/// </summary>
-		public StringValue? WorkflowStage { get; set; }
+		#region Details
+		public List<SrvOrdAppointments>? Appointments { get; set; }
+
+		public List<SrvOrdAttributes>? Attributes { get; set; }
+
+		public List<SrvOrdDefaultStaff>? DefaultStaff { get; set; }
+
+		public List<SrvOrdDetails>? Details { get; set; }
+
+		public List<SrvOrdPrepayments>? Prepayments { get; set; }
+
+		public List<SrvOrdTaxDetails>? TaxDetails { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ServiceOrder)} - \"{ServiceOrderType}\" - \"{ServiceOrderNbr}\"";
+		}
 
 		public static class Expand
 		{

@@ -12,6 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class MoveEntryTranAttribute : Entity
 	{
 
+		#region Fields
 		public StringValue? Attribute { get; set; }
 
 		public StringValue? AttributeID { get; set; }
@@ -25,6 +26,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public IntValue? TranLineNbr { get; set; }
 
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

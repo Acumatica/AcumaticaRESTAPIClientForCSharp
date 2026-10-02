@@ -12,11 +12,14 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	public class PrintJobParameter : Entity
 	{
 
+		#region Fields
 		public IntValue? JobID { get; set; }
 
 		public StringValue? ParameterName { get; set; }
 
 		public StringValue? ParameterValue { get; set; }
+
+		#endregion
 
 	}
 }

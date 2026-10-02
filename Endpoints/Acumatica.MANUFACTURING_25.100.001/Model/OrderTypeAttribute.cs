@@ -12,12 +12,13 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class OrderTypeAttribute : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
-		/// <para>Display Name: Attribute ID</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>Display Name: Line Nbr</para>
+		/// Key Field
 		/// </summary>
-		public StringValue? AttributeID { get; set; }
+		public IntValue? LineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: Descr</para>
@@ -28,8 +29,10 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
+		/// <para>Display Name: Attribute ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		public BooleanValue? Enabled { get; set; }
+		public StringValue? AttributeID { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
@@ -39,10 +42,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
-		/// <para>Display Name: Line Nbr</para>
-		/// Key Field
 		/// </summary>
-		public IntValue? LineNbr { get; set; }
+		public BooleanValue? Enabled { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMOrderTypeAttribute</para>
@@ -55,6 +56,8 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		public StringValue? Value { get; set; }
+
+		#endregion
 
 	}
 }

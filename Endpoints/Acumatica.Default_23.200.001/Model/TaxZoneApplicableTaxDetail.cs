@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class TaxZoneApplicableTaxDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The field contains ID of a tax that would be used to create tax transactions in documents.
 		/// <para>DAC: PX.Objects.TX.TaxZone</para>
@@ -19,6 +20,8 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
 		public StringValue? TaxID { get; set; }
+
+		#endregion
 
 	}
 }

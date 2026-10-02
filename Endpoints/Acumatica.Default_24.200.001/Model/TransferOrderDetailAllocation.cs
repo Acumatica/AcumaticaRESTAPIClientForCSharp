@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class TransferOrderDetailAllocation : Entity
 	{
 
+		#region Fields
 		public StringValue? LocationID { get; set; }
 
 		public StringValue? LotSerialNbr { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Subitem { get; set; }
 
 		public DateTimeValue? ExpirationDate { get; set; }
+
+		#endregion
 
 	}
 }

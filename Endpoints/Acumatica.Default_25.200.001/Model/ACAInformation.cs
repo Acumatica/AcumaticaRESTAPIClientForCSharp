@@ -12,14 +12,20 @@ namespace Acumatica.Default_25_200_001.Model
 	public class ACAInformation : Entity
 	{
 
-		public List<ACAInfoDetail>? ACAInfoDetails { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: MinimumIndividualContribution</para>
 		/// <para>DAC: PX.Objects.PR.PRDeductCode</para>
 		/// <para>Display Name: Minimum Individual Contribution</para>
 		/// </summary>
 		public DecimalValue? MinIndividualContribution { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ACAInfoDetail>? ACAInfoDetails { get; set; }
+
+		#endregion
 
 	}
 }

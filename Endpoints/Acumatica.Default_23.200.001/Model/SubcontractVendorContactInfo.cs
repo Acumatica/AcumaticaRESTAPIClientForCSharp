@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class SubcontractVendorContactInfo : Entity
 	{
 
+		#region Fields
 		public StringValue? AccountName { get; set; }
 
 		public StringValue? Email { get; set; }
@@ -21,6 +22,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public BooleanValue? VendorContactOverride { get; set; }
 
 		public StringValue? Phone { get; set; }
+
+		#endregion
 
 	}
 }

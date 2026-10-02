@@ -16,45 +16,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class InventoryReceipt : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Control Cost</para>
-		/// </summary>
-		public DecimalValue? ControlCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Control Qty.</para>
-		/// </summary>
-		public DecimalValue? ControlQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TranDate</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// </summary>
-		public DateTimeValue? Date { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: TranDesc</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<InventoryReceiptDetail>? Details { get; set; }
-
-		public BooleanValue? Hold { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: FinPeriodID</para>
-		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Post Period</para>
-		/// <para>SQL Type: char(6)</para>
-		/// </summary>
-		public StringValue? PostPeriod { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
@@ -71,16 +33,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Status { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: TranDate</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Total Cost</para>
 		/// </summary>
-		public DecimalValue? TotalCost { get; set; }
+		public DateTimeValue? Date { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: FinPeriodID</para>
 		/// <para>DAC: PX.Objects.IN.INRegister</para>
-		/// <para>Display Name: Total Qty.</para>
+		/// <para>Display Name: Post Period</para>
+		/// <para>SQL Type: char(6)</para>
 		/// </summary>
-		public DecimalValue? TotalQty { get; set; }
+		public StringValue? PostPeriod { get; set; }
 
 		/// <summary>
 		/// Field used in INReceiptEntry screen.
@@ -89,6 +53,53 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
 		public StringValue? TransferNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: TranDesc</para>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Total Qty.</para>
+		/// </summary>
+		public DecimalValue? TotalQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Control Qty.</para>
+		/// </summary>
+		public DecimalValue? ControlQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Total Cost</para>
+		/// </summary>
+		public DecimalValue? TotalCost { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INRegister</para>
+		/// <para>Display Name: Control Cost</para>
+		/// </summary>
+		public DecimalValue? ControlCost { get; set; }
+
+		public BooleanValue? Hold { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<InventoryReceiptDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(InventoryReceipt)} - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

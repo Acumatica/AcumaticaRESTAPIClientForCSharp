@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AppAttributes : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: AttributeID</para>
 		/// <para>DAC: PX.Objects.CS.CSAnswers</para>
@@ -19,12 +20,6 @@ namespace Acumatica.Default_23_200_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? Attribute { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSApptLineSplit</para>
-		/// <para>Display Name: Related Document</para>
-		/// </summary>
-		public GuidValue? RefNoteID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: isRequired</para>
@@ -37,6 +32,14 @@ namespace Acumatica.Default_23_200_001.Model
 		/// <para>SQL Type: nvarchar(255)</para>
 		/// </summary>
 		public StringValue? Value { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSApptLineSplit</para>
+		/// <para>Display Name: Related Document</para>
+		/// </summary>
+		public GuidValue? RefNoteID { get; set; }
+
+		#endregion
 
 	}
 }

@@ -16,8 +16,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class TaxReportingSettings : Entity, ITopLevelEntity
 	{
 
-		public List<ReportingGroup>? ReportingGroups { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: VendorID</para>
 		/// <para>DAC: PX.Objects.TX.TaxReport</para>
@@ -25,6 +24,18 @@ namespace Acumatica.Default_25_200_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? TaxAgency { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<ReportingGroup>? ReportingGroups { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(TaxReportingSettings)} - \"{TaxAgency}\"";
+		}
 
 		public static class Expand
 		{

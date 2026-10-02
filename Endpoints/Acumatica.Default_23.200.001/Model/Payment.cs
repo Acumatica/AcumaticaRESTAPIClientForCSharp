@@ -11,105 +11,19 @@ namespace Acumatica.Default_23_200_001.Model
 {
 	/// <summary>
 	/// Corresponds to the screen <c>AR302000</c> in the Acumatica ERP
-	/// <para>Key Fields: ReferenceNbr, Type</para>
+	/// <para>Key Fields: Type, ReferenceNbr</para>
 	/// </summary>
 	public class Payment : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: AdjDate</para>
+		/// <para>DAC Field Name: DocType</para>
 		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Application Date</para>
+		/// <para>SQL Type: char(3)</para>
+		/// Key Field
 		/// </summary>
-		public DateTimeValue? ApplicationDate { get; set; }
-
-		public List<PaymentApplicationHistoryDetail>? ApplicationHistory { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryApplAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Applied to Documents</para>
-		/// </summary>
-		public DecimalValue? AppliedToDocuments { get; set; }
-
-		/// <summary>
-		/// The identifier of the branch to which the document belongs.
-		/// <para>DAC Field Name: BranchID</para>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// </summary>
-		public StringValue? Branch { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PMInstanceID</para>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Card/Account Nbr.</para>
-		/// </summary>
-		public IntValue? CardAccountNbr { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CashAccountID</para>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Cash Account</para>
-		/// </summary>
-		public StringValue? CashAccount { get; set; }
-
-		public List<PaymentCharge>? Charges { get; set; }
-
-		public List<CreditCardProcessingDetail>? CreditCardProcessingInfo { get; set; }
-
-		/// <summary>
-		/// The code of the Currency of the document.
-		/// <para>DAC Field Name: CuryID</para>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Currency</para>
-		/// <para>SQL Type: nvarchar(5)</para>
-		/// </summary>
-		public StringValue? CurrencyID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Customer</para>
-		/// </summary>
-		public StringValue? CustomerID { get; set; }
-
-		/// <summary>
-		/// The description of the document.
-		/// <para>DAC Field Name: DocDesc</para>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>SQL Type: nvarchar(512)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public List<PaymentDetail>? DocumentsToApply { get; set; }
-
-		public BooleanValue? Hold { get; set; }
-
-		public BooleanValue? IsCCPayment { get; set; }
-
-		public List<PaymentOrderDetail>? OrdersToApply { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: CuryOrigDocAmt</para>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Payment Amount</para>
-		/// </summary>
-		public DecimalValue? PaymentAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PaymentMethodID</para>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Payment Method</para>
-		/// <para>SQL Type: nvarchar(10)</para>
-		/// </summary>
-		public StringValue? PaymentMethod { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ExtRefNbr</para>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Payment Ref.</para>
-		/// <para>SQL Type: nvarchar(40)</para>
-		/// </summary>
-		public StringValue? PaymentRef { get; set; }
+		public StringValue? Type { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: RefNbr</para>
@@ -128,31 +42,40 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DocType</para>
+		/// <para>DAC Field Name: AdjDate</para>
 		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>SQL Type: char(3)</para>
-		/// Key Field
+		/// <para>Display Name: Application Date</para>
 		/// </summary>
-		public StringValue? Type { get; set; }
+		public DateTimeValue? ApplicationDate { get; set; }
 
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: ExtRefNbr</para>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Payment Ref.</para>
+		/// <para>SQL Type: nvarchar(40)</para>
+		/// </summary>
+		public StringValue? PaymentRef { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Proc. Center ID</para>
+		/// <para>Display Name: Customer</para>
+		/// </summary>
+		public StringValue? CustomerID { get; set; }
+
+		/// <summary>
+		/// Identifier of the Location of the Customer.
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Location</para>
+		/// </summary>
+		public StringValue? CustomerLocationID { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: PaymentMethodID</para>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Payment Method</para>
 		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		public StringValue? ProcessingCenterID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Save Card</para>
-		/// </summary>
-		public BooleanValue? SaveCard { get; set; }
-
-		public List<CreditCardTransactionDetail>? CreditCardTransactionInfo { get; set; }
-
-		public StringValue? ExternalRef { get; set; }
+		public StringValue? PaymentMethod { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: RefTranExtNbr</para>
@@ -163,18 +86,18 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? OrigTransaction { get; set; }
 
 		/// <summary>
-		/// The identifier of the branch to which the document belongs.
+		/// <para>DAC Field Name: PMInstanceID</para>
 		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Branch</para>
+		/// <para>Display Name: Card/Account Nbr.</para>
 		/// </summary>
-		public StringValue? BranchID { get; set; }
+		public IntValue? CardAccountNbr { get; set; }
 
 		/// <summary>
-		/// Identifier of the Location of the Customer.
 		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Location</para>
+		/// <para>Display Name: Proc. Center ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		public StringValue? CustomerLocationID { get; set; }
+		public StringValue? ProcessingCenterID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: NewCard</para>
@@ -183,7 +106,56 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public BooleanValue? IsNewCard { get; set; }
 
-		public GuidValue? NoteID { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Save Card</para>
+		/// </summary>
+		public BooleanValue? SaveCard { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CashAccountID</para>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Cash Account</para>
+		/// </summary>
+		public StringValue? CashAccount { get; set; }
+
+		/// <summary>
+		/// The code of the Currency of the document.
+		/// <para>DAC Field Name: CuryID</para>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Currency</para>
+		/// <para>SQL Type: nvarchar(5)</para>
+		/// </summary>
+		public StringValue? CurrencyID { get; set; }
+
+		/// <summary>
+		/// The description of the document.
+		/// <para>DAC Field Name: DocDesc</para>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>SQL Type: nvarchar(512)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryOrigDocAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Payment Amount</para>
+		/// </summary>
+		public DecimalValue? PaymentAmount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CuryApplAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Applied to Documents</para>
+		/// </summary>
+		public DecimalValue? AppliedToDocuments { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CurySOApplAmt</para>
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Applied to Orders</para>
+		/// </summary>
+		public DecimalValue? AppliedToOrders { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CuryUnappliedBal</para>
@@ -193,11 +165,50 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? AvailableBalance { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CurySOApplAmt</para>
+		/// The identifier of the branch to which the document belongs.
+		/// <para>DAC Field Name: BranchID</para>
 		/// <para>DAC: PX.Objects.AR.ARPayment</para>
-		/// <para>Display Name: Applied to Orders</para>
 		/// </summary>
-		public DecimalValue? AppliedToOrders { get; set; }
+		public StringValue? Branch { get; set; }
+
+		/// <summary>
+		/// The identifier of the branch to which the document belongs.
+		/// <para>DAC: PX.Objects.AR.ARPayment</para>
+		/// <para>Display Name: Branch</para>
+		/// </summary>
+		public StringValue? BranchID { get; set; }
+
+		public BooleanValue? Hold { get; set; }
+
+		public BooleanValue? IsCCPayment { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		public StringValue? ExternalRef { get; set; }
+
+		public GuidValue? NoteID { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<PaymentApplicationHistoryDetail>? ApplicationHistory { get; set; }
+
+		public List<PaymentCharge>? Charges { get; set; }
+
+		public List<CreditCardProcessingDetail>? CreditCardProcessingInfo { get; set; }
+
+		public List<PaymentDetail>? DocumentsToApply { get; set; }
+
+		public List<PaymentOrderDetail>? OrdersToApply { get; set; }
+
+		public List<CreditCardTransactionDetail>? CreditCardTransactionInfo { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Payment)} - \"{Type}\" - \"{ReferenceNbr}\"";
+		}
 
 		public static class Expand
 		{

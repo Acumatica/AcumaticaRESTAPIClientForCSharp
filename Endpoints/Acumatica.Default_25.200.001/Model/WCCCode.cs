@@ -12,21 +12,9 @@ namespace Acumatica.Default_25_200_001.Model
 	public class WCCCode : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		/// <summary>
+		/// The unique identifier of the workers' compensation code.
 		/// <para>DAC Field Name: WorkCodeID</para>
 		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
 		/// <para>Display Name: WCC Code</para>
@@ -35,6 +23,25 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? wcccode { get; set; }
 
+		/// <summary>
+		/// A Boolean value that indicates (if set to true) that the workers' compensation code is active and can be used.
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// The description of the workers' compensation code.
+		/// <para>DAC: PX.Objects.PM.PMWorkCode</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
 		public List<WCCCodeCostCodeSource>? WCCCodeCostCodeSources { get; set; }
 
 		public List<WCCCodeLaborItemSource>? WCCCodeLaborItemSources { get; set; }
@@ -44,6 +51,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public List<WCCCodeProjectSource>? WCCCodeProjectSources { get; set; }
 
 		public List<WCCCodeRate>? WCCCodeRates { get; set; }
+
+		#endregion
 
 	}
 }

@@ -12,6 +12,35 @@ namespace Acumatica.Default_25_200_001.Model
 	public class EmployeeGLAccounts : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: EarningsAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Earnings Account</para>
+		/// </summary>
+		public StringValue? EarningsAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EarningsSubID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Earnings Sub.</para>
+		/// </summary>
+		public StringValue? EarningsSub { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DedLiabilityAcctID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Deduction Liability Account</para>
+		/// </summary>
+		public StringValue? DeductionLiabilityAccount { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: DedLiabilitySubID</para>
+		/// <para>DAC: PX.Objects.PR.PREmployee</para>
+		/// <para>Display Name: Deduction Liability Sub.</para>
+		/// </summary>
+		public StringValue? DeductionLiabilitySub { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: BenefitExpenseAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
@@ -41,46 +70,32 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? BenefitLiabilitySub { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DedLiabilityAcctID</para>
+		/// <para>DAC Field Name: PayrollTaxExpenseAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Deduction Liability Account</para>
+		/// <para>Display Name: Tax Expense Account</para>
 		/// </summary>
-		public StringValue? DeductionLiabilityAccount { get; set; }
+		public StringValue? TaxExpenseAccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: DedLiabilitySubID</para>
+		/// <para>DAC Field Name: PayrollTaxExpenseSubID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Deduction Liability Sub.</para>
+		/// <para>Display Name: Tax Expense Sub.</para>
 		/// </summary>
-		public StringValue? DeductionLiabilitySub { get; set; }
+		public StringValue? TaxExpenseSub { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EarningsAcctID</para>
+		/// <para>DAC Field Name: PayrollTaxLiabilityAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Earnings Account</para>
+		/// <para>Display Name: Tax Liability Account</para>
 		/// </summary>
-		public StringValue? EarningsAccount { get; set; }
+		public StringValue? TaxLiabilityAccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EarningsSubID</para>
+		/// <para>DAC Field Name: PayrollTaxLiabilitySubID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Earnings Sub.</para>
+		/// <para>Display Name: Tax Liability Sub.</para>
 		/// </summary>
-		public StringValue? EarningsSub { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOAssetAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: PTO Asset Account</para>
-		/// </summary>
-		public StringValue? PTOAssetAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PTOAssetSubID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: PTO Asset Sub.</para>
-		/// </summary>
-		public StringValue? PTOAssetSub { get; set; }
+		public StringValue? TaxLiabilitySub { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PTOExpenseAcctID</para>
@@ -111,32 +126,20 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? PTOLiabilitySub { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PayrollTaxExpenseAcctID</para>
+		/// <para>DAC Field Name: PTOAssetAcctID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Tax Expense Account</para>
+		/// <para>Display Name: PTO Asset Account</para>
 		/// </summary>
-		public StringValue? TaxExpenseAccount { get; set; }
+		public StringValue? PTOAssetAccount { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PayrollTaxExpenseSubID</para>
+		/// <para>DAC Field Name: PTOAssetSubID</para>
 		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Tax Expense Sub.</para>
+		/// <para>Display Name: PTO Asset Sub.</para>
 		/// </summary>
-		public StringValue? TaxExpenseSub { get; set; }
+		public StringValue? PTOAssetSub { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: PayrollTaxLiabilityAcctID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Tax Liability Account</para>
-		/// </summary>
-		public StringValue? TaxLiabilityAccount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: PayrollTaxLiabilitySubID</para>
-		/// <para>DAC: PX.Objects.PR.PREmployee</para>
-		/// <para>Display Name: Tax Liability Sub.</para>
-		/// </summary>
-		public StringValue? TaxLiabilitySub { get; set; }
+		#endregion
 
 	}
 }

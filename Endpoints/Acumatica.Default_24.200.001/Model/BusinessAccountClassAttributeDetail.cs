@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BusinessAccountClassAttributeDetail : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Active { get; set; }
 
 		public StringValue? AttributeID { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public BooleanValue? Required { get; set; }
 
 		public ShortValue? SortOrder { get; set; }
+
+		#endregion
 
 	}
 }

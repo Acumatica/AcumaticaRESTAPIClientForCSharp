@@ -15,19 +15,25 @@ namespace Acumatica.Default_25_200_001.Model
 	public class StorageDetailsByLocationInquiry : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: Warehouse</para>
+		/// <para>DAC: PX.Data.GenericFilter</para>
+		/// </summary>
+		public StringValue? WarehouseID { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: SplitLocations</para>
 		/// <para>DAC: PX.Data.GenericFilter</para>
 		/// </summary>
 		public BooleanValue? SplitByLocation { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<StorageDetailByLocation>? StorageDetailsByLocation { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: Warehouse</para>
-		/// <para>DAC: PX.Data.GenericFilter</para>
-		/// </summary>
-		public StringValue? WarehouseID { get; set; }
+		#endregion
 
 		public static class Expand
 		{

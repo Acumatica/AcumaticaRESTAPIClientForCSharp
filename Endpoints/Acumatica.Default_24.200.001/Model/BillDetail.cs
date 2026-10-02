@@ -12,19 +12,12 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BillDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// Identifier of the expense account to be updated by the transaction.
-		/// <para>DAC Field Name: AccountID</para>
-		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>DAC Field Name: ProjectID</para>
+		/// <para>DAC: PX.Objects.AP.APInvoice</para>
 		/// </summary>
-		public StringValue? Account { get; set; }
-
-		/// <summary>
-		/// The total amount for the specified quantity of items or services of this type (after discount has been taken),or the amount of debit adjustment or prepayment.(Presented in the currency of the document, see CuryID)
-		/// <para>DAC Field Name: CuryTranAmt</para>
-		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// </summary>
-		public DecimalValue? Amount { get; set; }
+		public StringValue? Project { get; set; }
 
 		/// <summary>
 		/// Identifier of the Branch, to which the document belongs.
@@ -33,20 +26,43 @@ namespace Acumatica.Default_24_200_001.Model
 		/// </summary>
 		public StringValue? Branch { get; set; }
 
-		public BooleanValue? CalculateDiscountsOnImport { get; set; }
+		/// <summary>
+		/// Identifier of the inventory item associated with the transaction.
+		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: CostCodeID</para>
+		/// The description text for the transaction.
+		/// <para>DAC Field Name: TranDesc</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: Cost Code</para>
+		/// <para>Display Name: Transaction Descr.</para>
+		/// <para>SQL Type: nvarchar(256)</para>
 		/// </summary>
-		public StringValue? CostCode { get; set; }
+		public StringValue? TransactionDescription { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: AccountID_Account_description</para>
+		/// The quantity of the items or services associated with the line delivered by the vendor.
 		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>Display Name: Quantity</para>
 		/// </summary>
-		public StringValue? Description { get; set; }
+		public DecimalValue? Qty { get; set; }
+
+		/// <summary>
+		/// The unit of measure for the transaction.
+		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>SQL Type: nvarchar(6)</para>
+		/// </summary>
+		public StringValue? UOM { get; set; }
+
+		/// <summary>
+		/// The unit cost of the item or service received from the vendor and associated with the line.(Presented in the currency of the document, see CuryID)
+		/// <para>DAC Field Name: CuryUnitCost</para>
+		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>Display Name: Unit Cost</para>
+		/// </summary>
+		public DecimalValue? UnitCost { get; set; }
 
 		/// <summary>
 		/// The extended cost of the item or service associated with the line, which is the unit price multiplied by the quantity.(Presented in the currency of the document, see CuryID)
@@ -57,51 +73,70 @@ namespace Acumatica.Default_24_200_001.Model
 		public DecimalValue? ExtendedCost { get; set; }
 
 		/// <summary>
-		/// Identifier of the inventory item associated with the transaction.
+		/// The total amount for the specified quantity of items or services of this type (after discount has been taken),or the amount of debit adjustment or prepayment.(Presented in the currency of the document, see CuryID)
+		/// <para>DAC Field Name: CuryTranAmt</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: Inventory ID</para>
 		/// </summary>
-		public StringValue? InventoryID { get; set; }
+		public DecimalValue? Amount { get; set; }
 
 		/// <summary>
-		/// The line number of the corresponding Landed Cost Document Detail.Together with LCDocType and LCRefNbr links AP transactions to the Landed Cost Document and their lines.
+		/// Identifier of the expense account to be updated by the transaction.
+		/// <para>DAC Field Name: AccountID</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: LC Line</para>
 		/// </summary>
-		public IntValue? LCLineNbr { get; set; }
+		public StringValue? Account { get; set; }
 
 		/// <summary>
-		/// The reference number of the corresponding Landed Cost Document.Together with LCDocType and LCLineNbr links APTrans to the PO Orders and their lines.
-		/// <para>DAC Field Name: LCRefNbr</para>
+		/// <para>DAC Field Name: AccountID_Account_description</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: LC Number</para>
-		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		public StringValue? LCNbr { get; set; }
+		public StringValue? Description { get; set; }
 
 		/// <summary>
-		/// The type of the corresponding Landed Cost Document.Together with LCRefNbr and LCLineNbr links APTrans to the PO Orders and their lines.
-		/// <para>DAC Field Name: LCDocType</para>
+		/// Identifier of the Subaccount associated with the transaction.
+		/// <para>DAC Field Name: SubID</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: LC Type</para>
-		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public StringValue? LCType { get; set; }
+		public StringValue? Subaccount { get; set; }
 
 		/// <summary>
-		/// When set to true indicates that the document line is not billable in the project.The field is relevant only in case Project Accounting feature is enabled.
+		/// Identifier of the particular task associated with the transaction. The task belongs to the selected project
+		/// <para>DAC Field Name: TaskID</para>
+		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>Display Name: Project Task</para>
+		/// </summary>
+		public StringValue? ProjectTask { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: CostCodeID</para>
+		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>Display Name: Cost Code</para>
+		/// </summary>
+		public StringValue? CostCode { get; set; }
+
+		/// <summary>
+		/// When set to <c>true</c> indicates that the document line is not billable in the project.The field is relevant only in case Project Accounting feature is enabled.
 		/// <para>DAC: PX.Objects.AP.APTran</para>
 		/// <para>Display Name: Non Billable</para>
 		/// </summary>
 		public BooleanValue? NonBillable { get; set; }
 
 		/// <summary>
-		/// The line number of the corresponding PO Line.Together with POOrderType and PONbr links AP transactions to the PO Orders and their lines.
-		/// <para>DAC Field Name: POLineNbr</para>
+		/// Identifier of the tax category associated with the line.
+		/// <para>DAC Field Name: TaxCategoryID</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: PO Line</para>
+		/// <para>Display Name: Tax Category</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		public IntValue? POLine { get; set; }
+		public StringValue? TaxCategory { get; set; }
+
+		/// <summary>
+		/// The type of the corresponding PO Order.Together with PONbr and POLineNbr links APTrans to the PO Orders and their lines.
+		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>Display Name: PO Type</para>
+		/// <para>SQL Type: char(2)</para>
+		/// </summary>
+		public StringValue? POOrderType { get; set; }
 
 		/// <summary>
 		/// The reference number of the corresponding PO Order.Together with POOrderType and POLineNbr links APTrans to the PO Orders and their lines.
@@ -113,20 +148,37 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? POOrderNbr { get; set; }
 
 		/// <summary>
-		/// The type of the corresponding PO Order.Together with PONbr and POLineNbr links APTrans to the PO Orders and their lines.
+		/// The line number of the corresponding PO Line.Together with POOrderType and PONbr links AP transactions to the PO Orders and their lines.
+		/// <para>DAC Field Name: POLineNbr</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: PO Type</para>
-		/// <para>SQL Type: char(2)</para>
+		/// <para>Display Name: PO Line</para>
 		/// </summary>
-		public StringValue? POOrderType { get; set; }
+		public IntValue? POLine { get; set; }
 
 		/// <summary>
-		/// The number of the corresponding line in the related PO Receipt.Together with ReceiptNbr field links AP transactions to PO Receipts and their lines.
-		/// <para>DAC Field Name: ReceiptLineNbr</para>
+		/// The type of the corresponding Landed Cost Document.Together with LCRefNbr and LCLineNbr links APTrans to the PO Orders and their lines.
+		/// <para>DAC Field Name: LCDocType</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: PO Receipt Line</para>
+		/// <para>Display Name: LC Type</para>
+		/// <para>SQL Type: char(1)</para>
 		/// </summary>
-		public IntValue? POReceiptLine { get; set; }
+		public StringValue? LCType { get; set; }
+
+		/// <summary>
+		/// The reference number of the corresponding Landed Cost Document.Together with LCDocType and LCLineNbr links APTrans to the PO Orders and their lines.
+		/// <para>DAC Field Name: LCRefNbr</para>
+		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>Display Name: LC Number</para>
+		/// <para>SQL Type: nvarchar(15)</para>
+		/// </summary>
+		public StringValue? LCNbr { get; set; }
+
+		/// <summary>
+		/// The line number of the corresponding Landed Cost Document Detail.Together with LCDocType and LCRefNbr links AP transactions to the Landed Cost Document and their lines.
+		/// <para>DAC: PX.Objects.AP.APTran</para>
+		/// <para>Display Name: LC Line</para>
+		/// </summary>
+		public IntValue? LCLineNbr { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ReceiptType</para>
@@ -146,65 +198,16 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? POReceiptNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ProjectID</para>
-		/// <para>DAC: PX.Objects.AP.APInvoice</para>
-		/// </summary>
-		public StringValue? Project { get; set; }
-
-		/// <summary>
-		/// Identifier of the particular task associated with the transaction. The task belongs to the selected project
-		/// <para>DAC Field Name: TaskID</para>
+		/// The number of the corresponding line in the related PO Receipt.Together with ReceiptNbr field links AP transactions to PO Receipts and their lines.
+		/// <para>DAC Field Name: ReceiptLineNbr</para>
 		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: Project Task</para>
+		/// <para>Display Name: PO Receipt Line</para>
 		/// </summary>
-		public StringValue? ProjectTask { get; set; }
+		public IntValue? POReceiptLine { get; set; }
 
-		/// <summary>
-		/// The quantity of the items or services associated with the line delivered by the vendor.
-		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: Quantity</para>
-		/// </summary>
-		public DecimalValue? Qty { get; set; }
+		public BooleanValue? CalculateDiscountsOnImport { get; set; }
 
-		/// <summary>
-		/// Identifier of the Subaccount associated with the transaction.
-		/// <para>DAC Field Name: SubID</para>
-		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// </summary>
-		public StringValue? Subaccount { get; set; }
-
-		/// <summary>
-		/// Identifier of the tax category associated with the line.
-		/// <para>DAC Field Name: TaxCategoryID</para>
-		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: Tax Category</para>
-		/// <para>SQL Type: nvarchar(15)</para>
-		/// </summary>
-		public StringValue? TaxCategory { get; set; }
-
-		/// <summary>
-		/// The description text for the transaction.
-		/// <para>DAC Field Name: TranDesc</para>
-		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: Transaction Descr.</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? TransactionDescription { get; set; }
-
-		/// <summary>
-		/// The unit cost of the item or service received from the vendor and associated with the line.(Presented in the currency of the document, see CuryID)
-		/// <para>DAC Field Name: CuryUnitCost</para>
-		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>Display Name: Unit Cost</para>
-		/// </summary>
-		public DecimalValue? UnitCost { get; set; }
-
-		/// <summary>
-		/// The unit of measure for the transaction.
-		/// <para>DAC: PX.Objects.AP.APTran</para>
-		/// <para>SQL Type: nvarchar(6)</para>
-		/// </summary>
-		public StringValue? UOM { get; set; }
+		#endregion
 
 	}
 }

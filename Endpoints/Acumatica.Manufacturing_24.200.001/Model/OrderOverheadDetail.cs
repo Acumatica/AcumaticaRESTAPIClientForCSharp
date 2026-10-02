@@ -12,6 +12,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class OrderOverheadDetail : Entity
 	{
 
+		#region Fields
 		public DecimalValue? CostRate { get; set; }
 
 		public StringValue? Description { get; set; }
@@ -49,6 +50,8 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? Type { get; set; }
 
 		public BooleanValue? WCFlag { get; set; }
+
+		#endregion
 
 	}
 }

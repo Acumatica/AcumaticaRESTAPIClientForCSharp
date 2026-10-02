@@ -12,7 +12,10 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PTOBankApplicableEarningTypeDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? EarningType { get; set; }
+
+		#endregion
 
 	}
 }

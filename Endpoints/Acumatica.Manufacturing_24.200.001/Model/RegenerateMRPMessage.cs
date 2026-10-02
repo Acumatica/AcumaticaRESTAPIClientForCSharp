@@ -12,6 +12,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class RegenerateMRPMessage : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
+		/// Key Field
+		/// </summary>
+		public IntValue? Recno { get; set; }
+
 		/// <summary>
 		/// The date and time when the record was created.
 		/// <para>DAC Field Name: CreatedDateTime</para>
@@ -21,12 +28,11 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public DateTimeValue? CreatedAt { get; set; }
 
 		/// <summary>
-		/// The ID of the user who created the record.
-		/// <para>DAC Field Name: CreatedByID</para>
+		/// <para>DAC Field Name: MsgText</para>
 		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
-		/// <para>Display Name: Created By</para>
+		/// <para>SQL Type: nvarchar(MAX)</para>
 		/// </summary>
-		public StringValue? CreatedBy { get; set; }
+		public StringValue? Message { get; set; }
 
 		/// <summary>
 		/// The ID of the form that was used for the creation of the record.
@@ -38,18 +44,12 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public StringValue? CreatedScreenID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: MsgText</para>
+		/// The ID of the user who created the record.
+		/// <para>DAC Field Name: CreatedByID</para>
 		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
-		/// <para>SQL Type: nvarchar(MAX)</para>
+		/// <para>Display Name: Created By</para>
 		/// </summary>
-		public StringValue? Message { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: MsgType</para>
-		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
-		/// <para>Display Name: Message Type</para>
-		/// </summary>
-		public StringValue? MessageType { get; set; }
+		public StringValue? CreatedBy { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
@@ -58,10 +58,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		public GuidValue? ProcessID { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: MsgType</para>
 		/// <para>DAC: PX.Objects.AM.AMRPAuditTable</para>
-		/// Key Field
+		/// <para>Display Name: Message Type</para>
 		/// </summary>
-		public IntValue? Recno { get; set; }
+		public StringValue? MessageType { get; set; }
+
+		#endregion
 
 	}
 }

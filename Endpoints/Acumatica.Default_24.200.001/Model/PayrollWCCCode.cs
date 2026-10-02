@@ -15,13 +15,19 @@ namespace Acumatica.Default_24_200_001.Model
 	public class PayrollWCCCode : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: CountryID</para>
 		/// <para>DAC: PX.Objects.PR.PRWorkCodeMaint+PRWorkCodeFilter</para>
 		/// </summary>
 		public StringValue? Country { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<WCCCode>? WCCCodes { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

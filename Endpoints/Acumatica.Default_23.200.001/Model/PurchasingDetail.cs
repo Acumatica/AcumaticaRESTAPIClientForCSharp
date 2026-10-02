@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class PurchasingDetail : Entity
 	{
 
+		#region Fields
 		public IntValue? POOrderLineNbr { get; set; }
 
 		public StringValue? POOrderNbr { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? POOrderType { get; set; }
 
 		public BooleanValue? Selected { get; set; }
+
+		#endregion
 
 	}
 }

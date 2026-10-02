@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class EmployeeClassWorkLocation : Entity
 	{
 
+		#region Fields
 		public BooleanValue? DefaultWorkLocation { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
@@ -19,6 +20,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? LocationID { get; set; }
 
 		public StringValue? LocationName { get; set; }
+
+		#endregion
 
 	}
 }

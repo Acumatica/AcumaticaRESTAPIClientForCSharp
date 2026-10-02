@@ -12,11 +12,17 @@ namespace Acumatica.Default_25_200_001.Model
 	public class CustomerContact : Entity
 	{
 
-		public Contact? Contact { get; set; }
-
+		#region Fields
 		public IntValue? ContactID { get; set; }
 
 		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public Contact? Contact { get; set; }
+
+		#endregion
 
 	}
 }

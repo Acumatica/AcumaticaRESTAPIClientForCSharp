@@ -12,82 +12,7 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 	public class OrderOperationDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: ActEndDate</para>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Actual End Date</para>
-		/// </summary>
-		public DateTimeValue? ActualEndDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ActStartDate</para>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Actual Start Date</para>
-		/// </summary>
-		public DateTimeValue? ActualStartDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: At Vendor Quantity</para>
-		/// </summary>
-		public DecimalValue? AtVendorQuantity { get; set; }
-
-		/// <summary>
-		/// Auto report qty decides if the operation allows non sequential quantities when a move occurs for a later operation.
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Auto-Report Qty.</para>
-		/// </summary>
-		public BooleanValue? AutoReportQty { get; set; }
-
-		/// <summary>
-		/// Determine whether user need to release labor manually or not 
-		/// <para>DAC Field Name: BFlush</para>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Backflush Labor</para>
-		/// </summary>
-		public BooleanValue? BackflushLabor { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Control Point</para>
-		/// </summary>
-		public BooleanValue? ControlPoint { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: DropShippedToVendor</para>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Drop Shipped to Vendor</para>
-		/// </summary>
-		public BooleanValue? DropShippedtoVendor { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: End Date</para>
-		/// </summary>
-		public DateTimeValue? EndDate { get; set; }
-
-		public IntValue? FinishTime { get; set; }
-
-		public IntValue? MachineTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Machine Units</para>
-		/// </summary>
-		public DecimalValue? MachineUnits { get; set; }
-
-		public List<OrderMaterialDetail>? Material { get; set; }
-
-		public IntValue? MoveTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Operation Description</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? OperationDescription { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: OperationCD</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
@@ -105,15 +30,119 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		/// </summary>
 		public StringValue? OperationStatus { get; set; }
 
-		public ProductionOrderOperationTotal? OperationTotal { get; set; }
+		/// <summary>
+		/// <para>DAC Field Name: WcID</para>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Work Center</para>
+		/// <para>SQL Type: nvarchar(20)</para>
+		/// </summary>
+		public StringValue? WorkCenter { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Operation Description</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? OperationDescription { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Outside Process</para>
+		/// <para>Display Name: Run Units</para>
 		/// </summary>
-		public BooleanValue? OutsideProcess { get; set; }
+		public DecimalValue? RunUnits { get; set; }
 
-		public List<OrderOverheadDetail>? Overheads { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Machine Units</para>
+		/// </summary>
+		public DecimalValue? MachineUnits { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: QtytoProd</para>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Qty. to Produce</para>
+		/// </summary>
+		public DecimalValue? QtytoProduce { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Completed Qty.</para>
+		/// </summary>
+		public DecimalValue? QtyComplete { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Scrapped Qty.</para>
+		/// </summary>
+		public DecimalValue? QtyScrapped { get; set; }
+
+		/// <summary>
+		/// TotalQty subtract QtyComplete add QtyScrapped.
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Remaining Qty.</para>
+		/// </summary>
+		public DecimalValue? QtyRemaining { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Total Qty.</para>
+		/// </summary>
+		public DecimalValue? TotalQty { get; set; }
+
+		/// <summary>
+		/// Determine whether user need to release labor manually or not 
+		/// <para>DAC Field Name: BFlush</para>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Backflush Labor</para>
+		/// </summary>
+		public BooleanValue? BackflushLabor { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: StartDate</para>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? PlanStartDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		public DateTimeValue? EndDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: EndDate</para>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		public DateTimeValue? PlanEndDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActStartDate</para>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Actual Start Date</para>
+		/// </summary>
+		public DateTimeValue? ActualStartDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ActEndDate</para>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Actual End Date</para>
+		/// </summary>
+		public DateTimeValue? ActualEndDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Scrap Action</para>
+		/// </summary>
+		public StringValue? ScrapAction { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PhtmBOMID</para>
@@ -124,11 +153,12 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? PhantomBomID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PhtmBOMLineRef</para>
+		/// <para>DAC Field Name: PhtmBOMRevisionID</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom BOM Ref. Line Nbr.</para>
+		/// <para>Display Name: Phantom BOM Revision</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		public IntValue? PhantomBOMLineID { get; set; }
+		public StringValue? PhantomBOMRevision { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PhtmBOMOperationID</para>
@@ -138,12 +168,11 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? PhantomBOMOperNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PhtmBOMRevisionID</para>
+		/// <para>DAC Field Name: PhtmBOMLineRef</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom BOM Revision</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>Display Name: Phantom BOM Ref. Line Nbr.</para>
 		/// </summary>
-		public StringValue? PhantomBOMRevision { get; set; }
+		public IntValue? PhantomBOMLineID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PhtmLevel</para>
@@ -161,11 +190,12 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? PhantomMatlBOMID { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PhtmMatlLineRef</para>
+		/// <para>DAC Field Name: PhtmMatlRevisionID</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom Material Line Nbr.</para>
+		/// <para>Display Name: Phantom Material Revision</para>
+		/// <para>SQL Type: nvarchar(10)</para>
 		/// </summary>
-		public IntValue? PhantomMatlLineID { get; set; }
+		public StringValue? PhantomMatlRevision { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PhtmMatlOperationID</para>
@@ -175,12 +205,11 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? PhantomMatlOperNbr { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: PhtmMatlRevisionID</para>
+		/// <para>DAC Field Name: PhtmMatlLineRef</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Phantom Material Revision</para>
-		/// <para>SQL Type: nvarchar(10)</para>
+		/// <para>Display Name: Phantom Material Line Nbr.</para>
 		/// </summary>
-		public StringValue? PhantomMatlRevision { get; set; }
+		public IntValue? PhantomMatlLineID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: PhtmPriorLevelQty</para>
@@ -190,103 +219,30 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public DecimalValue? PhantomPriorLevelQty { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: EndDate</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: End Date</para>
+		/// <para>Display Name: Control Point</para>
 		/// </summary>
-		public DateTimeValue? PlanEndDate { get; set; }
+		public BooleanValue? ControlPoint { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: StartDate</para>
+		/// Auto report qty decides if the operation allows non sequential quantities when a move occurs for a later operation.
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Start Date</para>
+		/// <para>Display Name: Auto-Report Qty.</para>
 		/// </summary>
-		public DateTimeValue? PlanStartDate { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: PO Line Nbr.</para>
-		/// </summary>
-		public IntValue? POLineNbr { get; set; }
+		public BooleanValue? AutoReportQty { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: PO Order Nbr.</para>
-		/// <para>SQL Type: nvarchar(15)</para>
+		/// <para>Display Name: Outside Process</para>
 		/// </summary>
-		public StringValue? POOrderNbr { get; set; }
+		public BooleanValue? OutsideProcess { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: DropShippedToVendor</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Completed Qty.</para>
+		/// <para>Display Name: Drop Shipped to Vendor</para>
 		/// </summary>
-		public DecimalValue? QtyComplete { get; set; }
-
-		/// <summary>
-		/// TotalQty subtract QtyComplete add QtyScrapped.
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Remaining Qty.</para>
-		/// </summary>
-		public DecimalValue? QtyRemaining { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Scrapped Qty.</para>
-		/// </summary>
-		public DecimalValue? QtyScrapped { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: QtytoProd</para>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Qty. to Produce</para>
-		/// </summary>
-		public DecimalValue? QtytoProduce { get; set; }
-
-		public IntValue? QueueTime { get; set; }
-
-		public IntValue? RunTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Run Units</para>
-		/// </summary>
-		public DecimalValue? RunUnits { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Scrap Action</para>
-		/// </summary>
-		public StringValue? ScrapAction { get; set; }
-
-		public IntValue? SetupTime { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Shipped Quantity</para>
-		/// </summary>
-		public DecimalValue? ShippedQuantity { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Ship Remaining Qty.</para>
-		/// </summary>
-		public DecimalValue? ShipRemainingQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
-
-		public List<OrderStepDetail>? Steps { get; set; }
-
-		public List<OrderToolDetail>? Tools { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Total Qty.</para>
-		/// </summary>
-		public DecimalValue? TotalQty { get; set; }
+		public BooleanValue? DropShippedtoVendor { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: VendorID</para>
@@ -302,12 +258,65 @@ namespace Acumatica.MANUFACTURING_25_100_001.Model
 		public StringValue? VendorLocation { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: WcID</para>
 		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
-		/// <para>Display Name: Work Center</para>
-		/// <para>SQL Type: nvarchar(20)</para>
+		/// <para>Display Name: PO Order Nbr.</para>
+		/// <para>SQL Type: nvarchar(15)</para>
 		/// </summary>
-		public StringValue? WorkCenter { get; set; }
+		public StringValue? POOrderNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: PO Line Nbr.</para>
+		/// </summary>
+		public IntValue? POLineNbr { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Shipped Quantity</para>
+		/// </summary>
+		public DecimalValue? ShippedQuantity { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: Ship Remaining Qty.</para>
+		/// </summary>
+		public DecimalValue? ShipRemainingQty { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.AM.AMProdOper</para>
+		/// <para>Display Name: At Vendor Quantity</para>
+		/// </summary>
+		public DecimalValue? AtVendorQuantity { get; set; }
+
+		public IntValue? FinishTime { get; set; }
+
+		public IntValue? MachineTime { get; set; }
+
+		public IntValue? MoveTime { get; set; }
+
+		public IntValue? QueueTime { get; set; }
+
+		public IntValue? RunTime { get; set; }
+
+		public IntValue? SetupTime { get; set; }
+
+		#endregion
+
+		#region LinkedEntities
+		public ProductionOrderOperationTotal? OperationTotal { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<OrderMaterialDetail>? Material { get; set; }
+
+		public List<OrderOverheadDetail>? Overheads { get; set; }
+
+		public List<OrderStepDetail>? Steps { get; set; }
+
+		public List<OrderToolDetail>? Tools { get; set; }
+
+		#endregion
 
 	}
 }

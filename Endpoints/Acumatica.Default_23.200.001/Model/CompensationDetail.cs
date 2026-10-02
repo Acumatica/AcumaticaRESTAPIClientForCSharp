@@ -12,12 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class CompensationDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: TypeCD</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
@@ -33,12 +28,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? EarningDescription { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
-		/// <para>Display Name: End Date</para>
 		/// </summary>
-		public DateTimeValue? EndDate { get; set; }
-
-		public StringValue? LastModifiedDateTime { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
@@ -47,18 +40,28 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? PayRate { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
-
-		/// <summary>
 		/// <para>DAC Field Name: UnitType</para>
 		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
 		/// <para>Display Name: Unit of Pay</para>
 		/// <para>SQL Type: char(3)</para>
 		/// </summary>
 		public StringValue? UnitOfPay { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.PR.PREmployeeEarning</para>
+		/// <para>Display Name: End Date</para>
+		/// </summary>
+		public DateTimeValue? EndDate { get; set; }
+
+		public StringValue? LastModifiedDateTime { get; set; }
+
+		#endregion
 
 	}
 }

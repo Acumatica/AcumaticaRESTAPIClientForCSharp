@@ -12,11 +12,14 @@ namespace Acumatica.Default_23_200_001.Model
 	public class EarningCodeTaxDetailCA : Entity
 	{
 
+		#region Fields
 		public StringValue? Taxability { get; set; }
 
 		public StringValue? TaxCode { get; set; }
 
 		public StringValue? TaxName { get; set; }
+
+		#endregion
 
 	}
 }

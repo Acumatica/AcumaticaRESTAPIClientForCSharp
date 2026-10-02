@@ -12,9 +12,12 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ACAInfoDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? CoverageType { get; set; }
 
 		public StringValue? HealthPlanType { get; set; }
+
+		#endregion
 
 	}
 }

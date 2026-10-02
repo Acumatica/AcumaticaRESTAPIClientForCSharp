@@ -12,9 +12,12 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ItemsDetails : Entity
 	{
 
+		#region Fields
 		public StringValue? Description { get; set; }
 
 		public StringValue? InventoryID { get; set; }
+
+		#endregion
 
 	}
 }

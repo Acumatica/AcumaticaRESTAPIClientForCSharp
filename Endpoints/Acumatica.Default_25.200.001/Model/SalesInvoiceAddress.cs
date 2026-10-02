@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SalesInvoiceAddress : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// The first line of the street address.
 		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
@@ -44,19 +45,19 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? Country { get; set; }
 
 		/// <summary>
+		/// The name of the state.
+		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
+		/// <para>SQL Type: nvarchar(2500)</para>
+		/// </summary>
+		public StringValue? State { get; set; }
+
+		/// <summary>
 		/// The postal code.
 		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
 		/// <para>Display Name: Postal Code</para>
 		/// <para>SQL Type: varchar(2500)</para>
 		/// </summary>
 		public StringValue? PostalCode { get; set; }
-
-		/// <summary>
-		/// The name of the state.
-		/// <para>DAC: PX.Objects.AR.ARShippingAddress</para>
-		/// <para>SQL Type: nvarchar(2500)</para>
-		/// </summary>
-		public StringValue? State { get; set; }
 
 		public StringValue? Department { get; set; }
 
@@ -79,6 +80,8 @@ namespace Acumatica.Default_25_200_001.Model
 		public StringValue? TownLocationName { get; set; }
 
 		public StringValue? DistrictName { get; set; }
+
+		#endregion
 
 	}
 }

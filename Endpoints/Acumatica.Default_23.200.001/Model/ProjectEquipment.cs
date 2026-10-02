@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ProjectEquipment : Entity
 	{
 
+		#region Fields
 		public BooleanValue? Active { get; set; }
 
 		public StringValue? Description { get; set; }
@@ -29,6 +30,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public DecimalValue? SuspendRate { get; set; }
 
 		public StringValue? SuspendRateItem { get; set; }
+
+		#endregion
 
 	}
 }

@@ -15,8 +15,7 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 	public class CriticalMaterials : Entity, ITopLevelEntity
 	{
 
-		public List<CriticalMaterialDetail>? Detail { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.AM.ProdItemFilter</para>
 		/// <para>Display Name: Order Type</para>
@@ -44,6 +43,13 @@ namespace Acumatica.Manufacturing_24_200_001.Model
 		/// <para>Display Name: Show Allocated</para>
 		/// </summary>
 		public BooleanValue? ShowAllocated { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<CriticalMaterialDetail>? Detail { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

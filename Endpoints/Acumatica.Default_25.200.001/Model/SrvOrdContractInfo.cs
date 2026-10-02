@@ -12,6 +12,14 @@ namespace Acumatica.Default_25_200_001.Model
 	public class SrvOrdContractInfo : Entity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC Field Name: BillServiceContractID</para>
+		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
+		/// <para>Display Name: Service Contract</para>
+		/// </summary>
+		public StringValue? ServiceContract { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: BillContractPeriodID</para>
 		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
@@ -19,12 +27,7 @@ namespace Acumatica.Default_25_200_001.Model
 		/// </summary>
 		public StringValue? ContractPeriod { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: BillServiceContractID</para>
-		/// <para>DAC: PX.Objects.FS.FSServiceOrder</para>
-		/// <para>Display Name: Service Contract</para>
-		/// </summary>
-		public StringValue? ServiceContract { get; set; }
+		#endregion
 
 	}
 }

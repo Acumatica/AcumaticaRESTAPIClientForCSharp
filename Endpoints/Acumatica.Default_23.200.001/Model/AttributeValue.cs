@@ -12,6 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AttributeValue : Entity
 	{
 
+		#region Fields
 		public StringValue? AttributeID { get; set; }
 
 		public StringValue? AttributeDescription { get; set; }
@@ -23,6 +24,8 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Value { get; set; }
 
 		public StringValue? ValueDescription { get; set; }
+
+		#endregion
 
 	}
 }

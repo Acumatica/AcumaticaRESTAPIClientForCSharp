@@ -12,12 +12,15 @@ namespace Acumatica.Default_24_200_001.Model
 	public class NonStockItemSalesCategory : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INItemCategory</para>
 		/// <para>Display Name: Category</para>
 		/// Key Field
 		/// </summary>
 		public IntValue? CategoryID { get; set; }
+
+		#endregion
 
 	}
 }

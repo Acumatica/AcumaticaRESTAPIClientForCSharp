@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class EmployeePaidTimeOffDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? AccrualMethod { get; set; }
 
 		public DecimalValue? AccrualPercent { get; set; }
@@ -49,6 +50,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public DateTimeValue? StartDate { get; set; }
 
 		public DateTimeValue? TransferDate { get; set; }
+
+		#endregion
 
 	}
 }

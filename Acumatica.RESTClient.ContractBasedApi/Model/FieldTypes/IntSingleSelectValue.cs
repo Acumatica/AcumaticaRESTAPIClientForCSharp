@@ -1,10 +1,8 @@
 using System;
 using System.Globalization;
-using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {
-    [DataContract]
     public partial class IntSingleSelectValue : RestValueBase<IntSelectInnerValue>
     {
         public static implicit operator int?(IntSingleSelectValue? value) => value?.Value?.ID;
@@ -30,7 +28,6 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         }
     }
 
-    [DataContract]
     public class IntSelectInnerValue : IEquatable<IntSelectInnerValue>
     {
         public IntSelectInnerValue(int id)
@@ -38,10 +35,8 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             ID = id;
         }
 
-        [DataMember(Name = "ID")]
         public int ID { get; set; }
 
-        [DataMember(Name = "Description", EmitDefaultValue = false)]
         public string? Description { get; set; }
 
         public override string ToString() => ID.ToString(CultureInfo.InvariantCulture);

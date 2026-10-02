@@ -12,8 +12,7 @@ namespace Acumatica.Default_23_200_001.Model
 	public class AppProfitability : Entity
 	{
 
-		public DecimalValue? ActualAmount { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
 		/// <para>Display Name: Actual Duration</para>
@@ -21,44 +20,10 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? ActualDuration { get; set; }
 
 		/// <summary>
-		/// <para>DAC Field Name: ActualQty</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Actual Quantity</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
+		/// <para>Display Name: Profit Markup (%)</para>
 		/// </summary>
-		public DecimalValue? ActualQuantity { get; set; }
-
-		public DecimalValue? BillableAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: BillableQty</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Billable Quantity</para>
-		/// </summary>
-		public DecimalValue? BillableQuantity { get; set; }
-
-		public DecimalValue? ExtCost { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Descr</para>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public DecimalValue? EstimatedAmount { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
-		/// <para>Display Name: Estimated Quantity</para>
-		/// </summary>
-		public DecimalValue? EstimatedQty { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ItemID</para>
-		/// <para>DAC: PX.Objects.FS.FSProfitability</para>
-		/// <para>Display Name: Inventory ID</para>
-		/// </summary>
-		public StringValue? InventoryID { get; set; }
+		public DecimalValue? ProfitPercent { get; set; }
 
 		/// <summary>
 		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
@@ -74,13 +39,25 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? LineType { get; set; }
 
-		public DecimalValue? Profit { get; set; }
+		/// <summary>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Estimated Quantity</para>
+		/// </summary>
+		public DecimalValue? EstimatedQty { get; set; }
 
 		/// <summary>
-		/// <para>DAC: PX.Objects.FS.FSAppointment</para>
-		/// <para>Display Name: Profit Markup (%)</para>
+		/// <para>DAC Field Name: ActualQty</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Actual Quantity</para>
 		/// </summary>
-		public DecimalValue? ProfitPercent { get; set; }
+		public DecimalValue? ActualQuantity { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: BillableQty</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentDet</para>
+		/// <para>Display Name: Billable Quantity</para>
+		/// </summary>
+		public DecimalValue? BillableQuantity { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: EmployeeID</para>
@@ -89,9 +66,35 @@ namespace Acumatica.Default_23_200_001.Model
 		/// </summary>
 		public StringValue? StaffMember { get; set; }
 
+		/// <summary>
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.FS.FSAppointmentLog</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ItemID</para>
+		/// <para>DAC: PX.Objects.FS.FSProfitability</para>
+		/// <para>Display Name: Inventory ID</para>
+		/// </summary>
+		public StringValue? InventoryID { get; set; }
+
+		public DecimalValue? ActualAmount { get; set; }
+
+		public DecimalValue? BillableAmount { get; set; }
+
+		public DecimalValue? ExtCost { get; set; }
+
+		public DecimalValue? EstimatedAmount { get; set; }
+
+		public DecimalValue? Profit { get; set; }
+
 		public DecimalValue? UnitCost { get; set; }
 
 		public DecimalValue? UnitPrice { get; set; }
+
+		#endregion
 
 	}
 }

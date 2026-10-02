@@ -16,14 +16,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class Currency : Entity, ITopLevelEntity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: IsActive</para>
-		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
-		/// </summary>
-		public BooleanValue? Active { get; set; }
-
-		public DateTimeValue? CreatedDateTime { get; set; }
-
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: CuryID</para>
 		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
@@ -32,6 +25,12 @@ namespace Acumatica.Default_24_200_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? CurrencyID { get; set; }
+
+		/// <summary>
+		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
+		/// <para>SQL Type: nvarchar(60)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: CurySymbol</para>
@@ -49,12 +48,10 @@ namespace Acumatica.Default_24_200_001.Model
 		public ShortValue? DecimalPrecision { get; set; }
 
 		/// <summary>
+		/// <para>DAC Field Name: IsActive</para>
 		/// <para>DAC: PX.Objects.CM.CurrencyList</para>
-		/// <para>SQL Type: nvarchar(60)</para>
 		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
+		public BooleanValue? Active { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: IsFinancial</para>
@@ -62,6 +59,17 @@ namespace Acumatica.Default_24_200_001.Model
 		/// <para>Display Name: Use for Accounting</para>
 		/// </summary>
 		public BooleanValue? UseForAccounting { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(Currency)} - \"{CurrencyID}\"";
+		}
 
 		public static class Expand
 		{

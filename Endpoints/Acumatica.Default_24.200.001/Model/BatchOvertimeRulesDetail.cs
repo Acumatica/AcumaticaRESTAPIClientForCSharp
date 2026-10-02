@@ -12,6 +12,7 @@ namespace Acumatica.Default_24_200_001.Model
 	public class BatchOvertimeRulesDetail : Entity
 	{
 
+		#region Fields
 		public StringValue? DayofWeek { get; set; }
 
 		public StringValue? Description { get; set; }
@@ -35,6 +36,8 @@ namespace Acumatica.Default_24_200_001.Model
 		public StringValue? Type { get; set; }
 
 		public StringValue? UnionLocal { get; set; }
+
+		#endregion
 
 	}
 }

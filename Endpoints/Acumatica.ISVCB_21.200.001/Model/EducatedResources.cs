@@ -12,9 +12,15 @@ namespace Acumatica.ISVCB_21_200_001.Model
 	public class EducatedResources : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		public StringValue? BusinessAccount { get; set; }
 
+		#endregion
+
+		#region Details
 		public List<EducatedResourcesDetail>? EducatedResourcesDetails { get; set; }
+
+		#endregion
 
 		public static class Expand
 		{

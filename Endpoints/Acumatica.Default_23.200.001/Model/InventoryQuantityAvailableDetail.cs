@@ -12,23 +12,14 @@ namespace Acumatica.Default_23_200_001.Model
 	public class InventoryQuantityAvailableDetail : Entity
 	{
 
-		/// <summary>
-		/// <para>DAC Field Name: INSiteStatusQtyAggregated_inventoryID</para>
-		/// <para>DAC: PX.Data.GenericResult</para>
-		/// </summary>
+		#region Fields
 		public StringValue? InventoryID { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: INSiteStatusQtyAggregated_lastModifiedDateTime</para>
-		/// <para>DAC: PX.Data.GenericResult</para>
-		/// </summary>
 		public DateTimeValue? LastModifiedDateTime { get; set; }
 
-		/// <summary>
-		/// <para>DAC Field Name: INSiteStatusQtyAggregated_qtyAvail</para>
-		/// <para>DAC: PX.Data.GenericResult</para>
-		/// </summary>
 		public DecimalValue? QtyAvailable { get; set; }
+
+		#endregion
 
 	}
 }

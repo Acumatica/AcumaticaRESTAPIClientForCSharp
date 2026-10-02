@@ -1,0 +1,135 @@
+using System;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
+namespace Acumatica.Default_26_200_001.Model
+{
+	/// <summary>
+	/// Corresponds to the screen <c>AR303010</c> in the Acumatica ERP
+	/// <para>Key Fields: CustomerID, InstanceID</para>
+	/// </summary>
+	public class CustomerPaymentMethod : Entity, ITopLevelEntity
+	{
+
+		#region Fields
+		/// <summary>
+		/// The identifier of customer towhich the payment method belongs. This field is a partof the compound key of the record.
+		/// <para>DAC Field Name: BAccountID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Customer</para>
+		/// Key Field
+		/// </summary>
+		public StringValue? CustomerID { get; set; }
+
+		/// <summary>
+		/// The unique identifier of the customer payment method.This field is part of the compound key of the record.
+		/// <para>DAC Field Name: PMInstanceID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Card Number</para>
+		/// Key Field
+		/// </summary>
+		public IntValue? InstanceID { get; set; }
+
+		/// <summary>
+		/// The identifier of the payment methodassociated with the customer payment method. The settings of this paymentmethod are used as a template for the customer payment method.
+		/// <para>DAC Field Name: PaymentMethodID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Payment Method</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? PaymentMethod { get; set; }
+
+		/// <summary>
+		/// Indicates (if set to <c>true</c>) that the customerpayment method is available for recording payments.
+		/// <para>DAC Field Name: IsActive</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// </summary>
+		public BooleanValue? Active { get; set; }
+
+		/// <summary>
+		/// The identifier of the credit card processing center.
+		/// <para>DAC Field Name: CCProcessingCenterID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Proc. Center ID</para>
+		/// <para>SQL Type: nvarchar(10)</para>
+		/// </summary>
+		public StringValue? ProcCenterID { get; set; }
+
+		/// <summary>
+		/// The identifier of the customer profile associated with the customeraccount in Acumatica ERP and Authorize.Net. The main purpose ofthe identifier is to link multiple bank cards to a single customerentity and to synchronize record details between systems.
+		/// <para>DAC Field Name: CustomerCCPID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Customer Profile ID</para>
+		/// <para>SQL Type: nvarchar(1024)</para>
+		/// </summary>
+		public StringValue? CustomerProfileID { get; set; }
+
+		/// <summary>
+		/// The identifier of the cash accountassociated with the customer payment method.
+		/// <para>DAC Field Name: CashAccountID</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Cash Account</para>
+		/// </summary>
+		public StringValue? CashAccount { get; set; }
+
+		/// <summary>
+		/// The description of the payment method.
+		/// <para>DAC Field Name: Descr</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Card/Account Nbr.</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? CardAccountNbr { get; set; }
+
+		/// <summary>
+		/// Specifies display card type value.This is a virtual field and it has no representation in the database.
+		/// <para>DAC Field Name: DisplayCardType</para>
+		/// <para>DAC: PX.Objects.AR.CustomerPaymentMethod</para>
+		/// <para>Display Name: Card/Account Type</para>
+		/// <para>SQL Type: nchar(20)</para>
+		/// </summary>
+		public StringValue? CardType { get; set; }
+
+		public DateTimeValue? CreatedDateTime { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		#endregion
+
+		#region Details
+		public List<CustomerPaymentMethodDetail>? Details { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(CustomerPaymentMethod)} - \"{CustomerID}\" - \"{InstanceID}\"";
+		}
+
+		/// <summary>
+		/// Names that can be passed in the <c>$expand</c> parameter.
+		/// <para>This endpoint uses system contract 5, where a nested entity is expanded
+		/// as <c>Parent($expand=Child)</c> rather than <c>Parent/Child</c>, so only the names
+		/// that can be expanded directly on this entity are listed here. Use the nested
+		/// entity's own <c>Expand</c> class for the inner names.</para>
+		/// </summary>
+		public static class Expand
+		{
+			public const string Files = "Files";
+			public const string Translations = "Translations";
+			public const string Details = "Details";
+
+			//Intentionally excluded
+			//public const string All = "Files,Translations,Details";
+		}
+		public virtual string GetEndpointPath()
+		{
+			return "entity/Default/26.200.001";
+		}
+	}
+}

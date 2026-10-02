@@ -12,11 +12,14 @@ namespace Acumatica.Default_23_200_001.Model
 	public class ShopForRates : Entity
 	{
 
+		#region Fields
 		public BooleanValue? IsManualPackage { get; set; }
 
 		public DecimalValue? OrderWeight { get; set; }
 
 		public DecimalValue? PackageWeight { get; set; }
+
+		#endregion
 
 	}
 }

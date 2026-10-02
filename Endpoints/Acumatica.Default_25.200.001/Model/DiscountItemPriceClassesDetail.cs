@@ -12,6 +12,7 @@ namespace Acumatica.Default_25_200_001.Model
 	public class DiscountItemPriceClassesDetail : Entity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC Field Name: InventoryPriceClassID</para>
 		/// <para>DAC: PX.Objects.AR.DiscountInventoryPriceClass</para>
@@ -20,6 +21,8 @@ namespace Acumatica.Default_25_200_001.Model
 		/// Key Field
 		/// </summary>
 		public StringValue? PriceClassID { get; set; }
+
+		#endregion
 
 	}
 }

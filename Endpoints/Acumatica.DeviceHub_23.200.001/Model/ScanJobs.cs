@@ -16,6 +16,14 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 	public class ScanJobs : Entity, ITopLevelEntity
 	{
 
+		#region Fields
+		/// <summary>
+		/// <para>DAC: PX.SM.SMScanJob</para>
+		/// <para>Display Name: Job ID</para>
+		/// Key Field
+		/// </summary>
+		public IntValue? ScanJobID { get; set; }
+
 		/// <summary>
 		/// <para>DAC Field Name: DeviceHubID</para>
 		/// <para>DAC: PX.SM.SMScanJob</para>
@@ -23,23 +31,6 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		/// <para>SQL Type: varchar(30)</para>
 		/// </summary>
 		public StringValue? DeviceHub { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: Error</para>
-		/// <para>DAC: PX.SM.SMScanJob</para>
-		/// <para>Display Name: Error</para>
-		/// <para>SQL Type: nvarchar(255)</para>
-		/// </summary>
-		public StringValue? ErrorMessage { get; set; }
-
-		public StringValue? ErrorTrace { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.SM.SMScanJob</para>
-		/// <para>Display Name: Job ID</para>
-		/// Key Field
-		/// </summary>
-		public IntValue? ScanJobID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: ScannerName</para>
@@ -54,6 +45,23 @@ namespace Acumatica.DeviceHub_23_200_001.Model
 		/// <para>SQL Type: char(1)</para>
 		/// </summary>
 		public StringValue? Status { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: Error</para>
+		/// <para>DAC: PX.SM.SMScanJob</para>
+		/// <para>Display Name: Error</para>
+		/// <para>SQL Type: nvarchar(255)</para>
+		/// </summary>
+		public StringValue? ErrorMessage { get; set; }
+
+		public StringValue? ErrorTrace { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(ScanJobs)} - \"{ScanJobID}\"";
+		}
 
 		public static class Expand
 		{

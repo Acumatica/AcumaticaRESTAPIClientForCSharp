@@ -12,24 +12,14 @@ namespace Acumatica.Default_23_200_001.Model
 	public class TaskRelatedTask : Entity
 	{
 
+		#region Fields
 		/// <summary>
-		/// The date and time when activity was completed(UIStatus was set to Completed).
-		/// <para>DAC Field Name: CompletedDate</para>
+		/// The summary description of the activity.
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Completed On</para>
+		/// <para>Display Name: Summary</para>
+		/// <para>SQL Type: nvarchar(998)</para>
 		/// </summary>
-		public DateTimeValue? CompletedAt { get; set; }
-
-		public DateTimeValue? DueDate { get; set; }
-
-		public IntValue? RecordID { get; set; }
-
-		/// <summary>
-		/// The start date and time of the event.
-		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
-		/// <para>Display Name: Start Date</para>
-		/// </summary>
-		public DateTimeValue? StartDate { get; set; }
+		public StringValue? Subject { get; set; }
 
 		/// <summary>
 		/// The status of the activity.
@@ -40,12 +30,25 @@ namespace Acumatica.Default_23_200_001.Model
 		public StringValue? Status { get; set; }
 
 		/// <summary>
-		/// The summary description of the activity.
+		/// The date and time when activity was completed(UIStatus was set to Completed).
+		/// <para>DAC Field Name: CompletedDate</para>
 		/// <para>DAC: PX.Objects.CR.CRActivity</para>
-		/// <para>Display Name: Summary</para>
-		/// <para>SQL Type: nvarchar(998)</para>
+		/// <para>Display Name: Completed On</para>
 		/// </summary>
-		public StringValue? Subject { get; set; }
+		public DateTimeValue? CompletedAt { get; set; }
+
+		/// <summary>
+		/// The start date and time of the event.
+		/// <para>DAC: PX.Objects.CR.CRChildActivity</para>
+		/// <para>Display Name: Start Date</para>
+		/// </summary>
+		public DateTimeValue? StartDate { get; set; }
+
+		public DateTimeValue? DueDate { get; set; }
+
+		public IntValue? RecordID { get; set; }
+
+		#endregion
 
 	}
 }

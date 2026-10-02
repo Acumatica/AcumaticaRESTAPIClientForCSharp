@@ -16,29 +16,13 @@ namespace Acumatica.eCommerce_24_200_001.Model
 	public class BCItemSalesCategory : Entity, ITopLevelEntity
 	{
 
+		#region Fields
 		/// <summary>
 		/// <para>DAC: PX.Objects.IN.INCategory</para>
 		/// <para>Display Name: Category ID</para>
 		/// Key Field
 		/// </summary>
 		public IntValue? CategoryID { get; set; }
-
-		/// <summary>
-		/// <para>DAC: PX.Objects.IN.INCategory</para>
-		/// <para>SQL Type: nvarchar(256)</para>
-		/// </summary>
-		public StringValue? Description { get; set; }
-
-		public DateTimeValue? LastModifiedDateTime { get; set; }
-
-		public GuidValue? NoteID { get; set; }
-
-		/// <summary>
-		/// <para>DAC Field Name: ParentID</para>
-		/// <para>DAC: PX.Objects.IN.INCategory</para>
-		/// <para>Display Name: Parent Category</para>
-		/// </summary>
-		public IntValue? ParentCategoryID { get; set; }
 
 		/// <summary>
 		/// <para>DAC Field Name: //Description</para>
@@ -48,7 +32,31 @@ namespace Acumatica.eCommerce_24_200_001.Model
 		/// </summary>
 		public StringValue? Path { get; set; }
 
+		/// <summary>
+		/// <para>DAC: PX.Objects.IN.INCategory</para>
+		/// <para>SQL Type: nvarchar(256)</para>
+		/// </summary>
+		public StringValue? Description { get; set; }
+
+		/// <summary>
+		/// <para>DAC Field Name: ParentID</para>
+		/// <para>DAC: PX.Objects.IN.INCategory</para>
+		/// <para>Display Name: Parent Category</para>
+		/// </summary>
+		public IntValue? ParentCategoryID { get; set; }
+
+		public DateTimeValue? LastModifiedDateTime { get; set; }
+
+		public GuidValue? NoteID { get; set; }
+
 		public IntValue? SortOrder { get; set; }
+
+		#endregion
+
+		protected override string GetDebuggerDisplay()
+		{
+			return $"{nameof(BCItemSalesCategory)} - \"{CategoryID}\"";
+		}
 
 		public static class Expand
 		{
