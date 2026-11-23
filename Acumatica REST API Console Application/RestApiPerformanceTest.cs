@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Acumatica.RESTClient.NonProductionLogin;
 
 using Acumatica.Default_24_200_001.Model;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.Loggers;
 
-using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
 using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
 
 namespace AcumaticaRestApiExample

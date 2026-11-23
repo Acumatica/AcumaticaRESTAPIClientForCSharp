@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Acumatica.RESTClient.NonProductionLogin;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -8,7 +9,6 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 
-using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.DACBrowserApi.Model;
 

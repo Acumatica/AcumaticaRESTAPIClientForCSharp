@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Acumatica.RESTClient.NonProductionLogin;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

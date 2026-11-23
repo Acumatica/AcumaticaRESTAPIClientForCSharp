@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Acumatica.RESTClient.DACBrowserApi\Acumatica.RESTClient.DACBrowserApi.csproj" />
     <ProjectReference Include="..\..\Acumatica.RESTClient\Acumatica.RESTClient.csproj" />
+    <ProjectReference Include="..\..\Acumatica.RESTClient.NonProductionLogin\Acumatica.RESTClient.NonProductionLogin.csproj" />
   </ItemGroup>
 
 </Project>

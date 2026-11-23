@@ -7,7 +7,7 @@ using Acumatica.RESTClient.Loggers;
 
 using AcumaticaRestApiExample;
 
-using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
+using Acumatica.RESTClient.NonProductionLogin;
 using static Acumatica.RESTClient.CustomizationApi.CustomizationApi;
 
 namespace AcumaticaRestApiExample

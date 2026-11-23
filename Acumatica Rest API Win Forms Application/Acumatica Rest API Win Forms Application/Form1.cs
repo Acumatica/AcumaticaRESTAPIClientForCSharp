@@ -1,4 +1,4 @@
-using Acumatica.RESTClient.AuthApi;
+using Acumatica.RESTClient.NonProductionLogin;
 using Acumatica.RESTClient.Client;
 
 namespace Acumatica_Rest_API_Win_Forms_Application

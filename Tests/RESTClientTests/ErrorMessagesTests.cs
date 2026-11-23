@@ -47,7 +47,7 @@ namespace RESTClientTests
             var client = new ApiClient(mockHttpClient);
             Assert.Contains("Timeout",
                 Assert.Throws<TaskCanceledException>(() =>
-            client.Login("admin", "123")).Message);
+            client.ReceiveAccessToken("id", "secret", "admin", "123", OAuthScope.API)).Message);
         }
     }
 }
