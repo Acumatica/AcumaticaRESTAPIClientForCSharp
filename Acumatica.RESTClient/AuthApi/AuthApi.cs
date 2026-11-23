@@ -120,7 +120,7 @@ namespace Acumatica.RESTClient.AuthApi
         /// <param name="nonce"></param>
         public static string Authorize(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope, ResponseType? responseType = null, bool usePost = false, string nonce = "")
         {
-            return AuthorizeAsync(client, clientID, clientSecret, redirectUrl, scope, responseType: responseType, usePost: usePost, nonce: nonce).Result;
+            return AuthorizeAsync(client, clientID, clientSecret, redirectUrl, scope, responseType: responseType, usePost: usePost, nonce: nonce).GetAwaiter().GetResult();
         }
         /// <summary>
         /// 
@@ -152,10 +152,15 @@ namespace Acumatica.RESTClient.AuthApi
                 new KeyValuePair<string, string>("scope", PrepareScopeParameter(scope)),
                 new KeyValuePair<string, string>("redirect_uri",  redirectUrl),
                 new KeyValuePair<string, string>("response_mode",  usePost ? "form_post" : "fragment"),
-                new KeyValuePair<string, string>("nonce",  nonce)
             };
 
-            HttpResponseMessage response = await client.CallApiAsync(
+
+			if (!string.IsNullOrEmpty(nonce))
+			{
+				queryParams.Add(new KeyValuePair<string, string>("nonce", nonce));
+			}
+
+			HttpResponseMessage response = await client.CallApiAsync(
                 resourcePath:       "identity/connect/authorize",
                 method:             HttpMethod.Get,
                 acceptType:         HeaderContentType.Any,
@@ -166,14 +171,17 @@ namespace Acumatica.RESTClient.AuthApi
 
             await VerifyResponseAsync(client, response, "RequestToken").ConfigureAwait(false);
 
-            var locationHeader = response.Headers.Where(_ => _.Key == "Location").FirstOrDefault();
-            if (!response.Headers.Where(_ => _.Key == "Location").Any())
-            {
-                //maybe we've already been redirected, let's take response URL in this case
-                return response.RequestMessage.RequestUri.ToString();
-            }
-            return response.Headers.Where(_ => _.Key == "Location").First().Value.First().ToString();
-        }
+			var locationHeaders = response.Headers.FirstOrDefault(_ => string.Equals(_.Key, "Location", StringComparison.OrdinalIgnoreCase));
+			if (locationHeaders.Value == null || !locationHeaders.Value.Any())
+			{
+				//maybe we've already been redirected, let's take response URL in this case
+				return response.RequestMessage.RequestUri.ToString();
+			}
+			else
+			{
+				return locationHeaders.Value.First().ToString();
+			}
+		}
 
         /// <summary>
         /// Receives access token for OAuth 2.0 authentication (Authorization code flow)
@@ -218,7 +226,6 @@ namespace Acumatica.RESTClient.AuthApi
                                         {"redirect_uri", redirectUrl },
                                         {"client_id", clientID },
                                         {"client_secret", clientSecret },
-                                     // {"scope", PrepareScopeParameter(scope) }
                                     }).ConfigureAwait(false),
                cancellationToken:   cancellationToken
             ).ConfigureAwait(false);
