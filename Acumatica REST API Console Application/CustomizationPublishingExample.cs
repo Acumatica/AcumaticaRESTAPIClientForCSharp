@@ -10,7 +10,7 @@ using AcumaticaRestApiExample;
 using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
 using static Acumatica.RESTClient.CustomizationApi.CustomizationApi;
 
-namespace Acumatica_REST_API_Example_Console_Application
+namespace AcumaticaRestApiExample
 {
     public class CustomizationPublishingExample
     {

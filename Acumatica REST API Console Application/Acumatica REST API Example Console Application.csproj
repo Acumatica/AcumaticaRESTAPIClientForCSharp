@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>AcumaticaRestApiExample</RootNamespace>
     <LangVersion>8.0</LangVersion>
     <nullable>Enable</nullable>
   </PropertyGroup>
