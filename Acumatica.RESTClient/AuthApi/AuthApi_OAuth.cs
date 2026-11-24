@@ -172,7 +172,7 @@ namespace Acumatica.RESTClient.AuthApi
                 cancellationToken:  cancellationToken
             ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(client, response, "RequestToken").ConfigureAwait(false);
+            await VerifyResponseAsync(client, response, nameof(AuthorizeAsync)).ConfigureAwait(false);
 
 			var locationHeaders = response.Headers.FirstOrDefault(_ => string.Equals(_.Key, "Location", StringComparison.OrdinalIgnoreCase));
 			string returnUrl;
@@ -235,7 +235,7 @@ namespace Acumatica.RESTClient.AuthApi
                cancellationToken:   cancellationToken
             ).ConfigureAwait(false);
 
-            await VerifyResponseAsync(client, response, "RequestToken").ConfigureAwait(false);
+            await VerifyResponseAsync(client, response, nameof(ReceiveAccessTokenAuthCodeAsync)).ConfigureAwait(false);
 
             client.Token = await DeserializeAsync<Token>(response).ConfigureAwait(false);
             client.Token?.SetTokenObtainedDT(time);
