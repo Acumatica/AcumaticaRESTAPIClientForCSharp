@@ -19,58 +19,104 @@ namespace AcumaticaRestApiExample
         public static void Example(string siteURL, string clientSecret, string clientID, string redirectUrl)
         {
             var client = new ApiClient(siteURL,
-                requestInterceptor: FileRequestLogger.LogRequest
-            //   ,responseInterceptor: RequestLogger.LogResponse
-            , ignoreSslErrors: true // this is here to allow testing with self-signed certificates
+                requestInterceptor: FileRequestLogger.LogRequest,
+                responseInterceptor: FileRequestLogger.LogResponse
+               //, ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
             var url = client.Authorize(
                 clientID,
-                clientSecret,
                  redirectUrl,
-                 OAuthScope.API //| OAuthScope.OfflineAccess
-                );
+				 OAuthScope.API | OAuthScope.OfflineAccess
+				);
             OpenUrl(url);
-            var code = ReadCodeFromRedirectURL(redirectUrl);
-
-            client.ReceiveAccessTokenAuthCode(
-                clientID,
-                clientSecret,
-                redirectUrl,
-                code);
+			var callbackUrl = ReadCallbackUrl(redirectUrl);
+			client.ReceiveAccessTokenAuthCode(clientID, clientSecret, callbackUrl);
 
             foreach (var account in client.GetList<Account>(top: 5))
             {
-                Console.WriteLine(account.Description.Value);
+                Console.WriteLine(account.Description?.Value);
             }
             client.TryLogout();
 
         }
-
-        private static string ReadCodeFromRedirectURL(string url)
+        //Example with PKCE, nonce, and state
+        public static void Example2(string siteURL, string clientSecret, string clientID, string redirectUrl)
         {
-            HttpListener listener = new HttpListener();
+			var client = new ApiClient(siteURL,
+			   requestInterceptor: FileRequestLogger.LogRequest,
+			   responseInterceptor: FileRequestLogger.LogResponse
+			   //, ignoreSslErrors: true // this is here to allow testing with self-signed certificates
+			   );
 
-            listener.Prefixes.Add(url);
-            try
+			string nonce = GenerateRandomValue();
+            string state = GenerateRandomValue();
+            string codeVerifier = GenerateRandomValue(32);
+            string codeChallenge = CreateCodeChallenge(codeVerifier);
+
+            var url = client.Authorize(
+                      clientID,
+                       redirectUrl,
+                       OAuthScope.API | OAuthScope.OfflineAccess | OAuthScope.OpenID,
+                       nonce: nonce,
+                       state: state,
+                       codeChallenge: codeChallenge
+                );
+            OpenUrl(url);
+            var callbackUrl = ReadCallbackUrl(redirectUrl);
+
+			client.ReceiveAccessTokenAuthCode(
+                clientID,
+                clientSecret,
+                callbackUrl,
+                expectedState: state,
+                expectedNonce: nonce,
+                codeVerifier: codeVerifier);
+
+			foreach (var account in client.GetList<Account>(top: 5))
             {
-                listener.Start();
-
-                HttpListenerContext context = listener.GetContext();
-
-                HttpListenerRequest request = context.Request;
-                var rawUrl = request.RawUrl;
-                const string codeParametrIdentifier = "?code=";
-                var codewithgarbage = rawUrl.Substring(rawUrl.IndexOf(codeParametrIdentifier) + codeParametrIdentifier.Length);
-                var purecode = codewithgarbage.Substring(0, codewithgarbage.IndexOf("&"));
-                return purecode;
+                Console.WriteLine(account.Description?.Value);
             }
-            finally
-            {
-                listener.Stop();
-            }
+            client.TryLogout();
         }
 
-        private static void OpenUrl(string url)
+        static string GenerateRandomValue(int byteCount = 32) =>
+			Base64UrlEncode(RandomNumberGenerator.GetBytes(byteCount));
+
+		static string Base64UrlEncode(byte[] data) =>
+			Convert.ToBase64String(data).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+
+		static string CreateCodeChallenge(string codeVerifier) =>
+			Base64UrlEncode(SHA256.HashData(Encoding.ASCII.GetBytes(codeVerifier)));
+		
+
+		
+		private static Uri ReadCallbackUrl(string redirectUrl, TimeSpan? timeout = null)
+		{
+			var listener = new HttpListener();
+			listener.Prefixes.Add(redirectUrl);          // must end with '/'
+			try
+			{
+				listener.Start();
+				var contextTask = listener.GetContextAsync();
+				if (!contextTask.Wait(timeout ?? TimeSpan.FromMinutes(5)))
+					throw new TimeoutException("No authorization response received.");
+
+				HttpListenerContext context = contextTask.Result;
+				byte[] page = Encoding.UTF8.GetBytes("<html><body>You can close this window.</body></html>");
+				context.Response.ContentType = "text/html; charset=utf-8";
+				context.Response.ContentLength64 = page.Length;
+				context.Response.OutputStream.Write(page, 0, page.Length);
+				context.Response.OutputStream.Close();
+
+				return context.Request.Url ?? throw new InvalidOperationException("Request URL is null.");
+			}
+			finally
+			{
+				listener.Close();
+			}
+		}
+
+		private static void OpenUrl(string url)
         {
             try
             {
@@ -97,5 +143,6 @@ namespace AcumaticaRestApiExample
                 }
             }
         }
-    }
+		
+	}
 }
