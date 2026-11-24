@@ -1,12 +1,11 @@
-using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.Client;
-
 using System;
 using System.Net.Http;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
+using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.Client;
 
 
 namespace Acumatica.RESTClient.AuthApi
