@@ -120,9 +120,9 @@ namespace Acumatica.RESTClient.AuthApi
 		/// <param name="scope"></param>
 		/// <param name="responseType"></param>
 		/// <param name="responseMode"></param>
+		/// <param name="codeChallenge"></param>
 		/// <param name="nonce"></param>
 		/// <param name="state"></param>
-		/// <param name="codeChallenge"></param>
 		public static string Authorize(this ApiClient client,
 			string clientID,
 			string redirectUrl,
@@ -133,7 +133,7 @@ namespace Acumatica.RESTClient.AuthApi
 			string nonce = "",
 			string state = "")
 		{
-			return AuthorizeAsync(client, clientID, redirectUrl, scope, responseType: responseType, responseMode: responseMode, nonce: nonce, state: state, codeChallenge: codeChallenge).GetAwaiter().GetResult();
+			return AuthorizeAsync(client, clientID, redirectUrl, scope, responseType: responseType, responseMode: responseMode, codeChallenge: codeChallenge, nonce: nonce, state: state).GetAwaiter().GetResult();
 		}
 		/// <summary>
 		/// Calls the authorize endpoint and returns the URL to open in a browser: the login URL
@@ -144,12 +144,12 @@ namespace Acumatica.RESTClient.AuthApi
 		/// <param name="clientID"></param>
 		/// <param name="redirectUrl">Must exactly match a redirect URI registered for the client.</param>
 		/// <param name="scope"></param>
-		/// <param name="cancellationToken"></param>
 		/// <param name="responseType"></param>
 		/// <param name="responseMode">With FormPost the server returns an HTML form, not a redirect.</param>
+		/// <param name="codeChallenge">S256 code challenge, required if PKCE is used.</param>
 		/// <param name="nonce"></param>
 		/// <param name="state">Optional. If omitted, there is no state check on the callback. </param>
-		/// <param name="codeChallenge">S256 code challenge, required if PKCE is used.</param>
+		/// <param name="cancellationToken"></param>
 		public async static Task<string> AuthorizeAsync(
 			this ApiClient client,
 			string clientID,
@@ -246,7 +246,7 @@ namespace Acumatica.RESTClient.AuthApi
 			string codeVerifier = "",
 			string expectedNonce = "")
 		{
-			ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, redirectUrl, code, expectedNonce: expectedNonce, codeVerifier: codeVerifier).GetAwaiter().GetResult();
+			ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, redirectUrl, code, codeVerifier: codeVerifier, expectedNonce: expectedNonce).GetAwaiter().GetResult();
 		}
 
 		/// <summary>
@@ -256,9 +256,9 @@ namespace Acumatica.RESTClient.AuthApi
 		/// <param name="clientID"></param>
 		/// <param name="clientSecret"></param>
 		/// <param name="callbackUrl"></param>
-		/// <param name="expectedState"></param>
-		/// <param name="expectedNonce"></param>
 		/// <param name="codeVerifier"></param>
+		/// <param name="expectedNonce"></param>
+		/// <param name="expectedState"></param>
 		public static void ReceiveAccessTokenAuthCode(
 			this ApiClient client,
 			string clientID,
@@ -268,7 +268,7 @@ namespace Acumatica.RESTClient.AuthApi
 			string expectedNonce = "",
 			string expectedState = "")
 		{
-			ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, callbackUrl, expectedState: expectedState, expectedNonce: expectedNonce, codeVerifier: codeVerifier).GetAwaiter().GetResult();
+			ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, callbackUrl, codeVerifier: codeVerifier, expectedNonce: expectedNonce, expectedState: expectedState).GetAwaiter().GetResult();
 		}
 
 		/// <summary>
@@ -279,8 +279,8 @@ namespace Acumatica.RESTClient.AuthApi
 		/// <param name="clientSecret"></param>
 		/// <param name="redirectUrl"></param>
 		/// <param name="code"></param>
-		/// <param name="expectedNonce"></param>
 		/// <param name="codeVerifier"></param>
+		/// <param name="expectedNonce"></param>
 		/// <param name="cancellationToken"></param>
 		public static async Task ReceiveAccessTokenAuthCodeAsync(
 			this ApiClient client,
@@ -340,9 +340,9 @@ namespace Acumatica.RESTClient.AuthApi
 		/// <param name="clientID"></param>
 		/// <param name="clientSecret"></param>
 		/// <param name="callbackUrl"></param>
-		/// <param name="expectedState"></param>
-		/// <param name="expectedNonce"></param>
 		/// <param name="codeVerifier"></param>
+		/// <param name="expectedNonce"></param>
+		/// <param name="expectedState"></param>
 		/// <param name="cancellationToken"></param>
 		public static async Task ReceiveAccessTokenAuthCodeAsync(
 			this ApiClient client,
@@ -380,8 +380,8 @@ namespace Acumatica.RESTClient.AuthApi
 				clientSecret,
 				redirectUrl,
 				code,
-				expectedNonce: expectedNonce,
 				codeVerifier: codeVerifier,
+				expectedNonce: expectedNonce,
 				cancellationToken: cancellationToken).ConfigureAwait(false);
 		}
 		private static void VerifyIdTokenNonce(string? idToken, string expectedNonce)
