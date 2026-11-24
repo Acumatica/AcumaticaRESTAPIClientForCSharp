@@ -57,9 +57,9 @@ namespace AcumaticaRestApiExample
                       clientID,
                        redirectUrl,
                        OAuthScope.API | OAuthScope.OfflineAccess | OAuthScope.OpenID,
+                       codeChallenge: codeChallenge,
                        nonce: nonce,
-                       state: state,
-                       codeChallenge: codeChallenge
+                       state: state
                 );
             OpenUrl(url);
             var callbackUrl = ReadCallbackUrl(redirectUrl);
@@ -68,9 +68,9 @@ namespace AcumaticaRestApiExample
                 clientID,
                 clientSecret,
                 callbackUrl,
-                expectedState: state,
+                codeVerifier: codeVerifier,
                 expectedNonce: nonce,
-                codeVerifier: codeVerifier);
+                expectedState: state);
 
 			foreach (var account in client.GetList<Account>(top: 5))
             {

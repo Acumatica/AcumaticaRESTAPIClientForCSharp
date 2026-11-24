@@ -30,7 +30,7 @@ namespace AcumaticaRestApiExample
                  OAuthScope.API | OAuthScope.OfflineAccess | OAuthScope.OpenID,
                  ResponseType.IdToken,// | ResponseType.Token,
                  ResponseMode.FormPost,//This is here to read the the Authorization data in backend
-				 Guid.NewGuid().ToString()
+				 nonce: Guid.NewGuid().ToString()
                 );
             OpenUrl(url);
 
