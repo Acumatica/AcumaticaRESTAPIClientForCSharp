@@ -1,13 +1,17 @@
 using Acumatica.RESTClient.Api;
 using Acumatica.RESTClient.AuthApi.Model;
 using Acumatica.RESTClient.Client;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
+
 using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 
@@ -121,19 +125,19 @@ namespace Acumatica.RESTClient.AuthApi
         {
             return AuthorizeAsync(client, clientID, clientSecret, redirectUrl, scope, responseType: responseType, usePost: usePost, nonce: nonce).GetAwaiter().GetResult();
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="client"></param>
-        /// <param name="clientID"></param>
-        /// <param name="clientSecret"></param>
-        /// <param name="redirectUrl"></param>
-        /// <param name="scope"></param>
-        /// <param name="cancellationToken"></param>
-        /// <param name="responseType"></param>
-        /// <param name="usePost"></param>
-        /// <param name="nonce"></param>
-        public async static Task<string> AuthorizeAsync(
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="client"></param>
+		/// <param name="clientID"></param>
+		/// <param name="clientSecret"></param>
+		/// <param name="redirectUrl"></param>
+		/// <param name="scope"></param>
+		/// <param name="cancellationToken"></param>
+		/// <param name="responseType"></param>
+		/// <param name="usePost"></param>
+		/// <param name="nonce"></param>
+		public async static Task<string> AuthorizeAsync(
             this ApiClient client, 
             string clientID, 
             string clientSecret, 
@@ -144,14 +148,14 @@ namespace Acumatica.RESTClient.AuthApi
             bool usePost = false,
             string nonce = "")
         {
-            List<KeyValuePair<string, string>> queryParams = new List<KeyValuePair<string, string>>
+			List<KeyValuePair<string, string>> queryParams = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("response_type", PrepareResponseType(responseType)),
                 new KeyValuePair<string, string>("client_id", clientID),
                 new KeyValuePair<string, string>("scope", PrepareScopeParameter(scope)),
                 new KeyValuePair<string, string>("redirect_uri",  redirectUrl),
                 new KeyValuePair<string, string>("response_mode",  usePost ? "form_post" : "fragment"),
-            };
+			};
 
 
 			if (!string.IsNullOrEmpty(nonce))
@@ -171,48 +175,50 @@ namespace Acumatica.RESTClient.AuthApi
             await VerifyResponseAsync(client, response, "RequestToken").ConfigureAwait(false);
 
 			var locationHeaders = response.Headers.FirstOrDefault(_ => string.Equals(_.Key, "Location", StringComparison.OrdinalIgnoreCase));
+			string returnUrl;
 			if (locationHeaders.Value == null || !locationHeaders.Value.Any())
 			{
 				//maybe we've already been redirected, let's take response URL in this case
-				return response.RequestMessage.RequestUri.ToString();
+				returnUrl = response.RequestMessage.RequestUri.ToString();
 			}
 			else
 			{
-				return locationHeaders.Value.First().ToString();
+				returnUrl = locationHeaders.Value.First().ToString();
 			}
+            return returnUrl;
 		}
 
-        /// <summary>
-        /// Receives access token for OAuth 2.0 authentication (Authorization code flow)
-        /// </summary>
-        /// <param name="client"></param>
-        /// <param name="clientID"></param>
-        /// <param name="clientSecret"></param>
-        /// <param name="redirectUrl"></param>
+		/// <summary>
+		/// Receives access token for OAuth 2.0 authentication (Authorization code flow)
+		/// </summary>
+		/// <param name="client"></param>
+		/// <param name="clientID"></param>
+		/// <param name="clientSecret"></param>
+		/// <param name="redirectUrl"></param>
         /// <param name="code"></param>
         public static void ReceiveAccessTokenAuthCode(this ApiClient client, string clientID, string clientSecret, string redirectUrl, string code)
         {
             ReceiveAccessTokenAuthCodeAsync(client, clientID, clientSecret, redirectUrl, code).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Receives access token for OAuth 2.0 authentication (Authorization code flow)
-        /// </summary>
-        /// <param name="client"></param>
-        /// <param name="clientID"></param>
-        /// <param name="clientSecret"></param>
-        /// <param name="redirectUrl"></param>
+		/// <summary>
+		/// Receives access token for OAuth 2.0 authentication (Authorization code flow)
+		/// </summary>
+		/// <param name="client"></param>
+		/// <param name="clientID"></param>
+		/// <param name="clientSecret"></param>
+		/// <param name="redirectUrl"></param>
         /// <param name="code"></param>
-        /// <param name="cancellationToken"></param>
-        public static async Task ReceiveAccessTokenAuthCodeAsync(
+		/// <param name="cancellationToken"></param>
+		public static async Task ReceiveAccessTokenAuthCodeAsync(
             this ApiClient client, 
             string clientID, 
             string clientSecret, 
             string redirectUrl, 
             string code, 
-            CancellationToken cancellationToken = default)
+			CancellationToken cancellationToken = default)
         {
-            var time = DateTime.UtcNow;
+			var time = DateTime.UtcNow;
             HttpResponseMessage response = await client.CallApiAsync(
                resourcePath:        "/identity/connect/token",
                method:              HttpMethod.Post,
