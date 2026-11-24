@@ -174,6 +174,11 @@ namespace AcumaticaRestApiExample
 					Settings.Default.SiteURL, Settings.Default.ClientSecretAC,
 					Settings.Default.ClientIDAC, Settings.Default.RedirectUrl));
 
+			ConsoleReport.Run("OAuth 2.0 - Authorization Code flow with PKCE", () =>
+				OAuthAuthCodeExample.Example2(
+					Settings.Default.SiteURL, Settings.Default.ClientSecretAC,
+					Settings.Default.ClientIDAC, Settings.Default.RedirectUrl));
+
 			ConsoleReport.Run("OAuth 2.0 - Hybrid flow", () =>
 				OAuthHybridExample.Example(
 					Settings.Default.SiteURL, Settings.Default.ClientSecretHybrid,
