@@ -34,7 +34,10 @@ namespace Acumatica.RESTClient.AuthApi.Model
         [DataMember(Name = "refresh_token", EmitDefaultValue = false)]
         public string? Refresh_token { get; set; }
 
-        [DataMember(Name = "scope", EmitDefaultValue = false)]
+		[DataMember(Name = "id_token", EmitDefaultValue = false)]
+		public string? Id_token { get; set; }
+
+		[DataMember(Name = "scope", EmitDefaultValue = false)]
         public string? Scope { get; set; }
 
         [DataMember(Name = "token_type", EmitDefaultValue = false)]
@@ -43,6 +46,7 @@ namespace Acumatica.RESTClient.AuthApi.Model
         public DateTime ObtainedAtUTC{ get; private set; }
 
         public bool IsValid { get => isValid(); }
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
