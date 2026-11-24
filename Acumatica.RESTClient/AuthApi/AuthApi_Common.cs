@@ -1,14 +1,12 @@
 using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.AuthApi.Model;
 using Acumatica.RESTClient.Client;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 
 namespace Acumatica.RESTClient.AuthApi
@@ -91,7 +89,14 @@ namespace Acumatica.RESTClient.AuthApi
             }
         }
 
-        [Flags]
+		public enum ResponseMode
+		{
+			Query,
+			Fragment,
+			FormPost
+		}
+
+		[Flags]
         public enum OAuthScope
         {
             None = 0,
