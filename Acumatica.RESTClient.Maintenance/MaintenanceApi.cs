@@ -10,8 +10,19 @@ using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
 
 namespace Acumatica.RESTClient.MaintenanceApi
 {
+    /// <summary>
+    /// Represents a collection of functions to interact with the Endpoint Maintenance API:
+    /// reading and uploading endpoint schemas.
+    /// </summary>
     public static class MaintenanceApi
     {
+        /// <summary>
+        /// Uploads the schema of an endpoint to the site.
+        /// </summary>
+        /// <param name="client">The API client.</param>
+        /// <param name="endpointXML">The endpoint schema XML, in the format returned by <see cref="GetSchemaAsync"/>.</param>
+        /// <param name="cancellationToken">Token to cancel the call.</param>
+        /// <exception cref="ApiException">Thrown when the request fails.</exception>
         public static async Task PutSchemaAsync(this ApiClient client, string endpointXML, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response = await client.CallApiAsync(
@@ -25,6 +36,7 @@ namespace Acumatica.RESTClient.MaintenanceApi
 
             await VerifyResponseAsync(response, nameof(PutSchemaAsync)).ConfigureAwait(false);
         }
+        /// <inheritdoc cref="PutSchemaAsync"/>
         public static void PutSchema(this ApiClient client, string endpointXML)
         {
             PutSchemaAsync(client, endpointXML).GetAwaiter().GetResult();
@@ -34,6 +46,10 @@ namespace Acumatica.RESTClient.MaintenanceApi
         /// <summary>
         /// Reads the schema of an endpoint.
         /// </summary>
+        /// <param name="client">The API client.</param>
+        /// <param name="endpointName">The name of the endpoint, for example <c>Default</c>.</param>
+        /// <param name="endpointVersion">The version of the endpoint, for example <c>24.200.001</c>.</param>
+        /// <param name="cancellationToken">Token to cancel the call.</param>
         /// <returns>
         /// The endpoint schema XML, or <c>null</c> if the endpoint does not exist.
         /// </returns>
