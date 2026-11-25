@@ -48,7 +48,7 @@ namespace Acumatica.RESTClient.NonProductionLogin
             this ApiClient client,
             string username,
             string password,
-            string tenant = null,
+            string? tenant = null,
 			string? branch = null,
 			string? locale = null,
 			CancellationToken cancellationToken = default)
