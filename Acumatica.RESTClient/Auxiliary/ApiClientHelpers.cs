@@ -19,6 +19,10 @@ using static Acumatica.RESTClient.Auxiliary.Constants;
 
 namespace Acumatica.RESTClient.Auxiliary
 {
+    /// <summary>
+    ///     Helper functions shared by the API wrappers: composing parameters and headers,
+    ///     serializing and deserializing, and encoding.
+    /// </summary>
     public static class ApiClientHelpers
     {
         /// <summary>
@@ -78,6 +82,12 @@ namespace Acumatica.RESTClient.Auxiliary
             }
             return result;
         }
+        /// <summary>
+        ///     Composes the value of the Content-Type header. If JSON is among the content types it is used;
+        ///     otherwise the first content type is used.
+        /// </summary>
+        /// <param name="contentTypes">The content types the request body can be sent as.</param>
+        /// <returns>The value of the Content-Type header.</returns>
         public static string ComposeContentHeaders(HeaderContentType contentTypes)
         {
             return SelectHeaderContentType(ApiClientHelpers.ComposeHeadersArray(contentTypes));
@@ -123,6 +133,11 @@ namespace Acumatica.RESTClient.Auxiliary
             return contentTypes.First();
         }
 
+        /// <summary>
+        ///     Composes the value of the Accept header: all the given content types, separated by commas.
+        /// </summary>
+        /// <param name="contentTypes">The content types the response can be received as.</param>
+        /// <returns>The value of the Accept header.</returns>
         public static string ComposeAcceptHeaders(HeaderContentType contentTypes)
         {
             return string.Join(",", ComposeHeadersArray(contentTypes));
@@ -156,6 +171,12 @@ namespace Acumatica.RESTClient.Auxiliary
 
             return parameters;
         }
+        /// <summary>
+        ///     Throws an <see cref="ApiException"/> with the status code 400 that says a required parameter is missing.
+        /// </summary>
+        /// <param name="methodName">The name of the method that was called.</param>
+        /// <param name="paramName">The name of the missing parameter.</param>
+        /// <exception cref="ApiException">Always thrown.</exception>
         public static void ThrowMissingParameter(string methodName, string paramName)
         {
             throw new ApiException(400, $"Missing required parameter '{paramName}' when calling {methodName}");
@@ -226,6 +247,11 @@ namespace Acumatica.RESTClient.Auxiliary
             var jsonRegex = new Regex("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
             return mime != null && (jsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json"));
         }
+        /// <summary>
+        ///     Encodes the given values as <c>application/x-www-form-urlencoded</c> content.
+        /// </summary>
+        /// <param name="keyValueContent">The names and values to encode.</param>
+        /// <returns>The encoded content.</returns>
         public async static Task<string> ToFormUrlEncodedAsync(IDictionary<string, string> keyValueContent)
         {
             var formUrlEncodedContent = new FormUrlEncodedContent(keyValueContent);

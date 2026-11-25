@@ -88,23 +88,41 @@ namespace Acumatica.RESTClient.AuthApi
             }
         }
 
+		/// <summary>
+		///     How the authorization server returns the result of the authorization request.
+		/// </summary>
 		public enum ResponseMode
 		{
+			/// <summary>The result is returned in the query string of the redirect URL. This is the default.</summary>
 			Query,
+			/// <summary>The result is returned in the fragment of the redirect URL.</summary>
 			Fragment,
+			/// <summary>The server returns an HTML form that posts the result to the redirect URL.</summary>
 			FormPost
 		}
 
+		/// <summary>
+		///     The scopes a token is requested for. Scopes can be combined with <c>|</c>.
+		/// </summary>
 		[Flags]
         public enum OAuthScope
         {
+            /// <summary>No scopes.</summary>
             None = 0,
+            /// <summary>Access to the API (<c>api</c>).</summary>
             API = 1,
+            /// <summary>Allows getting a refresh token (<c>offline_access</c>).</summary>
             OfflineAccess = 2,
+            /// <summary>Concurrent API access (<c>api:concurrent_access</c>). Without it API calls use the same session and process sequentially.</summary>
             ConcurrentAccess = 4,
+            /// <summary>Allows getting an ID token (<c>openid</c>).</summary>
             OpenID = 8
         }
 
+        /// <summary>
+        ///     The response types requested from the authorize endpoint in addition to <c>code</c>.
+        ///     They are used for the hybrid flow.
+        /// </summary>
         [Flags]
         public enum ResponseType
         {

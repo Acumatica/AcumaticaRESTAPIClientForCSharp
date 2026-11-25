@@ -3,6 +3,10 @@ using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.AuthApi.Model
 {
+	/// <summary>
+	///     The user name, password and sign-in options that are sent to the auth/login endpoint.
+	///     The auth/login endpoint is obsolete; OAuth 2.0 is used instead.
+	/// </summary>
 	[DataContract]
     public partial class Credentials
     {
