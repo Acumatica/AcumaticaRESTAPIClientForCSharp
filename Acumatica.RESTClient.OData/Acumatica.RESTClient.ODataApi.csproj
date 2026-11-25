@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Title>Acumatica REST API for Accessing OData</Title>
-		<Version>6.0.1-preview</Version>
+		<Version>6.0.2-preview</Version>
 		<Authors>Dmitrii-Naumov</Authors>
 		<Company>Acumatica</Company>
 		<Description>An extension for Acumatica REST API client for C# allowing interaction with OData API</Description>
@@ -15,7 +15,12 @@
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageReleaseNotes>Added OrderBy parameter</PackageReleaseNotes>
+		<PackageReleaseNotes>
+6.0.2-preview
+
+- ODataResults and ODataObject follow the 6.0 serialization conventions: the DataContract attributes are removed and the names that differ from the field names are mapped with JsonProperty.
+- Built against Acumatica.RESTClient 6.0.2-preview.
+		</PackageReleaseNotes>
 
 		<LangVersion>8.0</LangVersion>
 		<nullable>Enable</nullable>

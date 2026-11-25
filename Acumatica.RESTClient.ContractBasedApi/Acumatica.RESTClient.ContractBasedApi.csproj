@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Title>Acumatica Contract Based REST API CLient</Title>
-		<Version>6.0.1-preview</Version>
+		<Version>6.0.2-preview</Version>
 		<Authors>Dmitrii-Naumov</Authors>
 		<Company>Acumatica</Company>
 		<Description>A simple client allowing to use Acumatica Contract Based REST API from C#. </Description>
@@ -18,7 +18,13 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<LangVersion>9.0</LangVersion>
 		<nullable>Enable</nullable>
-		<PackageReleaseNotes>Removed backward compatibility code; added debugger display to better view Rest Values</PackageReleaseNotes>
+		<PackageReleaseNotes>
+6.0.2-preview
+
+- Overloads with the same description now inherit it (inheritdoc) instead of repeating it.
+- Unused serialization usings removed.
+- Built against Acumatica.RESTClient 6.0.2-preview.
+		</PackageReleaseNotes>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 

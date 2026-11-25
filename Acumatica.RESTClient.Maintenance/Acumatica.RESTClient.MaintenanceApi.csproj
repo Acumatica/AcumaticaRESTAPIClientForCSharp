@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Title>Acumatica REST API for Managing Endpoint Schemas</Title>
-		<Version>6.0.1-preview</Version>
+		<Version>6.0.2-preview</Version>
 		<Authors>Dmitrii-Naumov</Authors>
 		<Company>Acumatica</Company>
 		<Description>An extension for Acumatica REST API client for C# allowing interaction with Endpoints API</Description>
@@ -16,7 +16,10 @@
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PackageReleaseNotes>
-      Implemented proper error message propagation
+6.0.2-preview
+
+- Overloads with the same description now inherit it (inheritdoc) instead of repeating it.
+- Built against Acumatica.RESTClient 6.0.2-preview.
 		</PackageReleaseNotes>
 
 		<LangVersion>8.0</LangVersion>

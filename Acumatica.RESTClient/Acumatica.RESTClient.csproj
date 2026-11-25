@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<ApplicationIcon>images\AcumaticaRESTClientLogo.ico</ApplicationIcon>
-		<Version>6.0.1-preview</Version>
+		<Version>6.0.2-preview</Version>
 		<Company>Acumatica</Company>
 		<Description>A simple client allowing to use Acumatica REST API from C#. </Description>
 		<Copyright>Acumatica</Copyright>
@@ -12,7 +12,23 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
 		<PackageTags>Acumatica;REST;client;</PackageTags>
-		<PackageReleaseNotes>Removed backward compatibility code; fixed the issue when logout was throwing an exception if executed with token but without session cookie</PackageReleaseNotes>
+		<PackageReleaseNotes>
+6.0.2-preview
+
+BREAKING CHANGES compared to 6.0.1-preview (OAuth 2.0 authorization code flow):
+- Authorize and AuthorizeAsync no longer take clientSecret or usePost. Use responseMode (Query, Fragment or FormPost; the default is Query) instead of usePost. The optional parameters are in the order responseType, responseMode, codeChallenge, nonce, state.
+- ResponseType values changed (IdToken = 1, Token = 2). IdToken and Token can now be requested independently, so 'code token' is possible.
+- The auth/login endpoint support is removed: Login and LoginAsync no longer exist. Use the OAuth 2.0 methods, or the Acumatica.RESTClient.NonProductionLogin package for non-production sites.
+
+NEW:
+- PKCE support: pass codeChallenge to Authorize and codeVerifier when receiving the token.
+- Nonce support: pass nonce to Authorize and expectedNonce when receiving the token; it is verified against the ID token.
+- State support: pass state to Authorize and expectedState when receiving the token; a mismatch is rejected.
+- ReceiveAccessTokenAuthCode and ReceiveAccessTokenAuthCodeAsync can take the callback Uri. The authorization code is extracted from it and errors returned by Acumatica are reported.
+- Added the ResponseMode enum and the Token.Id_token property.
+- VersionAndEndpoints.Features lists the features enabled on the instance (returned by the root endpoint starting with 26R2).
+- XML documentation for the OAuth methods and the Token class. Overloads with the same description now inherit it (inheritdoc).
+		</PackageReleaseNotes>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<OutputType>Library</OutputType>
