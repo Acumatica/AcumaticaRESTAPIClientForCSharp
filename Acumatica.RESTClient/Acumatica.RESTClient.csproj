@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<ApplicationIcon>images\AcumaticaRESTClientLogo.ico</ApplicationIcon>
-		<Version>5.8.1</Version>
+		<Version>5.9.0</Version>
 		<Company>Acumatica</Company>
 		<Description>A simple client allowing to use Acumatica REST API from C#. </Description>
 		<Copyright>Acumatica</Copyright>
@@ -12,7 +12,26 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp</RepositoryUrl>
 		<PackageTags>Acumatica;REST;client;</PackageTags>
-		<PackageReleaseNotes>Fixed the issue when logout was throwing an exception if executed with token but without session cookie</PackageReleaseNotes>
+		<PackageReleaseNotes>
+5.9.0
+
+OAuth 2.0 authorization code flow was reworked. Existing code keeps working:
+- The 5.7.x and 5.8.x overloads of Authorize and AuthorizeAsync are kept, marked obsolete, and behave as before (including usePost and the fragment response mode of the 5.8.x signatures). The existing ReceiveAccessTokenAuthCode and ReceiveAccessTokenAuthCodeAsync calls keep working unchanged.
+- New code should use the new overloads: Authorize and AuthorizeAsync no longer need clientSecret (it was never used by the authorize request), and usePost is replaced by responseMode (Query, Fragment or FormPost; the default is Query).
+
+ONE CHANGE THAT NEEDS A REBUILD:
+- ResponseType values changed (IdToken = 1, Token = 2; they were 0 and 1). Previously IdToken = 0 meant that id_token was always requested when any response type was passed, and 'code token' could not be requested. Code that uses ResponseType by name only needs to be recompiled. Compiled code that is not rebuilt would send the wrong response type.
+- With the new overloads ResponseType.Token now requests 'code token'. The old overloads still send 'code id_token token' for it, as before.
+
+NEW:
+- PKCE support: pass codeChallenge to Authorize and codeVerifier when receiving the token.
+- Nonce support: pass nonce to Authorize and expectedNonce when receiving the token; it is verified against the ID token.
+- State support: pass state to Authorize and expectedState when receiving the token; a mismatch is rejected.
+- ReceiveAccessTokenAuthCode and ReceiveAccessTokenAuthCodeAsync can now take the callback Uri. The authorization code is extracted from it and errors returned by Acumatica are reported.
+- Added the ResponseMode enum and the Token.Id_token property.
+- VersionAndEndpoints.Features lists the features enabled on the instance (returned by the root endpoint starting with 26R2).
+- XML documentation for the OAuth methods and the Token class.
+		</PackageReleaseNotes>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<OutputType>Library</OutputType>

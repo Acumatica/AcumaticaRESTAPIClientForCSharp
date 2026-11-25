@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
+using Newtonsoft.Json;
+
 namespace Acumatica.RESTClient.RootApi.Model
 {
 	/// <summary>
@@ -10,11 +12,22 @@ namespace Acumatica.RESTClient.RootApi.Model
     public partial class VersionAndEndpoints
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="VersionAndEndpoints" /> class without the list of features.
+        /// Kept so that code built against versions before 5.9.0 keeps working.
+        /// </summary>
+        /// <param name="version">version.</param>
+        /// <param name="endpoints">endpoints.</param>
+        public VersionAndEndpoints(Version? version, List<Endpoint>? endpoints) : this(version, endpoints, null)
+        {
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="VersionAndEndpoints" /> class.
         /// </summary>
         /// <param name="version">version.</param>
         /// <param name="endpoints">endpoints.</param>
         /// <param name="features">features.</param>
+        [JsonConstructor]
         public VersionAndEndpoints(Version? version = default, List<Endpoint>? endpoints = default, List<string>? features = default)
         {
             Version = version;
