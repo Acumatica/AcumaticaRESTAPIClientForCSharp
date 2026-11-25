@@ -38,7 +38,7 @@ namespace Acumatica.RESTClient.AuthApi
 		/// </remarks>
 		/// <param name="client">The API client. The token is stored on it.</param>
 		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
-		/// <param name="privateJwkJson">The private RSA key of the client as a JSON Web Key (JWK). It is used to sign the client assertion.</param>
+		/// <param name="privateJwkJson">The private RSA key of the client as a JSON Web Key (JWK), or a JWK Set (<c>{ "keys": [ ... ] }</c>) that contains it as the only private RSA key. It is used to sign the client assertion.</param>
 		/// <param name="cancellationToken">Token to cancel the call.</param>
 		public async static Task RefreshAccessTokenJWTAsync(this ApiClient client, string clientID, string privateJwkJson, CancellationToken cancellationToken = default)
 		{
@@ -92,7 +92,7 @@ namespace Acumatica.RESTClient.AuthApi
 		/// </summary>
 		/// <param name="client">The API client. The token is stored on it.</param>
 		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
-		/// <param name="privateJwkJson">The private RSA key of the client as a JSON Web Key (JWK). It is used to sign the client assertion.</param>
+		/// <param name="privateJwkJson">The private RSA key of the client as a JSON Web Key (JWK), or a JWK Set (<c>{ "keys": [ ... ] }</c>) that contains it as the only private RSA key. It is used to sign the client assertion.</param>
 		/// <param name="callbackUrl">The full URL the browser was redirected to after sign-in. The authorization code is extracted from it.</param>
 		/// <param name="codeVerifier">Optional. The PKCE code verifier that matches the <c>codeChallenge</c> sent to <c>Authorize</c>.</param>
 		/// <param name="expectedNonce">Optional. The same <c>nonce</c> that was sent to <c>Authorize</c>. If provided, it is checked against the ID token (requires the OpenID scope).</param>
@@ -115,7 +115,7 @@ namespace Acumatica.RESTClient.AuthApi
 		/// </summary>
 		/// <param name="client">The API client. The token is stored on it.</param>
 		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
-		/// <param name="privateJwkJson">The private RSA key of the client as a JSON Web Key (JWK). It is used to sign the client assertion.</param>
+		/// <param name="privateJwkJson">The private RSA key of the client as a JSON Web Key (JWK), or a JWK Set (<c>{ "keys": [ ... ] }</c>) that contains it as the only private RSA key. It is used to sign the client assertion.</param>
 		/// <param name="redirectUrl">The same redirect URL that was used in <c>Authorize</c>.</param>
 		/// <param name="code">The authorization code from the callback.</param>
 		/// <param name="codeVerifier">Optional. The PKCE code verifier that matches the <c>codeChallenge</c> sent to <c>Authorize</c>.</param>
@@ -178,7 +178,7 @@ namespace Acumatica.RESTClient.AuthApi
 		/// </summary>
 		/// <param name="client">The API client. The token is stored on it.</param>
 		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
-		/// <param name="privateJwkJson">The private RSA key of the client as a JSON Web Key (JWK). It is used to sign the client assertion.</param>
+		/// <param name="privateJwkJson">The private RSA key of the client as a JSON Web Key (JWK), or a JWK Set (<c>{ "keys": [ ... ] }</c>) that contains it as the only private RSA key. It is used to sign the client assertion.</param>
 		/// <param name="callbackUrl">The full URL the browser was redirected to after sign-in. The authorization code is extracted from it. Only if ResponseType is query</param>
 		/// <param name="codeVerifier">Optional. The PKCE code verifier that matches the <c>codeChallenge</c> sent to <c>Authorize</c>.</param>
 		/// <param name="expectedNonce">Optional. The same <c>nonce</c> that was sent to <c>Authorize</c>. If provided, it is checked against the ID token (requires the OpenID scope).</param>
@@ -238,6 +238,27 @@ namespace Acumatica.RESTClient.AuthApi
 		}
 
 		/// <summary>
+		/// Gets the key to sign with. The string is either a single JWK, which is returned as it is,
+		/// or a JWK Set (<c>{ "keys": [ ... ] }</c>), from which the only private RSA key is taken.
+		/// </summary>
+		private static JObject SelectSigningJwk(JObject root, string paramName)
+		{
+			if (root["keys"] is not JArray keys)
+				return root;
+
+			var candidates = keys.OfType<JObject>()
+				.Where(key => (string?)key["kty"] == "RSA" && !string.IsNullOrEmpty((string?)key["d"]))
+				.ToList();
+			if (candidates.Count == 1)
+				return candidates[0];
+
+			throw new ArgumentException(candidates.Count == 0
+				? "The JWK Set does not contain a private RSA key to sign the client assertion with."
+				: $"The JWK Set contains {candidates.Count} private RSA keys. Pass a single key, or a set that contains only the key to sign with.",
+				paramName);
+		}
+
+		/// <summary>
 		/// Creates a client assertion: a JWT that is signed with the private key of the client (RS256)
 		/// and is sent to the token endpoint instead of the client secret.
 		/// </summary>
@@ -250,7 +271,7 @@ namespace Acumatica.RESTClient.AuthApi
 			JObject jwk;
 			try
 			{
-				jwk = JObject.Parse(privateJwkJson);
+				jwk = SelectSigningJwk(JObject.Parse(privateJwkJson), nameof(privateJwkJson));
 			}
 			catch (JsonReaderException ex)
 			{
