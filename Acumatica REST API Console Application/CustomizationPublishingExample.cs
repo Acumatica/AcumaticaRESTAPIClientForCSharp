@@ -8,7 +8,7 @@ using Acumatica.RESTClient.Loggers;
 using AcumaticaRestApiExample;
 
 using Acumatica.RESTClient.NonProductionLogin;
-using static Acumatica.RESTClient.CustomizationApi.CustomizationApi;
+using static Acumatica.RESTClient.CustomizationApi.CustomizationApiExtensions;
 
 namespace AcumaticaRestApiExample
 {
@@ -27,13 +27,16 @@ namespace AcumaticaRestApiExample
 
 
                 Console.WriteLine("Import customization package");
-                client.Import(new FileStream("endpoint.zip", FileMode.Open), "test");
+                using (var package = new FileStream("endpoint.zip", FileMode.Open))
+                {
+                    client.Import(package, "test");
+                }
 
                 Console.WriteLine("Start Publishing");
                 client.PublishBegin("test");
 
                 Console.WriteLine("Wait");
-                client.WaitPublishingCompletion();
+                client.WaitPublishingCompletion(millisecondsTimeout: 10 * 60 * 1000);
 
 
                 Console.WriteLine("Done!");

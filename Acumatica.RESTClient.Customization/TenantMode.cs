@@ -1,22 +1,22 @@
-﻿namespace Acumatica.RESTClient.CustomizationApi
+namespace Acumatica.RESTClient.CustomizationApi
 {
     /// <summary>
-    /// The mode for customization publishing. 
+    /// The tenants a customization is published for.
     /// </summary>
     public enum TenantMode
     {
         /// <summary>
-        /// The customization projects should be 
-        /// published for the tenant where the user is currently logged in.
+        /// The customization projects are published for the tenant
+        /// where the user is currently logged in.
         /// </summary>
         Current,
         /// <summary>
-        /// The customization projects should be published for all tenants.
+        /// The customization projects are published for all tenants.
         /// </summary>
         All,
         /// <summary>
-        /// The customization projects should be published for the 
-        /// tenants specified in the tenantLoginNames parameter.
+        /// The customization projects are published for the tenants
+        /// specified in the <c>tenantLoginNames</c> parameter.
         /// </summary>
         List
     }

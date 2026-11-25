@@ -175,16 +175,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             WaitActionCompletionAsync(client, location, millisecondsInterval).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Gets the status of an operation started by invoking an action.
-        /// </summary>
-        /// <param name="client"></param>
-        /// <param name="location">
-        /// Value of the Location header returned 
-        /// from <see cref="InvokeAction{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?)"/> or
-        /// <see cref="InvokeActionAsync{EntityType}(ApiClient, EntityAction{EntityType}, string?, DateTime?, string?, CancellationToken)"/>
-        /// </param>
-        /// <returns>Returns HTTP status code of the running operation.</returns>
+        /// <inheritdoc cref="GetProcessStatusAsync(ApiClient,string,CancellationToken)"/>
         public static HttpStatusCode GetProcessStatus(this ApiClient client, string location)
         {
             return GetProcessStatusAsync(client, location).GetAwaiter().GetResult();
@@ -218,17 +209,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         }
         #endregion
         #region Report
-        /// <summary>
-        /// Starts report generation in the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="report">The report to generate.</param>
-        /// <param name="format">Format of the report file to generate</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="report"/></param>
-        /// <param name="businessDate"></param>
-        /// <param name="branch"></param>
-        /// <returns>Task of void</returns>
+        /// <inheritdoc cref="StartReportAsync(ApiClient,IReport,ReportFormat,string,Nullable{DateTime},string,CancellationToken)"/>
         public static string StartReport(
                 this ApiClient client,
                 IReport report,
@@ -429,33 +410,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return PutAsync(client, entity, endpointPath, select, filter, expand, custom, method, businessDate, branch).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Creates a record or updates an existing record if <paramref name="entity"/> can be mathed to an existing record by
-        /// <c>id</c> field value or key fields values.
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="entity">The record to be passed to the system.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="method">
-        /// Optional. Used to determine whether the system should <see cref="PutMethod.Insert"/> a new record
-        /// or <see cref="PutMethod.Update"/> an existing record. 
-        /// If not specifified the default behavior is <see cref="PutMethod.Any">Any/Upsert</see>. 
-        /// </param>
-        /// <param name="businessDate">
-        /// Optional. Specifies the new business date. If you omit this header, 
-        /// the current date is used as the business date.
-        /// </param>
-        /// <param name="branch">
-        /// Optional. Specifies the new current branch. 
-        /// The branch should be specified as a branch name. 
-        /// If you omit this header, the branch that you specified when signing in is used as the current branch.
-        /// </param>
-        /// <returns>Object of <typeparamref name="EntityType"/> type.</returns>
+        /// <inheritdoc cref="Put{EntityType}(ApiClient,EntityType,string,string,string,string,string,PutMethod,Nullable{DateTime},string)"/>
         public static EntityType Put<EntityType>(
             this ApiClient client, EntityType entity,
             IEnumerable<string>? expand,
@@ -524,34 +479,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Creates a record or updates an existing record if <paramref name="entity"/> can be mathed to an existing record by
-        /// <c>id</c> field value or key fields values. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="entity">The record to be passed to the system.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="method">
-        /// Optional. Used to determine whether the system should <see cref="PutMethod.Insert"/> a new record
-        /// or <see cref="PutMethod.Update"/> an existing record. 
-        /// If not specifified the default behavior is <see cref="PutMethod.Any">Any/Upsert</see>. 
-        /// </param>
-        /// <param name="businessDate">
-        /// Optional. Specifies the new business date. If you omit this header, 
-        /// the current date is used as the business date.
-        /// </param>
-        /// <param name="branch">
-        /// Optional. Specifies the new current branch. 
-        /// The branch should be specified as a branch name. 
-        /// If you omit this header, the branch that you specified when signing in is used as the current branch.
-        /// </param>
-        /// <param name="cancellationToken"></param>
-        /// <returns><see cref="Task"/> of <typeparamref name="EntityType"/></returns>
+        /// <inheritdoc cref="PutAsync{EntityType}(ApiClient,EntityType,string,string,string,string,string,PutMethod,Nullable{DateTime},string,CancellationToken)"/>
         public static async Task<EntityType> PutAsync<EntityType>(this ApiClient client,
             EntityType entity,
             IEnumerable<string>? expand,
@@ -596,27 +524,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return PatchAsync(client, entity, endpointPath, select, filter, expand, custom, businessDate, branch).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Updates an existing record if <paramref name="entity"/> can be mathed to an existing record by <c>id</c> field value or key field values.
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="entity">The record to be passed to the system.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="businessDate">
-        /// Optional. Specifies the new business date. If you omit this header, 
-        /// the current date is used as the business date.
-        /// </param>
-        /// <param name="branch">
-        /// Optional. Specifies the new current branch. 
-        /// The branch should be specified as a branch name. 
-        /// If you omit this header, the branch that you specified when signing in is used as the current branch.
-        /// </param>
-        /// <returns>Object of <typeparamref name="EntityType"/> type.</returns>
+        /// <inheritdoc cref="Patch{EntityType}(ApiClient,EntityType,string,string,string,string,string,Nullable{DateTime},string)"/>
         public static EntityType Patch<EntityType>(
             this ApiClient client, EntityType entity,
             IEnumerable<string>? expand,
@@ -679,28 +587,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Updates an existing record if <paramref name="entity"/> can be mathed to an existing record by <c>id</c> field value or key field values. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="entity">The record to be passed to the system.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="businessDate">
-        /// Optional. Specifies the new business date. If you omit this header, 
-        /// the current date is used as the business date.
-        /// </param>
-        /// <param name="branch">
-        /// Optional. Specifies the new current branch. 
-        /// The branch should be specified as a branch name. 
-        /// If you omit this header, the branch that you specified when signing in is used as the current branch.
-        /// </param>
-        /// <param name="cancellationToken"></param>
-        /// <returns><see cref="Task"/> of <typeparamref name="EntityType"/></returns>
+        /// <inheritdoc cref="PatchAsync{EntityType}(ApiClient,EntityType,string,string,string,string,string,Nullable{DateTime},string,CancellationToken)"/>
         public static async Task<EntityType> PatchAsync<EntityType>(this ApiClient client,
             EntityType entity,
             IEnumerable<string>? expand,
@@ -748,15 +635,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         {
             await PutFileAsync<EntityType>(client, new List<string>() { id }, filename, content, endpointPath).ConfigureAwait(false);
         }
-        /// <summary>
-        /// Attaches a file to a record. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="ids">The values of the key fields of the record.</param>
-        /// <param name="filename">The name of the file that you are going to attach with the extension.</param>
-        /// <param name="content"></param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
+        /// <inheritdoc cref="PutFileAsync{EntityType}(ApiClient,IEnumerable{string},string,byte[],string,CancellationToken)"/>
         [Obsolete("Use Acumatica.RESTClient.FileApi.FileApi.PutFile method instead")]
         public static void PutFile<EntityType>(
             this ApiClient client, IEnumerable<string> ids, string filename, byte[] content,
@@ -859,17 +738,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Retrieves a record by the values of its key fields from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="key">The values of the key field of the record.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <returns>Task of Entity</returns>
+        /// <inheritdoc cref="GetByKeysAsync{EntityType}(ApiClient,string,string,string,string,string)"/>
         public static async Task<EntityType> GetByKeysAsync<EntityType>(
             this ApiClient client, string key,
             IEnumerable<string>? expand,
@@ -880,18 +749,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return await GetByKeysAsync<EntityType>(client, key, endpointPath, select, expand?.Any() == true ? string.Join(",", expand) : null, custom).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Retrieves a record by the values of its key fields from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="ids">The values of the key fields of the record.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="cancellationToken"></param>
-        /// <returns>Task of Entity</returns>
+        /// <inheritdoc cref="GetByKeysAsync{EntityType}(ApiClient,IEnumerable{string},string,string,string,string,CancellationToken)"/>
         public static async Task<EntityType> GetByKeysAsync<EntityType>(
                 this ApiClient client, IEnumerable<string> ids,
                 IEnumerable<string>? expand,
@@ -923,17 +781,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return GetByKeysAsync<EntityType>(client, key, endpointPath, select, expand, custom).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Retrieves a record by the values of its key fields from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="key">The value of the key field of the record.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <returns>Entity</returns>
+        /// <inheritdoc cref="GetByKeys{EntityType}(ApiClient,string,string,string,string,string)"/>
         public static EntityType GetByKeys<EntityType>(
             this ApiClient client, string key,
             IEnumerable<string>? expand,
@@ -964,17 +812,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return GetByKeysAsync<EntityType>(client, ids, endpointPath, select, expand, custom).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Retrieves a record by the values of its key fields from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="ids">The values of the key fields of the record.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <returns>Entity</returns>
+        /// <inheritdoc cref="GetByKeys{EntityType}(ApiClient,IEnumerable{string},string,string,string,string)"/>
         public static EntityType GetByKeys<EntityType>(
             this ApiClient client, IEnumerable<string> ids,
             IEnumerable<string>? expand,
@@ -1009,17 +847,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return await GetByIdAsync<EntityType>(client, entity.ID, endpointPath, select, expand, custom).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Retrieves a record by the value of the session entity ID from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="entity">The record from which the ID will be taken.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <returns>Task of Entity</returns>
+        /// <inheritdoc cref="GetByIdAsync{EntityType}(ApiClient,EntityType,string,string,string,string)"/>
         public static async Task<EntityType> GetByIdAsync<EntityType>(
             this ApiClient client, EntityType entity,
             IEnumerable<string>? expand,
@@ -1069,18 +897,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Retrieves a record by the value of the session entity ID from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="id">The session ID of the record.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="cancellationToken"></param>
-        /// <returns>Task of Entity</returns>
+        /// <inheritdoc cref="GetByIdAsync{EntityType}(ApiClient,Nullable{Guid},string,string,string,string,CancellationToken)"/>
         public static async Task<EntityType> GetByIdAsync<EntityType>(
                 this ApiClient client, 
                 Guid? id,
@@ -1112,17 +929,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return GetByIdAsync<EntityType>(client, entity, endpointPath, select, expand, custom).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Retrieves a record by the value of the session entity ID from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="entity">The object from which the ID of the record will be taken.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <returns>Entity</returns>
+        /// <inheritdoc cref="GetById{EntityType}(ApiClient,EntityType,string,string,string,string)"/>
         public static EntityType GetById<EntityType>(this ApiClient client, EntityType entity,
             IEnumerable<string>? expand,
             string? endpointPath = null,
@@ -1151,17 +958,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return GetByIdAsync<EntityType>(client, id, endpointPath, select, expand, custom).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Retrieves a record by the value of the session entity ID from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="id">The session ID of the record.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <returns>Entity</returns>
+        /// <inheritdoc cref="GetById{EntityType}(ApiClient,Nullable{Guid},string,string,string,string)"/>
         public static EntityType GetById<EntityType>(this ApiClient client, Guid? id,
             IEnumerable<string>? expand,
             string? endpointPath = null,
@@ -1214,21 +1011,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return await DeserializeAsync<List<EntityType>>(response).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Retrieves records that satisfy the specified conditions from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
-        /// <param name="top">The number of records to be returned from the system. (optional)</param>
-        /// <param name="customHeaders"></param>
-        /// <param name="cancellationToken"></param>
-        /// <returns>Task of List&lt;Entity&gt;</returns>
+        /// <inheritdoc cref="GetListAsync{EntityType}(ApiClient,string,string,string,string,string,Nullable{int},Nullable{int},Dictionary{string,string},CancellationToken)"/>
         public static async Task<List<EntityType>> GetListAsync<EntityType>(
                 this ApiClient client,
                 IEnumerable<string>? expand,
@@ -1264,20 +1047,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             return GetListAsync<EntityType>(client, endpointPath, select, filter, expand, custom, skip, top, customHeaders).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Retrieves records that satisfy the specified conditions from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
-        /// <param name="select">The fields of the entity to be returned from the system. (optional)</param>
-        /// <param name="filter">The conditions that determine which records should be selected from the system. (optional)</param>
-        /// <param name="expand">The linked and detail entities that should be expanded. (optional)</param>
-        /// <param name="custom">The fields that are not defined in the contract of the endpoint to be returned from the system. (optional)</param>
-        /// <param name="skip">The number of records to be skipped from the list of returned records. (optional)</param>
-        /// <param name="top">The number of records to be returned from the system. (optional)</param>
-        /// <param name="customHeaders"></param>
-        /// <returns>List&lt;Entity&gt;</returns>
+        /// <inheritdoc cref="GetList{EntityType}(ApiClient,string,string,string,string,string,Nullable{int},Nullable{int},Dictionary{string,string})"/>
         public static List<EntityType> GetList<EntityType>(
             this ApiClient client,
             IEnumerable<string>? expand,
@@ -1335,11 +1105,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
         }
-        /// <summary>
-        /// Retrieves the schema of custom fields of the entity from the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Entity</returns>
+        /// <inheritdoc cref="GetAdHocSchemaAsync{EntityType}(ApiClient,string,CancellationToken)"/>
         public static EntityType GetAdHocSchema<EntityType>(this ApiClient client,
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
@@ -1348,13 +1114,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
         }
         #endregion
         #region Delete
-        /// <summary>
-        /// Deletes the record by the values of its key fields. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="ids">The values of the key fields of the record.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <typeparamref name="EntityType"/></param>
+        /// <inheritdoc cref="DeleteByKeysAsync{EntityType}(ApiClient,IEnumerable{string},string,CancellationToken)"/>
         public static void DeleteByKeys<EntityType>(this ApiClient client, IEnumerable<string> ids,
             string? endpointPath = null)
             where EntityType : Entity, ITopLevelEntity, new()
@@ -1423,13 +1183,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
             await VerifyResponseAsync(response, nameof(DeleteByKeysAsync)).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Deletes the record. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="entity">The record.</param>
-        /// <param name="endpointPath">Optional parameter for endpoint path. If not provided, it is taken from the <paramref name="entity"/></param>
+        /// <inheritdoc cref="DeleteAsync{EntityType}(ApiClient,EntityType,string,CancellationToken)"/>
         public static void Delete<EntityType>(
             this ApiClient client, EntityType entity,
             string? endpointPath = null)

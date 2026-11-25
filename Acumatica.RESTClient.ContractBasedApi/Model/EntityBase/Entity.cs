@@ -58,10 +58,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 		[JsonIgnoreOnSerialize]
 		public Links? Links { get; set; }
 
-		/// <summary>
-		/// Returns the string presentation of the object
-		/// </summary>
-		/// <returns>String presentation of the object</returns>
+		/// <inheritdoc/>
 		public override string ToString()
         {
            return ToJson().ToString();

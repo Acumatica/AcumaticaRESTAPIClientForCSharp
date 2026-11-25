@@ -41,10 +41,7 @@ namespace Acumatica.RESTClient.FileApi.Model
         /// </summary>
         public string? Comment { get; set; }
 
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
+        /// <inheritdoc/>
         public override string ToString()
         {
             var sb = new StringBuilder();

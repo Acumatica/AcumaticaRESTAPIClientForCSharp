@@ -62,15 +62,7 @@ namespace Acumatica.RESTClient.MaintenanceApi
             await VerifyResponseAsync(response, nameof(GetSchemaAsync)).ConfigureAwait(false);
             return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
         }
-        /// <summary>
-        /// Reads the schema of an endpoint.
-        /// </summary>
-        /// <returns>
-        /// The endpoint schema XML, or <c>null</c> if the endpoint does not exist.
-        /// </returns>
-        /// <exception cref="ApiException">
-        /// Thrown when the request fails for any reason other than the endpoint not existing.
-        /// </exception>
+        /// <inheritdoc cref="GetSchemaAsync(ApiClient,string,string,CancellationToken)"/>
         public static string? GetSchema(this ApiClient client, string endpointName, string endpointVersion)
         {
             return GetSchemaAsync(client, endpointName, endpointVersion).GetAwaiter().GetResult();

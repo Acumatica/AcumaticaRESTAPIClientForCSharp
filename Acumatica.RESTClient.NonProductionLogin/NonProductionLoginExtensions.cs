@@ -26,17 +26,7 @@ namespace Acumatica.RESTClient.NonProductionLogin
         private const string ClientId = "2A8BDF43-8FC3-4A29-98C5-40F6701B85A7";
         private const string Scope = "api";
 
-        /// <summary>
-        /// Logs in to a non-production Acumatica site using the OAuth 2.0 password grant and the
-        /// built-in public client. Throws if that client is disabled on the target site, which is
-        /// always the case on production sites.
-        /// </summary>
-        /// <param name="client">The API client to authenticate.</param>
-        /// <param name="username">Name of the user to log in as.</param>
-        /// <param name="password">The user's password.</param>
-        /// <param name="tenant">The tenant to log into.</param>
-        /// <param name="branch">Not implemented. Accepted for signature parity only; has no effect.</param>
-        /// <param name="locale">Not implemented. Accepted for signature parity only; has no effect.</param>
+        /// <inheritdoc cref="LoginAsync(ApiClient,string,string,string,string,string,CancellationToken)"/>
         public static void Login(this ApiClient client, string username, string password, string tenant = "Company", string? branch = null, string? locale = null)
         {
             LoginAsync(client, username, password, tenant, branch, locale).GetAwaiter().GetResult();

@@ -21,15 +21,7 @@ namespace Acumatica.RESTClient.AuthApi
 	public static partial class AuthApiExtensions
 	{
 		#region Refresh Token
-		/// <summary>
-		/// Gets a new access token using the refresh token stored on the client.
-		/// </summary>
-		/// <remarks>
-		/// Works only if the OfflineAccess scope was requested at sign-in, so that a refresh token was issued.
-		/// </remarks>
-		/// <param name="client">The API client. The token is stored on it.</param>
-		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
-		/// <param name="clientSecret">The client secret of the connected application.</param>
+		/// <inheritdoc cref="RefreshAccessTokenAsync(ApiClient,string,string,CancellationToken)"/>
 		public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
 		{
 			RefreshAccessTokenAsync(client, clientID, clientSecret).GetAwaiter().GetResult();
@@ -73,16 +65,7 @@ namespace Acumatica.RESTClient.AuthApi
 		}
 		#endregion
 		#region Client Credentials Flow
-		/// <summary>
-		/// Signs in with a username and password and stores the access token on the client.
-		/// Uses the OAuth 2.0 "password" flow.
-		/// </summary>
-		/// <param name="client">The API client. The token is stored on it.</param>
-		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
-		/// <param name="clientSecret">The client secret of the connected application.</param>
-		/// <param name="username">The Acumatica user to sign in as.</param>
-		/// <param name="password">The user's password.</param>
-		/// <param name="scope">What the token is allowed to do, e.g. <c>OAuthScope.API</c>. Scopes can be combined with <c>|</c>.</param>
+		/// <inheritdoc cref="ReceiveAccessTokenAsync(ApiClient,string,string,string,string,OAuthScope,CancellationToken)"/>
 		public static void ReceiveAccessToken(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
 		{
 			ReceiveAccessTokenAsync(client, clientID, clientSecret, username, password, scope).GetAwaiter().GetResult();
@@ -251,17 +234,7 @@ namespace Acumatica.RESTClient.AuthApi
 
 			return response_mode;
 		}
-		/// <summary>
-		/// Step 2 of the authorization code flow: exchanges the authorization code for an access token and stores it on the client.
-		/// This overload takes the <c>code</c> that was already extracted from the callback.
-		/// </summary>
-		/// <param name="client">The API client. The token is stored on it.</param>
-		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
-		/// <param name="clientSecret">The client secret.</param>
-		/// <param name="redirectUrl">The same redirect URL that was used in <c>Authorize</c>.</param>
-		/// <param name="code">The authorization code from the callback.</param>
-		/// <param name="codeVerifier">Optional. The PKCE code verifier that matches the <c>codeChallenge</c> sent to <c>Authorize</c>.</param>
-		/// <param name="expectedNonce">Optional. The same <c>nonce</c> that was sent to <c>Authorize</c>. If provided, it is checked against the ID token (requires the OpenID scope).</param>
+		/// <inheritdoc cref="ReceiveAccessTokenAuthCodeAsync(ApiClient,string,string,string,string,string,string,CancellationToken)"/>
 		public static void ReceiveAccessTokenAuthCode(
 			this ApiClient client,
 			string clientID,
