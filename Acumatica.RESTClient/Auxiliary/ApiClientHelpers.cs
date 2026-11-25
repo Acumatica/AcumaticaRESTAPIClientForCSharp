@@ -59,6 +59,25 @@ namespace Acumatica.RESTClient.Auxiliary
 
             return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync().ConfigureAwait(false), serializerSettings);
         }
+
+        /// <summary>
+        /// Deserialize the JSON string into a proper object, and fail if the response has no content.
+        /// </summary>
+        /// <typeparam name="T">The type to deserialize the response to.</typeparam>
+        /// <param name="response">The HTTP response.</param>
+        /// <param name="methodName">The name of the method being called. It is used in the error message.</param>
+        /// <returns>Object representation of the JSON string. Never <c>null</c>.</returns>
+        /// <exception cref="ApiException">Thrown when the response body is empty or contains JSON <c>null</c>.</exception>
+        public static async Task<T> DeserializeRequiredAsync<T>(HttpResponseMessage response, string methodName)
+            where T : class
+        {
+            T? result = await DeserializeAsync<T>(response).ConfigureAwait(false);
+            if (result is null)
+            {
+                throw new ApiException((int)response.StatusCode, $"Error calling {methodName}: the server returned an empty response.");
+            }
+            return result;
+        }
         public static string ComposeContentHeaders(HeaderContentType contentTypes)
         {
             return SelectHeaderContentType(ApiClientHelpers.ComposeHeadersArray(contentTypes));

@@ -67,7 +67,7 @@ namespace RESTClientTests
 				   string? content = await request?.Content?.ReadAsStringAsync();
 				   Assert.DoesNotContain("files", content);
 				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
-				   return new HttpResponseMessage(HttpStatusCode.OK);
+				   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
 			   })).Put(bill);
 		}
 
@@ -90,7 +90,7 @@ namespace RESTClientTests
 				   string? content = await request?.Content?.ReadAsStringAsync();
 				   Assert.DoesNotContain("links", content);
 				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
-				   return new HttpResponseMessage(HttpStatusCode.OK);
+				   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
 			   })).Put(bill);
 		}
 	}

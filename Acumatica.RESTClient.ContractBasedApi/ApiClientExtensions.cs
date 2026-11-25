@@ -476,7 +476,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync<EntityType>(response, nameof(PutAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<EntityType>(response, nameof(PutAsync)).ConfigureAwait(false);
         }
 
         /// <inheritdoc cref="PutAsync{EntityType}(ApiClient,EntityType,string,string,string,string,string,PutMethod,Nullable{DateTime},string,CancellationToken)"/>
@@ -584,7 +584,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync<EntityType>(response, nameof(PatchAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<EntityType>(response, nameof(PatchAsync)).ConfigureAwait(false);
         }
 
         /// <inheritdoc cref="PatchAsync{EntityType}(ApiClient,EntityType,string,string,string,string,string,Nullable{DateTime},string,CancellationToken)"/>
@@ -735,7 +735,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(GetByKeysAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<EntityType>(response, nameof(GetByKeysAsync)).ConfigureAwait(false);
         }
 
         /// <inheritdoc cref="GetByKeysAsync{EntityType}(ApiClient,string,string,string,string,string)"/>
@@ -894,7 +894,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(GetByIdAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<EntityType>(response, nameof(GetByIdAsync)).ConfigureAwait(false);
         }
 
         /// <inheritdoc cref="GetByIdAsync{EntityType}(ApiClient,Nullable{Guid},string,string,string,string,CancellationToken)"/>
@@ -1008,7 +1008,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(GetListAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<List<EntityType>>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<List<EntityType>>(response, nameof(GetListAsync)).ConfigureAwait(false);
         }
 
         /// <inheritdoc cref="GetListAsync{EntityType}(ApiClient,string,string,string,string,string,Nullable{int},Nullable{int},Dictionary{string,string},CancellationToken)"/>
@@ -1103,7 +1103,7 @@ namespace Acumatica.RESTClient.ContractBasedApi
 
             await VerifyResponseAsync(response, nameof(GetAdHocSchemaAsync)).ConfigureAwait(false);
 
-            return await DeserializeAsync<EntityType>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<EntityType>(response, nameof(GetAdHocSchemaAsync)).ConfigureAwait(false);
         }
         /// <inheritdoc cref="GetAdHocSchemaAsync{EntityType}(ApiClient,string,CancellationToken)"/>
         public static EntityType GetAdHocSchema<EntityType>(this ApiClient client,

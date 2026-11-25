@@ -522,16 +522,6 @@ namespace Acumatica.RESTClient.CustomizationApi
             }
         }
 
-        private static async Task<T> DeserializeRequiredAsync<T>(HttpResponseMessage response, string methodName) where T : class
-        {
-            T? result = await DeserializeAsync<T>(response).ConfigureAwait(false);
-            if (result == null)
-            {
-                throw new ApiException((int)response.StatusCode, $"Error calling {methodName}: the server returned an empty response.");
-            }
-            return result;
-        }
-
         /// <summary>
         /// Throws an <see cref="ApiException"/> carrying the status code and the response body
         /// when the request did not succeed. The body is the only place where the server explains the failure.
