@@ -21,11 +21,30 @@ namespace Acumatica.RESTClient.AuthApi
 	public static partial class AuthApiExtensions
 	{
 		#region Refresh Token
+		/// <summary>
+		/// Gets a new access token using the refresh token stored on the client.
+		/// </summary>
+		/// <remarks>
+		/// Works only if the OfflineAccess scope was requested at sign-in, so that a refresh token was issued.
+		/// </remarks>
+		/// <param name="client">The API client. The token is stored on it.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="clientSecret">The client secret of the connected application.</param>
 		public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
 		{
 			RefreshAccessTokenAsync(client, clientID, clientSecret).GetAwaiter().GetResult();
 		}
 
+		/// <summary>
+		/// Gets a new access token using the refresh token stored on the client.
+		/// </summary>
+		/// <remarks>
+		/// Works only if the OfflineAccess scope was requested at sign-in, so that a refresh token was issued.
+		/// </remarks>
+		/// <param name="client">The API client. The token is stored on it.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="clientSecret">The client secret of the connected application.</param>
+		/// <param name="cancellationToken">Token to cancel the call.</param>
 		public async static Task RefreshAccessTokenAsync(this ApiClient client, string clientID, string clientSecret, CancellationToken cancellationToken = default)
 		{
 			if (client == null || string.IsNullOrEmpty(client.Token?.Refresh_token))
@@ -55,28 +74,30 @@ namespace Acumatica.RESTClient.AuthApi
 		#endregion
 		#region Client Credentials Flow
 		/// <summary>
-		/// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
+		/// Signs in with a username and password and stores the access token on the client.
+		/// Uses the OAuth 2.0 "password" flow.
 		/// </summary>
-		/// <param name="client"></param>
-		/// <param name="clientID"></param>
-		/// <param name="clientSecret"></param>
-		/// <param name="username"></param>
-		/// <param name="password"></param>
-		/// <param name="scope"></param>
+		/// <param name="client">The API client. The token is stored on it.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="clientSecret">The client secret of the connected application.</param>
+		/// <param name="username">The Acumatica user to sign in as.</param>
+		/// <param name="password">The user's password.</param>
+		/// <param name="scope">What the token is allowed to do, e.g. <c>OAuthScope.API</c>. Scopes can be combined with <c>|</c>.</param>
 		public static void ReceiveAccessToken(this ApiClient client, string clientID, string clientSecret, string username, string password, OAuthScope scope)
 		{
 			ReceiveAccessTokenAsync(client, clientID, clientSecret, username, password, scope).GetAwaiter().GetResult();
 		}
 		/// <summary>
-		/// Receives access token for OAuth 2.0 authentication (Resource owner password credentials flow)
+		/// Signs in with a username and password and stores the access token on the client.
+		/// Uses the OAuth 2.0 "password" flow.
 		/// </summary>
-		/// <param name="client"></param>
-		/// <param name="clientID"></param>
-		/// <param name="clientSecret"></param>
-		/// <param name="username"></param>
-		/// <param name="password"></param>
-		/// <param name="scope"></param>
-		/// <param name="cancellationToken"></param>
+		/// <param name="client">The API client. The token is stored on it.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="clientSecret">The client secret of the connected application.</param>
+		/// <param name="username">The Acumatica user to sign in as.</param>
+		/// <param name="password">The user's password.</param>
+		/// <param name="scope">What the token is allowed to do, e.g. <c>OAuthScope.API</c>. Scopes can be combined with <c>|</c>.</param>
+		/// <param name="cancellationToken">Token to cancel the call.</param>
 		public async static Task ReceiveAccessTokenAsync(
 			this ApiClient client,
 			string clientID,
@@ -112,17 +133,20 @@ namespace Acumatica.RESTClient.AuthApi
 		#endregion
 		#region Authorization Code Flow
 		/// <summary>
-		/// 
+		/// Step 1 of the authorization code flow: gets the URL where the user signs in.
+		/// The returned URL is meant to be opened in a browser. After the user signs in, the browser is redirected to <c>redirectUrl</c>. 
+		/// That callback URL is then passed to <c>ReceiveAccessTokenAuthCode</c> to complete the flow.
 		/// </summary>
-		/// <param name="client"></param>
-		/// <param name="clientID"></param>
-		/// <param name="redirectUrl"></param>
-		/// <param name="scope"></param>
-		/// <param name="responseType"></param>
-		/// <param name="responseMode"></param>
-		/// <param name="codeChallenge"></param>
-		/// <param name="nonce"></param>
-		/// <param name="state"></param>
+		/// <param name="client">The API client.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="redirectUrl">Where Acumatica sends the browser after sign-in. Must exactly match a redirect URI registered for the client.</param>
+		/// <param name="scope">What the token is allowed to do, e.g. <c>OAuthScope.API | OAuthScope.OfflineAccess</c>.</param>
+		/// <param name="responseType">Optional. Additional response types on top of <c>code</c>, used for the hybrid flow. Not needed for the plain authorization code flow.</param>
+		/// <param name="responseMode">Optional. How the result is returned. <c>Query</c> is the default. With <c>FormPost</c>, the server returns an HTML form instead of redirecting.</param>
+		/// <param name="codeChallenge">Optional. The S256 PKCE code challenge. The matching <c>codeVerifier</c> is passed when receiving the token.</param>
+		/// <param name="nonce">Optional. A random value that is included in the ID token. The same value is passed as <c>expectedNonce</c> when receiving the token (requires the OpenID scope).</param>
+		/// <param name="state">Optional. A random value that is returned on the callback. The same value is passed as <c>expectedState</c> when receiving the token to detect forged callbacks.</param>
+		/// <returns>The URL to open in a browser.</returns>
 		public static string Authorize(this ApiClient client,
 			string clientID,
 			string redirectUrl,
@@ -136,20 +160,20 @@ namespace Acumatica.RESTClient.AuthApi
 			return AuthorizeAsync(client, clientID, redirectUrl, scope, responseType: responseType, responseMode: responseMode, codeChallenge: codeChallenge, nonce: nonce, state: state).GetAwaiter().GetResult();
 		}
 		/// <summary>
-		/// Calls the authorize endpoint and returns the URL to open in a browser: the login URL
-		/// when the user isn't signed in (taken from the Location header, or from the final request
-		/// URL when redirects were followed automatically).
+		/// Step 1 of the authorization code flow: gets the URL where the user signs in.
+		/// The returned URL is meant to be opened in a browser. After the user signs in, the browser is redirected to <c>redirectUrl</c>. That callback URL is then passed to <c>ReceiveAccessTokenAuthCode</c> to complete the flow.
 		/// </summary>
-		/// <param name="client"></param>
-		/// <param name="clientID"></param>
-		/// <param name="redirectUrl">Must exactly match a redirect URI registered for the client.</param>
-		/// <param name="scope"></param>
-		/// <param name="responseType"></param>
-		/// <param name="responseMode">With FormPost the server returns an HTML form, not a redirect.</param>
-		/// <param name="codeChallenge">S256 code challenge, required if PKCE is used.</param>
-		/// <param name="nonce"></param>
-		/// <param name="state">Optional. If omitted, there is no state check on the callback. </param>
-		/// <param name="cancellationToken"></param>
+		/// <param name="client">The API client.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="redirectUrl">Where Acumatica sends the browser after sign-in. Must exactly match a redirect URI registered for the client.</param>
+		/// <param name="scope">What the token is allowed to do, e.g. <c>OAuthScope.API | OAuthScope.OfflineAccess</c>.</param>
+		/// <param name="responseType">Optional. Additional response types on top of <c>code</c>, used for the hybrid flow. Not needed for the plain authorization code flow.</param>
+		/// <param name="responseMode">Optional. How the result is returned. <c>Query</c> is the default. With <c>FormPost</c>, the server returns an HTML form instead of redirecting.</param>
+		/// <param name="codeChallenge">Optional. The S256 PKCE code challenge. The matching <c>codeVerifier</c> is passed when receiving the token.</param>
+		/// <param name="nonce">Optional. A random value that is included in the ID token. The same value is passed as <c>expectedNonce</c> when receiving the token (requires the OpenID scope).</param>
+		/// <param name="state">Optional. A random value that is returned on the callback. The same value is passed as <c>expectedState</c> when receiving the token to detect forged callbacks.</param>
+		/// <param name="cancellationToken">Token to cancel the call.</param>
+		/// <returns>The URL to open in a browser.</returns>
 		public async static Task<string> AuthorizeAsync(
 			this ApiClient client,
 			string clientID,
@@ -228,15 +252,16 @@ namespace Acumatica.RESTClient.AuthApi
 			return response_mode;
 		}
 		/// <summary>
-		/// Receives access token for OAuth 2.0 authentication (Authorization code flow)
+		/// Step 2 of the authorization code flow: exchanges the authorization code for an access token and stores it on the client.
+		/// This overload takes the <c>code</c> that was already extracted from the callback.
 		/// </summary>
-		/// <param name="client"></param>
-		/// <param name="clientID"></param>
-		/// <param name="clientSecret"></param>
-		/// <param name="redirectUrl"></param>
-		/// <param name="code"></param>
-		/// <param name="codeVerifier"></param>
-		/// <param name="expectedNonce"></param>
+		/// <param name="client">The API client. The token is stored on it.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="clientSecret">The client secret.</param>
+		/// <param name="redirectUrl">The same redirect URL that was used in <c>Authorize</c>.</param>
+		/// <param name="code">The authorization code from the callback.</param>
+		/// <param name="codeVerifier">Optional. The PKCE code verifier that matches the <c>codeChallenge</c> sent to <c>Authorize</c>.</param>
+		/// <param name="expectedNonce">Optional. The same <c>nonce</c> that was sent to <c>Authorize</c>. If provided, it is checked against the ID token (requires the OpenID scope).</param>
 		public static void ReceiveAccessTokenAuthCode(
 			this ApiClient client,
 			string clientID,
@@ -250,15 +275,16 @@ namespace Acumatica.RESTClient.AuthApi
 		}
 
 		/// <summary>
-		/// Receives access token for OAuth 2.0 authentication (Authorization code flow)
+		/// Step 2 of the authorization code flow: exchanges the callback URL for an access token and stores it on the client.
+		/// This overload reads the code from the URL, validates <c>state</c> if <c>expectedState</c> is provided, and reports any error returned by Acumatica.
 		/// </summary>
-		/// <param name="client"></param>
-		/// <param name="clientID"></param>
-		/// <param name="clientSecret"></param>
-		/// <param name="callbackUrl"></param>
-		/// <param name="codeVerifier"></param>
-		/// <param name="expectedNonce"></param>
-		/// <param name="expectedState"></param>
+		/// <param name="client">The API client. The token is stored on it.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="clientSecret">The client secret.</param>
+		/// <param name="callbackUrl">The full URL the browser was redirected to after sign-in. The authorization code is extracted from it.</param>
+		/// <param name="codeVerifier">Optional. The PKCE code verifier that matches the <c>codeChallenge</c> sent to <c>Authorize</c>.</param>
+		/// <param name="expectedNonce">Optional. The same <c>nonce</c> that was sent to <c>Authorize</c>. If provided, it is checked against the ID token (requires the OpenID scope).</param>
+		/// <param name="expectedState">Optional. The same <c>state</c> that was sent to <c>Authorize</c>. If provided, a callback with a different value is rejected.</param>
 		public static void ReceiveAccessTokenAuthCode(
 			this ApiClient client,
 			string clientID,
@@ -272,16 +298,17 @@ namespace Acumatica.RESTClient.AuthApi
 		}
 
 		/// <summary>
-		/// Receives access token for OAuth 2.0 authentication (Authorization code flow)
+		/// Step 2 of the authorization code flow: exchanges the authorization code for an access token and stores it on the client.
+		/// This overload takes the <c>code</c> that was already extracted from the callback.
 		/// </summary>
-		/// <param name="client"></param>
-		/// <param name="clientID"></param>
-		/// <param name="clientSecret"></param>
-		/// <param name="redirectUrl"></param>
-		/// <param name="code"></param>
-		/// <param name="codeVerifier"></param>
-		/// <param name="expectedNonce"></param>
-		/// <param name="cancellationToken"></param>
+		/// <param name="client">The API client. The token is stored on it.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="clientSecret">The client secret.</param>
+		/// <param name="redirectUrl">The same redirect URL that was used in <c>Authorize</c>.</param>
+		/// <param name="code">The authorization code from the callback.</param>
+		/// <param name="codeVerifier">Optional. The PKCE code verifier that matches the <c>codeChallenge</c> sent to <c>Authorize</c>.</param>
+		/// <param name="expectedNonce">Optional. The same <c>nonce</c> that was sent to <c>Authorize</c>. If provided, it is checked against the ID token (requires the OpenID scope).</param>
+		/// <param name="cancellationToken">Token to cancel the call.</param>
 		public static async Task ReceiveAccessTokenAuthCodeAsync(
 			this ApiClient client,
 			string clientID,
@@ -334,16 +361,17 @@ namespace Acumatica.RESTClient.AuthApi
 			client.Token.SetTokenObtainedDT(time);
 		}
 		/// <summary>
-		/// Receives access token for OAuth 2.0 authentication (Authorization code flow)
+		/// Step 2 of the authorization code flow: exchanges the callback URL for an access token and stores it on the client.
+		/// This overload reads the code from the URL, validates <c>state</c> if <c>expectedState</c> is provided, and reports any error returned by Acumatica.
 		/// </summary>
-		/// <param name="client"></param>
-		/// <param name="clientID"></param>
-		/// <param name="clientSecret"></param>
-		/// <param name="callbackUrl"></param>
-		/// <param name="codeVerifier"></param>
-		/// <param name="expectedNonce"></param>
-		/// <param name="expectedState"></param>
-		/// <param name="cancellationToken"></param>
+		/// <param name="client">The API client. The token is stored on it.</param>
+		/// <param name="clientID">The Client ID of the connected application in Acumatica.</param>
+		/// <param name="clientSecret">The client secret.</param>
+		/// <param name="callbackUrl">The full URL the browser was redirected to after sign-in. The authorization code is extracted from it. Only if ResponseType is query</param>
+		/// <param name="codeVerifier">Optional. The PKCE code verifier that matches the <c>codeChallenge</c> sent to <c>Authorize</c>.</param>
+		/// <param name="expectedNonce">Optional. The same <c>nonce</c> that was sent to <c>Authorize</c>. If provided, it is checked against the ID token (requires the OpenID scope).</param>
+		/// <param name="expectedState">Optional. The same <c>state</c> that was sent to <c>Authorize</c>. If provided, a callback with a different value is rejected.</param>
+		/// <param name="cancellationToken">Token to cancel the call.</param>
 		public static async Task ReceiveAccessTokenAuthCodeAsync(
 			this ApiClient client,
 			string clientID,
