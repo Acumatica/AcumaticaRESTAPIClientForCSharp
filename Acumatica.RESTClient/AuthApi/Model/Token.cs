@@ -9,6 +9,7 @@ namespace Acumatica.RESTClient.AuthApi.Model
     /// </summary>
     public partial class Token
     {
+        /// <summary>Parameterless constructor required by the JSON deserializer.</summary>
         [JsonConstructor]
         protected Token() { }
 

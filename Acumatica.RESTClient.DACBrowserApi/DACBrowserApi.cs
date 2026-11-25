@@ -29,7 +29,7 @@ namespace Acumatica.RESTClient.DACBrowserApi
             ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await DeserializeAsync<ItemsRoot>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<ItemsRoot>(response, nameof(GetAllDACsAsync)).ConfigureAwait(false);
         }
         public static DAC GetDAC(this ApiClient client, string DACNamespace, string DACName)
         {
@@ -48,7 +48,7 @@ namespace Acumatica.RESTClient.DACBrowserApi
             ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await DeserializeAsync<DAC>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<DAC>(response, nameof(GetDACAsync)).ConfigureAwait(false);
         }
         public static Field GetField(this ApiClient client, string DACNamespace, string DACName, string fieldName)
         {
@@ -67,7 +67,7 @@ namespace Acumatica.RESTClient.DACBrowserApi
             ).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
-            return await DeserializeAsync<Field>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<Field>(response, nameof(GetFieldAsync)).ConfigureAwait(false);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace RESTClientTests
                {
                    string serializedContent = request.Content.ReadAsStringAsync().Result;
                    Assert.Contains($"Date\":{{\"value\":\"{expectedDateTime}\"", serializedContent);
-                   return new HttpResponseMessage(HttpStatusCode.OK);
+                   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
                }));
             var order = client.Put(so);
         }
@@ -96,7 +96,7 @@ namespace RESTClientTests
                {
                    string serializedContent = request.Content.ReadAsStringAsync().Result;
                    Assert.Contains($"DateTime\":{{\"value\":\"{expectedDateTime}\"", serializedContent);
-                   return new HttpResponseMessage(HttpStatusCode.OK);
+                   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
                }));
             var order = client.Put(appointment);
         }

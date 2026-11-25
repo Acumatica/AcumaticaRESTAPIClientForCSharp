@@ -45,7 +45,7 @@ namespace Acumatica.RESTClient.RootApi
 
             response.EnsureSuccessStatusCode();
 
-            return await DeserializeAsync<VersionAndEndpoints>(response).ConfigureAwait(false);
+            return await DeserializeRequiredAsync<VersionAndEndpoints>(response, nameof(RootGetAsync)).ConfigureAwait(false);
         }
         #endregion
     }

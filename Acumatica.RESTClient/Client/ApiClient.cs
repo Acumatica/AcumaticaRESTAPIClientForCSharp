@@ -124,6 +124,10 @@ namespace Acumatica.RESTClient.Client
         /// <value>An instance of the HttpClient</value>
         internal HttpClient HttpClient { get; set; }
 
+        /// <summary>
+        ///     Indicates whether this client created its <see cref="HttpClient"/> itself and therefore disposes it.
+        ///     It is <c>false</c> when the <see cref="HttpClient"/> is passed in.
+        /// </summary>
         protected bool OwnsHttpClient { get; set; }
 
         /// <summary>
@@ -237,10 +241,18 @@ namespace Acumatica.RESTClient.Client
             }
         }
       
+        /// <summary>
+        ///     Checks whether the client holds an OAuth 2.0 token that has not expired.
+        /// </summary>
+        /// <returns><c>true</c> if there is a valid token.</returns>
         public bool HasToken()
         {
             return Token?.IsValid == true;
         }
+        /// <summary>
+        ///     Signs out if the client has a valid token or an open session,
+        ///     and disposes the <see cref="HttpClient"/> if the client created it.
+        /// </summary>
         public void Dispose()
         {
             if (HasToken() || HasSessionInfo())
@@ -319,9 +331,19 @@ namespace Acumatica.RESTClient.Client
             return HasSessionCookie(new Uri(BasePath), SessionCookieName);
         }
 
+        /// <summary>
+        ///     The cookies of the session. It is <c>null</c> when the <see cref="HttpClient"/> is passed in,
+        ///     since the client does not control its cookie handling.
+        /// </summary>
         protected readonly CookieContainer? Cookies;
 
 
+        /// <summary>
+        ///     Checks whether there is a session cookie with the given name for the given address.
+        /// </summary>
+        /// <param name="path">The address to look for the cookie at.</param>
+        /// <param name="sessionCookieName">The name of the session cookie.</param>
+        /// <returns><c>true</c> if the cookie exists.</returns>
         public bool HasSessionCookie(Uri path, string sessionCookieName)
         {
             if (Cookies != null

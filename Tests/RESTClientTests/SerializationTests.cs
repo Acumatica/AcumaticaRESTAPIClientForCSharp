@@ -48,7 +48,7 @@ namespace RESTClientTests
 				   string? content = await request?.Content?.ReadAsStringAsync();
 				   Assert.DoesNotContain(nameof(Bill.ReferenceNbr), content);
 				   Assert.DoesNotContain(nameof(Bill.ID), content);
-				   return new HttpResponseMessage(HttpStatusCode.OK);
+				   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
 			   })).Put(bill);
 		}
 
@@ -65,7 +65,7 @@ namespace RESTClientTests
 			   {
 				   string? content = await request?.Content?.ReadAsStringAsync();
 				   Assert.Contains("d11d2e19-7c07-f111-8cb1-ac198e472cfe", content);
-				   return new HttpResponseMessage(HttpStatusCode.OK);
+				   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
 			   })).Put(bill);
 		}
 
@@ -82,7 +82,7 @@ namespace RESTClientTests
 			   {
 				   string? content = await request?.Content?.ReadAsStringAsync();
 				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
-				   return new HttpResponseMessage(HttpStatusCode.OK);
+				   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
 			   })).Put(bill);
 		}
 
@@ -99,7 +99,7 @@ namespace RESTClientTests
 			   {
 				   string? content = await request?.Content?.ReadAsStringAsync();
 				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
-				   return new HttpResponseMessage(HttpStatusCode.OK);
+				   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
 			   })).Put(bill);
 		}
 
@@ -165,7 +165,7 @@ namespace RESTClientTests
 				   string? content = await request?.Content?.ReadAsStringAsync();
 				   Assert.DoesNotContain("Some error", content);
 				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
-				   return new HttpResponseMessage(HttpStatusCode.OK);
+				   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
 			   })).Put(bill);
 		}
 
@@ -188,7 +188,7 @@ namespace RESTClientTests
 				   string? content = await request?.Content?.ReadAsStringAsync();
 				   Assert.DoesNotContain("files", content);
 				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
-				   return new HttpResponseMessage(HttpStatusCode.OK);
+				   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
 			   })).Put(bill);
 		}
 
@@ -211,7 +211,7 @@ namespace RESTClientTests
 				   string? content = await request?.Content?.ReadAsStringAsync();
 				   Assert.DoesNotContain("links", content);
 				   Assert.Contains(nameof(Bill.ReferenceNbr), content);
-				   return new HttpResponseMessage(HttpStatusCode.OK);
+				   return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}") };
 			   })).Put(bill);
 		}
 	}
