@@ -108,8 +108,10 @@ namespace Acumatica.RESTClient.AuthApi
         [Flags]
         public enum ResponseType
         {
-            IdToken = 0,
-            Token = 1
+            /// <summary>Also request an ID token (<c>id_token</c>). Requires the OpenID scope and a nonce.</summary>
+            IdToken = 1,
+            /// <summary>Also request an access token (<c>token</c>) directly from the authorize endpoint.</summary>
+            Token = 2
         }
 
         private static string PrepareResponseType(ResponseType? responseType)
