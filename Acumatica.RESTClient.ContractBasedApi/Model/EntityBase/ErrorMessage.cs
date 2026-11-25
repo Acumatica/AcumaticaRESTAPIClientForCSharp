@@ -31,10 +31,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
             return innerException==null?$"{message} : {exceptionMessage}": $"{message} : {exceptionMessage} : {innerException.ToStringWithoutStack()}";
         }
 
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
+        /// <inheritdoc/>
         public override string ToString()
         {
            return ToJson().ToString();

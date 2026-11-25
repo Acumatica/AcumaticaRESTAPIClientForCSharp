@@ -36,11 +36,7 @@ namespace Acumatica.RESTClient.Client
 
         public string MessageText { get; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiException"/> class.
-        /// </summary>
-        /// <param name="errorCode">HTTP status code.</param>
-        /// <param name="message">Error message.</param>
+        /// <inheritdoc cref="ApiException(int,string,string)"/>
         public ApiException(int errorCode, string message)
         {
             ErrorCode = errorCode;

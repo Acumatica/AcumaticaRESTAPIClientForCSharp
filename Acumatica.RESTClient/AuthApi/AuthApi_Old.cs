@@ -16,16 +16,7 @@ namespace Acumatica.RESTClient.AuthApi
     {
 		#region Public Methods
         #region Login
-        /// <summary>
-        /// Logs in to the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="username">Name of the user that is used to open a new session (required).</param>
-        /// <param name="password">User password (required).</param>
-        /// <param name="tenant">Defines the tenant to log in.</param>
-        /// <param name="branch">Defines the branch to log in.</param>
-        /// <param name="locale">Defines the locale to use for localizable data.</param>
+        /// <inheritdoc cref="LoginAsync(ApiClient,string,string,string,string,string,CancellationToken)"/>
         [Obsolete("Use OAuth 2.0 methods instead.")]
         public static void Login(this ApiClient client, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
         {
@@ -55,14 +46,7 @@ namespace Acumatica.RESTClient.AuthApi
             ).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Logs in to the system. 
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="client"></param>
-        /// <param name="credentials">
-        /// <see cref="Credentials"/> object that provides information required to log into the web service.
-        /// </param>
+        /// <inheritdoc cref="LoginAsync(ApiClient,Credentials,CancellationToken)"/>
         [Obsolete("Use OAuth 2.0 methods instead.")]
         public static void Login(this ApiClient client, Credentials credentials)
         {

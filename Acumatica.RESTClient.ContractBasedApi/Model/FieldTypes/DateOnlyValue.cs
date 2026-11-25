@@ -51,10 +51,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         internal static DateTime? Normalize(DateTime? value)
             => value == null ? null : DateTime.SpecifyKind(value.Value.Date, DateTimeKind.Unspecified);
 
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
+        /// <inheritdoc/>
         public override string ToString()
         {
             var res = Value?.ToString(DateFormat, CultureInfo.InvariantCulture);

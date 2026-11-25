@@ -74,10 +74,7 @@ namespace Acumatica.RESTClient.AuthApi
 				nonce: nonce);
 		}
 
-		/// <summary>
-		/// Obsolete. Use the overload without <paramref name="clientSecret"/>;
-		/// <paramref name="usePost"/> is replaced by <c>responseMode</c>.
-		/// </summary>
+		/// <inheritdoc cref="Authorize(ApiClient,string,string,string,OAuthScope,Nullable{ResponseType},bool,string)"/>
 		[Obsolete(ObsoleteAuthorize + " Use responseMode instead of usePost.")]
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public static Task<string> AuthorizeAsync(this ApiClient client, string clientID, string clientSecret, string redirectUrl, OAuthScope scope,

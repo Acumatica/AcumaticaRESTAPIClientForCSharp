@@ -74,14 +74,7 @@ namespace Acumatica.RESTClient.FileApi
             await ContractBasedApi.ApiClientExtensions.VerifyResponseAsync(response, nameof(GetFileAsync)).ConfigureAwait(false);
             return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="client"></param>
-        /// <param name="entity"></param>
-        /// <param name="filename"></param>
-        /// <param name="content"></param>
-        /// <param name="comment">Starting from Acumatica 2024r2 it is possible to specify the file comment.</param>
+        /// <inheritdoc cref="PutFileAsync(ApiClient,Entity,string,byte[],string,CancellationToken)"/>
         public static void PutFile(this ApiClient client, Entity entity, string filename, byte[] content, string? comment = null)
         {
             PutFileAsync(client, entity, filename, content, comment).GetAwaiter().GetResult();

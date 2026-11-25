@@ -70,10 +70,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public TValue? Value { get; set; }
 
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
+        /// <inheritdoc/>
         public override string ToString()
         {
             var res = Value?.ToString();

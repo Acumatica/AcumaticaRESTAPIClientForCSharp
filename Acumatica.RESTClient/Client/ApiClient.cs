@@ -161,17 +161,7 @@ namespace Acumatica.RESTClient.Client
         #endregion
 
         #region Public Methods
-        /// <summary>
-        /// Makes the asynchronous HTTP request.
-        /// </summary>
-        /// <param name="resourcePath">URL path.</param>
-        /// <param name="method">HTTP method.</param>
-        /// <param name="queryParams">Query parameters.</param>
-        /// <param name="body">HTTP body (POST request).</param>
-        /// <param name="acceptType"></param>
-        /// <param name="customHeaders">Header parameters.</param>
-        /// <param name="contentType">Content type.</param>
-        /// <returns>The Task instance.</returns>
+        /// <inheritdoc cref="CallApiAsync(String,HttpMethod,HeaderContentType,HeaderContentType,CancellationToken,Object,List{KeyValuePair{String,String}}?,Dictionary{String,String})"/>
         public async Task<HttpResponseMessage> CallApiAsync(
             String resourcePath,
             HttpMethod method,

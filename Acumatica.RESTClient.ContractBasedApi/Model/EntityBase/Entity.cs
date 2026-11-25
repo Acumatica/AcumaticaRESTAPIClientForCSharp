@@ -121,10 +121,7 @@ namespace Acumatica.RESTClient.ContractBasedApi.Model
 
 		public bool ShouldSerializeLinks() => false;
 
-		/// <summary>
-		/// Returns the string presentation of the object
-		/// </summary>
-		/// <returns>String presentation of the object</returns>
+		/// <inheritdoc/>
 		public override string ToString()
         {
            return ToJson().ToString();
