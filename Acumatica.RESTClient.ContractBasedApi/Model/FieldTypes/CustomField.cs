@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 
 using System;
 using System.IO;
-using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.ContractBasedApi.Model
 {

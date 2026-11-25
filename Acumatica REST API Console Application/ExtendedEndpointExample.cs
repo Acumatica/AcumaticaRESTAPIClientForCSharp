@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Acumatica.RESTClient.NonProductionLogin;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,10 +19,8 @@ using Acumatica.RESTClient.Loggers;
 
 namespace AcumaticaRestApiExample
 {
-	[DataContract]
 	public class Invoice : Acumatica.Default_24_200_001.Model.Invoice
 	{
-		[DataMember(Name = "ExtendedField", EmitDefaultValue = false)]
 		public DecimalValue? ExtendedField { get; set; }
 
         public override string GetEndpointPath()

@@ -40,7 +40,7 @@ namespace RESTClientTests
                 recorder.Paths.Add(request.RequestUri!.AbsolutePath.Replace("//", "/"));
                 recorder.Bodies.Add(request.Content == null
                     ? null
-                    : JObject.Parse(await request.Content.ReadAsStringAsync()));
+                    : CamelCaseKeys(JObject.Parse(await request.Content.ReadAsStringAsync())));
                 var (status, json) = responses[Math.Min(index++, responses.Length - 1)];
                 return new HttpResponseMessage(status)
                 {
@@ -48,6 +48,18 @@ namespace RESTClientTests
                     Content = new StringContent(json, Encoding.UTF8, "application/json")
                 };
             }));
+        }
+
+        /// <summary>
+        /// The client sends property names as they are in the model (PascalCase) and the server reads them
+        /// case-insensitively, so the tests look at the names in camelCase.
+        /// </summary>
+        private static JObject CamelCaseKeys(JObject source)
+        {
+            var result = new JObject();
+            foreach (var property in source.Properties())
+                result[char.ToLowerInvariant(property.Name[0]) + property.Name.Substring(1)] = property.Value;
+            return result;
         }
 
         private static string State(bool completed, bool failed, string? message = null)

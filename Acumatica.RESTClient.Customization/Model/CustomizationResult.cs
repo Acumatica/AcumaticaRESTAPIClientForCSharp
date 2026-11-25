@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 
 namespace Acumatica.RESTClient.CustomizationApi.Model
 {
@@ -9,13 +8,11 @@ namespace Acumatica.RESTClient.CustomizationApi.Model
     /// The result of a Customization API call. Calls that do not return anything else
     /// (import, delete, publish begin, unpublish) return only the log of the operation.
     /// </summary>
-    [DataContract]
     public partial class CustomizationResult
     {
         /// <summary>
         /// The log of the operation.
         /// </summary>
-        [DataMember(Name = "log", EmitDefaultValue = false)]
         public List<CustomizationPublishLog>? Log { get; set; }
 
         /// <summary>

@@ -1,28 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.Serialization;
-
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Acumatica.RESTClient.ODataApi.Model
 {
-    [DataContract]
     public class ODataResults
     {
-        [DataMember(Name = "@odata.context", EmitDefaultValue = false)]
+        [JsonProperty("@odata.context")]
         public string Context;
-        [DataMember(Name = "odata.metadata", EmitDefaultValue = false)]
+        [JsonProperty("odata.metadata")]
         public string MetadataUrl;
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [JsonProperty("value")]
         public JObject[] Results;
     }
     [DebuggerDisplay("{Name}")]
-    [DataContract]
     public class ODataObject 
     {
-        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name;
-        [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url;
     }
 }
