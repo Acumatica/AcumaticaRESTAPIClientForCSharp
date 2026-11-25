@@ -1,21 +1,17 @@
-﻿using Acumatica.Default_24_200_001.Model;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Runtime.InteropServices;
+using System.Web;
+
+using Acumatica.Default_24_200_001.Model;
 using Acumatica.RESTClient.AuthApi.Model;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.Loggers;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web;
+
 using static Acumatica.RESTClient.AuthApi.AuthApiExtensions;
 using static Acumatica.RESTClient.ContractBasedApi.ApiClientExtensions;
-using Task = System.Threading.Tasks.Task;
 
 namespace AcumaticaRestApiExample
 {
@@ -28,19 +24,17 @@ namespace AcumaticaRestApiExample
             //   ,responseInterceptor: RequestLogger.LogResponse
             , ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                 );
-            bool usePost = true; //This is here to read the the Authorization data in backend
             var url = client.Authorize(
                 clientID,
-                clientSecret,
                  redirectUrl,
                  OAuthScope.API | OAuthScope.OfflineAccess | OAuthScope.OpenID,
                  ResponseType.IdToken,// | ResponseType.Token,
-                 usePost,
-                 Guid.NewGuid().ToString()
+                 ResponseMode.FormPost,//This is here to read the the Authorization data in backend
+				 nonce: Guid.NewGuid().ToString()
                 );
             OpenUrl(url);
 
-            var code = ReadCodeFromRedirectURL(redirectUrl, usePost, out Token token);
+            var code = ReadCodeFromRedirectURL(redirectUrl, out Token token);
 
             client.ReceiveAccessTokenAuthCode(
                 clientID,
@@ -62,7 +56,7 @@ namespace AcumaticaRestApiExample
 
         }
 
-        private static string ReadCodeFromRedirectURL(string url, bool usePost, out Token token)
+        private static string ReadCodeFromRedirectURL(string url, out Token token)
         {
             HttpListener listener = new HttpListener();
             listener.Prefixes.Add(url);
@@ -74,29 +68,21 @@ namespace AcumaticaRestApiExample
 
                 HttpListenerContext context = listener.GetContext();
                 HttpListenerRequest request = context.Request;
-                if (usePost)
+
+                using (Stream body = context.Request.InputStream) // here we have data
                 {
-                    using (System.IO.Stream body = context.Request.InputStream) // here we have data
+                    using (var reader = new StreamReader(body, context.Request.ContentEncoding))
                     {
-                        using (var reader = new System.IO.StreamReader(body, context.Request.ContentEncoding))
-                        {
-                            var values = HttpUtility.ParseQueryString(reader.ReadToEnd());
-                            Console.WriteLine();
-                            token.Access_token = values.Get("access_token");
-                            token.Expires_in = values.Get("expires_in");
-                            token.Token_type = values.Get("token_type");
-                            token.Scope = values.Get("scope");
-                            purecode = values.Get("code") ?? string.Empty;
-                        }
+                        var values = HttpUtility.ParseQueryString(reader.ReadToEnd());
+                        Console.WriteLine();
+                        token.Access_token = values.Get("access_token");
+                        token.Expires_in = values.Get("expires_in");
+                        token.Token_type = values.Get("token_type");
+                        token.Scope = values.Get("scope");
+                        purecode = values.Get("code") ?? string.Empty;
                     }
                 }
-                else
-                {
-                    var rawUrl = request.RawUrl;
-                    const string codeParametrIdentifier = "?code=";
-                    var codewithgarbage = rawUrl.Substring(rawUrl.IndexOf(codeParametrIdentifier) + codeParametrIdentifier.Length);
-                    purecode = codewithgarbage.Substring(0, codewithgarbage.IndexOf("&"));
-                }
+
                 return purecode;
             }
             finally

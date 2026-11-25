@@ -1,14 +1,11 @@
-using Acumatica.RESTClient.Api;
-using Acumatica.RESTClient.AuthApi.Model;
-using Acumatica.RESTClient.Client;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using static Acumatica.RESTClient.Auxiliary.ApiClientHelpers;
+
+using Acumatica.RESTClient.Api;
+using Acumatica.RESTClient.Client;
 
 
 namespace Acumatica.RESTClient.AuthApi
@@ -91,7 +88,14 @@ namespace Acumatica.RESTClient.AuthApi
             }
         }
 
-        [Flags]
+		public enum ResponseMode
+		{
+			Query,
+			Fragment,
+			FormPost
+		}
+
+		[Flags]
         public enum OAuthScope
         {
             None = 0,
@@ -104,8 +108,10 @@ namespace Acumatica.RESTClient.AuthApi
         [Flags]
         public enum ResponseType
         {
-            IdToken = 0,
-            Token = 1
+            /// <summary>Also request an ID token (<c>id_token</c>). Requires the OpenID scope and a nonce.</summary>
+            IdToken = 1,
+            /// <summary>Also request an access token (<c>token</c>) directly from the authorize endpoint.</summary>
+            Token = 2
         }
 
         private static string PrepareResponseType(ResponseType? responseType)
