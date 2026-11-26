@@ -28,7 +28,7 @@ namespace AcumaticaRestApiExample
             Console.WriteLine($"Retrieved {response.Count()} results");
         }
 
-		public static void ODataGetGI(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+		public static void ODataGetGI(string siteURL, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
 		{
 			Console.WriteLine("GI-based OData with Basic Authentication");
 			var client = new ApiClient(siteURL
@@ -70,7 +70,7 @@ namespace AcumaticaRestApiExample
                 var giResult3 = client.GetOData(ODataVersion.OData, "DB-StorageDetails", tenant: tenant, filter: filterParam2, top: 3, orderby: "LastModifiedDateofWarehouseQty asc");
                 Console.WriteLine("Retrieved successfully");
 		}
-        public static void ODataGetGINewUrl(string siteURL, string username, string password, string tenant = null, string branch = null, string locale = null)
+        public static void ODataGetGINewUrl(string siteURL, string username, string password, string? tenant = null, string? branch = null, string? locale = null)
         {
             Console.WriteLine("GI-based OData with Basic Authentication");
             var client = new ApiClient(siteURL

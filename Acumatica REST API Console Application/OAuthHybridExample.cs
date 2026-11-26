@@ -44,13 +44,13 @@ namespace AcumaticaRestApiExample
 
             foreach (var account in client.GetList<Account>(top: 5))
             {
-                Console.WriteLine(account.Description.Value);
+                Console.WriteLine(account.Description?.Value);
             }
             client.TryLogout();
 
             foreach (var soorder in client.GetList<SalesOrder>(top: 5))
             {
-                Console.WriteLine(soorder.Description.Value);
+                Console.WriteLine(soorder.Description?.Value);
             }
             client.TryLogout();
 
