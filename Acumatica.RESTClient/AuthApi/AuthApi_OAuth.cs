@@ -20,6 +20,9 @@ namespace Acumatica.RESTClient.AuthApi
 {
 	public static partial class AuthApiExtensions
 	{
+		// The token endpoint of the identity server, relative to the root of the site.
+		private const string TokenEndpointPath = "identity/connect/token";
+
 		#region Refresh Token
 		/// <inheritdoc cref="RefreshAccessTokenAsync(ApiClient,string,string,CancellationToken)"/>
 		public static void RefreshAccessToken(this ApiClient client, string clientID, string clientSecret)
@@ -43,7 +46,7 @@ namespace Acumatica.RESTClient.AuthApi
 				ThrowMissingParameter(nameof(RefreshAccessToken), "Refresh_Token");
 			var time = DateTime.UtcNow;
 			HttpResponseMessage response = await client!.CallApiAsync(
-				resourcePath: "/identity/connect/token",
+				resourcePath: TokenEndpointPath,
 				method: HttpMethod.Post,
 				queryParams: null,
 				body: await ToFormUrlEncodedAsync(new Dictionary<string, string>()
@@ -92,7 +95,7 @@ namespace Acumatica.RESTClient.AuthApi
 		{
 			var time = DateTime.UtcNow;
 			HttpResponseMessage response = await client.CallApiAsync(
-			   resourcePath: "identity/connect/token",
+			   resourcePath: TokenEndpointPath,
 			   method: HttpMethod.Post,
 			   acceptType: HeaderContentType.None,
 			   contentType: HeaderContentType.WwwForm,
@@ -312,7 +315,7 @@ namespace Acumatica.RESTClient.AuthApi
 			}
 
 			using HttpResponseMessage response = await client.CallApiAsync(
-			   resourcePath: "/identity/connect/token",
+			   resourcePath: TokenEndpointPath,
 			   method: HttpMethod.Post,
 			   acceptType: HeaderContentType.None,
 			   contentType: HeaderContentType.WwwForm,

@@ -8,8 +8,6 @@ namespace AcumaticaRestApiExample
 {
 	class Program
 	{
-		// Every value below comes from Project Properties > Settings (App.config).
-
 		static async Task Main(string[] args)
 		{
 			RESTExamples_24();
@@ -166,7 +164,6 @@ namespace AcumaticaRestApiExample
 
 			ConsoleReport.Pause();
 		}
-
 		private static void OAuthExamples()
 		{
 			ConsoleReport.Run("OAuth 2.0 - Authorization Code flow", () =>
@@ -178,6 +175,21 @@ namespace AcumaticaRestApiExample
 				OAuthAuthCodeExample.Example2(
 					Settings.Default.SiteURL, Settings.Default.ClientSecretAC,
 					Settings.Default.ClientIDAC, Settings.Default.RedirectUrl));
+
+			ConsoleReport.Run("OAuth 2.0 - Authorization Code flow with JWT", () =>
+				OAuthJWTExample.Example(
+					Settings.Default.SiteURL,
+					Settings.Default.ClientIDJWT,
+					Settings.Default.ClientSecretJWT,
+					Settings.Default.RedirectUrl));
+			ConsoleReport.Run("OAuth 2.0 - Authorization Code flow with JWT with PKCE", () =>
+			OAuthJWTExample.Example2(
+				Settings.Default.SiteURL, 
+				Settings.Default.ClientIDJWT,
+				Settings.Default.ClientSecretJWT,
+				Settings.Default.RedirectUrl
+				));
+
 
 			ConsoleReport.Run("OAuth 2.0 - Hybrid flow", () =>
 				OAuthHybridExample.Example(
